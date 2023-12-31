@@ -4,7 +4,7 @@
 > 개발자와 디자이너를 위한 IT 연합 동아리 (For Developer & Designer)
 
 <a href="https://github.com/DNDACADEMY/dnd-academy-v2/actions/workflows/ci.yml">
-  <img src="https://img.shields.io/github/actions/workflow/status/DNDACADEMY/dnd-academy-v2/ci.yml?branch=main&label=CI&logo=GitHub&style=flat-square" />
+  <img src="https://img.shields.io/github/actions/workflow/status/DNDACADEMY/dnd-academy-v2/ci.yml?branch=develop&label=CI&logo=GitHub&style=flat-square" />
 </a>
 
 <a href="https://github.com/DNDACADEMY/dnd-academy-v2/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc">
