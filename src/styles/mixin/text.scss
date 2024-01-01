@@ -1,0 +1,56 @@
+@import "./functions";
+
+@mixin text($text, $color-code: "") {
+  $list: str-split($text, "/");
+  $weight: "";
+  $font: "";
+
+  @if length($list) == 2 {
+    $font: list.nth($list, 1);
+    $weight: list.nth($list, 2);
+  }
+
+  @if $font == "display" {
+    font-size: var(--display-font-size);
+    line-height: var(--display-line-height);
+  } @else if $font == "headline 1" {
+    font-size: var(--headline-1-font-size);
+    line-height: var(--headline-1-line-height);
+  } @else if $font == "headline 2" {
+    font-size: var(--headline-2-font-size);
+    line-height: var(--headline-2-line-height);
+  } @else if $font == "headline 3" {
+    font-size: var(--headline-3-font-size);
+    line-height: var(--headline-3-line-height);
+  } @else if $font == "title 1" {
+    font-size: var(--title-1-font-size);
+    line-height: var(--title-1-line-height);
+  } @else if $font == "title 2" {
+    font-size: var(--title-2-font-size);
+    line-height: var(--title-2-line-height);
+  } @else if $font == "title 3" {
+    font-size: var(--title-3-font-size);
+    line-height: var(--title-3-line-height);
+  } @else if $font == "body 1" {
+    font-size: var(--body-1-font-size);
+    line-height: var(--body-1-line-height);
+  }
+
+  @if $weight == "400" {
+    font-weight: var(--font-weight-regular);
+  } @else if $weight == "500" {
+    font-weight: var(--font-weight-medium);
+  } @else if $weight == "600" {
+    font-weight: var(--font-weight-semibold);
+  } @else if $weight == "700" {
+    font-weight: var(--font-weight-bold);
+  }
+
+  @if $color-code {
+    color: color($color-code);
+  }
+}
+
+@mixin text-color($color-code) {
+  color: color($color-code);
+}

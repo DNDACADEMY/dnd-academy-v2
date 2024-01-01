@@ -21,7 +21,7 @@ jobs:
 
       - name: Check Lint
         if: ${{ github.event_name == 'pull_request' }}
-        run: yarn lint
+        run: yarn lint && yarn stylelint
 
       - name: Check Unit Test
         run: yarn test:coverage
