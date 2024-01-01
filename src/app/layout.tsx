@@ -1,5 +1,8 @@
+import clsx from 'clsx';
+
+import { pretendardFont, senFont } from './fonts';
+
 import 'src/styles/global.scss';
-import './globals.css';
 
 export const metadata = {
   title: 'Create Next App',
@@ -10,7 +13,7 @@ function RootLayout({ children }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={clsx(senFont.variable, pretendardFont.variable)}>
       <body>{children}</body>
     </html>
   );
