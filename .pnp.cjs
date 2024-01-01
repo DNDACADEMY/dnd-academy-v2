@@ -36,6 +36,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-test-renderer", "npm:18.0.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.12.0"],\
           ["@typescript-eslint/parser", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.12.0"],\
+          ["clsx", "npm:2.1.0"],\
           ["cypress", "npm:12.1.0"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-airbnb", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:19.0.4"],\
@@ -3388,6 +3389,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["clsx", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "./.yarn/cache/clsx-npm-2.1.0-29d286e1de-2e0ce7c3b6.zip/node_modules/clsx/",\
+        "packageDependencies": [\
+          ["clsx", "npm:2.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["co", [\
       ["npm:4.6.0", {\
         "packageLocation": "./.yarn/cache/co-npm-4.6.0-03f2d1feb6-a5d9f37091.zip/node_modules/co/",\
@@ -4041,6 +4051,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-test-renderer", "npm:18.0.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.12.0"],\
           ["@typescript-eslint/parser", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.12.0"],\
+          ["clsx", "npm:2.1.0"],\
           ["cypress", "npm:12.1.0"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-airbnb", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:19.0.4"],\
