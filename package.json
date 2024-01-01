@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
+    "stylelint": "stylelint **/*.scss",
     "test:unit": "jest",
     "test:watch": "jest --watch",
     "test:watchAll": "jest --watchAll",
@@ -69,7 +70,7 @@
     "stylelint-config-standard": "34",
     "stylelint-config-standard-scss": "11",
     "stylelint-scss": "5",
-    "typescript": "5.3.2"
+    "typescript": "5.2.2"
   },
   "packageManager": "yarn@4.0.2"
 }
