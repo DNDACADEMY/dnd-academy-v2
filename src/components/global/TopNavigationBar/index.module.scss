@@ -1,0 +1,37 @@
+@import "/src/styles/main";
+
+
+.navigationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 72px;
+  padding: 0 24px;
+  width: 100%;
+  border-bottom: 1px solid color('gray08');
+  background-color: color('bgsecondary');
+  z-index: var(--top-navigation-z-index);
+
+  .logoLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navigationContents {
+    max-width: 1156px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.space {
+ display: flex;
+ max-width: 1156px;
+ width: 100%;
+ height: 72px;
+}
