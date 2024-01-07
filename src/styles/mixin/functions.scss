@@ -1,3 +1,6 @@
+@use "sass:string";
+@use "sass:list";
+
 @function str-split($string, $separator) {
   $split-arr: ();
   $index: string.index($string, $separator);

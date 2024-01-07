@@ -1,0 +1,37 @@
+@import '/src/styles/main';
+
+.topNavigationMenuWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & > li {
+    .active {
+      font-weight: 700;
+
+      @include text-color('bgprimary');
+    }
+
+    & > a {
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+
+      .active {
+        font-weight: 700;
+  
+        @include text-color('bgprimary');
+      }
+
+      @include text-color('gray03');
+    }
+  }
+}
