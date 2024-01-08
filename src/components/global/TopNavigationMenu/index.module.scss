@@ -11,6 +11,49 @@
   margin: 0;
   padding: 0;
 
+  .aboutNavItem {
+    position: relative;
+
+    .subNav {
+      display: flex;
+      flex-direction: row;
+      height: 70px;
+      margin: 0;
+      position: fixed;
+      top: 73px;
+      left: 0;
+      gap: 32px;
+      padding: 24px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background-color: color('white');
+      backdrop-filter: blur(2px);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 140%;
+
+      @include text-color('gray09');
+
+      .subNavItem {
+        position: relative;
+
+        &.activeSub::before {
+          content: '';
+          position: absolute;
+          display: block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          bottom: 22px;
+          left: 10px;
+          background-color: color('primary');
+        }
+      }
+    }
+  }
+
   & > li {
     .active {
       font-weight: 700;
@@ -22,7 +65,6 @@
       padding: 12px 24px;
       font-size: 14px;
       font-weight: 400;
-      text-decoration: none;
       transition: color 0.2s ease-in-out;
 
       .active {

@@ -8,8 +8,8 @@ import styles from './index.module.scss';
 function TopNavigationBar() {
   return (
     <>
-      <nav className={styles.navigationWrapper}>
-        <div className={styles.navigationContents}>
+      <header className={styles.navigationWrapper}>
+        <nav className={styles.navigationContents}>
           <Link href="/" className={styles.logoLink}>
             <Image
               src="https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/logo-symbol.svg"
@@ -20,8 +20,8 @@ function TopNavigationBar() {
             />
           </Link>
           <TopNavigationMenu />
-        </div>
-      </nav>
+        </nav>
+      </header>
       <div className={styles.space} />
     </>
   );

@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import { Route } from 'next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -10,6 +12,8 @@ import styles from './index.module.scss';
 
 function TopNavigationMenu() {
   const pathname = usePathname() as Route;
+
+  const [isVisibleSubNav, setIsVisibleSubNav] = useState<boolean>(false);
 
   return (
     <ul className={styles.topNavigationMenuWrapper}>
@@ -23,11 +27,27 @@ function TopNavigationMenu() {
           프로젝트
         </Link>
       </li>
-      <li>
-        {/* TODO - sub navigation으로 변경 */}
-        <Link href="/dnd/about" className={clsx(pathname === '/dnd/about' && styles.active)}>
+      <li
+        className={styles.aboutNavItem}
+        onMouseEnter={() => setIsVisibleSubNav(true)}
+        onMouseLeave={() => setIsVisibleSubNav(false)}
+      >
+        <Link
+          href="/dnd/about"
+          className={clsx(['/dnd/about', '/dnd/culture'].includes(pathname) && styles.active)}
+        >
           DND
         </Link>
+        {(isVisibleSubNav || ['/dnd/about', '/dnd/culture'].includes(pathname)) && (
+          <ul className={styles.subNav}>
+            <li>
+              <Link href="/dnd/about" className={clsx(styles.subNavItem, pathname === '/dnd/about' && styles.activeSub)}>소개</Link>
+            </li>
+            <li>
+              <Link href="/dnd/culture" className={clsx(styles.subNavItem, pathname === '/dnd/culture' && styles.activeSub)}>문화</Link>
+            </li>
+          </ul>
+        )}
       </li>
       <li>
         <Link href="/reviews" className={clsx(pathname === '/reviews' && styles.active)}>
