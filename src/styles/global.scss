@@ -35,6 +35,15 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
 button {
   cursor: pointer;
 
