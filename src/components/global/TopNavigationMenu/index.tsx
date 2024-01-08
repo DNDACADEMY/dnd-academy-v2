@@ -15,15 +15,19 @@ function TopNavigationMenu() {
 
   const [isVisibleSubNav, setIsVisibleSubNav] = useState<boolean>(false);
 
+  const isDNDPathname = ['/dnd/about', '/dnd/culture'].includes(pathname);
+
+  const isActivePathname = (targetPathname: Route) => targetPathname === pathname;
+
   return (
     <ul className={styles.topNavigationMenuWrapper}>
       <li>
-        <Link href="/" className={clsx(pathname === '/' && styles.active)}>
+        <Link href="/" className={clsx(isActivePathname('/') && styles.active)}>
           홈
         </Link>
       </li>
       <li>
-        <Link href="/projects" className={clsx(pathname === '/projects' && styles.active)}>
+        <Link href="/projects" className={clsx(isActivePathname('/projects') && styles.active)}>
           프로젝트
         </Link>
       </li>
@@ -34,33 +38,37 @@ function TopNavigationMenu() {
       >
         <Link
           href="/dnd/about"
-          className={clsx(['/dnd/about', '/dnd/culture'].includes(pathname) && styles.active)}
+          className={clsx(isDNDPathname && styles.active)}
         >
           DND
         </Link>
-        {(isVisibleSubNav || ['/dnd/about', '/dnd/culture'].includes(pathname)) && (
+        {(isVisibleSubNav || isDNDPathname) && (
           <ul className={styles.subNav}>
             <li>
-              <Link href="/dnd/about" className={clsx(styles.subNavItem, pathname === '/dnd/about' && styles.activeSub)}>소개</Link>
+              <Link href="/dnd/about" className={clsx(styles.subNavItem, isActivePathname('/dnd/about') && styles.activeSub)}>
+                소개
+              </Link>
             </li>
             <li>
-              <Link href="/dnd/culture" className={clsx(styles.subNavItem, pathname === '/dnd/culture' && styles.activeSub)}>문화</Link>
+              <Link href="/dnd/culture" className={clsx(styles.subNavItem, isActivePathname('/dnd/culture') && styles.activeSub)}>
+                문화
+              </Link>
             </li>
           </ul>
         )}
       </li>
       <li>
-        <Link href="/reviews" className={clsx(pathname === '/reviews' && styles.active)}>
+        <Link href="/reviews" className={clsx(isActivePathname('/reviews') && styles.active)}>
           후기
         </Link>
       </li>
       <li>
-        <Link href="/blog" className={clsx(pathname === '/blog' && styles.active)}>
+        <Link href="/blog" className={clsx(isActivePathname('/blog') && styles.active)}>
           블로그
         </Link>
       </li>
       <li>
-        <Link href="/jobs" className={clsx(pathname === '/jobs' && styles.active)}>
+        <Link href="/jobs" className={clsx(isActivePathname('/jobs') && styles.active)}>
           채용
         </Link>
       </li>
