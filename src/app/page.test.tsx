@@ -7,9 +7,9 @@ describe('HomePage', () => {
     <HomePage />
   ));
 
-  it('Should be visible "한글"', () => {
+  it('Should be visible "DND"', () => {
     const { container } = renderHomePage();
 
-    expect(container).toHaveTextContent('한글');
+    expect(container).toHaveTextContent('DND');
   });
 });
