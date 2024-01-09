@@ -5,6 +5,7 @@ import TopNavigationBar from '@/components/global/TopNavigationBar';
 import { pretendardFont, senFont } from './fonts';
 
 import 'src/styles/global.scss';
+import styles from './index.module.scss';
 
 export const metadata = {
   title: 'DND',
@@ -18,7 +19,9 @@ function RootLayout({ children }: {
     <html lang="ko" className={clsx(senFont.variable, pretendardFont.variable)}>
       <body>
         <TopNavigationBar />
-        {children}
+        <main className={styles.main}>
+          {children}
+        </main>
       </body>
     </html>
   );

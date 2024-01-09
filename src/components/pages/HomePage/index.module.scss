@@ -1,0 +1,50 @@
+@import "/src/styles/main";
+
+.homeSection {
+  display: flex;
+  flex-direction: row;
+  padding: 100px 0;
+  justify-content: space-between;
+
+  .contentsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .title {
+        white-space: pre-line;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 140%;
+      }
+
+      .subTitle {
+        font-size: 20px;
+        line-height: 140%;
+        color: color('gray02');
+      }
+
+      .counter {
+        color: color('primary');
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 140%;
+      }
+    }
+  }
+
+  .bannerWrapper {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+
+    .banner {
+      object-fit: contain;
+    }
+  }
+}
