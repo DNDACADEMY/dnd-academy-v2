@@ -18,6 +18,14 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dnd-academy-v3.s3.ap-northeast-2.amazonaws.com',
+      },
+    ],
+  },
   swcMinify: true,
   experimental: {
     typedRoutes: true,

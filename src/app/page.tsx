@@ -1,15 +1,8 @@
-import clsx from 'clsx';
-
-import { pretendardFont, senFont } from './fonts';
+import HomePage from '@/components/pages/HomePage';
 
 function Home() {
   return (
-    <main>
-      <div>한글</div>
-      <div>english</div>
-      <div className={clsx(pretendardFont.className)}>한글</div>
-      <div className={clsx(senFont.className)}>english</div>
-    </main>
+    <HomePage />
   );
 }
 
