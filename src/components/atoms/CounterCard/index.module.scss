@@ -1,0 +1,39 @@
+@import '/src/styles/main';
+
+.counterCard {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: color('gray08');
+  width: 100%;
+  max-width: 271px;
+
+  .title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 160%;
+    letter-spacing: -0.2px;
+
+    @include text-color('gray04');
+  }
+
+  .counter {
+    display: flex;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: -0.48px;
+
+    @include text-color('white');
+
+    & > strong {
+      font-size: 56px;
+      letter-spacing: -0.56px;
+    }
+  }
+}

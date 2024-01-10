@@ -1,0 +1,19 @@
+@import '/src/styles/main';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 0;
+  gap: 72px;
+
+  .title {
+    text-align: center;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 160%;
+    letter-spacing: -0.44px;
+
+    @include text-color('gray01');
+  }
+}
