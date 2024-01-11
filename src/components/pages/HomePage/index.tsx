@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import CounterCard from '@/components/atoms/CounterCard';
+import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
 
 import styles from './index.module.scss';
@@ -11,7 +12,10 @@ function HomePage() {
       <section className={styles.homeSection}>
         <div className={styles.contentsWrapper}>
           <div className={styles.description}>
-            <div>badge</div>
+            <EventStatusBadge text="DND는 잠시 휴식중" type="info" />
+            <EventStatusBadge text="DND는 잠시 휴식중" type="error" />
+            <EventStatusBadge text="DND는 잠시 휴식중" type="warn" />
+            <EventStatusBadge text="DND는 잠시 휴식중" type="success" />
             <h1 className={styles.title}>
               {`프로젝트에 즐거움을
                 모두에게 기회를`}
