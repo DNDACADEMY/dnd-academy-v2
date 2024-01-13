@@ -20,7 +20,9 @@ function TopNavigationMenu() {
   const isActivePathname = (targetPathname: Route) => targetPathname === pathname;
 
   return (
-    <ul className={styles.topNavigationMenuWrapper}>
+    <ul
+      className={styles.topNavigationMenuWrapper}
+    >
       <li>
         <Link href="/" className={clsx(isActivePathname('/') && styles.active)}>
           홈
@@ -33,11 +35,11 @@ function TopNavigationMenu() {
       </li>
       <li
         className={styles.aboutNavItem}
-        onMouseEnter={() => setIsVisibleSubNav(true)}
         onMouseLeave={() => setIsVisibleSubNav(false)}
       >
         <Link
           href="/dnd/about"
+          onMouseEnter={() => setIsVisibleSubNav(true)}
           className={clsx(isDNDPathname && styles.active)}
         >
           DND
