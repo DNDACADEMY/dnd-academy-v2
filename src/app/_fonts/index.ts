@@ -1,6 +1,6 @@
-import { Sen } from 'next/font/google';
 import localFont from 'next/font/local';
 
+// eslint-disable-next-line import/prefer-default-export
 export const pretendardFont = localFont({
   src: [
     {
@@ -26,7 +26,6 @@ export const pretendardFont = localFont({
   ],
   display: 'swap',
   preload: true,
-  variable: '--font-pretendard',
   fallback: [
     '-apple-system',
     'BlinkMacSystemFont',
@@ -42,13 +41,4 @@ export const pretendardFont = localFont({
     'Segoe UI Symbol',
     'sans-serif',
   ],
-});
-
-export const senFont = Sen({
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  variable: '--font-sen',
-  adjustFontFallback: false,
-  fallback: [],
 });
