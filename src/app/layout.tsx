@@ -1,8 +1,6 @@
-import clsx from 'clsx';
-
 import TopNavigationBar from '@/components/global/TopNavigationBar';
 
-import { pretendardFont, senFont } from './fonts';
+import { pretendardFont } from './_fonts';
 
 import 'src/styles/global.scss';
 import styles from './index.module.scss';
@@ -16,7 +14,7 @@ function RootLayout({ children }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko" className={clsx(senFont.variable, pretendardFont.variable)}>
+    <html lang="ko" className={pretendardFont.className}>
       <body>
         <TopNavigationBar />
         <main className={styles.main}>

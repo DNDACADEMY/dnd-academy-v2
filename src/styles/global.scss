@@ -3,11 +3,7 @@
 @import "./mixin/text";
 @import "./mixin/functions";
 
-$font-sen: var(--font-sen);
-$font-pretendard: var(--font-pretendard);
-
 html {
-  font-family: #{$font-sen}, #{$font-pretendard};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
