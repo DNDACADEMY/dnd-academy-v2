@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import Button from '@/components/atoms/Button';
 import CounterCard from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
@@ -55,7 +56,25 @@ function HomePage() {
         </div>
       </SectionTitle>
       <SectionTitle title="DND의 프로젝트가 궁금하나요?">
-        <div />
+        <div>
+          <Button type="button" buttonType="primary" size="xLarge">6기알림 신청하기</Button>
+          <Button type="button" buttonType="primary" size="large">6기알림 신청하기</Button>
+          <Button type="button" buttonType="primary" size="medium">6기알림 신청하기</Button>
+          <Button type="button" buttonType="primary" size="small">6기알림 신청하기</Button>
+          <Button type="button" buttonType="secondary" size="xLarge">6기알림 신청하기</Button>
+          <Button type="button" buttonType="clear" size="large">6기알림 신청하기</Button>
+          <Button type="button" buttonType="primary" size="large" disabled>6기알림 신청하기</Button>
+          <Button type="button" buttonType="secondary" size="large" disabled>6기알림 신청하기</Button>
+
+          <Button href="/dnd/about" buttonType="primary" size="xLarge">6기알림 신청하기</Button>
+          <Button href="/dnd/about" buttonType="primary" size="large">6기알림 신청하기</Button>
+          <Button href="/dnd/about" buttonType="primary" size="medium">6기알림 신청하기</Button>
+          <Button href="/dnd/about" buttonType="primary" size="small">6기알림 신청하기</Button>
+          <Button href="/dnd/about" buttonType="secondary" size="xLarge">6기알림 신청하기</Button>
+          <Button href="/dnd/about" buttonType="clear" size="large">6기알림 신청하기</Button>
+          <Button href="/dnd/about" buttonType="primary" size="large" disabled>6기알림 신청하기</Button>
+          <Button href="/dnd/about" buttonType="secondary" size="large" disabled>6기알림 신청하기</Button>
+        </div>
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div />
