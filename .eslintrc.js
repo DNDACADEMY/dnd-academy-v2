@@ -51,6 +51,7 @@ module.exports = {
         '@typescript-eslint',
       ],
       rules: {
+        '@typescript-eslint/no-explicit-any': 'warn',
       },
       parser: '@typescript-eslint/parser',
       parserOptions: {
