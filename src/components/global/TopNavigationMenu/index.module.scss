@@ -8,11 +8,16 @@
   gap: 8px;
   user-select: none;
   list-style: none;
+  height: 72px;
   margin: 0;
   padding: 0;
 
   .aboutNavItem {
     position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .subNav {
       display: flex;
@@ -20,7 +25,7 @@
       height: 70px;
       margin: 0;
       position: fixed;
-      top: 73px;
+      top: 72px;
       left: 0;
       gap: 32px;
       padding: 24px;
@@ -38,6 +43,11 @@
 
       .subNavItem {
         position: relative;
+        transition: color 0.06s ease-in-out;
+
+        &:hover {
+          @include text-color('primary');
+        }
 
         &.activeSub::before {
           content: '';
