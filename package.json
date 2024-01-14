@@ -17,7 +17,9 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "test:e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
-    "postinstall": "husky install && chmod ug+x .husky/*"
+    "postinstall": "husky install && chmod ug+x .husky/*",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -38,12 +40,20 @@
     "@commitlint/cli": "18.4.4",
     "@commitlint/config-conventional": "18.4.4",
     "@next/eslint-plugin-next": "14.0.4",
+    "@storybook/addon-essentials": "7.6.8",
+    "@storybook/addon-interactions": "7.6.8",
+    "@storybook/addon-links": "7.6.8",
+    "@storybook/addon-onboarding": "1.0.10",
+    "@storybook/blocks": "7.6.8",
+    "@storybook/nextjs": "7.6.8",
+    "@storybook/react": "7.6.8",
+    "@storybook/test": "7.6.8",
     "@testing-library/jest-dom": "6.1.4",
     "@testing-library/react": "14.1.2",
     "@types/jest": "29.5.9",
     "@types/node": "20",
-    "@types/react": "18.2.5",
-    "@types/react-dom": "18.2.3",
+    "@types/react": "18.2.47",
+    "@types/react-dom": "18.2.18",
     "@types/react-test-renderer": "18.0.0",
     "@typescript-eslint/eslint-plugin": "6.12.0",
     "@typescript-eslint/parser": "6.12.0",
@@ -60,6 +70,7 @@
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
+    "eslint-plugin-storybook": "0.6.15",
     "eslint-plugin-testing-library": "6.2.0",
     "eslint-plugin-unused-imports": "3.0.0",
     "husky": "8.0.3",
@@ -71,12 +82,14 @@
     "react-test-renderer": "18.2.0",
     "sass": "1.69.6",
     "start-server-and-test": "1.14.0",
+    "storybook": "7.6.8",
     "stylelint": "15",
     "stylelint-config-recommended-scss": "13",
     "stylelint-config-standard": "34",
     "stylelint-config-standard-scss": "11",
     "stylelint-scss": "5",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "webpack": "5.89.0"
   },
   "packageManager": "yarn@4.0.2"
 }
