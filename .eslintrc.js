@@ -11,6 +11,7 @@ module.exports = {
     '.pnp.loader.cjs',
     'public/',
     '/.next',
+    'storybook-static',
   ],
   extends: [
     'airbnb',
@@ -77,6 +78,11 @@ module.exports = {
       parserOptions: {
         project: ['./cypress/tsconfig.json'],
       },
+    },
+    {
+      extends: ['plugin:storybook/recommended'],
+      files: ['**/*.stories.ts?(x)'],
+      rules: {},
     },
   ],
   rules: {

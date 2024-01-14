@@ -2,7 +2,7 @@
 
 /* eslint-disable react/jsx-props-no-spreading */
 import {
-  HTMLProps, PropsWithChildren, ReactElement, ReactNode, useMemo,
+  HTMLProps, ReactElement, ReactNode, useMemo,
 } from 'react';
 
 import Link from 'next/link';
@@ -22,6 +22,7 @@ interface Props extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, '
   isExternalLink?: boolean;
   prefixIcon?: ReactNode;
   suffixIcon?: ReactNode;
+  children: ReactNode;
 }
 
 function Button({
@@ -37,7 +38,7 @@ function Button({
   className,
   children,
   ...rest
-}: PropsWithChildren<Props>): ReactElement {
+}: Props): ReactElement {
   const htmlProps = rest as any;
 
   const buttonClassName = clsx(styles.buttonWrapper, {
