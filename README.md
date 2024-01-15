@@ -11,6 +11,10 @@
   <img src="https://img.shields.io/github/issues/DNDACADEMY/dnd-academy-v2?style=flat-square" />
 </a>
 
+<a href="https://develop--65a52d0c9a3d8fefcfaccc65.chromatic.com">
+  <img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg">
+</a>
+
 <a href="https://github.com/DNDACADEMY/dnd-academy-v2/blob/main/LICENSE">
   <img src="https://img.shields.io/github/license/DNDACADEMY/dnd-academy-v2?style=flat-square">
 </a>
