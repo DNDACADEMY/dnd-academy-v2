@@ -6,15 +6,23 @@ on:
   push:
     branches: [develop]
 
+env:
+  CACHED_DEPENDENCY_PATHS: |
+    ${{ github.workspace }}/.yarn/cache
+    ${{ github.workspace }}/.yarn/unplugged
+  CACHED_BUILD_PATHS: ${{ github.workspace }}/.next
+  BUILD_CACHE_KEY: ${{ github.sha }}
+  DEFAULT_NODE_VERSION: "v18.17.0"
+
 jobs:
   continuous-integration:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 20.x
+      - name: Use Node.js 18.17.0
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: ${{ env.DEFAULT_NODE_VERSION }}
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -25,3 +33,29 @@ jobs:
 
       - name: Check Unit Test
         run: yarn test:coverage
+
+  job_publish_storybook_chromatic:
+    name: Chromatic Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current commit (${{ github.sha }})
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.DEFAULT_NODE_VERSION }}
+
+      - name: Set node linker to nodeModules
+        run: yarn config set nodeLinker "node-modules"
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          skip: "dependabot/**"
+          exitOnceUploaded: true
+          onlyChanged: true
