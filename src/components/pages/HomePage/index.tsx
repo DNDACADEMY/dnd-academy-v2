@@ -4,6 +4,7 @@ import Button from '@/components/atoms/Button';
 import CounterCard from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
+import { ArrowRightIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
 
@@ -97,7 +98,7 @@ function HomePage() {
             />
           </div>
         </div>
-        <Button href="/dnd/about" buttonType="secondary" size="large">더 알아보기</Button>
+        <Button href="/dnd/about" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>더 알아보기</Button>
       </SectionTitle>
       <SectionTitle title="DND article">
         <div />
