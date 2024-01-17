@@ -48,6 +48,7 @@
     "@storybook/nextjs": "7.6.8",
     "@storybook/react": "7.6.8",
     "@storybook/test": "7.6.8",
+    "@svgr/webpack": "8.1.0",
     "@testing-library/jest-dom": "6.1.4",
     "@testing-library/react": "14.1.2",
     "@types/jest": "29.5.9",

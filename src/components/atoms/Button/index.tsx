@@ -51,8 +51,8 @@ function Button({
     if (suffixIcon) {
       return (
         <>
-          {suffixIcon}
           <span>{children}</span>
+          {suffixIcon}
         </>
       );
     }
@@ -60,8 +60,8 @@ function Button({
     if (prefixIcon) {
       return (
         <>
-          <span>{children}</span>
           {prefixIcon}
+          <span>{children}</span>
         </>
       );
     }
