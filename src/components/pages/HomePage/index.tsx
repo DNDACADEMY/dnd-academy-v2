@@ -4,6 +4,7 @@ import Button from '@/components/atoms/Button';
 import CounterCard from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
+import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import { ArrowRightIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
@@ -106,6 +107,7 @@ function HomePage() {
       <SectionTitle title="DND NEWS">
         <div />
       </SectionTitle>
+      <ShareAlarmSection />
       <SectionTitle title="자주 묻는 질문">
         <div />
       </SectionTitle>
