@@ -73,6 +73,7 @@ const RAW_RUNTIME_STATE =
           ["postcss-scss", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.9"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
+          ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
           ["react-test-renderer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
           ["sass", "npm:1.69.6"],\
@@ -11976,6 +11977,7 @@ const RAW_RUNTIME_STATE =
           ["postcss-scss", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.9"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
+          ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
           ["react-test-renderer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
           ["sass", "npm:1.69.6"],\
@@ -19606,6 +19608,32 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["react-is", "npm:18.1.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-fast-marquee", [\
+      ["npm:1.6.3", {\
+        "packageLocation": "./.yarn/cache/react-fast-marquee-npm-1.6.3-59ab0dbd0d-685d0c0c18.zip/node_modules/react-fast-marquee/",\
+        "packageDependencies": [\
+          ["react-fast-marquee", "npm:1.6.3"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3", {\
+        "packageLocation": "./.yarn/__virtual__/react-fast-marquee-virtual-ad1174c2fd/0/cache/react-fast-marquee-npm-1.6.3-59ab0dbd0d-685d0c0c18.zip/node_modules/react-fast-marquee/",\
+        "packageDependencies": [\
+          ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
+          ["@types/react", "npm:18.2.47"],\
+          ["@types/react-dom", "npm:18.2.18"],\
+          ["react", "npm:18.2.0"],\
+          ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"]\
         ],\
         "packagePeers": [\
           "@types/react-dom",\
