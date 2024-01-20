@@ -8159,6 +8159,7 @@ __metadata:
     postcss-scss: "npm:4.0.9"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
+    react-fast-marquee: "npm:1.6.3"
     react-test-renderer: "npm:18.2.0"
     sanitize.css: "npm:13.0.0"
     sass: "npm:1.69.6"
@@ -14626,6 +14627,16 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
   checksum: 9a874b2f16b4624a72c4b766b096d693a382b9dc7f2264f802395852ae3435ccde8e9e47bbe45cf5f30eba70f8126af6aca832190e285b0096af3ecade994df1
+  languageName: node
+  linkType: hard
+
+"react-fast-marquee@npm:1.6.3":
+  version: 1.6.3
+  resolution: "react-fast-marquee@npm:1.6.3"
+  peerDependencies:
+    react: ">= 16.8.0 || 18.0.0"
+    react-dom: ">= 16.8.0 || 18.0.0"
+  checksum: 685d0c0c18b101008a64132d1d73e0c8a6c4efd64ed80a67b078fa9b769d39ca2fe34f33a8536c76759cc4716707c4e1084c85690d5f76dd81a18d38bd279387
   languageName: node
   linkType: hard
 
