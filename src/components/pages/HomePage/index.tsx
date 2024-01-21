@@ -41,6 +41,7 @@ function HomePage() {
             src="https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/banner/about.png"
             alt="main-banner"
             fill
+            priority
             sizes="(max-width: 1204px) 50vw, 33vw"
             className={styles.banner}
           />

@@ -4983,7 +4983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qs@npm:*, @types/qs@npm:^6.9.5":
+"@types/qs@npm:*, @types/qs@npm:^6, @types/qs@npm:^6.9.5":
   version: 6.9.11
   resolution: "@types/qs@npm:6.9.11"
   checksum: 620ca1628bf3da65662c54ed6ebb120b18a3da477d0bfcc872b696685a9bb1893c3c92b53a1190a8f54d52eaddb6af8b2157755699ac83164604329935e8a7f2
@@ -7758,7 +7758,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.10.4":
+"dayjs@npm:1.11.10, dayjs@npm:^1.10.4":
   version: 1.11.10
   resolution: "dayjs@npm:1.11.10"
   checksum: 27e8f5bc01c0a76f36c656e62ab7f08c2e7b040b09e613cd4844abf03fb258e0350f0a83b02c887b84d771c1f11e092deda0beef8c6df2a1afbc3f6c1fade279
@@ -8128,6 +8128,7 @@ __metadata:
     "@testing-library/react": "npm:14.1.2"
     "@types/jest": "npm:29.5.9"
     "@types/node": "npm:20"
+    "@types/qs": "npm:^6"
     "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.18"
     "@types/react-test-renderer": "npm:18.0.0"
@@ -8135,6 +8136,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:6.12.0"
     clsx: "npm:2.1.0"
     cypress: "npm:12.1.0"
+    dayjs: "npm:1.11.10"
     eslint: "npm:8.56.0"
     eslint-config-airbnb: "npm:19.0.4"
     eslint-config-airbnb-typescript: "npm:17.1.0"
@@ -8157,6 +8159,7 @@ __metadata:
     next: "npm:14.0.4"
     postcss: "npm:8.4.32"
     postcss-scss: "npm:4.0.9"
+    qs: "npm:6.11.2"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-fast-marquee: "npm:1.6.3"
@@ -14428,7 +14431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.10.0, qs@npm:^6.11.2":
+"qs@npm:6.11.2, qs@npm:^6.10.0, qs@npm:^6.11.2":
   version: 6.11.2
   resolution: "qs@npm:6.11.2"
   dependencies:
