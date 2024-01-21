@@ -8,6 +8,14 @@
   padding: 100px 0;
   gap: 72px;
 
+  &.fullWidth {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    user-select: none;
+  }
+
   .title {
     text-align: center;
     font-size: 44px;

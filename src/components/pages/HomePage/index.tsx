@@ -1,9 +1,12 @@
+import { Suspense } from 'react';
+
 import Image from 'next/image';
 
 import Button from '@/components/atoms/Button';
 import CounterCard from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
+import ProjectsSlider from '@/components/molecules/ProjectsSlider';
 import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import { ArrowRightIcon } from '@/lib/assets/icons';
 
@@ -55,17 +58,11 @@ function HomePage() {
           <CounterCard count={0} title="10기 이탈자" />
         </div>
       </SectionTitle>
-      <SectionTitle title="DND의 프로젝트가 궁금하나요?">
-        <div>
-          <Button type="button" buttonType="primary" size="xLarge">6기알림 신청하기</Button>
-          <Button type="button" buttonType="primary" size="large">6기알림 신청하기</Button>
-          <Button type="button" buttonType="primary" size="medium">6기알림 신청하기</Button>
-          <Button type="button" buttonType="primary" size="small">6기알림 신청하기</Button>
-          <Button type="button" buttonType="secondary" size="xLarge">6기알림 신청하기</Button>
-          <Button type="button" buttonType="clear" size="large">6기알림 신청하기</Button>
-          <Button type="button" buttonType="primary" size="large" disabled>6기알림 신청하기</Button>
-          <Button type="button" buttonType="secondary" size="large" disabled>6기알림 신청하기</Button>
-        </div>
+      <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
+        <Suspense>
+          <ProjectsSlider />
+          <Button href="/projects" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>프로젝트 더 보기</Button>
+        </Suspense>
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div className={styles.howBannerWrapper}>

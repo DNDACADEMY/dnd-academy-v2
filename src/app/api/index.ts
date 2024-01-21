@@ -35,7 +35,7 @@ const getUrl = (url: string, isBFF = false) => {
   return `${process.env.NEXT_PUBLIC_API_HOST}${url}`;
 };
 
-async function api<T, K>({
+async function api<T, K = undefined>({
   url, params, config = {}, isBFF, method = 'GET',
 }: FetchRequest<K>): Promise<T> {
   const response = await fetch(`${getUrl(url, isBFF)}?${paramsSerializer({

@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/DNDACADEMY/dnd-academy-v2#readme",
   "dependencies": {
+    "@tanstack/react-query": "5.17.19",
     "clsx": "2.1.0",
     "dayjs": "1.11.10",
     "next": "14.0.4",
