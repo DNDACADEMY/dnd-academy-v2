@@ -12,6 +12,11 @@ import styles from './index.module.scss';
 function ProjectsSlider() {
   const { data: projects } = useGetProjectsQuery({ size: 24 });
 
+  // TODO - 임시
+  if (!projects?.length) {
+    return null;
+  }
+
   return (
     <div className={styles.projectsSlider}>
       <Marquee pauseOnHover speed={80} className={styles.marquee}>
