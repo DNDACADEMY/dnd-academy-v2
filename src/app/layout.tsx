@@ -1,3 +1,4 @@
+import ClientProviders from '@/components/global/ClientProviders';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
 
 import { pretendardFont } from './_fonts';
@@ -16,10 +17,12 @@ function RootLayout({ children }: {
   return (
     <html lang="ko" className={pretendardFont.className}>
       <body>
-        <TopNavigationBar />
-        <main className={styles.main}>
-          {children}
-        </main>
+        <ClientProviders>
+          <TopNavigationBar />
+          <main className={styles.main}>
+            {children}
+          </main>
+        </ClientProviders>
       </body>
     </html>
   );
