@@ -5,7 +5,8 @@
   "license": "MIT",
   "author": "dnd-academy",
   "scripts": {
-    "dev": "next dev",
+    "open-browser": "open http://dnd-academy.localhost:3000",
+    "dev": "next dev -H dnd-academy.localhost -p 3000 & yarn open-browser",
     "build": "next build",
     "start": "next start",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
@@ -31,7 +32,9 @@
   "homepage": "https://github.com/DNDACADEMY/dnd-academy-v2#readme",
   "dependencies": {
     "clsx": "2.1.0",
+    "dayjs": "1.11.10",
     "next": "14.0.4",
+    "qs": "6.11.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-fast-marquee": "1.6.3",
@@ -54,6 +57,7 @@
     "@testing-library/react": "14.1.2",
     "@types/jest": "29.5.9",
     "@types/node": "20",
+    "@types/qs": "^6",
     "@types/react": "18.2.47",
     "@types/react-dom": "18.2.18",
     "@types/react-test-renderer": "18.0.0",
