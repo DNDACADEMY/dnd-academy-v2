@@ -1,5 +1,6 @@
 import ClientProviders from '@/components/global/ClientProviders';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
+import ErrorBoundary from '@/components/molecules/ErrorBoundary';
 
 import { pretendardFont } from './_fonts';
 
@@ -17,12 +18,14 @@ function RootLayout({ children }: {
   return (
     <html lang="ko" className={pretendardFont.className}>
       <body>
-        <ClientProviders>
-          <TopNavigationBar />
-          <main className={styles.main}>
-            {children}
-          </main>
-        </ClientProviders>
+        <ErrorBoundary>
+          <ClientProviders>
+            <TopNavigationBar />
+            <main className={styles.main}>
+              {children}
+            </main>
+          </ClientProviders>
+        </ErrorBoundary>
       </body>
     </html>
   );

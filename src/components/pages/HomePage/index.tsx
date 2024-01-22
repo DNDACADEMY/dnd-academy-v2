@@ -6,6 +6,7 @@ import Button from '@/components/atoms/Button';
 import CounterCard from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
+import ErrorBoundary from '@/components/molecules/ErrorBoundary';
 import ProjectsSlider from '@/components/molecules/ProjectsSlider';
 import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import { ArrowRightIcon } from '@/lib/assets/icons';
@@ -59,10 +60,12 @@ function HomePage() {
         </div>
       </SectionTitle>
       <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
-        <Suspense>
-          <ProjectsSlider />
-          <Button href="/projects" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>프로젝트 더 보기</Button>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense>
+            <ProjectsSlider />
+            <Button href="/projects" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>프로젝트 더 보기</Button>
+          </Suspense>
+        </ErrorBoundary>
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div className={styles.howBannerWrapper}>
