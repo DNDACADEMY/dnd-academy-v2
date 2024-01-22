@@ -18,6 +18,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(null, {
       status: response.status,
       statusText: response.statusText,
+      headers: response.headers,
     });
   }
 
