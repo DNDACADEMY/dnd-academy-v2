@@ -77,6 +77,7 @@ const RAW_RUNTIME_STATE =
           ["qs", "npm:6.11.2"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
+          ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
           ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
           ["react-test-renderer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
@@ -12017,6 +12018,7 @@ const RAW_RUNTIME_STATE =
           ["qs", "npm:6.11.2"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
+          ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
           ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
           ["react-test-renderer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
@@ -19653,6 +19655,29 @@ const RAW_RUNTIME_STATE =
           "@types/react-dom",\
           "@types/react",\
           "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-error-boundary", [\
+      ["npm:4.0.12", {\
+        "packageLocation": "./.yarn/cache/react-error-boundary-npm-4.0.12-392de122fe-ba59f885ea.zip/node_modules/react-error-boundary/",\
+        "packageDependencies": [\
+          ["react-error-boundary", "npm:4.0.12"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12", {\
+        "packageLocation": "./.yarn/__virtual__/react-error-boundary-virtual-73738fa872/0/cache/react-error-boundary-npm-4.0.12-392de122fe-ba59f885ea.zip/node_modules/react-error-boundary/",\
+        "packageDependencies": [\
+          ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
+          ["@babel/runtime", "npm:7.23.8"],\
+          ["@types/react", "npm:18.2.47"],\
+          ["react", "npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
           "react"\
         ],\
         "linkType": "HARD"\
