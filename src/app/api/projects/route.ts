@@ -12,7 +12,9 @@ export async function GET(request: NextRequest) {
 
   const size = searchParams.get('size');
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/data/project.json${getCacheDate()}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/data/project.json${getCacheDate()}`, {
+    method: 'GET',
+  });
 
   if (!response.ok) {
     return NextResponse.json(null, {
