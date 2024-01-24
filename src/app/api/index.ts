@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { paramsSerializer } from '@/utils';
+import { isSSR, paramsSerializer } from '@/utils';
 
 import { FetchRequest } from './model';
 
@@ -29,7 +29,7 @@ export const getCacheDate = (cacheTime = CACHE_MINUTE) => {
 
 const getUrl = (url: string, isBFF = false) => {
   if (isBFF) {
-    return `${process.env.NEXT_PUBLIC_ORIGIN}/api${url}`;
+    return `${isSSR ? process.env.NEXT_PUBLIC_ORIGIN : window.location.origin}/api${url}`;
   }
 
   return `${process.env.NEXT_PUBLIC_API_HOST}${url}`;
