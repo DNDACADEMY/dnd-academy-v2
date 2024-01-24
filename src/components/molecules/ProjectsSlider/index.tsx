@@ -16,7 +16,7 @@ function ProjectsSlider() {
     <div className={styles.projectsSlider}>
       <Marquee pauseOnHover speed={80} className={styles.marquee}>
         <div className={styles.projectSliderWrapper}>
-          {projects.map(({ id, thumbnail, title }) => (
+          {projects?.map(({ id, thumbnail, title }) => (
             <Link href={`/projects/${id}`} key={id}>
               <Image
                 key={id}
