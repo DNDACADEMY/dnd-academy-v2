@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 import Button from '@/components/atoms/Button';
@@ -7,14 +8,12 @@ import CounterCard from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ErrorBoundary from '@/components/molecules/ErrorBoundary';
-import ProjectsSlider from '@/components/molecules/ProjectsSlider';
 import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import { ArrowRightIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
 
-// const ProjectsSlider = dynamic(() => import('@/
-// components/molecules/ProjectsSlider'), { ssr: false });
+const ProjectsSlider = dynamic(() => import('@/components/molecules/ProjectsSlider'), { ssr: false });
 
 function HomePage() {
   return (
