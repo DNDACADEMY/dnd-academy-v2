@@ -8,7 +8,7 @@ function useGetProjectsQuery({ size }: { size?: number; } = {}) {
     queryKey: ['projects'],
     queryFn: () => api<ProjectType[], { size?: number; }>({
       url: '/projects',
-      isBFF: true,
+      type: 'bff',
       method: 'GET',
       params: {
         size,

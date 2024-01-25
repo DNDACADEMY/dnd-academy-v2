@@ -10,10 +10,12 @@ type Method =
     | 'link' | 'LINK'
     | 'unlink' | 'UNLINK';
 
+export type UrlPrefixType = 'public' | 'blog' | 'bff';
+
 export interface FetchRequest<T = any> {
   url: string;
   params?: T;
   method?: Method;
-  isBFF?: boolean;
+  type?: UrlPrefixType;
   config?: Omit<RequestInit, 'method'>;
 }
