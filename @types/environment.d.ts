@@ -3,5 +3,6 @@ namespace NodeJS {
   interface ProcessEnv extends NodeJS.ProcessEnv {
     NEXT_PUBLIC_API_HOST: string;
     NEXT_PUBLIC_ORIGIN: string;
+    NEXT_PUBLIC_BLOG_HOST: string;
   }
 }

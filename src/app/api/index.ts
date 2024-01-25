@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 import { paramsSerializer } from '@/utils';
 
-import { FetchRequest } from './model';
+import { FetchRequest, UrlPrefixType } from './model';
 
 const CACHE_MINUTE = 5;
 
@@ -24,29 +24,31 @@ export const getCacheDate = (cacheTime = CACHE_MINUTE) => {
   const modMin = dayjs().get('minute') % cacheTime;
   const minute = modMin === 0 ? currentMin : currentMin - modMin;
 
-  return `?date=${date}-${minute}`;
+  return {
+    date: `${date}-${minute}`,
+  };
 };
 
-const getUrl = (url: string, isBFF = false) => {
-  if (isBFF) {
+const getUrl = (url: string, type: UrlPrefixType) => {
+  if (type === 'bff') {
     return `${process.env.NEXT_PUBLIC_ORIGIN}/api${url}`;
+  }
+
+  if (type === 'blog') {
+    return `${process.env.NEXT_PUBLIC_BLOG_HOST}${url}`;
   }
 
   return `${process.env.NEXT_PUBLIC_API_HOST}${url}`;
 };
 
 async function api<T, K = undefined>({
-  url, params, config = {}, isBFF, method = 'GET',
+  url, params, config = {}, type = 'public', method = 'GET',
 }: FetchRequest<K>): Promise<T> {
-  const response = await fetch(`${getUrl(url, isBFF)}?${paramsSerializer({
+  const response = await fetch(`${getUrl(url, type)}?${paramsSerializer({
     ...params,
   })}`, {
     ...config,
     method,
-    headers: {
-      ...config.headers,
-      'Content-Type': 'application/json',
-    },
   });
 
   if (!response.ok) {

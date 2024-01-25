@@ -14,10 +14,10 @@ function ProjectsSlider() {
 
   return (
     <div className={styles.projectsSlider}>
-      <Marquee pauseOnHover speed={80} className={styles.marquee}>
+      <Marquee pauseOnHover speed={100} className={styles.marquee}>
         <div className={styles.projectSliderWrapper}>
           {projects.map(({ id, thumbnail, title }) => (
-            <Link href={`/projects/${id}`} key={id}>
+            <Link key={id} href={`/projects/${id}`} prefetch={false}>
               <Image
                 key={id}
                 src={thumbnail}
