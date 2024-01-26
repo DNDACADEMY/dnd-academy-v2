@@ -16,13 +16,32 @@
     user-select: none;
   }
 
-  .title {
-    text-align: center;
-    font-size: 44px;
-    font-weight: 700;
-    line-height: 160%;
-    letter-spacing: -0.44px;
+  .titleWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
-    @include text-color('gray01');
+    .subTitle {
+      white-space: pre-line;
+      font-size: 20px;
+      line-height: 140%;
+      text-align: center;
+
+      @include text-color('gray02');
+
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 160%;
+      letter-spacing: -0.44px;
+  
+      @include text-color('gray01');
+    }
   }
 }
