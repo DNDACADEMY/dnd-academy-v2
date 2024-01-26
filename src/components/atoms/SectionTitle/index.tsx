@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactElement, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 
 type Props = {
   title: string;
-  subTitle?: string;
+  subTitle?: ReactElement | ReactNode;
   fullWidth?: boolean;
 };
 
