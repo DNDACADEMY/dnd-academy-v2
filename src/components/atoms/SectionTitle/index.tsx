@@ -6,13 +6,19 @@ import styles from './index.module.scss';
 
 type Props = {
   title: string;
+  subTitle?: string;
   fullWidth?: boolean;
 };
 
-function SectionTitle({ title, fullWidth, children }: PropsWithChildren<Props>) {
+function SectionTitle({
+  title, subTitle, fullWidth, children,
+}: PropsWithChildren<Props>) {
   return (
     <section className={clsx(styles.section, fullWidth && styles.fullWidth)}>
-      <h2 className={styles.title}>{title}</h2>
+      <div className={styles.titleWrapper}>
+        <h2 className={styles.title}>{title}</h2>
+        {subTitle && <div className={styles.subTitle}>{subTitle}</div>}
+      </div>
       {children}
     </section>
   );

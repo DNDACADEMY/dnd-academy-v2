@@ -6,7 +6,7 @@ describe('SectionTitle', () => {
   const title = 'title';
 
   const renderSectionTitle = () => render((
-    <SectionTitle title="title">
+    <SectionTitle title="title" subTitle="subtitle">
       <div>children</div>
     </SectionTitle>
   ));
