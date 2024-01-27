@@ -11,19 +11,31 @@ import styles from './index.module.scss';
 
 type Props = {
   title: string;
-  onClick: () => void;
-  isActive: boolean;
+  onClick: (index?: number) => void;
+  activeIndex?: number;
+  currentIndex: number;
 };
 
 function AccordionItem({
-  title, onClick, isActive, children,
+  title, onClick, activeIndex, currentIndex, children,
 }: PropsWithChildren<Props>) {
+  const isActive = activeIndex === currentIndex;
+
+  const handleClick = () => {
+    if (activeIndex === currentIndex) {
+      onClick(undefined);
+      return;
+    }
+
+    onClick(currentIndex);
+  };
+
   return (
     <div className={styles.accordionItem}>
       <motion.button
         type="button"
         className={clsx(styles.accordionHeader, isActive && styles.active)}
-        onClick={onClick}
+        onClick={handleClick}
       >
         <div>
           {title}

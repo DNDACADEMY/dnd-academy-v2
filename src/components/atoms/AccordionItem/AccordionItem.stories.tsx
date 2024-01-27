@@ -1,13 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps, useState } from 'react';
+
+import type { Meta } from '@storybook/react';
 
 import AccordionItem from '.';
 
 const meta = {
   title: 'Components/AccordionItem',
   component: AccordionItem,
-  parameters: {
-    layout: 'centered',
-  },
   args: {
     children: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quod explicabo, nam sapiente id nostrum ex, ab numquam, doloremque aspernatur quisquam illo! Officiis explicabo laborum incidunt corrupti provident esse eligendi.',
     title: 'title',
@@ -17,10 +16,19 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+export function Default({
+  title, children, currentIndex, activeIndex,
+}: ComponentProps<typeof AccordionItem>) {
+  const [index, setActiveIndex] = useState<number>();
 
-export const Default: Story = {
-  args: {
-    isActive: false,
-  },
-};
+  return (
+    <AccordionItem
+      title={title}
+      currentIndex={currentIndex || 0}
+      activeIndex={activeIndex || index}
+      onClick={setActiveIndex}
+    >
+      {children}
+    </AccordionItem>
+  );
+}

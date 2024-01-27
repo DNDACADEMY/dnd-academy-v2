@@ -12,35 +12,56 @@ describe('AccordionItem', () => {
   const children = 'children';
   const title = 'title';
 
-  const renderAccordionItem = ({ isActive }: { isActive: boolean; }) => render((
-    <AccordionItem isActive={isActive} title={title} onClick={handleClick}>
+  const renderAccordionItem = ({
+    activeIndex, currentIndex,
+  }: { currentIndex: number; activeIndex: number }) => render((
+    <AccordionItem
+      activeIndex={activeIndex}
+      currentIndex={currentIndex}
+      title={title}
+      onClick={handleClick}
+    >
       {children}
     </AccordionItem>
   ));
 
-  describe('isActive가 true인 경우', () => {
+  describe('activeIndex와 currentIndex가 같은 경우', () => {
+    const params = { activeIndex: 0, currentIndex: 0 };
+
     it('자식 컴포넌트가 보여야만 한다', () => {
-      const { container } = renderAccordionItem({ isActive: true });
+      const { container } = renderAccordionItem(params);
 
       expect(container).toHaveTextContent(children);
     });
-  });
 
-  describe('isActive가 false인 경우', () => {
-    it('자식 컴포넌트가 보이지 않아야만 한다', () => {
-      const { container } = renderAccordionItem({ isActive: false });
+    describe('accordion 타이틀을 클릭하면', () => {
+      it('undefined와 함께 클릭 이벤트가 발생해야만 한다', () => {
+        renderAccordionItem(params);
 
-      expect(container).not.toHaveTextContent(children);
+        fireEvent.click(screen.getByText(title));
+
+        expect(handleClick).toHaveBeenCalledWith(undefined);
+      });
     });
   });
 
-  describe('accordion 타이틀을 클릭하면', () => {
-    it('클릭 이벤트가 발생해야만 한다', () => {
-      renderAccordionItem({ isActive: false });
+  describe('activeIndex와 currentIndex가 다른 경우', () => {
+    const params = { activeIndex: 1, currentIndex: 0 };
 
-      fireEvent.click(screen.getByText(title));
+    it('자식 컴포넌트가 보이지 않아야만 한다', () => {
+      const { container } = renderAccordionItem(params);
 
-      expect(handleClick).toHaveBeenCalledTimes(1);
+      expect(container).not.toHaveTextContent(children);
+    });
+
+    describe('accordion 타이틀을 클릭하면', () => {
+      it('current index와 함께 클릭 이벤트가 발생해야만 한다', () => {
+        renderAccordionItem(params);
+
+        fireEvent.click(screen.getByText(title));
+
+        expect(handleClick).toHaveBeenCalledWith(params.currentIndex);
+      });
     });
   });
 });
