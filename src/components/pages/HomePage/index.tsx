@@ -8,6 +8,7 @@ import CounterCard from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ErrorBoundary from '@/components/molecules/ErrorBoundary';
+import FAQSection from '@/components/molecules/FAQSection';
 import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import SponsorSection from '@/components/molecules/SponsorSection';
 import { ArrowRightIcon } from '@/lib/assets/icons';
@@ -113,7 +114,7 @@ function HomePage() {
       </SectionTitle>
       <ShareAlarmSection />
       <SectionTitle title="자주 묻는 질문">
-        <div />
+        <FAQSection />
       </SectionTitle>
       <SponsorSection />
     </>

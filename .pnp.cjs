@@ -67,6 +67,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-storybook", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:0.6.15"],\
           ["eslint-plugin-testing-library", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.2.0"],\
           ["eslint-plugin-unused-imports", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:3.0.0"],\
+          ["framer-motion", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:11.0.3"],\
           ["husky", "npm:8.0.3"],\
           ["jest", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:29.7.0"],\
           ["jest-environment-jsdom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:29.7.0"],\
@@ -3336,6 +3337,25 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@discoveryjs-json-ext-npm-0.5.7-fe04af1f31-b95682a852.zip/node_modules/@discoveryjs/json-ext/",\
         "packageDependencies": [\
           ["@discoveryjs/json-ext", "npm:0.5.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@emotion/is-prop-valid", [\
+      ["npm:0.8.8", {\
+        "packageLocation": "./.yarn/cache/@emotion-is-prop-valid-npm-0.8.8-261a0f2426-e85bdeb9d9.zip/node_modules/@emotion/is-prop-valid/",\
+        "packageDependencies": [\
+          ["@emotion/is-prop-valid", "npm:0.8.8"],\
+          ["@emotion/memoize", "npm:0.7.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@emotion/memoize", [\
+      ["npm:0.7.4", {\
+        "packageLocation": "./.yarn/cache/@emotion-memoize-npm-0.7.4-5648cf11b8-4e3920d4ec.zip/node_modules/@emotion/memoize/",\
+        "packageDependencies": [\
+          ["@emotion/memoize", "npm:0.7.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12008,6 +12028,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-storybook", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:0.6.15"],\
           ["eslint-plugin-testing-library", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.2.0"],\
           ["eslint-plugin-unused-imports", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:3.0.0"],\
+          ["framer-motion", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:11.0.3"],\
           ["husky", "npm:8.0.3"],\
           ["jest", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:29.7.0"],\
           ["jest-environment-jsdom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:29.7.0"],\
@@ -14042,6 +14063,34 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/forwarded-npm-0.2.0-6473dabe35-29ba9fd347.zip/node_modules/forwarded/",\
         "packageDependencies": [\
           ["forwarded", "npm:0.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["framer-motion", [\
+      ["npm:11.0.3", {\
+        "packageLocation": "./.yarn/cache/framer-motion-npm-11.0.3-b536c483a1-f1aaf7da81.zip/node_modules/framer-motion/",\
+        "packageDependencies": [\
+          ["framer-motion", "npm:11.0.3"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:11.0.3", {\
+        "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-83083377cb/0/cache/framer-motion-npm-11.0.3-b536c483a1-f1aaf7da81.zip/node_modules/framer-motion/",\
+        "packageDependencies": [\
+          ["framer-motion", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:11.0.3"],\
+          ["@emotion/is-prop-valid", "npm:0.8.8"],\
+          ["@types/react", "npm:18.2.47"],\
+          ["@types/react-dom", "npm:18.2.18"],\
+          ["react", "npm:18.2.0"],\
+          ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
+          ["tslib", "npm:2.6.2"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
