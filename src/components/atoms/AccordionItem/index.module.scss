@@ -1,0 +1,58 @@
+@import '/src/styles/main';
+
+.accordionItem {
+  border-radius: 4px;
+  overflow: hidden;
+
+  .accordionHeader {
+    border: none;
+    width: 100%;
+    user-select: none;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    cursor: pointer;
+    transition: background-color .15s ease-in-out;
+    background-color: color('gray08');
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+
+    @include text-color('gray00');
+  
+    &:hover, &.active {
+      background-color: color('white');
+
+      @include text-color('bgsecondary');
+
+    }
+  }
+
+  .accordionPanel {
+    padding: 24px;
+    font-size: 20px;
+    line-height: 32px;
+    color: color('bgsecondary');
+    background-color: color('gray02');
+  }
+
+  .polygonIcon {
+    transition: transform 0.3s ease-in-out;
+
+    &.active {
+      transform: rotate(90deg);
+
+      path {
+        transition: fill 0.3s ease-in-out;
+        fill: color('bgsecondary');
+      }
+    }
+
+    &:not(.active) {
+      transform: rotate(0);
+    }
+  }
+}

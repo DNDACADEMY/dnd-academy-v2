@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/nextjs";
 
-import { join, dirname } from "path";
+import { join, dirname, resolve } from "path";
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -19,10 +19,42 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: getAbsolutePath("@storybook/nextjs"),
-    options: {},
+    options: {
+      nextConfigPath: resolve(__dirname, '../next.config.js'),
+    },
   },
   docs: {
     autodocs: "tag",
+  },
+  webpackFinal: async (config) => {
+    const imageRule = config.module?.rules?.find((rule) => {
+      const test = (rule as { test: RegExp }).test;
+
+      if (!test) {
+        return false;
+      }
+
+      return test.test(".svg");
+    }) as { [key: string]: any };
+
+    imageRule.exclude = /\.svg$/;
+
+    config.module?.rules?.push({
+      test: /\.svg$/,
+      use: [{
+        loader: '@svgr/webpack',
+        options: {
+          svgoConfig: {
+            plugins: [{
+              name: 'removeViewBox',
+              active: false,
+            }],
+          },
+        },
+      }],
+    });
+
+    return config;
   },
 };
 export default config;
