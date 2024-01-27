@@ -9,25 +9,14 @@ import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ErrorBoundary from '@/components/molecules/ErrorBoundary';
 import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
-import { ArrowRightIcon, LinkIcon } from '@/lib/assets/icons';
+import SponsorSection from '@/components/molecules/SponsorSection';
+import { ArrowRightIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
 
 const ProjectsSlider = dynamic(() => import('@/components/molecules/ProjectsSlider'), { ssr: false });
 
 function HomePage() {
-  const sponsors = [
-    { sponsor: 'wanted', url: 'https://www.wanted.co.kr', imageUrl: 'wanted.png' },
-    { sponsor: 'naver-d2', url: 'https://d2.naver.com', imageUrl: 'naver-d2.png' },
-    { sponsor: 'hanbit', url: 'https://www.hanbit.co.kr', imageUrl: 'hanbit.png' },
-    { sponsor: 'easys-publishing', url: 'http://www.easyspub.co.kr', imageUrl: 'easys-publishing.png' },
-    { sponsor: 'witi', url: '#', imageUrl: 'witi.png' },
-    { sponsor: 'maru180', url: 'https://maru.org', imageUrl: 'maru180.png' },
-    { sponsor: 'asan-nanum', url: 'https://asan-nanum.org', imageUrl: 'asan-nanum.png' },
-    { sponsor: 'impact-campus', url: 'https://impactcampus.campaignus.me', imageUrl: 'impact-campus.png' },
-    { sponsor: 'notefolio', url: 'https://notefolio.net', imageUrl: 'notefolio.png' },
-  ];
-
   return (
     <>
       <section className={styles.homeSection}>
@@ -126,40 +115,7 @@ function HomePage() {
       <SectionTitle title="자주 묻는 질문">
         <div />
       </SectionTitle>
-      <SectionTitle
-        title="후원사"
-        subTitle={(
-          <>
-            <strong>DND</strong>
-            는&nbsp;
-            <strong>서비스유지</strong>
-            {'를 위해 후원을 받고 있습니다.\n후원 비용은 대관비, 장비 대여비, 세미나 연사 캐스팅비 등으로 더 많은 교육 기회에 도움이 됩니다.'}
-          </>
-        )}
-      >
-        <div className={styles.sponsorsWrapper}>
-          {sponsors.map(({ sponsor, url, imageUrl }) => (
-            <a key={sponsor} href={url} className={styles.sponsor} rel="noopener noreferrer" target="_blank">
-              <Image
-                src={`/assets/sponsor/${imageUrl}`}
-                alt={sponsor}
-                fill
-                sizes="(max-width: 1204px) 50vw, 33vw"
-                className={styles.sponsorImage}
-              />
-            </a>
-          ))}
-        </div>
-        <Button
-          isExternalLink
-          href="https://mahogany-base-b4f.notion.site/98c7848ce8ba4f48aa4153388fb39a1b"
-          buttonType="clear"
-          size="large"
-          suffixIcon={<LinkIcon />}
-        >
-          후원 문의하기
-        </Button>
-      </SectionTitle>
+      <SponsorSection />
     </>
   );
 }

@@ -71,23 +71,3 @@
     }
   }
 }
-
-.sponsorsWrapper {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 30px;
-  max-width: 900px;
-  width: 100%;
-  min-height: 273px;
-  justify-content: center;
-
-  .sponsor {
-    position: relative;
-    max-width: 280px;
-    width: 100%;
-  
-    .sponsorImage {
-      object-fit: none;
-    }
-  }
-}
