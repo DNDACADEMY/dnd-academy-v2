@@ -1,4 +1,5 @@
 import ClientProviders from '@/components/global/ClientProviders';
+import Footer from '@/components/global/Footer';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
 import ErrorBoundary from '@/components/molecules/ErrorBoundary';
 
@@ -24,6 +25,7 @@ function RootLayout({ children }: {
             <main className={styles.main}>
               {children}
             </main>
+            <Footer />
           </ClientProviders>
         </ErrorBoundary>
       </body>
