@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import useGetProjectsQuery from '@/hooks/queries/useGetProjectsQuery';
+import blurDataUrl from '@/lib/data/blurDataUrl';
 
 import styles from './index.module.scss';
 
@@ -24,6 +25,8 @@ function ProjectsSlider() {
                 alt={title}
                 width={271}
                 height={158}
+                placeholder="blur"
+                blurDataURL={blurDataUrl.projectSlider}
                 className={styles.thumbnail}
               />
             </Link>
