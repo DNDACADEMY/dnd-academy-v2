@@ -8200,6 +8200,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-error-boundary: "npm:4.0.12"
     react-fast-marquee: "npm:1.6.3"
+    react-perfect-scrollbar: "npm:1.5.8"
     react-test-renderer: "npm:18.2.0"
     sanitize.css: "npm:13.0.0"
     sass: "npm:1.69.6"
@@ -13951,6 +13952,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"perfect-scrollbar@npm:^1.5.0":
+  version: 1.5.5
+  resolution: "perfect-scrollbar@npm:1.5.5"
+  checksum: 42798bf7cc9a30050dc0c6067aa02f47b14fb6850adb62b255e90a582cb747edc041547bffe0c415fda4a9376c3255226309a2729622088374c439e741117791
+  languageName: node
+  linkType: hard
+
 "performance-now@npm:^2.1.0":
   version: 2.1.0
   resolution: "performance-now@npm:2.1.0"
@@ -14328,7 +14336,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -14722,6 +14730,19 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 73b36281e58eeb27c9cc6031301b6ae19ecdc9f18ae2d518bdb39b0ac564e65c5779405d623f1df9abf378a13858b79442480244bd579968afc1faf9a2ce5e05
+  languageName: node
+  linkType: hard
+
+"react-perfect-scrollbar@npm:1.5.8":
+  version: 1.5.8
+  resolution: "react-perfect-scrollbar@npm:1.5.8"
+  dependencies:
+    perfect-scrollbar: "npm:^1.5.0"
+    prop-types: "npm:^15.6.1"
+  peerDependencies:
+    react: ">=16.3.3"
+    react-dom: ">=16.3.3"
+  checksum: 0baf98f05a215dce681e15457b7e748b5bd713dbbd05c67f36e000b84e69c71aed5dea161215ef6dbec75d99ad61bdf64b5367e860b5a60887d014f22d05e5f8
   languageName: node
   linkType: hard
 

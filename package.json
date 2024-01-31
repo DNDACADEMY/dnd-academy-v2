@@ -41,6 +41,7 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "4.0.12",
     "react-fast-marquee": "1.6.3",
+    "react-perfect-scrollbar": "1.5.8",
     "sanitize.css": "13.0.0"
   },
   "devDependencies": {
