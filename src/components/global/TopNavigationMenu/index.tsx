@@ -8,6 +8,9 @@ import { usePathname } from 'next/navigation';
 
 import clsx from 'clsx';
 
+import ExternalLink from '@/components/atoms/ExternalLink';
+import { LinkIcon } from '@/lib/assets/icons';
+
 import styles from './index.module.scss';
 
 function TopNavigationMenu() {
@@ -65,9 +68,10 @@ function TopNavigationMenu() {
         </Link>
       </li>
       <li>
-        <Link href="/blog" className={clsx(isActivePathname('/blog') && styles.active)}>
-          블로그
-        </Link>
+        <ExternalLink href="https://blog.dnd.ac" className={styles.blogLink}>
+          <span>블로그</span>
+          <LinkIcon />
+        </ExternalLink>
       </li>
       <li>
         <Link href="/jobs" className={clsx(isActivePathname('/jobs') && styles.active)}>
