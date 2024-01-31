@@ -10,7 +10,7 @@
 
   &.fullWidth {
     position: relative;
-    width: 100vw;
+    width: calc(100vw - 10px);
     left: 50%;
     transform: translateX(-50%);
     user-select: none;
