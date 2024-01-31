@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode, useState } from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -15,9 +16,11 @@ function ClientProviders({ children }: { children: ReactNode }) {
   }));
 
   return (
-    <QueryClientProvider client={queryClient}>
-      {children}
-    </QueryClientProvider>
+    <PerfectScrollbar>
+      <QueryClientProvider client={queryClient}>
+        {children}
+      </QueryClientProvider>
+    </PerfectScrollbar>
   );
 }
 

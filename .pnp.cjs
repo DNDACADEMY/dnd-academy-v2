@@ -80,6 +80,7 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
           ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
+          ["react-perfect-scrollbar", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.5.8"],\
           ["react-test-renderer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
           ["sass", "npm:1.69.6"],\
@@ -12041,6 +12042,7 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
           ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
+          ["react-perfect-scrollbar", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.5.8"],\
           ["react-test-renderer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
           ["sass", "npm:1.69.6"],\
@@ -18724,6 +18726,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["perfect-scrollbar", [\
+      ["npm:1.5.5", {\
+        "packageLocation": "./.yarn/cache/perfect-scrollbar-npm-1.5.5-05c1b1fd56-42798bf7cc.zip/node_modules/perfect-scrollbar/",\
+        "packageDependencies": [\
+          ["perfect-scrollbar", "npm:1.5.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["performance-now", [\
       ["npm:2.1.0", {\
         "packageLocation": "./.yarn/cache/performance-now-npm-2.1.0-45e3ce7e49-534e641aa8.zip/node_modules/performance-now/",\
@@ -19770,6 +19781,34 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/react-is-npm-18.2.0-0cc5edb910-200cd65bf2.zip/node_modules/react-is/",\
         "packageDependencies": [\
           ["react-is", "npm:18.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-perfect-scrollbar", [\
+      ["npm:1.5.8", {\
+        "packageLocation": "./.yarn/cache/react-perfect-scrollbar-npm-1.5.8-111706a3a4-0baf98f05a.zip/node_modules/react-perfect-scrollbar/",\
+        "packageDependencies": [\
+          ["react-perfect-scrollbar", "npm:1.5.8"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.5.8", {\
+        "packageLocation": "./.yarn/__virtual__/react-perfect-scrollbar-virtual-ed490b6b21/0/cache/react-perfect-scrollbar-npm-1.5.8-111706a3a4-0baf98f05a.zip/node_modules/react-perfect-scrollbar/",\
+        "packageDependencies": [\
+          ["react-perfect-scrollbar", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.5.8"],\
+          ["@types/react", "npm:18.2.47"],\
+          ["@types/react-dom", "npm:18.2.18"],\
+          ["perfect-scrollbar", "npm:1.5.5"],\
+          ["prop-types", "npm:15.8.1"],\
+          ["react", "npm:18.2.0"],\
+          ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
