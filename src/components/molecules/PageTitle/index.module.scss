@@ -1,0 +1,23 @@
+@import "/src/styles/main";
+
+.pageTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0;
+  gap: 16px;
+
+  .title {
+    color: color('gray00');
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 80px;
+  }
+
+  .subTitle {
+    color: color('gray02');
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}
