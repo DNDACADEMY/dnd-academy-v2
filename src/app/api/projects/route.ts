@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { Project } from '@/lib/types/project';
-import { paramsSerializer } from '@/utils';
+import getProjects from '@/lib/apis/project';
 
-import { getCacheDate } from '..';
+import { FetchError } from '..';
 
 export const runtime = 'edge';
 
@@ -13,25 +12,29 @@ export async function GET(request: NextRequest) {
 
   const size = searchParams.get('size');
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/data/project.json?${paramsSerializer(getCacheDate())}`, {
-    method: 'GET',
-  });
+  try {
+    const data = await getProjects();
 
-  if (!response.ok) {
+    const projects = data.slice(0, size ? Number(size) : data.length);
+
+    return NextResponse.json(projects, {
+      status: 200,
+      headers: {
+        ...requestHeaders,
+        'Cache-Control': 'public, s-maxage=1',
+        'CDN-Cache-Control': 'public, s-maxage=60',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=3600',
+      },
+    });
+  } catch (error) {
+    const fetchError = error as FetchError;
+
+    const errorResponse = fetchError.response;
+
     return NextResponse.json(null, {
-      status: response.status,
-      statusText: response.statusText,
-      headers: response.headers,
+      status: errorResponse?.status,
+      statusText: errorResponse?.statusText,
+      headers: errorResponse?.headers,
     });
   }
-
-  const data = await response.json() as Project[];
-
-  const projects = [...data].reverse().slice(0, size ? Number(size) : data.length);
-
-  return NextResponse.json(projects, {
-    status: response.status,
-    statusText: response.statusText,
-    headers: requestHeaders,
-  });
 }

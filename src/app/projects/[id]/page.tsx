@@ -1,7 +1,7 @@
-function ProjectsPage({ params }: { params: { id: number; } }) {
+function ProjectPage({ params }: { params: { id: number; } }) {
   return (
     <div>{`Project ${params.id}`}</div>
   );
 }
 
-export default ProjectsPage;
+export default ProjectPage;
