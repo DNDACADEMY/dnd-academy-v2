@@ -39,15 +39,21 @@
     }
 
     .skillWrapper {
-      display: flex;
       overflow: hidden;
-      gap: 4px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      width: 271px;
+      color: color('gray04');
+
+      :not(.skillItem:first-of-type) {
+        margin-left: 4px;
+      }
 
       .skillItem {
         height: fit-content;
-        display: flex;
+        width: fit-content;
+        display: inline-block;
         padding: 4px 8px;
         border-radius: 2px;
         border: 1px solid color('gray08');

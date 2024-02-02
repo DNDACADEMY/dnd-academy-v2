@@ -24,7 +24,7 @@ function ProjectCard({
         <div className={styles.title}>{title}</div>
         <div className={styles.skillWrapper}>
           {skills.map((skill) => (
-            <div key={skill} className={styles.skillItem}>{skill}</div>
+            <span key={skill} className={styles.skillItem}>{skill}</span>
           ))}
         </div>
       </div>
