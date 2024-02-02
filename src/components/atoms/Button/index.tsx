@@ -23,6 +23,7 @@ interface Props extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, '
   prefixIcon?: ReactNode;
   suffixIcon?: ReactNode;
   children: ReactNode;
+  fullRounded?: boolean;
 }
 
 function Button({
