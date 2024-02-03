@@ -1,5 +1,5 @@
-import ProjectCard from '@/components/atoms/ProjectCard';
 import Tag from '@/components/atoms/Tag';
+import ProjectCard from '@/components/molecules/ProjectCard';
 import { Project } from '@/lib/types/project';
 
 import styles from './index.module.scss';

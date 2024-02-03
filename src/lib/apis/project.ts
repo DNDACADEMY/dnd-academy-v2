@@ -1,4 +1,5 @@
-import api, { getCacheDate } from '@/app/api';
+import api from '@/app/api';
+import { getCacheDate } from '@/utils';
 
 import { ONE_HOUR } from '../constants/time';
 import { Project } from '../types/project';

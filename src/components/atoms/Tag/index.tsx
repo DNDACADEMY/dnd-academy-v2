@@ -10,7 +10,13 @@ type Props = {
 
 function Tag({ title, onClick, isActive }: Props) {
   return (
-    <button type="button" onClick={onClick} className={clsx(styles.tag, isActive && styles.active)}>{title}</button>
+    <button
+      type="button"
+      onClick={onClick}
+      className={clsx(styles.tag, isActive && styles.active)}
+    >
+      {title}
+    </button>
   );
 }
 

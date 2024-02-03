@@ -1,10 +1,6 @@
-import dayjs from 'dayjs';
-
 import { paramsSerializer } from '@/utils';
 
 import { FetchRequest, UrlPrefixType } from './model';
-
-const CACHE_MINUTE = 5;
 
 // TODO - fetch error 수정 필요
 export class FetchError extends Error {
@@ -17,17 +13,6 @@ export class FetchError extends Error {
 
   response?: Response;
 }
-
-export const getCacheDate = (cacheTime = CACHE_MINUTE) => {
-  const date = dayjs().format('YYYY-MM-DD-HH');
-  const currentMin = dayjs().get('minute');
-  const modMin = dayjs().get('minute') % cacheTime;
-  const minute = modMin === 0 ? currentMin : currentMin - modMin;
-
-  return {
-    date: `${date}-${minute}`,
-  };
-};
 
 const getUrl = (url: string, type: UrlPrefixType) => {
   if (type === 'bff') {
