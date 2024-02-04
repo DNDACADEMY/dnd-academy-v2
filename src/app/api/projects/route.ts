@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import getProjects from '@/lib/apis/project';
+import { getProjects } from '@/lib/apis/project';
 
 import { FetchError } from '..';
 

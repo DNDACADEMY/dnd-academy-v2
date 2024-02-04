@@ -1,10 +1,14 @@
 import PageTitle from '@/components/molecules/PageTitle';
 import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import ProjectsPage from '@/components/pages/ProjectsPage';
-import getProjects from '@/lib/apis/project';
+import { getProjects } from '@/lib/apis/project';
 
-async function Page() {
-  const projects = await getProjects();
+type SearchParams = {
+  'ordinal': string | undefined;
+};
+
+async function Page({ searchParams }: { searchParams?: SearchParams; }) {
+  const projects = await getProjects({ ordinal: searchParams?.ordinal });
 
   return (
     <>

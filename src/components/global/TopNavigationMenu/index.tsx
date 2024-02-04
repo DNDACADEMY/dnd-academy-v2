@@ -36,6 +36,11 @@ function TopNavigationMenu() {
           프로젝트
         </Link>
       </li>
+      <li>
+        <Link href="/organizers" className={clsx(isActivePathname('/organizers') && styles.active)}>
+          운영진
+        </Link>
+      </li>
       <li
         className={styles.aboutNavItem}
         onMouseLeave={() => setIsVisibleSubNav(false)}
