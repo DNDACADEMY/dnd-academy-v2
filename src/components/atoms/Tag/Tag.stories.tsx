@@ -8,6 +8,9 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  args: {
+    count: 10,
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Tag>;
 

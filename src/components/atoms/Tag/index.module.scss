@@ -21,10 +21,13 @@
   line-height: 21px;
 
   &.active {
-    font-weight: 900;
-    line-height: 20px;
     background-color: color('primary');
     color: color('bgsecondary');
+  }
+
+  .active {
+    font-weight: 900;
+    line-height: 20px;
   }
 
   &:not(.active) {

@@ -8,6 +8,7 @@ import {
 import Link from 'next/link';
 
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
 import styles from './index.module.scss';
 
@@ -88,9 +89,11 @@ function Button({
   }
 
   return (
-    <button
+    <motion.button
       // eslint-disable-next-line react/button-has-type
       type={type}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       className={buttonClassName}
       disabled={disabled}
       aria-disabled={disabled}
@@ -100,7 +103,7 @@ function Button({
       {...htmlProps}
     >
       {buttonLabel}
-    </button>
+    </motion.button>
   );
 }
 

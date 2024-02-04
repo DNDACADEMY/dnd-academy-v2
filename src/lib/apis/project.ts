@@ -2,9 +2,9 @@ import api from '@/app/api';
 import { getCacheDate } from '@/utils';
 
 import { ONE_HOUR } from '../constants/time';
-import { Project } from '../types/project';
+import { Project, ProjectCountKey } from '../types/project';
 
-async function getProjects() {
+export async function getProjects({ ordinal }: { ordinal?: string; } | undefined = {}) {
   const response = await api<Project[], { date: string; }>({
     url: '/data/project.json',
     type: 'public',
@@ -19,7 +19,27 @@ async function getProjects() {
     },
   });
 
-  return [...response].reverse();
+  if (!ordinal) {
+    return [...response].reverse();
+  }
+
+  return response.filter(({ flag }) => flag === ordinal);
 }
 
-export default getProjects;
+export async function getProjectCount() {
+  const response = await api<Record<ProjectCountKey, number>, { date: string; }>({
+    url: '/data/project_count.json',
+    type: 'public',
+    method: 'GET',
+    params: {
+      ...getCacheDate(),
+    },
+    config: {
+      next: {
+        revalidate: ONE_HOUR,
+      },
+    },
+  });
+
+  return response;
+}
