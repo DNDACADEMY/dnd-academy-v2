@@ -1,5 +1,6 @@
-import Tag from '@/components/atoms/Tag';
 import ProjectCard from '@/components/molecules/ProjectCard';
+import Tags from '@/components/molecules/Tags';
+import { getProjectCount } from '@/lib/apis/project';
 import { Project } from '@/lib/types/project';
 
 import styles from './index.module.scss';
@@ -8,16 +9,12 @@ type Props = {
   projects: Project[];
 };
 
-function ProjectsPage({ projects }: Props) {
+async function ProjectsPage({ projects }: Props) {
+  const projectCount = await getProjectCount();
+
   return (
     <>
-      <div className={styles.subNavigation}>
-        <Tag title="전체(34)" isActive />
-        <Tag title="5기(10)" />
-        <Tag title="6기(2)" />
-        <Tag title="7기(5)" />
-        <Tag title="8기(10)" />
-      </div>
+      <Tags paramKey="ordinal" route="/projects" tagCount={projectCount} />
       <div className={styles.projectWrapper}>
         {projects.map(({
           flag, id, title, thumbnail, skill, name,
