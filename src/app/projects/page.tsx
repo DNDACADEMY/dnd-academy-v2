@@ -4,7 +4,7 @@ import ProjectsPage from '@/components/pages/ProjectsPage';
 import { getProjects } from '@/lib/apis/project';
 
 type SearchParams = {
-  'ordinal': string | undefined;
+  ordinal: string | undefined;
 };
 
 async function Page({ searchParams }: { searchParams?: SearchParams; }) {
