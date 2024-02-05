@@ -4,7 +4,7 @@ import OrganizersPage from '@/components/pages/OrganizersPage';
 import { getOrganizers } from '@/lib/apis/organizer';
 
 type SearchParams = {
-  'position': string | undefined;
+  position: string | undefined;
 };
 
 async function Page({ searchParams }: { searchParams?: SearchParams; }) {
