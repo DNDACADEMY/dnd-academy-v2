@@ -2,12 +2,10 @@ import api from '@/app/api';
 import { getCacheDate } from '@/utils';
 
 import { ONE_HOUR } from '../constants/time';
-import { OrganizerCategory } from '../types/organizer';
+import { Organizer, OrganizerPosition } from '../types/organizer';
 
-// eslint-disable-next-line import/prefer-default-export
 export async function getOrganizers({ position }: { position?: string; } | undefined = {}) {
-  // TODO - 타입 추후 정의
-  const response = await api<any[], { date: string; }>({
+  const response = await api<Organizer[], { date: string; }>({
     url: '/data/organizer_introduction.json',
     type: 'public',
     method: 'GET',
@@ -29,7 +27,7 @@ export async function getOrganizers({ position }: { position?: string; } | undef
 }
 
 export async function getOrganizerCount() {
-  const response = await api<Record<OrganizerCategory, number>, { date: string; }>({
+  const response = await api<Record<OrganizerPosition, number>, { date: string; }>({
     url: '/data/organizer_count.json',
     type: 'public',
     method: 'GET',
