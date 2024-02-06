@@ -11,14 +11,14 @@ export interface Project {
   title: string;
   desc?: string;
   images: string[];
-  flag: string;
+  flag: ProjectCategory;
   skill: string[];
   thumbnail: string;
   pdf?: string;
   projectLinks: ProjectLinks;
 }
 
-export type ProjectCountKey =
+export type ProjectCategory =
   | '9기'
   | '8기'
   | '7기'
