@@ -1,0 +1,78 @@
+@import "/src/styles/main";
+
+.projectCardWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 271px;
+  width: 100%;
+  height: 431px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 1px 1px 0 0 #404246 inset;
+
+  .profile {
+    // TODO - 추후 변경
+    object-fit: none;
+  }
+
+  .contents {
+    padding: 24px;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: color("white");
+
+    .position {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 18px;
+      color: color('gray09');
+    }
+
+    .name {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 28px;
+      color: color('gray09');
+    }
+
+    .introduction {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      color: color('gray08');
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .stackWrapper {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      width: 271px - 48px;
+      color: color('gray04');
+
+      :not(.stackItem:first-of-type) {
+        margin-left: 4px;
+      }
+
+      .stackItem {
+        height: fit-content;
+        width: fit-content;
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 2px;
+        border: none;
+        background-color: color('gray02');
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 15px;
+        color: color('gray07');
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import OrganizerCard from '@/components/molecules/OraganizerCard';
 import Tags from '@/components/molecules/Tags';
 import { getOrganizerCount } from '@/lib/apis/organizer';
 import { Organizer } from '@/lib/types/organizer';
@@ -16,12 +17,17 @@ async function OrganizersPage({ organizers }: Props) {
       <Tags paramKey="position" route="/organizers" tagCount={organizerCount} />
       <div className={styles.organizersWrapper}>
         {organizers.map(({
-          id, dndPosition,
+          id, dndPosition, name, technicalStack, oneLineIntroduction, picture,
         }) => (
-          <div key={id}>
-            <div>{id}</div>
-            <div>{dndPosition}</div>
-          </div>
+          <OrganizerCard
+            key={id}
+            id={id}
+            position={dndPosition}
+            name={name}
+            technicalStack={technicalStack}
+            oneLineIntroduction={oneLineIntroduction}
+            profile={picture}
+          />
         ))}
       </div>
     </>
