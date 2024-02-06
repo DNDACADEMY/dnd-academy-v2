@@ -1,11 +1,11 @@
 import Tags from '@/components/molecules/Tags';
 import { getOrganizerCount } from '@/lib/apis/organizer';
+import { Organizer } from '@/lib/types/organizer';
 
 import styles from './index.module.scss';
 
 type Props = {
-  // TODO - 추후 타입 정의
-  organizers: any[];
+  organizers: Organizer[];
 };
 
 async function OrganizersPage({ organizers }: Props) {
