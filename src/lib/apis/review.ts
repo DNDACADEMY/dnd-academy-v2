@@ -2,11 +2,11 @@ import api from '@/app/api';
 import { getCacheDate } from '@/utils';
 
 import { ONE_HOUR } from '../constants/time';
-import { Project, ProjectFlag } from '../types/project';
+import { Review, ReviewPosition } from '../types/review';
 
-export async function getProjects({ ordinal }: { ordinal?: string; } | undefined = {}) {
-  const response = await api<Project[], { date: string; }>({
-    url: '/data/project.json',
+export async function getReviews({ position }: { position?: string; } | undefined = {}) {
+  const response = await api<Review[], { date: string; }>({
+    url: '/data/reviews.json',
     type: 'public',
     method: 'GET',
     params: {
@@ -19,16 +19,16 @@ export async function getProjects({ ordinal }: { ordinal?: string; } | undefined
     },
   });
 
-  if (!ordinal) {
+  if (!position) {
     return [...response].reverse();
   }
 
-  return response.filter(({ flag }) => flag === ordinal);
+  return response.filter((review) => review.position === position);
 }
 
-export async function getProjectCount() {
-  const response = await api<Record<ProjectFlag, number>, { date: string; }>({
-    url: '/data/project_count.json',
+export async function getReviewCount() {
+  const response = await api<Record<ReviewPosition, number>, { date: string; }>({
+    url: '/data/review_count.json',
     type: 'public',
     method: 'GET',
     params: {
