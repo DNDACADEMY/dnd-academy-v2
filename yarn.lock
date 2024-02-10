@@ -5010,7 +5010,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*":
+"@types/prop-types@npm:*, @types/prop-types@npm:^15":
   version: 15.7.11
   resolution: "@types/prop-types@npm:15.7.11"
   checksum: 7519ff11d06fbf6b275029fe03fff9ec377b4cb6e864cac34d87d7146c7f5a7560fd164bdc1d2dbe00b60c43713631251af1fd3d34d46c69cd354602bc0c7c54
@@ -5037,6 +5037,15 @@ __metadata:
   dependencies:
     "@types/react": "npm:*"
   checksum: 4ef7725b4cebd4a32e049097ddfdfd855a178e63ead97ab6d3084872e7d6c1acd71aa923488123cd1015f0e0b11489d2b44f674a1df8fe82d7827eabbec6dbf1
+  languageName: node
+  linkType: hard
+
+"@types/react-responsive-masonry@npm:^2":
+  version: 2.1.3
+  resolution: "@types/react-responsive-masonry@npm:2.1.3"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: bb9b04e45df6759e28b4dc9e6eea5a6869fc5898400a1a18518358f0740fd5a49c86d9b065407733bf6a087b05c8ef518a5c9e82fc1bc6b25720f4221326438c
   languageName: node
   linkType: hard
 
@@ -8163,9 +8172,11 @@ __metadata:
     "@testing-library/react": "npm:14.1.2"
     "@types/jest": "npm:29.5.9"
     "@types/node": "npm:20"
+    "@types/prop-types": "npm:^15"
     "@types/qs": "npm:^6"
     "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.18"
+    "@types/react-responsive-masonry": "npm:^2"
     "@types/react-test-renderer": "npm:18.0.0"
     "@typescript-eslint/eslint-plugin": "npm:6.12.0"
     "@typescript-eslint/parser": "npm:6.12.0"
@@ -8195,12 +8206,14 @@ __metadata:
     next: "npm:14.1.0"
     postcss: "npm:8.4.32"
     postcss-scss: "npm:4.0.9"
+    prop-types: "npm:15.8.1"
     qs: "npm:6.11.2"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-error-boundary: "npm:4.0.12"
     react-fast-marquee: "npm:1.6.3"
     react-perfect-scrollbar: "npm:1.5.8"
+    react-responsive-masonry: "npm:2.1.7"
     react-test-renderer: "npm:18.2.0"
     sanitize.css: "npm:13.0.0"
     sass: "npm:1.69.6"
@@ -14336,7 +14349,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:15.8.1, prop-types@npm:^15.6.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -14785,6 +14798,13 @@ __metadata:
     "@types/react":
       optional: true
   checksum: f0646ac384ce3852d1f41e30a9f9e251b11cf3b430d1d114c937c8fa7f90a895c06378d0d6b6ff0b2d00cbccf15e845921944fd6074ae67a0fb347a718106d88
+  languageName: node
+  linkType: hard
+
+"react-responsive-masonry@npm:2.1.7":
+  version: 2.1.7
+  resolution: "react-responsive-masonry@npm:2.1.7"
+  checksum: 802ef9b83ae0b7f8246f013215ad3903e970a9755a1aa23dacd5a8e96ac7b133ebd4e83cbf3a3e141f8c02707680f671b931388e3208e3cc3c60c9570d072b7b
   languageName: node
   linkType: hard
 

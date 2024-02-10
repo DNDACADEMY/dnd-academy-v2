@@ -43,9 +43,11 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/react", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.1.2"],\
           ["@types/jest", "npm:29.5.9"],\
           ["@types/node", "npm:20.11.0"],\
+          ["@types/prop-types", "npm:15.7.11"],\
           ["@types/qs", "npm:6.9.11"],\
           ["@types/react", "npm:18.2.47"],\
           ["@types/react-dom", "npm:18.2.18"],\
+          ["@types/react-responsive-masonry", "npm:2.1.3"],\
           ["@types/react-test-renderer", "npm:18.0.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.12.0"],\
           ["@typescript-eslint/parser", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.12.0"],\
@@ -75,12 +77,14 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.1.0"],\
           ["postcss", "npm:8.4.32"],\
           ["postcss-scss", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.9"],\
+          ["prop-types", "npm:15.8.1"],\
           ["qs", "npm:6.11.2"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
           ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
           ["react-perfect-scrollbar", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.5.8"],\
+          ["react-responsive-masonry", "npm:2.1.7"],\
           ["react-test-renderer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
           ["sass", "npm:1.69.6"],\
@@ -8149,6 +8153,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/react-responsive-masonry", [\
+      ["npm:2.1.3", {\
+        "packageLocation": "./.yarn/cache/@types-react-responsive-masonry-npm-2.1.3-ae80e41b96-bb9b04e45d.zip/node_modules/@types/react-responsive-masonry/",\
+        "packageDependencies": [\
+          ["@types/react-responsive-masonry", "npm:2.1.3"],\
+          ["@types/react", "npm:18.2.47"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/react-test-renderer", [\
       ["npm:18.0.0", {\
         "packageLocation": "./.yarn/cache/@types-react-test-renderer-npm-18.0.0-159e9589e1-6afc938a1d.zip/node_modules/@types/react-test-renderer/",\
@@ -12005,9 +12019,11 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/react", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.1.2"],\
           ["@types/jest", "npm:29.5.9"],\
           ["@types/node", "npm:20.11.0"],\
+          ["@types/prop-types", "npm:15.7.11"],\
           ["@types/qs", "npm:6.9.11"],\
           ["@types/react", "npm:18.2.47"],\
           ["@types/react-dom", "npm:18.2.18"],\
+          ["@types/react-responsive-masonry", "npm:2.1.3"],\
           ["@types/react-test-renderer", "npm:18.0.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.12.0"],\
           ["@typescript-eslint/parser", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.12.0"],\
@@ -12037,12 +12053,14 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.1.0"],\
           ["postcss", "npm:8.4.32"],\
           ["postcss-scss", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.9"],\
+          ["prop-types", "npm:15.8.1"],\
           ["qs", "npm:6.11.2"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
           ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
           ["react-perfect-scrollbar", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.5.8"],\
+          ["react-responsive-masonry", "npm:2.1.7"],\
           ["react-test-renderer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
           ["sass", "npm:1.69.6"],\
@@ -19902,6 +19920,15 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/react",\
           "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-responsive-masonry", [\
+      ["npm:2.1.7", {\
+        "packageLocation": "./.yarn/cache/react-responsive-masonry-npm-2.1.7-93658b64e0-802ef9b83a.zip/node_modules/react-responsive-masonry/",\
+        "packageDependencies": [\
+          ["react-responsive-masonry", "npm:2.1.7"]\
         ],\
         "linkType": "HARD"\
       }]\
