@@ -1,3 +1,5 @@
+import { Link } from './common';
+
 export interface Organizer {
   id: number;
   name: string;
@@ -26,5 +28,3 @@ export type OrganizerPosition =
   | '디자인'
   | '마케팅'
   | '운영';
-
-type Link = 'github' | 'linedin' | 'instagram' | 'email';

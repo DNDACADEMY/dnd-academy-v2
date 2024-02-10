@@ -1,0 +1,16 @@
+@import "/src/styles/main";
+
+.reviewsWrapper {
+  padding: 100px 0;
+
+  .reviewCardWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 368px;
+    width: 100%;
+    background-color: color('gray08');
+  }
+}
