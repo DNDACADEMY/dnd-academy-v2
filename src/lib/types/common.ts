@@ -1,1 +1,1 @@
-export type Link = 'github' | 'linedin' | 'instagram' | 'email' | 'medium' | 'velog';
+export type Link = 'github' | 'linkedin' | 'instagram' | 'email' | 'medium' | 'velog' | 'link';
