@@ -1,0 +1,58 @@
+@import "/src/styles/main";
+
+.jobCardWrapper {
+  display: flex;
+  flex-direction: row;
+  height: 138px;
+  max-width: 369px;
+  width: 100%;
+  background-color: color('gray08');
+  padding: 24px 20px;
+  border-radius: 8px;
+  gap: 16px;
+
+  .companyImage {
+    border-radius: 4px;
+    min-width: 64px;
+    min-height: 64px;
+    overflow: hidden;
+  }
+
+  .jobContents {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    letter-spacing: -0.01em;
+
+    .flag {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 17px;
+      color: color('primary');
+    }
+    
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+    }
+
+    .company {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      color: color('white');
+    }
+
+    .description {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 17px;
+      color: color('gray02');
+    }
+  }
+}
