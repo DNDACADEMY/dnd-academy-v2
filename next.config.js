@@ -33,6 +33,9 @@ const nextConfig = {
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
+    // eslint-disable-next-line no-param-reassign
+    config.resolve.alias.canvas = false;
+
     config.module.rules.push(
       {
         ...fileLoaderRule,

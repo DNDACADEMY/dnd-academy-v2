@@ -43,3 +43,21 @@ export async function getProjectCount() {
 
   return response;
 }
+
+export async function getProject({ id }: { id: number; }) {
+  const response = await api<Project[], { date: string; }>({
+    url: '/data/project.json',
+    type: 'public',
+    method: 'GET',
+    params: {
+      ...getCacheDate(),
+    },
+    config: {
+      next: {
+        revalidate: ONE_HOUR,
+      },
+    },
+  });
+
+  return response.find((project) => project.id === id);
+}
