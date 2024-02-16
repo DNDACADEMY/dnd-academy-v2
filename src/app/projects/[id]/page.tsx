@@ -1,4 +1,7 @@
-import { getProjects } from '@/lib/apis/project';
+import { notFound } from 'next/navigation';
+
+import ProjectPage from '@/components/pages/ProjectPage';
+import { getProject, getProjects } from '@/lib/apis/project';
 
 export const dynamicParams = false;
 
@@ -10,10 +13,16 @@ export async function generateStaticParams() {
   }));
 }
 
-function ProjectPage({ params }: { params: { id: number; } }) {
+async function Page({ params }: { params: { id: string; } }) {
+  const project = await getProject({ id: Number(params.id) });
+
+  if (!project) {
+    notFound();
+  }
+
   return (
-    <div>{`Project ${params.id}`}</div>
+    <ProjectPage project={project} />
   );
 }
 
-export default ProjectPage;
+export default Page;
