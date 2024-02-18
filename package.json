@@ -2,7 +2,7 @@
   "name": "dnd-academy-v2",
   "version": "0.0.1",
   "description": "DND는 개발자와 디자이너라면 누구나 참여할 수 있는 IT비영리단체입니다.",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "author": "dnd-academy",
   "scripts": {
     "open-browser": "open http://dnd-academy.localhost:3000",
