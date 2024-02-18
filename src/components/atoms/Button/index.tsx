@@ -92,8 +92,8 @@ function Button({
     <motion.button
       // eslint-disable-next-line react/button-has-type
       type={type}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={!disabled && { scale: 1.02 }}
+      whileTap={!disabled && { scale: 0.98 }}
       className={buttonClassName}
       disabled={disabled}
       aria-disabled={disabled}
