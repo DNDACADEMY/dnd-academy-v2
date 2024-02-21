@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import SkillTag from '@/components/atoms/SkillTag';
 import PDFViewer from '@/components/molecules/PDFViewer';
 import { RightIcon } from '@/lib/assets/icons';
 import { Project } from '@/lib/types/project';
@@ -25,6 +26,21 @@ function ProjectPage({ project }: Props) {
       <div className={styles.projectDetail}>
         <div>
           <PDFViewer url={project?.pdf} />
+        </div>
+        <div className={styles.projectIntroduceTitleWrapper}>
+          <div>
+            <div className={styles.flag}>{project.flag}</div>
+          </div>
+          <h1 className={styles.name}>{project.name}</h1>
+          <h2 className={styles.title}>{project.title}</h2>
+          <div className={styles.skillWrapper}>
+            {project.skill.map((skill) => (
+              <SkillTag key={skill} skill={skill} color="grey" />
+            ))}
+          </div>
+        </div>
+        <div>
+          <div className={styles.description}>{project.desc}</div>
         </div>
       </div>
     </>

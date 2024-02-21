@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import SkillTag from '@/components/atoms/SkillTag';
+
 import styles from './index.module.scss';
 
 type Props = {
@@ -24,7 +26,7 @@ function ProjectCard({
         <div className={styles.title}>{title}</div>
         <div className={styles.skillWrapper}>
           {skills.map((skill) => (
-            <span key={skill} className={styles.skillItem}>{skill}</span>
+            <SkillTag key={skill} skill={skill} color="dark" />
           ))}
         </div>
       </div>
