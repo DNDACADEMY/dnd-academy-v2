@@ -1,9 +1,6 @@
-export type ProjectLinks = {
-  github?: string[];
-  googlePlaystore?: string;
-  youtube?: string;
-  link?: string;
-};
+export type ProjectLinkType = 'github' | 'googlePlaystore' | 'youtube' | 'link';
+
+export type ProjectLinks = Partial<Record<ProjectLinkType, string | string[]>>;
 
 export interface Project {
   id: number;

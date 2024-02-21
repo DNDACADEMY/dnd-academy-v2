@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import SkillTag from '@/components/atoms/SkillTag';
 import { OrganizerPosition } from '@/lib/types/organizer';
 
 import styles from './index.module.scss';
@@ -26,7 +27,7 @@ function OrganizerCard({
         <div className={styles.introduction}>{oneLineIntroduction}</div>
         <div className={styles.stackWrapper}>
           {technicalStack.map((stack) => (
-            <span key={stack} className={styles.stackItem}>{stack}</span>
+            <SkillTag key={stack} skill={stack} color="grey" />
           ))}
         </div>
       </div>
