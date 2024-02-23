@@ -4,6 +4,8 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 import Link from 'next/link';
 
+import clsx from 'clsx';
+
 import ExternalLink from '@/components/atoms/ExternalLink';
 import { ArrowRightIcon } from '@/lib/assets/icons';
 import {
@@ -16,9 +18,10 @@ import styles from './index.module.scss';
 
 type Props = {
   reviews: Review[];
+  hasProjectLink: boolean;
 };
 
-function ReviewList({ reviews }: Props) {
+function ReviewList({ reviews, hasProjectLink }: Props) {
   const reviewLinkIcon = (key: ReviewLink) => {
     const IconLogo = {
       link: HomeLogo,
@@ -39,7 +42,7 @@ function ReviewList({ reviews }: Props) {
     >
       <Masonry
         gutter="24px"
-        className={styles.reviewsWrapper}
+        className={clsx(hasProjectLink && styles.reviewsWrapper)}
       >
         {reviews.map(({
           id, name, position, review, projectId, links,
@@ -59,7 +62,7 @@ function ReviewList({ reviews }: Props) {
                 ))}
               </div>
             )}
-            {typeof projectId === 'number' && (
+            {hasProjectLink && typeof projectId === 'number' && (
               <Link href={`/projects/${projectId}`} className={styles.link}>
                 <span>프로젝트 보기</span>
                 <ArrowRightIcon className={styles.icon} />
