@@ -26,57 +26,77 @@
   }
 }
 
-.projectDetail {
+.projectPageContents {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 24px;
-  gap: 24px;
-  background-color: color('white');
-  border-radius: 8px;
+  gap: 100px;
+  margin-bottom: 100px;
 
-  .projectIntroduceTitleWrapper {
+  .projectDetail {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-
-    .flag {
-      padding: 5px 20px;
-      border-radius: 20px;
-      gap: 10px;
+    width: 100%;
+    padding: 24px;
+    gap: 24px;
+    background-color: color('white');
+    border-radius: 8px;
+  
+    .projectIntroduceTitleWrapper {
       display: flex;
-      max-width: fit-content;
-      background-color: #00D3F21A;
-      color: color('info');
+      flex-direction: column;
+      gap: 16px;
+  
+      .flag {
+        padding: 5px 20px;
+        border-radius: 20px;
+        gap: 10px;
+        display: flex;
+        max-width: fit-content;
+        background-color: #00D3F21A;
+        color: color('info');
+      }
+  
+      .name {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 67px;
+        color: color('gray09');
+      }
+  
+      .title {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28px;
+        color: color('gray06');
+      }
+  
+      .skillWrapper {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 4px;
+        width: 100%;
+      }
     }
-
-    .name {
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 67px;
-      color: color('gray09');
-    }
-
-    .title {
-      font-size: 20px;
+  
+    .description {
+      font-size: 16px;
       font-weight: 400;
-      line-height: 28px;
-      color: color('gray06');
-    }
-
-    .skillWrapper {
-      display: flex;
-      flex-flow: row wrap;
-      gap: 4px;
-      width: 100%;
+      line-height: 22px;
+      white-space: pre-line;
+      color: color('gray08');
     }
   }
+  
+  .projectSection {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 
-  .description {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    white-space: pre-line;
-    color: color('gray08');
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 45px;
+      letter-spacing: -0.01em;
+    }
   }
 }
