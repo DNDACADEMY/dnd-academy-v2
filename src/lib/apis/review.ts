@@ -2,9 +2,12 @@ import api from '@/app/api';
 import { getCacheDate } from '@/utils';
 
 import { ONE_HOUR } from '../constants/time';
+import { ProjectFlag } from '../types/project';
 import { Review, ReviewPosition } from '../types/review';
 
-export async function getReviews({ position }: { position?: string; } | undefined = {}) {
+export async function getReviews({
+  position, flag, projectId,
+}: { position?: string; flag?: ProjectFlag; projectId?: number; } | undefined = {}) {
   const response = await api<Review[], { date: string; }>({
     url: '/data/reviews.json',
     type: 'public',
@@ -18,6 +21,12 @@ export async function getReviews({ position }: { position?: string; } | undefine
       },
     },
   });
+
+  if (flag && projectId) {
+    return response.filter((
+      review,
+    ) => review.flag.trim() === flag.trim() && review.projectId === projectId);
+  }
 
   if (!position) {
     return [...response].reverse();

@@ -13,7 +13,7 @@ async function ReviewsPage({ reviews }: Props) {
   return (
     <>
       <Tags paramKey="position" route="/reviews" tagCount={reviewCount} />
-      <ReviewList reviews={reviews} />
+      <ReviewList hasProjectLink reviews={reviews} />
     </>
   );
 }

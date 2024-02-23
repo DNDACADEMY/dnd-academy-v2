@@ -9,7 +9,7 @@ export interface Review {
   position: ReviewPosition;
   links: Partial<Record<Link, string>>;
   project: string;
-  projectId: string | null;
+  projectId: number | null;
   review: string;
 }
 
