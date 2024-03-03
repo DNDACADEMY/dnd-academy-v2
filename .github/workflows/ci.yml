@@ -12,14 +12,14 @@ env:
     ${{ github.workspace }}/.yarn/unplugged
   CACHED_BUILD_PATHS: ${{ github.workspace }}/.next
   BUILD_CACHE_KEY: ${{ github.sha }}
-  DEFAULT_NODE_VERSION: "v18.17.0"
+  DEFAULT_NODE_VERSION: "v20.11.1"
 
 jobs:
   continuous-integration:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 18.17.0
+      - name: Use Node.js 20.11.1
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
