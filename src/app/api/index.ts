@@ -19,10 +19,6 @@ const getUrl = (url: string, type: UrlPrefixType) => {
     return `${process.env.NEXT_PUBLIC_ORIGIN}/api${url}`;
   }
 
-  if (type === 'blog') {
-    return `${process.env.NEXT_PUBLIC_BLOG_HOST}${url}`;
-  }
-
   return `${process.env.NEXT_PUBLIC_API_HOST}${url}`;
 };
 

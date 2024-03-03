@@ -10,7 +10,7 @@ type Method =
     | 'link' | 'LINK'
     | 'unlink' | 'UNLINK';
 
-export type UrlPrefixType = 'public' | 'blog' | 'bff';
+export type UrlPrefixType = 'public' | 'bff';
 
 export interface FetchRequest<T = any> {
   url: string;
