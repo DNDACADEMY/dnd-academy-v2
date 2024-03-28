@@ -1,0 +1,62 @@
+@import "/src/styles/main";
+
+.space {
+  display: flex;
+  height: 70px;
+  width: 100%;
+}
+
+.introduceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin: 32px 0;
+  position: relative;
+  width: calc(100vw - 10px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  .title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 80px;
+    color: color('gray01');
+  }
+
+  .introduceImageWrapper {
+    user-select: none;
+    height: 320px;
+    gap: 24px;
+    display: flex;
+    flex-direction: row;
+
+    .image {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .description {
+    text-align: center;
+    max-width: 855px;
+    width: 100%;
+    color: color('white');
+    font-size: 24px;
+    padding: 24px;
+    font-style: normal;
+    line-height: 140%;
+    white-space: pre-line;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}
+
+.counterCardWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 24px;
+  width: 100%;
+}
