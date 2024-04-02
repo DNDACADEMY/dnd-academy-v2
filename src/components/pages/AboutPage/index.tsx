@@ -10,7 +10,6 @@ import styles from './index.module.scss';
 function AboutPage() {
   return (
     <>
-      <div className={styles.space} />
       <section className={styles.introduceSection}>
         <h1 className={styles.title}>소개</h1>
         <Marquee autoFill>

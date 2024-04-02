@@ -1,0 +1,93 @@
+@import "/src/styles/main";
+
+.introduceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin: 32px 0;
+  position: relative;
+
+  .title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 80px;
+    color: color('gray01');
+  }
+
+  .image {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    max-height: 475px;
+  }
+
+  .subTitle {
+    color: color('white');
+    text-align: center;
+    white-space: pre-line;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  .description {
+    text-align: center;
+    width: 100%;
+    color: color('white');
+    font-size: 24px;
+    line-height: 140%;
+    white-space: pre-line;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}
+
+.codeOfConductorSection {
+  display: flex;
+  padding: 100px 0;
+  flex-direction: column;
+  gap: 72px;
+
+  .title {
+    color: color('gray01');
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: -0.48px;
+  }
+
+  .description {
+    color: color('gray01');
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 160%;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  .descriptionTitle {
+    color: color('gray01');
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 160%;
+  }
+
+  .descriptionText {
+    color: color('gray01');
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 160%;
+  }
+
+  .buttonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
