@@ -1,7 +1,9 @@
-function CulturePage() {
+import CulturePage from '@/components/pages/CulturePage';
+
+function Page() {
   return (
-    <div>CulturePage</div>
+    <CulturePage />
   );
 }
 
-export default CulturePage;
+export default Page;
