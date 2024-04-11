@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Button from '@/components/atoms/Button';
 import CounterCard from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
+import ImageCard from '@/components/atoms/ImageCard';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ErrorBoundary from '@/components/molecules/ErrorBoundary';
 import FAQSection from '@/components/molecules/FAQSection';
@@ -73,14 +74,37 @@ function HomePage() {
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div className={styles.howBannerWrapper}>
-          <div className={styles.howBannerItem}>
+          <ImageCard
+            url="/assets/images/dnd-experience-01.png"
+            alt="DND 팀빌딩 시스템(DTS)"
+            backgroundColorType="primary"
+            description={
+              <div className={styles.imageBannerTitle}>DND 팀빌딩 시스템(DTS)</div>
+            }
+          />
+          <ImageCard
+            url="/assets/images/dnd-experience-02.png"
+            alt="프로젝트 제작 가이드라인"
+            backgroundColorType="secondary"
+            description={
+              <div className={styles.imageBannerTitle}>프로젝트 제작 가이드라인</div>
+            }
+          />
+          <ImageCard
+            url="/assets/images/dnd-experience-03.png"
+            alt="다양한 교육 제공"
+            backgroundColorType="tertiary"
+            description={
+              <div className={styles.imageBannerTitle}>다양한 교육 제공</div>
+            }
+          />
+          {/* <div className={styles.howBannerItem}>
             <Image
               src="https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/home/how01.png"
               alt="DND 팀빌딩 시스템(DTS)"
               fill
               quality={100}
               sizes="(max-width: 1204px) 50vw, 33vw"
-              className={styles.howBanner}
             />
           </div>
           <div className={styles.howBannerItem}>
@@ -89,7 +113,6 @@ function HomePage() {
               alt="프로젝트 제작 가이드라인"
               fill
               quality={100}
-              className={styles.howBanner}
               sizes="(max-width: 1204px) 50vw, 33vw"
             />
           </div>
@@ -99,10 +122,9 @@ function HomePage() {
               alt="다양한 교육 제공"
               fill
               quality={100}
-              className={styles.howBanner}
               sizes="(max-width: 1204px) 50vw, 33vw"
             />
-          </div>
+          </div> */}
         </div>
         <Button href="/dnd/about" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>더 알아보기</Button>
       </SectionTitle>
