@@ -58,16 +58,18 @@
 
 .howBannerWrapper {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   gap: 24px;
+
+  .imageBannerTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: color("gray09");
+  }
 
   .howBannerItem {
     position: relative;
     width: 369px;
     height: 350px;
-  
-    .howBanner {
-      object-fit: contain;
-    }
   }
 }
