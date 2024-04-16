@@ -8,17 +8,14 @@ type Props = {
   title: string;
   count: number;
   suffix?: string;
-  onEnd?: () => void;
 };
 
-function CounterCard({
-  count, title, suffix = '명', onEnd,
-}: Props) {
+function CounterCard({ count, title, suffix = '명' }: Props) {
   return (
     <div className={styles.counterCard}>
       <div className={styles.title}>{title}</div>
       <div className={styles.counter}>
-        <CountUp start={0} end={count} duration={5} onEnd={onEnd}>
+        <CountUp start={0} end={count} duration={5}>
           {({ countUpRef }) => (
             <strong data-testid="counter" ref={countUpRef} />
           )}
