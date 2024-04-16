@@ -80,6 +80,7 @@ const RAW_RUNTIME_STATE =
           ["prop-types", "npm:15.8.1"],\
           ["qs", "npm:6.11.2"],\
           ["react", "npm:18.2.0"],\
+          ["react-countup", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.5.3"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
           ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
@@ -11267,6 +11268,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["countup.js", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "./.yarn/cache/countup.js-npm-2.8.0-50d101021f-6681de9de9.zip/node_modules/countup.js/",\
+        "packageDependencies": [\
+          ["countup.js", "npm:2.8.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["create-ecdh", [\
       ["npm:4.0.4", {\
         "packageLocation": "./.yarn/cache/create-ecdh-npm-4.0.4-1048ce2035-0dd7fca971.zip/node_modules/create-ecdh/",\
@@ -12151,6 +12161,7 @@ const RAW_RUNTIME_STATE =
           ["prop-types", "npm:15.8.1"],\
           ["qs", "npm:6.11.2"],\
           ["react", "npm:18.2.0"],\
+          ["react-countup", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.5.3"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.2.0"],\
           ["react-error-boundary", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.0.12"],\
           ["react-fast-marquee", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:1.6.3"],\
@@ -19842,6 +19853,29 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.2.47"],\
           ["react", "npm:18.2.0"],\
           ["tween-functions", "npm:1.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-countup", [\
+      ["npm:6.5.3", {\
+        "packageLocation": "./.yarn/cache/react-countup-npm-6.5.3-aa265db4da-5699e475bd.zip/node_modules/react-countup/",\
+        "packageDependencies": [\
+          ["react-countup", "npm:6.5.3"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.5.3", {\
+        "packageLocation": "./.yarn/__virtual__/react-countup-virtual-2daf588730/0/cache/react-countup-npm-6.5.3-aa265db4da-5699e475bd.zip/node_modules/react-countup/",\
+        "packageDependencies": [\
+          ["react-countup", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:6.5.3"],\
+          ["@types/react", "npm:18.2.47"],\
+          ["countup.js", "npm:2.8.0"],\
+          ["react", "npm:18.2.0"]\
         ],\
         "packagePeers": [\
           "@types/react",\

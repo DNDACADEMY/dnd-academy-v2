@@ -58,7 +58,7 @@ function HomePage() {
       </section>
       <SectionTitle title="지금까지 DND는?">
         <div className={styles.counterCardWrapper}>
-          <CounterCard count={962} title="누적 지원자 수" />
+          <CounterCard count={1123} title="누적 지원자 수" />
           <CounterCard count={200} title="총 참가자 수" />
           <CounterCard count={34} title="총 프로젝트 수" suffix="개" />
           <CounterCard count={0} title="10기 이탈자" />
