@@ -1,5 +1,56 @@
 @import "./functions";
 
+@mixin text($text, $color-code: "") {
+  $list: str-split($text, "/");
+  $weight: "";
+  $font: "";
+
+  @if length($list) == 2 {
+    $font: list.nth($list, 1);
+    $weight: list.nth($list, 2);
+  }
+
+  @if $font == "H1" {
+    font-size: var(--h1-font-size);
+  } @else if $font == "H2" {
+    font-size: var(--h2-font-size);
+    letter-spacing: var(--h2-letter-spacing);
+  } @else if $font == "H3" {
+    font-size: var(--h3-font-size);
+    letter-spacing: var(--h3-letter-spacing);
+  } @else if $font == "H4" {
+    font-size: var(--h4-font-size);
+  } @else if $font == "H5" {
+    font-size: var(--h5-font-size);
+  } @else if $font == "H6" {
+    font-size: var(--h6-font-size);
+  } @else if $font == "body1" {
+    font-size: var(--body1-font-size);
+  } @else if $font == "body2" {
+    font-size: var(--body2-font-size);
+  } @else if $font == "caption1" {
+    font-size: var(--caption1-font-size);
+  } @else if $font == "caption2" {
+    font-size: var(--caption2-font-size);
+  }
+
+  @if $weight == "Regular" {
+    font-weight: var(--font-weight-regular);
+  } @else if $weight == "Medium" {
+    font-weight: var(--font-weight-medium);
+  } @else if $weight == "Bold" {
+    font-weight: var(--font-weight-bold);
+  } @else if $weight == "ExtraBold" {
+    font-weight: var(--font-weight-extrabold);
+  }
+
+  line-height: 140%;
+
+  @if $color-code {
+    color: color($color-code);
+  }
+}
+
 @mixin text-color($color-code) {
   color: color($color-code);
 }
