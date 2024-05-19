@@ -26,6 +26,7 @@ function RootLayout({ children }: {
               {children}
             </main>
             <Footer />
+            <div id="portal-container" />
           </ClientProviders>
         </ErrorBoundary>
       </body>
