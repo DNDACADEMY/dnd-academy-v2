@@ -1,9 +1,12 @@
-import { CSSProperties } from 'react';
+'use client';
+
+import { CSSProperties, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 
 import clsx from 'clsx';
 
 import Button from '@/components/atoms/Button';
+import ConfirmModal from '@/components/atoms/ConfirmModal';
 
 import styles from './index.module.scss';
 
@@ -50,6 +53,8 @@ const dividerStyles: DividerStyles[] = [{
 }];
 
 function ShareAlarmSection() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <div className={styles.shareAlarmSection}>
       <Marquee autoFill className={styles.marqueeContainer}>
@@ -68,7 +73,13 @@ function ShareAlarmSection() {
         <h3 className={styles.title}>지금 함께 프로젝트를 시작해요!</h3>
         <div className={styles.buttonWrapper}>
           <Button type="button" buttonType="secondary" size="xLarge">친구에게 공유하기</Button>
-          <Button type="button" size="xLarge">모집알림 신청하기</Button>
+          <Button type="button" size="xLarge" onClick={() => setIsOpen(true)}>모집알림 신청하기</Button>
+          <ConfirmModal
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            onSubmit={() => setIsOpen(false)}
+            title="알림 신청"
+          />
         </div>
       </div>
     </div>
