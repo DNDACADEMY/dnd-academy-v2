@@ -1,6 +1,6 @@
 @import "/src/styles/main";
 
-.confirmModalWrapper {
+.modalWrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -19,20 +19,12 @@
     display: flex;
   }
 
-  .confirmModalBox {
+  .modalBox {
     color: color("gray09");
     background-color: color("white");
     border-radius: 8px;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 9%);
     padding: 24px;
     width: 400px;
-  }
-
-  .buttonWrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
   }
 }
