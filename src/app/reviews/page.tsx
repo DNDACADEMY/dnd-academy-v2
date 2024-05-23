@@ -1,6 +1,6 @@
 import PageTitle from '@/components/molecules/PageTitle';
-import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import ReviewsPage from '@/components/pages/ReviewsPage';
+import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getReviews } from '@/lib/apis/review';
 
 type SearchParams = {

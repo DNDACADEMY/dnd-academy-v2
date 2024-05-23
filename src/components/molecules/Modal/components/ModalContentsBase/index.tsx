@@ -4,12 +4,18 @@ import clsx from 'clsx';
 
 import Button from '@/components/atoms/Button';
 import GlobalPortal from '@/components/global/GlobalPortal';
+import { CloseIcon } from '@/lib/assets/icons';
 
 import { ModalContext } from '../ModalProvider';
 
 import styles from './index.module.scss';
 
-function ModalContentsBase({ children: child } : { children: ReactElement }) {
+type Props = {
+  title: string;
+  children: ReactElement;
+};
+
+function ModalContentsBase({ children: child, title } : Props) {
   const modalContext = useContext(ModalContext);
 
   if (!modalContext) {
@@ -23,7 +29,13 @@ function ModalContentsBase({ children: child } : { children: ReactElement }) {
       <div className={clsx(styles.modalWrapper, isOpen && styles.open)}>
         <div className={styles.modalBox}>
           <div className={styles.header}>
-            <Button type="button" onClick={() => setIsOpen(false)} buttonType="secondary">취소</Button>
+            <h1 className={styles.title}>{title}</h1>
+            <Button
+              type="button"
+              className={styles.closeButton}
+              onClick={() => setIsOpen(false)}
+              icon={<CloseIcon />}
+            />
           </div>
           {child}
         </div>

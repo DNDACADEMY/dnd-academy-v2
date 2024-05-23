@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 
 import styles from './index.module.scss';
 
-type ButtonSize = 'xLarge' | 'large' | 'medium' | 'small';
+export type ButtonSize = 'xLarge' | 'large' | 'medium' | 'small';
 type ButtonType = 'primary' | 'secondary' | 'clear';
 
 interface Props extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, 'size'> {
@@ -23,7 +23,8 @@ interface Props extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, '
   isExternalLink?: boolean;
   prefixIcon?: ReactNode;
   suffixIcon?: ReactNode;
-  children: ReactNode;
+  icon?: ReactNode;
+  children?: ReactNode;
 }
 
 function Button({
@@ -36,6 +37,7 @@ function Button({
   buttonType = 'primary',
   suffixIcon,
   prefixIcon,
+  icon,
   className,
   children,
   ...rest
@@ -46,9 +48,14 @@ function Button({
     [styles[size]]: size,
     [styles[buttonType]]: buttonType,
     [styles.disabled]: disabled,
+    [styles.onlyIcon]: !!icon,
   }, className);
 
   const buttonLabel = useMemo(() => {
+    if (icon) {
+      return icon;
+    }
+
     if (suffixIcon) {
       return (
         <>
@@ -68,7 +75,7 @@ function Button({
     }
 
     return children;
-  }, [suffixIcon, prefixIcon, children]);
+  }, [suffixIcon, prefixIcon, children, icon]);
 
   if (href) {
     return (
