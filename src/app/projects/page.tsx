@@ -1,6 +1,6 @@
 import PageTitle from '@/components/molecules/PageTitle';
-import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import ProjectsPage from '@/components/pages/ProjectsPage';
+import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getProjects } from '@/lib/apis/project';
 
 type SearchParams = {

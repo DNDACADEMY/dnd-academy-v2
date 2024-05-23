@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import Button from '@/components/atoms/Button';
 import ExternalLink from '@/components/atoms/ExternalLink';
+import AlarmModal from '@/components/organisms/AlarmModal';
 import {
   FacebookLogo, GithubLogo, InstagramLogo, LinkedInLogo, YoutubeLogo,
 } from '@/lib/assets/logos';
@@ -50,7 +50,7 @@ function Footer() {
             <li><Link href="/reviews">후기</Link></li>
             <li><ExternalLink href="https://blog.dnd.ac">블로그</ExternalLink></li>
           </ul>
-          <Button type="button" buttonType="primary">알림 신청하기</Button>
+          <AlarmModal buttonText="알림 신청하기" />
         </div>
       </div>
     </footer>

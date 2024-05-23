@@ -17,91 +17,97 @@
   max-width: fit-content;
   border-radius: 4px;
   gap: 8px;
-
-  &.primary {
-    color: color('bgsecondary');
-    background-color: color('primary');
-  }
-
-  &.secondary {
-    color: color('bgsecondary');
-    background-color: color('bgprimary');
-  }
-
-  &.clear {
-    color: color('gray01');
-    border: 1px solid color('gray01');
+  
+  &.onlyIcon {
+    padding: 0;
     background-color: transparent;
   }
 
-  &.xLarge {
-    padding: 20px 32px;
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  &.large {
-    padding: 16px 32px;
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  &.medium {
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 140%;
-  }
-
-  &.small {
-    padding: 8px 16px;
-    font-size: 12px;
-    font-weight: 700;
-    gap: 4px;
-  }
-
-
-  &::after {
-    content: " ";
-    position: absolute;
-    inset: 0;
-    border-radius: 0.25rem;
-  }
-
-  &:not(:disabled, .disabled)::after {
-    opacity: 0;
-  }
-
-  &:disabled,
-  &.disabled {
-    cursor: not-allowed;
-
+  &:not(.onlyIcon) {
     &.primary {
-      color: color("gray06");
-      background-color: color("gray04");
+      color: color('bgsecondary');
+      background-color: color('primary');
     }
-
+  
     &.secondary {
-      color: color("gray06");
-      background-color: color("gray04");
+      color: color('bgsecondary');
+      background-color: color('bgprimary');
     }
-
+  
     &.clear {
-      color: color('gray05');
-      border: 1px solid color('gray04');
+      color: color('gray01');
+      border: 1px solid color('gray01');
       background-color: transparent;
-    }
-  }
+    }  
 
-  @media (hover: hover) and (pointer: fine) {
-    &:not(:disabled, .disabled):hover::after {
+    &.xLarge {
+      padding: 20px 32px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    &.large {
+      padding: 16px 32px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  
+    &.medium {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 140%;
+    }
+  
+    &.small {
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      gap: 4px;
+    }
+
+    &::after {
+      content: " ";
+      position: absolute;
+      inset: 0;
+      border-radius: 0.25rem;
+    }
+  
+    &:not(:disabled, .disabled)::after {
+      opacity: 0;
+    }
+  
+    &:disabled,
+    &.disabled {
+      cursor: not-allowed;
+  
+      &.primary {
+        color: color("gray06");
+        background-color: color("gray04");
+      }
+  
+      &.secondary {
+        color: color("gray06");
+        background-color: color("gray04");
+      }
+  
+      &.clear {
+        color: color('gray05');
+        border: 1px solid color('gray04');
+        background-color: transparent;
+      }
+    }
+  
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled, .disabled):hover::after {
+        background-color: black;
+        opacity: 0.04;
+      }
+    }
+  
+    &:not(:disabled, .disabled):active::after {
       background-color: black;
-      opacity: 0.04;
+      opacity: 0.08;
     }
-  }
-
-  &:not(:disabled, .disabled):active::after {
-    background-color: black;
-    opacity: 0.08;
   }
 }

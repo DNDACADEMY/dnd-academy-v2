@@ -10,8 +10,9 @@ import ImageCard from '@/components/atoms/ImageCard';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ErrorBoundary from '@/components/molecules/ErrorBoundary';
 import FAQSection from '@/components/molecules/FAQSection';
-import ShareAlarmSection from '@/components/molecules/ShareAlarmSection';
 import SponsorSection from '@/components/molecules/SponsorSection';
+import AlarmModal from '@/components/organisms/AlarmModal';
+import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { ArrowRightIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
@@ -43,7 +44,7 @@ function HomePage() {
             </div>
             <div className={styles.counter}>오늘까지 000명이 지원했어요!</div>
           </div>
-          <Button type="button" size="xLarge">지원하기</Button>
+          <AlarmModal buttonText="지원하기" buttonSize="xLarge" />
         </div>
         <div className={styles.bannerWrapper}>
           <Image
