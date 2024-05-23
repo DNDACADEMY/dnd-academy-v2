@@ -15,6 +15,10 @@ body {
   color: color("bgprimary");
 }
 
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
 h1,
 h2,
 h3,

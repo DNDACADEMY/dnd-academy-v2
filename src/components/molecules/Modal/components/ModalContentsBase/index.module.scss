@@ -6,7 +6,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 20;
+  z-index: var(--modal-z-index);
   align-items: center;
   justify-content: center;
   background: rgb(0 0 0 / 40%);
@@ -24,7 +24,28 @@
     background-color: color("white");
     border-radius: 8px;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 9%);
-    padding: 24px;
-    width: 400px;
+    padding: 24px 40px;
+    max-width: 640px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .title {
+      @include text('H5/Bold', 'gray09');
+    }
+
+    .closeButton {
+      position: absolute;
+      top: 0;
+      right: -20px;
+    }
   }
 }
