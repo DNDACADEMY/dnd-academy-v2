@@ -12,10 +12,11 @@ import styles from './index.module.scss';
 
 type Props = {
   title: string;
+  size?: 'small' | 'medium' | 'large';
   children: ReactElement;
 };
 
-function ModalContentsBase({ children: child, title } : Props) {
+function ModalContentsBase({ children: child, title, size = 'medium' } : Props) {
   const modalContext = useContext(ModalContext);
 
   if (!modalContext) {
@@ -27,7 +28,7 @@ function ModalContentsBase({ children: child, title } : Props) {
   return (
     <GlobalPortal>
       <div className={clsx(styles.modalWrapper, isOpen && styles.open)}>
-        <div className={styles.modalBox}>
+        <div className={clsx(styles.modalBox, styles[size])}>
           <div className={styles.header}>
             <h1 className={styles.title}>{title}</h1>
             <Button

@@ -4,6 +4,7 @@ import ArrowRightIcon from './arrow-right.svg';
 import CloseIcon from './close.svg';
 import LinkIcon from './link.svg';
 import RightIcon from './right.svg';
+import ShareIcon from './share.svg';
 
 export {
   AccordionPolygon,
@@ -12,4 +13,5 @@ export {
   CloseIcon,
   LinkIcon,
   RightIcon,
+  ShareIcon,
 };
