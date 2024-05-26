@@ -25,11 +25,22 @@
     border-radius: 8px;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 9%);
     padding: 24px 40px;
-    max-width: 640px;
     width: 100%;
     display: flex;
     gap: 30px;
     flex-direction: column;
+
+    &.small {
+      max-width: 495px;
+    }
+
+    &.medium {
+      max-width: 640px;
+    }
+
+    &.large {
+      max-width: 800px;
+    }
   }
 
   .header {
