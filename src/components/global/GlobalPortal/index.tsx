@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import ReactDOM from 'react-dom';
 
-import useIsMounted from '@/hooks/useIsMounted';
+import { useIsMounted } from 'usehooks-ts';
 
 interface Props {
   elementId?: string;
@@ -10,7 +10,7 @@ interface Props {
 function GlobalPortal({ elementId = 'portal-container', children }: PropsWithChildren<Props>) {
   const isMounted = useIsMounted();
 
-  if (!isMounted) {
+  if (!isMounted()) {
     return null;
   }
 
