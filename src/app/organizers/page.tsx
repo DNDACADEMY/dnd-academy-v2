@@ -7,8 +7,8 @@ type SearchParams = {
   position: string | undefined;
 };
 
-async function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const organizers = await getOrganizers({ position: searchParams?.position });
+function Page({ searchParams }: { searchParams?: SearchParams; }) {
+  const organizers = getOrganizers({ position: searchParams?.position });
 
   return (
     <>

@@ -1,0 +1,1955 @@
+[
+  {
+    "id": 0,
+    "name": "까막noon",
+    "title": "글을 쓰고, 도전하며 까막noon을 뜨다. 글쓰기 루틴화를 위한 글쓰기 어플리케이션",
+    "desc": "MZ 세대들의 수많은 취미 중 “글“은 새로운 흥미로 다가왔습니다.\n그들은 자신의 일상을 기록하고 공유하며, 또 타인의 기록을 보는 것 또한 즐겨합니다. \n또한, 자신들의 취미를 즐기는 것뿐만 아니라 “루틴화“하며 작은 일에도 꾸준히 하는 것에 큰 의미를 둡니다. \n그들의 니즈대로 취미 생활인 글쓰기를 즐겁게, 꾸준하게 할 수 있게 도울 수 있는 방법은 없을까요?\n\n까막noon은 이러한 니즈를 충족시키고자 기획된 서비스입니다. “글쓰기”를 중심으로 다양한 기능을 제공하여, 글쓰기 루틴화를 위한 동기부여에 집중한 서비스를 제공합니다.\n\n까막noon은 까막 (어렵다, 막막하다) + noon (정오, 하루의 중심, 루틴)의 합성어로서, 글 쓰기 루틴을 만들고 싶지만 막막한 사람들을 위한 챌린지 어플이라는 의미를 담고 있습니다.\n\n까막noon만의 핵심 기능은 다음과 같습니다.\n1.        유저에게 동기부여를 줄 수 있는 챌린지 글쓰기\n-        오늘의 글감에 대한 글을 작성하면, 챌린지를 완수하여 달력에 스탬프가 찍히게 됩니다. 달력에 꾸준하게 스탬프를 쌓아가는 재미를 느껴보세요.\n2.        고민 시간을 줄여 글쓰기를 유도하는 글감 키워드 제공\n-        글을 쓰고 싶긴 한데, “어떤 주제”로 글을 써야할 지, 고민되는 순간이 많습니다. 매일 달라지는 글감 키워드 제공을 통해 이러한 고민을 해결해줍니다. 까막noon에서 제공하는 글감에 대해 자유롭게 글을 적고, 다양한 사람들의 글을 읽어보세요.\n3.        타인과 글을 쓰며 교류할 수 있는 릴레이 글쓰기 (함께 쓰기)\n-        타인의 생각들이 궁금할 때가 많습니다. 또한, 타인과 함께할 때, 일을 미루지 않게 되는 사람들도 많습니다. 릴레이 글쓰기는, 한 주제에 대해 <릴레이 글쓰기 방>을 개설하여 참여한 사람들이 <릴레이 글쓰기>를 진행하게 됩니다. 이를 통해, 글쓰기를 미루지 않고 다양한 사람들과 교류하며 글을 쓸 수 있습니다. 릴레이 글쓰기를 통해 여러 사람들과 함께 글쓰기를 진행해보세요.\n",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/2/1.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/2/2.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/2/3.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/2/4.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/2/5.png"
+    ],
+    "flag": "6기",
+    "skill": [
+      "Swift",
+      "RxSwift",
+      "Alamofire",
+      "Snapkit",
+      "Then",
+      "NestJS",
+      "MongoDB",
+      "Mongoose",
+      "AWS EC2"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/2/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/2/2.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-6th-2-backend",
+        "https://github.com/dnd-side-project/dnd-6th-2-iOS"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 1,
+    "name": "라운드테이블",
+    "title": "원활한 공유 주거 생활을 위한 가사 분담 커뮤니케이션 서비스",
+    "desc": "최근 주거 비용 상승으로 공유 주거 시설을 선택하는 청년 가구 수가 늘고 있습니다. 하지만 서로에 대한 이해 부족과 의사소통의 부재로 구성원 간 갈등이 발생하고 있습니다. 라운드테이블은 하우스 현황판, 피드백 보내기, 칭찬하기 등의 기능을 통해 룸메이트에게 직접 말하지 않고도 가사분담 이행 과정에서 발생하는 불편함을 해결하고 원활한 소통을 돕는 공유 주거 매니징 서비스입니다.",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/6/1.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/6/2.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/6/3.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/6/4.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/6/5.jpg"
+    ],
+    "flag": "6기",
+    "skill": [
+      "Figma",
+      "React",
+      "React-query",
+      "Styled-components",
+      "typescript",
+      "django - drf",
+      "mysql"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/6/1.jpg",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/6/6.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-6th-6-frontend",
+        "https://github.com/dnd-side-project/dnd-6th-6-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 2,
+    "name": "spoon feed",
+    "title": "나에게 맞는 청년 정책을 떠먹여주는 서비스",
+    "desc": "- 서비스 설명\n돈을 이제 막 벌기 시작해 돈관리를 해야하고, \n독립을 하기 위해 집도 알아봐야하고, \n금융 관련된 정보는 왜 이렇게 많은지,\n어떤 정보가 올바른지, 왜 이리 혼란스러운지 🤮\n누가 좀 나에게 해당하는 정책을 떠먹여 줄 순 없을까?라는 생각에서 만들어진 서비스 입니다.\n\n\n- 기능\n[ 맞춤 정책 리스트 추천 ]\n- 이름, 나이, 중위소득 등의 8가지 정보를 입력하면 신청 가능한 정책들을 한번에 확인할 수 있습니다.\n- 그 중에서 저장하고 싶은 정책은 찜하기 기능을 통해 바로 찾아 볼 수 있습니다.\n\n[ 각 청년 정책에 대한 상세 정보 제공 ]\n- 각 청년 정책에 대한 자세한 정보 (신청기간, 진행기간, 신청 자격, 지원 내용 등)를 제공합니다.\n- 상세 정보를 통해 직접 신청 페이지로 연결할 수 있습니다.\n\n[ 커뮤니티 ]\n- 각 정책에 대한 QnA 및 후기 경험을 공유하는 게시판입니다.\n- 게시글에는 정보 공유를 위해 작성자의 최소한의 개인 정보가 공개됩니다.\n- 민감한 자산 정보는 미공개 설정 가능합니다.\n- 비슷한 조건을 가진 다른 사용자들의 후기를 확인할 수 있습니다.\n\n",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/5/1.jpeg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/5/2.jpeg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/5/3.jpeg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/5/4.jpeg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/5/5.jpeg"
+    ],
+    "flag": "6기",
+    "skill": [
+      "kotlin",
+      "android studio",
+      "Figma",
+      "typescript",
+      "express",
+      "jest",
+      "supertest",
+      "eslint",
+      "docker",
+      "github actions",
+      "mysql",
+      "Typeorm",
+      "aws"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/5/1.jpeg",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/5/5.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-6th-5-backend",
+        "https://github.com/dnd-side-project/dnd-6th-5-android"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 3,
+    "name": "ITZZA",
+    "title": "이별을 위한 마음기록 & 커뮤니티 어플, 잊자",
+    "desc": "잊자는 일기장으로 이별 후 나의 마음을 돌아보고, 커뮤니티에서 닉네임으로 소통하고 정보를 공유하며, 레포트를 통해 주별 기록을 확인하는 어플입니다.\n\n[ 다이어리 ]\n오늘은 어떤 하루였나요? 나의 하루를  돌아보며\n내 감정이 어땠는지, 내일은 어떤 하루를 보내고 싶은지, 기록하면서 하루하루 감정을 정리해봐요.\n\n[ 커뮤니티 ]\n힘들지만 이야기 할 수 없는 것들, 이게 맞나? 아직 잘 모르는 것들!\n더 이상 고민하지말고 커뮤니티에서 함께 이야기 나누어봐요.\n상담도 좋고 말하기 민망한 웃픈 에피소드를 이야기 해도 좋아요!\n\n[ 리포트 ]\n일기로 차곡차곡 기록해놓은 나의 감정들, 한 눈에 파악해보자!\n리포트를 통해 이번 주 내가 어떤 감정을 가장 많이 느꼈는지, 이유는 왜인지, 내 감정을 분석해주는 기록일지! 다음 주 나는 어떤 감정을 느끼게 될까?\n",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/1/1.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/1/2.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/1/3.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/1/4.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/1/5.png"
+    ],
+    "flag": "6기",
+    "skill": [
+      "Swift",
+      "RxSwift",
+      "Alamofire",
+      "BSImagePicker",
+      "Nest.js",
+      "MySQL",
+      "EC2",
+      "RDS",
+      "S3",
+      "Figma",
+      "Illustrator",
+      "Lottie"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/1/logo.jpg",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/1/1.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-6th-1-iOS",
+        "https://github.com/dnd-side-project/dnd-6th-1-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://www.youtube.com/watch?v=meXLf_toK2g"
+    }
+  },
+  {
+    "id": 4,
+    "name": "걱정 방지 서비스 - 흐릿",
+    "title": "걱정을 기록하고 검증하는 서비스 ",
+    "desc": "걱정, 이젠 흐릿-해요.\n걱정 방지 서비스 흐릿은 걱정을 기록하고 검증하는 서비스에요.\n\n- 걱정을 모아 통계로 인지해요.\n 최근 2달 동안의 걱정 현황을 메인에서 확인할 수 있어요.\n걱정이 많아질 수록 흐려지는 달의 모습으로 시각화돼요.\n\n- 걱정을 간단히 작성하고 정리해 보세요.\n누군가에게 고민을 털어놓는 듯이 채팅방 형태의 UI로 구성했어요.\n걱정의 분야와 알림 날짜를 설정할 수 있어요.\n\n- 과거의 걱정을 검증해 보세요.\n예약일에 메시지를 확인할 수 있어요.\n걱정이 실제로 발생했는지 체크해 기록해 보세요.\n걱정에 대한 후기를 작성하여 소모적인 감정은 아니었는지 스스로 확인해 보세요.\n\n- 보관함에서 모아볼 수 있어요.\n요즘 걱정과, 지난 걱정으로 분류해 볼 수 있어요.\n미리보기 내용을 최소화하여 부정적인 내용을 최대한 노출시키지 않도록 했어요.\n걱정을 분야별로 필터링하여 볼 수 있어요.\n",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/1.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/2.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/3.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/4.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/5.jpg"
+    ],
+    "flag": "6기",
+    "skill": ["React Native", "Java", "Spring", "My SQL", "Figma"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/1.jpg",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/7/7.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-6th-7-fe-worry-record-service",
+        "https://github.com/dnd-side-project/dnd-6th-7-worry-record-service"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://drive.google.com/file/d/1AmcCsa67qxq3tnEAZ1ChFPREw5Esw1R-/view?usp=sharing"
+    }
+  },
+  {
+    "id": 5,
+    "name": "GRATZ!",
+    "title": "만날 수 없는 사람들을 위한 기념일 축하 서비스",
+    "desc": "[내 기념일 축하받기]\n기념일 테마를 선택하고, 기념일까지 남은 기간을 알려주면 준비 완료!\n기념일을 만들고 친구들에게 링크를 공유해보세요.\n\n[친구에게 선물 보내기]\n선물이 도착할 날짜를 고르고 축하 선물과 메시지를 작성해보세요.\n보내는 날에 따라 다양한 내용을 채워볼 수 있어요.\n\n[매일 도착하는 선물과 메시지]\n친구가 보낸 메시지를 매일 확인해보세요.\n메시지가 없는 날은 GRATZ!의 행운 메시지가 도착한답니다!\n\n[소중한 추억 간직하기]\n축하받은 기념일을 스크랩하여, 보다 소중하게 보관하세요\n원하는 때에 언제든 추억을 꺼내볼 수 있어요.\n",
+    "images": [],
+    "flag": "6기",
+    "skill": [
+      "React 17",
+      "Recoil",
+      "ava 11",
+      "SpringBoot Gradle 7.x.x",
+      "Figma"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/9/9.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://drive.google.com/file/d/1yYp_IDS0617-vT4PVNOy9cvF1tCfzvUT/view?usp=sharing"
+    }
+  },
+  {
+    "id": 6,
+    "name": "PICME",
+    "title": "수많은 사진 중 인생샷을 건지고 싶은 1020세대 여성을 위해 쉽고 빠르고 재미있게 인생사진을 찾을 수 있도록 도와주는 익명 사진 투표 서비스",
+    "desc": "[ 투표 만들기 ]\n- 1단계! 투표받고 싶은 사진을 업로드하고,\n- 2단계! 제일 마음에 드는 원픽을 고른 뒤,\n- 3단계! 제목과 마감시간을 설정하면 투표 만들기 완성!\n\n[ 인생샷 골라주기 ]\n- 투표 피드에서 다른 유저들의 인생샷 투표에 참여해보세요.\n- 베스트컷을 고르고 아이콘으로 피드백을 남겨주세요!\n\n[ 투표 결과 ]\n- 진행 중인 투표, 완료된 투표 결과를 확인해보세요.\n- 사진 순위부터 투표 이유에 대한 피드백까지 꼼꼼하게 분석해드려요.\n- ‘내 원픽’을 눌러 내가 투표했던 사진으로 바로 이동할 수 있어요.",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/1/1.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/1/2.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/1/3.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/1/4.png"
+    ],
+    "flag": "5기",
+    "skill": [
+      "Swift",
+      "Alamofire",
+      "SwiftLint",
+      "Kingfisher",
+      "ScalingCarousel",
+      "Node",
+      "Express",
+      "Typeorm",
+      "ECS",
+      "ECR",
+      "S3",
+      "Amazon RDS",
+      "Figma",
+      "Illustrator"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/1/logo.png",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-5th-1-iOS",
+        "https://github.com/dnd-side-project/dnd-5th-1-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    },
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/1/1-export.pdf"
+  },
+  {
+    "id": 7,
+    "name": "MOIDA",
+    "title": "약속은 간편하게, 모임은 한방에",
+    "desc": "\n스터디, 모임 등의 약속을 잡을 때 시간과 장소 정하기가 무척 힘들지 않으신가요?'모임 약속을 정할 때 쉽고 편한 방법이 없을까?'\n\nMOIDA는 이런 질문에서 시작된 서비스입니다.\n\n쉽게, 한 번에, 그리고 편하게 약속을 정할 수 있는 MOIDA의 핵심 기능을 소개합니다.\n\n1. 시간 조율\n- 모든 멤버들의 스케줄을 시간표에 입력 받습니다.\n- 가장 적합한 시간을 한 눈에 확인하여 멤버들과 공유할 수 있습니다.\n\n2. 장소 조율\n- 멤버들의 출발 위치를 지도에 입력 받습니다.\n- 중간 장소를 계산하여 제공해줍니다.\n- 또한 중간 장소 주변의 적절한 여러 지하철역들을 추천해줍니다.",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/9/1.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/9/2.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/9/3.jpg"
+    ],
+    "flag": "5기",
+    "skill": ["React", "Tailwind CSS", "Nest.js", "AWS EC2", "Figma", "Zeplin"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/9/1.jpg",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-5th-9-frontend",
+        "https://github.com/dnd-side-project/dnd-5th-9-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": ""
+    },
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/9/9-export.pdf"
+  },
+  {
+    "id": 8,
+    "name": "무엇이든 물어봐! 무물",
+    "title": "당신의 고민을 해결해주는 투표 커뮤니티 서비스",
+    "desc": "- 손쉽게 고민을 올려요\n해결되지 않는 고민이 있다면? 쉽고 빠르게 고민을 올려봐요. 간단하게 고민 사항을 작성하고, 다른 무물러가 참고할 수 있는 이미지가 있다면 함께 올려주세요. 곧 당신의 고민에 대한 다양한 의견들을 확인할 수 있을 거예요.\n\n- 찬성과 반대! 당신의 선택은?\n나와 같은 의견을 가진 사람은 얼마나 될까? 흥미로운 고민에 투표해주세요. 마이페이지에서는 내가 올린 고민에 대한 투표 현황을 확인할 수 있어요. 24시간 동안 다양하게 수집된 투표 결과를 확인해보세요.\n\n- 공감가는 의견에 반응을 남겨요\n고민에 대해 댓글을 작성하고, 공감 가는 댓글을 발견한다면 통통 튀는 반응을 남겨주세요. \n\n- 실시간으로 업데이트되는 인기 투표글!\n메인페이지에서는 인기 있는 투표 글이 실시간으로 업데이트된답니다. 가장 많은 관심을 받은 글부터 막상막하 치열한 투표 전쟁까지, 다양한 인기 글과 투표 결과를 확인해보세요.",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/3/1.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/3/2.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/3/3.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/3/4.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/3/5.jpg"
+    ],
+    "flag": "5기",
+    "skill": [
+      "figma",
+      "kotlin",
+      "coroutine",
+      "hilt",
+      "jetpack",
+      "Spring Boot",
+      "Spring Security",
+      "Spring RestDocs",
+      "JPA(+QueryDSL)",
+      "MySQL"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/3/1.jpg",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-5th-3-iOS",
+        "https://github.com/dnd-side-project/dnd-5th-3-backend"
+      ],
+      "googlePlaystore": "https://play.google.com/store/apps/desc?id=com.moo.mool",
+      "youtube": "",
+      "link": "https://www.notion.so/DND-3-31087b5fb0814d539febea87392d250a"
+    },
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/3/3-export.pdf"
+  },
+  {
+    "id": 9,
+    "name": "TIDO",
+    "title": "그날의 기억을 한 눈에, TIDO",
+    "desc": "TIDO는 Tidy와 Do를 합쳐 구성원들과 함께 추억을 정돈하여 기록하자는 의미를 담았습니다.\n이런 의미처럼 구성원끼리 추억들을 공유하고 싶지만 기록들이 쉽게 유실되는 문제점들을 해결하여 사용자들이 쉽게 공유하여 기록할 수 있도록 구성하였습니다.\nTIDO를 통하여 사용자는 추억을 함께한 친구들을 초대하여 같이 기록할 수 있고, 취향에 맞는 테마를 선택하여 추억을 사용자가 원하는대로 정리할 수 있습니다. 또한\n메인화면의 캘린더에서 달마다의 추억을 한눈에 확인할 수 있어 추억을 상기하기 쉽습니다.\n이런 TIDO와 함께 추억 정리를 시작해보시는건 어떨까요?",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/1.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/2.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/3.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/4.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/5.jpg"
+    ],
+    "flag": "5기",
+    "skill": ["Figma", "Vue 3.0", "Vuex 4.0", "Node.js", "MySQL"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/1.jpg",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-5th-7-frontend",
+        "https://github.com/dnd-side-project/dnd-5th-7-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "https://youtu.be/9Km4lCSx07s",
+      "figma": "https://www.figma.com/file/NfzRXZZr62OAGevYsHlpbH/%5Bdnd%5D%EB%AF%B87%EC%B9%A0%EA%B2%83%EA%B0%99%EC%A1%B0_HIFI"
+    },
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/7/7-export.pdf"
+  },
+  {
+    "id": 10,
+    "name": "옷으로 기억하는 날씨, Clother",
+    "title": "나의 기록을 통해 날씨와 적절한 옷차림을 알 수 있는 날씨 어플",
+    "desc": "사이드 프로젝트 아이템을 선정하는 과정에서 여러가지 아이디어가 나왔고 \n\n그중 날씨어플에 초점이 맞추어지며 날씨와 옷차림에 관한 경험을 공유하였습니다. \n\n1. 온도와 습도등의 수치정보만으로 날씨를 체감하기 어렵다는점. \n2. 특정날씨에 어떤 옷을 입었는지 기억하기 어렵다는 점. \n3. 특정 온도에 대한 보편적인 옷차림을 알고 싶다는 점.\n4. 주변 사람들에게 특정 날씨에 대한 옷차림 조언을 구해본 경험이 있다는 점.\n\n을 토대로 아이템을 구체화하였고,\n\n나와 다른사람의 옷 기록을 통해 확인하는 날씨 앱인 **Clother**를 제작하기로 하였습니다.\n\nClother는 옷을 뜻하는 clothes 와 날씨를 뜻하는 weather이 합쳐진 합성어로,\n나의 기록을 통해 날씨와 적절한 옷차림을 알 수 있는 날씨 앱을 의미합니다.",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/4/1.jpg"
+    ],
+    "flag": "5기",
+    "skill": ["Figma", "Spring Boot", "React Native"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/4/1.jpg",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-5th-4-frontend",
+        "https://github.com/dnd-side-project/dnd-5th-4-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://cooing-wormhole-1b4.notion.site/Clother-6e3ed8eac8c64fc0ba9e828ac56063df"
+    },
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/4/4-export.pdf"
+  },
+  {
+    "id": 11,
+    "name": "Pace Buddy (페이스 버디)",
+    "title": "운동기록을 함께 공유하며 서로를 격려하는 운동 커뮤니케이션 플랫폼",
+    "desc": "코로나 이후 운동과 다이어트에 열중하는 사람들이 증가함에 따라 운동의 동기부여를 제공할 수 있는 서비스를 제작하고자 고안한 서비스입니다. 운동에 대한 관심도가 증가했으나 막상 운동을 하려고 할 때 재미나 흥미를 느끼지 못해 지속적으로 운동하기를 어려워 하는 MZ세대가 많습니다. 이에 Pace Buddy는 단순히 운동을 기록하고 소통하는 것에 그치지 않고 감성적으로 접근하여 운동을 기록하는 것에 즐거움을 느낄 수 있도록 서비스를 제공합니다.",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/6/1.png"
+    ],
+    "flag": "5기",
+    "skill": [
+      "RDS(MySQL)",
+      "Docker",
+      "EC2",
+      "NodeJS",
+      "Express",
+      "GraphQL",
+      "Jest",
+      "Prisma",
+      "React.js",
+      "Apollo Client",
+      "styled-components",
+      "PostCSS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/6/1.png",
+    "projectLinks": {
+      "github": ["https://github.com/dnd-side-project/dnd-5th-6-repo"],
+      "googlePlaystore": "",
+      "youtube": ""
+    },
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/6/6-export.pdf"
+  },
+  {
+    "id": 12,
+    "name": "우주토킹",
+    "title": "가족과 즐기는 토킹 게임, 우주 토킹",
+    "desc": "\n가장 가깝지만, 가장 먼 사이인 가족. 가족과 마음의 거리가 가까워질 순 없을까요?\n\n청소년이 있는 가족이 하루 평균 자녀와 대화를 나누는 시간은 30분 남짓. 그 어느 때 보다 부모님과의 소통이 중요한 청소년 시기에, 대화 시간이 턱없이 부족한 점에 집중했습니다.\n\n어떤 주제로 대화를 해야할지 막막한 가족들에게 더 이상 대화가 막막하지 않게, 게임처럼 즐겁게 얘기할 수 있는 우주토킹.\n\n자리에 모이는게 힘든 가족들은, 매일매일 앱으로 즐겁게 소통할 수 있어요.\n\n대화 단절의 가장 큰 원인이였던 세대차이를 허물고, 예민할 수 있는 대화 주제도 즐겁게 풀어냈어요. 이제 얼굴을 마주보며 밝게 가족과 대화해보세요!",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/8/1.png"
+    ],
+    "flag": "5기",
+    "skill": ["spring boot", "mysql", "react native", "aws"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/8/1.png",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-5th-8-backend",
+        "https://github.com/dnd-side-project/dnd-5th-8-frontend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    },
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/8/8-export.pdf"
+  },
+  {
+    "id": 13,
+    "name": "요리조리",
+    "title": "에어프라이기를 이용한 레시피를 한 곳에 모은 커뮤니티",
+    "desc": "'요리조리'는 맛있는 음식을 찾기 위해 고민 중인 분들에게 해답을 주기 위해 태어났습니다.\n많은 에어프라이어기 레시피를 나누며 지식을 공유하고, 어제보다 오늘 더 맛있는 요리를 먹을 수 있도록 노력합니다.\n전 세계 사람들이 에어프라이어기로 무슨 요리를 할지 고민하지 않을 때까지 요리조리는 열심히 여러분에게 레시피를 공유합니다.",
+    "flag": "4기",
+    "skill": ["Spring Boot", "JPA", "Kotlin", "MySql", "Redis"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/1/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/1-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 14,
+    "name": "피어나",
+    "title": "환경보호를 실천하는 에코노트",
+    "desc": "5가지 환경보호 방법을 카테고리로 나누었으며 '꽃' 메타포를 활용하여 실천 진행하는 과정을 나타내고자 함.\n하단 실천하기 버튼을 통해 사진으로 실천사항을 남기면 꽃이 자람.\n기술적/현실적 문제로 인증은 ‘가치실천에 참여‘한다는 점에 의의를 두는것으로 정리.",
+    "flag": "4기",
+    "skill": ["Swift", "Node.js", "Nginx"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/2/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/2-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 15,
+    "name": "Jackpot",
+    "title": "사이드 프로젝트가 하고싶을 땐? 잭팟!",
+    "desc": "개발자, 기획자, 디자이너를 꿈꾸는 학생들이 모르는 사람이랑 프로젝트를 하면 갑자기 도망가지않을까?\n사람에 대한 불신 사이드 프로젝트를 모집할 수 있는 플랫폼을 제공해주자!",
+    "flag": "4기",
+    "skill": ["Kotlin", "Spring Boot", "Gradle", "MySql"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/3/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/3-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 16,
+    "name": "쫌 싸!",
+    "title": "소비자들의 현명한 소비를 위한 서비스 '쫌 싸!'",
+    "desc": "내가 관심있고 좋아하는 브랜드를 즐겨찾기 할 수 있고,\n알림을 받을 수 있도록 사용자들에게 불필요한 알림에 대한 문제점을 해결하고,\n소비자에게 맞춤형 제공서비스입니다.",
+    "flag": "4기",
+    "skill": ["React.js", "Node.js", "Nginx", "Express"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/4/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/4-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 17,
+    "name": "COHOLY",
+    "title": "술.잘.알과 술.알.못을 위한 술 리뷰/분석(추천) 플랫폼",
+    "desc": "술.알.못은 술을 탐색할 수 있으며\n술 선택의 도움을 받고 술.잘.알은 술 리뷰를 남기며\n술에 대해 소통할 수 있는 서비스",
+    "flag": "4기",
+    "skill": ["React Native", "Python"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/5/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/5-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 18,
+    "name": "고구마",
+    "title": "연애고민플랫폼",
+    "desc": "연애 고민이 생긴 경우 다른 사람들의 의견, 생각이 궁금하다.\n다른 사람들의 연애 고민이 궁금하다.\n답답한 마음을 공유하고 해소할 수 있는 공간",
+    "flag": "4기",
+    "skill": ["React.js", "Spring Boot", "Figma"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/6/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/6-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 19,
+    "name": "moagym",
+    "title": "운동복 모아보기 웹서비스",
+    "desc": "언제 운동해서 언제 폼날래? 폼나게 운동하면 되짐!\n내 운동법에 맞는 운동복, 내가 필요한 운동복을 찾을 수 있게\n내가 좋아하는 브랜드의 프로모션, 제품, 리뷰를 한 눈에",
+    "flag": "4기",
+    "skill": ["React.js", "TypeScript", "Redux", "Spring Boot", "JPA"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/7/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/7-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 20,
+    "name": "MEWE",
+    "title": "위치 기반의 언택트 감정 기록. 공유 앱 \"감정을 기록하는 다이어리\"",
+    "desc": "감정기록 및 공유서비스 MEWE는\n고객의 감정 분석 및 해소를 도와주는\n사용자의 소소한 행복 및 심리치료를 위해 연구하고 관리하는\n감정분석 앱입니다.\n\n자신의 감정을 이해하고 파악하는 것을 넘어 효과적인 표현을 하고\n스스로에 대한 애정을 갖기 위해 도와줍니다.\n또한 주변사람들이나 친한 사람들에게 경험을 공유하고\n타인의 감정도 공감하여 유대감을 형성하도록 합니다.",
+    "flag": "4기",
+    "skill": ["Swift", "Node.js", "Jest", "MongoDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/8/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/8-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 21,
+    "name": "See-at",
+    "title": "나만의 작은 친구, 반려식물 큐레이션 서비스",
+    "desc": "맞춤형 식물을 큐레이팅 받고 정보를 확인하는 서비스인 만큼,\n정확한 위치를 알려준다는 의미의 네비게이션 아이콘과\n식물을 나타내는 나뭇잎에서 모티브를 얻어 디자인",
+    "flag": "4기",
+    "skill": ["React.js", "Node.js", "Nginx", "Express.js", "AWS", "Jenkins"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/9/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/9-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 22,
+    "name": "자취러스",
+    "title": "자취를 하는 1인 가구를 위한 자율, 자발적인 정보 교류 플랫폼",
+    "desc": "자취러스는 자취 관련된 정보를 교류하고, 소통하는 플랫폼입니다. 위키 스타일로 운영되며 정보 수정의 빠른 피드백과 정말 유용한 꿀팁들을 얻을 수 있습니다.",
+    "flag": "3기",
+    "skill": ["Vue.js", "Spring Boot", "MariaDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/2/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/2-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 23,
+    "name": "카인딧",
+    "title": "여러분만의 레시피를 마음껏 공유해주세요!",
+    "desc": "사용자의 개성을 존중하며, 수백만 가지의 입맛의 다양성을 존중하기 위해 등장한 커스터마이징!\n하지만 유독 나만 선택이 힘든 것 같은 분들 있으셨죠?\n아무렇게나 하자니 실패할거같고,\n검색해서 하자니 번거롭기까지 하죠.\n\n알던 맛만 먹자니 물리기까지 하는 커스터마이징!\n카인딧이 해결해드리겠습니다.",
+    "flag": "3기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/5/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/5-export.pdf",
+    "download": "https://play.google.com/store/apps/details?id=com.dnd.kindit",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 24,
+    "name": "우동집",
+    "title": "우리 동네 집사들의 커뮤니티 공간",
+    "desc": "동네 친구를 만들 수 있는 집사 커뮤니티\n-우리 동네 안에서\n- 마음 맞는 사람들끼리\n- 정보도 공유하고\n- 나눔도 하고\n- 냥이 자랑도 하고 \"우리 냥이 보고가세요~\"",
+    "flag": "3기",
+    "skill": ["React", "Spring Boot", "MariaDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/6/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/6-export.pdf",
+    "download": "https://woodongjip.com",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 25,
+    "name": "그린이",
+    "title": "쓰레기통 앱 서비스",
+    "desc": "쓰레기를 잘 버리는 것으로 환경 개선을 이루자\n- 커뮤니티: 쓰레기 배출 팁 공유\n- 줍깅: 줍기 + 조깅와 함께 쓰레기통 맵 서비스\n- 퀴즈: 영수증은 재활용일까? 일반쓰레기일까?\n- 친환경 콘텐츠: 환경과 쓰레기에 대한 소식, 정보 제공 ex) 카드뉴스\n- 콜라보: 환경 단체 등",
+    "flag": "3기",
+    "skill": ["Vue.js", "Django"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/7/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/7-export.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 26,
+    "name": "Trainview",
+    "title": "사진과 소셜에 중심을 둔 국내 여행지 리뷰",
+    "desc": "- 소셜 + 사진: 팔로우 기능과 댓글 + 여행지 사진과 소개\n- 신기해요: 새로운 여행지를 메인으로 추천",
+    "flag": "3기",
+    "skill": ["React", "Spring Boot", "MariaDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/8/logo.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/8-export.pdf",
+    "download": "https://traview.web.app",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 27,
+    "name": "다빈",
+    "title": "동네 이웃 간 필요한 도움을 중개하는 플랫폼 서비스",
+    "desc": "혼자서 할 수 없는 일을 도와줄 '누군가'가 필요한 사람\n'누군가'가 되어 수요자의 요청에 맞춰 도움을 주는 사람을 매칭",
+    "flag": "2기",
+    "skill": ["React", "Next.js", "Redux", "Saga", "MariaDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/7/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 28,
+    "name": "니방내방",
+    "title": "자취방 양도 매칭 서비스",
+    "desc": "방학 동안 단기 계약을 할 수 있는 매물이 없음\n방학 때 빈 자취방이 골치인 학생들과\n단기간 거주를 원하는 학생들을 매칭",
+    "flag": "2기",
+    "skill": ["Flutter", "Node.js", "MongoDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/10/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 29,
+    "name": "Pickme",
+    "title": "회사에서 필요한 인재, Pickme에서 찾아보세요. 역채용 플랫폼",
+    "desc": "-",
+    "flag": "2기",
+    "skill": ["React", "Spring Boot", "MariaDB", "Python"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/11/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 30,
+    "name": "MATTANG",
+    "title": "우리동네 맛집, 관광지 소개 커뮤니티",
+    "desc": "-",
+    "flag": "2기",
+    "skill": ["React"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/13/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 31,
+    "name": "장 : 마당",
+    "title": "번개보다 빠른 중고거래 매칭 서비스",
+    "desc": "1:1 간편 거래 매칭\n시세 알리미\n채팅서비스",
+    "flag": "2기",
+    "skill": ["Kotlin", "Node.js"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/14/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 32,
+    "name": "엄마 여기어때",
+    "title": "어린이집 학부모를 위한 어린이집 평가 서비스",
+    "desc": "학부모들의 어린이집 후기 등록 및 공유",
+    "flag": "1기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/1/logo-square.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 33,
+    "name": "모두의카페",
+    "title": "카페 고객관리, 매출관리 서비스",
+    "desc": "근처에 위치한 카페 정보 제공\n메뉴, 주문, 멤버쉽 등 고객관리 서비스 제공\n카페 메뉴 조회, 좌석 예약 서비스 제공",
+    "flag": "1기",
+    "skill": ["React"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/2/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 34,
+    "name": "POLAROID",
+    "title": "유/무료 사진 및 일러스트 공유 서비스",
+    "desc": "저작권 걱정 없이 안전하게 다운로드\n다양한 해상도의 이미지를 손쉽게 다운로드\n아마추어 사진작가나 디자이너가 자신의 작품을 판매하고 수익창출 가능",
+    "flag": "1기",
+    "skill": ["Node.js", "React", "MariaDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/3/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 35,
+    "name": "퍼펙트 매칭",
+    "title": "사이드 프로젝트 팀원 매칭 서비스",
+    "desc": "손쉬운 사이드 프로젝트 참여/구인\n기획자, 개발자, 디자이너 등 역할에 맞는 필터링 제공",
+    "flag": "1기",
+    "skill": ["Vue.js", "Vuetify.js", "Spring Boot", "MariaDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/4/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 36,
+    "name": "커피매니저",
+    "title": "카페인 중독자들에게 위험성을 알리고 섭취를 줄이도록 도와주는 서비스",
+    "desc": "카페인 섭취량 시각화와 자극멘트\n오늘의 대체 음료 추천\n통계 요약 및 분석\n히스토리 관리",
+    "flag": "1기",
+    "skill": ["Kotlin", "Spring Boot", "MariaDB"],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/6/logo.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "https://play.google.com/store/apps/details?id=com.dnd.killcaffeine",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 37,
+    "name": "런:US",
+    "title": "공부러들을 위한 스터디그룹 목표 달성 보조 서비스",
+    "desc": "스터디 그룹의 목표 달성까지 꾸준히 공부하기 어렵지 않으셨나요?\n런:US는 스터디 그룹 목표를 달성할 수 있도록 돕는 보조 서비스로, \n팀원들끼리 서로 문제집을 생성하고 풀면서 매번 목표를 인식하게 다시금 도와줍니다.\n\n1. 새로운 방을 만들고 스터디원들을 초대하세요.\n스터디 그룹원들과 지속적으로 목표를 향해 달릴 수 있도록\n런:US에 가입하고 새로운 문제방을 만들어보세요.\n팀원들의 이메일 아이디를 입력하여 초대장을 보내실 수 있어요.\n\n2. 스터디 목표에 맞는 세부 목표를 만들어주세요.\n스터디 그룹이 생성되셨나요?\n그렇다면 스터디 그룹의 전체 목표를 달성하기 위한 세부목표를 설정해주세요.\n설정된 세부 목표에 따라 이제 목표를 달성할 문제를 시작해볼까요?\n\n3. 문제를 풀면서 목표를 달성해보세요.\n다른 스터디원들이 낸 문제집을 풀어면서 \n세부 목표에 맞게 공부했는지 점검할 수 있어요. \n틈틈히 나의 목표 달성률과 전체 스터디 달성률을 확인해보세요.\n\n4. 스터디 그룹 페이지에서 함께 목표를 달성해봐요!\n나의 스터디 그룹 내 전체 목표를 달성하기 위한\n세부 목표들을 함께 만들어보고 달성해봐요.\n\n5.나의 모든 스터디는 마이 페이지에 기록 완료!\n진행 및 완료된 스터디 그룹은 마이페이지에 저장되어 \n나의 공부 성과 및 노력의 흔적을 확인하고 증명할 수 있어요!\n이제 그토록 걱정됐던 공백기를 나의 노력으로 증명해보세요!",
+    "flag": "7기",
+    "skill": [
+      "figma",
+      "NextJS",
+      "TypeScript",
+      "Spring Boot",
+      "MySQL",
+      "Docker",
+      "AWS EC2",
+      "RDS",
+      "S3"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/9/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/9/9.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-9-frontend",
+        "https://github.com/dnd-side-project/dnd-7th-9-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://run-us.netlify.com"
+    }
+  },
+  {
+    "id": 38,
+    "name": "팀구",
+    "title": "나에게 딱 맞는 팀을 찾아주는 대학생 교내 팀플 매칭 서비스",
+    "desc": "저희가 진행한 아이템은 나에게 딱 맞는 팀을 찾아주는 대학생 교내 팀플 매칭 서비스입니다.\n\n대부분의 대학생들이 팀플을 위해 팀을 결성하는 과정에서 불편함을 겪고 있습니다. 그래서 저희는 “처음부터 나와 방향이 맞는 팀원을 구할 수는 없을까?” 라는 질문으로 프로젝트를 기획하였습니다.\n\n유저 리서치를 통해서 상대에 대한 정보가 부족해서 문제가 발생하는 경우가 많다는 것을 파악하고 이러한 문제에 기반하여 프로젝트를 진행했습니다.\n\n[대학교 이메일 인증]\n\n대학교 이메일 인증을 통한 회원가입으로 유저들의 신원과 대학생 신분을 보장합니다. 그리고 이를 통해 해당 대학교 내의 학생들이 팀을 구성할 수 있도록 합니다.\n\n[학과 수업 내/외 팀 구성]\n\n학과 수업 내 팀플의 팀 구성 및 학과 수업 외의 대외활동, 스터디 등의 팀을 구성할 수 있습니다.\n\n[팀원 리뷰 및 프로필]\n\n팀플 종료 후 각 팀원들에게 강점, 참여도, 재팀원 희망도를 리뷰받아 프로필에 표시하고 리뷰 점수를 바탕으로 나의 캐릭터 레벨이 성장하여, 보다 재미있고 열의있게 팀플 활동을 할 수 있습니다. \n\n결과적으로, 내 프로필에는 팀원들이 써준 후기, 프로젝트 완주율 등 다양한 정보가 나타납니다.",
+    "flag": "7기",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/2/2.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/2/3.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/2/4.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/2/5.jpg",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/2/6.jpg"
+    ],
+    "skill": [
+      "Figma",
+      "Kotlin",
+      "Java",
+      "Spring boot",
+      "JPA(+Querydsl) AWS",
+      "Github actions",
+      "MySQL"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/2/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/2/2.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-2-backend",
+        "https://github.com/dnd-side-project/dnd-7th-2-android"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 39,
+    "name": "마즐",
+    "title": "마시는 즐거움, 마즐!",
+    "desc": "마시는 즐거움, 마즐은 다양한 마실거리를 즐기는 사람들은 위한 서비스로 나만의 다양한 음료 레시피를 공유하고 추천받을 수 있는 플랫폼입니다. 편의점 음료 조합, 카페 음료 조합, 술 조합 등 다양한 음료 조합 레시피를 공유하고 소통할 수 있는 커뮤니티 장 마즐에서 내 음료취향에 맞는 음료를 찾아보세요!",
+    "images": [],
+    "flag": "7기",
+    "skill": [
+      "figma",
+      "Django",
+      "mySQL",
+      "Elasticsearch",
+      "JavaScript",
+      "TypeScript",
+      "React.js"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/8/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/8/8.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-8-frontend",
+        "https://github.com/dnd-side-project/dnd-7th-8-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://lying-driver-e37.notion.site/DnD-8-a52647bded2048e1b50ba0a6b66ddd77"
+    }
+  },
+  {
+    "id": 40,
+    "name": "한줄날씨",
+    "title": "내 손 안의 간편한, 한 줄로 보는 날씨☀️🌈",
+    "desc": "☀️한줄날씨?☀️\n\n    수치화된 날씨 어플, 감이 오시나요⁉️\n     - 바람이 6m/s...? 많이 부는건가...? 🤔\n     - 지금 13도면.... 쌀쌀한 편...인..가..? 🥶\n     - 체감온도 30도..? 얼마나 더운거야....? 🥵\n     - 강수량 15mm? 비가 많이 오는..거야...? 🤨\n     - 습도 51%면.. 50이 넘으니까 높은 거..겠..죠..? 😨\n    \n    \n    이를 위해 한줄날씨가 준비했습니다! 😎\n    \n    \n    🌈 날씨별 행동요령을 반영한 직관적인 코멘트\n     - 기상청, 보건부, 환경부에서 제공하는 날씨별 행동요령 반영\n     - 메인, 세부정보, 알리미의 코멘트를 각 기준에 맞춰 총 12개 그룹으로 세분화하여 구성\n    🌈 날씨 체감을 돕는 일러스트\n     - 수치화된 날씨정보를 보다 공감되도록 일러스트로 표현\n     - 중요한 날씨 정보를 한눈에 파악하도록 돕는 날씨 일러스트\n    🌈 날씨 알림 & 날씨 공유 기능\n     - 매일 아침마다 원하는 지역의 날씨 정보를 알림으로\n     - 카드화된 날씨 정보를 가족 또는 친구에게 보내는 날씨 공유 기능\n    \n    \n    \n    ☀️기능☀️\n    [ 오늘, 내일, 이번주 날씨 조회 기능 ]\n    - 매 시간마다 업데이트 된 날씨 정보와 그와 관련된 상세 기상 정보들을 한 눈에 확인할 수 있습니다\n    - 단순히 수치화된 데이터가 아닌, 행동 요령이 담긴 코멘트와 날씨 체감을 돕는 일러스트를 통해 한 눈에 직관적으로 날씨 정보를 확인할 수 있습니다\n    \n    [ 지역 추가 및 삭제 기능 ]\n    - 전국 지역 어디서나 원하는 지역의 날씨를 쉽고 빠르게 검색할 수 있습니다\n    - 원하는 지역의 날씨를 추가하고 이를 쉽게 확인할 수 있습니다\n    \n    [ 매일 아침 한 줄 날씨, 날씨알리미 기능 ]\n    - 유저가 설정한 위치에 따른 날씨 정보를 매일 아침마다 받아볼 수 있습니다\n    \n    [ 날씨 공유 기능 ]\n    - 현재 날씨 화면을 가족과 친구에게 공유할 수 있습니다",
+    "flag": "7기",
+    "skill": [
+      "Django",
+      "Docker",
+      "Github Action",
+      "Nginx",
+      "Celery",
+      "RabbitMQ",
+      " AWS",
+      "EC2",
+      "S3",
+      "React",
+      "Axios",
+      "Recoil",
+      "Figma"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/4/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/4/4.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-4-backend",
+        "https://github.com/dnd-side-project/dnd-7th-4-frontend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://www.weathercomment.com"
+    }
+  },
+  {
+    "id": 41,
+    "name": "2차 갈래",
+    "title": "2차 장소 선택을 도와주는 위치기반 서비스",
+    "desc": "'우리, 이제 어디가지?'\n1차에서 나와서 다음 장소를 고민해본 경험, 있으신가요?\n\n저희는 이러한 고민에 집중해서 사람들이 2차 장소를 정할 때 어려움이 있을 것이라는 가설을 가지고 프로젝트를 진행했습니다. \n\n'Main & 필터 설정 화면'\n메인 화면에서는 2차 장소 월드컵과 술자리 랜덤 게임을 선택하도록 구성했습니다. \n핵심 기능인 월드컵을 위해 세부 메뉴, 거리 설정, 라운드 선택의 필터 설정이 가능하도록 했습니다.\n\n'월드컵 진행'\n월드컵은 선택한 라운드에 따라 남은 라운드를 최상단에 배치하여 유저가 자신의 진행 상황을 알 수 있도록 구성했고, 선택지는 최대한 유저가 빠르게 선택할 수 있도록 직관적으로 표현했습니다. 리서치 결과를 토대로 유저가 중요시하는 현재 위치에서의 거리도 함께 구성했습니다.\n\n'월드컵 완료 후'\n월드컵이 완료된 후에는 지도에서 최종 선택된 2차장소를 포함한 라운드 진행시 확인한 장소들도 확인 가능하도록 화면을 구성했습니다. 지도에서는 월드컵 랭킹순, 주간 인기 검색순으로도 음식점을 확인할 수 있도록 설계하여 유저의 편리함을 이끌어내고자 하였습니다.",
+    "flag": "7기",
+    "skill": [
+      "React",
+      "Next.js",
+      "Recoil",
+      "Java 8",
+      "Maven",
+      "Selenium",
+      "Spring Boot"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/3/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/3/3.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-3-backend",
+        "https://github.com/dnd-side-project/dnd-7th-3-frontend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 42,
+    "name": "네모두 NEMODU",
+    "title": "지도에 네모를 채워나가며 나의 활동 영역을 기록하는 땅따먹기 운동장려 서비스",
+    "desc": "건강관리가 중요하지 않았던 적은 없지만, 지금은 즐겁게 건강관리를 하기 위한 움직임이 많아지고 있습니다. 하지만, 어떻게 운동을 시작해야할지, 어디서 부터 해야할지 등 시작하는 것도 어려워하는 사람들이 많았습니다. 러닝이나 헬스는 강도나 환경 측면에 있어서 제약이 많습니다. 따라서 운동에 대한 진입 장벽을 낮추고 일상 속에 녹아들어 자연스레 활동량을 늘릴 수 있는 서비스를 기획하였습니다.\n\n    새로운 관점으로 지도에 영역을 그려나가 나의 활동 정도를 직관적으로 인지하 수 있게 하고, 운동에 재미를 붙일 수 있는 지도기반 땅따먹기 운동앱 네모두입니다. \n    \n    [나의 움직임 기록]\n    야외에서 산책하며 달리는 순간을 기록할 수 있습니다. 단, 자동차를 타거나 자전거를 타면서 기록하는건 불가합니다.\n    \n    [지도위에서 기록 확인]\n    일주인 간의 나의 누적 기록을 지도 위의 영역으로 확인할 수 있습니다. 친구들의 기록도 확인 할 수 있어요! 누가 더 활동영역이 넓은지 확인해보는 재미도 있습니다.\n    \n    [친구와 함께하는 챌린지]\n    한주간의 기록을 가지고 경쟁하거나, 정해진 시간동안 서로의 땅을 먹고 먹을 수 있는 땅따먹기 형식의 챌린지들로 함께 즐겁게 운동하며 동기부여를 받을 수 있습니다.",
+    "flag": "7기",
+    "skill": [
+      "Figma",
+      "Spring boot",
+      "JPA",
+      "MySQL",
+      "AWS ec2",
+      "AWS rds",
+      "AWS s3",
+      "Swift",
+      "RxSwift",
+      "Snapkit",
+      "Then",
+      "Alamofire",
+      "UIKit",
+      "MapKit"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/1/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/1/1.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-1-backend",
+        "https://github.com/dnd-side-project/dnd-7th-1-frontend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "https://www.youtube.com/watch?v=KEPzmJbUSyI&feature=youtu.be",
+      "link": ""
+    }
+  },
+  {
+    "id": 43,
+    "name": "러너피아 [ RUNNERPIA ]",
+    "title": "새로운 경로, 안전한 경로를 다양하게 접할 수 있도록 도와주는 러닝 경로 공유 및 기록 어플리케이션",
+    "desc": " 매번 똑같은 경로는 지겹고 안전한 러닝 경로를 간편하게 찾을 수는 없을까? 러너피아는 이런 단순한 질문에서 시작된 서비스입니다. \n\n    저희 서비스의 핵심 기능을 '기록' 그리고 '공유' 두 가지의 키워드로 소개합니다. \n    \n    '기록'\n     나만의 경로를 기록합니다. 러닝 중 만났던 귀여운 고양이 사진도 좋고 오늘따라 예뻤던 노을 사진도 좋아요. 러닝 경로를 나타낼 수 있는 사진과 러너피아가 선정한 태그와 함께라면 쉽게 나만의 경로를 만들 수 있습니다. \n    \n    '공유'\n     태그 기반의 필터링을 통해 쉽게 내 주변의 공유된 러닝 경로를 검색할 수 있습니다. 익숙하지 않은 러닝 경로가 무섭다면 안심태그 위주로 공유된 경로를 따라 뛰어보시는 것은 어떨까요? \n    \n    저희 DND 7기 애니멀즈 팀과 함께 오늘도 안전하고 재밌는 러닝하세요!",
+    "flag": "7기",
+    "skill": [
+      "figma",
+      "React Native",
+      "Recoil",
+      "NestJS",
+      "Mysql",
+      "Redis",
+      "TypeORM",
+      "AWS EC2",
+      "Docker"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/7/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/7/7.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-7-frontend",
+        "https://github.com/dnd-side-project/dnd-7th-7-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://www.notion.so/5fbc06253b8e4ed0acbb3c623fa60560"
+    }
+  },
+  {
+    "id": 44,
+    "name": "photalks",
+    "title": "포토부스를 찾는 가장 완벽한 방법,  포토부스 정보 지도 서비스 photalks",
+    "desc": "친구들과 포토부스에 가서 사진 찍고 싶을 때, 위치가 정확히 어디에 있는지 제대로 나오지 않아 답답했던 적 있으신가요?\n    포토부스에서 사진을 찍고 생각보다 사진 결과물에 만족하지 못해본 경험이 있으신가요?\n    부스 안으로 들어가서 막상 포즈를 어떻게 해야 할지 몰라 당황했다구요?\n    \n    모두가 포토부스에서 즐거운 시간을 보내고\n    자유롭게 이 순간을 남길 수 있도록-\n    \n    포토부스와 관련된 모든 정보를 지금 포톡스에서 만나보세요 :)\n    \n    \n    ■ 사진으로 보는 포즈, 프레임 정보\n    - 태그 검색을 통해 궁금했던 정보를 찾아볼 수 있어요.\n    - 다른 사용자들이 찜으로 많이 담은 사진을 확인하고 포즈를 참고할 수 있어요.\n    - 다른 사용자들이 올린 사진에서 포즈, 프레임, 보정 정보를 확인할 수 있어요.\n    \n    \n    ■ 필터로 사진 검색\n    - 브랜드/인원/포즈/프레임 필터를 통해 사진을 빠르게 찾을 수 있어요.\n    \n    \n    ■ 부스 지도\n    - 사용자 위치기반 2km이내 주변 포토부스 위치를 정확하게 찾아드려요.\n    - 부스 필터로 궁금한 부스를 빠르게 검색할 수 있어요.\n    \n    \n    ■ 부스 상세 정보\n    - 포톡커들이 남긴 부스 정보와 태그 리뷰를 확인해보세요.\n    - 포톡스 사용자 데이터를 기반으로 제공하는 포토부스의 정보를 알 수 있어요.\n    \n    \n    ■ 찜\n    - 좋아하거나 참고하고싶은 사진, 부스에 하트를 눌러 담아 둘 수 있어요.\n    - 참고하고 싶었던 사진, 부스 정보를 빠르게 꺼내볼 수 있어요.\n    \n    \n    ■ 사진 리뷰 작성\n    - 내 사진들만 모아 아카이빙 할 수 있어요.\n    - 태그를 직접 작성해 내 사진에 대한 자세한 기록이 가능해요.\n    - 기록에 대한 공개 범위를 선택할 수 있어요.\n    \n    \n    ■ 부스 리뷰 작성\n    - 부스/사진 태그를 선택해 빠르게 부스 후기를 작성할 수 있어요.\n    - 사진을 등록해 부스의 자세한 정보를 공유할 수 있어요.",
+    "flag": "7기",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/6/2.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/6/3.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/6/4.png",
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/6/5.png"
+    ],
+    "skill": [
+      "Figma",
+      "React Native",
+      "Emotion",
+      "React-Query",
+      "Redux",
+      "RN-codepush",
+      "AWS",
+      "MySQL",
+      "redis",
+      "Flyway",
+      "Gradle",
+      "QueryDSL",
+      "Spring Boot"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/6/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/6/6.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-6-frontend",
+        "https://github.com/dnd-side-project/dnd-7th-6-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 45,
+    "name": "Linkkle",
+    "title": "링크를 끌어모아, 링끌 모아 태산",
+    "desc": "손쉽게 링크를 정리하고 수집한 링크를 리마인딩하여 개인의 성장을 돕는 링크 아카이빙 서비스\n 혹시 나중에 읽기 위해 링크를 카카오톡 나에게 보내기로 저장해두고 다시 꺼내읽지 않은 경험이 있으신가요?\n 링끌은 자기개발과 커리어적 발전을 위해 링크를 수집하는 사용자들이 손쉽게 링크를 정리하고 수집한 링크를 리마인딩하여 다시 읽고 성장할 수 있도록 돕는 아카이빙 서비스입니다.\n\n - 아카이빙\n 간소화된 저장과정으로 쉽고 빠르게, 분류를 편리하게!\n 최소한의 depth 과정으로 편리한 사용성 제공\n 폴더를 활용해 여기저기 흩어진 링크를 깔끔하게 정리해요\n\n - 리마인딩\n 내가 중요하다고 생각하는 링크를 핀!하게 모아 기억하기\n 하던 일을 중단할만한 가치 있는 알림을 제공\n 정기적으로 알림을 받아 깜빡하고 읽지 못한 링크를 모두 읽어요\n\n - 메모\n 필요하다면 어디서든 내 생각을 메모로 기록\n 잊어버리기 전에 간편하고 편리하게\n 링크를 읽는 중에 간단히 메모해서 오래오래 기억해요",
+    "flag": "7기",
+    "images": [],
+    "skill": [
+      "Figma",
+      "react native",
+      "typescript",
+      "emotion",
+      "github actions",
+      "Spring Boot",
+      "Spring Data JPA",
+      "Spiring Security",
+      "PostgreSQL",
+      "JUnit5",
+      "Docker",
+      "AWS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/10/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/10/10.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-7th-10-frontend",
+        "https://github.com/dnd-side-project/dnd-7th-10-backend"
+      ],
+      "googlePlaystore": "https://play.google.com/store/apps/details?id=me.linkkle.app",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 46,
+    "name": "춤으로 연결되는 댄스 유니버스, Danverse💫",
+    "title": "온/오프라인으로 댄스팀, 댄서가 연결되는 교류 플랫폼 서비스",
+    "desc": "💃 댄서들의 활동 교류 공간 (콜라보/쉐어)\n 새로운 댄서 혹은 댄스팀과 협업, 지식 공유할 수 있는 교류의 장이 됩니다.\n 함께 교류하며 성장하는 즐거움을 느낄 수 있어요.\n\n🎈 연결과 성장이 이뤄지는 공연 정보 페이지\n 공연 주최자는 댄버스에서 쉽게 공연을 등록하고, 홍보할 수 있어요.\n 사용자는 지역과 장르 필터링에 기반하여 쉽게 공연을 찾을 수 있어요.\n 공연이 지나고 난 후에는 댄스에 관심이 많은 사용자들로부터 응원 혹은 피드백을 받을 수 있어요.\n 이를 통해 뿌듯함과 더불어 발전할 수 있는 기회가 될 거에요.\n\n 💫 댄서, 댄스팀의 커리어를 소개하는 프로필\n 댄서/댄스팀의 커리어를 소개하는 매력적인 프로필을 작성할 수 있어요.\n 게시글 작성자의 프로필을 통해서 다양한 댄서와 댄스팀의 프로필을 탐색할 수 있어요!",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "Next.js",
+      "TypeScript",
+      "Storybook",
+      "React Query",
+      "Recoil",
+      "Tailwind CSS",
+      "Java11",
+      "Spring Boot",
+      "JPA",
+      "Querydsl",
+      "Mariadb",
+      "AWS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/1/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/1/1.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-1-frontend",
+        "https://github.com/dnd-side-project/dnd-8th-1-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 47,
+    "name": "Reet Place",
+    "title": "숨겨진 장소를 나만의 약속으로, Reet-Place",
+    "desc": "\" 갑작스런 웨이팅, 클로징으로 어딜 가야하지..? \"\n\" 신사, 강남.. 약속 장소는 정했는데, 그런데 여기선 뭐하지?\"\n\n약속 장소와 연관하여 어떻게 계획을 효과적으로 수립할지\nReet Place가 도와드립니다.\n\n1. [로그인]하기: 자, 나만의 약속을 잡기 위한 여정을 떠나볼까요?\n    지금 당장 로그인을 하지 않아도, 괜찮아요. 비회원이여도 지도를 충분히 탐색할 수 있어요.\n    내가 공유하기를 보냈을 때, 비회원인 내 친구도 내가 공유한 장소를 확인할 수 있어요.\n\n2.[홈] 릿플 인기 카테고리: 어디를 가야 할지 모를 때, 장소를 미리 체킹하는건 어때요?\n    갑작스러운 웨이팅, 클로징으로 이미 약속 장소에 왔는데 어딜 가야할지 모르겠다면!\n    약속 장소는 크게 정했는데, 세부적인 장소는 못정했다면!\n    릿플 인기가 미리, 요즘에 당신이 정한 약속 장소를 추천해드립니다.\n    \n    3. [북마크 리스트] : 가보고 싶어요 , 다녀왔어요\n    내가 저장한 약속 장소를 확인해보세요.\n    다음에 내가 그 장소에 갔을 때, 웨이팅-클로징 문제의 대체 장소로 한번 더 가볼 수도 있겠죠?\n    - 가보고 싶어요: 내가 가보고 싶은, 가볼 나의 약속 장소\n    - 다녀왔어요: 내가 경험해본 나의 약속 장소",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "Swift",
+      "RxSwift",
+      "Java 17",
+      "Spring Boot",
+      "Spring Web",
+      "Spring Data JPA",
+      "QueryDsl",
+      "MySQL",
+      "H2",
+      "Validation",
+      "Spring Security",
+      "JWT",
+      "Spring Boot Actuator",
+      "Spring AOP",
+      "Swagger",
+      "AWS EC2",
+      "AWS RDS",
+      "AWS CodeDeploy",
+      "Github Actions",
+      "Nginx",
+      "Jacoco(Test Coverage)"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/2/2.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/2/2.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-2-frontend",
+        "https://github.com/dnd-side-project/dnd-8th-2-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 48,
+    "name": "BPM (Body Profile Manager)",
+    "title": "당신의 바디 프로필 매니저, BPM",
+    "desc": "혹시 바디 프로필을 촬영할 계획이 있으신가요?\n    또는 촬영해 본 경험이 있으신가요?\n    BPM (Body Profile Manager) 은 바디 프로필 촬영 전반을 케어해주는 서비스로,\n    촬영 스튜디오 정보 제공 및 예약 기능, 일일 기록 및 커뮤니티 기능을 제공합니다.\n\n    [스튜디오 정보]\n    스튜디오 정보들은 다소 지엽적으로 산개해 있으며, 이들을 취합하는 과정이 쉽지만은 않습니다. BPM은 이를 해결하기 위해 보다 투명하고 객관적인 정보만을 유저에게 간결히 제공해드려요.\n    \n    [일정 예약 및 관리]\n    업체와의 1:1 채팅으로 장소와 일시를 결정할 수 있으며, 확정된 예약에 관하여 리마인드 서비스를 제공합니다. 이를 통해 유저는 보다 효율적으로 바디 프로필 촬영을 준비할 수 있습니다.\n    \n    [일일 기록]\n    '나의 눈바디' 를 통해 매일의 운동 과정 및 결과를 기록할 수 있습니다. 하루 하루 달라지는 몸 상태를 기록하고 확인하여, 지속적인 동기부여가 가능하도록 도와드릴게요!\n    \n    [커뮤니티]\n    나만 아는 운동 꿀팁, 촬영 꿀팁을 공유하고 다른 유저와 소통할 수 있어요. 또, '나의 눈바디' 를 자랑할 수 있는 피드 커뮤니티도 제공해요.\n    \n    다가오는 여름, BPM 과 함께 반짝반짝 빛나는 나를 기록해요!",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "Kotlin",
+      "Compose",
+      "Databinding",
+      "MVI",
+      "Java",
+      "Spring boot",
+      "AWS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/3/3.png",
+    "pdf": null,
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-3-android",
+        "https://github.com/dnd-side-project/dnd-8th-3-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 49,
+    "name": "We'ry",
+    "title": "우리들만의 공간, 위어리",
+    "desc": "노출된 공간에서 친구들과 일상을 공유하기 꺼려진 적이 있나요?\n    원하는 기록을 찾고 싶은데 탐색하기 번거롭다고요?\n    위어리는 친한 친구들과 비공개 그룹을 생성해 일상을 기록하고 공유할 수 있는 서비스를 제공해요.\n    모아보기로 기록을 간편하게 찾아볼 수 있고, 미션 달성을 통해 꾸준한 기록 습관을 형성할 수 있게 도와줄게요!",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "figma",
+      "kotlin",
+      "android",
+      "mvvm",
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "Redis",
+      "EC2",
+      "RDS",
+      "S3",
+      "CodeDeploy",
+      "Github Actions"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/4/4.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/4/4.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-4-android",
+        "https://github.com/dnd-side-project/dnd-8th-4-backend"
+      ],
+      "googlePlaystore": "https://play.google.com/store/apps/details?id=com.dnd_8th_4_android.wery&pli=1",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 51,
+    "name": "모두의 시간",
+    "title": "누구나 부담 없이 약속 시간 정하는 과정을 리드하고 빠르게 참여할 수 있는 약속 시간 조율 서비스",
+    "desc": "3인 이상 약속을 잡을 때, 모두가 되는 시간으로 잡기 어렵지 않으셨나요?\n    또는 서로의 되는 시간 / 안되는 시간을 알아가고, 재차 물어보는 과정이 번거롭지는 않으셨나요?\n\n    모두의 시간은 누구나 부담 없이 약속 시간 정하는 것을 리드하고 빠르게 참여할 수 있는 약속 시간 조율 서비스입니다.\n\n    [쉽고 빠른 약속 만들기]\n    약속에 필요한 정보만 간단하게 설정해 누구나 쉽게 약속을 만들고 공유할 수 있습니다.\n    (약속 이름, 참여 인원, 날짜 및 시간대, 타이머)\n\n    [약속 날짜만 조율하기]\n   약속 모임을 만들 때, [시간 조율 없이 약속 날짜만 알고 싶어요]를 선택하면, 약속 날짜만 조율할 수 있습니다.\n\n    [원하는 방식으로 일정 등록하기]\n    사용자가 자신의 상황에 맞게 [되는 시간]이나 [안되는 시간] 중에서 하나를 선택하여 자신의 일정을 등록할 수 있습니다.\n\n    [실시간 등록 현황 확인하기]\n   참여자들의 일정 등록 현황을 막대그래프와 컬러 단계를 통해 직관적으로 확인할 수 있습니다.\n\n    [우선순위 결과 확인하기]\n   참여자의 등록된 일정들을 바탕으로 조율된 시간을 우선순위 별로 추천받을 수 있습니다.\n    보고 싶은 참여자들만 선택할 수도 있고, [빠른 시간순]/ [오래 만날 수 있는 순] 정렬이 제공됩니다.\n\n    [일정 확정 알림]\n    이메일을 등록하면 약속 확정 알림 메일을 받을 수 있습니다.\n\n    [참여 도모하기]\n    실시간 참여율과 일정 등록 기간 마감 타이머를 통해 참여자들이 일정을 빠르게 등록하도록 유도할 수 있습니다.",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "Figma",
+      "React",
+      "TypeScript",
+      "Recoil",
+      "Emotion",
+      "Storybook",
+      "Vercel",
+      "spring",
+      "spring boot",
+      "jpa",
+      "docker",
+      "github action",
+      "ec2",
+      "rds",
+      "mysql"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/5/5.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/5/5.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-5-frontend",
+        "https://github.com/dnd-side-project/dnd-8th-5-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 53,
+    "name": "하루블럭",
+    "title": "하루를 블럭으로 나눠 복잡한 일상을 심플하게, 하루블럭",
+    "desc": "평소에 시간관리나 계획을 실천하는게 힘들다고 생각해 본 적이 있으신가요?\n    우리는 현대사회에서 살아남기 위해 불가피하게 계획이란 것을 마주하게 됩니다.\n    하지만 계획을 세웠음에도 지키지 못하거나, 지키지 못하니 시작도 안하는 경우가 생깁니다.\n\n    그래서 저희는 이렇게 계획을 지키고, 시간관리가 어려운 사람들에게 \n    복잡한 일상을 심플하게 만들어주는 서비스 '하루블럭'을 제공하고자 합니다.\n\n    ■ 블럭 만들기\n    하루 계획의 카테고리별 블럭을 만들어요.\n    블럭마다 할일 리스트를 추가할 수 있어요.\n    자주 사용하는 블럭은 저장해두고 쉽게 불러올 수 있어요.\n    계획이 변경되면 블럭을 다른날로 미룰 수 있어요.\n\n    ■ 하루 일기\n    간단한 일기로 오늘 하루가 어땠는지 되돌아봐요.\n\n    ■ 한 달 블럭 활동 리포트\n    내 블럭의 한달간 달성률 정보를 제공해요.\n\n    ■ 친구와 블럭 공유하기\n    닉네임으로 친구를 추가하고 서로 하루 블럭을 공유해요.\n    친구의 블럭에 리액션을 남길 수 있어요.\n\n    현재는 메인 기능만 구현된 상태로 \n    추후 업데이트 예정이니 많은 관심 부탁드립니다 :)",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "Figma",
+      "Java 11",
+      "Spring Boot",
+      "Spring Security",
+      "Data JPA",
+      "Query DSL",
+      "AWS Services",
+      "React",
+      "React Native",
+      "Next.js",
+      "Storybook",
+      "Zustand",
+      "TypeScript",
+      "Route53",
+      "Vercel"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/7/7.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/7/7.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-7-frontend",
+        "https://github.com/dnd-side-project/dnd-8th-7-frontend-app",
+        "https://github.com/dnd-side-project/dnd-8th-7-backend"
+      ],
+      "googlePlaystore": "https://play.google.com/store/apps/details?id=com.dayblock",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 54,
+    "name": "웨딩맵",
+    "title": "나만의 웨딩 플래너, 웨딩맵 💍",
+    "desc": "결혼을 준비할 때 언제, 어디서, 무엇을 준비할지 막막하지 않으신가요?\n    그렇다고 플래너나 업체를 동반 하자니 가격이 만만치 않죠 🤔\n    “예비부부들의 결혼 일정 준비를 도와주는 서비스가 없을까?”\n    이러한 고민 끝에 저희는 ‘나만의 웨딩플래너, 웨딩맵’을 만들게 되었어요. \n\n    📝 체크리스트 \n    ‣ 결혼 준비에 필요한 체크리스트를 제공해드려요. \n    ‣ 물론 직접 리스트를 추가할 수 있어요.\n\n    🧭 로드맵\n    ‣ 체크리스트와 연동되어 일정을 한 눈에 확인할 수 있어요.\n\n    🗄️ 서랍함\n    ‣ 예산서 : 결혼 자금과 지출 내역을 연동하여 자동으로 계산해드려요.\n    ‣ 계약서 : 계약서를 등록해 손쉽게 관리할 수 있어요.",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "Next.js",
+      "TypeScript",
+      "Storybook",
+      "React Query",
+      "Spring Boot",
+      "MySQL",
+      "Docker",
+      "ECS",
+      "RDS",
+      "S3",
+      "Figma",
+      "Illustrator"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/8/8.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/8/8.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-8-frontend",
+        "https://github.com/dnd-side-project/dnd-8th-8-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 55,
+    "name": "당도",
+    "title": "주문제작 케이크 업체 탐색을 쉽고 즐겁게 만들어주는 당도",
+    "desc": "기획배경\n    최근 3년간 주문제작 케이크에 대한 폭발적인 수요 증가와\n    많은 소비자들이 주문제작 케이크 업체 탐색에 불편함을 느끼고 있다는 점을\n    기반하여, 주문제작 케이크 업체 탐색과정을 편리하게 만들어주는\n    앱 서비스를 기획했습니다.\n\n    주요 서비스\n    - 당도는 선호하는 업체 지역, 케이크 디자인을 토대로 업체를 추천해주고,\n    업체를 탐색하는 시간을 줄여줍니다.\n    - 복잡했던 업체별 주문양식을\n    당도를 통해 손쉽게 확인하고 작성할 수 있습니다.",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "figma",
+      "typescript",
+      "next.js",
+      "emotion",
+      "tanstack-query",
+      "zustand",
+      "msw",
+      "spring boot",
+      "jpa",
+      "mysql"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/9/9.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/9/9.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-9-frontend",
+        "https://github.com/dnd-side-project/dnd-8th-9-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://dnd-dangdo.netlify.app"
+    }
+  },
+  {
+    "id": 56,
+    "name": "슬편생",
+    "title": "편의점 최고 일잘러가 될 수 있는 편의점 업무 보조 서비스",
+    "desc": "많은 알바생들이 일하고 있는 편의점!\n    생각보다 까다롭고 비효율적인 업무 방식으로 불편함을 느끼고 계시진 않나요?\n\n    ‘슬편생’은 수기작성과 구두전달에 의존해있던 기존 편의점의 아날로그적인 업무 방식을 디지털화하여 근무자들의 업무 효율을 개선하고자 제작한 서비스입니다. 슬편생과 함께 슬기로운 편의점 생활을 시작해보세요!\n\n   💰 슬편생에서 출근을 기록하고, 급여까지 계산해요\n    메모장, 달력에 기록되어 유실되기도 했던 출근 사항은 슬편생 내에 있는 출근 버튼과 근무 기록 기능을 통해 출근을 기록하고 수정할 수 있습니다. 또한 이 기록들을 바탕으로 차곡 차곡 쌓여가는 나의 급여를 확인할 수 있습니다.\n\n   🗒️ 시재 점검과 내 할일 점검 기능으로 프로일잘러가 되어보아요\n   점검 해야하는 시재들의 리스트를 기본으로 제공하여 일일히 작성하며 일했던 불편함을 줄였습니다. 또한 잊지 말아야 하는 편의점 업무가 있다면 내 할일 점검에서 업무 리스트를 만들고, 체크하며 꼼꼼히 일할 수 있습니다.\n\n    🏪 게시판 기능을 통해 편리하게 커뮤니케이션해요\n    누가 일하고 있는지 몰라 구하기 어려웠던 대타, 다음 타임 알바생에게 깜빡하고 전달하지 못했던 공지 및 전달사항들 모두 게시판을 통해 글을 남기고, 확인하며 효율적으로 소통하며 일할 수 있습니다.\n    ",
+    "flag": "8기",
+    "images": [],
+    "skill": [
+      "figma",
+      "NextJS",
+      "TypeScript",
+      "Spring Boot",
+      "Spring JPA",
+      "MariaDB",
+      "NCP(naver cloud platform)"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/10/10.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/10/10.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-8th-10-frontend",
+        "https://github.com/dnd-side-project/dnd-8th-10-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 57,
+    "name": "Milestone",
+    "title": "목표를 작게 나누고 차근차근 깨나가보세요! Milestone",
+    "desc": "혹시 목표를 실천하고 이루는데 어려움을 겪고 계신가요?\n목표를 작게 나누어 차근차근 이루어보세요, Milestone이 도와드릴게요!\n\nMilestone은 세부 목표를 돌로, 완료한 목표를 보석으로 표현했어요\n세부 목표를 차근차근 깨나가며 목표를 이루고 다양한 보석을 얻어보세요!\n\n1. [채움함]\n채움함에서 목표를 설정, 확인하고 하나씩 깨나가볼까요?\n메인 화면인 채움함에서 추가하기 버튼을 누르고 목표를 작성하면 '상위 목표'가 생성돼요.\n상세 페이지로 들어가 '세부 목표'를 만든다면 준비 완료! 알람을 받고 하나씩 깨나가며 목표에 다가가요!\n\n2. [완료함]\n설정 기간내 완료한 목표는 완료함에서 확인할 수 있어요!\n설정한 세부 목표 돌을 모두 깨면 목표 달성 보석을 받을 수 있어요!\n\n3. [회고]\n완료함에 저장된 목표들을 회고해보세요!\n어떤 걸 중점적으로 기록해야할지 모르겠다면, 질문 받기를 통해 기록해보는 건 어때요?\n\n4. [보관함]\n기간 내에 달성하지 않은 목표는 보관함으로 이동해요!\n원한다면 언제든 목표를 보관함에서 채움함으로 복구할 수 있어요!",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "Java",
+      "Spring Boot",
+      "Gradle",
+      "JPA",
+      "Spring Security",
+      "Jwt",
+      "QueryDSL",
+      "MariaDB",
+      "Redis",
+      "Firebase",
+      "Swift",
+      "RxSwift",
+      "Alamofire",
+      "SnapKit",
+      "Then"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/1/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/1/1.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-1-ios",
+        "https://github.com/dnd-side-project/dnd-9th-1-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 58,
+    "name": "Baggle",
+    "title": "약속이 다가올수록 마음이 바글바글🫧\n이벤트를 통해 약속을 재밌게 만들어주는 약속 관리 서비스",
+    "desc": "친구들과의 약속, 정해진 시간에 모두가 모이기 어렵지 않으신가요?\n이러한 약속 관리에 스트레스를 받고 계신다면,\nBaggle을 통해 이런 과정까지도 친구들과 함께 신나고, 활기찬 - 특별한 추억으로 만들어보세요!\n\n긴급버튼이라는 이벤트를 통해 친구들을 호출하고 실시간 사진 인증을 하며,\n자연스럽게 약속을 인지하고 참여자들 간의 간접적인 소통을 유도할 수 있습니다.\n\n친구들과 약속의 즐거움이 두 배로 바글바글🫧 되도록 저희 Baggle과 함께 해보세요!",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "Swift", "SwiftUI", "Lottie", "Moya", "Spring boot", "Spring Security", "JWT", "Github Action", "Redis", "Docker", "AWS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/2/2.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/2/2.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-2-ios",
+        "https://github.com/dnd-side-project/dnd-9th-2-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 59,
+    "name": "Gooding",
+    "title": "나만의 굳이데이 기록, Gooding",
+    "desc": "바쁜 일상을 보내다 보면 때로는 고된 일상에서 벗어나 나를 위한 하루를 보내고 싶은 적 있지 않으셨나요?\n\n굳잉은 ‘굳이데이'를 통해 바쁜 일상 속 나를 위한 낭만적인 날을 기록하고 공유할 수 있는 서비스입니다. 굳잉을 통해 나만의 굳이데이 기록을 남겨보세요!\n\n■ 메인 피드 탐색 및 낭만지수 평가\n- 다른 사용자들이 올린 굳이데이 기록을 메인 피드에서 확인할 수 있어요.\n- 피드는 사용자들이 선택한 굳이데이 활동 관심사를 기반으로 제공돼요.\n- 하단 슬라이더를 통해 다른 사용자들 피드에 낭만지수를 매겨볼 수 있어요!\n\n■ 매달 새로운 굳이데이 활동 추천\n- 매달마다 새로운 굳이데이 활동을 추천받아 참여하고 기록할 수 있어요.\n\n■ 굳이데이 활동 검색\n- 검색기능을 통해 인기 굳이데이를 탐색하고 관심 있는 굳이데이 활동 정보를 찾아볼 수 있어요.\n\n■ 개인 굳이데이 기록\n- 활동 내용, 날짜와 장소, 그리고 활동 카테고리와 함께 굳이데이를 기록할 수 있고, 그날의 굳이데이의 낭만지수도 매겨볼 수 있어요.\n\n■ 마이굳잉 페이지\n- 마이굳잉 페이지에서는 나의 굳이데이 기록과 저장한 피드를 확인할 수 있어요.\n- 불꽃놀이 막대의 그래픽을 통해 나의 낭만레벨을 제공해요.",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "figma", "Kotlin", "android", "compose", "mvvm", "Java", "AWS", "Docker", "MySQL", "Redis", "Spring boot", "Github action", "Nginx"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/3/3.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/3/3.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-3-android-new",
+        "https://github.com/dnd-side-project/dnd-9th-3-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 60,
+    "name": "뉴플(NewPle)",
+    "title": "나와 맞는 운동메이트를 찾아 오프라인에서 즐겁게 운동할 수 있도록 돕는 운동메이트 매칭 서비스",
+    "desc": "왜 운동 메이트를 구해야 할까요?\n혼자 운동을 하게 되면 운동 시간과 장소를 정하는 것이 자유롭지만, 그만큼 의무감과 강제성이 부족하여 쉽게 운동을 포기하게 됩니다. 또 부족한 부분을 확인하기 어렵고 무리를 했을 때 도와줄 이가 없기도 합니다.\n다른 사람과 함께 운동을 할 때, 우리는 긍정적인 자극을 통해 동기부여를 얻을 수 있습니다. 타인과의 약속이니 운동을 미루는 일도 적어지고, 나의 자세에 대한 조언과 해당 운동에 대한 팁도 얻을 수 있습니다.\n\n다른 사람과 함께 운동을 하고 싶지만 위치와 시간 등 상황과 조건에 맞는 지인이 없어 혼자 하시는 분들, 주변에서 함께 운동할 파트너를 구하고 싶지만 여러 조건을 맞추는 것이 부담스러워 혼자 운동을 하시던 분들, 뉴플을 통해 운동메이트를 찾아보세요!\n내가 원하는 시간, 관심사에 맞는 메이트를 찾을 수 있는 모집글을 등록하여 원하는 사람을 찾고, 선호하는 종목과 성향을 기반으로 한 맞춤 추천 기능을 통해 운동메이트를 추천받아보세요. 자신과 운동 목적이 맞는 메이트와 함께 즐겁고 편안하게 운동을 진행할 수 있습니다!\n\n🔎 내 운동 성향과 원하는 운동메이트 등록하기\n온보딩 페이지에서 나의 운동 경력과 스타일, 관심사를 선택해주세요. 그리고 선호하는 운동메이트의 성별, 나이, 운동 경력 등을 선택해주시면 추후 알맞는 메이트 추천에 사용됩니다!\n\n✨ 내 주변 운동메이트와 나의 매칭 일정 확인하기\n온보딩에서 등록해주신 사는 지역을 바탕으로, 메인 페이지에서 근처에 거주 중인 운동메이트를 추천해드려요. 원하는 메이트에게 쪽지를 보내 운동 일정을 약속할 수 있습니다!\n또 나의 운동 매칭 일정을 확인하여, 상대방과의 운동을 잊지 않고 참석할 수 있도록 도와드려요.\n\n📝 등록된 운동메이트 모집글을 확인하고 매칭 신청하기\n현재 올라온 운동메이트 모집글을 확인하고 함께하고 싶은 운동에 매칭을 신청해보세요. 원하는 날짜와 운동 종목, 세부 내용들을 선택하여 간편히 필터링할 수 있어요. 매칭을 신청한 후에 마음이 바뀌었다면, 마감 전 취소 역시 가능합니다!\n이렇게 신청된 매칭들은, 모집글 작성자가 추후에 확인하여 함께하고 싶은 메이트를 선택할 수 있어요.\n\n📬 원하는 메이트에게 쪽지 보내기\n매칭된 메이트에게는 쪽지를 보내서 운동 일정을 확정할 수 있어요. 서로의 운동 목적이나 스케줄을 더 상세히 파악하고 상대방과 함께 운동을 진행해보세요! 그간의 쪽지 이력 역시 쪽지 목록을 통해 확인할 수 있어요.\n\n💡 메이트 리뷰 등록하기\n원하는 운동메이트와 함께 만족스러운 운동을 진행하셨나요? 그렇다면 후기를 남겨주세요. 등록된 후기는 상대방 프로필에서 확인할 수 있으며, 다른 유저들이 해당 후기를 통해 그 메이트에 대해 한 걸음 더 알 수 있어요!",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "Figma", "React", "Typescript", "React-Query", "Emotion", "Recoil",  "Material UI", "Vercel", "ESLint", "Prettier", "Spring boot", "JPA", "AWS EC2",  "AWS S3", "AWS CodeDeploy", "Github Action", "MysqlDB", "Spring Security"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/4/4.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/4/4.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-4-frontend",
+        "https://github.com/dnd-side-project/dnd-9th-4-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://dnd-9th-4-newple-app.vercel.app/"
+    }
+  },
+  {
+    "id": 61,
+    "name": "PosePicker : 포즈피커",
+    "title": "다음 포즈 뭐하지? 포즈피커가 포즈 고민을 해결해 드릴게요!",
+    "desc": "네컷사진 찍을 때면 늘 포즈가 고민되지 않나요? 🧐\n포즈피커가 포즈 고민을 해결해 드릴게요! 📸\n미리 포즈 고민할 필요 없이, 찍기 직전에 빠르고 재밌게 포즈를 추천해 주는 포즈피커를 이용해 보세요!\n\n⭐️ 포즈픽 ⭐️\n“빨리 빨리! 우리 무슨 포즈로 찍을래?”\n시간 없을 땐 포즈픽으로 빠르게 랜덤 포즈를 추천받아보세요.\n\n⭐️ 포즈톡 ⭐️\n“이미 있는 포즈는 시시해, 우리만의 특별한 포즈가 필요해!”\n포즈톡에서 뽑은 랜덤 제시어로 나만의 개성있는 포즈를 완성해보세요.\n\n⭐️ 포즈피드 & 북마크 ⭐️\n“또 어떤 포즈가 있을까? 우리 이 포즈로 찍어볼까?”\n포즈피드에서 특정한 상황을 빛내줄 포즈를 찾고, 친구한테 공유해보세요.",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "Notion", "Jira", "Slack", "Discord", "Github", "Figma", "Aftereffect", "Lottie", "NextJS", "Typescript", "tailwind-css", "Recoil", "Axios", "tanstack-query", "next-pwa", "Spring Boot", "JPA", "Query DSL", "Jenkins", "Docker", "MySQL", "EC2", "RDS", "Lambda", "CDN", "ALB"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/5/5.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/5/5.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-5-frontend",
+        "https://github.com/dnd-side-project/dnd-9th-5-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://www.posepicker.site"
+    }
+  },
+  {
+    "id": 62,
+    "name": "Classcope",
+    "title": "온라인 클래스 탐색 여정을 밝혀주는, Classcope",
+    "desc": "넘쳐나는 강의 중 나에게 맞는 강의를 찾는 과정이 번거롭지 않으셨나요?\n강의 탐색 중 후기를 파악하기 어렵지는 않으셨나요?\n\n클래스코프는 온라인 클래스 플랫폼을 하나로 통합해 편리한 검색과 후기 탐색을 도와주는 서비스입니다.\n나에게 적합하고 좋은 강의를 찾기 위한 여정을 조금 더 쉽게 나아갈 준비가 되셨나요? ✔\n이제 클래스코프가 여러분의 온라인 클래스 탐색 여정을 환하게 밝혀드릴게요! ✨\n\n존재하는 모든 강의를 손쉽게 확인하세요 🔎\n여러 플랫폼에 존재하는 강의를 다양한 카테고리로 분류해 한곳에 모았습니다.\n강의마다 다른 플랫폼을 탐색하는 과정이 번거로우셨다면 한번에 검색하고 빠르게 찾으세요!\n만약, 어떤 강의를 구매할지 고민하고 계신다면 클래스코프의 정렬 기능을 사용해 여러분들에게 최적화된 강의를 찾을 수 있습니다. 이제는 더 이상 강의를 찾기위해 이곳저곳 검색해서 들어갈 필요가 없어지겠죠? 😆\n\n후기는 쉽게 작성하고 한눈에 확인해야 하니깐 📝👀\n그동안 후기를 작성할 수 없었던 강의를 직접 서치를 통해 얼마나 도움이 될 수 있는지 찾아보느라 고생 많으셨습니다 🥲\n이젠 클래스코프에서 후기를 빠르게 작성하고, 쉽게 확인하세요!\n키워드 선택으로 1분 만에 후기를 간편하게 작성하며 후기 키워드들로 강의를 빠르게 파악하고 자세한 후기 글을 읽어볼 수도 있습니다.\n강의 후기를 하나씩 확인하는 게 귀찮다면 사람들이 남긴 후기 점수의 평균을 확인하여 해당 강의가 얼마나 유익한지 빠르게 확인할 수 있겠죠? 🏃‍♂️\n\n유저를 위한 맞춤 강의들을 준비해놨습니다 🎁\n탐색의 여정을 도와주는데, 단순히 검색만 할 수 있으면 안 되겠죠?\n유저가 자신의 프로필에 등록해둔 관심 분야를 기반으로 최적화된 강의를 찾는 데 도움을 주는 Scope 탭이 존재합니다. 관심 분야에 맞는 강의를 찾고 뛰어난 강의를 추천해주며 등록해둔 관심 분야에 맞춰 다른 유저가 남겨둔 생생한 후기를 분석하여 제공합니다. 유저가 강의를 찾기 위해 검색하는 과정도 해당 Scope 탭에서 최소화할 수 있겠네요! 만약, 누군가의 후기가 공감이 간다면 좋아요 버튼을 통해 후기를 남기지 않아도 강의에 대한 의견을 남길 수도 있어요 😸",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "Typescript", "React", "Next.js 13", "Recoil", "React-Query", "TailwindCSS", "Java", "Spring Boot", "MySQL", "AWS RDS", "Spring Data JPA", "queryDSL", "ElasticSearch", "AWS EC2", "AWS S3", "CodeDeploy", "Nginx", "Github Actions", "Figma", "Blender", "Photoshop", "AfterEffects"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/6/6.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/6/6.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-6-frontend",
+        "https://github.com/dnd-side-project/dnd-9th-6-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 63,
+    "name": "MUSIC LOG",
+    "title": "음악과 일상을 함께 기록하고, 파노라마처럼 선명하게 기억할 수 있도록 해주는 서비스",
+    "desc": "음악을 통해 흐릿해진 과거의 기억이 파노라마처럼 선명하게 떠오르는 경험을 해 본 적이 있으신가요?\n\n기존의 음악 앱이나 SNS에 남기는 기록만으로는 어떤 상황에 어떤 음악을 들었는지 한눈에 확인할 수 없어 아쉬움을 느꼈던 경험이 있지는 않으셨나요?\n\nMUSIC LOG에서는 음악과 함께한 순간들을 빠르면서도 효과적으로 기록하고, 영화 속의 한 장면처럼 과거의 기억을 더욱 생생하게 떠올릴 수 있습니다.\n\n● MUSIC LOG\n어떤 날 어떤 음악을 들었는지, 한 달 동안 얼마나 기록을 남겼는지 한눈에 확인할 수 있는 ‘캘린더’\n필름 영화를 보는 것처럼 나의 기록을 확인할 수 있는 ‘기록 보기’\n감정·시간대·날씨 등 어떤 상황에서 음악을 들었는지 빠르게 기록할 수 있는 카테고리별 ‘상황 선택’\n기록하고 싶은 음악 정보를 간편하게 첨부할 수 있는 ‘음악 검색’\n미발매곡·커버곡처럼 등록되어 있지 않은 음악을 직접 등록할 수 있는 ‘음악 등록’\n링크를 복사해 올 필요 없이 바로 유튜브 영상을 임베드할 수 있는 ‘영상 추가’\n\n● MY PLAYLIST\n카테고리 필터를 선택해 내가 어떤 상황에 어떤 음악을 많이 들었는지 플레이리스트를 확인할 수 있습니다.\n\n● MUSIC LOUNGE\n상황별로 사람들이 많이 들은 음악 리스트 추천을 통해 취향에 맞는 새로운 음악을 발견할 수 있습니다.",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "react", "typescript", "emotion", "react-query", "recoil", "spring boot 3.0 (java17)", "JPA", "AWS(EC2, RDS, S3)", "Docker", "Github actions (CI/CD)"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/7/7.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/7/7.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-7-frontend",
+        "https://github.com/dnd-side-project/dnd-9th-7-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 64,
+    "name": "PACKIT(팩잇)",
+    "title": "빈틈없는 여행을 위한 준비 가이드라인, 팩잇",
+    "desc": "기대되는 여행,\n여행 준비는 누구에게 맡기고 싶지 않으셨나요?\n\n체크리스트로 쉽게 여행 준비를 시작해보세요\nPACKIT(팩잇)은 빈틈없는 여행을 위해 돕는 여행 준비 체크리스트 서비스입니다.\n\n🛫 간단한 온보딩으로 나만의 여행 계획 생성\n최소한의 여행 정보 입력을 통해 간단하게 나만의 여행 계획을 생성할 수 있습니다.\n\n✅ 여행 특성에 맞춰 제공되는 기본 체크리스트 & 여행 리마인드\n사용자가 입력한 여행 정보와 특성에 맞춰 필요한 기본 체크리스트 템플릿을 제공합니다. 제공된 템플릿은 나만의 여행 특성의 맞춰 수정하고 템플릿으로 만들어 언제든 활용할 수 있습니다. 또 한 여행 하루 전 이메일 알림을 통해 여행 계획을 리마인드해 줍니다.\n\n👫 동행자들과 쉽게 여행 계획을 공유\n생성한 여행 템플릿을 링크 & SNS 공유 기능을 통해서 쉽게 동행자들과 공유가 가능합니다. 또 한 하나의 여행 계획을 여럿이서 함께 수정할 수 있습니다.\n\n📁 종료된 여행 기록도 언제든 조회 가능\n지난 내 여행 계획은 물론 다른 사용자들의 지난 여행 계획도 언제든 조회할 수 있으며 새로운 여행 계획을 세울 때 레퍼런스로 참고할 수 있습니다.",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "figma", "TypeScript", "React", "Redux", "React Query", "Styled Components", "Vercel", "Java17", "Spring Boot", "JPA", "MariaDB", "AWS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/8/8.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/8/8.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-8-frontend",
+        "https://github.com/dnd-side-project/dnd-9th-8-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 65,
+    "name": "매치업 (Match-up)",
+    "title": "더 재밌는 운동을 위한 운동 기록 및 매칭 서비스",
+    "desc": "매치업(Match up)은 나의 운동을 손쉽게 기록하고 다른 사람과 함께 운동으로 대결하는 즐거움을 통해 운동에 동기를 부여하는 앱 서비스입니다. 가장 큰 페인포인트였던 팀 또는 개인 대결 상대 매칭 어려움을 해결하기 위해 사용자가 설정한 조건에 맞는 대결상대와 매칭이 가능하도록 한 '자동매칭'과 사진과 메모를 추가할 수 있는 '운동 기록하기'를 각각 메인MVP, 서브MVP로 제시하였습니다. 그외 매칭 중 '상대 깨우기', '응원하기' 등 매칭에 필요한 다양한 서브 콘텐츠들과 '매칭 상대를 평가하기', 업적 달성 시 얻을 수 있는 '배지 토큰'과 같은 콘텐츠를 통해 매칭에 대한 동기부여를 유도합니다.",
+    "flag": "9기",
+    "images": [],
+    "skill": [
+      "Java 11", "Spring Boot", "Spring Data JPA", "QueryDsl", "MySQL", "Spring Security", "AWS Services", "figma", "ReactNative", "TypeScript", "ReactQuery", "Zustand", "Emotion"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/9/9.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/9/9.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-9th-9-frontend",
+        "https://github.com/dnd-side-project/dnd-9th-9-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 66,
+    "name": "얼음땡",
+    "title": "모임의 첫 5분, 대화의 시작을 도와주는 얼음땡 서비스 🧊🔨",
+    "desc": "새로운 팀원들과의 온라인 만남, 어색함을 깨고 원활한 대화를 시작하는 것이 어려울 때가 많죠? 걱정 마세요! 저희가 아이스 브레이킹의 해결책, '얼음땡' 서비스를 선보입니다.\n\n차가운 온라인 만남의 분위기를 녹이고자 '얼음땡'이라는 이름을 선택했습니다. \n\n'얼음땡'과 함께라면 모임의 첫 5분이 즐거운 대화의 시작이 될 수 있습니다. 각 사용자에게 맞춤화된 온보딩 화면을 통해, 처음 만나는 사람들과도 어렵지 않게 이야기를 나눌 수 있도록 안내합니다. 이처럼 '얼음땡'은 이용자 중심의 편리한 앱 환경을 지향합니다.\n\n공식 게임 시작 전에도 대화의 물꼬를 틀 '토픽 룰렛' 기능을 탑재하여 대화 주제를 제안함으로써, 새로운 인연들과의 소통에 부담을 줄였습니다. 이를 통해 서로를 더 잘 이해하고 기존보다 빠르게 친밀해질 수 있도록 돕습니다.\n\n실시간으로 진행되는 다양한 게임을 즐기며, 성격부터 취향까지 다양한 이야깃거리를 통해 서로에 대해 놀라운 발견을 할 수 있죠. 이 게임들은 새로운 관계의 시작에 유익한 디딤돌이 될 것입니다.\n\n함께하는 팀원들의 MBTI를 확인해보세요. 각자의 성향과 협업 스타일을 알면 전체 팀의 시너지를 조율하는 데 큰 도움이 됩니다. 뿐만 아니라, 자신의 협업 스타일도 인식하며 개인의 성장에 기여할 수 있습니다.\n\n'빈칸 채우기' 게임은 창의적인 대화를 촉진합니다. 랜덤 주제에 대한 서로의 다른 생각들을 듣고 자신의 의견을 공유함으로써, 팀원 각자의 관점을 깊이 있게 이해할 수 있습니다.\n\n실시간으로 흘러가는 게임은 대화의 주제를 자연스럽게 연결하고, 팀원 간 친밀감을 높여줍니다. '얼음땡'은 대화를 시작하는 그 순간부터 모두가 가까워질 수 있는 통로가 되어 드릴 것입니다.",
+    "flag": "10기",
+    "skill": [
+      "Typescript",
+      "React",
+      "Next14",
+      "Nest",
+      "Prisma",
+      "MySQL",
+      "Socket.io",
+      "Docker",
+      "Figma",
+      "Storybook"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/1/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/1/1.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-10th-1-frontend",
+        "https://github.com/dnd-side-project/dnd-10th-1-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 67,
+    "name": "Timeet 타이밋",
+    "title": "회의 시간 관리 매니저, 타이밋",
+    "desc": "👩‍💻 🧑‍💻 비효율적으로 길어지는 회의 시간, 회의 시간을 효과적으로 활용할 수 있도록 돕는 서비스가 필요해!\n\n비효율적인 회의 시간 관리로 인해 어려움을 느끼신 적이 있으신가요? \n명확한 목표 없이 계속해서 늘어지는 회의는 참여자들의 시간과 에너지를 낭비할 뿐만 아니라, 업무 진행을 방해하고 효율성까지 저해하고 있습니다. 이러한 문제들을 해결하고 생산성을 높이고자, 회의 시간을 대신 매니징해주는 서비스 '타이밋'을 제작하였습니다.",
+    "flag": "10기",
+    "skill": [
+      "Spring Boot",
+      "Jpa",
+      "Mysql",
+      "Docker",
+      "Websocket",
+      "Jwt",
+      "Github Actions",
+      "Swagger",
+      "Typescript",
+      "React",
+      "Emotion",
+      "Zustand",
+      "TanStack-Query",
+      "figma"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/2/2.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/2/2.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 68,
+    "name": "돈워리(DonWorry)",
+    "title": "임금 빼고 다 오르는 지금, 결혼식 축의금은 얼마가 좋은지 궁금하지 않나요?! 우리 돈워리 서비스는 축의금과 결혼 관련한 여러가지 고민들을 해결을 위한 커뮤니티 서비스입니다.",
+    "desc": "결혼식 축의금 얼마내지? 돈워리가 함께 해결해 줄게요!\n\n“연락 안하던 친구… 축의금 얼마가 좋을까?”\n“요즘 물가에 축의금 5만원 괜찮을까?”\n“모바일 청첩장만 받았는데 축의금 내야할까?”\n\n친밀도, 참석 여부, 물가 상승 등 고민할 부분이 너무 많은 축의금!\n돈워리를 통해 언제 어디서나 손쉽게 축의금 고민을 나눠보세요.\n\n1. 축의금 결정을 위한 친밀도 테스트\n나와 상대방과의 친밀도를 알아볼 수 있는 재미있는 상황을 테스트하며 축의금 결정의 고민을 덜어보세요.\n\n2. 투표\n축의금 고민부터 축하 파티와 하객룩까지, 하객들의 다양한 고민을 투표를 만들고 참여하며 해결해 보세요.",
+    "flag": "10기",
+    "skill": [
+      "Figma",
+      "Next.js",
+      "Typescript",
+      "TailwindCSS",
+      "Storybook",
+      "React-Query",
+      "Axios",
+      "Yarn",
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "OAuth",
+      "AWS S3",
+      "Redis Cache",
+      "MySQL",
+      "Nginx",
+      "Docker"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/3/3.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/3/3.pdf",
+    "projectLinks":{
+      "github": [
+        "https://github.com/dnd-side-project/dnd-10th-3-frontend",
+        "https://github.com/dnd-side-project/dnd-10th-3-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://donworry.vercel.app/"
+    }
+  },
+  {
+    "id": 69,
+    "name": "내 마음 속 바다",
+    "title": "내 마음 속 바다는 남에게 말하기 어려운 이야기를 공유하고, 서로 공감하며 위로를 주고받는 서비스입니다. 함께 고민을 나누고 서로를 지지하는 따뜻한 공간을 제공합니다.",
+    "desc": "아무에게도 말못 한 마음 속 편지\n\n내마음속 바다는 언제나 힐링이 필요한 순간, \n바다의 푸른 풍경이 감정적인 안정을 가져다주는 영감에서 출발했습니다.\n\n혹시 마음 속 고민이 있지만 주변 지인에게 부담을 줄까봐 쉽게 털어놓지 못했던 경험이 있지는 않으셨나요?\n내 마음 속 바다에서는 남들에게 털어놓지 못하는 이야기를 물병에 담아 바다에 띄워 보낼 수 있습니다. \n바다를 건너 물병을 받은 상대방은 당신이 누구인지 알 수 없고, \n비슷한 고민을 했을지도 모르는 상대방으로부터 위로의 답장을 주고 받을 수 있습니다.\n\n내 마음속 바다는 마음이 힘들거나 위로가 필요할 때, 당신을 달래줄 수 있는 특별한 공간이에요. \n여러분의 고민을 나누고 소통할 수 있는 공간이기도 해요. 내 마음속 바다가 당신에게 작은 위로가 되기를 바랍니다.",
+    "flag": "10기",
+    "skill": [
+      "IDE : Intellij",
+      "Language : Java 17",
+      "Build : Gradle",
+      "Framework : Spring Boot 3.2",
+      "Infrastructure : Spring Data JPA",
+      "Querydsl",
+      "Auth : Kakao OAuth2 Client",
+      "JWT",
+      "Spring Security",
+      "Database : MySQL",
+      "Redis",
+      "API Docs : Notion",
+      "CI / CD : AWS/EC2",
+      "Docker",
+      "Git-Action",
+      "React",
+      "TypeScript",
+      "Emotion",
+      "TanStack Query",
+      "Storybook",
+      "MSW",
+      "Vitest",
+      "React-Hook-Form",
+      "Zod",
+      "Zustand",
+      "figma",
+      "Illustrator"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/4/4.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/4/4.pdf",
+    "projectLinks":{
+      "github": [
+        "https://github.com/dnd-side-project/dnd-10th-4-frontend",
+        "https://github.com/dnd-side-project/dnd-10th-4-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://sea-of-my-heart.vercel.app/"
+    }
+  },
+  {
+    "id": 70,
+    "name": "favolink",
+    "title": "저장한 링크를 한눈에",
+    "desc": "내가 좋아하는 링크를 잊지 않게, 다시 찾을 수 있도록,\n저장한 링크를 한눈에\n\nfavolink는, 성장을 위해 다양한 컨텐츠에 노출되고 소비하지만,\n정리가 귀찮은 이들을 위한 ‘컨텐츠 관리 생산성 툴' 입니다.\n한순간 스쳐갔던 컨텐츠들이, 기억속에서 잊혀지지 않도록 정리와 보관을 돕습니다.",
+    "flag": "10기",
+    "skill": [
+      "typescript",
+      "vite",
+      "react",
+      "turborepo",
+      "vanilla-extract",
+      "tanstack-query",
+      "axios",
+      "react-error-boundary",
+      "vercel",
+      "java",
+      "spring boot"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/5/5.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/5/5.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-10th-5-frontend",
+        "https://github.com/dnd-side-project/dnd-10th-5-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 71,
+    "name": "namui-wiki | 남의위키",
+    "title": "남이 써주는 나의 소개서, 남의위키(namui-wiki)",
+    "desc": "남의위키는 당신과 타인 사이에서 다리를 놓아주는 서비스예요.\n나의 첫인상부터 시간이 지나면서 변화하는 인상까지,\n다양한 시점에서 '나'를 바라본 사람들의 생각을 알기 위해 만들었어요.\n\n남의위키가 다양한 사람들과의 만남을 통해 형성되는 나의 모습을 집대성하여,\n'나'에 대한 깊이 있는 이해와 새로운 인사이트를 얻을 수 있게 도와줄 거예요.\n\n자신에 대한 새로운 사실을 발견하고, 타인과 관계를 한 단계 더 발전시킬 준비가 되셨나요? \n지금 바로 남의위키와 함께하세요!\n\n🌲 소개서 작성 링크 생성\n- 회원가입 후, 나의 소개서 링크가 자동으로 생성돼요.\n- 소개서는 2지 선다형, 객관식, 단답형으로 구성되어 있어요.\n- 이 링크를 다른 사람들에게 공유할 수 있어요.\n\n🌲 남의위키 작성\n- 소개서 링크를 공유받으면 남의위키를 작성할 수 있어요.\n- 회원으로 작성할 경우, 내가 작성해 준 남의위키 히스토리를 확인할 수 있어요.\n- 남의위키 질문에 답하고, 그 답의 이유를 작성할 수 있어요.\n\n🌲 내가 받은 남의위키 통계\n- 작성해 준 친구와의 알게 된 기간, 경로에 따라 필터링해서 통계 데이터를 볼 수 있어요.\n- 소개서 질문별로 상세 데이터를 볼 수 있어요.\n\n🌲 내 정원 보기\n- 내가 받은 남의위키가 나의 정원에 나무가 되어 심어져요.\n- 작성해 준 친구와의 알게 된 기간, 경로에 따라서 나무의 색과 모양이 달라져요.\n- 나무를 클릭하면 답변자별 상세 데이터를 볼 수 있어요.",
+    "flag": "10기",
+    "skill": [
+      "Next.js",
+      "React",
+      "Typescript",
+      "React-Query",
+      "Zustand",
+      "TailwindCSS",
+      "Storybook",
+      "FramerMotion",
+      "Java",
+      "Spring Boot",
+      "Gradle",
+      "JWT",
+      "MongoDB",
+      "Spring Data",
+      "Swagger",
+      "Mockito",
+      "Figma",
+      "Photoshop"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/6/6.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/6/6.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-10th-6-frontend",
+        "https://github.com/dnd-side-project/dnd-10th-6-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": "https://www.namui-wiki.life/"
+    }
+  },
+  {
+    "id": 72,
+    "name": "Sendback",
+    "title": "Sendback (Send + Feedback) 맞으면서 성장하자!",
+    "desc": "사이드 프로젝트를 진행하면서 유저 피드백을 받는 데 어려움을 겪지 않으신가요?\n항상 카카오톡으로 지인들에게 간절히 요청하여 피드백을 수집하진 않으셨나요?\n\nSendback 과 함께 프로젝트 기획부터 론칭까지, 프로젝트를 등록하고 \n다양한 사람들과 함께 피드백을 주고받으세요!\n\n기능 소개\n\n1️⃣ 여기저기 흩어져 있는 사이드 프로젝트를 한곳에서 모아볼 수 있어요.\n- 사이드 프로젝트를 한눈에 보기 쉽게 정리했어요.\n- 정렬 기능을 통해 원하는 분야를 필터링해서 볼 수 있어요.\n\n2️⃣ 여러 분야의 서비스 유저로부터 유의미한 피드백을 받을 수 있어요.\n- 여러 분야의 직업군이 참여해서 다양한 피드백을 받을 수 있어요.\n\n3️⃣ 일회성에 그친 피드백이 아닌, 지속적인 피드백을 받을 수 있어요.\n- 프로젝트의 진행 상황(기획 중, 개발 중, 리팩토링 중)에 따라 다른 피드백을 등록할 수 있어요.\n- 과거 진행됐었던 피드백을 저장하고 프로젝트의 발전도를 사용자들이 직접 보며 피드백을 할 수 있어요.\n\n4️⃣ 피드백을 할수록 성장하는 레벨링 시스템으로 유저들과 더욱 활발한 피드백을 주고받을 수 있어요.\n- 레벨링 시스템을 통해 사용자들의 참여를 유도했어요.\n\n5️⃣ 끌올 기능을 통해 나의 프로젝트를 끌어 올릴 수 있어요.\n- 레벨에 따라 끌어올릴 수 있는 횟수가 제한되어 있어요.\n- 많이 끌어올리기 위해선 레벨업을 해야 해요.",
+    "flag": "10기",
+    "skill": [
+      "Java",
+      "Spring Boot",
+      "JPA",
+      "Spring Security",
+      "AWS",
+      "MySQL",
+      "Redis",
+      "Next.js",
+      "TypeScript",
+      "Recoil",
+      "React-query",
+      "TailwindCSS",
+      "Vercel",
+      "Figma"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/7/7.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/7/7.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-10th-7-frontend",
+        "https://github.com/dnd-side-project/dnd-10th-7-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 73,
+    "name": "MOUR",
+    "title": "경조사의 순간들을 더 무르익도록, MOUR",
+    "desc": "원만한 사회생활을 위해 꼭 참석해야 하는 경조사로 인해 경제적, 사회적 부담을 느끼신 적이 있으신가요? 이제 MOUR를 통해 간편하게 경조사 관리를 시작해 보세요!\n\nMOUR는 경조사 비용과 일정을 간편하게 기록하고, 원하는 정보를 빠르게 찾아볼 수 있는 기능을 제공합니다. 관계의 중요성을 강조하며 고마운 지인들을 손쉽게 기억하고 관리할 수 있는 다양한 기능을 제공합니다.\n\n[간편 경조사비 입력 및 필터링]\n많이 선택하는 정보들을 미리 제공해 경조사비 기록 단계를 최소화하고, 주요 정보들을 라벨링하여 분류함으로써 빠른 탐색을 제공합니다.\n\n[친밀도 레벨]\n서로 주고받은 금액에 따라 꽃이 추가되는 친밀도 레벨을 통해 챙겨야 할 사람들을 한눈에 파악할 수 있도록 제공합니다.\n\n[일정 등록]\n경조사와 관련된 일정 정보를 입력할 수 있고, 중요한 정보를 까먹지 않도록 미리 알림을 보내줍니다.\n\n[기록 리마인드 알림]\n등록된 일정을 바탕으로 기록하지 않은 일정을 안내하며, 한 번에 쉽게 기록 가능합니다.\n\n[통계 제공]\n월/년 별 총수입과 지출 금액, 그리고 성별 및 연령대에 따른 평균 경사 지출 통계를 제공합니다.\n\n[마이페이지]\n프로필을 수정하고 1:1 문의를 남길 수 있습니다.",
+    "flag": "10기",
+    "skill": [
+      "figma",
+      "android",
+      "Kotlin",
+      "Gradle",
+      "Ktor",
+      "Timber",
+      "Java",
+      "Spring boot",
+      "MySQL",
+      "QueryDsl",
+      "JWT",
+      "Flyway",
+      "Redis",
+      "JUnit5",
+      "Docker",
+      "Github action",
+      "slack"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/8/8.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/8/8.pdf",
+    "projectLinks": {
+      "github": [],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 74,
+    "name": "따봉도치",
+    "title": "따봉도치야 고마워!\n나만의 따봉도치로 주고받는 행운",
+    "desc": "축하합니다! 당신은 따봉도치의 행운을 받았습니다. 나만의 따봉도치를 만들어 행운을 주고받아 보세요!\n [귀여운 것을 마주한 당신, LUCKY!] 라는 간단한 전제로 시작된 프로젝트는 따봉도치 밈에서 영감을 받아, 다양한 따봉도치를 즐길 수 있는 ‘판’을 제공합니다.\n 컨셉에 과몰입이 가능한 MZ 세대에게 심플한 인사이트를 제시했어요. \"따봉도치야 고마워~!” 우리에게 익숙한 이 밈의 파급력을 인지하고, 다양한 따봉도치들을 세상에 내놓았습니다!\n 따봉도치에서는 행운의 따봉도치 카드를 만들고 유저들과 함께 공유할 수 있어요. 무해하고 귀여운 반려생물 사진을 선택하고, 오늘의 기분을 작성하고, 행운을 주는 부적을 만들어 업로드해 보세요!",
+    "flag": "10기",
+    "skill": [
+      "Adobe Illustrator",
+      "Figma",
+      "Adobe After Effects",
+      "Swift",
+      "Xcode",
+      "UIKit",
+      "SwiftUI",
+      "Moya",
+      "Java v21",
+      "Spring Boot v3.2.2",
+      "JPA",
+      "Querydsl",
+      "Junit5",
+      "Mockito",
+      "Gradle",
+      "Swagger",
+      "AWS EC2",
+      "MySQL",
+      "Redis",
+      "Github Actions",
+      "Docker",
+      "Nginx",
+      "GitHub",
+      "Slack",
+      "Notion"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/9/9.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/9/9.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-10th-9-iOS",
+        "https://github.com/dnd-side-project/dnd-10th-9-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 75,
+    "name": "Basterdz",
+    "title": "우리들의 도파민 중독 탈출기, 바스터즈",
+    "desc": "Basterdz는 ‘깨부수다', ’파괴하는 사람들'을 의미합니다.\n도파민 중독에 빠진 MZ세대들이 스크린 타임을 친구들과 함께 관리할 수 있는 서비스로,\n도파민 중독에서 탈출하는 것이 Basterdz 앱의 궁극적 목표입니다.\n\n도파민 중독 벗어나려고 고민해본적 있지않나요?\n\n최근 MZ세대를 중심으로 ‘디지털 디톡스 앱’ 설치 횟수가 증가하면서 숏폼을 비롯한 \n미디어 중독에서 벗어나려는 움직임이 증가함에 따라 바스터즈는 도파민 디톡스를 도와주는 서비스로 \n스크린타임을 친구와 함께 관리하며 도파민 중독 탈출을 도와주고자 합니다.\n\n🏠 홈\n친구끼리 모여서 같이 스크린 타임 체크!\n초대한 인원이 모이면 챌린지가 시작됩니다. 매일 사용량을 줄이고자 하는 앱의 사용시간을 확인하고 \n매일 목표를 가장 잘 달성한 사람에게 주어지는 1등! 랭킹 기능을 제공합니다.\n매일 자정에 업데이트되는 순위를 통해 서로의 앱 사용량을 확인하며 함께 도파민 중독에서 탈출해봅시다!\n\n🚀 부스터\n1등에게 주는 부스터권으로 같은 방 팀원에게 부스터로 알림을 보내봐요! \n직접 부스터 알림 문구를 설정하여 나만의 부스터 알림을 만들 수 있습니다.\n주고받는 부스터로 돈독한 우정 뿐만 아니라 디지털 디톡스에 한결 더 가까워질 수 있습니다!\n\n📊 마이페이지\n마이페이지를 통해 기간별로 앱별 사용시간을 직관적으로 확인할 수 있어요. \n이전 사용량과 비교를 통해 디지털 디톡스를 잘 실천하고 있는지 확인해 보아요!",
+    "flag": "10기",
+    "skill": [
+      "Figma",
+      "Illustrator",
+      "Swift",
+      "SwiftUI",
+      "Moya",
+      "MVVM-C",
+      "Clean Architecture",
+      "ScreenTime API",
+      "Combine",
+      "JAVA",
+      "Spring Boot",
+      "JPA",
+      "Query DSL",
+      "MySQL",
+      "Junit5",
+      "EC2",
+      "RDS",
+      "Docker",
+      "Jenkins",
+      "GitHub Actions"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/10/10.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/10/10.pdf",
+    "projectLinks": {
+      "github": [
+        "https://github.com/dnd-side-project/dnd-10th-10-iOS",
+        "https://github.com/dnd-side-project/dnd-10th-10-backend"
+      ],
+      "googlePlaystore": "",
+      "youtube": "",
+      "link": ""
+    }
+  }
+]

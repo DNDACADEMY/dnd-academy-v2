@@ -7,8 +7,8 @@ type SearchParams = {
   position: string | undefined;
 };
 
-async function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const reviews = await getReviews({ position: searchParams?.position });
+function Page({ searchParams }: { searchParams?: SearchParams; }) {
+  const reviews = getReviews({ position: searchParams?.position });
 
   return (
     <>
