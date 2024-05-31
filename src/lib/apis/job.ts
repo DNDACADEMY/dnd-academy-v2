@@ -1,28 +1,13 @@
-import api from '@/app/api';
-import { getCacheDate } from '@/utils';
-
-import { ONE_HOUR } from '../constants/time';
+import { jobsData } from '../assets/data';
 import { Job } from '../types/job';
 
 // eslint-disable-next-line import/prefer-default-export
-export async function getJobs({ flag }: { flag?: string; } | undefined = {}) {
-  const response = await api<Job[], { date: string; }>({
-    url: '/data/jobs.json',
-    type: 'public',
-    method: 'GET',
-    params: {
-      ...getCacheDate(),
-    },
-    config: {
-      next: {
-        revalidate: ONE_HOUR,
-      },
-    },
-  });
+export function getJobs({ flag }: { flag?: string; } | undefined = {}): Job[] {
+  const jobs = jobsData as Job[];
 
   if (!flag) {
-    return [...response].reverse();
+    return [...jobs].reverse();
   }
 
-  return response.filter((review) => review.flag === flag);
+  return jobs.filter((review) => review.flag === flag);
 }

@@ -7,8 +7,8 @@ type SearchParams = {
   flag: string | undefined;
 };
 
-async function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const jobs = await getJobs({ flag: searchParams?.flag });
+function Page({ searchParams }: { searchParams?: SearchParams; }) {
+  const jobs = getJobs({ flag: searchParams?.flag });
 
   return (
     <>

@@ -15,9 +15,9 @@ type Props = {
   project: Project;
 };
 
-async function ProjectPage({ project }: Props) {
-  const reviews = await getReviews({ flag: project.flag, projectId: project.id });
-  const projects = await getProjects({ ordinal: project.flag });
+function ProjectPage({ project }: Props) {
+  const reviews = getReviews({ flag: project.flag, projectId: project.id });
+  const projects = getProjects({ ordinal: project.flag });
 
   return (
     <>

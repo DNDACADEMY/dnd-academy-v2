@@ -9,8 +9,8 @@ type Props = {
   organizers: Organizer[];
 };
 
-async function OrganizersPage({ organizers }: Props) {
-  const organizerCount = await getOrganizerCount();
+function OrganizersPage({ organizers }: Props) {
+  const organizerCount = getOrganizerCount();
 
   return (
     <>

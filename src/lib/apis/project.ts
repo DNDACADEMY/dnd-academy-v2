@@ -1,63 +1,24 @@
-import api from '@/app/api';
-import { getCacheDate } from '@/utils';
-
-import { ONE_HOUR } from '../constants/time';
+import { projectCountData, projectsData } from '../assets/data';
 import { Project, ProjectFlag } from '../types/project';
 
-export async function getProjects({ ordinal }: { ordinal?: string; } | undefined = {}) {
-  const response = await api<Project[], { date: string; }>({
-    url: '/data/project.json',
-    type: 'public',
-    method: 'GET',
-    params: {
-      ...getCacheDate(),
-    },
-    config: {
-      next: {
-        revalidate: ONE_HOUR,
-      },
-    },
-  });
+export function getProjects({
+  ordinal,
+}: { ordinal?: string; } | undefined = {}): Project[] {
+  const projects = projectsData as Project[];
 
   if (!ordinal) {
-    return [...response].reverse();
+    return [...projects].reverse();
   }
 
-  return response.filter(({ flag }) => flag === ordinal);
+  return projects.filter(({ flag }) => flag === ordinal);
 }
 
-export async function getProjectCount() {
-  const response = await api<Record<ProjectFlag, number>, { date: string; }>({
-    url: '/data/project_count.json',
-    type: 'public',
-    method: 'GET',
-    params: {
-      ...getCacheDate(),
-    },
-    config: {
-      next: {
-        revalidate: ONE_HOUR,
-      },
-    },
-  });
-
-  return response;
+export function getProjectCount(): Record<ProjectFlag, number> {
+  return projectCountData;
 }
 
-export async function getProject({ id }: { id: number; }) {
-  const response = await api<Project[], { date: string; }>({
-    url: '/data/project.json',
-    type: 'public',
-    method: 'GET',
-    params: {
-      ...getCacheDate(),
-    },
-    config: {
-      next: {
-        revalidate: ONE_HOUR,
-      },
-    },
-  });
+export function getProject({ id }: { id: number; }) {
+  const projects = projectsData as Project[];
 
-  return response.find((project) => project.id === id);
+  return projects.find((project) => project.id === id);
 }

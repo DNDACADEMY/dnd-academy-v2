@@ -2,8 +2,8 @@ import { getOrganizers } from '@/lib/apis/organizer';
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  const organizers = await getOrganizers();
+export function generateStaticParams() {
+  const organizers = getOrganizers();
 
   return organizers.map(({ id }) => ({
     id: `${id}`,
