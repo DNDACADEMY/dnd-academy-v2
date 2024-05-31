@@ -5,16 +5,16 @@ import { getProject, getProjects } from '@/lib/apis/project';
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  const projects = await getProjects();
+export function generateStaticParams() {
+  const projects = getProjects();
 
   return projects.map(({ id }) => ({
     id: `${id}`,
   }));
 }
 
-async function Page({ params }: { params: { id: string; } }) {
-  const project = await getProject({ id: Number(params.id) });
+function Page({ params }: { params: { id: string; } }) {
+  const project = getProject({ id: Number(params.id) });
 
   if (!project) {
     notFound();

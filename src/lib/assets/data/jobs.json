@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "flag": "디자인",
+    "company": "스터닝",
+    "title": "[라우드소싱] 프로덕트 디자이너(UI/UX)",
+    "desc": "경력 3~8년 | 서울",
+    "image": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/jobs/stunning.png",
+    "link": "https://www.wanted.co.kr/wd/51995"
+  },
+  {
+    "id": 2,
+    "flag": "디자인",
+    "company": "프로그라운드 주식회사",
+    "title": "그래픽 디자이너 채용",
+    "desc": "경력 3~8년 | 재택근무",
+    "image": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/jobs/proground.png",
+    "link": "https://proground.notion.site/NFT-92716020f9bd456ca130b5db15bf0b45"
+  },
+  {
+    "id": 3,
+    "flag": "개발",
+    "company": "프로그라운드 주식회사",
+    "title": "블록체인 개발자 채용(Solidity, 스마트 컨트랙트)",
+    "desc": "경력(5년+) | 재택근무",
+    "image": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/jobs/proground.png",
+    "link": "https://proground.notion.site/0d7fa3eede0542c88e5192334cc49c1c"
+  },
+  {
+    "id": 4,
+    "flag": "개발",
+    "company": "(주)애드뱅크",
+    "title": "모바일 네이티브 개발자 채용 (부산)",
+    "desc": "주니어 | 부산",
+    "image": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/jobs/adbank_logo.png",
+    "link": "http://www.adbank.co.kr/php/recruit.php"
+  },
+  {
+    "id": 5,
+    "flag": "개발",
+    "company": "그렙(grepp)",
+    "title": "백엔드 엔지니어 채용",
+    "desc": "주니어 | 재택근무",
+    "image": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/jobs/grepp.png",
+    "link": "https://www.notion.so/prgrms/772559b20f9f451c94b568468eb53f47"
+  },
+  {
+    "id": 6,
+    "flag": "개발",
+    "company": "(주)그루우",
+    "title": "Hot 스타트업, 식물관리 앱 그루우에서 개발직군 멤버를 찾습니다!",
+    "desc": "주니어, 경력 1~5년 | 서울 역삼동",
+    "image": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/jobs/logo_green_square.png",
+    "link": "https://bit.ly/3ieeAm5"
+  },
+  {
+    "id": 7,
+    "flag": "개발",
+    "company": "버블클라우드",
+    "title": "프론트엔드 개발자 | 프로덕트 디자이너",
+    "desc": "신입/경력무관 | 부산",
+    "image": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/jobs/logo_bubble_cloude.png",
+    "link": "https://team.bubblecloud.io"
+  }
+]

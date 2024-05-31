@@ -6,16 +6,18 @@ export interface Project {
   id: number;
   name: string;
   title: string;
-  desc?: string;
-  images: string[];
+  desc: string;
+  images?: string[];
   flag: ProjectFlag;
   skill: string[];
   thumbnail: string;
-  pdf?: string;
+  pdf: string | null;
   projectLinks: ProjectLinks;
+  download?: string;
 }
 
 export type ProjectFlag =
+  | '10기'
   | '9기'
   | '8기'
   | '7기'

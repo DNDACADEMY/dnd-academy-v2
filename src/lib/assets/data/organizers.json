@@ -1,0 +1,202 @@
+[
+  {
+    "id": 0,
+    "name": "디디",
+    "author": "dd",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/dd_mascot.png",
+    "type": "마스코트",
+    "tags": ["어지르기", "낮잠자기", "엎드리기", "공지요정"],
+    "detail": ["👉 이력이 뭐냥"],
+    "message": "냐옹💩"
+  },
+  {
+    "id": 1,
+    "name": "손현곤",
+    "author": "Hyeongon",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SonHyeongon.png",
+    "type": "운영",
+    "tags": ["Figma", "HTML/CSS/JS", "Adobes", "Vue"],
+    "detail": ["현) 그렙 코스매니저", "전) 엘리스 코스매니저"],
+    "message": "시작이 반이다"
+  },
+  {
+    "id": 2,
+    "name": "성기동",
+    "author": "Gidong",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeongGiDong.png",
+    "type": "개발",
+    "tags": ["React.JS", "React Native", "Python", "Java", "PHP"],
+    "detail": ["현) (주)도울정보기술"],
+    "message": "공부하는 것을 좋아하는 개발자"
+  },
+  {
+    "id": 3,
+    "name": "권희구",
+    "author": "Huigu",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/GwonHuigu.png",
+    "type": "개발",
+    "tags": ["Vue.js", "PHP(Laravel)", "MySQL", "Node.js", "Swift(iOS)"],
+    "detail": ["현) DeXign Engineer"]
+  },
+  {
+    "id": 4,
+    "name": "정다영",
+    "author": "Dayeong",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JeongDayeong.png",
+    "type": "디자인",
+    "tags": ["UIUX디자인", "웹디자인", "인터렉션", "HTML/CSS/JS", "Figma"],
+    "detail": ["현) 프로그래머스 Product Designer"]
+  },
+  {
+    "id": 5,
+    "name": "이호준",
+    "author": "Hojun",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeHojun.png",
+    "type": "운영",
+    "tags": ["Notion", "Tensorflow(AI)", "Django", "Swift(iOS)"],
+    "detail": [],
+    "message": "Let knowledge be, monotonically increasing!"
+  },
+  {
+    "id": 6,
+    "name": "김성준",
+    "author": "Seongjun",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/KimSeongjun.png",
+    "type": "개발",
+    "tags": ["React.JS", "JQuery", "Spring", "MySQL"],
+    "detail": [
+      "현) 백엔드를 하게 된 네이버 웹 개발자",
+      "전) 프론트엔드를 하고싶었지만"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "김한솔",
+    "author": "Hansol",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/KimHansol.png",
+    "type": "개발",
+    "tags": ["React", "React Native"],
+    "detail": ["현) 필드쉐어 개발팀장"]
+  },
+  {
+    "id": 8,
+    "name": "박영호",
+    "author": "Yeongho",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/ParkYeongho.png",
+    "type": "개발",
+    "tags": ["HTML/CSS/JS", "Typescript", "Vue", "React", "nodejs"],
+    "detail": ["현) 백패커(idus) 프론트엔드 개발자"]
+  },
+  {
+    "id": 9,
+    "name": "여선주",
+    "author": "Seonju",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YoeSeonju.png",
+    "type": "디자인",
+    "tags": ["UIUX 디자인", "Adobes", "Sketch", "Figma"],
+    "detail": ["현) Favorite Medium product designer"],
+    "message": "1만 시간의 법칙!"
+  },
+  {
+    "id": 10,
+    "name": "정기열",
+    "author": "Giyeol",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JeongGiyeol.png",
+    "type": "개발",
+    "tags": ["React Native", "android"],
+    "detail": ["전) 윈디벨"],
+    "message": "저도 전문가가 아니라서 같이해요~"
+  },
+  {
+    "id": 11,
+    "name": "이다정",
+    "author": "Dajeong",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeDajeong.png",
+    "type": "디자인",
+    "tags": ["Adobes", "Sketch", "Figma", "Abstract", "Zeplin", "HTML/CSS"],
+    "detail": ["현) elice UX Designer"],
+    "message": ""
+  },
+  {
+    "id": 12,
+    "name": "우종성",
+    "author": "Jongseong",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/WooJongseong.png",
+    "type": "개발",
+    "tags": ["Java", "Spring"],
+    "detail": ["현) IOChord 개발자"],
+    "message": ""
+  },
+  {
+    "id": 13,
+    "name": "서영원",
+    "author": "Yeongwon",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SuhYeongwon.png",
+    "type": "개발",
+    "tags": ["Tensorflow", "PyTorch"],
+    "detail": [],
+    "message": ""
+  },
+  {
+    "id": 14,
+    "name": "이철우",
+    "author": "Cheolwoo",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeCheolwoo.png",
+    "type": "개발",
+    "tags": ["iOS(Swift, SwiftUI)", "AOS(Kotlin)", "Node.js"],
+    "detail": [
+      "현) iOS Sowftware Engineer at Witi",
+      "전) (주)B.Factory iOS Sowftware Engineer"
+    ],
+    "message": "Sweet Swift!"
+  },
+  {
+    "id": 15,
+    "name": "이재왕",
+    "author": "Jaewang",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeJaewang.png",
+    "type": "개발",
+    "tags": [
+      "React.js",
+      "React Native",
+      "Node.js",
+      "Python",
+      "Typescript",
+      "Flutter",
+      "Flask"
+    ],
+    "detail": ["현) 왁자지껄서커스 앱 개발자", "전) HOPS 프론트엔드 개발자"],
+    "message": "아직 많이 부족해서, 함께 성장했으면 좋겠습니다!"
+  },
+  {
+    "id": 16,
+    "name": "정영호",
+    "author": "YeonghoJ",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JeongYoungho.png",
+    "type": "디자인",
+    "tags": [
+      "UI/UX 디자인",
+      "Photoshop",
+      "Illustrator",
+      "XD",
+      "Indesign",
+      "Zeplin"
+    ],
+    "detail": [
+      "현) 필드쉐어 CDO",
+      "전) 디테일러 대표/디자이너",
+      "전) 윌링크 대표/디자이너"
+    ],
+    "message": "잘 부탁드리겠습니다!"
+  },
+  {
+    "id": 17,
+    "name": "양지혁",
+    "author": "Jihyeok",
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YangJihyuk.png",
+    "type": "디자인",
+    "tags": ["UI/UX 디자인", "Photoshop", "Illustrator", "XD"],
+    "detail": [],
+    "message": ""
+  }
+]

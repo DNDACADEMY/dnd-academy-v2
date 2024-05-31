@@ -7,8 +7,8 @@ type SearchParams = {
   ordinal: string | undefined;
 };
 
-async function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const projects = await getProjects({ ordinal: searchParams?.ordinal });
+function Page({ searchParams }: { searchParams?: SearchParams; }) {
+  const projects = getProjects({ ordinal: searchParams?.ordinal });
 
   return (
     <>

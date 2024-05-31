@@ -1,54 +1,25 @@
-import api from '@/app/api';
-import { getCacheDate } from '@/utils';
-
-import { ONE_HOUR } from '../constants/time';
+import { reviewCountData, reviewsData } from '../assets/data';
 import { ProjectFlag } from '../types/project';
 import { Review, ReviewPosition } from '../types/review';
 
-export async function getReviews({
+export function getReviews({
   position, flag, projectId,
 }: { position?: string; flag?: ProjectFlag; projectId?: number; } | undefined = {}) {
-  const response = await api<Review[], { date: string; }>({
-    url: '/data/reviews.json',
-    type: 'public',
-    method: 'GET',
-    params: {
-      ...getCacheDate(),
-    },
-    config: {
-      next: {
-        revalidate: ONE_HOUR,
-      },
-    },
-  });
+  const reviews = reviewsData as Review[];
 
   if (flag && projectId) {
-    return response.filter((
+    return reviews.filter((
       review,
     ) => review.flag.trim() === flag.trim() && review.projectId === projectId);
   }
 
   if (!position) {
-    return [...response].reverse();
+    return [...reviews].reverse();
   }
 
-  return response.filter((review) => review.position === position);
+  return reviews.filter((review) => review.position === position);
 }
 
-export async function getReviewCount() {
-  const response = await api<Record<ReviewPosition, number>, { date: string; }>({
-    url: '/data/review_count.json',
-    type: 'public',
-    method: 'GET',
-    params: {
-      ...getCacheDate(),
-    },
-    config: {
-      next: {
-        revalidate: ONE_HOUR,
-      },
-    },
-  });
-
-  return response;
+export function getReviewCount(): Record<ReviewPosition, number> {
+  return reviewCountData;
 }

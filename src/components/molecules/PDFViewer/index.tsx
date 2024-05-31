@@ -17,7 +17,7 @@ import styles from './index.module.scss';
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 type Props = {
-  url?: string;
+  url: string | null;
 };
 
 function PDFViewer({ url }: Props) {
