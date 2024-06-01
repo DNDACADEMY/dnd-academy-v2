@@ -19,7 +19,13 @@
     line-height: 160%;
     letter-spacing: -0.2px;
 
-    @include text-color('gray04');
+    &.default {
+      @include text-color('gray04');
+    }
+
+    &.primary {
+      @include text-color('primary');
+    }
   }
 
   .counter {
@@ -29,7 +35,13 @@
     line-height: 140%;
     letter-spacing: -0.48px;
 
-    @include text-color('white');
+    &.default {
+      @include text-color('white');
+    }
+
+    &.primary {
+      @include text-color('primary');
+    }
 
     & > strong {
       font-size: 56px;

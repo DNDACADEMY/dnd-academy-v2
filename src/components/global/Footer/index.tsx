@@ -5,6 +5,7 @@ import AlarmModal from '@/components/organisms/AlarmModal';
 import {
   FacebookLogo, GithubLogo, InstagramLogo, LinkedInLogo, YoutubeLogo,
 } from '@/lib/assets/logos';
+import { CURRENT_FLAG } from '@/lib/constants';
 
 import styles from './index.module.scss';
 
@@ -50,7 +51,7 @@ function Footer() {
             <li><Link href="/reviews">후기</Link></li>
             <li><ExternalLink href="https://blog.dnd.ac">블로그</ExternalLink></li>
           </ul>
-          <AlarmModal buttonText="알림 신청하기" />
+          <AlarmModal buttonText={`${CURRENT_FLAG}기 알림 신청하기`} />
         </div>
       </div>
     </footer>
