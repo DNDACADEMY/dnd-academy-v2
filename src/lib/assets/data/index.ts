@@ -1,4 +1,4 @@
-import currentData from './current.json';
+import currentApplicantCountData from './current_applicant_count.json';
 import jobsData from './jobs.json';
 import organizerCountData from './organizer_count.json';
 import organizerIntroductionData from './organizer_introduction.json';
@@ -7,9 +7,10 @@ import projectCountData from './project_count.json';
 import projectsData from './projects.json';
 import reviewCountData from './review_count.json';
 import reviewsData from './reviews.json';
+import totalCountStatusData from './total_count_status.json';
 
 export {
-  currentData,
+  currentApplicantCountData,
   jobsData,
   organizerCountData,
   organizerIntroductionData,
@@ -18,4 +19,5 @@ export {
   projectsData,
   reviewCountData,
   reviewsData,
+  totalCountStatusData,
 };
