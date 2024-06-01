@@ -1,25 +1,23 @@
-import { Suspense } from 'react';
-
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 import Button from '@/components/atoms/Button';
-import CounterCard from '@/components/atoms/CounterCard';
+import CounterCard, { Counter } from '@/components/atoms/CounterCard';
 import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import ImageCard from '@/components/atoms/ImageCard';
 import SectionTitle from '@/components/atoms/SectionTitle';
-import ErrorBoundary from '@/components/molecules/ErrorBoundary';
 import FAQSection from '@/components/molecules/FAQSection';
+import ProjectsSlider from '@/components/molecules/ProjectsSlider';
 import SponsorSection from '@/components/molecules/SponsorSection';
 import AlarmModal from '@/components/organisms/AlarmModal';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
+import { currentData } from '@/lib/assets/data';
 import { ArrowRightIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
 
-const ProjectsSlider = dynamic(() => import('@/components/molecules/ProjectsSlider'), { ssr: false });
-
 function HomePage() {
+  const applicants = currentData;
+
   return (
     <>
       <section className={styles.homeSection}>
@@ -42,7 +40,12 @@ function HomePage() {
               <strong>IT비영리단체</strong>
               입니다.
             </div>
-            <div className={styles.counter}>오늘까지 000명이 지원했어요!</div>
+            <div className={styles.counter}>
+              오늘까지
+              &nbsp;
+              <Counter count={applicants.designer + applicants.developer} />
+              명이 지원했어요!
+            </div>
           </div>
           <AlarmModal buttonText="지원하기" buttonSize="xLarge" />
         </div>
@@ -66,11 +69,7 @@ function HomePage() {
         </div>
       </SectionTitle>
       <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
-        <ErrorBoundary>
-          <Suspense>
-            <ProjectsSlider />
-          </Suspense>
-        </ErrorBoundary>
+        <ProjectsSlider />
         <Button href="/projects" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>프로젝트 더 보기</Button>
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
