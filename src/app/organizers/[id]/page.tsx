@@ -6,7 +6,7 @@ export function generateStaticParams() {
   const organizers = getOrganizers();
 
   return organizers.map(({ id }) => ({
-    id: `${id}`,
+    id: String(id),
   }));
 }
 

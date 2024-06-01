@@ -10,16 +10,22 @@ type Props = {
   suffix?: string;
 };
 
+export function Counter({ count }: { count: number; }) {
+  return (
+    <CountUp enableScrollSpy scrollSpyOnce start={0} end={count} duration={5}>
+      {({ countUpRef }) => (
+        <strong data-testid="counter" ref={countUpRef} />
+      )}
+    </CountUp>
+  );
+}
+
 function CounterCard({ count, title, suffix = '명' }: Props) {
   return (
     <div className={styles.counterCard}>
       <div className={styles.title}>{title}</div>
       <div className={styles.counter}>
-        <CountUp enableScrollSpy scrollSpyOnce start={0} end={count} duration={5}>
-          {({ countUpRef }) => (
-            <strong data-testid="counter" ref={countUpRef} />
-          )}
-        </CountUp>
+        <Counter count={count} />
         &nbsp;
         {suffix}
       </div>
