@@ -9,7 +9,7 @@ export function generateStaticParams() {
   const projects = getProjects();
 
   return projects.map(({ id }) => ({
-    id: `${id}`,
+    id: String(id),
   }));
 }
 
