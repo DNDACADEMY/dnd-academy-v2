@@ -1,12 +1,12 @@
 'use client';
 
-import { CSSProperties } from 'react';
+import { CSSProperties, useCallback } from 'react';
 import Marquee from 'react-fast-marquee';
 
 import clsx from 'clsx';
 
+import Button from '@/components/atoms/Button';
 import AlarmModal from '@/components/organisms/AlarmModal';
-import ShareModal from '@/components/organisms/ShareModal';
 
 import styles from './index.module.scss';
 
@@ -53,6 +53,13 @@ const dividerStyles: DividerStyles[] = [{
 }];
 
 function ShareAlarmSection() {
+  const onClickShare = useCallback(async () => {
+    const shareUrl = process.env.NEXT_PUBLIC_ORIGIN;
+
+    // TODO - 에러처리 및 toast 추가
+    await navigator.clipboard.writeText(shareUrl);
+  }, []);
+
   return (
     <div className={styles.shareAlarmSection}>
       <Marquee autoFill className={styles.marqueeContainer}>
@@ -70,7 +77,7 @@ function ShareAlarmSection() {
       <div className={styles.descriptionWrapper}>
         <h3 className={styles.title}>지금 함께 프로젝트를 시작해요!</h3>
         <div className={styles.buttonWrapper}>
-          <ShareModal />
+          <Button onClick={onClickShare} type="button" buttonType="secondary" size="xLarge">친구에게 공유하기</Button>
           <AlarmModal buttonText="알림 신청하기" buttonSize="xLarge" />
         </div>
       </div>
