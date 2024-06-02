@@ -122,9 +122,6 @@ function HomePage() {
         </div>
         <Button href="/dnd/about" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>더 알아보기</Button>
       </SectionTitle>
-      <SectionTitle title="DND article">
-        <div />
-      </SectionTitle>
       <SectionTitle title="DND NEWS">
         <div />
       </SectionTitle>
