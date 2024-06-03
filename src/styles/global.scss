@@ -2,8 +2,7 @@
 @import 'react-perfect-scrollbar/dist/css/styles.css';
 @import './scrollbar';
 @import "./variables";
-@import "./mixin/text";
-@import "./mixin/functions";
+@import "./main";
 
 html {
   -webkit-font-smoothing: antialiased;

@@ -1,11 +1,10 @@
 import Link from 'next/link';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
-import AlarmModal from '@/components/organisms/AlarmModal';
+import ApplyModal from '@/components/organisms/ApplyModal';
 import {
   FacebookLogo, GithubLogo, InstagramLogo, LinkedInLogo, YoutubeLogo,
 } from '@/lib/assets/logos';
-import { CURRENT_FLAG } from '@/lib/constants';
 
 import styles from './index.module.scss';
 
@@ -51,7 +50,7 @@ function Footer() {
             <li><Link href="/reviews">후기</Link></li>
             <li><ExternalLink href="https://blog.dnd.ac">블로그</ExternalLink></li>
           </ul>
-          <AlarmModal buttonText={`${CURRENT_FLAG}기 알림 신청하기`} />
+          <ApplyModal />
         </div>
       </div>
     </footer>

@@ -19,7 +19,7 @@
 
 @function color($code) {
   @if $code == "" {
-    @return currentColor;
+    @return currentcolor;
   } @else if $code == "none" {
     @return none;
   } @else if $code == "transparent" {

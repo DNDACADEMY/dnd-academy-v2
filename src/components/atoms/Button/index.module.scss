@@ -14,9 +14,20 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: fit-content;
   border-radius: 4px;
   gap: 8px;
+
+  &:not(.hasWidth), :not(.fullWidth) {
+    width: fit-content;
+  }
+  
+  &:not(.fullWidth) {
+    width: fit-content;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
 
   &.onlyIcon {
     padding: 0;
@@ -40,30 +51,34 @@
       background-color: transparent;
     }  
 
+    &.purple {
+      color: color('white');
+      background-color: color('secondary');
+    }
+
     &.xLarge {
       padding: 20px 32px;
-      font-size: 20px;
-      font-weight: 700;
+
+      @include text('H6/Bold');
     }
 
     &.large {
       padding: 16px 32px;
-      font-size: 20px;
-      font-weight: 700;
+
+      @include text('H6/Bold');
     }
   
     &.medium {
       padding: 12px 24px;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 140%;
+
+      @include text('body1/Bold');
     }
   
     &.small {
       padding: 8px 16px;
-      font-size: 12px;
-      font-weight: 700;
       gap: 4px;
+
+      @include text('caption1/Bold');
     }
 
     &::after {
@@ -95,6 +110,11 @@
         color: color('gray05');
         border: 1px solid color('gray04');
         background-color: transparent;
+      }
+
+      &.purple {
+        color: color("gray06");
+        background-color: color("gray04");
       }
     }
   
