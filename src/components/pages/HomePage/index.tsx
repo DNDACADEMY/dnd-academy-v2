@@ -9,7 +9,7 @@ import CounterCardSection from '@/components/molecules/CounterCardSection';
 import FAQSection from '@/components/molecules/FAQSection';
 import ProjectsSlider from '@/components/molecules/ProjectsSlider';
 import SponsorSection from '@/components/molecules/SponsorSection';
-import AlarmModal from '@/components/organisms/AlarmModal';
+import ApplyModal from '@/components/organisms/ApplyModal';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getCurrentApplicantCount } from '@/lib/apis/count';
 import { ArrowRightIcon } from '@/lib/assets/icons';
@@ -48,7 +48,7 @@ function HomePage() {
               명이 지원했어요!
             </div>
           </div>
-          <AlarmModal buttonText="지원하기" buttonSize="xLarge" />
+          <ApplyModal buttonSize="xLarge" />
         </div>
         <div className={styles.bannerWrapper}>
           <Image
