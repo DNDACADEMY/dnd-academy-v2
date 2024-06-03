@@ -46,7 +46,7 @@
 
   line-height: 140%;
 
-  @if $color-code {
+  @if $color-code != "" {
     color: color($color-code);
   }
 }

@@ -27,20 +27,22 @@ function ModalContentsBase({ children: child, title, size = 'medium' } : Props) 
 
   return (
     <GlobalPortal>
-      <div className={clsx(styles.modalWrapper, isOpen && styles.open)}>
-        <div className={clsx(styles.modalBox, styles[size])}>
-          <div className={styles.header}>
-            <h1 className={styles.title}>{title}</h1>
-            <Button
-              type="button"
-              className={styles.closeButton}
-              onClick={() => setIsOpen(false)}
-              icon={<CloseIcon />}
-            />
+      {isOpen && (
+        <div className={clsx(styles.modalWrapper, isOpen && styles.open)}>
+          <div role="dialog" className={clsx(styles.modalBox, styles[size])}>
+            <div className={styles.header}>
+              <h1 className={styles.title}>{title}</h1>
+              <Button
+                type="button"
+                className={styles.closeButton}
+                onClick={() => setIsOpen(false)}
+                icon={<CloseIcon />}
+              />
+            </div>
+            {child}
           </div>
-          {child}
         </div>
-      </div>
+      )}
     </GlobalPortal>
   );
 }
