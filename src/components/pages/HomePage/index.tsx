@@ -12,6 +12,7 @@ import SponsorSection from '@/components/molecules/SponsorSection';
 import ApplyModal from '@/components/organisms/ApplyModal';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getCurrentApplicantCount } from '@/lib/apis/count';
+import { faqData } from '@/lib/assets/data';
 import { ArrowRightIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
@@ -127,7 +128,7 @@ function HomePage() {
       </SectionTitle>
       <ShareAlarmSection />
       <SectionTitle title="자주 묻는 질문">
-        <FAQSection />
+        <FAQSection faq={faqData} />
       </SectionTitle>
       <SponsorSection />
     </>

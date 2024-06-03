@@ -3,11 +3,15 @@
 import { useState } from 'react';
 
 import AccordionItem from '@/components/atoms/AccordionItem';
-import faq from '@/lib/data/faq';
+import { faqData } from '@/lib/assets/data';
 
 import styles from './index.module.scss';
 
-function FAQSection() {
+type Props = {
+  faq: typeof faqData;
+};
+
+function FAQSection({ faq }: Props) {
   const [activeIndex, setActiveIndex] = useState<number>();
 
   return (

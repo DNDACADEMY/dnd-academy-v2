@@ -12,18 +12,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: left;
     justify-content: space-between;
     gap: 24px;
     cursor: pointer;
-    transition: background-color .15s ease-in-out;
+    transition: background-color .2s ease-in-out;
     background-color: color('gray08');
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 32px;
 
-    @include text-color('gray00');
+    @include xs {
+      @include text("body2/Bold", "gray00");
+    }
+
+    @include text("H6/Bold", "gray00");
   
-    &:hover, &.active {
+    &.active {
       background-color: color('white');
 
       @include text-color('bgsecondary');
@@ -33,14 +35,26 @@
 
   .accordionPanel {
     padding: 24px;
-    font-size: 20px;
-    line-height: 32px;
-    color: color('bgsecondary');
     background-color: color('gray02');
+
+    @include xs {
+      @include text("body2/Regular", "bgsecondary");
+    }
+
+    @include text("H6/Regular", "bgsecondary");
   }
 
   .polygonIcon {
+    min-height: 16px;
+    min-width: 16px;
     transition: transform 0.3s ease-in-out;
+
+    @include xs {
+      width: 12px;
+      height: 12px;
+      min-height: 12px;
+      min-width: 12px;
+    }
 
     &.active {
       transform: rotate(90deg);
