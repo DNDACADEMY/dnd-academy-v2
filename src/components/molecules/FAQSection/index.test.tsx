@@ -2,7 +2,7 @@ import {
   fireEvent, render, screen, waitFor,
 } from '@testing-library/react';
 
-import faq from '@/lib/data/faq';
+import { faqData } from '@/lib/assets/data';
 
 import FAQSection from '.';
 
@@ -17,16 +17,16 @@ describe('FAQSection', () => {
   });
 
   const renderFAQSection = () => render((
-    <FAQSection />
+    <FAQSection faq={faqData} />
   ));
 
   describe('faq 첫번째 accordion item을 한 번 클릭한다.', () => {
     it('faq 첫번째 답변이 보여야만 한다', () => {
       const { container } = renderFAQSection();
 
-      fireEvent.click(screen.getByText(`Q : ${faq[0].question}`));
+      fireEvent.click(screen.getByText(`Q : ${faqData[0].question}`));
 
-      expect(container).toHaveTextContent(faq[0].answer.slice(0, 20));
+      expect(container).toHaveTextContent(faqData[0].answer.slice(0, 20));
     });
   });
 
@@ -34,11 +34,11 @@ describe('FAQSection', () => {
     it('faq 첫번째 답변이 보이지 않아야만 한다', async () => {
       const { container } = renderFAQSection();
 
-      fireEvent.click(screen.getByText(`Q : ${faq[0].question}`));
-      fireEvent.click(screen.getByText(`Q : ${faq[0].question}`));
+      fireEvent.click(screen.getByText(`Q : ${faqData[0].question}`));
+      fireEvent.click(screen.getByText(`Q : ${faqData[0].question}`));
 
       await waitFor(async () => {
-        expect(container).not.toHaveTextContent(faq[0].answer.slice(0, 20));
+        expect(container).not.toHaveTextContent(faqData[0].answer.slice(0, 20));
       });
     });
   });
