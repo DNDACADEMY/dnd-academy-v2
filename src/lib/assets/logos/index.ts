@@ -6,9 +6,11 @@ import HomeLogo from './home.svg';
 import InstagramLogo from './instagram.svg';
 import LinkedInLogo from './linkedin.svg';
 import MediumLogo from './medium.svg';
+import NaverLogo from './naver.svg';
 import ShareInstagramLogo from './share-Instagram.svg';
 import ShareKakaoLogo from './share-kakao.svg';
 import ShareXLogo from './share-x.svg';
+import TistoryLogo from './tistory.svg';
 import VelogLogo from './velog.svg';
 import YoutubeLogo from './youtube.svg';
 
@@ -21,9 +23,11 @@ export {
   InstagramLogo,
   LinkedInLogo,
   MediumLogo,
+  NaverLogo,
   ShareInstagramLogo,
   ShareKakaoLogo,
   ShareXLogo,
+  TistoryLogo,
   VelogLogo,
   YoutubeLogo,
 };

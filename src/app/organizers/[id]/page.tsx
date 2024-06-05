@@ -1,4 +1,7 @@
-import { getOrganizers } from '@/lib/apis/organizer';
+import { notFound } from 'next/navigation';
+
+import OrganizerPage from '@/components/pages/OrganizerPage';
+import { getOrganizer, getOrganizers } from '@/lib/apis/organizer';
 
 export const dynamicParams = false;
 
@@ -10,10 +13,16 @@ export function generateStaticParams() {
   }));
 }
 
-function OrganizersPage({ params }: { params: { id: number; } }) {
+function Page({ params }: { params: { id: string; } }) {
+  const organizer = getOrganizer({ id: Number(params.id) });
+
+  if (!organizer) {
+    notFound();
+  }
+
   return (
-    <div>{`organizer ${params.id}`}</div>
+    <OrganizerPage organizer={organizer} />
   );
 }
 
-export default OrganizersPage;
+export default Page;

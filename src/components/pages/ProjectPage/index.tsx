@@ -3,7 +3,7 @@ import Link from 'next/link';
 import SkillTag from '@/components/atoms/SkillTag';
 import PDFViewer from '@/components/molecules/PDFViewer';
 import ProjectCards from '@/components/molecules/ProjectCards';
-import ReviewList from '@/components/molecules/ReviewList';
+import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
 import { RightIcon } from '@/lib/assets/icons';
