@@ -1,7 +1,7 @@
 import ClientProviders from '@/components/global/ClientProviders';
+import ErrorBoundary from '@/components/global/ErrorBoundary';
 import Footer from '@/components/global/Footer';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
-import ErrorBoundary from '@/components/molecules/ErrorBoundary';
 
 import { pretendardFont } from './_fonts';
 

@@ -13,6 +13,12 @@ export function getOrganizers({
   return organizerIntroduction.filter(({ dndPosition }) => dndPosition === position);
 }
 
+export function getOrganizer({ id }: { id: number; }) {
+  const organizerIntroduction = organizerIntroductionData as Organizer[];
+
+  return organizerIntroduction.find((project) => project.id === id);
+}
+
 export function getOrganizerCount(): Record<OrganizerPosition, number> {
   return organizerCountData;
 }

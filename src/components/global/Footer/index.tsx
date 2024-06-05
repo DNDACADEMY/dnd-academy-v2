@@ -1,12 +1,19 @@
 import Link from 'next/link';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
+import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ApplyModal from '@/components/organisms/ApplyModal';
-import {
-  FacebookLogo, GithubLogo, InstagramLogo, LinkedInLogo, YoutubeLogo,
-} from '@/lib/assets/logos';
+import { LogoType } from '@/lib/types/common';
 
 import styles from './index.module.scss';
+
+const footerLinks: { link: string; logo: LogoType; }[] = [
+  { link: 'https://www.facebook.com/DNDACADEMY', logo: 'facebook' },
+  { link: 'https://www.linkedin.com/company/dndacademy/?viewAsMember=true', logo: 'linkedin' },
+  { link: 'https://www.instagram.com/dnd.ac?utm_medium=copy_link', logo: 'instagram' },
+  { link: 'https://www.youtube.com/channel/UCLzVjG8j1m4X8TSpMF-x5yw', logo: 'youtube' },
+  { link: 'https://github.com/dnd-side-project', logo: 'github' },
+];
 
 function Footer() {
   return (
@@ -15,21 +22,9 @@ function Footer() {
         <div className={styles.leftContents}>
           <h3 className={styles.title}>DND</h3>
           <div className={styles.linkWrapper}>
-            <ExternalLink href="https://www.facebook.com/DNDACADEMY" className={styles.iconLink}>
-              <FacebookLogo />
-            </ExternalLink>
-            <ExternalLink href="https://www.linkedin.com/company/dndacademy/?viewAsMember=true" className={styles.iconLink}>
-              <LinkedInLogo />
-            </ExternalLink>
-            <ExternalLink href="https://www.instagram.com/dnd.ac?utm_medium=copy_link" className={styles.iconLink}>
-              <InstagramLogo />
-            </ExternalLink>
-            <ExternalLink href="https://www.youtube.com/channel/UCLzVjG8j1m4X8TSpMF-x5yw" className={styles.iconLink}>
-              <YoutubeLogo />
-            </ExternalLink>
-            <ExternalLink href="https://github.com/dnd-side-project" className={styles.iconLink}>
-              <GithubLogo />
-            </ExternalLink>
+            {footerLinks.map(({ link, logo }) => (
+              <SocialIconLink key={link} link={link} type={logo} />
+            ))}
             <ExternalLink href="https://island-allium-288.notion.site/DND-53511a46df7748899e8ed079ca0eee85?pvs=4" className={styles.link}>
               DND활동 정책
             </ExternalLink>
