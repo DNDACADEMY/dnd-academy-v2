@@ -6,12 +6,9 @@ import Link from 'next/link';
 
 import clsx from 'clsx';
 
-import ExternalLink from '@/components/atoms/ExternalLink';
+import SocialIconLink from '@/components/molecules/SocialIconLink';
 import { ArrowRightIcon } from '@/lib/assets/icons';
-import {
-  EmailLogo, GithubLogo, HomeLogo, InstagramLogo, LinkedInLogo, MediumLogo, VelogLogo,
-} from '@/lib/assets/logos';
-import { Link as ReviewLink } from '@/lib/types/common';
+import { LogoType } from '@/lib/types/common';
 import { Review } from '@/lib/types/review';
 
 import styles from './index.module.scss';
@@ -22,20 +19,6 @@ type Props = {
 };
 
 function ReviewList({ reviews, hasProjectLink }: Props) {
-  const reviewLinkIcon = (key: ReviewLink) => {
-    const IconLogo = {
-      link: HomeLogo,
-      email: EmailLogo,
-      github: GithubLogo,
-      instagram: InstagramLogo,
-      linkedin: LinkedInLogo,
-      medium: MediumLogo,
-      velog: VelogLogo,
-    }[key] || HomeLogo;
-
-    return <IconLogo className={styles.socialIcon} />;
-  };
-
   return (
     <ResponsiveMasonry
       columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
@@ -56,9 +39,7 @@ function ReviewList({ reviews, hasProjectLink }: Props) {
             {Object.values(links).some((link) => !!link) && (
               <div className={styles.socialIconWrapper}>
                 {Object.entries(links).filter(([, link]) => !!link).map(([key, link]) => (
-                  <ExternalLink key={key} href={link}>
-                    {reviewLinkIcon(key as ReviewLink)}
-                  </ExternalLink>
+                  <SocialIconLink key={key} link={link} type={key as LogoType} />
                 ))}
               </div>
             )}

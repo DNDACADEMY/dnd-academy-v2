@@ -1,4 +1,4 @@
-import { Link } from './common';
+import { LogoType } from './common';
 
 export interface Organizer {
   id: number;
@@ -8,7 +8,7 @@ export interface Organizer {
   dndPosition: OrganizerPosition;
   technicalStack: string[];
   oneLineIntroduction: string;
-  links: Partial<Record<Link, string>>;
+  links: Partial<Record<LogoType, string>>;
   career: {
     now: string[];
     previous: string[];
@@ -18,7 +18,7 @@ export interface Organizer {
     whatIsYourRoleInDnd: string;
     whyDoYouRecommendDnd: string;
     whatIsYourInterests: string;
-    WhatYouWantToShare: string[];
+    whatYouWantToShare: string[];
   }
   emoji: boolean;
 }

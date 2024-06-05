@@ -1,4 +1,4 @@
-import PageTitle from '@/components/molecules/PageTitle';
+import PageTitle from '@/components/atoms/PageTitle';
 import JobsPage from '@/components/pages/JobsPage';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getJobs } from '@/lib/apis/job';

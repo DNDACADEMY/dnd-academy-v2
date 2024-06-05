@@ -1,5 +1,5 @@
-import ReviewList from '@/components/molecules/ReviewList';
 import Tags from '@/components/molecules/Tags';
+import ReviewList from '@/components/organisms/ReviewList';
 import { getReviewCount } from '@/lib/apis/review';
 import { Review } from '@/lib/types/review';
 

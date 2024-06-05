@@ -1,4 +1,4 @@
-import { Link } from './common';
+import { LogoType } from './common';
 import { ProjectFlag } from './project';
 
 export interface Review {
@@ -7,7 +7,7 @@ export interface Review {
   email: string;
   name: string;
   position: ReviewPosition;
-  links: Partial<Record<Link, string>>;
+  links: Partial<Record<LogoType, string>>;
   project: string;
   projectId: number | null;
   review: string;

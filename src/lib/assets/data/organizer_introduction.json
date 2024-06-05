@@ -1,6 +1,5 @@
 [
   {
-    "willJoin6thDnd": false,
     "name": "이현석",
     "id": 1,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/HyeonseokLee.png",
@@ -36,12 +35,11 @@
       "whatIsYourRoleInDnd": "6기 Developer 운영진 참여 예정입니다!",
       "whyDoYouRecommendDnd": "",
       "whatIsYourInterests": "",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
 
   {
-    "willJoin6thDnd": true,
     "name": "성기동",
     "id": 2,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeongGiDong.png",
@@ -75,16 +73,14 @@
       "whatIsYourRoleInDnd": "DND에서 개발에 필요한 전반적인 업무에 참여하고 있습니다.\n\n1. 홈페이지 개발 및 운영\n2. github Organization 생성 및 운영\n3. 기술블로그 운영\n4. 개발 멘토\n\n여러분들과 즐거운 사이드 프로젝트를 하기 위해서, 항상 무엇이 필요한지 고민하고 있습니다.\n개발이 어렵다구요? 그렇다면 DND에서 준비한 세미나를 들어보세요!\n다양한 능력을 가지고 있는 운영진분들이 기다리고 있습니다.",
       "whyDoYouRecommendDnd": "\n사이드 프로젝트가 하고 싶으신가요?' \n'개발이 하고 싶으신가요?', '디자인이 하고 싶으신가요?'\n그런데, 나는 아직 실력이 부족하다고 느껴지시나요? 모르는게 많다고 느껴지시나요?\n걱정하지 마세요.  \n'사소한 질문이란 없습니다.'\n팀원들과 어려움을 함께 헤쳐나가면서 프로젝트를 진행할 수 있습니다.",
       "whatIsYourInterests": "☕️ 카페투어\n🎧 뮤지컬, 콘서트 감상\n👩‍💻 개발을 하고 싶은 사람들과의 커뮤니케이션",
-      "WhatYouWantToShare": [
+      "whatYouWantToShare": [
         "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/gidong/1.jpg",
         "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/gidong/2.jpg",
         "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/gidong/3.jpeg"
       ]
     }
   },
-
   {
-    "willJoin6thDnd": false,
     "name": "이철우",
     "id": 3,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeCheolwoo.png",
@@ -109,11 +105,10 @@
       "whatIsYourRoleInDnd": "평소에는 기수 준비, 선발 등 전반적인 운영 과정에 참여하고 있습니다.\n기수 운영 중에는, 참가자 분들의 완주를 위해 개발 과정을 돕고, 특히, iOS 개발자 분들에게 많은 도움을 드리기 위해 노력하고 있습니다.\n1:1 질문 답변, 기술 스택 선정 등 전반적인 과정에 도움을 드리고 있고, 언제가 될지 모를 세미나를 준비하고 있답니다 :)",
       "whyDoYouRecommendDnd": "저 또한 3기 때는 참가자로 참여를 했었는데요. 저는 비전공자였기 때문에, 디자이너 및 여러 개발자들과의 협업의 경험이 전무했었고, 협업의 경험을 할 수 있다는 것이 가장 크게 와닿았던 것 같습니다.\n그리고 제가 정말 하고싶은 일을 찾을 수 있었는데요.원래는 백엔드를 하고싶어서 공부를 하고 있었지만, DND를 통해 iOS 개발을 접하게 되었고, 그 과정들이 너무 재밌었던 나머지 현재는 iOS 개발자가 되었답니다!\n저는 협업의 경험과 자신이 원하는 일을 찾고 경험해볼 수 있다는 점에서 추천을 드리고싶어요!",
       "whatIsYourInterests": "커피: 커피로 시작해서 커피로 끝내는 하루는 완벽해요!\n일중독: 야근이 너무 즐거워요!\n1일 1커밋: 푸른 잔디밭을 봤을 때 너무 뿌듯해요!\n모각코: 지인들과 모각코 하는 걸 좋아해요!\n콘솔게임: 스트레스 푸는데는 게임이 최고!",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "이다정",
     "id": 4,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeDajeong.png",
@@ -138,11 +133,10 @@
       "whatIsYourRoleInDnd": "디자인 운영에 필요한 전반적인 모든 업무에 참여하고 있습니다.\n첫째, 8주 디자이너 참가자들의 피드백 및 운영\n둘째, dnd.ac 홈페이지 운영 이 외에 디자인 여러가지 잡다한 업무를 진행하며 참가자분들이 8주 동안 어려움 없이 진행하는것을 도와드려요.\n지금까지 DND 개선 사항익 궁금하다면?\nhttps://medium.com/@sweet-girl 블로그에서 확인해 보세요.",
       "whyDoYouRecommendDnd": "지원자 분들이 DND에서 사이드프로젝트 완성 뿐만 아니라 커리어 세미나, 네트워킹, 운영진 피드백 등 다양한 경험을 얻을 수 있다고 생각해요!\n그리고 참가자들을 위해 열심히 노력하는 저희 운영진들이 있으니 어렵지 않아요. 사이드프로젝트에 온전히 집중하고 싶다면 추천드립니다.",
       "whatIsYourInterests": "🔮 타로 혹은 명상하며, 마음 정리하기\n⛹️‍♀️ 운동하며 건강 유지하기\n🎞 NETFLIX 영화 보고 해석 찾아보기\n⭐️ 인스타그램으로 내 생활 기록하며 추억하기",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "이세희",
     "id": 5,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Sehui.png",
@@ -170,13 +164,12 @@
       "whatIsYourRoleInDnd": "개발 및 디자인 과제 공지 담당 및 담당조 프로젝트 관리",
       "whyDoYouRecommendDnd": "코로나 시대에 원격으로, 8주동안, 빡세게. 한 프로젝트의 기획, 개발, 디자인의 전 과정을 팀과 함께 경험해 볼 수 있다는 것. 그 과정 속에서 각자의 역할을 이해하며 인맥도 쌓을 수 있다는 것!",
       "whatIsYourInterests": "커피, 축구나 풋살, 콘솔게임을 좋아합니다. 사람들이랑 만나서 얘기하는 걸 특히 좋아하는데 코로나가 너무하네요😢",
-      "WhatYouWantToShare": [
+      "whatYouWantToShare": [
         "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/sehui/1.jpeg"
       ]
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "손현곤",
     "id": 6,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SonHyeongon.png",
@@ -199,11 +192,10 @@
       "whatIsYourRoleInDnd": "대표",
       "whyDoYouRecommendDnd": "DND에는 다양한 사람들이 모이고 있습니다. 현업에서 실무를 하고 있는 개발자, 디자이너 뿐만 아니라 대학생, 비전공자 등등... 이러한 사람들이 모여서 프로젝트를 함께 진행하면서 새로운 제품을 만들고 출시하는 경험을 할 수 있습니다. 여러 회사의 취업과 관련된 정보를 얻는 것은 덤이구요.",
       "whatIsYourInterests": "저는 교육에 관심이 많습니다.",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "오서빈",
     "id": 7,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Seobin.png",
@@ -225,11 +217,10 @@
       "whatIsYourRoleInDnd": "이번에 새롭게 들어와서 잘 모르겠습니다.. ㅎ..",
       "whyDoYouRecommendDnd": "",
       "whatIsYourInterests": "",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "김동영",
     "id": 8,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Dongyeong.png",
@@ -254,11 +245,10 @@
       "whatIsYourRoleInDnd": "개발 운영을 담당하고 있습니다.\n참가자분들이 프로젝트를 진행할 때 이리저리 도움을 드리기도 하고, 운영에 관한 전반적인 처리를 진행합니다.\n그리고 어째서인지는 모르겠지만, 현재 DND의 재무 관리(?)도 제가 맡고 있습니다.",
       "whyDoYouRecommendDnd": "주도적으로 프로젝트를 만들어 가고 싶은 사람들과 함께 프로젝트를 진행할 수 있다는 게 DND의 매력이니까요.\n운영진으로서 그런 환경과 문화를 만들기 위해 노력하고 있습니다.",
       "whatIsYourInterests": "실존주의 철학과 심리학에 관심이 많습니다.\n뮤지컬과 첼로를 좋아해요. (연주는 못 합니다.)",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "우종성",
     "id": 9,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/WooJongseong.png",
@@ -281,11 +271,10 @@
       "whatIsYourRoleInDnd": "백엔드 파트 오거나이저 겸 다른 훌륭하신 오거나이저분들에게 묻어가고있습니다.",
       "whyDoYouRecommendDnd": "새로운 사람들을 만나 지지고 볶고 하는 프로젝트 경험이 조아요!",
       "whatIsYourInterests": "저를 새로운 지식과 논리로 짓밟아 주는 것 조아요!",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "김성준",
     "id": 10,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/KimSeongjun.png",
@@ -307,11 +296,10 @@
       "whatIsYourRoleInDnd": "개발 운영진으로 참여중이며, 개발/커리어 멘토링과 매 주차 출제되는 개발 미션에 대한 관리를 하고 있습니다. 내향적인 INTJ라 전면에 나서는 일은 잘 없지만 항상 함께하고 있습니다 🙃",
       "whyDoYouRecommendDnd": "실무를 하기 전에 사이드 프로젝트를 통한 협업 경험을 갖는건 정말 중요하지만 누구와, 무엇을, 어떻게 하는지에 따라 성취가 달라집니다. DND는 여러분들이 성공적인 프로젝트를 할 수 있도록 다방면으로 지원하고 있습니다. 어떻게 시작해야 할지 막막하다면, 체계적인 프로젝트를 해보고 싶다면 지원해보세요!",
       "whatIsYourInterests": "",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "김한솔",
     "id": 11,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/KimHansol.png",
@@ -333,14 +321,13 @@
       "whatIsYourRoleInDnd": "개발 운영진으로 여러분의 코딩 실력을 향상시켜드립니다.",
       "whyDoYouRecommendDnd": "하나의 네트워킹이 형성되서 여러분의 커리어에 도움이 됩니다. 8주간의 프로젝트 기간을 통해 실제 서비스를 구현합니다. 이 과정으로 IT 개발 프로세스 이해 및 협업 능력을 향상시킬 수 있습니다. 여러분이 성장하는 과정을 지켜보는게 행복합니다.",
       "whatIsYourInterests": "",
-      "WhatYouWantToShare": [
+      "whatYouWantToShare": [
         "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/hansol/1.jpg"
       ]
     }
   },
 
   {
-    "willJoin6thDnd": true,
     "name": "박현재",
     "id": 12,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Hyeonjae.png",
@@ -361,11 +348,10 @@
       "whatIsYourRoleInDnd": "",
       "whyDoYouRecommendDnd": "",
       "whatIsYourInterests": "",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "정다영",
     "id": 13,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JeongDayeong.png",
@@ -387,11 +373,10 @@
       "whatIsYourRoleInDnd": "DND 디자인 운영을 리딩하고 있습니다. 참가자 분들의 멘토링부터 디자인 운영진분들의 관리까지 DND에서 디자인에 관련된 것이라면 언제 어디서든, 무엇이든 도움을 드리고 있습니다. 저의 도움이 필요하다고 생각하시기 전에 문제를 해결해드리는 것이 목표랍니다😊. DND만큼 가이드라인이 잘 갖춰져있고, 열정적인 운영진이 함께하고, 중간 이탈자가 낮은 플랫폼이 없다고 자신해요. 열심히 하시고 다가와주신다면, 저희는 그 배를 돌려드린답니다.",
       "whyDoYouRecommendDnd": "제 지식과 경험이 여러분들에게 도움이 될 때 가장 뿌듯하고 행복한 것 같아요.\n저는 세미나를 많이 여는 멤버 중 한명인데요, 세미나 피드백을 읽고 있으면 정말 행복한 기분이 든답니다. (진짜에요!) \n이번 기수에는 또 어떤 세미나를 하게될까 기대됩니다 🙊",
       "whatIsYourInterests": "",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "이제욱",
     "id": 14,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jeuk.png",
@@ -410,11 +395,10 @@
       "whatIsYourRoleInDnd": "참가자분들의 UX Research 과정에 도움을 드리고 있어요.\n데스크 리서치, 유저 리서치, 인사이트 도출, 가설 설정 등 다양한 리서치 부분에서 도움을 드리고 싶어요!",
       "whyDoYouRecommendDnd": "가장 큰 추천 이유는 실무에서도 쌓기 어려운 8주 동안의 디자이너 및 개발자와의 협업 경험인 것 같습니다.",
       "whatIsYourInterests": "테니스, 음악에 관심이 많아요! 디자이너 테니스 동아리도 만들어보고 싶습니다 ㅎㅎ",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "문예성",
     "id": 15,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Yeseong.png",
@@ -436,11 +420,10 @@
       "whatIsYourRoleInDnd": "DND에 조인한지 얼마되지 않은 뉴비 디자인 운영진이지만 동아리원분들이 온전히 DND에 몰입할 수 있도록 보이지 않는 곳에서 열심히 달려보겠습니다🤟🏻",
       "whyDoYouRecommendDnd": "실무에서도 여러 단위의 프로젝트를 통해 협업하는 일들이 많은데요! DND에서 다른 파트에 계신 분들과 앱/웹을 만들고 커뮤니케이션하는 과정에서 작은 스타트업을 경험해보실 수 있을 거예요👀",
       "whatIsYourInterests": "소중한 사람들과 전시보고 맛집 탐방하기\n애플워치/런데이로 운동 기록하기\n넷플릭스/책 등 콘텐츠 보고 개인 노션에 아카이브하기\n하루 끝에 간단히 오늘 정리하는 시간 갖기",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "이여진",
     "id": 16,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/lia.png",
@@ -462,11 +445,10 @@
       "whatIsYourRoleInDnd": "전반적인 DND 운영 및 구성원 커리어 코칭, 해커톤을 담당하고 있습니다.",
       "whyDoYouRecommendDnd": "어쩔 수 없이 참가한 수동적인 팀원들에게 지친 여러분에게 열정이 가득한, 능동적인 팀원들과 함께하는 경험을 쌓을 수 있는 좋은 기회입니다!",
       "whatIsYourInterests": "3년간 무료 멘토링을 통해 개발자의 성장를 도우며 행복을 느낍니다.\n요즘은 PT를 받으며 점차 늘어나는 무게에 성취감을 느껴요.\n오버워치 금장을 달면서 더욱 게임을 사랑하게 되었어요! 롤, 롤체, 옵치, 레식 하는 사람 환영합니닷.",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "최정혜",
     "id": 17,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jeonghye.png",
@@ -490,11 +472,10 @@
       "whatIsYourRoleInDnd": "",
       "whyDoYouRecommendDnd": "사이드 프로젝트를 시작하고 마무리 짓기까지, DND 만의 8주 커리큘럼과 운영진의 피드백, 그리고 틈새 세미나가 완성에 많은 도움을 준다고 생각해요.\n\n또한 운영진 분들께서 협업에 도움이 될 여러가지 팁을 아낌없이 나눠주시기 때문에, 새로운 사람들과 프로젝트를 진행하는데 크게 걱정하실 필요가 없어요!\n새롭고 다양한 사람들과 함께 작업하면서 협업 스킬을 향상시키고 싶으신 분들에게는 더할나위없이 DND가 좋은 기회라고 생각합니다 :)",
       "whatIsYourInterests": "",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "김현주",
     "id": 18,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Hyeonju.png",
@@ -522,11 +503,10 @@
       "whatIsYourRoleInDnd": "프로젝트를 시작할 때 기획과 작업 범위, 제품에 대한 방향성 등에 대한 논의가 필요할 경우 같이 고민해주고 있습니다. PM의 관점이나 기획부분에서 디자인과 놓치기 쉬운 부분을 제3자의 시선으로 같이 확인해주기도 해요.",
       "whyDoYouRecommendDnd": "개발자와 협업할 수 있는 건 당연한 장점이겠죠? 그 외에는 현직에서 생각할 요소(사업성이나 제한된 도메인 , 투입 일정과 인력 등) 없이 자유롭게 하고 싶은 걸 마음대로 할 수 있다는 장점이 있습니다. 취준생, 학생이라면 서비스가 어떻게 나오는지 A-Z를 모두 겪을 수 있어서 이후 일을 할 때 큰 숲을 보면서 일할 수 있는 경험이 됩니다. ",
       "whatIsYourInterests": "스포츠가 주는 두근거림과 책이 주는 무한한 상상력을 좋아해요. 그래서 농구도 하고, 크로스핏이나 MMA도 배워보고 다양한 걸 정말 그냥 해봐요. 새로운 도전을 할 때, 모르는 걸 알게 되었을 때 행복해서 항상 새로운 걸 찾아다니고 있습니다.",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "김승현",
     "id": 19,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Seunghyeon.png",
@@ -552,11 +532,10 @@
       "whatIsYourRoleInDnd": "﻿DND의 홍보와 마케팅을 담당하고 있습니다.\n\n동아리 운영 및 행사에 필요한 광고 캠페인을 제작하고 성과를 분석하여 개선해 나가는 퍼포먼스 마케팅 업무를 주로 수행하고 있습니다. 더불어 DND의 인스타그램, 페이스북과 같은 SNS 페이지를 운영하고 콘텐츠를 제작하며 DND를 널리 알리기 위해 노력 중입니다!",
       "whyDoYouRecommendDnd": "DND의 강점은 현업에 계시는 개발자, 디자이너 멘토 분들의 적극적인 멘토링과 유연한 분위기라고 생각합니다. 5기에 운영진으로 합류하게 되었는데 멘토 분들이 정말 열정적으로 기술 공유를 위해서 힘써주시는 모습들을 보고 반하지 않을 수(?) 없었습니다!\n\n또한 방학 기간 중에 온전히 사이드 프로젝트에 집중할 수 있는 경험 또한 매력적이라고 생각합니다. 8주 간의 탄탄한 커리큘럼과 양질의 피드백을 통해서 멋진 사이드 프로젝트를 완성해가시면 좋겠습니다.",
       "whatIsYourInterests": "﻿매일 여행하듯이 살고 싶습니다. 맛있는 음식을 먹고, 의미 있는 시간들로 하루를 채워나가려고 노력 중이랍니다. ﻿여행 자체를 정말 좋아하기도 해서, 다시 해외여행을 할 날을 손꼽아 기다리고 있답니다.\n\n또한 교환학생을 핀란드로 다녀왔을 만큼 혁신 교육에 관심이 많습니다. 세상의 많은 사람들이 더 나은 교육 인프라를 접하게 하는 것이 궁극적인 목표이기도 해요. 그 외에 저를 행복하게 하는 건 고양이와 조용한 공간에서 독서하기, 한강에서 자전거 타기 입니다 :) ",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "이여진",
     "id": 20,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Yeojin.png",
@@ -579,11 +558,10 @@
       "whatIsYourRoleInDnd": "DND의 마케팅과 광고, 운영을 맡게 되었습니다",
       "whyDoYouRecommendDnd": "IT업계에서의 커리어를 쌓을수있는 좋은 기회!",
       "whatIsYourInterests": "콘텐츠산업에 있다보니 콘텐츠 보는것이 취미이자 일입니다. ",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "박준용",
     "id": 21,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JunYong.png",
@@ -606,12 +584,11 @@
       "whatIsYourRoleInDnd": "DND에서만 보여줄 수 있는 다양한 굿즈들을 제작합니다.",
       "whyDoYouRecommendDnd": "DND에선 함께 프로젝트를 해보는것은 물론 좋은 사람들과의 네트워크도 얻어갈 수 있습니다.",
       "whatIsYourInterests": "패션과 브랜드에 대한 깊은 고찰을 좋아합니다. 이 주제라면 밤새도록 이야기 할 수 있을것 만 같아요.",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
 
   {
-    "willJoin6thDnd": false,
     "name": "이재왕",
     "id": 22,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeJaewang.png",
@@ -643,7 +620,7 @@
       "whatIsYourRoleInDnd": "DND 의 개발 운영진으로 활동하고 있습니다.\nDND 홈페이지 리뉴얼 작업에 참여했으며, 여러분들과 함께 성장할 준비를 항상 하고있습니다 😄😄",
       "whyDoYouRecommendDnd": "DND 는 단순하게 사이드 프로젝트를 진행하는 공간이 아니라, 비슷한 사람들과 함께 소통하고 성장하고\n세미나, 운영진과의 소통 등 다양한 부분에서 성장할 수 있는 기회가 있는 곳이라고 생각해요.\n성장에 대한 열정이 가득한 사람과 함께 프로젝트를 진행해 보고싶은 분들께 Best Place 이지 않을까 싶습니다!!",
       "whatIsYourInterests": "위성영상 분석: 원래 전공이 GIS 입니다... ㅎ\n스타트업: 팀원들과 함께 가치를 향해 나아가는 경험은 최고인 것 같아요 ^_^ \n블록체인: N..F...T.. 최고...",
-      "WhatYouWantToShare": [
+      "whatYouWantToShare": [
         "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/Jaewang/1.jpg",
         "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/Jaewang/2.jpg",
         "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/Jaewang/3.jpg"
@@ -651,7 +628,6 @@
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "여선주",
     "id": 23,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YoeSeonju.png",
@@ -672,11 +648,10 @@
       "whatIsYourRoleInDnd": "다른 DND 디자이너 운영진들과 함께 참가자 분들의 프로젝트 협업 경험이 뜻깊고 유의미할 수 있게 도와드리는 업무를 맡고 있습니다. ",
       "whyDoYouRecommendDnd": "회사에서 시켜서 하는 일 말고 개인적으로 해보고싶은 프로젝트가 있을때, 반복적이고 고여있는듯한 일상에서 벗어나서 새로운 도전을 하고싶을때, 각기 다양한 기술을 보유한 사람들과 무언가 만들어낼 수 있는 절호의 찬스!\n\n그리고 같은 업계 사람들과 활발한 정보공유, 다양한 인맥을 쌓을 수 있는 것 또한 DND에서 얻어갈 수 있는 베네핏이라고 생각합니다. 짧게 말해서 강추강추!",
       "whatIsYourInterests": "우리 들레 산책 많이 시켜주고 맛있는것도 많이 줘서 근방 1km 내 가장 행복한 강아지 만들기\n좋은 음악 들으면서 이것저것 사부작 거리기\n(요즘은 잘 안하지만) 날 좋을때 가벼운 등산하기 ",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "박시형",
     "id": 24,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SihYung.png",
@@ -699,11 +674,10 @@
       "whatIsYourRoleInDnd": "DND 개발 운영진으로 활동하고 있습니다.",
       "whyDoYouRecommendDnd": "8주동안 사이드 프로젝트를 진행하면서 서비스의 A-Z를 경험할 수 있습니다. 이 과정에서 다양한 직군, 배경을 가진 과의 커뮤니케이션을 통해 협업을 경험하게 됩니다. \n또한, 종종 열리는 세미나를 통해서 새로운 기술 및 유익한 지식들을 얻어갈 수 있습니다 !",
       "whatIsYourInterests": "테니스를 너무 좋아해요 ! 쉬는 날에는 꼭 테니스를 칠려고 노력합니다 :)",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "구영회",
     "id": 25,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YoungHoe.png",
@@ -724,11 +698,10 @@
       "whatIsYourRoleInDnd": "DND의 개발 운영진으로 활동하고 있습니다.\n참가자분들의 짧은 8주의 시간이 의미있는 시간이 될 수 있도록 노력하고 있습니다.\n필요한 도움이 있다면 언제든 말씀 주세요!!",
       "whyDoYouRecommendDnd": "좋은 분들과 즐거운 프로젝트를 할 수 있는 것이 가장 큰 장점이라 생각합니다.\n전국구로 개발/디자이너를 만날 수 있는 기회가 많지는 않거든요.\n저 역시 8기에 참여하면서 좋은 분들을 많이 만났고, 지금도 함께 새로운 프로젝트를 만들어 가고 있습니다.\n좋은 사람들 많이 만날 수 있는 기회이니 여러분들도 지원해보세요!!",
       "whatIsYourInterests": "IT기기에 관심이 많고 많이 구매해서 사용해 보고 있습니다.\n개발 만큼이나 장비를 좋아해서 장비충 소리를 듣고 있지만, 한번 잘 갖춰놓으면 이만한 행복이 없지요😊",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "장지호",
     "id": 26,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHo.png",
@@ -749,11 +722,10 @@
       "whatIsYourRoleInDnd": "담당한 조의 프로젝트 관리를 도와드리고 있습니다. 개발적 고민도, 사소한 고민도 모두 환영입니다.",
       "whyDoYouRecommendDnd": "최고의 인재들과 함께 프로덕트를 만드는 일만큼 기분 좋은 일이 또 있을까요?",
       "whatIsYourInterests": "기타쳐서 밥 벌어 먹고 살았습니다. 지금은 취미지만, 여전히 음악을 사랑해요. 공연도 가끔 하고요.",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "박지현",
     "id": 27,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHyun.png",
@@ -774,11 +746,10 @@
       "whatIsYourRoleInDnd": "DND 개발 운영진을 담당하고 있습니다.",
       "whyDoYouRecommendDnd": "다양한 개발자, 디자이너와 협업하여 프로젝트를 진행할 수 있습니다.",
       "whatIsYourInterests": "공룡을 좋아해서 공룡 관련된 영화만 n번 관람했습니다!",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "최나은",
     "id": 28,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/NaEun.png",
@@ -799,11 +770,10 @@
       "whatIsYourRoleInDnd": "다른 운영진분과 함께 DND에서 참여자분들의 경험이 더욱 만족스러운 경험이 되도록 만들어나가고 있어요! 참여자분들이 8주동안 좋은 프로덕트를 만들 수 있도록, 여러분의 첫 사용자가 되어 고민하고 기대할게요!",
       "whyDoYouRecommendDnd": "나의 경험을 넓혀보고 싶을 때, 추천드려요. 하나의 프로덕트를 함께 만들어나가는 과정에서 새로운 경험과 배움을 얻어갈 수 있어요!",
       "whatIsYourInterests": "다양한 사람들의 의견이나 생각을 살펴보는 것을 재밌어해요. 온라인 쇼핑몰, 영화, 웹툰, 드라마를 볼때도 리뷰나 댓글 보는 것을 좋아해요.",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "유예지",
     "id": 29,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YeJi.png",
@@ -824,11 +794,10 @@
       "whatIsYourRoleInDnd": "DND의 전반적 운영 관리, 홈페이지 서비스기획/운영",
       "whyDoYouRecommendDnd": "다양한 사람들과의 협업 기회와 네트워킹, 프로젝트를 통한 개인의 성장과 발전을 위해 DND 활동을 추천합니다.",
       "whatIsYourInterests": "사람의 행동과 심리에 관심이 많습니다.\n하늘, 바다와 같은 자연을 보거나 야경을 볼 때 행복을 느낍니다 :)\n커피를 즐겨 마시며 영화와 미술 그리고 음악을 좋아해요. 최근에는 건축에 관심이 생겼습니다.",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "소석진",
     "id": 30,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeokJin.png",
@@ -849,11 +818,10 @@
       "whatIsYourRoleInDnd": "여러분들의 든든한 프론트엔드 멘토를 맡고 있어요",
       "whyDoYouRecommendDnd": "8주간의 커리큘럼을 통해 실무 과정을 경험할 수 있는 것이 가장 큰 장점이에요.\n또 여러분들을 위해 열심히 노력하는 운영진 분들도 가득하구요!",
       "whatIsYourInterests": "- 책 읽고 글쓰는 것을 아주 좋아해요\n- 자기개발, 생산성에 관심이 많아요\n- 옛날 음악을 들을 때 행복해요\n- 멘토 활동을 꾸준히 하고 있어요",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "당현아",
     "id": 31,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/HyeonA.jpg",
@@ -874,11 +842,10 @@
       "whatIsYourRoleInDnd": "개발 운영진으로 프로젝트의 순항과 여러분들을 지원하고 있어요! ⛵\n개발에 대한 고민, 커리어에 대한 고민, 취업에 대한 고민 등\n정답은 없는 문제에 경험을 나누고 귀기울일 준비가 되어있습니다!",
       "whyDoYouRecommendDnd": "다른 직무와의 협업은 경험이 없던 저는 3기에 DND에 백엔드 참여자로 시작해, 즐거운 6기를 거쳐, 8기부터는 운영진으로 함께하고 있어요.\nDND에 꾸준히 하는 이유는 가이드라인 내에서 자율성이 보장된 것이 좋았어요.\n8주 과정에 서비스의 사이클을 간략하게 직접 경험하며 실제 프로젝트에서 너무 뜻깊고 도움되는 활동이였어요!\n저처럼 DND의 활동이 낯설지면 의미있고 큰 인사이트가 되시길 바라요!",
       "whatIsYourInterests": "모든 경험은 기록과 정리를 하고 있어요.\n글, 그림, 춤, 음악, 방탈출, 미니어처 만들기 등 취미부자에요.\n많은 사람들과 소통하는 것을 좋아해서 여러 단체 활동을 해요!",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": false,
     "name": "사승민",
     "id": 32,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeungMin.JPG",
@@ -902,11 +869,10 @@
       "whatIsYourRoleInDnd": "DND에서 개발 운영진으로 전반적인 운영진 활동하면서 프론트엔드 분들의 멘토링, 코드리뷰, 세미나, 직군별 네트워킹 활동도 활발하게 유지하려고 노력하고 있답니다~ \n그뿐만 아니라, DND 홈페이지 관리도 맡아서 하고 있어요! 지금은 기존의 레거시 홈페이지를 마이그레이션하는 작업을 함께 진행하고 있어요~!",
       "whyDoYouRecommendDnd": "8주간 커리큘럼에 맞춰서 프로젝트를 진행할 수 있고 다른 직군들과 활발하고 치열하게 같이 협업해보며 서비스 런칭을 할 수 있는게 가장 큰 장점인 것 같아요!\n그리고 DND만의 장점으로는 열정적인 운영진들이 항상 함께 도와주며 고민해주기 때문에 어려운 문제가 있을 때 도움을 받고, 같이 고민하며 성장할 수 있는 기회가 많아요~!\n프론트엔드 분들은 추가적인 깜짝 세션으로는 저와 함께 프론트엔드 관련 세미나, 코드리뷰, 멘토링, 기수별 프론트엔드분들과의 오프라인 네트워크 자리까지 진행하니 많은 관심부탁드려요!",
       "whatIsYourInterests": "저는 개발해서 만드는 과정을 좋아해서 사이드 프로젝트를 많이 한답니다~\n새로운 기술에 대한 관심도 많아서 새로운 기술을 배우는 것을 좋아해요~\n그리고 업계 사람들과 네트워킹하는 자리를 좋아해서 여러 동아리와 활동, 컨퍼런스 다니는걸 좋아합니다~\n개인적인 취미로는 시티팝을 좋아해 LP를 수집하는 것을 좋아하고, 옷 쇼핑하는 것을 매우 좋아해요! 마지막으로 NF가 90%인 낭만주의자이기 때문에 여행가는 것을 세상에서 제일 좋아합니다!",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   },
   {
-    "willJoin6thDnd": true,
     "name": "디디",
     "id": 99,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/dd_mascot.png",
@@ -928,7 +894,7 @@
       "whatIsYourRoleInDnd": "나는 ㄷl엔디의 코드 땡땡이다냐아앙🐱\n산책하다냥🐱\n에러 잡으려 한다냥🐱(잡으려 노력만 하는 중)",
       "whyDoYouRecommendDnd": "그냥 지원하라냥🐱",
       "whatIsYourInterests": "안알려준다냥🐱",
-      "WhatYouWantToShare": []
+      "whatYouWantToShare": []
     }
   }
 ]
