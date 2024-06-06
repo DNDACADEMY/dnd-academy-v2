@@ -1,12 +1,10 @@
-import Link from 'next/link';
-
+import DetailNavigation from '@/components/atoms/DetailNavigation';
 import SkillTag from '@/components/atoms/SkillTag';
 import PDFViewer from '@/components/molecules/PDFViewer';
 import ProjectCards from '@/components/molecules/ProjectCards';
 import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
-import { RightIcon } from '@/lib/assets/icons';
 import { Project } from '@/lib/types/project';
 
 import styles from './index.module.scss';
@@ -21,13 +19,17 @@ function ProjectPage({ project }: Props) {
 
   return (
     <>
-      <nav className={styles.projectNavigation}>
-        <Link href="/projects" className={styles.link}>
-          프로젝트
-        </Link>
-        <RightIcon />
-        <div className={styles.projectName}>{project.name}</div>
-      </nav>
+      <DetailNavigation
+        steps={[
+          {
+            label: '프로젝트',
+            href: '/projects',
+          },
+          {
+            label: project.name,
+          },
+        ]}
+      />
       <div className={styles.projectPageContents}>
         <section className={styles.projectDetail}>
           <div>

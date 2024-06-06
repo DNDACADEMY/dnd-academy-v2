@@ -1,4 +1,4 @@
-import OrganizerCard from '@/components/molecules/OraganizerCard';
+import OrganizerCard from '@/components/molecules/OrganizerCard';
 import Tags from '@/components/molecules/Tags';
 import { getOrganizerCount } from '@/lib/apis/organizer';
 import { Organizer } from '@/lib/types/organizer';

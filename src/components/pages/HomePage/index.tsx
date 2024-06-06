@@ -13,7 +13,7 @@ import ApplyModal from '@/components/organisms/ApplyModal';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getCurrentApplicantCount } from '@/lib/apis/count';
 import { faqData } from '@/lib/assets/data';
-import { ArrowRightIcon } from '@/lib/assets/icons';
+import { RightArrowIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
 
@@ -49,7 +49,9 @@ function HomePage() {
               명이 지원했어요!
             </div>
           </div>
-          <ApplyModal buttonSize="xLarge" />
+          <ApplyModal>
+            <Button size="xLarge" />
+          </ApplyModal>
         </div>
         <div className={styles.bannerWrapper}>
           <Image
@@ -65,7 +67,7 @@ function HomePage() {
       <CounterCardSection title="지금까지 DND는?" />
       <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
         <ProjectsSlider />
-        <Button href="/projects" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>프로젝트 더 보기</Button>
+        <Button href="/projects" buttonType="secondary" size="large" suffixIcon={<RightArrowIcon />}>프로젝트 더 보기</Button>
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div className={styles.howBannerWrapper}>
@@ -121,7 +123,7 @@ function HomePage() {
             />
           </div> */}
         </div>
-        <Button href="/dnd/about" buttonType="secondary" size="large" suffixIcon={<ArrowRightIcon />}>더 알아보기</Button>
+        <Button href="/dnd/about" buttonType="secondary" size="large" suffixIcon={<RightArrowIcon />}>더 알아보기</Button>
       </SectionTitle>
       <SectionTitle title="DND NEWS">
         <div />
