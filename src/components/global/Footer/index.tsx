@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import Button from '@/components/atoms/Button';
 import ExternalLink from '@/components/atoms/ExternalLink';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ApplyModal from '@/components/organisms/ApplyModal';
@@ -45,7 +46,9 @@ function Footer() {
             <li><Link href="/reviews">후기</Link></li>
             <li><ExternalLink href="https://blog.dnd.ac">블로그</ExternalLink></li>
           </ul>
-          <ApplyModal />
+          <ApplyModal>
+            <Button />
+          </ApplyModal>
         </div>
       </div>
     </footer>

@@ -15,7 +15,7 @@ import styles from './index.module.scss';
 export type ButtonSize = 'xLarge' | 'large' | 'medium' | 'small';
 type ButtonType = 'primary' | 'secondary' | 'clear' | 'purple';
 
-interface Props extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, 'size'> {
+export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, 'size'> {
   buttonType?: ButtonType;
   size?: ButtonSize;
   width?: string;
@@ -43,7 +43,7 @@ function Button({
   className,
   children,
   ...rest
-}: Props): ReactElement {
+}: ButtonProps): ReactElement {
   const htmlProps = rest as any;
 
   const buttonClassName = clsx(styles.buttonWrapper, {
