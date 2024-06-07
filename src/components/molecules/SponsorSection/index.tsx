@@ -49,7 +49,7 @@ function SponsorSection() {
         href="https://mahogany-base-b4f.notion.site/98c7848ce8ba4f48aa4153388fb39a1b"
         buttonType="clear"
         size="large"
-        suffixIcon={<LinkIcon />}
+        suffixIcon={<LinkIcon width={14} height={14} className={styles.linkIcon} />}
       >
         후원 문의하기
       </Button>

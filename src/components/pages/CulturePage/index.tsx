@@ -74,7 +74,7 @@ function CulturePage() {
             href="https://island-allium-288.notion.site/DND-53511a46df7748899e8ed079ca0eee85?pvs=4"
             buttonType="clear"
             size="large"
-            suffixIcon={<LinkIcon />}
+            suffixIcon={<LinkIcon width={14} height={14} className={styles.linkIcon} />}
           >
             DND활동 정책 확인하기
           </Button>

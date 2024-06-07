@@ -50,7 +50,7 @@ function HomePage() {
             </div>
           </div>
           <ApplyModal>
-            <Button size="xLarge" />
+            <Button size="xLarge" buttonType="primary" />
           </ApplyModal>
         </div>
         <div className={styles.bannerWrapper}>
@@ -67,7 +67,7 @@ function HomePage() {
       <CounterCardSection title="지금까지 DND는?" />
       <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
         <ProjectsSlider />
-        <Button href="/projects" buttonType="secondary" size="large" suffixIcon={<RightArrowIcon />}>프로젝트 더 보기</Button>
+        <Button href="/projects" size="large" suffixIcon={<RightArrowIcon />}>프로젝트 더 보기</Button>
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div className={styles.howBannerWrapper}>
@@ -123,7 +123,7 @@ function HomePage() {
             />
           </div> */}
         </div>
-        <Button href="/dnd/about" buttonType="secondary" size="large" suffixIcon={<RightArrowIcon />}>더 알아보기</Button>
+        <Button href="/dnd/about" size="large" suffixIcon={<RightArrowIcon />}>더 알아보기</Button>
       </SectionTitle>
       <SectionTitle title="DND NEWS">
         <div />

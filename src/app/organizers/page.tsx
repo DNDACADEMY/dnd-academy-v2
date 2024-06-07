@@ -8,7 +8,7 @@ type SearchParams = {
 };
 
 function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const organizers = getOrganizers({ position: searchParams?.position });
+  const organizers = getOrganizers({ position: searchParams?.position, isArchived: false });
 
   return (
     <>
