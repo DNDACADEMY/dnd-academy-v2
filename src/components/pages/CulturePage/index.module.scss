@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@import '/src/styles/main';
 
 .introduceSection {
   display: flex;
@@ -89,5 +89,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .linkIcon {
+      path {
+        stroke: color('gray03');
+      }
+    }
   }
 }

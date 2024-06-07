@@ -47,7 +47,7 @@ function Footer() {
             <li><ExternalLink href="https://blog.dnd.ac">블로그</ExternalLink></li>
           </ul>
           <ApplyModal>
-            <Button />
+            <Button buttonType="primary" />
           </ApplyModal>
         </div>
       </div>

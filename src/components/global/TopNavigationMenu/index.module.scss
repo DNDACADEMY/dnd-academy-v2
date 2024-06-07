@@ -79,7 +79,7 @@
 
       .active {
         font-weight: 700;
-  
+
         @include text-color('bgprimary');
       }
 
@@ -93,6 +93,12 @@
   flex-direction: row;
   gap: 4px;
   align-items: center;
+
+  .linkIcon {
+    path {
+      stroke: color('gray03');
+    }
+  }
 
   &:hover {
     text-decoration: none;

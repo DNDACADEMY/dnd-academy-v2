@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 import styles from './index.module.scss';
 
 export type ButtonSize = 'xLarge' | 'large' | 'medium' | 'small';
-type ButtonType = 'primary' | 'secondary' | 'clear' | 'purple';
+type ButtonType = 'default' | 'primary' | 'secondary' | 'clear' | 'purple';
 
 export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, 'size'> {
   buttonType?: ButtonType;
@@ -21,6 +21,7 @@ export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnch
   width?: string;
   type?: 'submit' | 'reset' | 'button';
   fullWidth?: boolean;
+  rounded?: boolean;
   isExternalLink?: boolean;
   prefixIcon?: ReactNode;
   suffixIcon?: ReactNode;
@@ -32,10 +33,11 @@ function Button({
   href,
   size = 'medium',
   type = 'button',
+  rounded = false,
   disabled,
   width,
   isExternalLink,
-  buttonType = 'primary',
+  buttonType = 'default',
   suffixIcon,
   prefixIcon,
   fullWidth,
@@ -53,6 +55,7 @@ function Button({
     [styles.disabled]: disabled,
     [styles.onlyIcon]: !!icon,
     [styles.hasWidth]: !!width,
+    [styles.rounded]: rounded,
   }, className);
 
   const buttonLabel = useMemo(() => {

@@ -9,7 +9,7 @@ function ShareModal() {
   return (
     <Modal>
       <Modal.OpenButton>
-        <Button type="button" buttonType="secondary" size="xLarge">친구에게 공유하기</Button>
+        <Button type="button" size="xLarge">친구에게 공유하기</Button>
       </Modal.OpenButton>
       <Modal.ContentsBase title="친구에게 공유하기" size="small">
         <div className={styles.shareModalContentsWrapper}>
@@ -29,7 +29,6 @@ function ShareModal() {
           </div>
           <Button
             type="button"
-            buttonType="secondary"
             prefixIcon={<ShareIcon />}
             className={styles.shareUrlButton}
           >
