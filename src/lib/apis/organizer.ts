@@ -2,15 +2,18 @@ import { organizerCountData, organizerIntroductionData } from '../assets/data';
 import { Organizer, OrganizerPosition } from '../types/organizer';
 
 export function getOrganizers({
-  position,
-}: { position?: string; } | undefined = {}): Organizer[] {
+  position, isArchived,
+}: { position?: string; isArchived?: boolean; } | undefined = {}): Organizer[] {
   const organizerIntroduction = organizerIntroductionData as Organizer[];
 
+  const filteredOrganizerIntroduction = organizerIntroduction
+    .filter((organizer) => (typeof isArchived === 'boolean' ? organizer.isArchived === isArchived : true));
+
   if (!position) {
-    return [...organizerIntroduction].reverse();
+    return [...filteredOrganizerIntroduction].reverse();
   }
 
-  return organizerIntroduction.filter(({ dndPosition }) => dndPosition === position);
+  return filteredOrganizerIntroduction.filter(({ dndPosition }) => dndPosition === position);
 }
 
 export function getOrganizer({ id }: { id: number; }) {

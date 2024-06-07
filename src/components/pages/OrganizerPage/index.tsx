@@ -17,7 +17,10 @@ type Props = {
 };
 
 function OrganizerPage({ organizer }: Props) {
-  const samePositionOrganizers = getOrganizers({ position: organizer.dndPosition });
+  const samePositionOrganizers = getOrganizers({
+    position: organizer.dndPosition,
+    isArchived: false,
+  });
 
   return (
     <>

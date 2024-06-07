@@ -77,9 +77,9 @@ function ShareAlarmSection() {
       <div className={styles.descriptionWrapper}>
         <h3 className={styles.title}>지금 함께 프로젝트를 시작해요!</h3>
         <div className={styles.buttonWrapper}>
-          <Button onClick={onClickShare} type="button" buttonType="secondary" size="xLarge">친구에게 공유하기</Button>
+          <Button onClick={onClickShare} type="button" size="xLarge">친구에게 공유하기</Button>
           <ApplyModal>
-            <Button size="xLarge" />
+            <Button size="xLarge" buttonType="primary" />
           </ApplyModal>
         </div>
       </div>

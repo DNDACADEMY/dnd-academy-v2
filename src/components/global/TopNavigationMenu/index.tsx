@@ -75,7 +75,7 @@ function TopNavigationMenu() {
       <li>
         <ExternalLink href="https://blog.dnd.ac" className={styles.blogLink}>
           <span>블로그</span>
-          <LinkIcon />
+          <LinkIcon width={14} height={14} className={styles.linkIcon} />
         </ExternalLink>
       </li>
       <li>

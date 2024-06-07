@@ -2,6 +2,7 @@
   {
     "name": "이현석",
     "id": 1,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/HyeonseokLee.png",
     "emoji": true,
     "author": "HyeonseokLee",
@@ -22,12 +23,12 @@
       "linkedin": "https://www.linkedin.com/in/leehs97"
     },
     "career": {
-      "now": ["현) Witi -> FE개발(Vue3), 겸사겸사 BE+AWS 관리"],
+      "now": ["Witi -> FE개발(Vue3), 겸사겸사 BE+AWS 관리"],
       "previous": [
-        "전) B.Factory -> FE개발(Vue2)",
-        "전) COMBO(일본, 삿포로) -> ASP.NET/Vue.js/Node.js개발+DevOps",
-        "전) 군대 -> CERT병/보안관제/개발",
-        "전) 솔루엠 인프라 관리자/ERP 개발"
+        "B.Factory -> FE개발(Vue2)",
+        "COMBO(일본, 삿포로) -> ASP.NET/Vue.js/Node.js개발+DevOps",
+        "군대 -> CERT병/보안관제/개발",
+        "솔루엠 인프라 관리자/ERP 개발"
       ]
     },
     "mbti": "INTP",
@@ -42,6 +43,7 @@
   {
     "name": "성기동",
     "id": 2,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeongGiDong.png",
     "emoji": false,
     "author": "Gidong",
@@ -83,6 +85,7 @@
   {
     "name": "이철우",
     "id": 3,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeCheolwoo.png",
     "emoji": false,
     "author": "Cheolwoo",
@@ -95,10 +98,10 @@
     },
     "career": {
       "now": [
-        "현) iOS Sowftware Engineer & Project Manager at Witi",
-        "현) DND 개발 운영"
+        "iOS Sowftware Engineer & Project Manager at Witi",
+        "DND 개발 운영"
       ],
-      "previous": ["전) iOS Sowftware Engineer at B.Factory"]
+      "previous": ["iOS Sowftware Engineer at B.Factory"]
     },
     "mbti": "ENFJ",
     "questions": {
@@ -111,6 +114,7 @@
   {
     "name": "이다정",
     "id": 4,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeDajeong.png",
     "emoji": false,
     "author": "Dajeong",
@@ -122,10 +126,10 @@
       "medium": "https://medium.com/@sweet-girl"
     },
     "career": {
-      "now": ["👉 현)스터닝 프로덕트 디자이너"],
+      "now": ["스터닝 프로덕트 디자이너"],
       "previous": [
-        "👉 전) 엘리스 프로덕트 디자이너",
-        "👉 전) 유라클 UX/UI 디자이너"
+        "엘리스 프로덕트 디자이너",
+        "유라클 UX/UI 디자이너"
       ]
     },
     "mbti": "ENFP",
@@ -139,6 +143,7 @@
   {
     "name": "이세희",
     "id": 5,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Sehui.png",
     "emoji": false,
     "author": "Sehui",
@@ -156,8 +161,8 @@
       "linkedin": "https://www.linkedin.com/mwlite/in/sehee-lee-361042153"
     },
     "career": {
-      "now": ["현) 스마트잭 프론트"],
-      "previous": ["전) 리우 풀스택", "전) 데이터마케팅코리아 풀스택"]
+      "now": ["스마트잭 프론트"],
+      "previous": ["리우 풀스택", "데이터마케팅코리아 풀스택"]
     },
     "mbti": "ESFJ",
     "questions": {
@@ -172,6 +177,7 @@
   {
     "name": "손현곤",
     "id": 6,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SonHyeongon.png",
     "emoji": false,
     "author": "Hyeongon",
@@ -184,8 +190,8 @@
       "tistory": "https://strawberryjamsea.tistory.com"
     },
     "career": {
-      "now": ["현) (주)그렙 프로그래머스 코스매니저"],
-      "previous": ["전) 엘리스 운영팀 코스매니저", "전) 코드릿 Project Manager"]
+      "now": ["(주)그렙 프로그래머스 코스매니저"],
+      "previous": ["엘리스 운영팀 코스매니저", "코드잇 Project Manager"]
     },
     "mbti": "ENTP",
     "questions": {
@@ -198,6 +204,7 @@
   {
     "name": "오서빈",
     "id": 7,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Seobin.png",
     "emoji": true,
     "author": "Seobin",
@@ -209,7 +216,7 @@
       "linkedin": ""
     },
     "career": {
-      "now": ["현) Witi"],
+      "now": ["Witi"],
       "previous": []
     },
     "mbti": "INTJ",
@@ -223,6 +230,7 @@
   {
     "name": "김동영",
     "id": 8,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Dongyeong.png",
     "emoji": false,
     "author": "Dongyeong",
@@ -251,6 +259,7 @@
   {
     "name": "우종성",
     "id": 9,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/WooJongseong.png",
     "emoji": false,
     "author": "Jongseong",
@@ -277,6 +286,7 @@
   {
     "name": "김성준",
     "id": 10,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/KimSeongjun.png",
     "emoji": false,
     "author": "Seongjun",
@@ -288,7 +298,7 @@
       "rocketpunch": "https://www.rocketpunch.com/@tthh617#projects"
     },
     "career": {
-      "now": ["2020.11 ~ 현재 - 백엔드 개발자"],
+      "now": ["2020.11 ~ 백엔드 개발자"],
       "previous": ["2018.10 ~ 2020.11 - 풀스택 개발자"]
     },
     "mbti": "INTJ",
@@ -302,6 +312,7 @@
   {
     "name": "김한솔",
     "id": 11,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/KimHansol.png",
     "emoji": false,
     "author": "Hansol",
@@ -330,6 +341,7 @@
   {
     "name": "박현재",
     "id": 12,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Hyeonjae.png",
     "emoji": false,
     "author": "Hyeonjae",
@@ -354,6 +366,7 @@
   {
     "name": "정다영",
     "id": 13,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JeongDayeong.png",
     "emoji": false,
     "author": "Dayeong",
@@ -379,6 +392,7 @@
   {
     "name": "이제욱",
     "id": 14,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jeuk.png",
     "emoji": true,
     "author": "Jeuk",
@@ -401,6 +415,7 @@
   {
     "name": "문예성",
     "id": 15,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Yeseong.png",
     "emoji": true,
     "author": "Yeseong",
@@ -426,6 +441,7 @@
   {
     "name": "이여진",
     "id": 16,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/lia.png",
     "emoji": false,
     "author": "lia",
@@ -437,7 +453,7 @@
       "linkedin": "https://www.linkedin.com/in/yeojin-lee-46a8a4211"
     },
     "career": {
-      "now": ["현) (주)그렙 프로그래머스 코스매니저"],
+      "now": ["(주)그렙 프로그래머스 코스매니저"],
       "previous": []
     },
     "mbti": "INFP",
@@ -451,6 +467,7 @@
   {
     "name": "최정혜",
     "id": 17,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jeonghye.png",
     "emoji": true,
     "author": "Jeonghye",
@@ -478,6 +495,7 @@
   {
     "name": "김현주",
     "id": 18,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Hyeonju.png",
     "emoji": false,
     "author": "Hyeonju",
@@ -495,7 +513,7 @@
       "brunch": "https://brunch.co.kr/@hjjju"
     },
     "career": {
-      "now": ["(현) CLASS101 Product Manager"],
+      "now": ["CLASS101 Product Manager"],
       "previous": []
     },
     "mbti": "ENTJ",
@@ -509,6 +527,7 @@
   {
     "name": "김승현",
     "id": 19,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Seunghyeon.png",
     "emoji": false,
     "author": "Seunghyeon",
@@ -529,15 +548,16 @@
     },
     "mbti": "INFP",
     "questions": {
-      "whatIsYourRoleInDnd": "﻿DND의 홍보와 마케팅을 담당하고 있습니다.\n\n동아리 운영 및 행사에 필요한 광고 캠페인을 제작하고 성과를 분석하여 개선해 나가는 퍼포먼스 마케팅 업무를 주로 수행하고 있습니다. 더불어 DND의 인스타그램, 페이스북과 같은 SNS 페이지를 운영하고 콘텐츠를 제작하며 DND를 널리 알리기 위해 노력 중입니다!",
+      "whatIsYourRoleInDnd": "DND의 홍보와 마케팅을 담당하고 있습니다.\n\n동아리 운영 및 행사에 필요한 광고 캠페인을 제작하고 성과를 분석하여 개선해 나가는 퍼포먼스 마케팅 업무를 주로 수행하고 있습니다. 더불어 DND의 인스타그램, 페이스북과 같은 SNS 페이지를 운영하고 콘텐츠를 제작하며 DND를 널리 알리기 위해 노력 중입니다!",
       "whyDoYouRecommendDnd": "DND의 강점은 현업에 계시는 개발자, 디자이너 멘토 분들의 적극적인 멘토링과 유연한 분위기라고 생각합니다. 5기에 운영진으로 합류하게 되었는데 멘토 분들이 정말 열정적으로 기술 공유를 위해서 힘써주시는 모습들을 보고 반하지 않을 수(?) 없었습니다!\n\n또한 방학 기간 중에 온전히 사이드 프로젝트에 집중할 수 있는 경험 또한 매력적이라고 생각합니다. 8주 간의 탄탄한 커리큘럼과 양질의 피드백을 통해서 멋진 사이드 프로젝트를 완성해가시면 좋겠습니다.",
-      "whatIsYourInterests": "﻿매일 여행하듯이 살고 싶습니다. 맛있는 음식을 먹고, 의미 있는 시간들로 하루를 채워나가려고 노력 중이랍니다. ﻿여행 자체를 정말 좋아하기도 해서, 다시 해외여행을 할 날을 손꼽아 기다리고 있답니다.\n\n또한 교환학생을 핀란드로 다녀왔을 만큼 혁신 교육에 관심이 많습니다. 세상의 많은 사람들이 더 나은 교육 인프라를 접하게 하는 것이 궁극적인 목표이기도 해요. 그 외에 저를 행복하게 하는 건 고양이와 조용한 공간에서 독서하기, 한강에서 자전거 타기 입니다 :) ",
+      "whatIsYourInterests": "매일 여행하듯이 살고 싶습니다. 맛있는 음식을 먹고, 의미 있는 시간들로 하루를 채워나가려고 노력 중이랍니다. ﻿여행 자체를 정말 좋아하기도 해서, 다시 해외여행을 할 날을 손꼽아 기다리고 있답니다.\n\n또한 교환학생을 핀란드로 다녀왔을 만큼 혁신 교육에 관심이 많습니다. 세상의 많은 사람들이 더 나은 교육 인프라를 접하게 하는 것이 궁극적인 목표이기도 해요. 그 외에 저를 행복하게 하는 건 고양이와 조용한 공간에서 독서하기, 한강에서 자전거 타기 입니다 :) ",
       "whatYouWantToShare": []
     }
   },
   {
     "name": "이여진",
     "id": 20,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Yeojin.png",
     "emoji": true,
     "author": "Yeojin",
@@ -564,6 +584,7 @@
   {
     "name": "박준용",
     "id": 21,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JunYong.png",
     "emoji": true,
     "author": "JunYong",
@@ -576,8 +597,8 @@
       "email": ""
     },
     "career": {
-      "now": ["현) (주)그렙 프로그래머스 코스매니저"],
-      "previous": ["전) 의류 생산 MD"]
+      "now": ["(주)그렙 프로그래머스 코스매니저"],
+      "previous": ["의류 생산 MD"]
     },
     "mbti": "ENFJ",
     "questions": {
@@ -591,6 +612,7 @@
   {
     "name": "이재왕",
     "id": 22,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeJaewang.png",
     "emoji": false,
     "author": "Jaewang",
@@ -609,11 +631,12 @@
     },
     "career": {
       "now": [
-        "👉 현) SmartGeo 백엔드 개발자",
-        "👉 전) GovTechKorea 프론트엔드 개발자",
-        "👉 전) Google Developer Student Clubs"
+        "SmartGeo 백엔드 개발자"
       ],
-      "previous": []
+      "previous": [
+        "GovTechKorea 프론트엔드 개발자",
+        "Google Developer Student Clubs"
+      ]
     },
     "mbti": "INTP-A",
     "questions": {
@@ -630,6 +653,7 @@
   {
     "name": "여선주",
     "id": 23,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YoeSeonju.png",
     "emoji": false,
     "author": "YoeSeonju",
@@ -654,6 +678,7 @@
   {
     "name": "박시형",
     "id": 24,
+    "isArchived": true,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SihYung.png",
     "emoji": true,
     "author": "ParkSiHyung",
@@ -666,7 +691,7 @@
       "email": "shpkc@naver.com"
     },
     "career": {
-      "now": ["현) 여신티켓 프론트엔드 개발자"],
+      "now": ["여신티켓 프론트엔드 개발자"],
       "previous": []
     },
     "mbti": "ENTJ",
@@ -680,6 +705,7 @@
   {
     "name": "구영회",
     "id": 25,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YoungHoe.png",
     "emoji": false,
     "author": "YoungHoe",
@@ -690,8 +716,8 @@
       "github": "https://github.com/YHKOO95"
     },
     "career": {
-      "now": ["현) PFC Technologies 안드로이드 개발"],
-      "previous": ["전) 넛지헬스케어 안드로이드 개발", "전) 스마트잭 안드로이드 개발"]
+      "now": ["PFC Technologies 안드로이드 개발"],
+      "previous": ["넛지헬스케어 안드로이드 개발", "스마트잭 안드로이드 개발"]
     },
     "mbti": "INFP",
     "questions": {
@@ -704,6 +730,7 @@
   {
     "name": "장지호",
     "id": 26,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHo.png",
     "emoji": false,
     "author": "JiHo",
@@ -714,7 +741,7 @@
       "github": ""
     },
     "career": {
-      "now": ["현) 2023.06.09 ~ 안드로이드 개발자"],
+      "now": ["2023.06.09 ~ 안드로이드 개발자"],
       "previous": []
     },
     "mbti": "INFJ",
@@ -728,6 +755,7 @@
   {
     "name": "박지현",
     "id": 27,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHyun.png",
     "emoji": false,
     "author": "JiHyun",
@@ -752,6 +780,7 @@
   {
     "name": "최나은",
     "id": 28,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/NaEun.png",
     "emoji": false,
     "author": "NaEun",
@@ -762,8 +791,8 @@
       "linkedin": "http://linkedin.com/in/나은-최-9475921ab"
     },
     "career": {
-      "now": ["현) 2023.01 ~ 캐시워크 UIUX 기획"],
-      "previous": ["전) 2022.10-2022.12 넥슨 코리아 웹기획"]
+      "now": ["2023.01 ~ 캐시워크 UIUX 기획"],
+      "previous": ["2022.10-2022.12 넥슨 코리아 웹기획"]
     },
     "mbti": "ENFJ",
     "questions": {
@@ -776,6 +805,7 @@
   {
     "name": "유예지",
     "id": 29,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YeJi.png",
     "emoji": false,
     "author": "YeJi",
@@ -786,7 +816,7 @@
       "linkedin": "https://www.linkedin.com/in/annayejiyoo/"
     },
     "career": {
-      "now": ["현) PM/서비스기획"],
+      "now": ["PM/서비스기획"],
       "previous": []
     },
     "mbti": "ENFJ",
@@ -800,6 +830,7 @@
   {
     "name": "소석진",
     "id": 30,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeokJin.png",
     "emoji": false,
     "author": "SeokJin",
@@ -810,7 +841,7 @@
       "github": "https://github.com/seokzin"
     },
     "career": {
-      "now": ["현) FLO 프론트엔드"],
+      "now": ["FLO 프론트엔드"],
       "previous": []
     },
     "mbti": "ENFJ",
@@ -824,6 +855,7 @@
   {
     "name": "당현아",
     "id": 31,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/HyeonA.jpg",
     "emoji": false,
     "author": "HyeonA",
@@ -848,6 +880,7 @@
   {
     "name": "사승민",
     "id": 32,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeungMin.JPG",
     "emoji": false,
     "author": "SeungMin",
@@ -875,6 +908,7 @@
   {
     "name": "디디",
     "id": 99,
+    "isArchived": false,
     "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/dd_mascot.png",
     "emoji": false,
     "author": "dd",

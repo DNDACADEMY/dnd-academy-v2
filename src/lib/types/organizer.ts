@@ -20,6 +20,7 @@ export interface Organizer {
     whatIsYourInterests: string;
     whatYouWantToShare: string[];
   }
+  isArchived: boolean;
   emoji: boolean;
 }
 
