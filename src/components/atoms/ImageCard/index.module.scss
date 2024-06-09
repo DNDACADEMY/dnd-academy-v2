@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@import '/src/styles/main';
 
 .imageCardWrapper {
   display: flex;
@@ -11,27 +11,26 @@
     height: 250px;
 
     &.primary {
-      background-color: color("primary");
+      background-color: color('primary');
     }
 
     &.secondary {
-      background-color: color("secondary");
+      background-color: color('secondary');
     }
 
     &.tertiary {
-      background-color: color("tertiary");
+      background-color: color('tertiary');
     }
-    
+
     .cardImage {
       width: 100%;
       height: auto;
     }
   }
 
-
   .description {
     display: flex;
     flex-direction: column;
-    background-color: color("white");
+    background-color: color('white');
   }
 }

@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@import '/src/styles/main';
 
 .modalWrapper {
   position: fixed;
@@ -24,8 +24,8 @@
   }
 
   .modalBox {
-    color: color("gray09");
-    background-color: color("white");
+    color: color('gray09');
+    background-color: color('white');
     border-radius: 8px;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 9%);
     padding: 24px 40px;
@@ -59,7 +59,7 @@
     position: relative;
 
     .title {
-      @include text("H5/Bold", "gray09");
+      @include text('H5/Bold', 'gray09');
     }
 
     .closeButton {
