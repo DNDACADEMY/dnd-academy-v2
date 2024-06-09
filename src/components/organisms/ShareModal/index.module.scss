@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@import '/src/styles/main';
 
 .shareModalContentsWrapper {
   display: flex;
@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     gap: 48px;
-  
+
     .shareButton {
       display: flex;
       flex-direction: column;
@@ -21,16 +21,16 @@
       border: none;
       background: none;
       gap: 16px;
-  
+
       @include text('H6/Bold', 'gray09');
-    
+
       .socialIcon {
         width: 80px;
         height: 80px;
       }
     }
   }
-  
+
   .shareUrlButton {
     border-radius: 32px;
   }

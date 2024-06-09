@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@import '/src/styles/main';
 
 .jobCardWrapper {
   display: flex;
@@ -30,7 +30,7 @@
       line-height: 17px;
       color: color('primary');
     }
-    
+
     .title {
       font-size: 14px;
       font-weight: 700;

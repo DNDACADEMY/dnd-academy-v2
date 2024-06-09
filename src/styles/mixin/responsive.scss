@@ -7,30 +7,30 @@ $xl: 1200px;
 
 @mixin xs {
 	@media (min-width: #{$xs}) and (max-width: #{$sm - 1px}) {
-    	@content;
-    }
+		@content;
+	}
 }
 
 @mixin sm {
 	@media (min-width: #{$xs}) and (max-width: #{$md - 1px}) {
-    	@content;
-    }
+		@content;
+	}
 }
 
 @mixin md {
 	@media (min-width: #{$xs}) and (max-width: #{$lg - 1px}) {
-    	@content;
-    }
+		@content;
+	}
 }
 
 @mixin lg {
 	@media (min-width: #{$xs}) and (max-width: #{$xl - 1px}) {
-    	@content;
-    }
+		@content;
+	}
 }
 
 @mixin xl {
 	@media (min-width: #{$xl}) {
-    	@content;
-    }
+		@content;
+	}
 }

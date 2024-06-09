@@ -16,20 +16,19 @@
     justify-content: space-between;
     gap: 24px;
     cursor: pointer;
-    transition: background-color .2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     background-color: color('gray08');
 
     @include xs {
-      @include text("body2/Bold", "gray00");
+      @include text('body2/Bold', 'gray00');
     }
 
-    @include text("H6/Bold", "gray00");
-  
+    @include text('H6/Bold', 'gray00');
+
     &.active {
       background-color: color('white');
 
       @include text-color('bgsecondary');
-
     }
   }
 
@@ -38,10 +37,10 @@
     background-color: color('gray02');
 
     @include xs {
-      @include text("body2/Regular", "bgsecondary");
+      @include text('body2/Regular', 'bgsecondary');
     }
 
-    @include text("H6/Regular", "bgsecondary");
+    @include text('H6/Regular', 'bgsecondary');
   }
 
   .polygonIcon {

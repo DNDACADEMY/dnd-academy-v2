@@ -1,5 +1,5 @@
-@use "sass:string";
-@use "sass:list";
+@use 'sass:string';
+@use 'sass:list';
 
 @function str-split($string, $separator) {
   $split-arr: ();
@@ -18,24 +18,24 @@
 }
 
 @function color($code) {
-  @if $code == "" {
+  @if $code == '' {
     @return currentcolor;
-  } @else if $code == "none" {
+  } @else if $code == 'none' {
     @return none;
-  } @else if $code == "transparent" {
+  } @else if $code == 'transparent' {
     @return transparent;
-  } @else if length(str-split($code, "/")) == 2 {
-    $list: str-split($code, "/");
-    $key: list.nth($list, 1) + "-" + list.nth($list, 2);
+  } @else if length(str-split($code, '/')) == 2 {
+    $list: str-split($code, '/');
+    $key: list.nth($list, 1) + '-' + list.nth($list, 2);
     $code: $key;
   } @else {
-    $list: str-split($code, ".");
-    $key: "";
+    $list: str-split($code, '.');
+    $key: '';
 
     @if length($list) == 2 {
-      $key: list.nth($list, 1) + "-" + list.nth($list, 2);
+      $key: list.nth($list, 1) + '-' + list.nth($list, 2);
     } @else if length($list) == 3 {
-      $key: list.nth($list, 1) + "-" + list.nth($list, 2) + "-" + list.nth($list, 3);
+      $key: list.nth($list, 1) + '-' + list.nth($list, 2) + '-' + list.nth($list, 3);
     } @else {
       $key: $code;
     }

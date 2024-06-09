@@ -1,11 +1,14 @@
-@import "/src/styles/main";
+@import '/src/styles/main';
 
 .tag {
   border: none;
   position: relative;
   overflow: hidden;
-  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out,
-    border-color 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  transition:
+    color 0.1s ease-in-out,
+    background-color 0.1s ease-in-out,
+    border-color 0.1s ease-in-out,
+    opacity 0.1s ease-in-out;
   user-select: none;
   white-space: nowrap;
   display: flex;
@@ -36,7 +39,7 @@
   }
 
   &::after {
-    content: " ";
+    content: ' ';
     position: absolute;
     inset: 0;
     border-radius: 0.25rem;

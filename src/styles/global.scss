@@ -1,8 +1,8 @@
 @import '~sanitize.css';
 @import 'react-perfect-scrollbar/dist/css/styles.css';
 @import './scrollbar';
-@import "./variables";
-@import "./main";
+@import './variables';
+@import './main';
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -11,7 +11,7 @@ html {
 
 body {
   background-color: color('bgsecondary');
-  color: color("bgprimary");
+  color: color('bgprimary');
 }
 
 strong {

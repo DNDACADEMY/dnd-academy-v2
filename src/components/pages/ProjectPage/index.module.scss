@@ -40,36 +40,36 @@
     gap: 24px;
     background-color: color('white');
     border-radius: 8px;
-  
+
     .projectIntroduceTitleWrapper {
       display: flex;
       flex-direction: column;
       gap: 16px;
-  
+
       .flag {
         padding: 5px 20px;
         border-radius: 20px;
         gap: 10px;
         display: flex;
         max-width: fit-content;
-        background-color: #00D3F21A;
+        background-color: #00d3f21a;
         color: color('info');
       }
-  
+
       .name {
         font-size: 48px;
         font-weight: 700;
         line-height: 67px;
         color: color('gray09');
       }
-  
+
       .title {
         font-size: 20px;
         font-weight: 400;
         line-height: 28px;
         color: color('gray06');
       }
-  
+
       .skillWrapper {
         display: flex;
         flex-flow: row wrap;
@@ -77,7 +77,7 @@
         width: 100%;
       }
     }
-  
+
     .description {
       font-size: 16px;
       font-weight: 400;
@@ -86,7 +86,7 @@
       color: color('gray08');
     }
   }
-  
+
   .projectSection {
     display: flex;
     flex-direction: column;
