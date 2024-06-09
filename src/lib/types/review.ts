@@ -18,4 +18,4 @@ export type ReviewPosition =
   | '프론트엔드 개발자'
   | '프로덕트 디자이너'
   | 'Android Developer'
-  | 'iOS Software Engineer';
+  | 'iOS Developer';
