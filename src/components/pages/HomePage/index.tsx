@@ -43,8 +43,7 @@ function HomePage() {
               입니다.
             </div>
             <div className={styles.counter}>
-              오늘까지
-              &nbsp;
+              오늘까지&nbsp;
               <Counter count={currentApplicantCount.designer + currentApplicantCount.developer} />
               명이 지원했어요!
             </div>
@@ -67,7 +66,7 @@ function HomePage() {
       <CounterCardSection title="지금까지 DND는?" />
       <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
         <ProjectsSlider />
-        <Button href="/projects" size="large" suffixIcon={<RightArrowIcon />}>프로젝트 더 보기</Button>
+        <Button href="/projects" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>프로젝트 더 보기</Button>
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div className={styles.howBannerWrapper}>
@@ -123,7 +122,7 @@ function HomePage() {
             />
           </div> */}
         </div>
-        <Button href="/dnd/about" size="large" suffixIcon={<RightArrowIcon />}>더 알아보기</Button>
+        <Button href="/dnd/about" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>더 알아보기</Button>
       </SectionTitle>
       <SectionTitle title="DND NEWS">
         <div />

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 import SocialIconLink from '@/components/molecules/SocialIconLink';
-import { ArrowRightIcon } from '@/lib/assets/icons';
+import { RightArrowIcon } from '@/lib/assets/icons';
 import { LogoType } from '@/lib/types/common';
 import { Review } from '@/lib/types/review';
 
@@ -46,7 +46,7 @@ function ReviewList({ reviews, hasProjectLink }: Props) {
             {hasProjectLink && typeof projectId === 'number' && (
               <Link href={`/projects/${projectId}`} className={styles.link}>
                 <span>프로젝트 보기</span>
-                <ArrowRightIcon className={styles.icon} />
+                <RightArrowIcon className={styles.arrowIcon} width={20} height={20} />
               </Link>
             )}
           </div>

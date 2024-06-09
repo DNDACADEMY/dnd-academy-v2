@@ -1,7 +1,6 @@
-import { jobsData } from '../assets/data';
-import { Job } from '../types/job';
+import { jobsData } from '@/lib/assets/data';
+import { Job } from '@/lib/types/job';
 
-// eslint-disable-next-line import/prefer-default-export
 export function getJobs({ flag }: { flag?: string; } | undefined = {}): Job[] {
   const jobs = jobsData as Job[];
 
@@ -10,4 +9,16 @@ export function getJobs({ flag }: { flag?: string; } | undefined = {}): Job[] {
   }
 
   return jobs.filter((review) => review.flag === flag);
+}
+
+export function getJobCount() {
+  const jobs = jobsData as Job[];
+
+  return jobs.reduce(
+    (acc, { flag }) => ({
+      ...acc,
+      [flag]: (acc[flag] || 0) + 1,
+    }),
+    {} as Record<Job['flag'], number>,
+  );
 }

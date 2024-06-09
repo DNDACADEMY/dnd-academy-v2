@@ -98,7 +98,7 @@ function OrganizerPage({ organizer }: Props) {
               </div>
               <ApplyModal>
                 <button type="button" className={styles.applyButton}>
-                  <RightArrowIcon className={styles.arrowIcon} />
+                  <RightArrowIcon className={styles.arrowIcon} width={20} height={20} />
                 </button>
               </ApplyModal>
             </div>
