@@ -1,6 +1,6 @@
-import { reviewCountData, reviewsData } from '../assets/data';
-import { ProjectFlag } from '../types/project';
-import { Review, ReviewPosition } from '../types/review';
+import { reviewsData } from '@/lib/assets/data';
+import { ProjectFlag } from '@/lib/types/project';
+import { Review, ReviewPosition } from '@/lib/types/review';
 
 export function getReviews({
   position, flag, projectId,
@@ -20,6 +20,14 @@ export function getReviews({
   return reviews.filter((review) => review.position === position);
 }
 
-export function getReviewCount(): Record<ReviewPosition, number> {
-  return reviewCountData;
+export function getReviewCount() {
+  const reviews = reviewsData as Review[];
+
+  return reviews.reduce(
+    (acc, { position }) => ({
+      ...acc,
+      [position]: (acc[position] || 0) + 1,
+    }),
+    {} as Record<ReviewPosition, number>,
+  );
 }

@@ -28,4 +28,5 @@ export type OrganizerPosition =
   | '개발'
   | '디자인'
   | '마케팅'
-  | '운영';
+  | '운영'
+  | '마스코트';

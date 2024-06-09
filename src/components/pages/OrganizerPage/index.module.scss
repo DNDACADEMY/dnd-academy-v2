@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@import '/src/styles/main';
 
 .organizerPage {
   display: flex;
@@ -10,9 +10,9 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    
+
     h3 {
-      @include text("H4/Bold", "white");
+      @include text('H4/Bold', 'white');
     }
 
     .samePositionOrganizers {
@@ -23,54 +23,54 @@
       align-items: flex-start;
     }
   }
-  
+
   .organizerMainContents {
     display: grid;
     grid-template-columns: 270px 1fr;
     gap: 24px;
-  
+
     @include sm {
       grid-template-columns: 1fr;
     }
-  
+
     .organizerInfoWrapper {
       display: flex;
       flex-direction: column;
       gap: 100px;
       border-radius: 8px;
       box-shadow: 1px 1px 0 0 #404246 inset;
-      
+
       .thumbnailWrapper {
         padding: 24px;
-    
+
         .thumbnail {
           border-radius: 8px;
           object-fit: cover;
         }
       }
-  
+
       .organizerInfo {
         display: flex;
         padding: 24px;
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
-    
+
         .position {
-          @include text("body1/Bold", "primary");
+          @include text('body1/Bold', 'primary');
         }
-    
+
         .name {
-          @include text("H4/Bold", "white");
+          @include text('H4/Bold', 'white');
         }
-    
+
         .skillWrapper {
           display: flex;
           flex-flow: row wrap;
           gap: 10px;
           align-items: center;
         }
-    
+
         .socialIconWrapper {
           display: flex;
           flex-direction: row;
@@ -79,8 +79,7 @@
         }
       }
     }
-  
-  
+
     .organizerDescription {
       display: flex;
       gap: 48px;
@@ -88,57 +87,58 @@
       flex-direction: column;
       border-radius: 8px;
       box-shadow: 1px 1px 0 0 #404246 inset;
-  
+
       h1 {
-        @include text("H4/Bold", "gray01");
+        @include text('H4/Bold', 'gray01');
       }
-  
+
       .organizerDescriptionItem {
         display: flex;
         flex-direction: column;
         gap: 16px;
-  
+
         .bold {
-          @include text("H6/Bold", "primary");
+          @include text('H6/Bold', 'primary');
         }
-  
+
         h2 {
-          @include text("H6/Bold", "white");
+          @include text('H6/Bold', 'white');
         }
-  
+
         .organizerAnswer {
           word-wrap: break-word;
           white-space: pre-line;
-  
-          @include text("body2/Regular", "gray03");
+
+          @include text('body2/Regular', 'gray03');
         }
-  
+
         .applyButton {
           position: relative;
           border: none;
           background-color: transparent;
           display: flex;
+          max-width: fit-content;
           align-items: center;
           padding: 0;
           margin: 0;
           gap: 8px;
-  
+
           .arrowIcon {
             path {
-              fill: color("primary");
+              fill: color('primary');
             }
           }
-  
-          @include text("body2/Bold", "primary");
+
+          @include text('body2/Bold', 'primary');
         }
       }
-  
+
       .shareImageWrapper {
         display: flex;
         align-content: flex-start;
         gap: 24px;
         flex-wrap: wrap;
-  
+
         .shareImage {
           border-radius: 8px;
           object-fit: cover;

@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@import '/src/styles/main';
 
 .reviewsWrapper {
   margin-bottom: 100px;
@@ -59,8 +59,10 @@
     align-items: center;
     color: color('primary');
 
-    .icon > g {
-      stroke: color('primary');
+    .arrowIcon {
+      path {
+        fill: color('primary');
+      }
     }
   }
 }

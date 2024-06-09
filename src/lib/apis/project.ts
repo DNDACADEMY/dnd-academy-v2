@@ -1,5 +1,5 @@
-import { projectCountData, projectsData } from '../assets/data';
-import { Project, ProjectFlag } from '../types/project';
+import { projectsData } from '@/lib/assets/data';
+import { Project, ProjectFlag } from '@/lib/types/project';
 
 export function getProjects({
   ordinal,
@@ -13,8 +13,16 @@ export function getProjects({
   return projects.filter(({ flag }) => flag === ordinal);
 }
 
-export function getProjectCount(): Record<ProjectFlag, number> {
-  return projectCountData;
+export function getProjectCount() {
+  const projects = projectsData as Project[];
+
+  return projects.reduce(
+    (acc, { flag }) => ({
+      ...acc,
+      [flag]: (acc[flag] || 0) + 1,
+    }),
+    {} as Record<ProjectFlag, number>,
+  );
 }
 
 export function getProject({ id }: { id: number; }) {
