@@ -13,11 +13,11 @@
     text-decoration: underline;
     text-underline-offset: 2px;
 
-    @include text("H6/Regular", "gray01");
+    @include text('H6/Regular', 'gray01');
   }
 
   .title {
-    @include text("H6/Regular", "white");
+    @include text('H6/Regular', 'white');
 
     &.lastItem {
       font-weight: 700;
