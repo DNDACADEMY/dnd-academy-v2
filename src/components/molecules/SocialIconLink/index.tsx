@@ -1,5 +1,7 @@
 import { FunctionComponent, SVGAttributes } from 'react';
 
+import clsx from 'clsx';
+
 import ExternalLink from '@/components/atoms/ExternalLink';
 import {
   EmailLogo,
@@ -21,9 +23,12 @@ type Props = {
   type: LogoType;
   link?: string;
   className?: string;
+  theme?: 'light' | 'dark';
 };
 
-function SocialIconLink({ link, type, className }: Props) {
+function SocialIconLink({
+  link, type, className, theme = 'dark',
+}: Props) {
   const IconLogo = ({
     link: HomeLogo,
     email: EmailLogo,
@@ -39,13 +44,19 @@ function SocialIconLink({ link, type, className }: Props) {
 
   const Logo = IconLogo[type] || HomeLogo;
 
+  const logoClassName = clsx(styles.socialIcon, {
+    [styles[theme]]: theme,
+  });
+
   if (!link) {
-    return <Logo className={styles.socialIcon} />;
+    return (
+      <Logo className={logoClassName} />
+    );
   }
 
   return (
     <ExternalLink href={link} className={className}>
-      <Logo className={styles.socialIcon} />
+      <Logo className={logoClassName} />
     </ExternalLink>
   );
 }

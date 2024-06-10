@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
+import Badge from '@/components/atoms/Badge';
 import Button from '@/components/atoms/Button';
 import { Counter } from '@/components/atoms/CounterCard';
-import EventStatusBadge from '@/components/atoms/EventStatusBadge';
 import ImageCard from '@/components/atoms/ImageCard';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import CounterCardSection from '@/components/molecules/CounterCardSection';
@@ -25,7 +25,7 @@ function HomePage() {
       <section className={styles.homeSection}>
         <div className={styles.contentsWrapper}>
           <div className={styles.description}>
-            <EventStatusBadge text="DND는 잠시 휴식중" type="info" />
+            <Badge label="DND는 잠시 휴식중" variant="info" />
             <h1 className={styles.title}>
               {`프로젝트에 즐거움을
                 모두에게 기회를`}
