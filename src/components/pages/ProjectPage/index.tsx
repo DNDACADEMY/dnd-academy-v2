@@ -1,3 +1,4 @@
+import Badge from '@/components/atoms/Badge';
 import DetailNavigation from '@/components/atoms/DetailNavigation';
 import SkillTag from '@/components/atoms/SkillTag';
 import PDFViewer from '@/components/molecules/PDFViewer';
@@ -6,6 +7,8 @@ import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
 import { Project } from '@/lib/types/project';
+
+import SocialIconLink from '../../molecules/SocialIconLink';
 
 import styles from './index.module.scss';
 
@@ -36,8 +39,41 @@ function ProjectPage({ project }: Props) {
             <PDFViewer url={project?.pdf} />
           </div>
           <div className={styles.projectIntroduceTitleWrapper}>
-            <div>
-              <div className={styles.flag}>{project.flag}</div>
+            <div className={styles.header}>
+              <Badge
+                label={project.flag}
+                variant="info"
+                size="large"
+                theme="light"
+              />
+              <div className={styles.linkWrapper}>
+                {project.projectLinks.link && (
+                  <SocialIconLink
+                    type="link"
+                    link={project.projectLinks.link}
+                    theme="light"
+                  />
+                )}
+                {project.projectLinks.github && (
+                <>
+                  {project.projectLinks.github.map((link) => (
+                    <SocialIconLink
+                      key={link}
+                      type="github"
+                      link={link}
+                      theme="light"
+                    />
+                  ))}
+                </>
+                )}
+                {project.projectLinks.youtube && (
+                  <SocialIconLink
+                    type="youtube"
+                    link={project.projectLinks.youtube}
+                    theme="light"
+                  />
+                )}
+              </div>
             </div>
             <h1 className={styles.name}>{project.name}</h1>
             <h2 className={styles.title}>{project.title}</h2>

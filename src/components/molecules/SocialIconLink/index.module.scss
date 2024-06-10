@@ -9,7 +9,18 @@
   path {
     transition: opacity 0.1s ease-in-out;
     opacity: 1;
-    fill: color('gray02');
+  }
+
+  &.light {
+    path {
+      fill: color('gray09');
+    }
+  }
+
+  &.dark {
+    path {
+      fill: color('gray02');
+    }
   }
 
   &:hover {
