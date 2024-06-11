@@ -3,12 +3,11 @@ import DetailNavigation from '@/components/atoms/DetailNavigation';
 import SkillTag from '@/components/atoms/SkillTag';
 import PDFViewer from '@/components/molecules/PDFViewer';
 import ProjectCards from '@/components/molecules/ProjectCards';
+import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
 import { Project } from '@/lib/types/project';
-
-import SocialIconLink from '../../molecules/SocialIconLink';
 
 import styles from './index.module.scss';
 

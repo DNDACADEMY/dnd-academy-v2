@@ -1,6 +1,7 @@
 import ClientProviders from '@/components/global/ClientProviders';
 import ErrorBoundary from '@/components/global/ErrorBoundary';
 import Footer from '@/components/global/Footer';
+import Toast from '@/components/global/Toast';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
 
 import { pretendardFont } from './_fonts';
@@ -29,6 +30,7 @@ function RootLayout({ children }: {
             <div id="portal-container" />
           </ClientProviders>
         </ErrorBoundary>
+        <Toast />
       </body>
     </html>
   );
