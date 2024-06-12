@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 
+import { pretendardFont } from './_fonts';
+
 type Props = {
   error: Error & { digest?: string }
   reset: () => void
@@ -14,17 +16,12 @@ function ErrorPage({ error, reset }: Props) {
   }, [error]);
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <button
-        type="button"
-        onClick={
-          () => reset()
-        }
-      >
-        Try again
-      </button>
-    </div>
+    <html lang="ko" className={pretendardFont.className}>
+      <body>
+        <h2>Something went wrong!</h2>
+        <button type="button" onClick={() => reset()}>Try again</button>
+      </body>
+    </html>
   );
 }
 
