@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/DNDACADEMY/dnd-academy-v2#readme",
   "dependencies": {
-    "@tanstack/react-query": "5.36.0",
     "clsx": "2.1.1",
     "dayjs": "1.11.11",
     "framer-motion": "11.2.0",
@@ -40,7 +39,6 @@
     "react": "18.3.1",
     "react-countup": "6.5.3",
     "react-dom": "18.3.1",
-    "react-error-boundary": "4.0.13",
     "react-fast-marquee": "1.6.4",
     "react-pdf": "8.0.2",
     "react-perfect-scrollbar": "1.5.8",
