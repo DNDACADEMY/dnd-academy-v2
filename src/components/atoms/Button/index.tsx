@@ -20,6 +20,8 @@ export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnch
   size?: ButtonSize;
   width?: string;
   type?: 'submit' | 'reset' | 'button';
+  /** NOTE - light는 디자인 시스템 정의가 안되어있어서 clear button만 적용 */
+  theme?: 'light' | 'dark';
   fullWidth?: boolean;
   rounded?: boolean;
   isExternalLink?: boolean;
@@ -37,6 +39,7 @@ function Button({
   disabled,
   width,
   isExternalLink,
+  theme = 'dark',
   buttonType = 'default',
   suffixIcon,
   prefixIcon,
@@ -48,15 +51,20 @@ function Button({
 }: ButtonProps): ReactElement {
   const htmlProps = rest as any;
 
-  const buttonClassName = clsx(styles.buttonWrapper, {
-    [styles[size]]: size,
-    [styles[buttonType]]: buttonType,
-    [styles.fullWidth]: fullWidth,
-    [styles.disabled]: disabled,
-    [styles.onlyIcon]: !!icon,
-    [styles.hasWidth]: !!width,
-    [styles.rounded]: rounded,
-  }, className);
+  const buttonClassName = clsx(
+    styles.buttonWrapper,
+    styles[theme],
+    styles[size],
+    styles[buttonType],
+    {
+      [styles.fullWidth]: fullWidth,
+      [styles.disabled]: disabled,
+      [styles.onlyIcon]: !!icon,
+      [styles.hasWidth]: !!width,
+      [styles.rounded]: rounded,
+    },
+    className,
+  );
 
   const buttonLabel = useMemo(() => {
     if (icon) {

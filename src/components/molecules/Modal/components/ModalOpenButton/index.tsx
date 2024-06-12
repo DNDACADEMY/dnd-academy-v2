@@ -1,10 +1,13 @@
 import {
+  ButtonHTMLAttributes,
   cloneElement, MouseEvent, ReactElement, useContext,
 } from 'react';
 
 import { ModalContext } from '../ModalProvider';
 
-function ModalOpenButton({ children: child } : { children: ReactElement }) {
+function ModalOpenButton({
+  children: child,
+} : { children: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>> }) {
   const modalContext = useContext(ModalContext);
 
   if (!modalContext) {

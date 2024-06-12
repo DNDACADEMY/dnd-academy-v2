@@ -1,13 +1,17 @@
 import Badge from '@/components/atoms/Badge';
+import Button from '@/components/atoms/Button';
 import DetailNavigation from '@/components/atoms/DetailNavigation';
 import SkillTag from '@/components/atoms/SkillTag';
 import PDFViewer from '@/components/molecules/PDFViewer';
 import ProjectCards from '@/components/molecules/ProjectCards';
+import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
+import { ShareIcon } from '@/lib/assets/icons';
 import { Project } from '@/lib/types/project';
+import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';
 
@@ -46,32 +50,39 @@ function ProjectPage({ project }: Props) {
                 theme="light"
               />
               <div className={styles.linkWrapper}>
-                {project.projectLinks.link && (
-                  <SocialIconLink
-                    type="link"
-                    link={project.projectLinks.link}
+                {getEntries(project.projectLinks)
+                  .map(([key, value]) => {
+                    if (key === 'github') {
+                      return value?.map((link) => (
+                        <SocialIconLink
+                          key={link}
+                          type="github"
+                          link={link}
+                          theme="light"
+                        />
+                      ));
+                    }
+
+                    return (
+                      <SocialIconLink
+                        key={key}
+                        type={key}
+                        link={value}
+                        theme="light"
+                      />
+                    );
+                  })}
+                <ShareClipBoardCTA shareText={`${process.env.NEXT_PUBLIC_ORIGIN}/projects/${project.id}`}>
+                  <Button
+                    type="button"
+                    prefixIcon={<ShareIcon width={16} height={16} />}
+                    buttonType="clear"
+                    size="small"
                     theme="light"
-                  />
-                )}
-                {project.projectLinks.github && (
-                <>
-                  {project.projectLinks.github.map((link) => (
-                    <SocialIconLink
-                      key={link}
-                      type="github"
-                      link={link}
-                      theme="light"
-                    />
-                  ))}
-                </>
-                )}
-                {project.projectLinks.youtube && (
-                  <SocialIconLink
-                    type="youtube"
-                    link={project.projectLinks.youtube}
-                    theme="light"
-                  />
-                )}
+                  >
+                    프로젝트 공유하기
+                  </Button>
+                </ShareClipBoardCTA>
               </div>
             </div>
             <h1 className={styles.name}>{project.name}</h1>
