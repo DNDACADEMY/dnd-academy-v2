@@ -1,5 +1,4 @@
 import ClientProviders from '@/components/global/ClientProviders';
-import ErrorBoundary from '@/components/global/ErrorBoundary';
 import Footer from '@/components/global/Footer';
 import Toast from '@/components/global/Toast';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
@@ -20,16 +19,14 @@ function RootLayout({ children }: {
   return (
     <html lang="ko" className={pretendardFont.className}>
       <body>
-        <ErrorBoundary>
-          <ClientProviders>
-            <TopNavigationBar />
-            <main className={styles.main}>
-              {children}
-            </main>
-            <Footer />
-            <div id="portal-container" />
-          </ClientProviders>
-        </ErrorBoundary>
+        <ClientProviders>
+          <TopNavigationBar />
+          <main className={styles.main}>
+            {children}
+          </main>
+          <Footer />
+          <div id="portal-container" />
+        </ClientProviders>
         <Toast />
       </body>
     </html>
