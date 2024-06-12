@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import qs from 'qs';
 
+import { Entries, RequiredNonNullableObject } from '@/lib/types';
+
 const CACHE_MINUTE = 5;
 
 export const paramsSerializer = <T>(params: T): string => qs.stringify(params, {
@@ -19,4 +21,12 @@ export const getCacheDate = (cacheTime = CACHE_MINUTE) => {
   return {
     date: `${date}-${minute}`,
   };
+};
+
+export const getEntries = <T extends object>(obj: T) => {
+  const entries = Object.entries(obj) as Entries<T>;
+
+  return entries?.filter((
+    entry,
+  ) => !!entry?.[0] && !!entry?.[1]) as Entries<RequiredNonNullableObject<T>>;
 };

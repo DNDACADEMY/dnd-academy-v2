@@ -4,9 +4,12 @@ import clsx from 'clsx';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 import {
+  AppStoreLogo,
   EmailLogo,
   FacebookLogo,
+  FigmaLogo,
   GithubLogo,
+  GooglePlayStoreLogo,
   HomeLogo,
   InstagramLogo,
   LinkedInLogo,
@@ -14,6 +17,7 @@ import {
   NaverLogo,
   TistoryLogo,
   VelogLogo,
+  YoutubeLogo,
 } from '@/lib/assets/logos';
 import { LogoType } from '@/lib/types/common';
 
@@ -40,6 +44,10 @@ function SocialIconLink({
     facebook: FacebookLogo,
     naverBlog: NaverLogo,
     tistory: TistoryLogo,
+    appStore: AppStoreLogo,
+    googlePlayStore: GooglePlayStoreLogo,
+    figma: FigmaLogo,
+    youtube: YoutubeLogo,
   } as Partial<Record<LogoType, FunctionComponent<SVGAttributes<SVGElement>>>>);
 
   const Logo = IconLogo[type] || HomeLogo;

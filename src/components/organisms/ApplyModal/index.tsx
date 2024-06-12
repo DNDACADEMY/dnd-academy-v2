@@ -1,6 +1,8 @@
 'use client';
 
-import { cloneElement, ReactElement, ReactNode } from 'react';
+import {
+  ButtonHTMLAttributes, cloneElement, ReactElement,
+} from 'react';
 
 import Button from '@/components/atoms/Button';
 import Modal from '@/components/molecules/Modal';
@@ -9,7 +11,7 @@ import { CURRENT_FLAG, DESIGNER_APPLICATION_LINK, DEVELOPER_APPLICATION_LINK } f
 import styles from './index.module.scss';
 
 type Props = {
-  children: ReactElement<HTMLButtonElement>;
+  children: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>;
 };
 
 function ApplyModal({ children: child }: Props) {
@@ -18,7 +20,7 @@ function ApplyModal({ children: child }: Props) {
       <Modal.OpenButton>
         {cloneElement(child, child.props, [
           <span key="default-label">{`${CURRENT_FLAG}기 지원하기`}</span>,
-          child.props.children as ReactNode,
+          child.props.children,
         ])}
       </Modal.OpenButton>
       <Modal.ContentsBase title={`${CURRENT_FLAG}기 지원하기`} size="small">

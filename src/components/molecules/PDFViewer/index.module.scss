@@ -27,16 +27,13 @@
       line-height: 22px;
     }
 
-    .button {
-      &:not(:disabled) {
-        border-color: color('gray09');
-      }
+    .prevIcon {
+      transform: rotate(180deg);
+    }
 
-      .icon {
-        transform: rotate(180deg);
-      }
-
-      .disabled {
+    .nextIcon,
+    .prevIcon {
+      &.disabled {
         g {
           stroke: color('gray04');
         }
@@ -45,7 +42,6 @@
 
     .expandLink {
       position: absolute;
-      border-color: color('gray09');
       padding: 2px 14px;
       right: 10px;
 

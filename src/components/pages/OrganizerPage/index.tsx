@@ -7,8 +7,8 @@ import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ApplyModal from '@/components/organisms/ApplyModal';
 import { getOrganizers } from '@/lib/apis/organizer';
 import { RightArrowIcon } from '@/lib/assets/icons';
-import { LogoType } from '@/lib/types/common';
 import { Organizer } from '@/lib/types/organizer';
+import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';
 
@@ -61,8 +61,8 @@ function OrganizerPage({ organizer }: Props) {
                   ))}
                 </div>
                 <div className={styles.socialIconWrapper}>
-                  {Object.entries(organizer.links).map(([key, link]) => (
-                    <SocialIconLink key={key} link={link} type={key as LogoType} />
+                  {getEntries(organizer.links).map(([key, link]) => (
+                    <SocialIconLink key={key} link={link} type={key} />
                   ))}
                 </div>
               </div>

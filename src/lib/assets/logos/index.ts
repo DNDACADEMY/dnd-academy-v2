@@ -1,7 +1,10 @@
+import AppStoreLogo from './app-store.svg';
 import BehanceLogo from './behance.svg';
 import EmailLogo from './email.svg';
 import FacebookLogo from './facebook.svg';
+import FigmaLogo from './figma.svg';
 import GithubLogo from './github.svg';
+import GooglePlayStoreLogo from './google-play-store.svg';
 import HomeLogo from './home.svg';
 import InstagramLogo from './instagram.svg';
 import LinkedInLogo from './linkedin.svg';
@@ -15,10 +18,13 @@ import VelogLogo from './velog.svg';
 import YoutubeLogo from './youtube.svg';
 
 export {
+  AppStoreLogo,
   BehanceLogo,
   EmailLogo,
   FacebookLogo,
+  FigmaLogo,
   GithubLogo,
+  GooglePlayStoreLogo,
   HomeLogo,
   InstagramLogo,
   LinkedInLogo,

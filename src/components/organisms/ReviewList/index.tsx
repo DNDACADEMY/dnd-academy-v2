@@ -8,8 +8,8 @@ import clsx from 'clsx';
 
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import { RightArrowIcon } from '@/lib/assets/icons';
-import { LogoType } from '@/lib/types/common';
 import { Review } from '@/lib/types/review';
+import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';
 
@@ -38,8 +38,8 @@ function ReviewList({ reviews, hasProjectLink }: Props) {
             <div className={styles.review}>{review}</div>
             {Object.values(links).some((link) => !!link) && (
               <div className={styles.socialIconWrapper}>
-                {Object.entries(links).filter(([, link]) => !!link).map(([key, link]) => (
-                  <SocialIconLink key={key} link={link} type={key as LogoType} />
+                {getEntries(links).map(([key, link]) => (
+                  <SocialIconLink key={key} link={link} type={key} />
                 ))}
               </div>
             )}
