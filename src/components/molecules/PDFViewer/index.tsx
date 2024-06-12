@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
-import { DocumentCallback } from 'react-pdf/dist/cjs/shared/types';
+import {
+  Document, DocumentProps, Page, pdfjs,
+} from 'react-pdf';
 
 import clsx from 'clsx';
 import useResizeObserver from 'use-resize-observer';
@@ -14,7 +15,7 @@ import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import styles from './index.module.scss';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 type Props = {
   url: string | null;
@@ -28,7 +29,7 @@ function PDFViewer({ url }: Props) {
     box: 'border-box',
   });
 
-  const onDocumentLoadSuccess = (data: DocumentCallback) => {
+  const onDocumentLoadSuccess: DocumentProps['onLoadSuccess'] = (data) => {
     setNumPages(data.numPages);
   };
 
