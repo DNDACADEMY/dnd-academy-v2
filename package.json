@@ -33,8 +33,9 @@
   "dependencies": {
     "clsx": "2.1.1",
     "dayjs": "1.11.11",
-    "framer-motion": "11.2.0",
-    "next": "14.2.3",
+    "framer-motion": "11.2.10",
+    "next": "14.2.4",
+    "pdfjs-dist": "3.11.174",
     "qs": "6.12.1",
     "react": "18.3.1",
     "react-countup": "6.5.3",
@@ -51,7 +52,7 @@
   "devDependencies": {
     "@commitlint/cli": "18.4.4",
     "@commitlint/config-conventional": "18.4.4",
-    "@next/eslint-plugin-next": "14.2.3",
+    "@next/eslint-plugin-next": "14.2.4",
     "@storybook/addon-essentials": "7.6.8",
     "@storybook/addon-interactions": "7.6.8",
     "@storybook/addon-links": "7.6.8",
