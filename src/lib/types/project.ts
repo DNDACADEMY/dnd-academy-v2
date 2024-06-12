@@ -1,12 +1,8 @@
-export type ProjectLinkType = 'github' | 'googlePlaystore' | 'youtube' | 'link' | 'figma';
+export type ProjectLinkType = 'github' | 'googlePlayStore' | 'youtube' | 'link' | 'figma' | 'appStore';
 
 export type ProjectLinks = {
   github?: string[];
-  googlePlaystore?: string;
-  youtube?: string;
-  link?: string;
-  figma?: string;
-};
+} & Partial<Omit<Record<ProjectLinkType, string>, 'github'>>;
 
 export interface Project {
   id: number;
@@ -19,7 +15,6 @@ export interface Project {
   thumbnail: string;
   pdf: string | null;
   projectLinks: ProjectLinks;
-  download?: string;
 }
 
 export type ProjectFlag =

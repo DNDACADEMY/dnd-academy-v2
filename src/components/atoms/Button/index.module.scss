@@ -62,10 +62,20 @@
       }
     }
 
-    &.clear {
-      color: color('gray01');
-      border: 1px solid color('gray01');
-      background-color: transparent;
+    &.dark {
+      &.clear {
+        color: color('gray01');
+        border: 1px solid color('gray01');
+        background-color: transparent;
+      }
+    }
+
+    &.light {
+      &.clear {
+        color: color('gray09');
+        border: 1px solid color('gray09');
+        background-color: transparent;
+      }
     }
 
     &.purple {

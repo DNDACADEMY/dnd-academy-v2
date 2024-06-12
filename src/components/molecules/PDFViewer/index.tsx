@@ -57,14 +57,14 @@ function PDFViewer({ url }: Props) {
       )}
       <div className={styles.pdfButtonWrapper}>
         <Button
-          className={styles.button}
           type="button"
           onClick={onPrev}
           size="small"
+          theme="light"
           buttonType="clear"
           disabled={pageNumber === 1}
         >
-          <ArrowRightIcon className={clsx(styles.icon, pageNumber === 1 && styles.disabled)} />
+          <ArrowRightIcon className={clsx(styles.prevIcon, pageNumber === 1 && styles.disabled)} />
         </Button>
         <div className={styles.pageCount}>
           {numPages ? `${pageNumber} / ${numPages}` : pageNumber}
@@ -75,10 +75,14 @@ function PDFViewer({ url }: Props) {
           onClick={onNext}
           size="small"
           buttonType="clear"
+          theme="light"
           disabled={!numPages || pageNumber === numPages}
         >
           <ArrowRightIcon
-            className={clsx((!numPages || pageNumber === numPages) && styles.disabled)}
+            className={clsx(
+              styles.nextIcon,
+              (!numPages || pageNumber === numPages) && styles.disabled,
+            )}
           />
         </Button>
         <Button
@@ -86,6 +90,7 @@ function PDFViewer({ url }: Props) {
           href={url}
           buttonType="clear"
           size="small"
+          theme="light"
           className={styles.expandLink}
         >
           <ArrowExpandIcon className={styles.icon} />

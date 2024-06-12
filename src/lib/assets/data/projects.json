@@ -26,11 +26,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/2/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/2/2.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-6th-2-backend",
         "https://github.com/dnd-side-project/dnd-6th-2-iOS"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -60,11 +61,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/6/1.jpg",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/6/6.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-6th-6-frontend",
         "https://github.com/dnd-side-project/dnd-6th-6-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -100,11 +102,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/5/1.jpeg",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/5/5.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-6th-5-backend",
         "https://github.com/dnd-side-project/dnd-6th-5-android"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -139,13 +142,14 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/1/logo.jpg",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/1/1.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-6th-1-iOS",
         "https://github.com/dnd-side-project/dnd-6th-1-backend"
       ],
-      "googlePlaystore": "",
-      "youtube": "",
-      "link": "https://www.youtube.com/watch?v=meXLf_toK2g"
+      "googlePlayStore": "",
+      "youtube": "https://www.youtube.com/watch?v=meXLf_toK2g",
+      "link": ""
     }
   },
   {
@@ -165,11 +169,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/1.jpg",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/7/7.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-6th-7-fe-worry-record-service",
         "https://github.com/dnd-side-project/dnd-6th-7-worry-record-service"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://drive.google.com/file/d/1AmcCsa67qxq3tnEAZ1ChFPREw5Esw1R-/view?usp=sharing"
     }
@@ -191,8 +196,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/9/9.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://drive.google.com/file/d/1yYp_IDS0617-vT4PVNOy9cvF1tCfzvUT/view?usp=sharing"
     }
@@ -227,11 +233,12 @@
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/1/logo.png",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-5th-1-iOS",
         "https://github.com/dnd-side-project/dnd-5th-1-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     },
@@ -251,11 +258,12 @@
     "skill": ["React", "Tailwind CSS", "Nest.js", "AWS EC2", "Figma", "Zeplin"],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/9/1.jpg",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-5th-9-frontend",
         "https://github.com/dnd-side-project/dnd-5th-9-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": ""
     },
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/9/9-export.pdf"
@@ -287,11 +295,12 @@
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/3/1.jpg",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-5th-3-iOS",
         "https://github.com/dnd-side-project/dnd-5th-3-backend"
       ],
-      "googlePlaystore": "https://play.google.com/store/apps/desc?id=com.moo.mool",
+      "googlePlayStore": "https://play.google.com/store/apps/desc?id=com.moo.mool",
       "youtube": "",
       "link": "https://www.notion.so/DND-3-31087b5fb0814d539febea87392d250a"
     },
@@ -313,11 +322,12 @@
     "skill": ["Figma", "Vue 3.0", "Vuex 4.0", "Node.js", "MySQL"],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/1.jpg",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-5th-7-frontend",
         "https://github.com/dnd-side-project/dnd-5th-7-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "https://youtu.be/9Km4lCSx07s",
       "figma": "https://www.figma.com/file/NfzRXZZr62OAGevYsHlpbH/%5Bdnd%5D%EB%AF%B87%EC%B9%A0%EA%B2%83%EA%B0%99%EC%A1%B0_HIFI"
     },
@@ -335,11 +345,12 @@
     "skill": ["Figma", "Spring Boot", "React Native"],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/4/1.jpg",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-5th-4-frontend",
         "https://github.com/dnd-side-project/dnd-5th-4-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://cooing-wormhole-1b4.notion.site/Clother-6e3ed8eac8c64fc0ba9e828ac56063df"
     },
@@ -370,8 +381,9 @@
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/6/1.png",
     "projectLinks": {
+      "appStore": "",
       "github": ["https://github.com/dnd-side-project/dnd-5th-6-repo"],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": ""
     },
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/5/6/6-export.pdf"
@@ -388,11 +400,12 @@
     "skill": ["spring boot", "mysql", "react native", "aws"],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/8/1.png",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-5th-8-backend",
         "https://github.com/dnd-side-project/dnd-5th-8-frontend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     },
@@ -408,8 +421,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/1/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/1-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -424,8 +438,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/2/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/2-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -440,8 +455,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/3/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/3-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -456,8 +472,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/4/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/4-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -472,8 +489,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/5/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/5-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -488,8 +506,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/6/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/6-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -504,8 +523,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/7/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/7-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -520,8 +540,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/8/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/8-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -536,8 +557,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/9/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/9-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -552,8 +574,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/2/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/2-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -567,10 +590,10 @@
     "skill": [],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/5/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/5-export.pdf",
-    "download": "https://play.google.com/store/apps/details?id=com.dnd.kindit",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "https://play.google.com/store/apps/details?id=com.dnd.kindit",
       "youtube": "",
       "link": ""
     }
@@ -584,12 +607,12 @@
     "skill": ["React", "Spring Boot", "MariaDB"],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/6/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/6-export.pdf",
-    "download": "https://woodongjip.com",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
-      "link": ""
+      "link": "https://woodongjip.com"
     }
   },
   {
@@ -602,8 +625,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/7/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/7-export.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -617,12 +641,12 @@
     "skill": ["React", "Spring Boot", "MariaDB"],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/8/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/8-export.pdf",
-    "download": "https://traview.web.app",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
-      "link": ""
+      "link": "https://traview.web.app"
     }
   },
   {
@@ -635,8 +659,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/7/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -651,8 +676,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/10/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -667,8 +693,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/11/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -683,8 +710,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/13/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -699,8 +727,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/14/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -715,8 +744,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/1/logo-square.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -731,8 +761,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/2/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -747,8 +778,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/3/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -763,8 +795,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/4/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -779,8 +812,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/6/logo.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "https://play.google.com/store/apps/details?id=com.dnd.killcaffeine",
+      "googlePlayStore": "https://play.google.com/store/apps/details?id=com.dnd.killcaffeine",
       "youtube": "",
       "link": ""
     }
@@ -805,11 +839,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/9/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/9/9.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-9-frontend",
         "https://github.com/dnd-side-project/dnd-7th-9-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://run-us.netlify.com"
     }
@@ -839,11 +874,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/2/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/2/2.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-2-backend",
         "https://github.com/dnd-side-project/dnd-7th-2-android"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -867,11 +903,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/8/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/8/8.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-8-frontend",
         "https://github.com/dnd-side-project/dnd-7th-8-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://lying-driver-e37.notion.site/DnD-8-a52647bded2048e1b50ba0a6b66ddd77"
     }
@@ -900,11 +937,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/4/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/4/4.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-4-backend",
         "https://github.com/dnd-side-project/dnd-7th-4-frontend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://www.weathercomment.com"
     }
@@ -927,11 +965,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/3/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/3/3.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-3-backend",
         "https://github.com/dnd-side-project/dnd-7th-3-frontend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -961,11 +1000,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/1/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/1/1.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-1-backend",
         "https://github.com/dnd-side-project/dnd-7th-1-frontend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "https://www.youtube.com/watch?v=KEPzmJbUSyI&feature=youtu.be",
       "link": ""
     }
@@ -990,11 +1030,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/7/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/7/7.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-7-frontend",
         "https://github.com/dnd-side-project/dnd-7th-7-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://www.notion.so/5fbc06253b8e4ed0acbb3c623fa60560"
     }
@@ -1029,11 +1070,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/6/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/6/6.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-6-frontend",
         "https://github.com/dnd-side-project/dnd-7th-6-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1062,11 +1104,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/7/10/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/7/10/10.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-7th-10-frontend",
         "https://github.com/dnd-side-project/dnd-7th-10-backend"
       ],
-      "googlePlaystore": "https://play.google.com/store/apps/details?id=me.linkkle.app",
+      "googlePlayStore": "https://play.google.com/store/apps/details?id=me.linkkle.app",
       "youtube": "",
       "link": ""
     }
@@ -1095,11 +1138,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/1/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/1/1.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-1-frontend",
         "https://github.com/dnd-side-project/dnd-8th-1-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1137,11 +1181,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/2/2.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/2/2.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-2-frontend",
         "https://github.com/dnd-side-project/dnd-8th-2-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1165,11 +1210,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/3/3.png",
     "pdf": null,
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-3-android",
         "https://github.com/dnd-side-project/dnd-8th-3-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1199,11 +1245,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/4/4.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/4/4.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-4-android",
         "https://github.com/dnd-side-project/dnd-8th-4-backend"
       ],
-      "googlePlaystore": "https://play.google.com/store/apps/details?id=com.dnd_8th_4_android.wery&pli=1",
+      "googlePlayStore": "https://play.google.com/store/apps/details?id=com.dnd_8th_4_android.wery&pli=1",
       "youtube": "",
       "link": ""
     }
@@ -1235,11 +1282,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/5/5.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/5/5.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-5-frontend",
         "https://github.com/dnd-side-project/dnd-8th-5-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1271,12 +1319,13 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/7/7.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/7/7.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-7-frontend",
         "https://github.com/dnd-side-project/dnd-8th-7-frontend-app",
         "https://github.com/dnd-side-project/dnd-8th-7-backend"
       ],
-      "googlePlaystore": "https://play.google.com/store/apps/details?id=com.dayblock",
+      "googlePlayStore": "https://play.google.com/store/apps/details?id=com.dayblock",
       "youtube": "",
       "link": ""
     }
@@ -1305,11 +1354,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/8/8.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/8/8.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-8-frontend",
         "https://github.com/dnd-side-project/dnd-8th-8-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1336,11 +1386,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/9/9.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/9/9.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-9-frontend",
         "https://github.com/dnd-side-project/dnd-8th-9-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://dnd-dangdo.netlify.app"
     }
@@ -1364,11 +1415,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/8/10/10.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/8/10/10.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-8th-10-frontend",
         "https://github.com/dnd-side-project/dnd-8th-10-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1400,11 +1452,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/1/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/1/1.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-1-ios",
         "https://github.com/dnd-side-project/dnd-9th-1-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1422,11 +1475,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/2/2.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/2/2.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-2-ios",
         "https://github.com/dnd-side-project/dnd-9th-2-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1444,11 +1498,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/3/3.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/3/3.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-3-android-new",
         "https://github.com/dnd-side-project/dnd-9th-3-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1466,11 +1521,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/4/4.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/4/4.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-4-frontend",
         "https://github.com/dnd-side-project/dnd-9th-4-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://dnd-9th-4-newple-app.vercel.app/"
     }
@@ -1488,11 +1544,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/5/5.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/5/5.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-5-frontend",
         "https://github.com/dnd-side-project/dnd-9th-5-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://www.posepicker.site"
     }
@@ -1510,11 +1567,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/6/6.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/6/6.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-6-frontend",
         "https://github.com/dnd-side-project/dnd-9th-6-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1532,11 +1590,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/7/7.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/7/7.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-7-frontend",
         "https://github.com/dnd-side-project/dnd-9th-7-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1554,11 +1613,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/8/8.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/8/8.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-8-frontend",
         "https://github.com/dnd-side-project/dnd-9th-8-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1576,11 +1636,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/9/9.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/9/9.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-9th-9-frontend",
         "https://github.com/dnd-side-project/dnd-9th-9-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1606,11 +1667,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/1/1.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/1/1.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-10th-1-frontend",
         "https://github.com/dnd-side-project/dnd-10th-1-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1640,8 +1702,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/2/2.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/2/2.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1674,11 +1737,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/3/3.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/3/3.pdf",
     "projectLinks":{
-      "github": [
+
+"appStore": "",      "github": [
         "https://github.com/dnd-side-project/dnd-10th-3-frontend",
         "https://github.com/dnd-side-project/dnd-10th-3-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://donworry.vercel.app/"
     }
@@ -1721,11 +1785,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/4/4.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/4/4.pdf",
     "projectLinks":{
-      "github": [
+
+"appStore": "",      "github": [
         "https://github.com/dnd-side-project/dnd-10th-4-frontend",
         "https://github.com/dnd-side-project/dnd-10th-4-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://sea-of-my-heart.vercel.app/"
     }
@@ -1752,11 +1817,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/5/5.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/5/5.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-10th-5-frontend",
         "https://github.com/dnd-side-project/dnd-10th-5-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1790,11 +1856,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/6/6.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/6/6.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-10th-6-frontend",
         "https://github.com/dnd-side-project/dnd-10th-6-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": "https://www.namui-wiki.life/"
     }
@@ -1824,11 +1891,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/7/7.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/7/7.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-10th-7-frontend",
         "https://github.com/dnd-side-project/dnd-10th-7-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1861,8 +1929,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/8/8.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/8/8.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1903,11 +1972,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/9/9.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/9/9.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-10th-9-iOS",
         "https://github.com/dnd-side-project/dnd-10th-9-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
@@ -1943,11 +2013,12 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/10/10.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/10/10.pdf",
     "projectLinks": {
+      "appStore": "",
       "github": [
         "https://github.com/dnd-side-project/dnd-10th-10-iOS",
         "https://github.com/dnd-side-project/dnd-10th-10-backend"
       ],
-      "googlePlaystore": "",
+      "googlePlayStore": "",
       "youtube": "",
       "link": ""
     }
