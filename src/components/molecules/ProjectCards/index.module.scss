@@ -17,7 +17,7 @@
 
     .thumbnail {
       border-radius: 8px;
-      object-fit: fill;
+      object-fit: cover;
     }
 
     .contents {
@@ -55,8 +55,8 @@
         width: 271px;
         color: color('gray04');
 
-        :not(.skillItem:first-of-type) {
-          margin-left: 4px;
+        :not(span:last-of-type) {
+          margin-right: 4px;
         }
       }
     }

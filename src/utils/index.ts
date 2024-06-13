@@ -30,3 +30,22 @@ export const getEntries = <T extends object>(obj: T) => {
     entry,
   ) => !!entry?.[0] && !!entry?.[1]) as Entries<RequiredNonNullableObject<T>>;
 };
+
+export const sortFlagsDescending = (a: string, b: string) => {
+  const numA = parseInt(a, 10);
+  const numB = parseInt(b, 10);
+
+  if (Number.isNaN(numA) && Number.isNaN(numB)) {
+    return a.localeCompare(b);
+  }
+
+  if (Number.isNaN(numA)) {
+    return 1;
+  }
+
+  if (Number.isNaN(numB)) {
+    return -1;
+  }
+
+  return numB - numA;
+};

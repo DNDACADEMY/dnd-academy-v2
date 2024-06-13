@@ -10,9 +10,17 @@
   overflow: hidden;
   box-shadow: 1px 1px 0 0 #404246 inset;
 
+  .emoji {
+    font-size: 220px;
+    line-height: 104%;
+    text-align: center;
+    height: 271px;
+    padding: 24px;
+    vertical-align: middle;
+  }
+
   .profile {
-    // TODO - 추후 변경
-    object-fit: none;
+    object-fit: cover;
   }
 
   .contents {
@@ -56,22 +64,8 @@
       width: 271px - 48px;
       color: color('gray04');
 
-      :not(.stackItem:first-of-type) {
-        margin-left: 4px;
-      }
-
-      .stackItem {
-        height: fit-content;
-        width: fit-content;
-        display: inline-block;
-        padding: 4px 8px;
-        border-radius: 2px;
-        border: none;
-        background-color: color('gray02');
-        font-size: 10px;
-        font-weight: 400;
-        line-height: 15px;
-        color: color('gray07');
+      :not(span:last-of-type) {
+        margin-right: 4px;
       }
     }
   }

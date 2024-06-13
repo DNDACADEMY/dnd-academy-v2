@@ -41,7 +41,17 @@
       box-shadow: 1px 1px 0 0 #404246 inset;
 
       .thumbnailWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 24px;
+
+        .emoji {
+          font-size: 200px;
+          text-align: center;
+          vertical-align: middle;
+          line-height: 104%;
+        }
 
         .thumbnail {
           border-radius: 8px;
