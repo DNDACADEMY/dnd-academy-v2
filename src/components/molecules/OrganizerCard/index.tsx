@@ -13,14 +13,17 @@ type Props = {
   technicalStack: string[];
   id: number;
   oneLineIntroduction: string;
+  emoji?: string;
 };
 
 function OrganizerCard({
-  position, oneLineIntroduction, name, technicalStack, profile, id,
+  position, oneLineIntroduction, name, technicalStack, profile, id, emoji,
 }: Props) {
   return (
     <Link className={styles.projectCardWrapper} href={`/organizers/${id}`}>
-      <Image src={profile} alt={name} width={271} height={271} className={styles.profile} />
+      {emoji ? <div className={styles.emoji}>{emoji}</div> : (
+        <Image src={profile} alt={name} width={271} height={271} className={styles.profile} />
+      )}
       <div className={styles.contents}>
         <div className={styles.position}>{position}</div>
         <div className={styles.name}>{name}</div>

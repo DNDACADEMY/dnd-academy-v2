@@ -44,13 +44,15 @@ function OrganizerPage({ organizer }: Props) {
           <aside>
             <div className={styles.organizerInfoWrapper}>
               <div className={styles.thumbnailWrapper}>
-                <Image
-                  src={organizer.picture}
-                  alt={organizer.author}
-                  className={styles.thumbnail}
-                  width={223}
-                  height={223}
-                />
+                {organizer?.emoji ? <span className={styles.emoji}>{organizer.emoji}</span> : (
+                  <Image
+                    src={organizer.picture}
+                    alt={organizer.name}
+                    className={styles.thumbnail}
+                    width={223}
+                    height={223}
+                  />
+                )}
               </div>
               <div className={styles.organizerInfo}>
                 <div className={styles.position}>{organizer.dndPosition}</div>
@@ -122,7 +124,7 @@ function OrganizerPage({ organizer }: Props) {
           <h3>운영진 더보기</h3>
           <div className={styles.samePositionOrganizers}>
             {samePositionOrganizers.map(({
-              id, dndPosition, name, technicalStack, oneLineIntroduction, picture,
+              id, dndPosition, name, technicalStack, oneLineIntroduction, picture, emoji,
             }) => (
               <OrganizerCard
                 key={id}
@@ -132,6 +134,7 @@ function OrganizerPage({ organizer }: Props) {
                 technicalStack={technicalStack}
                 oneLineIntroduction={oneLineIntroduction}
                 profile={picture}
+                emoji={emoji}
               />
             ))}
           </div>

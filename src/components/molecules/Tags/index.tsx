@@ -6,7 +6,7 @@ import { Route } from 'next';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import Tag from '@/components/atoms/Tag';
-import { paramsSerializer } from '@/utils';
+import { paramsSerializer, sortFlagsDescending } from '@/utils';
 
 import styles from './index.module.scss';
 
@@ -26,35 +26,18 @@ function Tags<T extends string>({ paramKey, tagCount, route }: Props<T>) {
 
   const handleClick = useCallback((id?: number | string) => () => router.push(`${route}?${paramsSerializer({ [paramKey]: id })}`), [route, paramKey]);
 
-  const sortTagCount = (a: [string, number], b: [string, number]) => {
-    const numA = parseInt(a[0], 10);
-    const numB = parseInt(b[0], 10);
-
-    if (Number.isNaN(numA) && Number.isNaN(numB)) {
-      return a[0].localeCompare(b[0]);
-    }
-
-    if (Number.isNaN(numA)) {
-      return 1;
-    }
-
-    if (Number.isNaN(numB)) {
-      return -1;
-    }
-
-    return numB - numA;
-  };
-
   const sortedTagCount = useMemo(
-    () => [...Object.entries<number>(tagCount)].sort(sortTagCount).map(([key, count]) => (
-      <Tag
-        key={key}
-        title={key}
-        count={count}
-        isActive={paramValue === key}
-        onClick={handleClick(key)}
-      />
-    )),
+    () => [...Object.entries<number>(tagCount)]
+      .sort((a, b) => sortFlagsDescending(a[0], b[0]))
+      .map(([key, count]) => (
+        <Tag
+          key={key}
+          title={key}
+          count={count}
+          isActive={paramValue === key}
+          onClick={handleClick(key)}
+        />
+      )),
     [paramValue],
   );
 

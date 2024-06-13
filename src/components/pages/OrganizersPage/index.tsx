@@ -20,7 +20,7 @@ function OrganizersPage({ organizers }: Props) {
       <Tags paramKey="position" route="/organizers" tagCount={organizerCount} />
       <section className={styles.organizersWrapper}>
         {organizers.map(({
-          id, dndPosition, name, technicalStack, oneLineIntroduction, picture,
+          id, dndPosition, name, technicalStack, oneLineIntroduction, picture, emoji,
         }) => (
           <OrganizerCard
             key={id}
@@ -30,6 +30,7 @@ function OrganizersPage({ organizers }: Props) {
             technicalStack={technicalStack}
             oneLineIntroduction={oneLineIntroduction}
             profile={picture}
+            emoji={emoji}
           />
         ))}
       </section>

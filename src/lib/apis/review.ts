@@ -1,11 +1,12 @@
 import { reviewsData } from '@/lib/assets/data';
 import { ProjectFlag } from '@/lib/types/project';
 import { Review, ReviewPosition } from '@/lib/types/review';
+import { sortFlagsDescending } from '@/utils';
 
 export function getReviews({
   position, flag, projectId,
 }: { position?: string; flag?: ProjectFlag; projectId?: number; } | undefined = {}) {
-  const reviews = reviewsData as Review[];
+  const reviews = (reviewsData as Review[]).sort((a, b) => sortFlagsDescending(a.flag, b.flag));
 
   if (flag && projectId) {
     return reviews.filter((
@@ -14,7 +15,7 @@ export function getReviews({
   }
 
   if (!position) {
-    return [...reviews].reverse();
+    return reviews;
   }
 
   return reviews.filter((review) => review.position === position);
