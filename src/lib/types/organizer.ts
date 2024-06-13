@@ -21,7 +21,7 @@ export interface Organizer {
     whatYouWantToShare: string[];
   }
   isArchived: boolean;
-  emoji: boolean;
+  emoji?: string;
 }
 
 export type OrganizerPosition =

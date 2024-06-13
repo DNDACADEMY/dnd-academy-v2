@@ -1,16 +1,18 @@
 import { projectsData } from '@/lib/assets/data';
 import { Project, ProjectFlag } from '@/lib/types/project';
+import { sortFlagsDescending } from '@/utils';
 
 export function getProjects({
   ordinal,
 }: { ordinal?: string; } | undefined = {}): Project[] {
-  const projects = projectsData as Project[];
+  const sortedProject = (projectsData as Project[])
+    .sort((a, b) => sortFlagsDescending(a.flag, b.flag));
 
   if (!ordinal) {
-    return [...projects].reverse();
+    return sortedProject;
   }
 
-  return projects.filter(({ flag }) => flag === ordinal);
+  return sortedProject.filter(({ flag }) => flag === ordinal);
 }
 
 export function getProjectCount() {
