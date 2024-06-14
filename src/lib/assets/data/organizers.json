@@ -882,6 +882,33 @@
     }
   },
   {
+    "name": "한채영",
+    "id": 33,
+    "isArchived": false,
+    "picture": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/ChaeYoung.jpeg",
+    "author": "ChaeYoung",
+    "dndPosition": "디자인",
+    "technicalStack": ["Figma", "UX Research"],
+    "oneLineIntroduction": "높은 가치를 추구하며, 함께일때의 시너지를 믿는 디자이너입니다 :)",
+    "links": {
+      "github": "",
+      "email": "",
+      "tistory": "",
+      "linkedin": ""
+    },
+    "career": {
+      "now": ["UX 디자이너 / 프로덕트 디자이너"],
+      "previous": []
+    },
+    "mbti": "ENFP",
+    "questions": {
+      "whatIsYourRoleInDnd": "담당조의 디자인 피드백과 기획 피드백을 동시에 드리고있습니다. 사소한 고민까지 저한테 물어봐주시면 언제든 환영입니다:)",
+      "whyDoYouRecommendDnd": "팀원들과 함께 서비스를 만들어가며 디자이너로서의 사고가 더 넓어지는 것을 경험하실 수 있어요. 프로젝트가 성공하든, 실패하든 분명 값진 자산이되고 넥스트 스텝을 위한 발판이될거에요. 8주동안 디자이너로서 많은 성장을 하고싶으시다면 무조건 추천합니다!",
+      "whatIsYourInterests": "평소에 작업하면서 음악듣는걸 좋아하며, 제 취향의 음악을 발견했을때 행복해하는 것 같아요:)",
+      "whatYouWantToShare": []
+    }
+  },
+  {
     "name": "디디",
     "id": 99,
     "isArchived": false,

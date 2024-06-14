@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import Badge from '@/components/atoms/Badge';
 import Button from '@/components/atoms/Button';
 import DetailNavigation from '@/components/atoms/DetailNavigation';
@@ -39,7 +41,19 @@ function ProjectPage({ project }: Props) {
       <div className={styles.projectPageContents}>
         <section className={styles.projectDetail}>
           <div>
-            <PDFViewer url={project?.pdf} />
+            {project?.pdf ? (
+              <PDFViewer url={project.pdf} />
+            ) : (
+              <div className={styles.thumbnailWrapper}>
+                <Image
+                  fill
+                  src={project.thumbnail}
+                  alt={project.name}
+                  className={styles.thumbnail}
+                  sizes="(max-width: 768px) 100vw, 768px"
+                />
+              </div>
+            )}
           </div>
           <div className={styles.projectIntroduceTitleWrapper}>
             <div className={styles.header}>

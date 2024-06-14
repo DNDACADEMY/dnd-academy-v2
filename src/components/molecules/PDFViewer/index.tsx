@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   Document, DocumentProps, Page, pdfjs,
 } from 'react-pdf';
 
 import clsx from 'clsx';
-import useResizeObserver from 'use-resize-observer';
+import { useDebounceCallback, useResizeObserver } from 'usehooks-ts';
 
 import Button from '@/components/atoms/Button';
 import { ArrowExpandIcon, ArrowRightIcon } from '@/lib/assets/icons';
@@ -21,15 +21,23 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 type Props = {
-  url: string | null;
+  url: string;
 };
 
 function PDFViewer({ url }: Props) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const [numPages, setNumPages] = useState<number>();
   const [pageNumber, setPageNumber] = useState<number>(1);
 
-  const { ref: containerRef, width } = useResizeObserver<HTMLDivElement>({
+  const [width, setWidth] = useState<number>();
+
+  const onResizeWidth = useDebounceCallback(setWidth, 200);
+
+  useResizeObserver<HTMLDivElement>({
     box: 'border-box',
+    onResize: (size) => onResizeWidth(size.width),
+    ref: containerRef,
   });
 
   const onDocumentLoadSuccess: DocumentProps['onLoadSuccess'] = (data) => {
@@ -38,10 +46,6 @@ function PDFViewer({ url }: Props) {
 
   const onPrev = () => setPageNumber(pageNumber - 1);
   const onNext = () => setPageNumber(pageNumber + 1);
-
-  if (!url) {
-    return null;
-  }
 
   return (
     <div ref={containerRef} className={styles.pdfViewerWrapper}>

@@ -1,6 +1,7 @@
-import { ReactElement, useContext } from 'react';
+import { ReactElement, useContext, useRef } from 'react';
 
 import clsx from 'clsx';
+import { useOnClickOutside } from 'usehooks-ts';
 
 import Button from '@/components/atoms/Button';
 import GlobalPortal from '@/components/global/GlobalPortal';
@@ -17,6 +18,7 @@ type Props = {
 };
 
 function ModalContentsBase({ children: child, title, size = 'medium' } : Props) {
+  const modalContentsRef = useRef<HTMLDivElement>(null);
   const modalContext = useContext(ModalContext);
 
   if (!modalContext) {
@@ -25,11 +27,17 @@ function ModalContentsBase({ children: child, title, size = 'medium' } : Props) 
 
   const [isOpen, setIsOpen] = modalContext;
 
+  useOnClickOutside(modalContentsRef, () => setIsOpen(false));
+
   return (
     <GlobalPortal>
       {isOpen && (
         <div className={clsx(styles.modalWrapper, isOpen && styles.open)}>
-          <div role="dialog" className={clsx(styles.modalBox, styles[size])}>
+          <div
+            ref={modalContentsRef}
+            role="dialog"
+            className={clsx(styles.modalBox, styles[size])}
+          >
             <div className={styles.header}>
               <h1 className={styles.title}>{title}</h1>
               <Button

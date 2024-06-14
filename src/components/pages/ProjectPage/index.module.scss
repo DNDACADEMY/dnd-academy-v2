@@ -41,6 +41,16 @@
     background-color: color('white');
     border-radius: 8px;
 
+    .thumbnailWrapper {
+      position: relative;
+      min-height: 400px;
+
+      .thumbnail {
+        border-radius: 8px;
+        object-fit: contain;
+      }
+    }
+
     .projectIntroduceTitleWrapper {
       display: flex;
       flex-direction: column;
