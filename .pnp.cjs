@@ -98,7 +98,6 @@ const RAW_RUNTIME_STATE =
           ["stylelint-config-standard-scss", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:11.1.0"],\
           ["stylelint-scss", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:5.3.2"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
-          ["use-resize-observer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:9.1.0"],\
           ["usehooks-ts", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:3.1.0"],\
           ["webpack", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:5.89.0"],\
           ["zustand", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.5.2"]\
@@ -6359,7 +6358,7 @@ const RAW_RUNTIME_STATE =
           ["memoizerific", "npm:1.11.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:18.3.1"],\
-          ["use-resize-observer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:9.1.0"],\
+          ["use-resize-observer", "virtual:bdc4e5fa103c1f9b829677ab10fb7b26d207d3f65f579b38636f28b1e4c7c10944bea6ccd8ba0fd51eadfea5c8585ffe1f36005bf8f156164e549e2f63710989#npm:9.1.0"],\
           ["util-deprecate", "npm:1.0.2"]\
         ],\
         "packagePeers": [\
@@ -12185,7 +12184,6 @@ const RAW_RUNTIME_STATE =
           ["stylelint-config-standard-scss", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:11.1.0"],\
           ["stylelint-scss", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:5.3.2"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
-          ["use-resize-observer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:9.1.0"],\
           ["usehooks-ts", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:3.1.0"],\
           ["webpack", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:5.89.0"],\
           ["zustand", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:4.5.2"]\
@@ -23421,10 +23419,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:9.1.0", {\
-        "packageLocation": "./.yarn/__virtual__/use-resize-observer-virtual-14f0e218fe/0/cache/use-resize-observer-npm-9.1.0-ee1d268d88-821d3f7830.zip/node_modules/use-resize-observer/",\
+      ["virtual:bdc4e5fa103c1f9b829677ab10fb7b26d207d3f65f579b38636f28b1e4c7c10944bea6ccd8ba0fd51eadfea5c8585ffe1f36005bf8f156164e549e2f63710989#npm:9.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/use-resize-observer-virtual-54d3042bef/0/cache/use-resize-observer-npm-9.1.0-ee1d268d88-821d3f7830.zip/node_modules/use-resize-observer/",\
         "packageDependencies": [\
-          ["use-resize-observer", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:9.1.0"],\
+          ["use-resize-observer", "virtual:bdc4e5fa103c1f9b829677ab10fb7b26d207d3f65f579b38636f28b1e4c7c10944bea6ccd8ba0fd51eadfea5c8585ffe1f36005bf8f156164e549e2f63710989#npm:9.1.0"],\
           ["@juggle/resize-observer", "npm:3.4.0"],\
           ["@types/react", "npm:18.3.2"],\
           ["@types/react-dom", "npm:18.3.0"],\

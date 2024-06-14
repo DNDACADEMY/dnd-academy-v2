@@ -8339,7 +8339,6 @@ __metadata:
     stylelint-config-standard-scss: "npm:11"
     stylelint-scss: "npm:5"
     typescript: "npm:5.2.2"
-    use-resize-observer: "npm:9.1.0"
     usehooks-ts: "npm:3.1.0"
     webpack: "npm:5.89.0"
     zustand: "npm:4.5.2"
@@ -17744,7 +17743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-resize-observer@npm:9.1.0, use-resize-observer@npm:^9.1.0":
+"use-resize-observer@npm:^9.1.0":
   version: 9.1.0
   resolution: "use-resize-observer@npm:9.1.0"
   dependencies:
