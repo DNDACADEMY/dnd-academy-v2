@@ -18,7 +18,11 @@ import { RightArrowIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
 
-function HomePage() {
+type Props = {
+  tab?: string;
+};
+
+function HomePage({ tab }: Props) {
   const currentApplicantCount = getCurrentApplicantCount();
 
   return (
@@ -130,7 +134,11 @@ function HomePage() {
       </SectionTitle>
       <ShareAlarmSection />
       <SectionTitle title="자주 묻는 질문">
-        <ScrollElement paramKey="faq" scrollIntoViewOptions={{ block: 'start', behavior: 'smooth' }}>
+        <ScrollElement
+          activeParam="faq"
+          targetParam={tab}
+          scrollIntoViewOptions={{ block: 'start', behavior: 'smooth' }}
+        >
           <FAQSection faq={faqData} />
         </ScrollElement>
       </SectionTitle>

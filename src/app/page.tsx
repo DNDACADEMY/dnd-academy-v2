@@ -1,8 +1,14 @@
 import HomePage from '@/components/pages/HomePage';
 
-function Home() {
+type ParamsKey = 'tab';
+
+type Props = {
+  searchParams: Record<ParamsKey, string | undefined>;
+};
+
+function Home({ searchParams }: Props) {
   return (
-    <HomePage />
+    <HomePage tab={searchParams.tab} />
   );
 }
 
