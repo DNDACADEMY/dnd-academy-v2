@@ -4,6 +4,7 @@ import Badge from '@/components/atoms/Badge';
 import Button from '@/components/atoms/Button';
 import { Counter } from '@/components/atoms/CounterCard';
 import ImageCard from '@/components/atoms/ImageCard';
+import ScrollElement from '@/components/atoms/ScrollElement';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import CounterCardSection from '@/components/molecules/CounterCardSection';
 import FAQSection from '@/components/molecules/FAQSection';
@@ -17,7 +18,11 @@ import { RightArrowIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
 
-function HomePage() {
+type Props = {
+  tab?: string;
+};
+
+function HomePage({ tab }: Props) {
   const currentApplicantCount = getCurrentApplicantCount();
 
   return (
@@ -129,7 +134,13 @@ function HomePage() {
       </SectionTitle>
       <ShareAlarmSection />
       <SectionTitle title="자주 묻는 질문">
-        <FAQSection faq={faqData} />
+        <ScrollElement
+          activeParam="faq"
+          targetParam={tab}
+          scrollIntoViewOptions={{ block: 'start', behavior: 'smooth' }}
+        >
+          <FAQSection faq={faqData} />
+        </ScrollElement>
       </SectionTitle>
       <SponsorSection />
     </>
