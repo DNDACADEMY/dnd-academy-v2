@@ -62,14 +62,8 @@
   gap: 24px;
 
   .imageBannerTitle {
-    font-size: 24px;
-    font-weight: 700;
-    color: color('gray09');
-  }
+    text-align: center;
 
-  .howBannerItem {
-    position: relative;
-    width: 369px;
-    height: 350px;
+    @include text('H5/Bold', 'gray09');
   }
 }
