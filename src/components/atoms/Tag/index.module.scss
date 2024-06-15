@@ -18,10 +18,16 @@
   text-align: center;
   max-width: fit-content;
   border-radius: 32px;
-  padding: 16px 24px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 21px;
+
+  @include text('body2/Regular');
+
+  &.medium {
+    padding: 16px 24px;
+  }
+
+  &.small {
+    padding: 9px 16px;
+  }
 
   &.active {
     background-color: color('primary');

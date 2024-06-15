@@ -12,24 +12,40 @@ type Props = {
   backgroundColorType: 'primary' | 'secondary' | 'tertiary';
   description: ReactNode;
   className?: string;
+  fullWidth?: boolean;
+  isReversed?: boolean;
 };
 
 function ImageCard({
-  url, alt, backgroundColorType, description, className,
+  url, alt, backgroundColorType, description, className, fullWidth, isReversed,
 }: Props) {
+  const fullWidthClassName = fullWidth && styles.fullWidth;
+
   return (
-    <div className={clsx(styles.imageCardWrapper, className)}>
-      <div className={clsx(styles[backgroundColorType], styles.imageWrapper)}>
+    <div className={
+      clsx(
+        styles.imageCardWrapper,
+        fullWidthClassName,
+        isReversed && styles.isReversed,
+        className,
+      )
+    }
+    >
+      <div className={clsx(
+        styles[backgroundColorType],
+        styles.imageWrapper,
+        fullWidthClassName,
+      )}
+      >
         <Image
           src={url}
           alt={alt}
-          width={0}
-          height={0}
-          sizes="100vw"
-          className={clsx(styles.cardImage)}
+          fill
+          sizes="(max-width: 1204px) 50vw, 33vw"
+          className={clsx(styles.cardImage, fullWidthClassName)}
         />
       </div>
-      <div className={styles.description}>
+      <div className={clsx(styles.description, fullWidthClassName)}>
         {description}
       </div>
     </div>
