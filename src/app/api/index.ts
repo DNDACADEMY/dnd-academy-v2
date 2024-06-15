@@ -19,7 +19,7 @@ const getUrl = (url: string, type: UrlPrefixType) => {
     return `${process.env.NEXT_PUBLIC_ORIGIN}/api${url}`;
   }
 
-  return `${process.env.NEXT_PUBLIC_S3_HOST}${url}`;
+  return `${process.env.NEXT_PUBLIC_VERCEL_BLOB_HOST}${url}`;
 };
 
 async function api<T, K = undefined>({

@@ -12,7 +12,6 @@ import ProjectsSlider from '@/components/molecules/ProjectsSlider';
 import SponsorSection from '@/components/molecules/SponsorSection';
 import ApplyModal from '@/components/organisms/ApplyModal';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
-import { getCurrentApplicantCount } from '@/lib/apis/count';
 import { faqData } from '@/lib/assets/data';
 import { RightArrowIcon } from '@/lib/assets/icons';
 
@@ -20,11 +19,10 @@ import styles from './index.module.scss';
 
 type Props = {
   tab?: string;
+  currentApplicantCount: number;
 };
 
-function HomePage({ tab }: Props) {
-  const currentApplicantCount = getCurrentApplicantCount();
-
+function HomePage({ tab, currentApplicantCount }: Props) {
   return (
     <>
       <section className={styles.homeSection}>
@@ -49,7 +47,7 @@ function HomePage({ tab }: Props) {
             </div>
             <div className={styles.counter}>
               오늘까지&nbsp;
-              <Counter count={currentApplicantCount.designer + currentApplicantCount.developer} />
+              <Counter count={currentApplicantCount} />
               명이 지원했어요!
             </div>
           </div>
@@ -59,7 +57,7 @@ function HomePage({ tab }: Props) {
         </div>
         <div className={styles.bannerWrapper}>
           <Image
-            src={`${process.env.NEXT_PUBLIC_API_HOST}/images/banner/about.png`}
+            src={`${process.env.NEXT_PUBLIC_S3_HOST}/images/banner/about.png`}
             alt="main-banner"
             fill
             priority

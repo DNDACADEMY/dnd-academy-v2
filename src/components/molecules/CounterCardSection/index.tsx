@@ -1,6 +1,6 @@
 import CounterCard from '@/components/atoms/CounterCard';
 import SectionTitle from '@/components/atoms/SectionTitle';
-import { getTotalCountStatus } from '@/lib/apis/count';
+import { totalCountStatusData } from '@/lib/assets/data';
 import { CURRENT_FLAG } from '@/lib/constants';
 
 import styles from './index.module.scss';
@@ -12,7 +12,7 @@ type Props = {
 function CounterCardSection({ title }: Props) {
   const {
     cumulativeApplicants, totalParticipants, totalProjects, dropouts,
-  } = getTotalCountStatus();
+  } = totalCountStatusData;
 
   return (
     <SectionTitle title={title}>
