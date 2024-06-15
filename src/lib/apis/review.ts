@@ -1,7 +1,7 @@
 import { reviewsData } from '@/lib/assets/data';
 import { ProjectFlag } from '@/lib/types/project';
 import { Review, ReviewPosition } from '@/lib/types/review';
-import { sortFlagsDescending } from '@/utils';
+import { checkNumber, sortFlagsDescending } from '@/utils';
 
 export function getReviews({
   position, flag, projectId,
@@ -27,7 +27,7 @@ export function getReviewCount() {
   return reviews.reduce(
     (acc, { position }) => ({
       ...acc,
-      [position]: (acc[position] || 0) + 1,
+      [position]: checkNumber(acc[position]) + 1,
     }),
     {} as Record<ReviewPosition, number>,
   );

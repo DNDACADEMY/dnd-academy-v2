@@ -1,6 +1,6 @@
 import { projectsData } from '@/lib/assets/data';
 import { Project, ProjectFlag } from '@/lib/types/project';
-import { sortFlagsDescending } from '@/utils';
+import { checkNumber, sortFlagsDescending } from '@/utils';
 
 export function getProjects({
   ordinal,
@@ -21,7 +21,7 @@ export function getProjectCount() {
   return projects.reduce(
     (acc, { flag }) => ({
       ...acc,
-      [flag]: (acc[flag] || 0) + 1,
+      [flag]: checkNumber(acc[flag]) + 1,
     }),
     {} as Record<ProjectFlag, number>,
   );
