@@ -60,3 +60,42 @@
   gap: 24px;
   width: 100%;
 }
+
+.dndExperienceWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+
+  .dndExperienceDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    color: color('gray09');
+
+    .primary {
+      @include text('caption/Bold', 'primary');
+    }
+
+    .secondary {
+      @include text('caption/Bold', 'secondary');
+    }
+
+    .tertiary {
+      @include text('caption/Bold', 'tertiary');
+    }
+
+    .title {
+      word-wrap: break-word;
+      white-space: pre-line;
+
+      @include text('H4/Bold', 'gray09');
+    }
+
+    .description {
+      @include text('H6/Regular', 'gray09');
+    }
+  }
+}

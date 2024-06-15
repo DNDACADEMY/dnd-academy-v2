@@ -2,16 +2,47 @@
 
 .imageCardWrapper {
   display: flex;
+  flex-direction: column;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
 
+  &.fullWidth {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  &.isReversed {
+    flex-direction: row-reverse;
+  }
+
   .imageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 369px;
     height: 250px;
 
+    &.fullWidth {
+      width: 50%;
+      height: 393px;
+    }
+
+    .cardImage {
+      object-fit: contain;
+    }
+
     &.primary {
       background-color: color('primary');
+
+      .cardImage {
+        &.fullWidth {
+          padding: 78px 72px;
+        }
+
+        padding: 50px;
+      }
     }
 
     &.secondary {
@@ -20,17 +51,29 @@
 
     &.tertiary {
       background-color: color('tertiary');
-    }
 
-    .cardImage {
-      width: 100%;
-      height: auto;
+      .cardImage {
+        &.fullWidth {
+          padding: 80px 90px;
+        }
+
+        padding: 46px;
+      }
     }
   }
 
   .description {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    max-height: 100px;
+    padding: 36px 52px;
     background-color: color('white');
+
+    &.fullWidth {
+      width: 50%;
+      min-height: 393px;
+      max-height: 393px;
+    }
   }
 }

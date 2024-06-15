@@ -99,38 +99,8 @@ function HomePage({ tab }: Props) {
               <div className={styles.imageBannerTitle}>다양한 교육 제공</div>
             }
           />
-          {/* <div className={styles.howBannerItem}>
-            <Image
-              src="https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/home/how01.png"
-              alt="DND 팀빌딩 시스템(DTS)"
-              fill
-              quality={100}
-              sizes="(max-width: 1204px) 50vw, 33vw"
-            />
-          </div>
-          <div className={styles.howBannerItem}>
-            <Image
-              src="https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/home/how02.png"
-              alt="프로젝트 제작 가이드라인"
-              fill
-              quality={100}
-              sizes="(max-width: 1204px) 50vw, 33vw"
-            />
-          </div>
-          <div className={styles.howBannerItem}>
-            <Image
-              src="https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/home/how03.png"
-              alt="다양한 교육 제공"
-              fill
-              quality={100}
-              sizes="(max-width: 1204px) 50vw, 33vw"
-            />
-          </div> */}
         </div>
         <Button href="/dnd/about" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>더 알아보기</Button>
-      </SectionTitle>
-      <SectionTitle title="DND NEWS">
-        <div />
       </SectionTitle>
       <ShareAlarmSection />
       <SectionTitle title="자주 묻는 질문">

@@ -5,6 +5,8 @@ import { useCallback, useMemo } from 'react';
 import { Route } from 'next';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+import clsx from 'clsx';
+
 import Tag from '@/components/atoms/Tag';
 import { paramsSerializer, sortFlagsDescending } from '@/utils';
 
@@ -12,11 +14,14 @@ import styles from './index.module.scss';
 
 type Props<T extends string> = {
   paramKey: string;
+  size?: 'small' | 'medium';
   tagCount: Record<T, number>;
   route: Route;
 };
 
-function Tags<T extends string>({ paramKey, tagCount, route }: Props<T>) {
+function Tags<T extends string>({
+  paramKey, tagCount, route, size = 'medium',
+}: Props<T>) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -34,16 +39,17 @@ function Tags<T extends string>({ paramKey, tagCount, route }: Props<T>) {
           key={key}
           title={key}
           count={count}
+          size={size}
           isActive={paramValue === key}
           onClick={handleClick(key)}
         />
       )),
-    [paramValue],
+    [paramValue, tagCount, size],
   );
 
   return (
-    <div className={styles.tagWrapper}>
-      <Tag title="전체" count={totalCount} isActive={!paramValue} onClick={handleClick()} />
+    <div className={clsx(styles.tagWrapper, styles[size])}>
+      <Tag title="전체" count={totalCount} isActive={!paramValue} onClick={handleClick()} size={size} />
       {sortedTagCount}
     </div>
   );
