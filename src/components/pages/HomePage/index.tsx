@@ -59,7 +59,7 @@ function HomePage({ tab }: Props) {
         </div>
         <div className={styles.bannerWrapper}>
           <Image
-            src="https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/banner/about.png"
+            src={`${process.env.NEXT_PUBLIC_API_HOST}/images/banner/about.png`}
             alt="main-banner"
             fill
             priority
