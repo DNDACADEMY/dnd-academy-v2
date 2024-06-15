@@ -1,5 +1,6 @@
 import { organizersData } from '@/lib/assets/data';
 import { Organizer, OrganizerPosition } from '@/lib/types/organizer';
+import { checkNumber } from '@/utils';
 
 export function getOrganizers({
   position, isArchived,
@@ -28,7 +29,7 @@ export function getOrganizerCount() {
   return organizers.filter((organizer) => !organizer.isArchived && organizer.dndPosition !== '마스코트').reduce(
     (acc, { dndPosition }) => ({
       ...acc,
-      [dndPosition]: (acc[dndPosition] || 0) + 1,
+      [dndPosition]: checkNumber(acc[dndPosition]) + 1,
     }),
     {} as Record<OrganizerPosition, number>,
   );
