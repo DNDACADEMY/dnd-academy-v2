@@ -10,6 +10,7 @@ const meta = {
   },
   args: {
     count: 10,
+    size: 'medium',
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Tag>;
@@ -28,5 +29,12 @@ export const Active: Story = {
   args: {
     title: '전체',
     isActive: true,
+  },
+};
+
+export const SmallSize: Story = {
+  args: {
+    title: '전체',
+    size: 'small',
   },
 };
