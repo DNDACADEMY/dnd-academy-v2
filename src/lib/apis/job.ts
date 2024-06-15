@@ -1,5 +1,6 @@
 import { jobsData } from '@/lib/assets/data';
 import { Job } from '@/lib/types/job';
+import { checkNumber } from '@/utils';
 
 export function getJobs({ flag }: { flag?: string; } | undefined = {}): Job[] {
   const jobs = jobsData as Job[];
@@ -17,7 +18,7 @@ export function getJobCount() {
   return jobs.reduce(
     (acc, { flag }) => ({
       ...acc,
-      [flag]: (acc[flag] || 0) + 1,
+      [flag]: checkNumber(acc[flag]) + 1,
     }),
     {} as Record<Job['flag'], number>,
   );
