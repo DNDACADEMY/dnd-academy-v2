@@ -12,7 +12,7 @@ function TopNavigationBar() {
         <nav className={styles.navigationContents}>
           <Link href="/" className={styles.logoLink}>
             <Image
-              src="https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/logo-symbol.svg"
+              src={`${process.env.NEXT_PUBLIC_S3_HOST}/images/logo-symbol.svg`}
               alt="logo"
               width={32}
               height={36}

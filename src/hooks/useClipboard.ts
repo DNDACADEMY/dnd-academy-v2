@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import useToastStore from '../stores/toast';
+import useToastStore from '@/stores/toast';
 
 function useClipboard() {
   const { renderToast } = useToastStore(['renderToast']);
