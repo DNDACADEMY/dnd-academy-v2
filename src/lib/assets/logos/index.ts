@@ -1,5 +1,7 @@
 import AppStoreLogo from './app-store.svg';
 import BehanceLogo from './behance.svg';
+import DesignerBadge from './designer-badge.svg';
+import DeveloperBadge from './developer-badge.svg';
 import EmailLogo from './email.svg';
 import FacebookLogo from './facebook.svg';
 import FigmaLogo from './figma.svg';
@@ -17,6 +19,8 @@ import YoutubeLogo from './youtube.svg';
 export {
   AppStoreLogo,
   BehanceLogo,
+  DesignerBadge,
+  DeveloperBadge,
   EmailLogo,
   FacebookLogo,
   FigmaLogo,
