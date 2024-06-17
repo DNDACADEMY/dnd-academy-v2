@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ImageCard from '@/components/atoms/ImageCard';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import CounterCardSection from '@/components/molecules/CounterCardSection';
+import GuidelineSection from '@/components/templates/GuidelineSection';
 
 import styles from './index.module.scss';
 
@@ -94,9 +95,7 @@ function AboutPage() {
           />
         </div>
       </SectionTitle>
-      <SectionTitle title="8주는 어떻게 진행되나요?">
-        8주는 어떻게 진행되나요?
-      </SectionTitle>
+      <GuidelineSection />
     </>
   );
 }
