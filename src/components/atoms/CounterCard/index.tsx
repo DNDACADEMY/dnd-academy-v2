@@ -32,7 +32,7 @@ function CounterCard({
       <div className={clsx(styles.counter, styles[color])}>
         <Counter count={count} />
         &nbsp;
-        {suffix}
+        <span className={styles.suffix}>{suffix}</span>
       </div>
     </div>
   );

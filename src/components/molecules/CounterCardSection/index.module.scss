@@ -1,6 +1,12 @@
+@import '/src/styles/main';
+
 .counterCardWrapper {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
   gap: 24px;
   width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

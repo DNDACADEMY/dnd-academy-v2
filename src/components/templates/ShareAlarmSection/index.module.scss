@@ -37,19 +37,29 @@
     gap: 32px;
     justify-content: center;
     align-items: center;
-    padding: 100px 0;
+    padding: 100px 24px;
     background-color: color('gray08');
 
     .title {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 140%;
+      text-align: center;
+      word-break: keep-all;
+
+      @include text('H4/Bold', 'bgprimary');
     }
 
     .buttonWrapper {
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
       gap: 24px;
+      width: 100%;
+      max-width: 450px;
+
+      @include xs {
+        max-width: 186px;
+        flex-direction: column;
+      }
     }
   }
 }
