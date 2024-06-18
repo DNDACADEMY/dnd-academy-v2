@@ -1,5 +1,3 @@
-'use client';
-
 import { CSSProperties } from 'react';
 import Marquee from 'react-fast-marquee';
 
@@ -75,10 +73,10 @@ function ShareAlarmSection() {
         <h3 className={styles.title}>지금 함께 프로젝트를 시작해요!</h3>
         <div className={styles.buttonWrapper}>
           <ShareClipBoardCTA shareText={`${introduceText}${shareUrl}`}>
-            <Button type="button" size="xLarge">친구에게 공유하기</Button>
+            <Button fullWidth size="xLarge" type="button">친구에게 공유하기</Button>
           </ShareClipBoardCTA>
           <ApplyModal>
-            <Button size="xLarge" buttonType="primary" />
+            <Button fullWidth size="xLarge" buttonType="primary" />
           </ApplyModal>
         </div>
       </div>

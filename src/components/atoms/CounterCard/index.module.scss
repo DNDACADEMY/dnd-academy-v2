@@ -4,7 +4,7 @@
   user-select: none;
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 50px 0;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
@@ -12,12 +12,27 @@
   width: 100%;
   max-width: 271px;
 
+  @include md {
+    max-width: none;
+    padding: 30px;
+    height: 25vw;
+  }
+
+  @include sm {
+    max-width: none;
+    padding: 0;
+    height: 35vw;
+  }
+
   .title {
     text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 160%;
-    letter-spacing: -0.2px;
+    letter-spacing: -0.14px;
+
+    @include text('H6/Bold');
+
+    @include xs {
+      @include text('body2/Bold');
+    }
 
     &.default {
       @include text-color('gray04');
@@ -30,10 +45,7 @@
 
   .counter {
     display: flex;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 140%;
-    letter-spacing: -0.48px;
+    align-items: center;
 
     &.default {
       @include text-color('white');
@@ -43,9 +55,20 @@
       @include text-color('primary');
     }
 
+    .suffix {
+      @include text('H2/Bold');
+
+      @include sm {
+        @include text('H4/Bold');
+      }
+    }
+
     & > strong {
-      font-size: 56px;
-      letter-spacing: -0.56px;
+      @include text('H1/Bold');
+
+      @include sm {
+        @include text('H4/Bold');
+      }
     }
   }
 }

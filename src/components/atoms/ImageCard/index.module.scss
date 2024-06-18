@@ -16,13 +16,28 @@
     flex-direction: row-reverse;
   }
 
+  @include sm {
+    width: 100%;
+  }
+
   .imageWrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 369px;
-    height: 250px;
+    height: 100vw;
+    width: 100%;
+
+    @include sm {
+      max-width: none;
+      max-height: none;
+      height: 50vw;
+    }
+
+    &:not(.fullWidth) {
+      max-width: 369px;
+      max-height: 250px;
+    }
 
     &.fullWidth {
       width: 50%;
@@ -42,6 +57,18 @@
         }
 
         padding: 50px;
+
+        @include md {
+          padding: 30px;
+        }
+
+        @include sm {
+          padding: 50px;
+        }
+
+        @include xs {
+          padding: 30px 20px;
+        }
       }
     }
 
@@ -58,6 +85,18 @@
         }
 
         padding: 46px;
+
+        @include md {
+          padding: 26px;
+        }
+
+        @include sm {
+          padding: 46px;
+        }
+
+        @include xs {
+          padding: 30px 20px;
+        }
       }
     }
   }
@@ -69,6 +108,10 @@
     max-height: 100px;
     padding: 36px 52px;
     background-color: color('white');
+
+    @include sm {
+      padding: 36px 32px;
+    }
 
     &.fullWidth {
       width: 50%;
