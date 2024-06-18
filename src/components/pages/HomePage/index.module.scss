@@ -49,17 +49,15 @@
   }
 }
 
-.counterCardWrapper {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 24px;
-  width: 100%;
-}
-
 .howBannerWrapper {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
   gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+
+  @include sm {
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
 
   .imageBannerTitle {
     text-align: center;

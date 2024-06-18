@@ -20,18 +20,8 @@ function Footer() {
   return (
     <footer className={styles.footerWrapper}>
       <div className={styles.footerContentsWrapper}>
-        <div className={styles.leftContents}>
+        <div className={styles.topContents}>
           <h3 className={styles.title}>DND</h3>
-          <div className={styles.linkWrapper}>
-            {footerLinks.map(({ link, logo }) => (
-              <SocialIconLink key={link} link={link} type={logo} />
-            ))}
-            <ExternalLink href="https://island-allium-288.notion.site/DND-53511a46df7748899e8ed079ca0eee85?pvs=4" className={styles.link}>
-              DND활동 정책
-            </ExternalLink>
-          </div>
-        </div>
-        <div className={styles.rightContents}>
           <ul className={styles.menuList}>
             <li><Link href="/">홈</Link></li>
             <li><Link href="/projects">프로젝트</Link></li>
@@ -46,6 +36,16 @@ function Footer() {
             <li><Link href="/reviews">후기</Link></li>
             <li><ExternalLink href="https://blog.dnd.ac">블로그</ExternalLink></li>
           </ul>
+        </div>
+        <div className={styles.bottomContents}>
+          <div className={styles.linkWrapper}>
+            {footerLinks.map(({ link, logo }) => (
+              <SocialIconLink key={link} link={link} type={logo} />
+            ))}
+            <ExternalLink href="https://island-allium-288.notion.site/DND-53511a46df7748899e8ed079ca0eee85?pvs=4" className={styles.link}>
+              DND활동 정책
+            </ExternalLink>
+          </div>
           <ApplyModal>
             <Button buttonType="primary" />
           </ApplyModal>

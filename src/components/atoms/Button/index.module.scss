@@ -87,12 +87,20 @@
       padding: 20px 32px;
 
       @include text('H6/Bold');
+
+      @include xs {
+        @include text('body1/Bold');
+      }
     }
 
     &.large {
       padding: 16px 32px;
 
       @include text('H6/Bold');
+
+      @include xs {
+        @include text('body1/Bold');
+      }
     }
 
     &.medium {

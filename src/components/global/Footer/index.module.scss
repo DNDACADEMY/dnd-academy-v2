@@ -12,45 +12,47 @@
 
   .footerContentsWrapper {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 44px;
     max-width: 1204px;
     width: 100%;
 
-    .leftContents {
+    @include sm {
+      gap: 32px;
+    }
+
+    .topContents {
       display: flex;
-      flex-direction: column;
-      gap: 128px;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+
+      @include sm {
+        flex-direction: column;
+        gap: 32px;
+        justify-content: flex-start;
+      }
 
       .title {
         color: color('white');
         font-size: 42px;
         font-weight: 800;
+        line-height: normal;
+        height: fit-content;
       }
-
-      .linkWrapper {
-        display: flex;
-        flex-direction: row;
-        gap: 16px;
-        align-items: center;
-      }
-    }
-
-    .rightContents {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 44px;
 
       .menuList {
         display: flex;
         flex-direction: row;
         gap: 72px;
 
+        @include sm {
+          flex-direction: column;
+          gap: 24px;
+        }
+
         & > li {
-          color: color('white');
-          font-size: 14px;
-          font-weight: 700;
+          @include text('body2/ExtraBold', 'white');
 
           & > a {
             &:hover {
@@ -65,6 +67,10 @@
           flex-direction: column;
           gap: 22px;
 
+          @include sm {
+            gap: 8px;
+          }
+
           .subMenu {
             display: flex;
             flex-direction: column;
@@ -73,16 +79,34 @@
         }
       }
     }
+
+    .bottomContents {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+
+      @include xs {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .linkWrapper {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 16px;
+        align-items: center;
+      }
+    }
   }
 }
 
 .link {
-  font-size: 14px;
-  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 2px;
-  color: color('gray04');
   transition: color 0.1s ease-in-out;
+
+  @include text('body2/Regular', 'gray04');
 
   &:hover {
     color: color('gray03');
