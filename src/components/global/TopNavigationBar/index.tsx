@@ -17,6 +17,7 @@ function TopNavigationBar() {
               width={32}
               height={36}
               priority
+              className={styles.logo}
             />
           </Link>
           <TopNavigationMenu />

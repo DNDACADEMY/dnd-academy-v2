@@ -12,6 +12,12 @@
   margin: 0;
   padding: 0;
 
+  @include sm {
+    gap: 0;
+    height: 43px;
+    justify-content: space-around;
+  }
+
   .aboutNavItem {
     position: relative;
     height: 100%;
@@ -34,12 +40,15 @@
       width: 100%;
       background-color: color('white');
       backdrop-filter: blur(2px);
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 140%;
 
-      @include text-color('gray09');
+      @include text('body1/Bold', 'gray09');
+
+      @include sm {
+        height: 60px;
+        top: 104px;
+
+        @include text('body2/Bold', 'gray09');
+      }
 
       .subNavItem {
         position: relative;
@@ -57,8 +66,13 @@
           height: 8px;
           border-radius: 50%;
           bottom: 22px;
-          left: 10px;
+          left: 50%;
+          transform: translateX(-50%);
           background-color: color('primary');
+
+          @include sm {
+            bottom: 20px;
+          }
         }
       }
     }
@@ -73,17 +87,20 @@
 
     & > a {
       padding: 12px 24px;
-      font-size: 14px;
-      font-weight: 400;
+      word-break: keep-all;
       transition: color 0.2s ease-in-out;
+
+      @include text('body2/Regular', 'gray03');
+
+      @include sm {
+        padding: 12px;
+      }
 
       .active {
         font-weight: 700;
 
         @include text-color('bgprimary');
       }
-
-      @include text-color('gray03');
     }
   }
 }

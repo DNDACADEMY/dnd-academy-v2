@@ -20,7 +20,7 @@ function TopNavigationMenu() {
 
   const isDNDPathname = ['/dnd/about', '/dnd/culture'].includes(pathname);
 
-  const isActivePathname = (targetPathname: Route) => targetPathname === pathname;
+  const isActivePathname = (targetPathname: Route) => (targetPathname === '/' ? targetPathname === pathname : pathname.startsWith(targetPathname));
 
   return (
     <ul
@@ -78,11 +78,12 @@ function TopNavigationMenu() {
           <LinkIcon width={14} height={14} className={styles.linkIcon} />
         </ExternalLink>
       </li>
-      <li>
+      {/* NOTE - 채용 페이지의 오래된 정보로 임시 주석처리 */}
+      {/* <li>
         <Link href="/jobs" className={clsx(isActivePathname('/jobs') && styles.active)}>
           채용
         </Link>
-      </li>
+      </li> */}
     </ul>
   );
 }
