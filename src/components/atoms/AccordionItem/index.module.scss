@@ -20,10 +20,10 @@
     background-color: color('gray08');
 
     @include xs {
-      @include text('body2/Bold', 'gray00');
+      @include text('body2/Bold', 'bgprimary');
     }
 
-    @include text('H6/Bold', 'gray00');
+    @include text('H6/Bold', 'bgprimary');
 
     &.active {
       background-color: color('white');
