@@ -1,3 +1,5 @@
+@import '/src/styles/main';
+
 .tagWrapper {
   display: flex;
   flex-flow: row wrap;
@@ -7,6 +9,10 @@
 
   &.small {
     padding-bottom: 32px;
+
+    @include xs {
+      padding-bottom: 24px;
+    }
   }
 
   &.medium {

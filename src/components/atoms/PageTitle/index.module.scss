@@ -8,16 +8,18 @@
   gap: 16px;
 
   .title {
-    color: color('gray00');
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 80px;
+    @include text('H1/Bold', 'bgprimary');
+
+    @include xs {
+      @include text('H4/Bold');
+    }
   }
 
   .subTitle {
-    color: color('gray02');
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 140%;
+    @include text('H6/Regular', 'gray02');
+
+    @include xs {
+      @include text('body1/Regular');
+    }
   }
 }
