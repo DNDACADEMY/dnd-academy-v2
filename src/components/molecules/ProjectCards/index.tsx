@@ -17,7 +17,14 @@ function ProjectCards({ projects }: Props) {
         flag, id, title, thumbnail, skill: skills, name,
       }) => (
         <Link key={id} className={styles.projectCardWrapper} href={`/projects/${id}`}>
-          <Image src={thumbnail} alt={name} width={271} height={158} className={styles.thumbnail} />
+          <Image
+            src={thumbnail}
+            alt={name}
+            width="0"
+            height="0"
+            sizes="(max-width: 1204px) 50vw, 33vw"
+            className={styles.thumbnail}
+          />
           <div className={styles.contents}>
             <div className={styles.flag}>{flag}</div>
             <div className={styles.name}>{name}</div>
