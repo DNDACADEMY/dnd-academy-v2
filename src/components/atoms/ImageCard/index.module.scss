@@ -16,27 +16,22 @@
     flex-direction: row-reverse;
   }
 
-  @include sm {
-    width: 100%;
-  }
-
   .imageWrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vw;
-    width: 100%;
-
-    @include sm {
-      max-width: none;
-      max-height: none;
-      height: 50vw;
-    }
 
     &:not(.fullWidth) {
-      max-width: 369px;
-      max-height: 250px;
+      height: clamp(150px, 100vw, 250px);
+      width: min(356px, 100%);
+    }
+
+    @include sm {
+      &:not(.fullWidth) {
+        width: min(560px, 100%);
+        height: 50vw;
+      }
     }
 
     &.fullWidth {
