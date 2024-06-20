@@ -1,5 +1,5 @@
 import Button from '@/components/atoms/Button';
-import OrganizerCard from '@/components/molecules/OrganizerCard';
+import OrganizerCards from '@/components/molecules/OrganizerCards';
 import Tags from '@/components/molecules/Tags';
 import { getOrganizerCount, getOrganizers } from '@/lib/apis/organizer';
 import { LinkIcon } from '@/lib/assets/icons';
@@ -18,22 +18,7 @@ function OrganizersPage({ organizers }: Props) {
   return (
     <>
       <Tags paramKey="position" route="/organizers" tagCount={organizerCount} />
-      <section className={styles.organizersWrapper}>
-        {organizers.map(({
-          id, dndPosition, name, technicalStack, oneLineIntroduction, picture, emoji,
-        }) => (
-          <OrganizerCard
-            key={id}
-            id={id}
-            position={dndPosition}
-            name={name}
-            technicalStack={technicalStack}
-            oneLineIntroduction={oneLineIntroduction}
-            profile={picture}
-            emoji={emoji}
-          />
-        ))}
-      </section>
+      <OrganizerCards organizers={organizers} />
       <section className={styles.archivedOrganizerSection}>
         <div className={styles.sectionHeader}>
           <h3 className={styles.title}>DND의 도움을 주신 분들</h3>
@@ -44,6 +29,7 @@ function OrganizersPage({ organizers }: Props) {
             <Button
               key={id}
               href={id ? `/organizers/${id}` : '#'}
+              fullWidth
               size="large"
               buttonType="secondary"
               suffixIcon={<LinkIcon width={20} height={20} className={styles.linkIcon} />}

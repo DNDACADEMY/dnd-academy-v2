@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import DetailNavigation from '@/components/atoms/DetailNavigation';
 import SkillTag from '@/components/atoms/SkillTag';
-import OrganizerCard from '@/components/molecules/OrganizerCard';
+import OrganizerCards from '@/components/molecules/OrganizerCards';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ApplyModal from '@/components/organisms/ApplyModal';
 import { getOrganizers } from '@/lib/apis/organizer';
@@ -20,7 +20,7 @@ function OrganizerPage({ organizer }: Props) {
   const samePositionOrganizers = getOrganizers({
     position: organizer.dndPosition,
     isArchived: false,
-  });
+  }).filter((samePositionOrganizer) => samePositionOrganizer.id !== organizer.id);
 
   return (
     <>
@@ -49,8 +49,9 @@ function OrganizerPage({ organizer }: Props) {
                     src={organizer.picture}
                     alt={organizer.name}
                     className={styles.thumbnail}
-                    width={223}
-                    height={223}
+                    width="0"
+                    height="0"
+                    sizes="(max-width: 1204px) 50vw, 33vw"
                   />
                 )}
               </div>
@@ -70,6 +71,7 @@ function OrganizerPage({ organizer }: Props) {
               </div>
             </div>
           </aside>
+          <div className={styles.divider} />
           <section className={styles.organizerDescription}>
             <h1>{organizer.oneLineIntroduction}</h1>
             <div className={styles.organizerDescriptionItem}>
@@ -113,31 +115,18 @@ function OrganizerPage({ organizer }: Props) {
                 {organizer.questions.whatIsYourInterests}
               </div>
             </div>
-            <div className={styles.shareImageWrapper}>
-              {organizer.questions.whatYouWantToShare.map((share, index) => (
-                <Image key={share} src={share} width={202} height={202} alt={`공유이미지-${index}`} className={styles.shareImage} />
-              ))}
-            </div>
+            {organizer.questions.whatYouWantToShare.length > 0 && (
+              <div className={styles.shareImageWrapper}>
+                {organizer.questions.whatYouWantToShare.map((share, index) => (
+                  <Image key={share} src={share} width={202} height={202} alt={`공유이미지-${index}`} className={styles.shareImage} />
+                ))}
+              </div>
+            )}
           </section>
         </div>
         <div className={styles.samePositionOrganizersWrapper}>
           <h3>운영진 더보기</h3>
-          <div className={styles.samePositionOrganizers}>
-            {samePositionOrganizers.map(({
-              id, dndPosition, name, technicalStack, oneLineIntroduction, picture, emoji,
-            }) => (
-              <OrganizerCard
-                key={id}
-                id={id}
-                position={dndPosition}
-                name={name}
-                technicalStack={technicalStack}
-                oneLineIntroduction={oneLineIntroduction}
-                profile={picture}
-                emoji={emoji}
-              />
-            ))}
-          </div>
+          <OrganizerCards organizers={samePositionOrganizers} />
         </div>
       </div>
     </>
