@@ -21,10 +21,7 @@
     width: 100%;
 
     .pageCount {
-      color: color('gray09');
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 22px;
+      @include text('body01/Regular', 'gray09');
     }
 
     .prevIcon {
@@ -61,4 +58,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include sm {
+    min-height: 200px;
+  }
 }
