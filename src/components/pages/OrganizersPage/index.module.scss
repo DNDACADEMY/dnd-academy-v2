@@ -1,14 +1,5 @@
 @import '/src/styles/main';
 
-.organizersWrapper {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 34px 14px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-bottom: 100px;
-}
-
 .archivedOrganizerSection {
   padding: 100px 0;
   display: flex;
@@ -22,16 +13,24 @@
 
     .title {
       @include text('H3/Bold', 'gray01');
+
+      @include xs {
+        @include text('H4/Bold');
+      }
     }
 
     .subTitle {
       @include text('H6/Regular', 'gray02');
+
+      @include xs {
+        @include text('body1/Regular');
+      }
     }
   }
 
   .archivedOrganizers {
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(143px, 1fr));
     gap: 10px;
 
     .linkIcon {
