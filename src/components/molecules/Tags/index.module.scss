@@ -17,5 +17,9 @@
 
   &.medium {
     padding-bottom: 100px;
+
+    @include xs {
+      padding-bottom: 32px;
+    }
   }
 }

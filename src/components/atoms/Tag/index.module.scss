@@ -23,6 +23,10 @@
 
   &.medium {
     padding: 16px 24px;
+
+    @include xs {
+      padding: 12px 16px;
+    }
   }
 
   &.small {
