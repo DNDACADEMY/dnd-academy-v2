@@ -3,6 +3,7 @@ import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
 
 import ImageCard from '@/components/atoms/ImageCard';
+import PageTitle from '@/components/atoms/PageTitle';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import CounterCardSection from '@/components/molecules/CounterCardSection';
 import GuidelineSection from '@/components/templates/GuidelineSection';
@@ -13,16 +14,16 @@ function AboutPage() {
   return (
     <>
       <section className={styles.introduceSection}>
-        <h1 className={styles.title}>소개</h1>
+        <PageTitle title="소개" />
         <Marquee autoFill>
           <div className={styles.introduceImageWrapper}>
-            {[1, 2, 3, 4, 5].map((order) => (
+            {[1, 2, 3, 4, 5, 6, 7].map((order) => (
               <Image
                 key={order}
                 className={styles.image}
                 src={`/assets/images/dnd-0${order}.png`}
                 alt={`dnd-introduce-image-${order}`}
-                sizes="100vw"
+                sizes="(max-width: 1204px) 50vw, 33vw"
                 width={0}
                 height={0}
                 priority
