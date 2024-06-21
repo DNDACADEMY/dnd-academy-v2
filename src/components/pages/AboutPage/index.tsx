@@ -17,12 +17,12 @@ function AboutPage() {
         <PageTitle title="소개" />
         <Marquee autoFill>
           <div className={styles.introduceImageWrapper}>
-            {[1, 2, 3, 4, 5, 6, 7].map((order) => (
+            {Array.from({ length: 8 }, (_, i) => i).map((number) => (
               <Image
-                key={order}
+                key={number}
                 className={styles.image}
-                src={`/assets/images/dnd-0${order}.png`}
-                alt={`dnd-introduce-image-${order}`}
+                src={`/assets/images/dnd-${number + 1}.png`}
+                alt={`dnd-introduce-image-${number + 1}`}
                 sizes="(max-width: 1204px) 50vw, 33vw"
                 width={0}
                 height={0}
