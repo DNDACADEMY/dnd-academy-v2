@@ -1,35 +1,22 @@
 @import '/src/styles/main';
 
-.space {
-  display: flex;
-  height: 70px;
-  width: 100%;
-}
-
 .introduceSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  margin: 32px 0;
   position: relative;
   width: calc(100vw - 10px);
   left: 50%;
   transform: translateX(-50%);
 
-  .title {
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 80px;
-    color: color('gray01');
-  }
-
   .introduceImageWrapper {
     user-select: none;
-    height: 320px;
+    height: clamp(200px, 50vw, 320px);
     gap: 24px;
     display: flex;
     flex-direction: row;
+    position: relative;
 
     .image {
       width: 100%;
@@ -41,12 +28,15 @@
     text-align: center;
     max-width: 855px;
     width: 100%;
-    color: color('white');
-    font-size: 24px;
-    padding: 24px;
-    font-style: normal;
-    line-height: 140%;
+    padding: 0 24px;
     white-space: pre-line;
+    margin: 0;
+
+    @include text('H5/Regular', 'gray02');
+
+    @include xs {
+      @include text('H6/Regular');
+    }
 
     strong {
       font-weight: 700;
@@ -76,15 +66,27 @@
     color: color('gray09');
 
     .primary {
-      @include text('caption/Bold', 'primary');
+      @include text('body1/Bold', 'primary');
+
+      @include sm {
+        @include text('caption1/Bold');
+      }
     }
 
     .secondary {
-      @include text('caption/Bold', 'secondary');
+      @include text('body1/Bold', 'secondary');
+
+      @include sm {
+        @include text('caption1/Bold');
+      }
     }
 
     .tertiary {
-      @include text('caption/Bold', 'tertiary');
+      @include text('body1/Bold', 'tertiary');
+
+      @include sm {
+        @include text('caption1/Bold');
+      }
     }
 
     .title {
@@ -92,10 +94,18 @@
       white-space: pre-line;
 
       @include text('H4/Bold', 'gray09');
+
+      @include sm {
+        @include text('H6/Bold');
+      }
     }
 
     .description {
       @include text('H6/Regular', 'gray09');
+
+      @include sm {
+        @include text('body1/Regular');
+      }
     }
   }
 }

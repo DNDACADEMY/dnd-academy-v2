@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import Button from '@/components/atoms/Button';
+import PageTitle from '@/components/atoms/PageTitle';
 import { LinkIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
@@ -9,7 +10,7 @@ function CulturePage() {
   return (
     <>
       <section className={styles.introduceSection}>
-        <h1 className={styles.title}>문화</h1>
+        <PageTitle title="문화" />
         <Image
           className={styles.image}
           src="/assets/images/dnd-culture.png"
@@ -63,7 +64,8 @@ function CulturePage() {
           </div>
         </div>
         <div className={styles.description}>
-          DND의 참여하신 모든 참가자들은 위 행동 강령에 동의한 것으로 간주하며 위 행동 강령을
+          <strong>DND</strong>
+          에 참여하신 모든 참가자들은 위 행동 강령에 동의한 것으로 간주하며 위 행동 강령을
           위반한 행사 참가자가 참가를 위해 지불한 비용이 있다면 돌려받을 수 없습니다.
           행동 강령에 위반된 곤란한 상황을 마주하셨을 경우 DND 운영진에게 알려주십시요.
           DND 운영진은 개인의 판단 또는 운영위원회의 논의를 거처 참가자를 위험으로 부터 보호하고 경우따라 경찰, 사법기관에 도움을 요청 할 수 있습니다.

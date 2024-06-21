@@ -5,15 +5,7 @@
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  margin: 32px 0;
   position: relative;
-
-  .title {
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 80px;
-    color: color('gray01');
-  }
 
   .image {
     width: 100%;
@@ -23,21 +15,26 @@
   }
 
   .subTitle {
-    color: color('white');
     text-align: center;
     white-space: pre-line;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 140%;
+
+    @include text('H4/Bold', 'white');
+
+    @include xs {
+      @include text('H6/Bold');
+    }
   }
 
   .description {
     text-align: center;
     width: 100%;
-    color: color('white');
-    font-size: 24px;
-    line-height: 140%;
     white-space: pre-line;
+
+    @include text('H5/Regular', 'gray02');
+
+    @include xs {
+      @include text('H6/Regular', 'gray02');
+    }
 
     strong {
       font-weight: 700;
@@ -51,20 +48,27 @@
   flex-direction: column;
   gap: 72px;
 
+  @include xs {
+    padding: 32px 0;
+    gap: 32px;
+  }
+
   .title {
-    color: color('gray01');
     text-align: center;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 140%;
-    letter-spacing: -0.48px;
+
+    @include text('H2/Bold', 'bgprimary');
+
+    @include xs {
+      @include text('H4/Bold');
+    }
   }
 
   .description {
-    color: color('gray01');
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 160%;
+    @include text('H6/Regular', 'gray02');
+
+    @include xs {
+      @include text('body1/Regular');
+    }
 
     strong {
       font-weight: 700;
@@ -72,17 +76,19 @@
   }
 
   .descriptionTitle {
-    color: color('gray01');
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 160%;
+    @include text('H5/Bold', 'gray02');
+
+    @include xs {
+      @include text('H6/Bold');
+    }
   }
 
   .descriptionText {
-    color: color('gray01');
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 160%;
+    @include text('H6/Regular', 'gray01');
+
+    @include xs {
+      @include text('body1/Regular');
+    }
   }
 
   .buttonWrapper {

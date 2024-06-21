@@ -10,10 +10,18 @@
   &.fullWidth {
     width: 100%;
     flex-direction: row;
+
+    @include md {
+      flex-direction: column;
+    }
   }
 
   &.isReversed {
     flex-direction: row-reverse;
+
+    @include md {
+      flex-direction: column;
+    }
   }
 
   .imageWrapper {
@@ -36,7 +44,11 @@
 
     &.fullWidth {
       width: 50%;
-      height: 393px;
+      height: clamp(250px, 50vw, 393px);
+
+      @include md {
+        width: 100%;
+      }
     }
 
     .cardImage {
@@ -49,6 +61,14 @@
       .cardImage {
         &.fullWidth {
           padding: 78px 72px;
+
+          @include md {
+            padding: 50px;
+          }
+
+          @include xs {
+            padding: 30px 20px;
+          }
         }
 
         padding: 50px;
@@ -77,6 +97,10 @@
       .cardImage {
         &.fullWidth {
           padding: 80px 90px;
+
+          @include md {
+            padding: 26px;
+          }
         }
 
         padding: 46px;
@@ -100,9 +124,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-height: 100px;
     padding: 36px 52px;
     background-color: color('white');
+
+    &:not(.fullWidth) {
+      max-height: 100px;
+    }
 
     @include sm {
       padding: 36px 32px;
@@ -110,8 +137,15 @@
 
     &.fullWidth {
       width: 50%;
-      min-height: 393px;
-      max-height: 393px;
+      height: clamp(280px, 50vw, 393px);
+
+      @include md {
+        width: 100%;
+      }
+
+      @include xs {
+        padding: 24px;
+      }
     }
   }
 }
