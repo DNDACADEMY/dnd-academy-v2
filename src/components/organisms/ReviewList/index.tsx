@@ -21,11 +21,11 @@ type Props = {
 function ReviewList({ reviews, hasProjectLink }: Props) {
   return (
     <ResponsiveMasonry
-      columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+      columnsCountBreakPoints={{ 350: 1, 720: 2, 900: 3 }}
     >
       <Masonry
         gutter="24px"
-        className={clsx(hasProjectLink && styles.reviewsWrapper)}
+        className={clsx(styles.reviewsWrapper, hasProjectLink && styles.hasProjectLink)}
       >
         {reviews.map(({
           id, name, position, review, projectId, links,
