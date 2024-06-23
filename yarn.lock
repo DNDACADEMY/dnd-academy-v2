@@ -1563,6 +1563,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@channel.io/channel-web-sdk-loader@npm:1.1.7":
+  version: 1.1.7
+  resolution: "@channel.io/channel-web-sdk-loader@npm:1.1.7"
+  checksum: 10/8c2a40577e285df70518f92c65c2bab752be93f5e2b855aada41363c4081419585278c5856bbea3e4bae651f08e9e8b59ea7b82fbd04b0efed690f96820a3f6f
+  languageName: node
+  linkType: hard
+
 "@colors/colors@npm:1.5.0":
   version: 1.5.0
   resolution: "@colors/colors@npm:1.5.0"
@@ -8280,6 +8287,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dnd-academy-v2@workspace:."
   dependencies:
+    "@channel.io/channel-web-sdk-loader": "npm:1.1.7"
     "@commitlint/cli": "npm:18.4.4"
     "@commitlint/config-conventional": "npm:18.4.4"
     "@next/eslint-plugin-next": "npm:14.2.4"
