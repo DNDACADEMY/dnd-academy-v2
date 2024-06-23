@@ -9,7 +9,13 @@ function manifest(): MetadataRoute.Manifest {
     display: 'standalone',
     background_color: '#fff',
     theme_color: '#fff',
-    icons: [],
+    icons: [
+      {
+        src: '/favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+      },
+    ],
   };
 }
 
