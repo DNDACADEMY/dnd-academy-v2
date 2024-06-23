@@ -44,16 +44,17 @@ function OrganizerPage({ organizer }: Props) {
           <aside>
             <div className={styles.organizerInfoWrapper}>
               <div className={styles.thumbnailWrapper}>
-                {organizer?.emoji ? <span className={styles.emoji}>{organizer.emoji}</span> : (
-                  <Image
-                    src={organizer.picture}
-                    alt={organizer.name}
-                    className={styles.thumbnail}
-                    width="0"
-                    height="0"
-                    sizes="(max-width: 1204px) 50vw, 33vw"
-                  />
-                )}
+                {(!organizer?.thumbnail || organizer?.emoji)
+                  ? <span className={styles.emoji}>{organizer.emoji}</span> : (
+                    <Image
+                      src={organizer.thumbnail}
+                      alt={organizer.name}
+                      className={styles.thumbnail}
+                      width="0"
+                      height="0"
+                      sizes="(max-width: 1204px) 50vw, 33vw"
+                    />
+                  )}
               </div>
               <div className={styles.organizerInfo}>
                 <div className={styles.position}>{organizer.dndPosition}</div>

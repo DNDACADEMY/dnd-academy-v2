@@ -14,12 +14,12 @@ function OrganizerCards({ organizers }: Props) {
   return (
     <div className={styles.organizersWrapper}>
       {organizers.map(({
-        id, dndPosition, name, technicalStack, oneLineIntroduction, picture, emoji,
+        id, dndPosition, name, technicalStack, oneLineIntroduction, thumbnail, emoji,
       }) => (
         <Link key={id} className={styles.projectCardWrapper} href={`/organizers/${id}`}>
-          {emoji ? <div className={styles.emoji}>{emoji}</div> : (
+          {(!thumbnail || emoji) ? <div className={styles.emoji}>{emoji}</div> : (
             <Image
-              src={picture}
+              src={thumbnail}
               alt={name}
               width="0"
               height="0"

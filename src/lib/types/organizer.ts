@@ -3,7 +3,7 @@ import { LogoType } from './common';
 export interface Organizer {
   id: number;
   name: string;
-  picture: string;
+  thumbnail?: string;
   author: string;
   dndPosition: OrganizerPosition;
   technicalStack: string[];

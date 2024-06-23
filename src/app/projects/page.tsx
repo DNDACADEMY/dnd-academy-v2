@@ -2,6 +2,23 @@ import PageTitle from '@/components/atoms/PageTitle';
 import ProjectsPage from '@/components/pages/ProjectsPage';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getProjects } from '@/lib/apis/project';
+import METADATA from '@/lib/constants/metadata';
+
+const title = '프로젝트 - DND';
+
+export const metadata = {
+  metadataBase: METADATA.metadataBase,
+  title,
+  openGraph: {
+    title,
+    url: `${process.env.NEXT_PUBLIC_ORIGIN}/projects`,
+    images: METADATA.images,
+  },
+  twitter: {
+    title,
+    images: METADATA.images,
+  },
+};
 
 type SearchParams = {
   ordinal: string | undefined;
