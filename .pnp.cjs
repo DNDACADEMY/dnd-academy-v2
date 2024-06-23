@@ -27,6 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@channel.io/channel-web-sdk-loader", "npm:1.1.7"],\
           ["@commitlint/cli", "npm:18.4.4"],\
           ["@commitlint/config-conventional", "npm:18.4.4"],\
           ["@next/eslint-plugin-next", "npm:14.2.4"],\
@@ -3001,6 +3002,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@bcoe-v8-coverage-npm-0.2.3-9e27b3c57e-1a1f0e356a.zip/node_modules/@bcoe/v8-coverage/",\
         "packageDependencies": [\
           ["@bcoe/v8-coverage", "npm:0.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@channel.io/channel-web-sdk-loader", [\
+      ["npm:1.1.7", {\
+        "packageLocation": "./.yarn/cache/@channel.io-channel-web-sdk-loader-npm-1.1.7-a6277bbf78-8c2a40577e.zip/node_modules/@channel.io/channel-web-sdk-loader/",\
+        "packageDependencies": [\
+          ["@channel.io/channel-web-sdk-loader", "npm:1.1.7"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12141,6 +12151,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["dnd-academy-v2", "workspace:."],\
+          ["@channel.io/channel-web-sdk-loader", "npm:1.1.7"],\
           ["@commitlint/cli", "npm:18.4.4"],\
           ["@commitlint/config-conventional", "npm:18.4.4"],\
           ["@next/eslint-plugin-next", "npm:14.2.4"],\

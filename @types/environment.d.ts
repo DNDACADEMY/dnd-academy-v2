@@ -6,5 +6,6 @@ namespace NodeJS {
     NEXT_PUBLIC_BLOG_HOST: string;
     NEXT_PUBLIC_VERCEL_BLOB_HOST: string;
     NEXT_PUBLIC_GA_MEASUREMENT_ID: string;
+    NEXT_PUBLIC_CHANNEL_IO_PLUGIN_KEY: string;
   }
 }
