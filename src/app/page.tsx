@@ -1,8 +1,11 @@
 import HomePage from '@/components/pages/HomePage';
+import { DEFAULT_METADATA } from '@/lib/constants/metadata';
 import { CurrentApplicantCount } from '@/lib/types/count';
 import { checkNumber } from '@/utils';
 
 import api from './api';
+
+export const metadata = DEFAULT_METADATA;
 
 type ParamsKey = 'tab';
 

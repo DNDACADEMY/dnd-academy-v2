@@ -5,6 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: [
+        '/jobs/',
+      ],
     },
     sitemap: `${process.env.NEXT_PUBLIC_ORIGIN}/sitemap.xml`,
   };

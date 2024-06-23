@@ -2,16 +2,14 @@ import ClientProviders from '@/components/global/ClientProviders';
 import Footer from '@/components/global/Footer';
 import Toast from '@/components/global/Toast';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
+import { DEFAULT_METADATA } from '@/lib/constants/metadata';
 
 import { pretendardFont } from './_fonts';
 
 import 'src/styles/global.scss';
 import styles from './index.module.scss';
 
-export const metadata = {
-  title: 'DND',
-  description: 'DND는 개발자와 디자이너라면 누구나 참여할 수 있는 IT비영리단체입니다.',
-};
+export const metadata = DEFAULT_METADATA;
 
 function RootLayout({ children }: {
   children: React.ReactNode

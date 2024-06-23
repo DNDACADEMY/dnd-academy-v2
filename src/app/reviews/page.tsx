@@ -2,6 +2,23 @@ import PageTitle from '@/components/atoms/PageTitle';
 import ReviewsPage from '@/components/pages/ReviewsPage';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getReviews } from '@/lib/apis/review';
+import METADATA from '@/lib/constants/metadata';
+
+const title = '후기 - DND';
+
+export const metadata = {
+  metadataBase: METADATA.metadataBase,
+  title,
+  openGraph: {
+    title,
+    url: `${process.env.NEXT_PUBLIC_ORIGIN}/reviews`,
+    images: METADATA.images,
+  },
+  twitter: {
+    title,
+    images: METADATA.images,
+  },
+};
 
 type SearchParams = {
   position: string | undefined;
