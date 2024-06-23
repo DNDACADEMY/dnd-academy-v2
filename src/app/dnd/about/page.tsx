@@ -1,7 +1,7 @@
 import AboutPage from '@/components/pages/AboutPage';
 import METADATA from '@/lib/constants/metadata';
 
-const title = '문화 - DND';
+const title = '소개 - DND';
 
 export const metadata = {
   metadataBase: METADATA.metadataBase,
