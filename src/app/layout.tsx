@@ -1,3 +1,5 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 import ClientProviders from '@/components/global/ClientProviders';
 import Footer from '@/components/global/Footer';
 import Toast from '@/components/global/Toast';
@@ -16,6 +18,7 @@ function RootLayout({ children }: {
 }) {
   return (
     <html lang="ko" className={pretendardFont.className}>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
       <body>
         <ClientProviders>
           <TopNavigationBar />

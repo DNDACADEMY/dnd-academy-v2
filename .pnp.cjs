@@ -30,6 +30,7 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/cli", "npm:18.4.4"],\
           ["@commitlint/config-conventional", "npm:18.4.4"],\
           ["@next/eslint-plugin-next", "npm:14.2.4"],\
+          ["@next/third-parties", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.2.4"],\
           ["@storybook/addon-essentials", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:7.6.8"],\
           ["@storybook/addon-interactions", "npm:7.6.8"],\
           ["@storybook/addon-links", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:7.6.8"],\
@@ -51,7 +52,6 @@ const RAW_RUNTIME_STATE =
           ["@types/react-test-renderer", "npm:18.3.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:7.9.0"],\
           ["@typescript-eslint/parser", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:7.9.0"],\
-          ["@vercel/blob", "npm:0.23.3"],\
           ["clsx", "npm:2.1.1"],\
           ["cypress", "npm:12.1.0"],\
           ["dayjs", "npm:1.11.11"],\
@@ -3652,15 +3652,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["@fastify/busboy", [\
-      ["npm:2.1.1", {\
-        "packageLocation": "./.yarn/cache/@fastify-busboy-npm-2.1.1-455d8b6bf5-2bb8a7eca8.zip/node_modules/@fastify/busboy/",\
-        "packageDependencies": [\
-          ["@fastify/busboy", "npm:2.1.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["@floating-ui/core", [\
       ["npm:1.5.3", {\
         "packageLocation": "./.yarn/cache/@floating-ui-core-npm-1.5.3-04b262f382-7d9feaca25.zip/node_modules/@floating-ui/core/",\
@@ -4323,6 +4314,33 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/unplugged/@next-swc-win32-x64-msvc-npm-14.2.4-619f8a900f/node_modules/@next/swc-win32-x64-msvc/",\
         "packageDependencies": [\
           ["@next/swc-win32-x64-msvc", "npm:14.2.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@next/third-parties", [\
+      ["npm:14.2.4", {\
+        "packageLocation": "./.yarn/cache/@next-third-parties-npm-14.2.4-533ad7cd14-7da1f7724b.zip/node_modules/@next/third-parties/",\
+        "packageDependencies": [\
+          ["@next/third-parties", "npm:14.2.4"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.2.4", {\
+        "packageLocation": "./.yarn/__virtual__/@next-third-parties-virtual-780d30d328/0/cache/@next-third-parties-npm-14.2.4-533ad7cd14-7da1f7724b.zip/node_modules/@next/third-parties/",\
+        "packageDependencies": [\
+          ["@next/third-parties", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.2.4"],\
+          ["@types/next", null],\
+          ["@types/react", "npm:18.3.2"],\
+          ["next", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.2.4"],\
+          ["react", "npm:18.3.1"],\
+          ["third-party-capital", "npm:1.0.20"]\
+        ],\
+        "packagePeers": [\
+          "@types/next",\
+          "@types/react",\
+          "next",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8583,19 +8601,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["@vercel/blob", [\
-      ["npm:0.23.3", {\
-        "packageLocation": "./.yarn/cache/@vercel-blob-npm-0.23.3-dce9340962-c506bae034.zip/node_modules/@vercel/blob/",\
-        "packageDependencies": [\
-          ["@vercel/blob", "npm:0.23.3"],\
-          ["async-retry", "npm:1.3.3"],\
-          ["bytes", "npm:3.1.2"],\
-          ["is-buffer", "npm:2.0.5"],\
-          ["undici", "npm:5.28.4"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["@vitest/expect", [\
       ["npm:0.34.7", {\
         "packageLocation": "./.yarn/cache/@vitest-expect-npm-0.34.7-c2cb30daa3-0d2fbacdd0.zip/node_modules/@vitest/expect/",\
@@ -9601,16 +9606,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/async-limiter-npm-1.0.1-7e6819bcdb-2b849695b4.zip/node_modules/async-limiter/",\
         "packageDependencies": [\
           ["async-limiter", "npm:1.0.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["async-retry", [\
-      ["npm:1.3.3", {\
-        "packageLocation": "./.yarn/cache/async-retry-npm-1.3.3-bc90c5cee0-38a7152ff7.zip/node_modules/async-retry/",\
-        "packageDependencies": [\
-          ["async-retry", "npm:1.3.3"],\
-          ["retry", "npm:0.13.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12149,6 +12144,7 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/cli", "npm:18.4.4"],\
           ["@commitlint/config-conventional", "npm:18.4.4"],\
           ["@next/eslint-plugin-next", "npm:14.2.4"],\
+          ["@next/third-parties", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:14.2.4"],\
           ["@storybook/addon-essentials", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:7.6.8"],\
           ["@storybook/addon-interactions", "npm:7.6.8"],\
           ["@storybook/addon-links", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:7.6.8"],\
@@ -12170,7 +12166,6 @@ const RAW_RUNTIME_STATE =
           ["@types/react-test-renderer", "npm:18.3.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:7.9.0"],\
           ["@typescript-eslint/parser", "virtual:fb849477c4f6827542d449f15c7c722160da93f176c17f812a0313ca46807e09cc98138e0137a27649585f2cd5cc0e349cf48f47e4f114851c36835d574e8126#npm:7.9.0"],\
-          ["@vercel/blob", "npm:0.23.3"],\
           ["clsx", "npm:2.1.1"],\
           ["cypress", "npm:12.1.0"],\
           ["dayjs", "npm:1.11.11"],\
@@ -15581,15 +15576,6 @@ const RAW_RUNTIME_STATE =
           ["is-boolean-object", "npm:1.1.2"],\
           ["call-bind", "npm:1.0.7"],\
           ["has-tostringtag", "npm:1.0.2"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["is-buffer", [\
-      ["npm:2.0.5", {\
-        "packageLocation": "./.yarn/cache/is-buffer-npm-2.0.5-17e563f277-3261a8b858.zip/node_modules/is-buffer/",\
-        "packageDependencies": [\
-          ["is-buffer", "npm:2.0.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -20910,13 +20896,6 @@ const RAW_RUNTIME_STATE =
           ["retry", "npm:0.12.0"]\
         ],\
         "linkType": "HARD"\
-      }],\
-      ["npm:0.13.1", {\
-        "packageLocation": "./.yarn/cache/retry-npm-0.13.1-89eb100ab6-6125ec2e06.zip/node_modules/retry/",\
-        "packageDependencies": [\
-          ["retry", "npm:0.13.1"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["reusify", [\
@@ -22650,6 +22629,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["third-party-capital", [\
+      ["npm:1.0.20", {\
+        "packageLocation": "./.yarn/cache/third-party-capital-npm-1.0.20-63003fae3f-40e2531b42.zip/node_modules/third-party-capital/",\
+        "packageDependencies": [\
+          ["third-party-capital", "npm:1.0.20"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["throttleit", [\
       ["npm:1.0.1", {\
         "packageLocation": "./.yarn/cache/throttleit-npm-1.0.1-3e2cafb459-17f1aba821.zip/node_modules/throttleit/",\
@@ -23190,16 +23178,6 @@ const RAW_RUNTIME_STATE =
           ["has-bigints", "npm:1.0.2"],\
           ["has-symbols", "npm:1.0.3"],\
           ["which-boxed-primitive", "npm:1.0.2"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["undici", [\
-      ["npm:5.28.4", {\
-        "packageLocation": "./.yarn/cache/undici-npm-5.28.4-63fa65e206-a666a9f5ac.zip/node_modules/undici/",\
-        "packageDependencies": [\
-          ["undici", "npm:5.28.4"],\
-          ["@fastify/busboy", "npm:2.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
