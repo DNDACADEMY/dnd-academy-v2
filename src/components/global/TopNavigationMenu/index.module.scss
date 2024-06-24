@@ -12,6 +12,13 @@
   margin: 0;
   padding: 0;
 
+  li {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   @include sm {
     gap: 0;
     height: 43px;
