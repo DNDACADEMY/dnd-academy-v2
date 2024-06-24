@@ -11,7 +11,7 @@ describe('Tag', () => {
   });
 
   const renderTag = ({ isActive }: { isActive: boolean; }) => render((
-    <Tag onClick={handleClick} title={title} isActive={isActive} count={0} />
+    <Tag onClick={handleClick} title={title} isActive={isActive} count={0} size="small" />
   ));
 
   describe('태그를 클릭하면', () => {

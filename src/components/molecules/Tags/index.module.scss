@@ -2,7 +2,6 @@
 
 .tagWrapper {
   position: relative;
-  display: flex;
   flex-flow: row wrap;
   justify-content: center;
   gap: 8px;
@@ -10,17 +9,7 @@
   overflow-x: initial;
   height: fit-content;
   overflow-y: hidden;
-
-  @include xs {
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    width: calc(100% + 24px);
-    overflow-x: auto;
-
-    button:last-of-type {
-      margin-right: 24px;
-    }
-  }
+  display: inline-flex;
 
   &.small {
     margin-bottom: 32px;
