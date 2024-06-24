@@ -17,13 +17,11 @@
     background-color: color('bgsecondary');
 
     .marqueeText {
-      font-size: 14px;
-      font-weight: 900;
+      @include text('body2/ExtraBold');
     }
 
     .marqueeEmoji {
-      font-size: 32px;
-      font-weight: 900;
+      @include text('H4/ExtraBold');
     }
   }
 

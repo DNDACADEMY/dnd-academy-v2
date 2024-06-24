@@ -26,15 +26,11 @@
     color: color('gray01');
 
     .name {
-      font-size: 20px;
-      font-weight: 900;
-      line-height: 29px;
+      @include text('H6/ExtraBold');
     }
 
     .position {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 20px;
+      @include text('body2/Regular');
     }
   }
 
@@ -45,10 +41,9 @@
   }
 
   .review {
-    font-size: 14px;
-    font-weight: 400;
+    @include text('body2/Regular', 'gray03');
+
     line-height: 22px;
-    color: color('gray03');
   }
 
   .link {
@@ -57,11 +52,9 @@
     width: fit-content;
     flex-direction: row;
     gap: 8px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 21px;
     align-items: center;
-    color: color('primary');
+
+    @include text('body2/Bold', 'primary');
 
     .arrowIcon {
       path {
