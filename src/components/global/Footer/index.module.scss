@@ -34,11 +34,14 @@
       }
 
       .title {
-        color: color('white');
-        font-size: 42px;
-        font-weight: 800;
         line-height: normal;
         height: fit-content;
+
+        @include text('H3/ExtraBold', 'white');
+
+        @include xs {
+          @include text('H4/ExtraBold');
+        }
       }
 
       .menuList {
