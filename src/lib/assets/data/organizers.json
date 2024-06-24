@@ -679,152 +679,8 @@
     }
   },
   {
-    "name": "구영회",
-    "id": 25,
-    "isArchived": false,
-    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YoungHoe.png",
-    "author": "YoungHoe",
-    "dndPosition": "개발",
-    "technicalStack": ["Kotlin", "Android"],
-    "oneLineIntroduction": "YOLO! 한번 사는 인생 하고 싶은거 하면서 살자구요~",
-    "links": {
-      "github": "https://github.com/YHKOO95"
-    },
-    "career": {
-      "now": ["PFC Technologies 안드로이드 개발"],
-      "previous": ["넛지헬스케어 안드로이드 개발", "스마트잭 안드로이드 개발"]
-    },
-    "mbti": "INFP",
-    "questions": {
-      "whatIsYourRoleInDnd": "DND의 개발 운영진으로 활동하고 있습니다.\n참가자분들의 짧은 8주의 시간이 의미있는 시간이 될 수 있도록 노력하고 있습니다.\n필요한 도움이 있다면 언제든 말씀 주세요!!",
-      "whyDoYouRecommendDnd": "좋은 분들과 즐거운 프로젝트를 할 수 있는 것이 가장 큰 장점이라 생각합니다.\n전국구로 개발/디자이너를 만날 수 있는 기회가 많지는 않거든요.\n저 역시 8기에 참여하면서 좋은 분들을 많이 만났고, 지금도 함께 새로운 프로젝트를 만들어 가고 있습니다.\n좋은 사람들 많이 만날 수 있는 기회이니 여러분들도 지원해보세요!!",
-      "whatIsYourInterests": "IT기기에 관심이 많고 많이 구매해서 사용해 보고 있습니다.\n개발 만큼이나 장비를 좋아해서 장비충 소리를 듣고 있지만, 한번 잘 갖춰놓으면 이만한 행복이 없지요😊",
-      "whatYouWantToShare": []
-    }
-  },
-  {
-    "name": "장지호",
-    "id": 26,
-    "isArchived": false,
-    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHo.png",
-    "author": "JiHo",
-    "dndPosition": "개발",
-    "technicalStack": ["Kotlin", "Android"],
-    "oneLineIntroduction": "반갑습니다. 도움이 되고 싶어요.",
-    "links": {
-      "github": ""
-    },
-    "career": {
-      "now": ["2023.06.09 ~ 안드로이드 개발자"],
-      "previous": []
-    },
-    "mbti": "INFJ",
-    "questions": {
-      "whatIsYourRoleInDnd": "담당한 조의 프로젝트 관리를 도와드리고 있습니다. 개발적 고민도, 사소한 고민도 모두 환영입니다.",
-      "whyDoYouRecommendDnd": "최고의 인재들과 함께 프로덕트를 만드는 일만큼 기분 좋은 일이 또 있을까요?",
-      "whatIsYourInterests": "기타쳐서 밥 벌어 먹고 살았습니다. 지금은 취미지만, 여전히 음악을 사랑해요. 공연도 가끔 하고요.",
-      "whatYouWantToShare": []
-    }
-  },
-  {
-    "name": "박지현",
-    "id": 27,
-    "isArchived": false,
-    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHyun.png",
-    "author": "JiHyun",
-    "dndPosition": "개발",
-    "technicalStack": ["C", "Java", "Python", "Springboot", "Django", "html", "css"],
-    "oneLineIntroduction": "공룡 좋아하는 개발자이자 IT 강사",
-    "links": {
-      "github": "https://github.com/gulbiarchive"
-    },
-    "career": {
-      "now": ["2021.09.15 ~ 백엔드 개발자, IT 강사"],
-      "previous": []
-    },
-    "mbti": "ESTJ",
-    "questions": {
-      "whatIsYourRoleInDnd": "DND 개발 운영진을 담당하고 있습니다.",
-      "whyDoYouRecommendDnd": "다양한 개발자, 디자이너와 협업하여 프로젝트를 진행할 수 있습니다.",
-      "whatIsYourInterests": "공룡을 좋아해서 공룡 관련된 영화만 n번 관람했습니다!",
-      "whatYouWantToShare": []
-    }
-  },
-  {
-    "name": "최나은",
-    "id": 28,
-    "isArchived": false,
-    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/NaEun.png",
-    "author": "NaEun",
-    "dndPosition": "디자인",
-    "technicalStack": ["figma"],
-    "oneLineIntroduction": "UIUX에 관심이 많아요. 함께 고민하고 기대해봅시다!",
-    "links": {
-      "linkedin": "http://linkedin.com/in/나은-최-9475921ab"
-    },
-    "career": {
-      "now": ["2023.01 ~ 캐시워크 UIUX 기획"],
-      "previous": ["2022.10-2022.12 넥슨 코리아 웹기획"]
-    },
-    "mbti": "ENFJ",
-    "questions": {
-      "whatIsYourRoleInDnd": "다른 운영진분과 함께 DND에서 참여자분들의 경험이 더욱 만족스러운 경험이 되도록 만들어나가고 있어요! 참여자분들이 8주동안 좋은 프로덕트를 만들 수 있도록, 여러분의 첫 사용자가 되어 고민하고 기대할게요!",
-      "whyDoYouRecommendDnd": "나의 경험을 넓혀보고 싶을 때, 추천드려요. 하나의 프로덕트를 함께 만들어나가는 과정에서 새로운 경험과 배움을 얻어갈 수 있어요!",
-      "whatIsYourInterests": "다양한 사람들의 의견이나 생각을 살펴보는 것을 재밌어해요. 온라인 쇼핑몰, 영화, 웹툰, 드라마를 볼때도 리뷰나 댓글 보는 것을 좋아해요.",
-      "whatYouWantToShare": []
-    }
-  },
-  {
-    "name": "유예지",
-    "id": 29,
-    "isArchived": false,
-    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YeJi.png",
-    "author": "YeJi",
-    "dndPosition": "운영",
-    "technicalStack": ["서비스기획", "UX research", "GA", "Figma"],
-    "oneLineIntroduction": "사용자 행동을 분석하는 Product Manager",
-    "links": {
-      "linkedin": "https://www.linkedin.com/in/annayejiyoo/"
-    },
-    "career": {
-      "now": ["PM/서비스기획"],
-      "previous": []
-    },
-    "mbti": "ENFJ",
-    "questions": {
-      "whatIsYourRoleInDnd": "DND의 전반적 운영 관리, 홈페이지 서비스기획/운영",
-      "whyDoYouRecommendDnd": "다양한 사람들과의 협업 기회와 네트워킹, 프로젝트를 통한 개인의 성장과 발전을 위해 DND 활동을 추천합니다.",
-      "whatIsYourInterests": "사람의 행동과 심리에 관심이 많습니다.\n하늘, 바다와 같은 자연을 보거나 야경을 볼 때 행복을 느낍니다 :)\n커피를 즐겨 마시며 영화와 미술 그리고 음악을 좋아해요. 최근에는 건축에 관심이 생겼습니다.",
-      "whatYouWantToShare": []
-    }
-  },
-  {
-    "name": "소석진",
-    "id": 30,
-    "isArchived": false,
-    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeokJin.png",
-    "author": "SeokJin",
-    "dndPosition": "개발",
-    "technicalStack": ["TypeScript", "Next", "Storybook"],
-    "oneLineIntroduction": "아름다움을 추구하는 프론트엔드",
-    "links": {
-      "github": "https://github.com/seokzin"
-    },
-    "career": {
-      "now": ["FLO 프론트엔드"],
-      "previous": []
-    },
-    "mbti": "ENFJ",
-    "questions": {
-      "whatIsYourRoleInDnd": "여러분들의 든든한 프론트엔드 멘토를 맡고 있어요",
-      "whyDoYouRecommendDnd": "8주간의 커리큘럼을 통해 실무 과정을 경험할 수 있는 것이 가장 큰 장점이에요.\n또 여러분들을 위해 열심히 노력하는 운영진 분들도 가득하구요!",
-      "whatIsYourInterests": "- 책 읽고 글쓰는 것을 아주 좋아해요\n- 자기개발, 생산성에 관심이 많아요\n- 옛날 음악을 들을 때 행복해요\n- 멘토 활동을 꾸준히 하고 있어요",
-      "whatYouWantToShare": []
-    }
-  },
-  {
     "name": "당현아",
-    "id": 31,
+    "id": 25,
     "isArchived": false,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/HyeonA.jpg",
     "author": "HyeonA",
@@ -848,7 +704,7 @@
   },
   {
     "name": "사승민",
-    "id": 32,
+    "id": 26,
     "isArchived": false,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeungMin.JPG",
     "author": "SeungMin",
@@ -874,8 +730,128 @@
     }
   },
   {
+    "name": "구영회",
+    "id": 27,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YoungHoe.png",
+    "author": "YoungHoe",
+    "dndPosition": "개발",
+    "technicalStack": ["Kotlin", "Android"],
+    "oneLineIntroduction": "YOLO! 한번 사는 인생 하고 싶은거 하면서 살자구요~",
+    "links": {
+      "github": "https://github.com/YHKOO95"
+    },
+    "career": {
+      "now": ["PFC Technologies 안드로이드 개발"],
+      "previous": ["넛지헬스케어 안드로이드 개발", "스마트잭 안드로이드 개발"]
+    },
+    "mbti": "INFP",
+    "questions": {
+      "whatIsYourRoleInDnd": "DND의 개발 운영진으로 활동하고 있습니다.\n참가자분들의 짧은 8주의 시간이 의미있는 시간이 될 수 있도록 노력하고 있습니다.\n필요한 도움이 있다면 언제든 말씀 주세요!!",
+      "whyDoYouRecommendDnd": "좋은 분들과 즐거운 프로젝트를 할 수 있는 것이 가장 큰 장점이라 생각합니다.\n전국구로 개발/디자이너를 만날 수 있는 기회가 많지는 않거든요.\n저 역시 8기에 참여하면서 좋은 분들을 많이 만났고, 지금도 함께 새로운 프로젝트를 만들어 가고 있습니다.\n좋은 사람들 많이 만날 수 있는 기회이니 여러분들도 지원해보세요!!",
+      "whatIsYourInterests": "IT기기에 관심이 많고 많이 구매해서 사용해 보고 있습니다.\n개발 만큼이나 장비를 좋아해서 장비충 소리를 듣고 있지만, 한번 잘 갖춰놓으면 이만한 행복이 없지요😊",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "장지호",
+    "id": 28,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHo.png",
+    "author": "JiHo",
+    "dndPosition": "개발",
+    "technicalStack": ["Kotlin", "Android"],
+    "oneLineIntroduction": "반갑습니다. 도움이 되고 싶어요.",
+    "links": {
+      "github": ""
+    },
+    "career": {
+      "now": ["2023.06.09 ~ 안드로이드 개발자"],
+      "previous": []
+    },
+    "mbti": "INFJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "담당한 조의 프로젝트 관리를 도와드리고 있습니다. 개발적 고민도, 사소한 고민도 모두 환영입니다.",
+      "whyDoYouRecommendDnd": "최고의 인재들과 함께 프로덕트를 만드는 일만큼 기분 좋은 일이 또 있을까요?",
+      "whatIsYourInterests": "기타쳐서 밥 벌어 먹고 살았습니다. 지금은 취미지만, 여전히 음악을 사랑해요. 공연도 가끔 하고요.",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "최나은",
+    "id": 29,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/NaEun.png",
+    "author": "NaEun",
+    "dndPosition": "디자인",
+    "technicalStack": ["figma"],
+    "oneLineIntroduction": "UIUX에 관심이 많아요. 함께 고민하고 기대해봅시다!",
+    "links": {
+      "linkedin": "http://linkedin.com/in/나은-최-9475921ab"
+    },
+    "career": {
+      "now": ["2023.01 ~ 캐시워크 UIUX 기획"],
+      "previous": ["2022.10-2022.12 넥슨 코리아 웹기획"]
+    },
+    "mbti": "ENFJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "다른 운영진분과 함께 DND에서 참여자분들의 경험이 더욱 만족스러운 경험이 되도록 만들어나가고 있어요! 참여자분들이 8주동안 좋은 프로덕트를 만들 수 있도록, 여러분의 첫 사용자가 되어 고민하고 기대할게요!",
+      "whyDoYouRecommendDnd": "나의 경험을 넓혀보고 싶을 때, 추천드려요. 하나의 프로덕트를 함께 만들어나가는 과정에서 새로운 경험과 배움을 얻어갈 수 있어요!",
+      "whatIsYourInterests": "다양한 사람들의 의견이나 생각을 살펴보는 것을 재밌어해요. 온라인 쇼핑몰, 영화, 웹툰, 드라마를 볼때도 리뷰나 댓글 보는 것을 좋아해요.",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "유예지",
+    "id": 30,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YeJi.png",
+    "author": "YeJi",
+    "dndPosition": "운영",
+    "technicalStack": ["서비스기획", "UX research", "GA", "Figma"],
+    "oneLineIntroduction": "사용자 행동을 분석하는 Product Manager",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/annayejiyoo/"
+    },
+    "career": {
+      "now": ["PM/서비스기획"],
+      "previous": []
+    },
+    "mbti": "ENFJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "DND의 전반적 운영 관리, 홈페이지 서비스기획/운영",
+      "whyDoYouRecommendDnd": "다양한 사람들과의 협업 기회와 네트워킹, 프로젝트를 통한 개인의 성장과 발전을 위해 DND 활동을 추천합니다.",
+      "whatIsYourInterests": "사람의 행동과 심리에 관심이 많습니다.\n하늘, 바다와 같은 자연을 보거나 야경을 볼 때 행복을 느낍니다 :)\n커피를 즐겨 마시며 영화와 미술 그리고 음악을 좋아해요. 최근에는 건축에 관심이 생겼습니다.",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "소석진",
+    "id": 31,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeokJin.png",
+    "author": "SeokJin",
+    "dndPosition": "개발",
+    "technicalStack": ["TypeScript", "Next", "Storybook"],
+    "oneLineIntroduction": "아름다움을 추구하는 프론트엔드",
+    "links": {
+      "github": "https://github.com/seokzin"
+    },
+    "career": {
+      "now": ["FLO 프론트엔드"],
+      "previous": []
+    },
+    "mbti": "ENFJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "여러분들의 든든한 프론트엔드 멘토를 맡고 있어요",
+      "whyDoYouRecommendDnd": "8주간의 커리큘럼을 통해 실무 과정을 경험할 수 있는 것이 가장 큰 장점이에요.\n또 여러분들을 위해 열심히 노력하는 운영진 분들도 가득하구요!",
+      "whatIsYourInterests": "- 책 읽고 글쓰는 것을 아주 좋아해요\n- 자기개발, 생산성에 관심이 많아요\n- 옛날 음악을 들을 때 행복해요\n- 멘토 활동을 꾸준히 하고 있어요",
+      "whatYouWantToShare": []
+    }
+  },
+  {
     "name": "한채영",
-    "id": 33,
+    "id": 32,
     "isArchived": false,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/ChaeYoung.jpeg",
     "author": "ChaeYoung",
@@ -897,6 +873,30 @@
       "whatIsYourRoleInDnd": "담당조의 디자인 피드백과 기획 피드백을 동시에 드리고있습니다. 사소한 고민까지 저한테 물어봐주시면 언제든 환영입니다:)",
       "whyDoYouRecommendDnd": "팀원들과 함께 서비스를 만들어가며 디자이너로서의 사고가 더 넓어지는 것을 경험하실 수 있어요. 프로젝트가 성공하든, 실패하든 분명 값진 자산이되고 넥스트 스텝을 위한 발판이될거에요. 8주동안 디자이너로서 많은 성장을 하고싶으시다면 무조건 추천합니다!",
       "whatIsYourInterests": "평소에 작업하면서 음악듣는걸 좋아하며, 제 취향의 음악을 발견했을때 행복해하는 것 같아요:)",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "박지현",
+    "id": 33,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHyun.png",
+    "author": "JiHyun",
+    "dndPosition": "개발",
+    "technicalStack": ["C", "Java", "Python", "Springboot", "Django", "html", "css"],
+    "oneLineIntroduction": "공룡 좋아하는 개발자이자 IT 강사",
+    "links": {
+      "github": "https://github.com/gulbiarchive"
+    },
+    "career": {
+      "now": ["2021.09.15 ~ 백엔드 개발자, IT 강사"],
+      "previous": []
+    },
+    "mbti": "ESTJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "DND 개발 운영진을 담당하고 있습니다.",
+      "whyDoYouRecommendDnd": "다양한 개발자, 디자이너와 협업하여 프로젝트를 진행할 수 있습니다.",
+      "whatIsYourInterests": "공룡을 좋아해서 공룡 관련된 영화만 n번 관람했습니다!",
       "whatYouWantToShare": []
     }
   },

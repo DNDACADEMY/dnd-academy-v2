@@ -42,10 +42,15 @@
       text-align: center;
     }
 
+    .middle {
+      position: relative;
+    }
+
     .badge {
       border-radius: 120px;
       background-color: color('gray09');
       padding: 8px 16px;
+      white-space: nowrap;
 
       @include text('body1/Bold', 'white');
 

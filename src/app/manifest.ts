@@ -7,8 +7,8 @@ function manifest(): MetadataRoute.Manifest {
     description: 'DND는 개발자와 디자이너라면 누구나 참여할 수 있는 IT비영리단체입니다.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#fff',
-    theme_color: '#fff',
+    background_color: '#13161c',
+    theme_color: '#13161c',
     icons: [
       {
         src: '/favicon.ico',

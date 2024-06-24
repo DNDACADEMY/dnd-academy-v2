@@ -18,6 +18,7 @@
   text-align: center;
   max-width: fit-content;
   border-radius: 32px;
+  min-width: fit-content;
 
   @include text('body2/Regular');
 
