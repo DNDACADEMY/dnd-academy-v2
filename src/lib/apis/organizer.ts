@@ -10,8 +10,8 @@ export function getOrganizers({
   const filteredOrganizerIntroduction = organizers
     .filter((organizer) => (typeof isArchived === 'boolean' ? organizer.isArchived === isArchived : true));
 
-  if (!position) {
-    return [...filteredOrganizerIntroduction].reverse();
+  if (!position || position === 'all') {
+    return filteredOrganizerIntroduction;
   }
 
   return filteredOrganizerIntroduction.filter(({ dndPosition }) => dndPosition === position);

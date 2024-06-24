@@ -8,7 +8,7 @@ export function getProjects({
   const sortedProject = (projectsData as Project[])
     .sort((a, b) => sortFlagsDescending(a.flag, b.flag));
 
-  if (!ordinal) {
+  if (!ordinal || ordinal === 'all') {
     return sortedProject;
   }
 
