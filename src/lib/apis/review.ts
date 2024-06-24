@@ -14,7 +14,7 @@ export function getReviews({
     ) => review.flag.trim() === flag.trim() && review.projectId === projectId);
   }
 
-  if (!position) {
+  if (!position || position === 'all') {
     return reviews;
   }
 

@@ -49,7 +49,13 @@ function Tags<T extends string>({
 
   return (
     <div className={clsx(styles.tagWrapper, styles[size])}>
-      <Tag title="전체" count={totalCount} isActive={!paramValue} onClick={handleClick()} size={size} />
+      <Tag
+        title="전체"
+        count={totalCount}
+        isActive={!paramValue || paramValue === 'all'}
+        onClick={handleClick('all')}
+        size={size}
+      />
       {sortedTagCount}
     </div>
   );

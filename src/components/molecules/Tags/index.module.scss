@@ -1,25 +1,40 @@
 @import '/src/styles/main';
 
 .tagWrapper {
+  position: relative;
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   gap: 8px;
   width: 100%;
-  justify-content: center;
+  overflow-x: initial;
+  height: fit-content;
+  overflow-y: hidden;
+
+  @include xs {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: calc(100% + 24px);
+    overflow-x: auto;
+
+    button:last-of-type {
+      margin-right: 24px;
+    }
+  }
 
   &.small {
-    padding-bottom: 32px;
+    margin-bottom: 32px;
 
     @include xs {
-      padding-bottom: 24px;
+      margin-bottom: 24px;
     }
   }
 
   &.medium {
-    padding-bottom: 100px;
+    margin-bottom: 100px;
 
     @include xs {
-      padding-bottom: 32px;
+      margin-bottom: 32px;
     }
   }
 }

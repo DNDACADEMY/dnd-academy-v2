@@ -43,7 +43,7 @@ function GuidelineSection() {
             </tr>
             <tr>
               <td className={styles.week}>4주</td>
-              <td>
+              <td className={styles.middle}>
                 <span className={clsx(styles.badge, styles.absolute)}>중간발표</span>
               </td>
               <td>
