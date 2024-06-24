@@ -23,6 +23,10 @@ function Tag({
       type="button"
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      onTouchMove={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
       onClick={onClick}
       className={clsx(styles.tag, isActive && styles.active, styles[size])}
     >

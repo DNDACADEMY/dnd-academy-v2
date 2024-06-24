@@ -29,7 +29,9 @@
   /* zIndex */
   --toast-z-index: 100;
   --top-navigation-z-index: 99;
-  --modal-z-index: 20;
+
+  // NOTE - 채널톡 z-index가 10000000이라 10000001로 설정
+  --modal-z-index: 10000001;
 
   /* typography */
   --font-weight-extrabold: 800;
