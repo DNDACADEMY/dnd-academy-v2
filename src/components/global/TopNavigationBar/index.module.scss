@@ -7,7 +7,6 @@
   position: fixed;
   top: 0;
   height: 72px;
-  padding: 0 24px;
   width: 100%;
   border-bottom: 1px solid color('gray08');
   background-color: color('bgsecondary');
@@ -22,6 +21,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 24px;
+
+    @include sm {
+      padding-left: 0;
+    }
 
     .logo {
       width: 21px;
