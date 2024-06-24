@@ -1,5 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
+
+import { DNDLogo } from '@/lib/assets/logos';
 
 import TopNavigationMenu from '../TopNavigationMenu';
 
@@ -11,12 +12,10 @@ function TopNavigationBar() {
       <header className={styles.navigationWrapper}>
         <nav className={styles.navigationContents}>
           <Link href="/" className={styles.logoLink}>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_S3_HOST}/images/logo-symbol.svg`}
-              alt="logo"
-              width={32}
-              height={36}
-              priority
+            <DNDLogo
+              aria-label="logo"
+              width={21}
+              height={24}
               className={styles.logo}
             />
           </Link>
