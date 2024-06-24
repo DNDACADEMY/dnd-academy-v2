@@ -18,7 +18,9 @@ function RootLayout({ children }: {
 }) {
   return (
     <html lang="ko" className={pretendardFont.className}>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      <head>
+        <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" />
+      </head>
       <body>
         <ClientProviders>
           <TopNavigationBar />
@@ -30,6 +32,7 @@ function RootLayout({ children }: {
         </ClientProviders>
         <Toast />
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
     </html>
   );
 }
