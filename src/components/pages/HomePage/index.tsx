@@ -1,34 +1,36 @@
 import Image from 'next/image';
 
-import Badge from '@/components/atoms/Badge';
 import Button from '@/components/atoms/Button';
 import { Counter } from '@/components/atoms/CounterCard';
 import ImageCard from '@/components/atoms/ImageCard';
 import ScrollElement from '@/components/atoms/ScrollElement';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import CounterCardSection from '@/components/molecules/CounterCardSection';
+import EventStatus from '@/components/molecules/EventStatus';
 import FAQSection from '@/components/molecules/FAQSection';
 import ProjectsSlider from '@/components/molecules/ProjectsSlider';
 import SponsorSection from '@/components/molecules/SponsorSection';
-import ApplyModal from '@/components/organisms/ApplyModal';
+import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { faqData } from '@/lib/assets/data';
 import { RightArrowIcon } from '@/lib/assets/icons';
+import type { EventStatus as Event } from '@/lib/types/event';
 
 import styles from './index.module.scss';
 
 type Props = {
   tab?: string;
   currentApplicantCount: number;
+  eventStatus: Event;
 };
 
-function HomePage({ tab, currentApplicantCount }: Props) {
+function HomePage({ tab, currentApplicantCount, eventStatus }: Props) {
   return (
     <>
       <section className={styles.homeSection}>
         <div className={styles.contentsWrapper}>
           <div className={styles.description}>
-            <Badge label="DND는 잠시 휴식중" variant="info" />
+            <EventStatus eventStatus={eventStatus} />
             <h1 className={styles.title}>
               {`프로젝트에 즐거움을
                 모두에게 기회를`}
@@ -51,9 +53,9 @@ function HomePage({ tab, currentApplicantCount }: Props) {
               명이 지원했어요!
             </div>
           </div>
-          <ApplyModal>
+          <ApplyNotifyButtonGroup eventStatus={eventStatus}>
             <Button size="xLarge" buttonType="primary" />
-          </ApplyModal>
+          </ApplyNotifyButtonGroup>
         </div>
         <div className={styles.bannerWrapper}>
           <Image

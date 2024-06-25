@@ -1,17 +1,15 @@
 'use client';
 
-import {
-  ButtonHTMLAttributes, cloneElement, ReactElement,
-} from 'react';
+import { cloneElement, ReactElement } from 'react';
 
-import Button from '@/components/atoms/Button';
+import Button, { ButtonProps } from '@/components/atoms/Button';
 import Modal from '@/components/molecules/Modal';
 import { CURRENT_FLAG, DESIGNER_APPLICATION_LINK, DEVELOPER_APPLICATION_LINK } from '@/lib/constants';
 
 import styles from './index.module.scss';
 
 type Props = {
-  children: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>;
+  children: ReactElement<ButtonProps>;
 };
 
 function ApplyModal({ children: child }: Props) {

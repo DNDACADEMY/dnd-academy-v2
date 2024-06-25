@@ -1,4 +1,5 @@
 import HomePage from '@/components/pages/HomePage';
+import { getEventStatus } from '@/lib/apis/event';
 import { DEFAULT_METADATA } from '@/lib/constants/metadata';
 import { CurrentApplicantCount } from '@/lib/types/count';
 import { checkNumber } from '@/utils';
@@ -15,17 +16,20 @@ type Props = {
 
 async function Home({ searchParams }: Props) {
   const currentApplicantCountData = await api<CurrentApplicantCount>({
-    url: '/current_applicant_count-JeSWtPXXi3QyN4jW5IcqsFsWQqsWXA.json',
+    url: '/current_applicant_count.json',
     method: 'GET',
   });
 
   const currentApplicantCount = checkNumber(currentApplicantCountData?.designer)
     + checkNumber(currentApplicantCountData?.developer);
 
+  const eventStatus = getEventStatus();
+
   return (
     <HomePage
       tab={searchParams.tab}
       currentApplicantCount={currentApplicantCount}
+      eventStatus={eventStatus}
     />
   );
 }
