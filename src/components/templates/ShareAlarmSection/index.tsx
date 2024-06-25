@@ -5,7 +5,8 @@ import clsx from 'clsx';
 
 import Button from '@/components/atoms/Button';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
-import ApplyModal from '@/components/organisms/ApplyModal';
+import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
+import { getEventStatus } from '@/lib/apis/event';
 
 import styles from './index.module.scss';
 
@@ -52,6 +53,8 @@ const dividerStyles: DividerStyles[] = [{
 }];
 
 function ShareAlarmSection() {
+  const eventStatus = getEventStatus();
+
   const shareUrl = process.env.NEXT_PUBLIC_ORIGIN;
   const introduceText = 'DND와 함께 프로젝트를 시작해 보세요!\n1. 개발자와 디자이너의 협업 경험을 만들 수 있어요.\n2. 헤매지 않고 8주 커리큘럼에 따라 프로젝트를 완성해요.\n3. DND에서 주최하는 다양한 이벤트, 세미나에 참가할 수 있어요.\n지금 바로 참가하기\n';
 
@@ -75,9 +78,9 @@ function ShareAlarmSection() {
           <ShareClipBoardCTA shareText={`${introduceText}${shareUrl}`}>
             <Button fullWidth size="xLarge" type="button">친구에게 공유하기</Button>
           </ShareClipBoardCTA>
-          <ApplyModal>
+          <ApplyNotifyButtonGroup eventStatus={eventStatus}>
             <Button fullWidth size="xLarge" buttonType="primary" />
-          </ApplyModal>
+          </ApplyNotifyButtonGroup>
         </div>
       </div>
     </div>
