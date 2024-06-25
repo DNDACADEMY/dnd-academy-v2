@@ -1,10 +1,12 @@
 import Image from 'next/image';
 
+import Button from '@/components/atoms/Button';
 import DetailNavigation from '@/components/atoms/DetailNavigation';
 import SkillTag from '@/components/atoms/SkillTag';
 import OrganizerCards from '@/components/molecules/OrganizerCards';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
-import ApplyModal from '@/components/organisms/ApplyModal';
+import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
+import { getEventStatus } from '@/lib/apis/event';
 import { getOrganizers } from '@/lib/apis/organizer';
 import { RightArrowIcon } from '@/lib/assets/icons';
 import { Organizer } from '@/lib/types/organizer';
@@ -17,6 +19,8 @@ type Props = {
 };
 
 function OrganizerPage({ organizer }: Props) {
+  const eventStatus = getEventStatus();
+
   const samePositionOrganizers = getOrganizers({
     position: organizer.dndPosition,
     isArchived: false,
@@ -101,11 +105,11 @@ function OrganizerPage({ organizer }: Props) {
               <div className={styles.organizerAnswer}>
                 {organizer.questions.whyDoYouRecommendDnd}
               </div>
-              <ApplyModal>
-                <button type="button" className={styles.applyButton}>
+              <ApplyNotifyButtonGroup eventStatus={eventStatus}>
+                <Button className={styles.applyButton}>
                   <RightArrowIcon className={styles.arrowIcon} width={20} height={20} />
-                </button>
-              </ApplyModal>
+                </Button>
+              </ApplyNotifyButtonGroup>
             </div>
             <div className={styles.organizerDescriptionItem}>
               <h2>

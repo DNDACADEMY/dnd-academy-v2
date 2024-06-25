@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Button from '@/components/atoms/Button';
 import ExternalLink from '@/components/atoms/ExternalLink';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
-import ApplyModal from '@/components/organisms/ApplyModal';
+import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
+import { getEventStatus } from '@/lib/apis/event';
 import { LogoType } from '@/lib/types/common';
 
 import styles from './index.module.scss';
@@ -17,6 +18,8 @@ const footerLinks: { link: string; logo: LogoType; }[] = [
 ];
 
 function Footer() {
+  const eventStatus = getEventStatus();
+
   return (
     <footer className={styles.footerWrapper}>
       <div className={styles.footerContentsWrapper}>
@@ -46,9 +49,9 @@ function Footer() {
               DND활동 정책
             </ExternalLink>
           </div>
-          <ApplyModal>
+          <ApplyNotifyButtonGroup eventStatus={eventStatus}>
             <Button buttonType="primary" />
-          </ApplyModal>
+          </ApplyNotifyButtonGroup>
         </div>
       </div>
     </footer>
