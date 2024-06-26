@@ -20,7 +20,7 @@ type Props<T extends string> = {
 };
 
 function Tags<T extends string>({
-  paramKey, tagCount, route, size = 'medium',
+  paramKey, tagCount, route, size = 'small',
 }: Props<T>) {
   const router = useRouter();
   const searchParams = useSearchParams();

@@ -12,7 +12,7 @@ function ProjectsPage({ projects }: Props) {
 
   return (
     <>
-      <Tags paramKey="ordinal" route="/projects" tagCount={projectCount} size="small" />
+      <Tags paramKey="ordinal" route="/projects" tagCount={projectCount} />
       <ProjectCards projects={projects} />
     </>
   );

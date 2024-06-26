@@ -8,9 +8,6 @@ import { usePathname } from 'next/navigation';
 
 import clsx from 'clsx';
 
-import ExternalLink from '@/components/atoms/ExternalLink';
-import { LinkIcon } from '@/lib/assets/icons';
-
 import styles from './index.module.scss';
 
 function TopNavigationMenu() {
@@ -72,13 +69,13 @@ function TopNavigationMenu() {
           후기
         </Link>
       </li>
-      <li>
+      {/* NOTE - 채용 및 블로그 페이지의 오래된 정보로 임시 주석처리 */}
+      {/* <li>
         <ExternalLink href="https://blog.dnd.ac" className={styles.blogLink}>
           <span>블로그</span>
           <LinkIcon width={14} height={14} className={styles.linkIcon} />
         </ExternalLink>
-      </li>
-      {/* NOTE - 채용 페이지의 오래된 정보로 임시 주석처리 */}
+      </li> */}
       {/* <li>
         <Link href="/jobs" className={clsx(isActivePathname('/jobs') && styles.active)}>
           채용
