@@ -4,7 +4,7 @@ import { cloneElement, ReactElement } from 'react';
 
 import { ButtonProps } from '@/components/atoms/Button';
 import useCountdown from '@/hooks/useCountdown';
-import { CURRENT_FLAG, NEXT_FLAG } from '@/lib/constants';
+import { CURRENT_FLAG, NEXT_COHORT_NOTIFICATION_URL, NEXT_FLAG } from '@/lib/constants';
 import { EventStatus } from '@/lib/types/event';
 
 import ApplyModal from '../ApplyModal';
@@ -30,7 +30,7 @@ function ApplyNotifyButtonGroup({ children: child, eventStatus }: Props) {
         {cloneElement(child, {
           ...child.props,
           isExternalLink: true,
-          href: 'https://forms.gle/nA3MLWbUyAoikWw16',
+          href: NEXT_COHORT_NOTIFICATION_URL,
         }, [
           <span key="default-label">{`${applicationStartDateCountdown !== 'END' ? CURRENT_FLAG : NEXT_FLAG}기 알림 신청하기`}</span>,
           child.props.children,

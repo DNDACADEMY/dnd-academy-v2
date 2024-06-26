@@ -37,7 +37,8 @@ function Footer() {
               </ul>
             </li>
             <li><Link href="/reviews">후기</Link></li>
-            <li><ExternalLink href="https://blog.dnd.ac">블로그</ExternalLink></li>
+            {/* NOTE - 블로그 가리기 */}
+            {/* <li><ExternalLink href="https://blog.dnd.ac">블로그</ExternalLink></li> */}
           </ul>
         </div>
         <div className={styles.bottomContents}>

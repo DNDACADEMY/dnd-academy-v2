@@ -31,6 +31,8 @@ export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnch
   children?: ReactNode;
 }
 
+const MotionLink = motion(Link);
+
 function Button({
   href,
   size = 'medium',
@@ -94,8 +96,10 @@ function Button({
 
   if (href) {
     return (
-      <Link
+      <MotionLink
         href={href}
+        whileHover={!disabled && { scale: 1.02 }}
+        whileTap={!disabled && { scale: 0.98 }}
         rel={isExternalLink ? 'noopener noreferrer' : undefined}
         target={isExternalLink ? '_blank' : undefined}
         className={buttonClassName}
@@ -106,7 +110,7 @@ function Button({
         {...htmlProps}
       >
         {buttonLabel}
-      </Link>
+      </MotionLink>
     );
   }
 

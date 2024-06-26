@@ -21,8 +21,10 @@ type Props = {
 function OrganizerPage({ organizer }: Props) {
   const eventStatus = getEventStatus();
 
+  const isMascot = organizer.dndPosition === '마스코트';
+
   const samePositionOrganizers = getOrganizers({
-    position: organizer.dndPosition,
+    position: isMascot ? undefined : organizer.dndPosition,
     isArchived: false,
   }).filter((samePositionOrganizer) => samePositionOrganizer.id !== organizer.id);
 
