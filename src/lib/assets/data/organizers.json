@@ -378,9 +378,8 @@
   {
     "name": "이제욱",
     "id": 14,
-    "isArchived": true,
+    "isArchived": false,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jeuk.png",
-    "emoji": true,
     "author": "Jeuk",
     "dndPosition": "디자인",
     "technicalStack": ["Figma", "UX Research"],

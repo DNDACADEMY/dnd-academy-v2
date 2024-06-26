@@ -14,7 +14,7 @@ export function getOrganizers({
     return filteredOrganizerIntroduction;
   }
 
-  return filteredOrganizerIntroduction.filter(({ dndPosition }) => dndPosition === position);
+  return filteredOrganizerIntroduction.filter(({ dndPosition }) => dndPosition === position || dndPosition === '마스코트');
 }
 
 export function getOrganizer({ id }: { id: number; }) {
@@ -26,7 +26,7 @@ export function getOrganizer({ id }: { id: number; }) {
 export function getOrganizerCount() {
   const organizers = organizersData as Organizer[];
 
-  return organizers.filter((organizer) => !organizer.isArchived).reduce(
+  return organizers.filter((organizer) => !organizer.isArchived && organizer.dndPosition !== '마스코트').reduce(
     (acc, { dndPosition }) => ({
       ...acc,
       [dndPosition]: checkNumber(acc[dndPosition]) + 1,
