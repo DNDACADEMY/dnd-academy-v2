@@ -7,30 +7,40 @@ dayjs.extend(duration);
 
 const TWENTY_FOUR_HOURS_IN_MS = 24 * 60 * 60 * 1000;
 
+const onCounter = (date: string) => {
+  const now = dayjs();
+  const deadline = dayjs(date);
+  const diff = deadline.diff(now);
+
+  if (diff <= 0) {
+    return 'END';
+  }
+
+  const diffDuration = dayjs.duration(diff);
+
+  if (diff <= TWENTY_FOUR_HOURS_IN_MS) {
+    return diffDuration.format('HH:mm:ss');
+  }
+
+  const days = Math.ceil(diffDuration.asDays());
+
+  return `D-${days}`;
+};
+
 const useCountdown = (deadlineDate: string): 'END' | `D-${number}` | string => {
-  const [countdown, setCountdown] = useState('');
+  const [countdown, setCountdown] = useState<string>(onCounter(deadlineDate));
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const now = dayjs();
-      const deadline = dayjs(deadlineDate);
-      const diff = deadline.diff(now);
+      const counter = onCounter(deadlineDate);
 
-      if (diff <= 0) {
-        setCountdown('END');
+      if (counter === 'END') {
+        setCountdown(counter);
         clearInterval(timer);
         return;
       }
 
-      const diffDuration = dayjs.duration(diff);
-
-      if (diff <= TWENTY_FOUR_HOURS_IN_MS) {
-        setCountdown(diffDuration.format('HH:mm:ss'));
-        return;
-      }
-
-      const days = Math.ceil(diffDuration.asDays());
-      setCountdown(`D-${days}`);
+      setCountdown(counter);
     }, 1000);
 
     return () => clearInterval(timer);

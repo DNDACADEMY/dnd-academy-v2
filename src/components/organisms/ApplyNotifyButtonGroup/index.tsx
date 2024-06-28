@@ -32,7 +32,7 @@ function ApplyNotifyButtonGroup({ children: child, eventStatus }: Props) {
           isExternalLink: true,
           href: NEXT_COHORT_NOTIFICATION_URL,
         }, [
-          <span key="default-label">{`${applicationStartDateCountdown !== 'END' ? CURRENT_FLAG : NEXT_FLAG}기 알림 신청하기`}</span>,
+          <span key="default-label">{`${applicationStartDateCountdown === 'END' ? NEXT_FLAG : CURRENT_FLAG}기 알림 신청하기`}</span>,
           child.props.children,
         ])}
       </>
