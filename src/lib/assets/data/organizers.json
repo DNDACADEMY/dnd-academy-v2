@@ -900,6 +900,54 @@
     }
   },
   {
+    "name": "차주희",
+    "id": 34,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JuHee.JPG",
+    "author": "JuHee",
+    "dndPosition": "개발",
+    "technicalStack": ["TypeScript", "React.js", "Next.js", "React Native"],
+    "oneLineIntroduction": "프로덕트를 통해 즐거움을 주는 개발자 🪄",
+    "links": {
+      "github": "https://github.com/chajuhui123"
+    },
+    "career": {
+      "now": ["이노바이드 프론트엔드 개발"],
+      "previous": ["카카오엔터프라이즈 보안플랫폼 개발", "넛지헬스케어 프론트엔드 개발"]
+    },
+    "mbti": "ENFP",
+    "questions": {
+      "whatIsYourRoleInDnd": "DND의 프론트엔드 개발 멘토를 담당하고 있습니다!\n\n8주라는 기간 동안 원활하게 프로덕트를 완성할 수 있도록 도울 것입니다.\n프로젝트의 높은 생산성, 즐거운 협업을 위해 함께 고민하겠습니다!",
+      "whyDoYouRecommendDnd": "저는 '완성도 높은 프로덕트'를 만들어보고자 DND 7기, 9기에 참여한 경험이 있습니다.\n훌륭한 팀원들, 뛰어난 멘토님들 덕분에 즐거운 경험이 되었어요.\n\n여러분이 DND 활동 경험을 통해 아래 경험들을 꼭 얻어가셨으면 좋겠어요!\n- 다른 직무와의 협업 경험\n- 문제 해결 경험\n- 스스로 업무 추정치 산정하는 경험\n- 다른 팀원들과의 네트워킹, 다양한 세미나 및 행사 ...\n\nDND 활동에서 만나요 ~",
+      "whatIsYourInterests": "- 요즘, 출근 전 모닝 헬스에 빠졌습니다 💪\n- (유치한) 만화 보는 것을 좋아해요 🍿\n- 맛있는 음식이나 간식을 만들어 먹을 때 행복해요🍴\n- 새로운 사람이나 지인들을 만나서 대화할 때 도파민 충전 👄",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "강하나",
+    "id": 35,
+    "isArchived": false,
+    "emoji": "🙂",
+    "author": "Hana",
+    "dndPosition": "디자인",
+    "technicalStack": ["Figma", "Framer", "Adobe"],
+    "oneLineIntroduction": "타협과 조화를 통해 문제를 해결하고자 노력하는 디자이너입니다 🤼",
+    "links": {
+      "github": ""
+    },
+    "career": {
+      "now": ["BX 디자인 / UX 디자인 및 AI 서비스 기획"],
+      "previous": []
+    },
+    "mbti": "ESFJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "디자인 운영진으로 활동하고 있습니다.\n언제든 필요한 도움을 드리고자 노력하겠습니다 😊",
+      "whyDoYouRecommendDnd": "팀원들과 공동의 목표를 이루기 위해 함께 노력하고 성장하는 협업의 가치를 DND 활동을 통해 생생하게 경험할 수 있습니다 💜",
+      "whatIsYourInterests": "🎥 일주일에 한 번 영화보기\n💪 꾸준하게 운동하기\n🐈‍⬛ 고양이 영상 찾아보기",
+      "whatYouWantToShare": []
+    }
+  },
+  {
     "name": "디디",
     "id": 99,
     "isArchived": false,
