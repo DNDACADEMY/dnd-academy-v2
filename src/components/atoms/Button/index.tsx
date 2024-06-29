@@ -29,6 +29,7 @@ export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnch
   suffixIcon?: ReactNode;
   icon?: ReactNode;
   children?: ReactNode;
+  isAnimated?: boolean;
 }
 
 const MotionLink = motion(Link);
@@ -47,6 +48,7 @@ function Button({
   prefixIcon,
   fullWidth,
   icon,
+  isAnimated = true,
   className,
   children,
   ...rest
@@ -67,6 +69,8 @@ function Button({
     },
     className,
   );
+
+  const isMotion = isAnimated && !disabled;
 
   const buttonLabel = useMemo(() => {
     if (icon) {
@@ -98,8 +102,8 @@ function Button({
     return (
       <MotionLink
         href={href}
-        whileHover={!disabled && { scale: 1.02 }}
-        whileTap={!disabled && { scale: 0.98 }}
+        whileHover={isMotion && { scale: 1.02 }}
+        whileTap={isMotion && { scale: 0.98 }}
         rel={isExternalLink ? 'noopener noreferrer' : undefined}
         target={isExternalLink ? '_blank' : undefined}
         className={buttonClassName}
@@ -118,8 +122,8 @@ function Button({
     <motion.button
       // eslint-disable-next-line react/button-has-type
       type={type}
-      whileHover={!disabled && { scale: 1.02 }}
-      whileTap={!disabled && { scale: 0.98 }}
+      whileHover={isMotion && { scale: 1.02 }}
+      whileTap={isMotion && { scale: 0.98 }}
       className={buttonClassName}
       disabled={disabled}
       aria-disabled={disabled}

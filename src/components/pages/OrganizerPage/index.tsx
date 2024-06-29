@@ -108,7 +108,7 @@ function OrganizerPage({ organizer }: Props) {
                 {organizer.questions.whyDoYouRecommendDnd}
               </div>
               <ApplyNotifyButtonGroup eventStatus={eventStatus}>
-                <Button className={styles.applyButton}>
+                <Button isAnimated={false} className={styles.applyButton}>
                   <RightArrowIcon className={styles.arrowIcon} width={20} height={20} />
                 </Button>
               </ApplyNotifyButtonGroup>
