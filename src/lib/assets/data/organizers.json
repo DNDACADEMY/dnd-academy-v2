@@ -927,7 +927,7 @@
     "name": "강하나",
     "id": 35,
     "isArchived": false,
-    "emoji": "🙂",
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Hana.jpg",
     "author": "Hana",
     "dndPosition": "디자인",
     "technicalStack": ["Figma", "Framer", "Adobe"],

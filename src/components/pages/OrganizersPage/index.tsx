@@ -2,7 +2,6 @@ import Button from '@/components/atoms/Button';
 import OrganizerCards from '@/components/molecules/OrganizerCards';
 import Tags from '@/components/molecules/Tags';
 import { getOrganizerCount, getOrganizers } from '@/lib/apis/organizer';
-import { LinkIcon } from '@/lib/assets/icons';
 import { Organizer } from '@/lib/types/organizer';
 
 import styles from './index.module.scss';
@@ -32,7 +31,6 @@ function OrganizersPage({ organizers }: Props) {
               fullWidth
               size="large"
               buttonType="secondary"
-              suffixIcon={<LinkIcon width={20} height={20} className={styles.linkIcon} />}
               rounded
             >
               {name}
