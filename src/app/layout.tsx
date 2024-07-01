@@ -17,7 +17,7 @@ function RootLayout({ children }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko" className={pretendardFont.className}>
+    <html lang="ko" className={pretendardFont.variable}>
       <head>
         <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" />
         <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
