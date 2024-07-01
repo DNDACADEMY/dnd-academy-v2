@@ -9,6 +9,7 @@ html {
 }
 
 body {
+  font-family: var(--font-pretendard);
   background-color: color('bgsecondary');
   color: color('bgprimary');
 }
@@ -47,6 +48,7 @@ ul {
 }
 
 button {
+  font-family: var(--font-pretendard);
   cursor: pointer;
 
   &:disabled {
