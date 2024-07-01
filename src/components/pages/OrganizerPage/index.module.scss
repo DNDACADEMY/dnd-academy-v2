@@ -154,6 +154,7 @@
         .organizerAnswer {
           word-wrap: break-word;
           white-space: pre-line;
+          margin: 0;
 
           @include text('body1/Regular', 'gray03');
 
