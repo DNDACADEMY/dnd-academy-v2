@@ -26,6 +26,7 @@ export const pretendardFont = localFont({
   ],
   display: 'swap',
   preload: true,
+  variable: '--font-pretendard',
   fallback: [
     '-apple-system',
     'BlinkMacSystemFont',
