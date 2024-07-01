@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Button from '@/components/atoms/Button';
 import DetailNavigation from '@/components/atoms/DetailNavigation';
 import SkillTag from '@/components/atoms/SkillTag';
+import LinkConverter from '@/components/molecules/LinkConverter';
 import OrganizerCards from '@/components/molecules/OrganizerCards';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
@@ -98,14 +99,20 @@ function OrganizerPage({ organizer }: Props) {
             </div>
             <div className={styles.organizerDescriptionItem}>
               <h2>DND에서 어떤 업무를 맡고 있으신가요?</h2>
-              <div className={styles.organizerAnswer}>
-                {organizer.questions.whatIsYourRoleInDnd}
-              </div>
+              <LinkConverter
+                elementType="p"
+                text={organizer.questions.whatIsYourRoleInDnd}
+                className={styles.organizerAnswer}
+              />
             </div>
             <div className={styles.organizerDescriptionItem}>
               <h2>지원자들에게 DND를 왜 추천하나요?</h2>
               <div className={styles.organizerAnswer}>
-                {organizer.questions.whyDoYouRecommendDnd}
+                <LinkConverter
+                  elementType="p"
+                  text={organizer.questions.whyDoYouRecommendDnd}
+                  className={styles.organizerAnswer}
+                />
               </div>
               <ApplyNotifyButtonGroup eventStatus={eventStatus}>
                 <Button isAnimated={false} className={styles.applyButton}>
@@ -118,9 +125,11 @@ function OrganizerPage({ organizer }: Props) {
                 <strong className={styles.bold}>{organizer.name}</strong>
                 님이 관심있고, 행복해하는 것은?
               </h2>
-              <div className={styles.organizerAnswer}>
-                {organizer.questions.whatIsYourInterests}
-              </div>
+              <LinkConverter
+                elementType="p"
+                text={organizer.questions.whatIsYourInterests}
+                className={styles.organizerAnswer}
+              />
             </div>
             {organizer.questions.whatYouWantToShare.length > 0 && (
               <div className={styles.shareImageWrapper}>
