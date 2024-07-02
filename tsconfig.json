@@ -23,25 +23,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
   },
-  "include": [
-    "@types",
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "./jest-setup.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "cypress"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["packages/**/src/**/*", "apps/**/src/**/*"]
 }
