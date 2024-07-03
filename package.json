@@ -5,12 +5,12 @@
   "license": "GPL-3.0-only",
   "author": "dnd-academy",
   "scripts": {
-    "publish-packages": "turbo run build lint",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "turbo:lint": "turbo run lint",
     "workspace:web": "yarn workspace @dnd-academy-v2/web",
     "web:build": "yarn run workspace:web build",
+    "stylelint": "yarn run workspace:web stylelint",
     "test:unit": "yarn run workspace:web test:coverage",
     "lint": "yarn run workspace:web lint",
     "postinstall": "husky install && chmod ug+x .husky/*"
@@ -20,10 +20,11 @@
     "@commitlint/config-conventional": "18.4.4",
     "@turbo/gen": "^2.0.5",
     "@types/eslint": "^8",
+    "@types/node": "20",
+    "@types/react": "18.3.1",
     "eslint": "8.56.0",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
-    "stylelint": "15",
     "tsup": "^8.1.0",
     "turbo": "^2.0.5",
     "typescript": "5.2.2"
@@ -40,5 +41,5 @@
     "email": "dbd02169@naver.com",
     "url": "https://github.com/DNDACADEMY/dnd-academy-v2/issues"
   },
-  "packageManager": "yarn@4.2.2"
+  "packageManager": "yarn@4.3.1"
 }
