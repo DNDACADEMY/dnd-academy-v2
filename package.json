@@ -5,7 +5,7 @@
   "license": "GPL-3.0-only",
   "author": "dnd-academy",
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build check-types",
     "dev": "turbo run dev",
     "turbo:lint": "turbo run lint",
     "workspace:web": "yarn workspace @dnd-academy-v2/web",
