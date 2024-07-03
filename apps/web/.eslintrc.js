@@ -1,5 +1,4 @@
 module.exports = {
-  extends: ['../../.eslintrc.js'],
   root: true,
   env: {
     es6: true,
@@ -19,6 +18,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:react/jsx-runtime',
     'plugin:@next/next/recommended',
+    '../../.eslintrc.js',
   ],
   plugins: [
     'simple-import-sort',
