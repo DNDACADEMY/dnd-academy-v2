@@ -12,7 +12,7 @@
     "workspace:ui": "yarn workspace @dnd-academy/ui",
     "web:build": "yarn run workspace:web build",
     "stylelint": "yarn run workspace:web stylelint",
-    "test:unit": "yarn run workspace:web test:coverage && yarn run workspace:ui test:coverage",
+    "test:coverage": "yarn run workspace:web test:coverage && yarn run workspace:ui test:coverage",
     "lint": "yarn run workspace:web lint && yarn run workspace:ui lint",
     "postinstall": "husky install && chmod ug+x .husky/*"
   },
