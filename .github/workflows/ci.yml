@@ -29,7 +29,10 @@ jobs:
 
       - name: Check Lint
         if: ${{ github.event_name == 'pull_request' }}
-        run: yarn lint && yarn stylelint
+        run: |
+          yarn workspace web lint
+          yarn workspace @dnd-academy/ui lint
+          yarn stylelint
 
       - name: Check Unit Test
         run: yarn test:coverage
