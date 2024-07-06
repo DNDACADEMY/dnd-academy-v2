@@ -2,9 +2,9 @@
 
 import { PropsWithChildren } from 'react';
 
+import { useIsMounted } from '@dnd-academy/ui';
 import { useMediaQuery } from 'usehooks-ts';
 
-import useIsMounted from '@/hooks/useIsMounted';
 import BREAK_POINT from '@/lib/constants/breakPoint';
 
 type Props = {

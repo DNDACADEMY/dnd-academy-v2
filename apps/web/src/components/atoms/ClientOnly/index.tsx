@@ -2,7 +2,7 @@
 
 import { PropsWithChildren } from 'react';
 
-import useIsMounted from '@/hooks/useIsMounted';
+import { useIsMounted } from '@dnd-academy/ui';
 
 function ClientOnly({ children }: PropsWithChildren) {
   const isMounted = useIsMounted();

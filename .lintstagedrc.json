@@ -1,7 +1,12 @@
 {
+  "apps/web/**/*.{js,jsx,ts,tsx}": [
+    "yarn workspace web lint --cache"
+  ],
+  "packages/ui/**/*.{js,jsx,ts,tsx}": [
+    "yarn workspace @dnd-academy/ui lint --cache"
+  ],
   "*.{js,jsx,ts,tsx}": [
-    "yarn lint --cache",
-    "yarn test:unit --findRelatedTests --passWithNoTests"
+    "yarn test:coverage --findRelatedTests --passWithNoTests"
   ],
   "*.scss": [
     "yarn stylelint"
