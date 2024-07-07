@@ -1,0 +1,36 @@
+// Breakpoints
+$xs: 0;
+$sm: 480px;
+$md: 720px;
+$lg: 960px;
+$xl: 1200px;
+
+@mixin xs {
+	@media (min-width: #{$xs}) and (max-width: #{$sm - 1px}) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (min-width: #{$xs}) and (max-width: #{$md - 1px}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: #{$xs}) and (max-width: #{$lg - 1px}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width: #{$xs}) and (max-width: #{$xl - 1px}) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media (min-width: #{$xl}) {
+		@content;
+	}
+}

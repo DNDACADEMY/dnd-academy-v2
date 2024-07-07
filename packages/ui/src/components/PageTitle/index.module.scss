@@ -1,0 +1,32 @@
+@import '/src/styles/main';
+
+.pageTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  &:not(.hasSubtitle) {
+    padding-top: 32px;
+  }
+
+  &.hasSubtitle {
+    padding: 32px 0;
+  }
+
+  .title {
+    @include text('H1/Bold', 'bgprimary');
+
+    @include xs {
+      @include text('H4/Bold');
+    }
+  }
+
+  .subTitle {
+    @include text('H6/Regular', 'gray02');
+
+    @include xs {
+      @include text('body1/Regular');
+    }
+  }
+}
