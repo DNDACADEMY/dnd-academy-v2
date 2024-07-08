@@ -10,9 +10,12 @@
     "preserveWatchOutput": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
+      "@dnd-academy/ui": ["./src/index.ts"],
+      "@dnd-academy/ui/server": ["./src/server.ts"],
+      "@dnd-academy/ui/client": ["./src/client.ts"]
     },
+    "types": ["jest", "node", "vite/client"]
   },
-  "include": [".", "@types", "./jest-setup.ts"],
+  "include": ["src", "@types", "jest-setup.ts", "vite.config.mts"],
   "exclude": ["dist", "build", "node_modules"]
 }

@@ -7,6 +7,10 @@ type Props = {
   subTitle?: string;
 };
 
+/**
+ * PageTitle component
+ * @module @dnd-academy/ui/server
+ */
 function PageTitle({ title, subTitle }: Props) {
   return (
     <div className={clsx(styles.pageTitleWrapper, subTitle && styles.hasSubtitle)}>
