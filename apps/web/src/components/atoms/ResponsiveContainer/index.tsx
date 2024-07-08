@@ -2,7 +2,7 @@
 
 import { PropsWithChildren } from 'react';
 
-import { useIsMounted } from '@dnd-academy/ui';
+import { useIsMounted } from '@dnd-academy/ui/client';
 import { useMediaQuery } from 'usehooks-ts';
 
 import BREAK_POINT from '@/lib/constants/breakPoint';

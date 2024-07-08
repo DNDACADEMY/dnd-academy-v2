@@ -1,5 +1,7 @@
 @use 'sass:list';
 @use 'sass:string';
+@import '~sanitize.css';
+@import './variables';
 @import './mixin/text';
 @import './mixin/functions';
 @import './mixin/responsive';
