@@ -8,6 +8,7 @@ import { DEFAULT_METADATA } from '@/lib/constants/metadata';
 
 import { pretendardFont } from './_fonts';
 
+import '@dnd-academy/ui/style.css';
 import 'src/styles/global.scss';
 import styles from './index.module.scss';
 
