@@ -9,10 +9,8 @@ export default defineConfig({
     react(),
     dts({
       include: ['src'],
-      entryRoot: 'src',
-      rollupTypes: true,
       outDir: 'dist',
-      aliasesExclude: [/^@dnd-academy\/ui/],
+      insertTypesEntry: true,
     }),
   ],
   resolve: {
@@ -24,9 +22,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        index: resolve(__dirname, 'src/index.ts'),
-        client: resolve(__dirname, 'src/client.ts'),
         server: resolve(__dirname, 'src/server.ts'),
+        client: resolve(__dirname, 'src/client.ts'),
       },
       formats: ['es', 'cjs'],
       name: '@dnd-academy/ui',
@@ -39,10 +36,20 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        assetFileNames: (assetInfo) => {
+          if (!assetInfo.name) {
+            return 'assets/[name].[ext]';
+          }
+
+          if (assetInfo.name === 'style.css') {
+            return 'style.css';
+          }
+
+          return assetInfo.name;
+        },
       },
+
     },
-    sourcemap: true,
-    emptyOutDir: true,
   },
   css: {
     modules: {

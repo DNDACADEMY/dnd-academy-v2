@@ -12,7 +12,7 @@ module.exports = {
     'import/resolver': {
       alias: {
         map: [['@', './src']],
-        extensions: ['.ts', '.js', '.tsx', '.json'],
+        extensions: ['.ts', '.js', '.tsx', '.json', '.css'],
       },
     },
   },

@@ -5,9 +5,6 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@dnd-academy/ui": ["./node_modules/@dnd-academy/ui"],
-      "@dnd-academy/ui/server": ["./node_modules/@dnd-academy/ui/dist/server"],
-      "@dnd-academy/ui/client": ["./node_modules/@dnd-academy/ui/dist/client"]
     },
     "plugins": [
       {
