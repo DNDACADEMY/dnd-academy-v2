@@ -1,53 +1,8 @@
 :root {
-  /* colors */
-  --primary: #00d3f2;
-  --secondary: #9660ff;
-  --tertiary: #ff6b61;
-  --bgprimary: #eff1f4;
-  --bgsecondary: #13161c;
-  --warning: #ffb23e;
-  --warning-dark: #2b261f;
-  --success: #67d330;
-  --success-dark: #1b291e;
-  --error: #ff7878;
-  --error-dark: #2b2025;
-  --info: #00d3f2;
-  --info-dark: #112931;
-  --white: #fff;
-
-  /* gray */
-  --gray09: #13161c;
-  --gray08: #292c31;
-  --gray07: #404246;
-  --gray06: #5e6163;
-  --gray05: #909192;
-  --gray04: #c5c6c8;
-  --gray03: #e1e2e5;
-  --gray02: #edeef0;
-  --gray01: #f3f5f9;
-
   /* zIndex */
   --toast-z-index: 100;
   --top-navigation-z-index: 99;
 
   // NOTE - 채널톡 z-index가 10000000이라 10000001로 설정
   --modal-z-index: 10000001;
-
-  /* typography */
-  --font-weight-extrabold: 800;
-  --font-weight-bold: bold;
-  --font-weight-medium: 500;
-  --font-weight-regular: normal;
-  --h1-font-size: 56px;
-  --h2-font-size: 48px;
-  --h2-letter-spacing: -0.48px;
-  --h3-font-size: 44px;
-  --h3-letter-spacing: -0.44px;
-  --h4-font-size: 32px;
-  --h5-font-size: 24px;
-  --h6-font-size: 20px;
-  --body1-font-size: 16px;
-  --body2-font-size: 14px;
-  --caption1-font-size: 12px;
-  --caption2-font-size: 10px;
 }
