@@ -1,5 +1,4 @@
-import { PageTitle } from '@dnd-academy/ui/server';
-
+import PageTitle from '@/components/atoms/PageTitle';
 import OrganizersPage from '@/components/pages/OrganizersPage';
 import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getOrganizers } from '@/lib/apis/organizer';
