@@ -14,6 +14,13 @@
     },
     "types": ["jest", "node", "vite/client"]
   },
-  "include": ["src", "index.d.ts", "server.d.ts", "client.d.ts", "@types", "vite.config.mts"],
+  "include": [
+    "src",
+    "index.d.ts",
+    "server.d.ts",
+    "client.d.ts",
+    "@types",
+    "vite.config.mts"
+  ],
   "exclude": ["dist", "build", "node_modules"]
 }

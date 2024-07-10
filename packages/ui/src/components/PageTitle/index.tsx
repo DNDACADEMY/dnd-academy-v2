@@ -9,7 +9,7 @@ type Props = {
 
 /**
  * PageTitle component
- * @module @dnd-academy/ui/server
+ * @module @dnd-academy/ui
  */
 function PageTitle({ title, subTitle }: Props) {
   return (
