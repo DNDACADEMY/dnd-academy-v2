@@ -35,6 +35,13 @@
       ]
     }
   },
+  "files": [
+    "dist",
+    "src/styles",
+    "server.d.ts",
+    "client.d.ts",
+    "index.d.ts"
+  ],
   "license": "GPL-3.0-only",
   "author": "dnd-academy",
   "scripts": {
@@ -47,13 +54,6 @@
     "test:coverage": "yarn test:unit --coverage",
     "lint": "eslint \"**/*.ts*\""
   },
-  "files": [
-    "dist",
-    "src/styles",
-    "server.d.ts",
-    "client.d.ts",
-    "index.d.ts"
-  ],
   "devDependencies": {
     "@swc/core": "1.3.96",
     "@swc/jest": "0.2.29",
