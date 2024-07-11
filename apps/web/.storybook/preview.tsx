@@ -27,19 +27,4 @@ const preview: Preview = {
   },
 };
 
-const styleOverrides = `
-  .docblock-typeset {
-    background: #13161C !important;
-  }
-`;
-
-export const decorators = [
-  (Story) => (
-    <>
-      <style>{styleOverrides}</style>
-      <Story />
-    </>
-  ),
-];
-
 export default preview;
