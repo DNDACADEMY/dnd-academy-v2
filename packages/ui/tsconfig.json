@@ -19,8 +19,9 @@
     "index.d.ts",
     "server.d.ts",
     "client.d.ts",
+    "jest.setup.ts",
     "@types",
     "vite.config.mts"
   ],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["dist", "build", "node_modules",  "**/*.test.(ts|tsx)"]
 }
