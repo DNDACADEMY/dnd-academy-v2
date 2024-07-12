@@ -21,7 +21,10 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: ['./tsconfig.json', './tsconfig.jest.json'],
+        project: [
+          './tsconfig.jest.json',
+          './tsconfig.json',
+        ],
         tsconfigRootDir: __dirname,
       },
     },
@@ -31,6 +34,11 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
       },
+    },
+    {
+      extends: ['plugin:storybook/recommended'],
+      files: ['**/*.stories.ts?(x)'],
+      rules: {},
     },
   ],
   rules: {

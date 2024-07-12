@@ -1,0 +1,183 @@
+@import '@dnd-academy/ui/styles';
+
+.buttonWrapper {
+  position: relative;
+  transform: translate(0, 0);
+  user-select: none;
+  border: none;
+  overflow: hidden;
+  transition:
+    color 0.1s ease-in-out,
+    background-color 0.1s ease-in-out,
+    border-color 0.1s ease-in-out,
+    opacity 0.1s ease-in-out;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 4px;
+  gap: 8px;
+
+  &.rounded {
+    border-radius: 120px;
+  }
+
+  &:not(.hasWidth),
+  :not(.fullWidth) {
+    width: fit-content;
+  }
+
+  &:not(.fullWidth) {
+    width: fit-content;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &.onlyIcon {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  &:not(.onlyIcon) {
+    &.default {
+      color: color('bgsecondary');
+      background-color: color('bgprimary');
+    }
+
+    &.primary {
+      color: color('bgsecondary');
+      background-color: color('primary');
+    }
+
+    &.secondary {
+      color: color('primary');
+
+      &::after {
+        background-color: color('primary');
+        opacity: 0.1;
+      }
+    }
+
+    &.dark {
+      &.clear {
+        color: color('gray01');
+        border: 1px solid color('gray01');
+        background-color: transparent;
+      }
+    }
+
+    &.light {
+      &.clear {
+        color: color('gray09');
+        border: 1px solid color('gray09');
+        background-color: transparent;
+      }
+    }
+
+    &.purple {
+      color: color('white');
+      background-color: color('secondary');
+    }
+
+    &.xLarge {
+      padding: 20px 32px;
+
+      @include text('H6/Bold');
+
+      @include xs {
+        @include text('body1/Bold');
+      }
+    }
+
+    &.large {
+      padding: 16px 32px;
+
+      @include text('H6/Bold');
+
+      @include xs {
+        @include text('body1/Bold');
+      }
+    }
+
+    &.medium {
+      padding: 12px 24px;
+
+      @include text('body1/Bold');
+    }
+
+    &.small {
+      padding: 8px 16px;
+      gap: 4px;
+
+      @include text('caption1/Bold');
+    }
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      inset: 0;
+      border-radius: 0.25rem;
+    }
+
+    &:not(:disabled, .disabled, .secondary)::after {
+      opacity: 0;
+    }
+
+    &:disabled,
+    &.disabled {
+      cursor: not-allowed;
+
+      &.default {
+        color: color('gray06');
+        background-color: color('gray04');
+      }
+
+      &.primary {
+        color: color('gray06');
+        background-color: color('gray04');
+      }
+
+      &.secondary {
+        color: color('gray06');
+        background-color: color('gray04');
+      }
+
+      &.clear {
+        color: color('gray05');
+        border: 1px solid color('gray04');
+        background-color: transparent;
+      }
+
+      &.purple {
+        color: color('gray06');
+        background-color: color('gray04');
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled, .disabled, .secondary):hover::after {
+        background-color: black;
+        opacity: 0.04;
+      }
+
+      &.secondary:hover::after {
+        background-color: color('primary');
+        opacity: 0.08;
+      }
+    }
+
+    &:not(:disabled, .disabled, .secondary):active::after {
+      background-color: black;
+      opacity: 0.08;
+    }
+
+    &.secondary:active::after {
+      background-color: color('primary');
+      opacity: 0.07;
+    }
+  }
+}

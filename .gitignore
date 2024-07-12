@@ -54,3 +54,6 @@ cypress/log
 
 # turbo
 .turbo
+
+# storybook
+storybook-static
