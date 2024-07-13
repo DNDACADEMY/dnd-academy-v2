@@ -7,6 +7,9 @@ on:
     branches: [develop]
 
 env:
+  CACHED_DEPENDENCY_PATHS: |
+    ${{ github.workspace }}/.yarn/cache
+    ${{ github.workspace }}/node_modules
   CACHED_BUILD_PACKAGE_UI_PATHS: ${{ github.workspace }}/packages/ui/dist
   BUILD_CACHE_KEY: ${{ github.sha }}
   DEFAULT_NODE_VERSION: "v20.11.1"
@@ -23,6 +26,12 @@ jobs:
         with:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
 
+      - name: Set up Yarn
+        run: |
+          corepack enable
+          yarn set version 4.3.1
+          yarn --version
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
@@ -35,7 +44,9 @@ jobs:
         uses: actions/cache@v4
         id: cache_dependencies
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            ${{ env.CACHED_DEPENDENCY_PATHS }}
           key: ${{ steps.compute_lockfile_hash.outputs.hash }}
           restore-keys: |
             ${{ runner.os }}-yarn-
@@ -46,7 +57,9 @@ jobs:
 
     outputs:
       dependency_cache_key: ${{ steps.compute_lockfile_hash.outputs.hash }}
-      yarn_cache_dir_path:  ${{ steps.yarn-cache-dir-path.outputs.dir }}
+      yarn_cache_dir_path: |
+        ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        ${{ env.CACHED_DEPENDENCY_PATHS }}
 
   continuous-integration:
     needs: [job_install_dependencies]
