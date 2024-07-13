@@ -29,7 +29,7 @@ jobs:
 
       - name: Compute dependency cache key
         id: compute_lockfile_hash
-        run: echo "::set-output name=hash::${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}"
+        run: echo "hash=${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}" >> $GITHUB_OUTPUT
 
       - name: Check dependency cache
         uses: actions/cache@v4
@@ -43,45 +43,13 @@ jobs:
       - name: Install dependencies
         if: steps.cache_dependencies.outputs.cache-hit != 'true'
         run: yarn install --immutable
+
     outputs:
       dependency_cache_key: ${{ steps.compute_lockfile_hash.outputs.hash }}
       yarn_cache_dir_path:  ${{ steps.yarn-cache-dir-path.outputs.dir }}
 
-  job_build:
-    name: Build
-    needs: [job_install_dependencies]
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - name: Check out current commit (${{ github.sha }})
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.DEFAULT_NODE_VERSION }}
-
-      - name: Check dependency cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
-      - name: Check build cache
-        uses: actions/cache@v4
-        id: cache_built_packages
-        with:
-          path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
-          key: ${{ env.BUILD_CACHE_KEY }}
-
-      - name: Build packages
-        if: steps.cache_built_packages.outputs.cache-hit != 'true'
-        run: yarn workspace @dnd-academy/ui build
-
-    outputs:
-      dependency_cache_key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
-      yarn_cache_dir_path:  ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
-
   continuous-integration:
-    needs: [job_build]
+    needs: [job_install_dependencies]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -93,13 +61,11 @@ jobs:
       - name: Check dependency cache
         uses: actions/cache@v4
         with:
-          path: ${{ needs.job_build.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_build.outputs.dependency_cache_key }}
-      - name: Check build cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
-          key: ${{ env.BUILD_CACHE_KEY }}
+          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
+          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+
+      - name: Build packages
+        run: yarn workspace @dnd-academy/ui build
 
       - name: Check Lint
         if: ${{ github.event_name == 'pull_request' }}
@@ -112,7 +78,7 @@ jobs:
         run: yarn test:coverage
 
   job_publish_storybook_chromatic:
-    needs: [job_build]
+    needs: [job_install_dependencies]
     name: Chromatic Publish
     runs-on: ubuntu-latest
     steps:
@@ -128,13 +94,11 @@ jobs:
       - name: Check dependency cache
         uses: actions/cache@v4
         with:
-          path: ${{ needs.job_build.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_build.outputs.dependency_cache_key }}
-      - name: Check build cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
-          key: ${{ env.BUILD_CACHE_KEY }}
+          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
+          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+
+      - name: Build packages
+        run: yarn workspace @dnd-academy/ui build
 
       - name: Publish Project to Chromatic
         uses: chromaui/action@latest
