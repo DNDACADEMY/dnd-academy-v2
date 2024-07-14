@@ -84,7 +84,7 @@ jobs:
         id: cache_built_packages
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
-          key: ${{ runner.os }}-build-${{ github.sha }}
+          key: ${{ runner.os }}-ui-build-${{ hashFiles('packages/ui/**') }}
 
       - name: Build @dnd-academy/ui
         if: steps.cache_built_packages.outputs.cache-hit != 'true'
