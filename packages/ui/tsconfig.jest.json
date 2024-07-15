@@ -1,8 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "include": [
-    "jest.setup.ts",
     "src/**/*",
-    "__mocks__",
   ]
 }

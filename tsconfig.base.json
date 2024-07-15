@@ -24,5 +24,9 @@
     "baseUrl": "./",
   },
   "exclude": ["node_modules"],
-  "include": ["packages/**/src/**/*", "apps/**/src/**/*"]
+  "include": [
+    "packages/**/src/**/*",
+    "apps/**/src/**/*",
+    "__mocks__/svg.tsx"
+  ]
 }
