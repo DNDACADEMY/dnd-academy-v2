@@ -17,6 +17,7 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '..', '..', 'packages', 'ui', 'src', 'styles')],
+    additionalData: "@import '@dnd-academy/ui/styles';",
   },
   async redirects() {
     return [
