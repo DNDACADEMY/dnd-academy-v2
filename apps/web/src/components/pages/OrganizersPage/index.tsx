@@ -1,4 +1,5 @@
-import Button from '@/components/atoms/Button';
+import { Button } from '@dnd-academy/ui/client';
+
 import OrganizerCards from '@/components/molecules/OrganizerCards';
 import Tags from '@/components/molecules/Tags';
 import { getOrganizerCount, getOrganizers } from '@/lib/apis/organizer';

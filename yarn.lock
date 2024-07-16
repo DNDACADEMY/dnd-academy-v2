@@ -1915,7 +1915,6 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:7.9.0"
     "@typescript-eslint/parser": "npm:7.9.0"
     "@vitejs/plugin-react": "npm:4.3.1"
-    clsx: "npm:2.1.1"
     eslint: "npm:8.56.0"
     eslint-import-resolver-alias: "npm:1.1.2"
     eslint-import-resolver-typescript: "npm:3.6.1"
@@ -1927,6 +1926,8 @@ __metadata:
     next: "npm:14.2.4"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
+    rollup: "npm:4.18.1"
+    rollup-preserve-directives: "npm:1.1.1"
     sanitize.css: "npm:13.0.0"
     sass: "npm:1.69.6"
     storybook: "npm:8.2.1"
@@ -1935,6 +1936,8 @@ __metadata:
     vite: "npm:5.3.3"
     vite-plugin-dts: "npm:3.9.1"
   peerDependencies:
+    clsx: 2.1.1
+    framer-motion: 11.2.10
     next: 14.2.4
     react: ^18
     react-dom: ^18
@@ -15612,7 +15615,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^4.0.2, rollup@npm:^4.13.0":
+"rollup-preserve-directives@npm:1.1.1":
+  version: 1.1.1
+  resolution: "rollup-preserve-directives@npm:1.1.1"
+  dependencies:
+    magic-string: "npm:^0.30.5"
+  peerDependencies:
+    rollup: ^2.0.0 || ^3.0.0 || ^4.0.0
+  checksum: 10/33e0381282e0acb05f55f1a9dda55ee4da1384095d8cf68566211e9df4d8ddd5bd4b1b32141514d3e35a5b56fafbaa31b7f433d42e18c72133fc54d9add6d8a6
+  languageName: node
+  linkType: hard
+
+"rollup@npm:4.18.1, rollup@npm:^4.0.2, rollup@npm:^4.13.0":
   version: 4.18.1
   resolution: "rollup@npm:4.18.1"
   dependencies:

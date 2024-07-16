@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-import Button from '@/components/atoms/Button';
+import { Button } from '@dnd-academy/ui/client';
+
 import ExternalLink from '@/components/atoms/ExternalLink';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';

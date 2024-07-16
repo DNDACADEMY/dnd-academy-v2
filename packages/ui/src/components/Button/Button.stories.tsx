@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button from '.';
 
 const meta = {
-  title: '@dnd-academy-ui/Button',
+  title: 'UI/Button',
   component: Button,
   parameters: {
     layout: 'centered',

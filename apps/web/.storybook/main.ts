@@ -54,6 +54,22 @@ const config: StorybookConfig = {
           },
         },
       }],
+    }, {
+      test: /\module\.scss$/,
+      use: [
+        {
+          loader: 'sass-loader',
+          options: {
+            additionalData: `@import '@dnd-academy/ui/styles';`,
+            sassOptions: {
+              includePaths: [join(__dirname, '..', '..', '..', 'packages', 'ui', 'src', 'styles')],
+            },
+          },
+        },
+      ],
+      include: [
+        resolve(__dirname, '../../../packages/ui'),
+      ],
     });
 
     return config;

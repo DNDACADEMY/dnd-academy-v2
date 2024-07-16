@@ -1,7 +1,8 @@
 import Image from 'next/image';
 
+import { Button } from '@dnd-academy/ui/client';
+
 import Badge from '@/components/atoms/Badge';
-import Button from '@/components/atoms/Button';
 import DetailNavigation from '@/components/atoms/DetailNavigation';
 import SkillTag from '@/components/atoms/SkillTag';
 import PDFViewer from '@/components/molecules/PDFViewer';
