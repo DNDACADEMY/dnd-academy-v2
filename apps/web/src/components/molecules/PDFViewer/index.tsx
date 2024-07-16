@@ -5,10 +5,10 @@ import {
   Document, DocumentProps, Page, pdfjs,
 } from 'react-pdf';
 
+import { Button } from '@dnd-academy/ui/client';
 import clsx from 'clsx';
 import { useDebounceCallback, useResizeObserver } from 'usehooks-ts';
 
-import Button from '@/components/atoms/Button';
 import { ArrowExpandIcon, ArrowRightIcon } from '@/lib/assets/icons';
 
 import 'react-pdf/dist/Page/AnnotationLayer.css';

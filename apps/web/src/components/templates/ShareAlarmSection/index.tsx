@@ -1,9 +1,9 @@
 import { CSSProperties } from 'react';
 import Marquee from 'react-fast-marquee';
 
+import { Button } from '@dnd-academy/ui/client';
 import clsx from 'clsx';
 
-import Button from '@/components/atoms/Button';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
 import { getEventStatus } from '@/lib/apis/event';

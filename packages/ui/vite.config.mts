@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 
 import react from '@vitejs/plugin-react';
+import preserveDirectives from 'rollup-preserve-directives';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
@@ -31,6 +32,7 @@ export default defineConfig({
       fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'js'}`,
     },
     rollupOptions: {
+      plugins: [preserveDirectives()],
       external: ['react', 'react-dom'],
       output: {
         globals: {

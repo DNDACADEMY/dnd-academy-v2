@@ -1,9 +1,9 @@
 import { ReactElement, useContext, useRef } from 'react';
 
+import { Button } from '@dnd-academy/ui/client';
 import clsx from 'clsx';
 import { useOnClickOutside } from 'usehooks-ts';
 
-import Button from '@/components/atoms/Button';
 import GlobalPortal from '@/components/global/GlobalPortal';
 import { CloseIcon } from '@/lib/assets/icons';
 

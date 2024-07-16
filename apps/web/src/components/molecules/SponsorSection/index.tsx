@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
-import Button from '@/components/atoms/Button';
+import { Button } from '@dnd-academy/ui/client';
+
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { LinkIcon } from '@/lib/assets/icons';
 

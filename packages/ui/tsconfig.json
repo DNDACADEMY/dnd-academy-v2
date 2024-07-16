@@ -23,5 +23,5 @@
     "vite.config.mts",
     "../../jest.setup.ts"
   ],
-  "exclude": ["dist", "build", "node_modules",  "**/*.test.(ts|tsx)"]
+  "exclude": ["dist", "build", "node_modules",  "**/*.test.(ts|tsx)", "**/*.stories.(ts|tsx)"]
 }
