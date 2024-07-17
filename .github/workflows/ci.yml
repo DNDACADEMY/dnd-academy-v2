@@ -126,6 +126,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         run: |
           yarn workspace web lint
+          yarn workspace admin lint
           yarn workspace @dnd-academy/ui lint
           yarn stylelint
 

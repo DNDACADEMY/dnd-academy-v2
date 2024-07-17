@@ -5,6 +5,9 @@
   "packages/ui/**/*.{js,jsx,ts,tsx}": [
     "yarn workspace @dnd-academy/ui lint --cache"
   ],
+  "apps/admin/**/*.{js,jsx,ts,tsx}": [
+    "yarn workspace admin lint --cache"
+  ],
   "*.{js,jsx,ts,tsx}": [
     "yarn test:coverage --findRelatedTests --passWithNoTests"
   ],
