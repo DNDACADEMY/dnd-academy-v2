@@ -9,11 +9,13 @@
     "dev": "turbo run dev",
     "turbo:lint": "turbo run lint",
     "workspace:web": "yarn workspace web",
+    "workspace:admin": "yarn workspace admin",
     "workspace:ui": "yarn workspace @dnd-academy/ui",
     "web:build": "yarn run workspace:web build",
-    "stylelint": "yarn run workspace:web stylelint",
+    "admin:build": "yarn run workspace:admin build",
+    "stylelint": "yarn run workspace:web stylelint && yarn run workspace:ui stylelint && yarn run workspace:admin stylelint",
     "test:coverage": "yarn run workspace:web test:coverage && yarn run workspace:ui test:coverage",
-    "lint": "yarn run workspace:web lint && yarn run workspace:ui lint",
+    "lint": "yarn run workspace:web lint && yarn run workspace:ui lint && yarn run workspace:admin lint",
     "postinstall": "husky install && chmod ug+x .husky/*"
   },
   "devDependencies": {

@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { pretendardFont } from './_fonts';
+import { pretendardFont } from '@/app/_fonts';
 
 type Props = {
   error: Error & { digest?: string }

@@ -52,6 +52,7 @@
     "test:watch": "jest --watch",
     "test:watchAll": "jest --watchAll",
     "test:coverage": "yarn test:unit --coverage",
+    "stylelint": "stylelint **/*.scss",
     "lint": "eslint \"**/*.ts*\""
   },
   "devDependencies": {
