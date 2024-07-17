@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import SkillTag from '@/components/atoms/SkillTag';
+import { SkillTag } from '@dnd-academy/ui';
+
 import { Organizer } from '@/lib/types/organizer';
 
 import styles from './index.module.scss';

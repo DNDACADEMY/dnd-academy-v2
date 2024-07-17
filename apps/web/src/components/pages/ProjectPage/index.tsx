@@ -1,10 +1,9 @@
 import Image from 'next/image';
 
+import { Badge, SkillTag } from '@dnd-academy/ui';
 import { Button } from '@dnd-academy/ui/client';
 
-import Badge from '@/components/atoms/Badge';
 import DetailNavigation from '@/components/atoms/DetailNavigation';
-import SkillTag from '@/components/atoms/SkillTag';
 import PDFViewer from '@/components/molecules/PDFViewer';
 import ProjectCards from '@/components/molecules/ProjectCards';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';

@@ -13,11 +13,12 @@ function Badge({
   label, variant, size = 'medium', theme = 'dark',
 }: Props) {
   return (
-    <div className={clsx(styles.badge, {
-      [styles[variant]]: variant,
-      [styles[size]]: size,
-      [styles[theme]]: theme,
-    })}
+    <div className={clsx(
+      styles.badge,
+      styles[variant],
+      styles[theme],
+      styles[size],
+    )}
     >
       {label}
     </div>
