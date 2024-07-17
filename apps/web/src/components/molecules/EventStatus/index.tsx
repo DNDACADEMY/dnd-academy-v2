@@ -2,10 +2,10 @@
 
 import 'dayjs/locale/ko';
 
+import { Badge } from '@dnd-academy/ui';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
-import Badge from '@/components/atoms/Badge';
 import useCountdown from '@/hooks/useCountdown';
 import useCurrentTime from '@/hooks/useCurrentTime';
 import { CURRENT_FLAG } from '@/lib/constants';

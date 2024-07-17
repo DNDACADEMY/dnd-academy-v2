@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SkillTag from '.';
 
 const meta = {
-  title: 'Components/SkillTag',
+  title: 'UI/SkillTag',
   component: SkillTag,
   parameters: {
     layout: 'centered',
