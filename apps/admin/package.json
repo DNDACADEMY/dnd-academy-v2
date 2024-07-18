@@ -5,8 +5,8 @@
   "license": "GPL-3.0-only",
   "author": "dnd-academy",
   "scripts": {
-    "open-browser": "open http://dnd-academy.localhost:3001",
-    "dev": "next dev -H dnd-academy.localhost -p 3001 & yarn open-browser",
+    "open-browser": "open http://localhost:3001",
+    "dev": "next dev -H localhost -p 3001 & yarn open-browser",
     "build": "next build",
     "start": "next start",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
@@ -29,6 +29,7 @@
     "clsx": "2.1.1",
     "framer-motion": "11.2.10",
     "next": "14.2.4",
+    "next-auth": "5.0.0-beta.19",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-perfect-scrollbar": "1.5.8"
