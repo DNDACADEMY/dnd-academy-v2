@@ -9,6 +9,9 @@ module.exports = {
   ],
   settings: {
     'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
       alias: {
         map: [['@', './src']],
         extensions: ['.ts', '.js', '.tsx', '.json', '.css'],
