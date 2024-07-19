@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
-import { SkillTag } from '@dnd-academy/ui';
-import { Button } from '@dnd-academy/ui/client';
+import { Button, SkillTag } from '@dnd-academy/ui';
 
 import DetailNavigation from '@/components/atoms/DetailNavigation';
 import LinkConverter from '@/components/molecules/LinkConverter';

@@ -1,4 +1,4 @@
-import { Button } from '@dnd-academy/ui/client';
+import { Button } from '@dnd-academy/ui';
 
 import OrganizerCards from '@/components/molecules/OrganizerCards';
 import Tags from '@/components/molecules/Tags';

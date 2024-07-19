@@ -1,4 +1,4 @@
-import { Button } from '@dnd-academy/ui/client';
+import { Button } from '@dnd-academy/ui';
 
 import { signIn } from '@/auth';
 

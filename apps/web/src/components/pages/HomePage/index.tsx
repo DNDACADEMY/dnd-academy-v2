@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Button } from '@dnd-academy/ui/client';
+import { Button } from '@dnd-academy/ui';
 
 import { Counter } from '@/components/atoms/CounterCard';
 import ImageCard from '@/components/atoms/ImageCard';
