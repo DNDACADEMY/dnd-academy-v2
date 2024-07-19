@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import Marquee from 'react-fast-marquee';
 
-import { Button } from '@dnd-academy/ui/client';
+import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
 
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';

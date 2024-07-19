@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Button } from '@dnd-academy/ui/client';
+import { Button } from '@dnd-academy/ui';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 import SocialIconLink from '@/components/molecules/SocialIconLink';

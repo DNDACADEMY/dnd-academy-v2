@@ -1,6 +1,6 @@
 import { ReactElement, useContext, useRef } from 'react';
 
-import { Button } from '@dnd-academy/ui/client';
+import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
 import { useOnClickOutside } from 'usehooks-ts';
 

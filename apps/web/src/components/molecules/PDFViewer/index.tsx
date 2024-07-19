@@ -5,7 +5,7 @@ import {
   Document, DocumentProps, Page, pdfjs,
 } from 'react-pdf';
 
-import { Button } from '@dnd-academy/ui/client';
+import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
 import { useDebounceCallback, useResizeObserver } from 'usehooks-ts';
 

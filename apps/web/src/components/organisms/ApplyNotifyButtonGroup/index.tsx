@@ -2,7 +2,7 @@
 
 import { cloneElement, ReactElement } from 'react';
 
-import { ButtonProps } from '@dnd-academy/ui/client';
+import { ButtonProps } from '@dnd-academy/ui';
 
 import useCountdown from '@/hooks/useCountdown';
 import { CURRENT_FLAG, NEXT_COHORT_NOTIFICATION_URL, NEXT_FLAG } from '@/lib/constants';
