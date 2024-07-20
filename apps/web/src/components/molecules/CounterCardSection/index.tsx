@@ -1,4 +1,5 @@
-import CounterCard from '@/components/atoms/CounterCard';
+import { CounterCard } from '@dnd-academy/ui';
+
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { totalCountStatusData } from '@/lib/assets/data';
 import { CURRENT_FLAG } from '@/lib/constants';

@@ -12,7 +12,7 @@ async function MainPage() {
 
   return (
     <>
-      <div>AdminPage</div>
+      <h1>DND - AdminPage</h1>
       <SignOut />
     </>
   );
