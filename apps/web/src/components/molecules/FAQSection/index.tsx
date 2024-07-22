@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 
-import AccordionItem from '@/components/atoms/AccordionItem';
+import { AccordionItem } from '@dnd-academy/ui';
+
 import { faqData } from '@/lib/assets/data';
 
 import styles from './index.module.scss';

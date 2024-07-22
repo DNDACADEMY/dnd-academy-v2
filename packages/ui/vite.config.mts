@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 import preserveDirectives from 'rollup-preserve-directives';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   plugins: [
@@ -13,6 +14,7 @@ export default defineConfig({
       outDir: 'dist',
       insertTypesEntry: true,
     }),
+    svgr(),
   ],
   resolve: {
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
