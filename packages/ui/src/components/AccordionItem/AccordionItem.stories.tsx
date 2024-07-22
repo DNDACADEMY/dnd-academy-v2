@@ -5,7 +5,7 @@ import type { Meta } from '@storybook/react';
 import AccordionItem from '.';
 
 const meta = {
-  title: 'Components/AccordionItem',
+  title: 'UI/AccordionItem',
   component: AccordionItem,
   args: {
     children: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quod explicabo, nam sapiente id nostrum ex, ab numquam, doloremque aspernatur quisquam illo! Officiis explicabo laborum incidunt corrupti provident esse eligendi.',

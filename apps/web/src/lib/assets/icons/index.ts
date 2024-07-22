@@ -1,4 +1,3 @@
-import AccordionPolygon from './accordion-polygon.svg';
 import ArrowExpandIcon from './arrow-expand.svg';
 import ArrowRightIcon from './arrow-right.svg';
 import CloseIcon from './close.svg';
@@ -12,7 +11,6 @@ import SuccessCircleIcon from './success-circle.svg';
 import WarningIcon from './warning.svg';
 
 export {
-  AccordionPolygon,
   ArrowExpandIcon,
   ArrowRightIcon,
   CloseIcon,
