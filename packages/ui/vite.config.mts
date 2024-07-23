@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      include: ['src'],
+      include: ['./src'],
       outDir: 'dist',
       insertTypesEntry: true,
     }),
