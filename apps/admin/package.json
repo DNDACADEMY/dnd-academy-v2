@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/DNDACADEMY/dnd-academy-v2#readme",
   "dependencies": {
-    "@dnd-academy/ui": "workspace:*",
+    "@dnd-academy/ui": "*",
     "@vercel/blob": "0.23.4",
     "clsx": "2.1.1",
     "framer-motion": "11.2.10",
@@ -36,6 +36,7 @@
     "react-perfect-scrollbar": "1.5.8"
   },
   "devDependencies": {
+    "@dnd-academy/eslint-config": "*",
     "@next/eslint-plugin-next": "14.2.4",
     "@testing-library/dom": "10.3.1",
     "@testing-library/jest-dom": "6.4.6",
@@ -52,6 +53,13 @@
     "eslint-import-resolver-alias": "1.1.2",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jest": "28.6.0",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-react": "7.34.1",
+    "eslint-plugin-react-hooks": "4.6.2",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "eslint-plugin-testing-library": "6.2.0",
+    "eslint-plugin-unused-imports": "3.2.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",

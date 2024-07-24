@@ -1,11 +1,6 @@
 module.exports = {
-  ignorePatterns: [
-    'node_modules/',
-    'dist/',
-    'coverage/',
-  ],
   extends: [
-    '../../.eslintrc.js',
+    '@dnd-academy/eslint-config',
   ],
   overrides: [
     {
@@ -20,8 +15,7 @@ module.exports = {
     },
   ],
   rules: {
-    'import/export': 'off',
-    'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
