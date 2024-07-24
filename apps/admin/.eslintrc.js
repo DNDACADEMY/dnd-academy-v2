@@ -4,7 +4,7 @@ module.exports = {
     '/.next',
   ],
   extends: [
-    '../../.eslintrc.js',
+    '@dnd-academy/eslint-config',
     'plugin:@next/next/recommended',
   ],
   settings: {

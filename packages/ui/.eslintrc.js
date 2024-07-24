@@ -1,12 +1,6 @@
 module.exports = {
-  ignorePatterns: [
-    'node_modules/',
-    'public/',
-    'dist/',
-    'coverage/',
-  ],
   extends: [
-    '../../.eslintrc.js',
+    '@dnd-academy/eslint-config',
   ],
   settings: {
     'import/resolver': {
@@ -29,22 +23,12 @@ module.exports = {
       },
     },
     {
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      rules: {
-        'react-hooks/rules-of-hooks': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-      },
-    },
-    {
       extends: ['plugin:storybook/recommended'],
       files: ['**/*.stories.ts?(x)'],
       rules: {},
     },
   ],
   rules: {
-    'import/export': 'off',
     'import/prefer-default-export': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'react/require-default-props': 'off',
   },
 };

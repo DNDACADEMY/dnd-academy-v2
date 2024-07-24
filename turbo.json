@@ -18,6 +18,10 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "inputs": ["$TURBO_DEFAULT$"]
+    },
     "dev": {
       "persistent": true,
       "cache": false
