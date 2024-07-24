@@ -125,9 +125,7 @@ jobs:
       - name: Check Lint
         if: ${{ github.event_name == 'pull_request' }}
         run: |
-          yarn workspace web lint
-          yarn workspace admin lint
-          yarn workspace @dnd-academy/ui lint
+          yarn turbo:lint
           yarn stylelint
 
       - name: Check Unit Test
