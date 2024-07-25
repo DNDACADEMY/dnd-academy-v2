@@ -18,7 +18,7 @@
     "workspace:ui": "yarn workspace @dnd-academy/ui",
     "web:build": "yarn run workspace:web build",
     "admin:build": "yarn run workspace:admin build",
-    "postinstall": "husky install && chmod ug+x .husky/*"
+    "prepare": "husky install && chmod ug+x .husky/*"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.4",
