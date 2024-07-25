@@ -23,6 +23,7 @@
       ]
     },
     "lint": {
+      "dependsOn": ["@dnd-academy/ui#build"],
       "inputs": [
         "**/*.{js,jsx,ts,tsx}"
       ]
@@ -33,6 +34,7 @@
       ]
     },
     "test:coverage": {
+      "dependsOn": ["@dnd-academy/ui#build"],
       "outputs": ["coverage/**"],
       "inputs": [
         "**/*.test.{tsx,ts}"
