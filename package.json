@@ -5,17 +5,15 @@
   "license": "GPL-3.0-only",
   "author": "dnd-academy",
   "scripts": {
+    "deploy": "turbo run deploy",
+    "deploy:web": "turbo run deploy --filter=web",
+    "deploy:admin": "turbo run deploy --filter=admin",
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "turbo:lint": "turbo run lint",
-    "turbo:stylelint": "turbo run stylelint",
-    "turbo:test:coverage": "turbo run test:coverage -- --passWithNoTests",
-    "workspace:web": "yarn workspace web",
-    "workspace:admin": "yarn workspace admin",
-    "workspace:ui": "yarn workspace @dnd-academy/ui",
-    "web:build": "yarn run workspace:web build",
-    "admin:build": "yarn run workspace:admin build",
-    "postinstall": "husky install && chmod ug+x .husky/*"
+    "lint": "turbo run lint",
+    "stylelint": "turbo run stylelint",
+    "test:coverage": "turbo run test:coverage -- --passWithNoTests",
+    "prepare": "husky install && chmod ug+x .husky/*"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.4",

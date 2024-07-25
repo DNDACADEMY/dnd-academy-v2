@@ -1,6 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "deploy": {
+      "dependsOn": [
+        "lint",
+        "stylelint",
+        "test:coverage",
+        "build"
+      ]
+    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": [
@@ -15,6 +23,7 @@
       ]
     },
     "lint": {
+      "dependsOn": ["@dnd-academy/ui#build"],
       "inputs": [
         "**/*.{js,jsx,ts,tsx}"
       ]
@@ -25,6 +34,7 @@
       ]
     },
     "test:coverage": {
+      "dependsOn": ["@dnd-academy/ui#build"],
       "outputs": ["coverage/**"],
       "inputs": [
         "**/*.test.{tsx,ts}"

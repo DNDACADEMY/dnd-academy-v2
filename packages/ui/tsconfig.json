@@ -20,7 +20,8 @@
     "server.d.ts",
     "client.d.ts",
     "vite.config.mts",
-    "../../jest.setup.ts"
+    "../../jest.setup.ts",
+    "__mocks__"
   ],
   "exclude": ["dist", "build", "node_modules",  "**/*.test.(ts|tsx)", "**/*.stories.(ts|tsx)"]
 }
