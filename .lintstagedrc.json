@@ -12,9 +12,9 @@
     "yarn workspace admin lint --cache"
   ],
   "*.{js,jsx,ts,tsx}": [
-    "yarn turbo:test:coverage --findRelatedTests"
+    "yarn test:coverage --findRelatedTests"
   ],
   "*.scss": [
-    "yarn turbo:stylelint"
+    "yarn stylelint"
   ]
 }

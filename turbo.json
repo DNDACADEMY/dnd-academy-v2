@@ -1,6 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "deploy": {
+      "dependsOn": [
+        "lint",
+        "stylelint",
+        "test:coverage",
+        "build"
+      ]
+    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": [
