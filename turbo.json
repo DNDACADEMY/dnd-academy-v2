@@ -5,26 +5,35 @@
       "dependsOn": ["^build"],
       "inputs": [
         "$TURBO_DEFAULT$",
-        "!**/*.stories.{tsx,mdx}"
+        "!**/*.stories.{tsx,mdx}",
+        "!**/*.test.{tsx,ts}"
       ],
       "outputs": [
         ".next/**",
         "!.next/cache/**",
-        "dist/**",
-        "storybook-static/**"
+        "dist/**"
       ]
     },
-    "build:storybook": {},
-    "check-types": {
-      "dependsOn": ["^check-types"]
-    },
     "lint": {
-      "dependsOn": ["^lint"],
-      "inputs": ["$TURBO_DEFAULT$"]
+      "inputs": [
+        "**/*.{js,jsx,ts,tsx}"
+      ]
+    },
+    "stylelint": {
+      "inputs": [
+        "**/*.{scss,css}"
+      ]
+    },
+    "test:coverage": {
+      "outputs": ["coverage/**"],
+      "inputs": [
+        "**/*.test.{tsx,ts}"
+      ]
     },
     "dev": {
       "persistent": true,
-      "cache": false
+      "cache": false,
+      "interactive": true
     }
   }
 }
