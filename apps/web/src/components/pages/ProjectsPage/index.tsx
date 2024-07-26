@@ -1,5 +1,5 @@
-import ProjectCards from '@/components/molecules/ProjectCards';
 import Tags from '@/components/molecules/Tags';
+import ProjectCards from '@/components/organisms/ProjectCards';
 import { getProjectCount } from '@/lib/apis/project';
 import { Project } from '@/lib/types/project';
 

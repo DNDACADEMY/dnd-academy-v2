@@ -2,11 +2,11 @@ import Marquee from 'react-fast-marquee';
 
 import Image from 'next/image';
 
-import ImageCard from '@/components/atoms/ImageCard';
 import PageTitle from '@/components/atoms/PageTitle';
 import SectionTitle from '@/components/atoms/SectionTitle';
-import CounterCardSection from '@/components/molecules/CounterCardSection';
-import GuidelineSection from '@/components/templates/GuidelineSection';
+import ImageCard from '@/components/molecules/ImageCard';
+import CounterCardSection from '@/components/organisms/CounterCardSection';
+import GuidelineSection from '@/components/organisms/GuidelineSection';
 
 import styles from './index.module.scss';
 

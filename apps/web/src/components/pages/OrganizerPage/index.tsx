@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 import { Button, SkillTag } from '@dnd-academy/ui';
 
-import DetailNavigation from '@/components/atoms/DetailNavigation';
+import DetailNavigation from '@/components/molecules/DetailNavigation';
 import LinkConverter from '@/components/molecules/LinkConverter';
-import OrganizerCards from '@/components/molecules/OrganizerCards';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
+import OrganizerCards from '@/components/organisms/OrganizerCards';
 import { getEventStatus } from '@/lib/apis/event';
 import { getOrganizers } from '@/lib/apis/organizer';
 import { RightArrowIcon } from '@/lib/assets/icons';

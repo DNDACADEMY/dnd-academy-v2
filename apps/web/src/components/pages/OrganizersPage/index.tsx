@@ -1,7 +1,7 @@
 import { Button } from '@dnd-academy/ui';
 
-import OrganizerCards from '@/components/molecules/OrganizerCards';
 import Tags from '@/components/molecules/Tags';
+import OrganizerCards from '@/components/organisms/OrganizerCards';
 import { getOrganizerCount, getOrganizers } from '@/lib/apis/organizer';
 import { Organizer } from '@/lib/types/organizer';
 

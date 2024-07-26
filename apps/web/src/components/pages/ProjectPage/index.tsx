@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 import { Badge, Button, SkillTag } from '@dnd-academy/ui';
 
-import DetailNavigation from '@/components/atoms/DetailNavigation';
+import DetailNavigation from '@/components/molecules/DetailNavigation';
 import PDFViewer from '@/components/molecules/PDFViewer';
-import ProjectCards from '@/components/molecules/ProjectCards';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
+import ProjectCards from '@/components/organisms/ProjectCards';
 import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
