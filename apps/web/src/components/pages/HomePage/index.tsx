@@ -2,16 +2,16 @@ import Image from 'next/image';
 
 import { Button, Counter } from '@dnd-academy/ui';
 
-import ImageCard from '@/components/atoms/ImageCard';
 import ScrollElement from '@/components/atoms/ScrollElement';
 import SectionTitle from '@/components/atoms/SectionTitle';
-import CounterCardSection from '@/components/molecules/CounterCardSection';
-import EventStatus from '@/components/molecules/EventStatus';
-import FAQSection from '@/components/molecules/FAQSection';
-import ProjectsSlider from '@/components/molecules/ProjectsSlider';
-import SponsorSection from '@/components/molecules/SponsorSection';
+import ImageCard from '@/components/molecules/ImageCard';
 import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
-import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
+import CounterCardSection from '@/components/organisms/CounterCardSection';
+import EventStatus from '@/components/organisms/EventStatus';
+import FAQSection from '@/components/organisms/FAQSection';
+import ProjectsSlider from '@/components/organisms/ProjectsSlider';
+import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
+import SponsorSection from '@/components/organisms/SponsorSection';
 import { faqData } from '@/lib/assets/data';
 import { RightArrowIcon } from '@/lib/assets/icons';
 import type { EventStatus as Event } from '@/lib/types/event';

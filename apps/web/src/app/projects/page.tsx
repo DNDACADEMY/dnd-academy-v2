@@ -1,6 +1,6 @@
 import PageTitle from '@/components/atoms/PageTitle';
+import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import ProjectsPage from '@/components/pages/ProjectsPage';
-import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getProjects } from '@/lib/apis/project';
 import METADATA from '@/lib/constants/metadata';
 

@@ -1,5 +1,5 @@
-import JobCard from '@/components/molecules/JobCard';
 import Tags from '@/components/molecules/Tags';
+import JobCard from '@/components/organisms/JobCard';
 import { getJobCount } from '@/lib/apis/job';
 import { Job } from '@/lib/types/job';
 

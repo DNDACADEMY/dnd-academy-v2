@@ -1,6 +1,6 @@
 import PageTitle from '@/components/atoms/PageTitle';
+import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import OrganizersPage from '@/components/pages/OrganizersPage';
-import ShareAlarmSection from '@/components/templates/ShareAlarmSection';
 import { getOrganizers } from '@/lib/apis/organizer';
 import METADATA from '@/lib/constants/metadata';
 
