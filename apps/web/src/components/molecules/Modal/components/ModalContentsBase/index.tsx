@@ -1,13 +1,12 @@
-import { ReactElement, useContext, useRef } from 'react';
+import { ReactElement, useRef } from 'react';
 
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
 import { useOnClickOutside } from 'usehooks-ts';
 
 import GlobalPortal from '@/components/global/GlobalPortal';
+import { useModalContext } from '@/components/molecules/Modal/components/ModalProvider';
 import { CloseIcon } from '@/lib/assets/icons';
-
-import { ModalContext } from '../ModalProvider';
 
 import styles from './index.module.scss';
 
@@ -19,13 +18,7 @@ type Props = {
 
 function ModalContentsBase({ children: child, title, size = 'medium' } : Props) {
   const modalContentsRef = useRef<HTMLDivElement>(null);
-  const modalContext = useContext(ModalContext);
-
-  if (!modalContext) {
-    throw new Error('ModalContents must be used inside a Modal');
-  }
-
-  const [isOpen, setIsOpen] = modalContext;
+  const [isOpen, setIsOpen] = useModalContext();
 
   useOnClickOutside(modalContentsRef, () => setIsOpen(false));
 
