@@ -1,20 +1,14 @@
 import {
   ButtonHTMLAttributes,
-  cloneElement, MouseEvent, ReactElement, useContext,
+  cloneElement, MouseEvent, ReactElement,
 } from 'react';
 
-import { ModalContext } from '../ModalProvider';
+import { useModalContext } from '@/components/molecules/Modal/components/ModalProvider';
 
 function ModalOpenButton({
   children: child,
 } : { children: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>> }) {
-  const modalContext = useContext(ModalContext);
-
-  if (!modalContext) {
-    throw new Error('ModalOpenButton must be used inside a Modal');
-  }
-
-  const [, setIsOpen] = modalContext;
+  const [, setIsOpen] = useModalContext();
 
   return cloneElement(child, {
     onClick: (e: MouseEvent<HTMLButtonElement>) => {
