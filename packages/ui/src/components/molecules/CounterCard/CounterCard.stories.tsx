@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import CounterCard from '.';
 
 const meta = {
-  title: 'UI/CounterCard',
+  title: 'molecules/CounterCard',
   component: CounterCard,
   parameters: {
     layout: 'centered',
