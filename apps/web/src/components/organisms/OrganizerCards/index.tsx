@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import type { Organizer } from '@dnd-academy/core';
 import { SkillTag } from '@dnd-academy/ui';
-
-import { Organizer } from '@/lib/types/organizer';
 
 import styles from './index.module.scss';
 

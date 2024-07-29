@@ -32,6 +32,7 @@
   "homepage": "https://github.com/DNDACADEMY/dnd-academy-v2#readme",
   "dependencies": {
     "@channel.io/channel-web-sdk-loader": "1.1.7",
+    "@dnd-academy/core": "*",
     "@dnd-academy/ui": "*",
     "@next/third-parties": "14.2.4",
     "clsx": "2.1.1",

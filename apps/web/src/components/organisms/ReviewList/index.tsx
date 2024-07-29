@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
+import type { Review } from '@dnd-academy/core';
 import clsx from 'clsx';
 
 import ResponsiveMasonry from '@/components/atoms/ResponsiveMasonry';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import { RightArrowIcon } from '@/lib/assets/icons';
-import { Review } from '@/lib/types/review';
 import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';

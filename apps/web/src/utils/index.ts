@@ -1,7 +1,6 @@
+import type { Entries, RequiredNonNullableObject } from '@dnd-academy/core';
 import dayjs from 'dayjs';
 import qs from 'qs';
-
-import { Entries, RequiredNonNullableObject } from '@/lib/types';
 
 const CACHE_MINUTE = 5;
 

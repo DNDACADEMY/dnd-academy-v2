@@ -1,7 +1,8 @@
+import type { Job } from '@dnd-academy/core';
+
 import Tags from '@/components/molecules/Tags';
 import JobCard from '@/components/organisms/JobCard';
 import { getJobCount } from '@/lib/apis/job';
-import { Job } from '@/lib/types/job';
 
 import styles from './index.module.scss';
 

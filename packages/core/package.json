@@ -8,6 +8,18 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint \"**/*.ts*\""
+  },
   "license": "GPL-3.0-only",
   "author": "dnd-academy",
   "devDependencies": {

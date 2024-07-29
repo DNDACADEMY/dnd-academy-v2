@@ -1,7 +1,8 @@
+import type { Review } from '@dnd-academy/core';
+
 import Tags from '@/components/molecules/Tags';
 import ReviewList from '@/components/organisms/ReviewList';
 import { getReviewCount } from '@/lib/apis/review';
-import { Review } from '@/lib/types/review';
 
 type Props = {
   reviews: Review[];

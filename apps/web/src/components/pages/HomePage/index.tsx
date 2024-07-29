@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import type { EventStatus as Event } from '@dnd-academy/core';
 import { Button, Counter } from '@dnd-academy/ui';
 
 import ScrollElement from '@/components/atoms/ScrollElement';
@@ -14,7 +15,6 @@ import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import SponsorSection from '@/components/organisms/SponsorSection';
 import { faqData } from '@/lib/assets/data';
 import { RightArrowIcon } from '@/lib/assets/icons';
-import type { EventStatus as Event } from '@/lib/types/event';
 
 import styles from './index.module.scss';
 

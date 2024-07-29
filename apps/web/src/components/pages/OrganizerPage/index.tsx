@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import type { Organizer } from '@dnd-academy/core';
 import { Button, SkillTag } from '@dnd-academy/ui';
 
 import DetailNavigation from '@/components/molecules/DetailNavigation';
@@ -10,7 +11,6 @@ import OrganizerCards from '@/components/organisms/OrganizerCards';
 import { getEventStatus } from '@/lib/apis/event';
 import { getOrganizers } from '@/lib/apis/organizer';
 import { RightArrowIcon } from '@/lib/assets/icons';
-import { Organizer } from '@/lib/types/organizer';
 import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';

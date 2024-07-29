@@ -1,5 +1,6 @@
 import { FunctionComponent, SVGAttributes } from 'react';
 
+import { LogoType } from '@dnd-academy/core';
 import clsx from 'clsx';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
@@ -19,7 +20,6 @@ import {
   VelogLogo,
   YoutubeLogo,
 } from '@/lib/assets/logos';
-import { LogoType } from '@/lib/types/common';
 
 import styles from './index.module.scss';
 

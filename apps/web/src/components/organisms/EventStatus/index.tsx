@@ -2,6 +2,7 @@
 
 import 'dayjs/locale/ko';
 
+import type { EventStatus as Event } from '@dnd-academy/core';
 import { Badge } from '@dnd-academy/ui';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -9,7 +10,6 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import useCountdown from '@/hooks/useCountdown';
 import useCurrentTime from '@/hooks/useCurrentTime';
 import { CURRENT_FLAG } from '@/lib/constants';
-import { EventStatus as Event } from '@/lib/types/event';
 
 dayjs.extend(relativeTime);
 dayjs.locale('ko');

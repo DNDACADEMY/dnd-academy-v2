@@ -1,5 +1,6 @@
+import type { Organizer, OrganizerPosition } from '@dnd-academy/core';
+
 import { organizersData } from '@/lib/assets/data';
-import { Organizer, OrganizerPosition } from '@/lib/types/organizer';
 import { checkNumber } from '@/utils';
 
 export function getOrganizers({
