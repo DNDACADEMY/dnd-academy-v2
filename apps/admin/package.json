@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/DNDACADEMY/dnd-academy-v2#readme",
   "dependencies": {
+    "@dnd-academy/core": "*",
     "@dnd-academy/ui": "*",
     "@vercel/blob": "0.23.4",
     "clsx": "2.1.1",

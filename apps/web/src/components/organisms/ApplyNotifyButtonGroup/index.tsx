@@ -2,11 +2,11 @@
 
 import { cloneElement, ReactElement } from 'react';
 
-import { ButtonProps } from '@dnd-academy/ui';
+import type { EventStatus } from '@dnd-academy/core';
+import type { ButtonProps } from '@dnd-academy/ui';
 
 import useCountdown from '@/hooks/useCountdown';
 import { CURRENT_FLAG, NEXT_COHORT_NOTIFICATION_URL, NEXT_FLAG } from '@/lib/constants';
-import { EventStatus } from '@/lib/types/event';
 
 import ApplyModal from '../ApplyModal';
 

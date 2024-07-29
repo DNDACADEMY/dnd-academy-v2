@@ -1923,7 +1923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dnd-academy/core@workspace:packages/core":
+"@dnd-academy/core@npm:*, @dnd-academy/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@dnd-academy/core@workspace:packages/core"
   dependencies:
@@ -5776,6 +5776,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
+    "@dnd-academy/core": "npm:*"
     "@dnd-academy/eslint-config": "npm:*"
     "@dnd-academy/ui": "npm:*"
     "@next/eslint-plugin-next": "npm:14.2.4"
@@ -18723,6 +18724,7 @@ __metadata:
   dependencies:
     "@channel.io/channel-web-sdk-loader": "npm:1.1.7"
     "@chromatic-com/storybook": "npm:1.6.1"
+    "@dnd-academy/core": "npm:*"
     "@dnd-academy/eslint-config": "npm:*"
     "@dnd-academy/ui": "npm:*"
     "@next/eslint-plugin-next": "npm:14.2.4"

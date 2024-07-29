@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
+import { LogoType } from '@dnd-academy/core';
 import { Button } from '@dnd-academy/ui';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
 import { getEventStatus } from '@/lib/apis/event';
-import { LogoType } from '@/lib/types/common';
 
 import styles from './index.module.scss';
 

@@ -1,5 +1,6 @@
+import type { Project, ProjectFlag } from '@dnd-academy/core';
+
 import { projectsData } from '@/lib/assets/data';
-import { Project, ProjectFlag } from '@/lib/types/project';
 import { checkNumber, sortFlagsDescending } from '@/utils';
 
 export function getProjects({

@@ -1,5 +1,6 @@
+import { Job } from '@dnd-academy/core';
+
 import { jobsData } from '@/lib/assets/data';
-import { Job } from '@/lib/types/job';
 import { checkNumber } from '@/utils';
 
 export function getJobs({ flag }: { flag?: string; } | undefined = {}): Job[] {

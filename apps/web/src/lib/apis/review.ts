@@ -1,6 +1,6 @@
+import type { ProjectFlag, Review, ReviewPosition } from '@dnd-academy/core';
+
 import { reviewsData } from '@/lib/assets/data';
-import { ProjectFlag } from '@/lib/types/project';
-import { Review, ReviewPosition } from '@/lib/types/review';
 import { checkNumber, sortFlagsDescending } from '@/utils';
 
 export function getReviews({

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import type { Project } from '@dnd-academy/core';
 import { Badge, Button, SkillTag } from '@dnd-academy/ui';
 
 import DetailNavigation from '@/components/molecules/DetailNavigation';
@@ -11,7 +12,6 @@ import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
 import { ShareIcon } from '@/lib/assets/icons';
-import { Project } from '@/lib/types/project';
 import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';

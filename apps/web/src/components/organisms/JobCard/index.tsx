@@ -1,7 +1,8 @@
 import Image from 'next/image';
 
+import type { Job } from '@dnd-academy/core';
+
 import ExternalLink from '@/components/atoms/ExternalLink';
-import { Job } from '@/lib/types/job';
 
 import styles from './index.module.scss';
 
