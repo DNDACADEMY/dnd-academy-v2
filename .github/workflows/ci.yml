@@ -105,7 +105,7 @@ jobs:
         id: cache_built_core_packages
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_CORE_PATHS }}
-          key: ${{ steps.compute_ui_cache_key.outputs.hash }}
+          key: ${{ steps.compute_core_cache_key.outputs.hash }}
 
       - name: Build @dnd-academy/core
         if: steps.cache_built_core_packages.outputs.cache-hit != 'true'
