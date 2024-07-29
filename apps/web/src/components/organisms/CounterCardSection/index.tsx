@@ -1,7 +1,7 @@
+import { api, type TotalCountStatus } from '@dnd-academy/core';
 import { CounterCard } from '@dnd-academy/ui';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
-import { totalCountStatusData } from '@/lib/assets/data';
 import { CURRENT_FLAG } from '@/lib/constants';
 
 import styles from './index.module.scss';
@@ -10,10 +10,13 @@ type Props = {
   title: string;
 };
 
-function CounterCardSection({ title }: Props) {
+async function CounterCardSection({ title }: Props) {
   const {
-    cumulativeApplicants, totalParticipants, totalProjects, dropouts,
-  } = totalCountStatusData;
+    cumulativeApplicants, dropouts, totalParticipants, totalProjects,
+  } = await api<TotalCountStatus>({
+    url: '/total_count_status.json',
+    method: 'GET',
+  });
 
   return (
     <SectionTitle title={title}>
