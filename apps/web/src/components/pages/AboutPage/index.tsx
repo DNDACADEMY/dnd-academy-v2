@@ -2,7 +2,8 @@ import Marquee from 'react-fast-marquee';
 
 import Image from 'next/image';
 
-import PageTitle from '@/components/atoms/PageTitle';
+import { PageTitle } from '@dnd-academy/ui';
+
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ImageCard from '@/components/molecules/ImageCard';
 import CounterCardSection from '@/components/organisms/CounterCardSection';

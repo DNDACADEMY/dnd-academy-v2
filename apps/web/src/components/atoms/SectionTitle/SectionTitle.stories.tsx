@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SectionTitle from '.';
 
 const meta = {
-  title: 'Components/SectionTitle',
+  title: 'atoms/SectionTitle',
   component: SectionTitle,
   parameters: {
     layout: 'centered',

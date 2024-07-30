@@ -62,6 +62,13 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
       },
+      settings: {
+        jest: {
+          globalAliases: {
+            describe: ['context'],
+          },
+        },
+      },
     },
   ],
   rules: {

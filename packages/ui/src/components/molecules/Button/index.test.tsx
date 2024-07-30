@@ -12,7 +12,7 @@ describe('Button', () => {
   ));
 
   describe('"href" 속성 유무에 따라 버튼 또는 링크가 나타난다', () => {
-    describe('버튼인 경우', () => {
+    context('버튼인 경우', () => {
       it('"href" 속성이 없어야만 한다', () => {
         renderButton();
 
@@ -20,7 +20,7 @@ describe('Button', () => {
       });
     });
 
-    describe('링크인 경우', () => {
+    context('링크인 경우', () => {
       const href = '/dnd/about';
 
       it('href 속성이 존재해야만 한다', () => {
