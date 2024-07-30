@@ -12,7 +12,7 @@
     "paths": {
       "@/*": ["src/*"],
     },
-    "types": ["jest", "vite/client", "vite-plugin-svgr/client"]
+    "types": ["vite/client", "vite-plugin-svgr/client"]
   },
   "include": [
     "src",
@@ -21,7 +21,8 @@
     "client.d.ts",
     "vite.config.mts",
     "../../jest.setup.ts",
-    "__mocks__"
+    "__mocks__",
+    "@types"
   ],
   "exclude": ["dist", "build", "node_modules",  "**/*.test.(ts|tsx)", "**/*.stories.(ts|tsx)"]
 }

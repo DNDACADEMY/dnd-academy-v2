@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
-import PageTitle from '@/components/atoms/PageTitle';
+import { PageTitle } from '@dnd-academy/ui';
+
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 
 type Props = {

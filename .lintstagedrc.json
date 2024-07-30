@@ -13,8 +13,5 @@
   ],
   "*.{js,jsx,ts,tsx}": [
     "yarn test:coverage --findRelatedTests"
-  ],
-  "*.scss": [
-    "yarn stylelint"
   ]
 }
