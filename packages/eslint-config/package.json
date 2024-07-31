@@ -1,6 +1,6 @@
 {
   "name": "@dnd-academy/eslint-config",
-  "version": "3.2.0",
+  "version": "1.0.0",
   "description": "dnd-academy eslint config",
   "main": "index.js",
   "license": "MIT",

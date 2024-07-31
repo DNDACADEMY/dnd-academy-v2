@@ -17,7 +17,7 @@ function TopNavigationMenu() {
 
   const isDNDPathname = ['/dnd/about', '/dnd/culture'].includes(pathname);
 
-  const isActivePathname = (targetPathname: Route) => (targetPathname === '/' ? targetPathname === pathname : pathname.startsWith(targetPathname));
+  const isActivePathname = (targetPathname: Route) => (targetPathname === '/' ? targetPathname === pathname : pathname?.startsWith(targetPathname));
 
   return (
     <ul

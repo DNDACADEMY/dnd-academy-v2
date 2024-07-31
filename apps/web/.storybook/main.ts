@@ -29,6 +29,13 @@ const config: StorybookConfig = {
     },
   },
   webpackFinal: async (config) => {
+    if (config.resolve) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "@": resolve(__dirname, "../src"),
+      };
+    }
+
     const imageRule = config.module?.rules?.find((rule) => {
       const test = (rule as { test: RegExp }).test;
 
@@ -46,6 +53,7 @@ const config: StorybookConfig = {
       use: [{
         loader: '@svgr/webpack',
         options: {
+          svgo: false,
           svgoConfig: {
             plugins: [{
               name: 'removeViewBox',
@@ -54,7 +62,8 @@ const config: StorybookConfig = {
           },
         },
       }],
-    }, {
+    },
+    {
       test: /\module\.scss$/,
       use: [
         {

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TopNavigationBar from '.';
 
 const meta = {
-  title: 'Components/TopNavigationBar',
+  title: 'global/TopNavigationBar',
   component: TopNavigationBar,
   args: {},
   decorators: (story) => <div style={{ minHeight: '200px' }}>{story()}</div>,

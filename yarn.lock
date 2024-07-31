@@ -8406,11 +8406,11 @@ __metadata:
     lint-staged: "npm:15.2.0"
     postcss: "npm:8.4.32"
     postcss-scss: "npm:4.0.9"
-    stylelint: "npm:15"
-    stylelint-config-recommended-scss: "npm:13"
-    stylelint-config-standard: "npm:34"
-    stylelint-config-standard-scss: "npm:11"
-    stylelint-scss: "npm:5"
+    stylelint: "npm:15.11.0"
+    stylelint-config-recommended-scss: "npm:13.1.0"
+    stylelint-config-standard: "npm:34.0.0"
+    stylelint-config-standard-scss: "npm:11.1.0"
+    stylelint-scss: "npm:5.3.2"
     turbo: "npm:2.0.5"
     typescript: "npm:5.2.2"
   languageName: unknown
@@ -16230,7 +16230,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:^12.4.0":
+"sass-loader@npm:12.6.0, sass-loader@npm:^12.4.0":
   version: 12.6.0
   resolution: "sass-loader@npm:12.6.0"
   dependencies:
@@ -17229,7 +17229,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-recommended-scss@npm:13, stylelint-config-recommended-scss@npm:^13.1.0":
+"stylelint-config-recommended-scss@npm:13.1.0, stylelint-config-recommended-scss@npm:^13.1.0":
   version: 13.1.0
   resolution: "stylelint-config-recommended-scss@npm:13.1.0"
   dependencies:
@@ -17255,7 +17255,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-standard-scss@npm:11":
+"stylelint-config-standard-scss@npm:11.1.0":
   version: 11.1.0
   resolution: "stylelint-config-standard-scss@npm:11.1.0"
   dependencies:
@@ -17271,7 +17271,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-standard@npm:34, stylelint-config-standard@npm:^34.0.0":
+"stylelint-config-standard@npm:34.0.0, stylelint-config-standard@npm:^34.0.0":
   version: 34.0.0
   resolution: "stylelint-config-standard@npm:34.0.0"
   dependencies:
@@ -17282,7 +17282,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-scss@npm:5, stylelint-scss@npm:^5.3.0":
+"stylelint-scss@npm:5.3.2, stylelint-scss@npm:^5.3.0":
   version: 5.3.2
   resolution: "stylelint-scss@npm:5.3.2"
   dependencies:
@@ -17297,7 +17297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:15":
+"stylelint@npm:15.11.0":
   version: 15.11.0
   resolution: "stylelint@npm:15.11.0"
   dependencies:
@@ -18787,6 +18787,7 @@ __metadata:
     react-responsive-masonry: "npm:2.2.0"
     sanitize.css: "npm:13.0.0"
     sass: "npm:1.69.6"
+    sass-loader: "npm:12.6.0"
     start-server-and-test: "npm:1.14.0"
     storybook: "npm:8.2.1"
     typescript: "npm:5.2.2"
