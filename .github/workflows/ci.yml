@@ -9,7 +9,7 @@ on:
 env:
   CACHED_DEPENDENCY_PATHS: |
     ${{ github.workspace }}/.yarn/cache
-    ${{ github.workspace }}/node_modules
+    ${{ github.workspace }}/.yarn/unplugged
   CACHED_BUILD_PACKAGE_UI_PATHS: ${{ github.workspace }}/packages/ui/dist
   CACHED_BUILD_PACKAGE_CORE_PATHS: ${{ github.workspace }}/packages/core/dist
   DEFAULT_NODE_VERSION: "v20.11.1"
