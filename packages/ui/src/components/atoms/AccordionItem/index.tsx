@@ -5,7 +5,7 @@ import { memo, PropsWithChildren } from 'react';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { AccordionPolygon } from '@/lib/assets/icons';
+import { AccordionPolygon } from '../../../lib/assets/icons';
 
 import styles from './index.module.scss';
 

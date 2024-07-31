@@ -6129,6 +6129,8 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:18.19.42"],\
           ["@types/react", "npm:18.3.2"],\
           ["@types/react-dom", "npm:18.3.0"],\
+          ["@types/sass", null],\
+          ["@types/sass-loader", null],\
           ["@types/semver", "npm:7.5.8"],\
           ["@types/storybook", null],\
           ["@types/typescript", null],\
@@ -6148,7 +6150,8 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:9845906954fdbefbb879db24fa8772d77a945dca59f459806df47a5b67245d4bc6502880b373cca7201062c81bea9f13f699f52de2004c037e79dbdbd5d97fb3#npm:18.3.1"],\
           ["react-refresh", "npm:0.14.2"],\
           ["resolve-url-loader", "npm:5.0.0"],\
-          ["sass-loader", "virtual:8501d79ad407f5138fe7a0748509c4f7b2785217d3436b188107be23752646c0326df0469b4b56e4914c2a66cc99dafdb4b82c95eb159c07069c2803ea961744#npm:12.6.0"],\
+          ["sass", "npm:1.69.6"],\
+          ["sass-loader", "virtual:e293270790bda2411a3626e57e15862403457209cbe755a222c752c37c8f53870ac5708914fca9c46ad11f81505a4af613c8b5e4bba765909191bb5f14d3b656#npm:12.6.0"],\
           ["semver", "npm:7.6.3"],\
           ["sharp", "npm:0.33.4"],\
           ["storybook", "npm:8.2.1"],\
@@ -6164,12 +6167,16 @@ const RAW_RUNTIME_STATE =
           "@types/next",\
           "@types/react-dom",\
           "@types/react",\
+          "@types/sass-loader",\
+          "@types/sass",\
           "@types/storybook",\
           "@types/typescript",\
           "@types/webpack",\
           "next",\
           "react-dom",\
           "react",\
+          "sass-loader",\
+          "sass",\
           "storybook",\
           "typescript",\
           "webpack"\
@@ -21704,10 +21711,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:8501d79ad407f5138fe7a0748509c4f7b2785217d3436b188107be23752646c0326df0469b4b56e4914c2a66cc99dafdb4b82c95eb159c07069c2803ea961744#npm:12.6.0", {\
-        "packageLocation": "./.yarn/__virtual__/sass-loader-virtual-195bfa3574/0/cache/sass-loader-npm-12.6.0-19096ee50d-1a45bc2096.zip/node_modules/sass-loader/",\
+      ["virtual:e293270790bda2411a3626e57e15862403457209cbe755a222c752c37c8f53870ac5708914fca9c46ad11f81505a4af613c8b5e4bba765909191bb5f14d3b656#npm:12.6.0", {\
+        "packageLocation": "./.yarn/__virtual__/sass-loader-virtual-eb60f4c8be/0/cache/sass-loader-npm-12.6.0-19096ee50d-1a45bc2096.zip/node_modules/sass-loader/",\
         "packageDependencies": [\
-          ["sass-loader", "virtual:8501d79ad407f5138fe7a0748509c4f7b2785217d3436b188107be23752646c0326df0469b4b56e4914c2a66cc99dafdb4b82c95eb159c07069c2803ea961744#npm:12.6.0"],\
+          ["sass-loader", "virtual:e293270790bda2411a3626e57e15862403457209cbe755a222c752c37c8f53870ac5708914fca9c46ad11f81505a4af613c8b5e4bba765909191bb5f14d3b656#npm:12.6.0"],\
           ["@types/fibers", null],\
           ["@types/node-sass", null],\
           ["@types/sass", null],\
@@ -21717,7 +21724,7 @@ const RAW_RUNTIME_STATE =
           ["klona", "npm:2.0.6"],\
           ["neo-async", "npm:2.6.2"],\
           ["node-sass", null],\
-          ["sass", null],\
+          ["sass", "npm:1.69.6"],\
           ["sass-embedded", null],\
           ["webpack", "virtual:9845906954fdbefbb879db24fa8772d77a945dca59f459806df47a5b67245d4bc6502880b373cca7201062c81bea9f13f699f52de2004c037e79dbdbd5d97fb3#npm:5.89.0"]\
         ],\
@@ -24742,6 +24749,7 @@ const RAW_RUNTIME_STATE =
           ["react-responsive-masonry", "virtual:e293270790bda2411a3626e57e15862403457209cbe755a222c752c37c8f53870ac5708914fca9c46ad11f81505a4af613c8b5e4bba765909191bb5f14d3b656#npm:2.2.0"],\
           ["sanitize.css", "npm:13.0.0"],\
           ["sass", "npm:1.69.6"],\
+          ["sass-loader", "virtual:e293270790bda2411a3626e57e15862403457209cbe755a222c752c37c8f53870ac5708914fca9c46ad11f81505a4af613c8b5e4bba765909191bb5f14d3b656#npm:12.6.0"],\
           ["start-server-and-test", "npm:1.14.0"],\
           ["storybook", "npm:8.2.1"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\

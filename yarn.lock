@@ -16230,7 +16230,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:^12.4.0":
+"sass-loader@npm:12.6.0, sass-loader@npm:^12.4.0":
   version: 12.6.0
   resolution: "sass-loader@npm:12.6.0"
   dependencies:
@@ -18787,6 +18787,7 @@ __metadata:
     react-responsive-masonry: "npm:2.2.0"
     sanitize.css: "npm:13.0.0"
     sass: "npm:1.69.6"
+    sass-loader: "npm:12.6.0"
     start-server-and-test: "npm:1.14.0"
     storybook: "npm:8.2.1"
     typescript: "npm:5.2.2"
