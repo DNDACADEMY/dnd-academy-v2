@@ -46,7 +46,7 @@
   "author": "dnd-academy",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc",
+    "build": "vite build",
     "preview": "vite preview",
     "test:unit": "jest",
     "test:watch": "jest --watch",
