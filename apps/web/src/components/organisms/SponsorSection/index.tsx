@@ -47,7 +47,7 @@ function SponsorSection() {
       </div>
       <Button
         isExternalLink
-        href="https://mahogany-base-b4f.notion.site/98c7848ce8ba4f48aa4153388fb39a1b"
+        href="https://island-allium-288.notion.site/2e120a6a87814c9493a2493b029137a4?pvs=4"
         buttonType="clear"
         size="large"
         suffixIcon={<LinkIcon width={14} height={14} className={styles.linkIcon} />}

@@ -18775,7 +18775,6 @@ __metadata:
     jest-environment-jsdom: "npm:29.7.0"
     jest-plugin-context: "npm:2.9.0"
     next: "npm:14.2.4"
-    pdfjs-dist: "npm:3.11.174"
     prop-types: "npm:15.8.1"
     qs: "npm:6.12.1"
     react: "npm:18.3.1"

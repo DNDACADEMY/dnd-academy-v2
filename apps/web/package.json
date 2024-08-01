@@ -39,7 +39,6 @@
     "dayjs": "1.11.11",
     "framer-motion": "11.2.10",
     "next": "14.2.4",
-    "pdfjs-dist": "3.11.174",
     "qs": "6.12.1",
     "react": "18.3.1",
     "react-countup": "6.5.3",

@@ -8,11 +8,11 @@ import { useModalContext } from '@/components/molecules/Modal/components/ModalPr
 function ModalOpenButton({
   children: child,
 } : { children: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>> }) {
-  const [, setIsOpen] = useModalContext();
+  const { toggle } = useModalContext();
 
   return cloneElement(child, {
     onClick: (e: MouseEvent<HTMLButtonElement>) => {
-      setIsOpen(true);
+      toggle(true);
       child.props.onClick?.(e);
     },
   });
