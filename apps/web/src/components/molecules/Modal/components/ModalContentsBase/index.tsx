@@ -2,7 +2,7 @@ import { ReactElement, useRef } from 'react';
 
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
-import { useOnClickOutside } from 'usehooks-ts';
+import { useOnClickOutside, useScrollLock } from 'usehooks-ts';
 
 import GlobalPortal from '@/components/global/GlobalPortal';
 import { useModalContext } from '@/components/molecules/Modal/components/ModalProvider';
@@ -18,14 +18,15 @@ type Props = {
 
 function ModalContentsBase({ children: child, title, size = 'medium' } : Props) {
   const modalContentsRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useModalContext();
+  const { open, toggle } = useModalContext();
 
-  useOnClickOutside(modalContentsRef, () => setIsOpen(false));
+  useOnClickOutside(modalContentsRef, () => toggle(false));
+  useScrollLock({ autoLock: open });
 
   return (
     <GlobalPortal>
-      {isOpen && (
-        <div className={clsx(styles.modalWrapper, isOpen && styles.open)}>
+      {open && (
+        <div className={clsx(styles.modalWrapper, open && styles.open)}>
           <div
             ref={modalContentsRef}
             role="dialog"
@@ -36,7 +37,7 @@ function ModalContentsBase({ children: child, title, size = 'medium' } : Props) 
               <Button
                 type="button"
                 className={styles.closeButton}
-                onClick={() => setIsOpen(false)}
+                onClick={() => toggle(false)}
                 icon={<CloseIcon />}
               />
             </div>

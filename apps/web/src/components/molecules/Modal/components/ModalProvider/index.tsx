@@ -2,9 +2,7 @@ import {
   createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState,
 } from 'react';
 
-import { useScrollLock } from 'usehooks-ts';
-
-type ModalContextType = [boolean, Dispatch<SetStateAction<boolean>>];
+type ModalContextType = { open: boolean; toggle: Dispatch<SetStateAction<boolean>>; };
 
 const ModalContext = createContext<ModalContextType>({} as ModalContextType);
 
@@ -19,15 +17,11 @@ export const useModalContext = () => {
 };
 
 function ModalProvider({ children }: PropsWithChildren) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [open, toggle] = useState<boolean>(false);
   const contextValue = useMemo<ModalContextType>(
-    () => [isOpen, setIsOpen],
-    [isOpen],
+    () => ({ open, toggle }),
+    [open],
   );
-
-  useScrollLock({
-    autoLock: isOpen,
-  });
 
   return (
     <ModalContext.Provider value={contextValue}>
