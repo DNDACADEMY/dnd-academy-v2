@@ -1,0 +1,115 @@
+.footerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 294px;
+  padding: 34px 24px;
+  width: 100%;
+  border-top: 1px solid color('gray08');
+  background-color: color('bgsecondary');
+
+  .footerContentsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    max-width: 1204px;
+    width: 100%;
+
+    @include sm {
+      gap: 32px;
+    }
+
+    .topContents {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+
+      @include sm {
+        flex-direction: column;
+        gap: 32px;
+        justify-content: flex-start;
+      }
+
+      .title {
+        line-height: normal;
+        height: fit-content;
+
+        @include text('H3/ExtraBold', 'white');
+
+        @include xs {
+          @include text('H4/ExtraBold');
+        }
+      }
+
+      .menuList {
+        display: flex;
+        flex-direction: row;
+        gap: 72px;
+
+        @include sm {
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        & > li {
+          @include text('body2/ExtraBold', 'white');
+
+          & > a {
+            &:hover {
+              text-decoration: underline;
+              text-underline-offset: 2px;
+            }
+          }
+        }
+
+        .menu {
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+
+          @include sm {
+            gap: 8px;
+          }
+
+          .subMenu {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+        }
+      }
+    }
+
+    .bottomContents {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+
+      @include xs {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .linkWrapper {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 16px;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.1s ease-in-out;
+
+  @include text('body2/Regular', 'gray04');
+
+  &:hover {
+    color: color('gray03');
+  }
+}

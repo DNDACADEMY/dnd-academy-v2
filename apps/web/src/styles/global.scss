@@ -1,0 +1,54 @@
+@import './variables';
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-pretendard);
+  background-color: color('bgsecondary');
+  color: color('bgprimary');
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+div,
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  font-family: var(--font-pretendard);
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

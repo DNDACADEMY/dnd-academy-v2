@@ -1,0 +1,23 @@
+.totalCountStatusFormWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+
+  .totalCountStatusForm {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .message {
+    @include text('body1');
+
+    &.error {
+      color: color('tertiary');
+    }
+
+    &.success {
+      color: color('success');
+    }
+  }
+}

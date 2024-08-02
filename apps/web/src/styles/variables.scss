@@ -1,0 +1,8 @@
+:root {
+  /* zIndex */
+  --toast-z-index: 100;
+  --top-navigation-z-index: 99;
+
+  // NOTE - 채널톡 z-index가 10000000이라 10000001로 설정
+  --modal-z-index: 10000001;
+}

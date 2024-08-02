@@ -1,0 +1,9 @@
+.space {
+  display: flex;
+  height: 70px;
+  width: 100%;
+
+  @include sm {
+    height: 60px;
+  }
+}

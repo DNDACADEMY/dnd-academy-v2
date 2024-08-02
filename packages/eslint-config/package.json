@@ -1,0 +1,47 @@
+{
+  "name": "@dnd-academy/eslint-config",
+  "version": "1.0.0",
+  "description": "dnd-academy eslint config",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "DNDACADEMY",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DNDACADEMY/dnd-academy-v2.git"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "eslint": "8.56.0",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "email": "dbd02169@naver.com",
+    "url": "https://github.com/DNDACADEMY/dnd-academy-v2/issues"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "7.9.0",
+    "@typescript-eslint/parser": "7.9.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "18.0.0",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jest": "28.6.0",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-react": "7.34.1",
+    "eslint-plugin-react-hooks": "4.6.2",
+    "eslint-plugin-simple-import-sort": "12.1.0",
+    "eslint-plugin-testing-library": "6.2.0",
+    "eslint-plugin-unused-imports": "3.2.0",
+    "typescript": "5.1.3"
+  }
+}

@@ -1,0 +1,63 @@
+.hasProjectLink {
+  margin-bottom: 100px;
+}
+
+.reviewCardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 368px;
+  width: 100%;
+  background-color: color('gray08');
+
+  @include sm {
+    max-width: none;
+  }
+
+  .titleWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: flex-end;
+    color: color('gray01');
+
+    .name {
+      @include text('H6/ExtraBold');
+    }
+
+    .position {
+      @include text('body2/Regular');
+    }
+  }
+
+  .socialIconWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .review {
+    @include text('body2/Regular', 'gray03');
+
+    line-height: 22px;
+  }
+
+  .link {
+    user-select: none;
+    display: flex;
+    width: fit-content;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+
+    @include text('body2/Bold', 'primary');
+
+    .arrowIcon {
+      path {
+        fill: color('primary');
+      }
+    }
+  }
+}

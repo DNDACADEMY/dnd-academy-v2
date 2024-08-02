@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+    },
+    "types": ["vite/client", "vite-plugin-svgr/client"]
+  },
+  "include": [
+    "src",
+    "index.d.ts",
+    "server.d.ts",
+    "client.d.ts",
+    "vite.config.mts",
+    "../../jest.setup.ts",
+    "__mocks__",
+    "@types"
+  ],
+  "exclude": ["dist", "build", "node_modules",  "**/*.test.(ts|tsx)", "**/*.stories.(ts|tsx)"]
+}

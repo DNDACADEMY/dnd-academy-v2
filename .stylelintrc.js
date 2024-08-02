@@ -9,4 +9,5 @@ module.exports = {
     'scss/at-rule-no-unknown': true,
     'selector-class-pattern': null,
   },
+  ignoreFiles: ["packages/ui/dist/**/*"],
 };

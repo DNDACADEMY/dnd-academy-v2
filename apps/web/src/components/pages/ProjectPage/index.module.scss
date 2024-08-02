@@ -1,0 +1,120 @@
+.projectNavigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  height: 96px;
+  width: 100%;
+  user-select: none;
+
+  .link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    @include text('H6/Regular', 'gray01');
+  }
+
+  .projectName {
+    @include text('H6/Bold', 'white');
+  }
+}
+
+.projectPageContents {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-bottom: 100px;
+
+  .projectDetail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 24px;
+    gap: 24px;
+    background-color: color('white');
+    border-radius: 8px;
+
+    @include xs {
+      margin: 0 -24px;
+      width: calc(100% + 48px);
+
+      .pdfWrapper {
+        margin: -12px -12px 0;
+      }
+    }
+
+    .thumbnailWrapper {
+      position: relative;
+      min-height: 400px;
+
+      .thumbnail {
+        border-radius: 8px;
+        object-fit: contain;
+      }
+    }
+
+    .projectIntroduceTitleWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        @include xs {
+          flex-direction: column;
+          gap: 24px;
+          align-items: flex-start;
+        }
+
+        .linkWrapper {
+          display: flex;
+          flex-direction: row;
+          gap: 16px;
+          align-items: center;
+        }
+      }
+
+      .name {
+        color: color('gray09');
+
+        @include text('H2/Bold');
+
+        @include xs {
+          @include text('H4/Bold');
+        }
+      }
+
+      .title {
+        @include text('H6/Regular', 'gray06');
+      }
+
+      .skillWrapper {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 4px;
+        width: 100%;
+      }
+    }
+
+    .description {
+      white-space: pre-line;
+
+      @include text('body1/Regular', 'gray08');
+    }
+  }
+
+  .projectSubSection {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    h2 {
+      @include text('H4/Bold', 'white');
+    }
+  }
+}

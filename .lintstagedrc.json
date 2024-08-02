@@ -1,9 +1,17 @@
 {
-  "*.{js,jsx,ts,tsx}": [
-    "yarn lint --cache",
-    "yarn test:unit --findRelatedTests --passWithNoTests"
+  "packages/ui/**/*.{js,jsx,ts,tsx}": [
+    "yarn workspace @dnd-academy/ui lint --cache"
   ],
-  "*.scss": [
-    "yarn stylelint"
+  "packages/core/**/*.{js,jsx,ts,tsx}": [
+    "yarn workspace @dnd-academy/core lint --cache"
+  ],
+  "apps/web/**/*.{js,jsx,ts,tsx}": [
+    "yarn workspace web lint --cache"
+  ],
+  "apps/admin/**/*.{js,jsx,ts,tsx}": [
+    "yarn workspace admin lint --cache"
+  ],
+  "*.{js,jsx,ts,tsx}": [
+    "yarn test:coverage --findRelatedTests"
   ]
 }

@@ -1,0 +1,22 @@
+.contentsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+
+  .description {
+    white-space: pre-line;
+    text-align: center;
+
+    @include text('body1/Regular', 'gray09');
+  }
+
+  .buttonWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+  }
+}

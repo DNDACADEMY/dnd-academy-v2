@@ -1,0 +1,77 @@
+.organizersWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(271px, 1fr));
+  gap: 24px;
+  padding-bottom: 100px;
+  place-items: center;
+
+  @include xs {
+    padding-bottom: 0;
+  }
+
+  .projectCardWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 1px 1px 0 0 color('gray07') inset;
+
+    .emoji {
+      font-size: 220px;
+      line-height: 104%;
+      text-align: center;
+      height: 271px;
+      padding: 24px;
+      vertical-align: middle;
+    }
+
+    .profile {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+    }
+
+    .contents {
+      padding: 24px;
+      width: 100%;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background-color: color('white');
+
+      .position {
+        @include text('caption1/Bold', 'gray09');
+      }
+
+      .name {
+        @include text('H6/Bold', 'gray09');
+      }
+
+      .introduction {
+        @include text('caption1/Regular', 'gray08');
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .stackWrapper {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        width: 100%;
+        height: 25px;
+        color: color('gray04');
+
+        :not(span:last-of-type) {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+}

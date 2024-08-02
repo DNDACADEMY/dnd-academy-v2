@@ -1,0 +1,94 @@
+.homeSection {
+  display: flex;
+  flex-direction: row;
+  padding: 100px 0;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+
+  @include sm {
+    flex-direction: column-reverse;
+    gap: 34px;
+    padding: 80px 0;
+  }
+
+  .contentsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+
+    @include sm {
+      align-items: center;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @include sm {
+        text-align: center;
+        align-items: center;
+      }
+
+      .title {
+        white-space: pre-line;
+
+        @include text('H1/Bold');
+
+        @include sm {
+          @include text('H2/Bold');
+        }
+
+        @include xs {
+          @include text('H4/Bold');
+        }
+      }
+
+      .subTitle {
+        @include text('H6/Regular', 'gray02');
+
+        @include xs {
+          @include text('body1/Regular');
+        }
+      }
+
+      .counter {
+        @include text('H6/Bold', 'primary');
+
+        @include xs {
+          @include text('body1/Bold');
+        }
+      }
+    }
+  }
+
+  .bannerWrapper {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    height: clamp(200px, 50vw, 400px);
+
+    .banner {
+      object-fit: contain;
+    }
+  }
+}
+
+.howBannerWrapper {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+
+  @include sm {
+    width: 100%;
+    max-width: 500px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .imageBannerTitle {
+    text-align: center;
+
+    @include text('H5/Bold', 'gray09');
+  }
+}

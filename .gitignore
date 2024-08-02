@@ -51,3 +51,9 @@ cypress/log
 
 # eslint cache
 .eslintcache
+
+# turbo
+.turbo
+
+# storybook
+storybook-static
