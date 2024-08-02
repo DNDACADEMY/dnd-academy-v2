@@ -1,0 +1,7 @@
+.counter {
+  @include text('H6/Bold', 'primary');
+
+  @include xs {
+    @include text('body1/Bold');
+  }
+}
