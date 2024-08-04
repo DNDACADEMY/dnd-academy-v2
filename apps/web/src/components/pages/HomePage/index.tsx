@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import type { EventStatus as Event } from '@dnd-academy/core';
+import type { EventStatus as Event, FAQ } from '@dnd-academy/core';
 import { Button, Counter } from '@dnd-academy/ui';
 
 import ScrollElement from '@/components/atoms/ScrollElement';
@@ -13,7 +13,6 @@ import FAQSection from '@/components/organisms/FAQSection';
 import ProjectsSlider from '@/components/organisms/ProjectsSlider';
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import SponsorSection from '@/components/organisms/SponsorSection';
-import { faqData } from '@/lib/assets/data';
 import { RightArrowIcon } from '@/lib/assets/icons';
 
 import styles from './index.module.scss';
@@ -22,9 +21,12 @@ type Props = {
   tab?: string;
   currentApplicantCount: number;
   eventStatus: Event;
+  faqItems: FAQ[];
 };
 
-function HomePage({ tab, currentApplicantCount, eventStatus }: Props) {
+function HomePage({
+  tab, currentApplicantCount, eventStatus, faqItems,
+}: Props) {
   return (
     <>
       <section className={styles.homeSection}>
@@ -109,7 +111,7 @@ function HomePage({ tab, currentApplicantCount, eventStatus }: Props) {
           targetParam={tab}
           scrollIntoViewOptions={{ block: 'start', behavior: 'smooth' }}
         >
-          <FAQSection faq={faqData} />
+          <FAQSection faqItems={faqItems} />
         </ScrollElement>
       </SectionTitle>
       <SponsorSection />

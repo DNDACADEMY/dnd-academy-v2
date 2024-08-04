@@ -1,4 +1,4 @@
-import { api, CurrentApplicantCount } from '@dnd-academy/core';
+import { api, type CurrentApplicantCount, type FAQ } from '@dnd-academy/core';
 
 import HomePage from '@/components/pages/HomePage';
 import { getEventStatus } from '@/lib/apis/event';
@@ -19,6 +19,11 @@ async function Home({ searchParams }: Props) {
     method: 'GET',
   });
 
+  const faqData = await api<FAQ[]>({
+    url: '/faq.json',
+    method: 'GET',
+  });
+
   const currentApplicantCount = checkNumber(currentApplicantCountData?.designer)
     + checkNumber(currentApplicantCountData?.developer);
 
@@ -29,6 +34,7 @@ async function Home({ searchParams }: Props) {
       tab={searchParams.tab}
       currentApplicantCount={currentApplicantCount}
       eventStatus={eventStatus}
+      faqItems={faqData}
     />
   );
 }
