@@ -2,22 +2,21 @@
 
 import { useState } from 'react';
 
+import { FAQ } from '@dnd-academy/core';
 import { AccordionItem } from '@dnd-academy/ui';
-
-import { faqData } from '@/lib/assets/data';
 
 import styles from './index.module.scss';
 
 type Props = {
-  faq: typeof faqData;
+  faqItems: FAQ[];
 };
 
-function FAQSection({ faq }: Props) {
+function FAQSection({ faqItems }: Props) {
   const [activeIndex, setActiveIndex] = useState<number>();
 
   return (
     <div className={styles.faqWrapper}>
-      {faq.map(({ answer, question }, index) => (
+      {faqItems.map(({ answer, question }, index) => (
         <AccordionItem
           key={question}
           title={`Q : ${question}`}
