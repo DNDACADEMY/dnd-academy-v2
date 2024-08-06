@@ -4,16 +4,15 @@ import { revalidatePath } from 'next/cache';
 
 import { put } from '@vercel/blob';
 
-type TotalCountStatusStateType = {
+type CountStateType = {
   message: string;
   messageType?: 'error' | 'success';
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export async function totalCountStatusAction(
-  _: TotalCountStatusStateType | null,
+  _: CountStateType | null,
   formData: FormData,
-): Promise<TotalCountStatusStateType> {
+): Promise<CountStateType> {
   try {
     const requestForm = {
       cumulativeApplicants: formData.get('cumulativeApplicants'),
@@ -33,6 +32,40 @@ export async function totalCountStatusAction(
     });
 
     revalidatePath('/total-count-status');
+
+    return {
+      message: '수정사항이 반영되었습니다. 캐시 적용으로 실제 적용까지는 최대 5분정도 소요됩니다.',
+      messageType: 'success',
+    };
+  } catch (error) {
+    return {
+      message: '수정사항이 반영되지 않았습니다. 잠시 후 다시 시도해주세요.',
+      messageType: 'error',
+    };
+  }
+}
+
+export async function currentApplicantCountAction(
+  _: CountStateType | null,
+  formData: FormData,
+): Promise<CountStateType> {
+  try {
+    const requestForm = {
+      designerApplicantCount: formData.get('designerApplicantCount'),
+      developerApplicantCount: formData.get('developerApplicantCount'),
+    };
+
+    const jsonString = JSON.stringify(requestForm);
+
+    const requestBlob = new Blob([jsonString], { type: 'application/json' });
+
+    await put('current_applicant_count.json', requestBlob, {
+      access: 'public',
+      token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
+      addRandomSuffix: false,
+    });
+
+    revalidatePath('/current-applicant-count');
 
     return {
       message: '수정사항이 반영되었습니다. 캐시 적용으로 실제 적용까지는 최대 5분정도 소요됩니다.',
