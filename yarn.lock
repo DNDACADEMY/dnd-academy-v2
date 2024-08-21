@@ -4289,6 +4289,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.52.0":
+  version: 5.52.0
+  resolution: "@tanstack/query-core@npm:5.52.0"
+  checksum: 10/cd21e87ad7a0bbb262dea21704352eb1bbaafc26776ae1602b4be9a2d0d1f16a89cc4b5951f69083e26f970d75386431240d5a573ed9bce5a37ba2dc862e376a
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:5.52.0":
+  version: 5.52.0
+  resolution: "@tanstack/react-query@npm:5.52.0"
+  dependencies:
+    "@tanstack/query-core": "npm:5.52.0"
+  peerDependencies:
+    react: ^18.0.0
+  checksum: 10/6976d309d306f0dd70f25e0de820812c47bfc39b654294e1512d4bb5320d0abad1bc3d6de16a25b7ae6766eb9b928c5e396e996d7d6689d33a1c1436de68cf7b
+  languageName: node
+  linkType: hard
+
 "@testing-library/dom@npm:10.1.0":
   version: 10.1.0
   resolution: "@testing-library/dom@npm:10.1.0"
@@ -5780,6 +5798,7 @@ __metadata:
     "@dnd-academy/eslint-config": "npm:*"
     "@dnd-academy/ui": "npm:*"
     "@next/eslint-plugin-next": "npm:14.2.4"
+    "@tanstack/react-query": "npm:5.52.0"
     "@testing-library/dom": "npm:10.3.1"
     "@testing-library/jest-dom": "npm:6.4.6"
     "@testing-library/react": "npm:16.0.0"
