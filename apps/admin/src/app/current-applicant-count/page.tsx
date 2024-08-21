@@ -1,7 +1,7 @@
 import { api, type CurrentApplicantCount } from '@dnd-academy/core';
 import { Counter, PageTitle } from '@dnd-academy/ui';
 
-import CurrentApplicantCountForm from '@/components/CurrentApplicantCountForm';
+import CurrentApplicantCountAction from '@/components/CurrentApplicantCountAction';
 
 import styles from './page.module.scss';
 
@@ -25,9 +25,8 @@ async function page() {
         <Counter count={currentApplicantCount} />
         명이 지원했어요!
       </div>
-      <CurrentApplicantCountForm initialApplicantCount={currentApplicantCountData} />
+      <CurrentApplicantCountAction />
     </>
-
   );
 }
 

@@ -1,4 +1,5 @@
 import { pretendardFont } from '@/app/_fonts';
+import ClientProvider from '@/components/common/ClientLayout';
 
 import '@dnd-academy/ui/style.css';
 import 'src/styles/global.scss';
@@ -11,7 +12,9 @@ function RootLayout({ children }: {
     <html lang="ko" className={pretendardFont.variable}>
       <body>
         <main className={styles.main}>
-          {children}
+          <ClientProvider>
+            {children}
+          </ClientProvider>
         </main>
       </body>
     </html>
