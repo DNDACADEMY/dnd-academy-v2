@@ -18,7 +18,7 @@ async function page() {
     <>
       <PageTitle
         title="현재 지원자 수"
-        subTitle="캐시 적용으로 실제 적용까지는 최대 5분정도 소요됩니다."
+        subTitle="현재 지원자 수는 google form의 spreadsheet를 통해 실시간으로 업데이트 됩니다."
       />
       <div className={styles.counter}>
         오늘까지&nbsp;
@@ -26,6 +26,9 @@ async function page() {
         명이 지원했어요!
       </div>
       <CurrentApplicantCountAction />
+      <strong>
+        기본적으로 매일 00:00에 자동으로 반영되지만, 클릭시에는 즉시 반영할 수 있습니다.
+      </strong>
     </>
   );
 }
