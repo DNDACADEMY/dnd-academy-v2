@@ -9,5 +9,7 @@ namespace NodeJS {
     GOOGLE_CLIENT_EMAIL: string;
     GOOGLE_PRIVATE_KEY: string;
     CRON_SECRET: string;
+    REVALIDATION_TOKEN: string;
+    WEB_ORIGIN: string;
   }
 }

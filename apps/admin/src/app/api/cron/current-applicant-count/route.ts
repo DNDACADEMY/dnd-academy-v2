@@ -1,6 +1,7 @@
+import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { updateCurrentApplicantCount } from '@/app/api/handler';
+import { revalidateWebPath, updateCurrentApplicantCount } from '@/app/api/handler';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,6 +17,15 @@ export async function PUT(request: NextRequest) {
   }
 
   const currentApplicantCountForm = await updateCurrentApplicantCount();
+
+  revalidatePath('/current-applicant-count');
+  const response = await revalidateWebPath('/');
+
+  if (!response.revalidated) {
+    return NextResponse.json(currentApplicantCountForm, {
+      status: 400,
+    });
+  }
 
   return NextResponse.json(currentApplicantCountForm, {
     status: 200,

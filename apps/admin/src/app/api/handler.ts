@@ -1,3 +1,4 @@
+import { api, type FetchError } from '@dnd-academy/core';
 import { put } from '@vercel/blob';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
@@ -37,3 +38,24 @@ export const updateCurrentApplicantCount = async () => {
 
   return currentApplicantCountForm;
 };
+
+export async function revalidateWebPath(paths: string | string[]) {
+  try {
+    const response = await api<{
+      revalidated: boolean; message?: string; now?: number;
+    }, { secret: string; paths: string | string[]; }>({
+      method: 'GET',
+      url: `${process.env.WEB_ORIGIN}/api/revalidate`,
+      params: {
+        secret: process.env.REVALIDATION_TOKEN,
+        paths,
+      },
+    });
+
+    return response;
+  } catch (error) {
+    const errorResponse = error as FetchError;
+
+    return { revalidated: false, message: 'Error revalidating', status: errorResponse.response?.status || 500 };
+  }
+}
