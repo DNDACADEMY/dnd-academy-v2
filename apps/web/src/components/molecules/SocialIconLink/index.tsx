@@ -1,6 +1,6 @@
 import { FunctionComponent, SVGAttributes } from 'react';
 
-import { LogoType } from '@dnd-academy/core';
+import { type LogoType } from '@dnd-academy/core';
 import clsx from 'clsx';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
@@ -58,13 +58,13 @@ function SocialIconLink({
 
   if (!link) {
     return (
-      <Logo className={logoClassName} />
+      <Logo className={logoClassName} aria-label={type} />
     );
   }
 
   return (
     <ExternalLink href={link} className={className}>
-      <Logo className={logoClassName} />
+      <Logo className={logoClassName} aria-label={type} />
     </ExternalLink>
   );
 }
