@@ -49,11 +49,13 @@ function HomePage({
               <strong>IT비영리단체</strong>
               입니다.
             </div>
-            <div className={styles.counter}>
-              오늘까지&nbsp;
-              <Counter count={currentApplicantCount} />
-              명이 지원했어요!
-            </div>
+            {eventStatus.status !== 'INACTIVE' && (
+              <div className={styles.counter}>
+                오늘까지&nbsp;
+                <Counter count={currentApplicantCount} />
+                명이 지원했어요!
+              </div>
+            )}
           </div>
           <ApplyNotifyButtonGroup eventStatus={eventStatus}>
             <Button size="xLarge" buttonType="primary" />
