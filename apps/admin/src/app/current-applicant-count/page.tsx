@@ -1,22 +1,15 @@
-import { api, type CurrentApplicantCount, getLatestItemReduce } from '@dnd-academy/core';
+import { api, type CurrentApplicantCount } from '@dnd-academy/core';
 import { Counter, PageTitle } from '@dnd-academy/ui';
-import { list } from '@vercel/blob';
 
 import CurrentApplicantCountAction from '@/components/CurrentApplicantCountAction';
 
 import styles from './page.module.scss';
 
 async function page() {
-  const { blobs } = await list({
-    prefix: 'current_applicant_count',
-    token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
-  });
-
-  const blob = getLatestItemReduce(blobs);
-
   const currentApplicantCountData = await api<CurrentApplicantCount>({
-    url: blob.url,
+    url: '/blob/latest/current_applicant_count',
     method: 'GET',
+    type: 'bff',
   });
 
   const currentApplicantCount = currentApplicantCountData.designer

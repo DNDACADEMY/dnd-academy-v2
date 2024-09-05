@@ -14,7 +14,7 @@ type Method =
 
 export type UrlPrefixType = 'public' | 'bff';
 
-export interface FetchRequest<T = unknown> {
+export interface ApiRequest<T = unknown> {
   url: string;
   params?: T;
   method?: Method;
@@ -23,7 +23,7 @@ export interface FetchRequest<T = unknown> {
   config?: Omit<RequestInit, 'method' | 'body'>;
 }
 
-class ApiError extends Error {
+export class ApiError extends Error {
   constructor(public status: number, message: string) {
     super(message);
     this.name = 'ApiError';
@@ -40,7 +40,7 @@ const getUrl = (url: string, type: UrlPrefixType) => {
 
 export async function api<T, K = unknown>({
   url, params, config = {}, body, type = 'public', method = 'GET',
-}: FetchRequest<K>): Promise<T> {
+}: ApiRequest<K>): Promise<T> {
   const headers = new Headers(config.headers);
 
   try {
