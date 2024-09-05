@@ -3,8 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { api, ApiError, getLatestItemReduce } from '@dnd-academy/core';
 import { list } from '@vercel/blob';
 
-export const runtime = 'edge';
-
+// eslint-disable-next-line import/prefer-default-export
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
