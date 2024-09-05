@@ -14,24 +14,20 @@ type Method =
 
 export type UrlPrefixType = 'public' | 'bff';
 
-export interface FetchRequest<T = any> {
+export interface FetchRequest<T = unknown> {
   url: string;
   params?: T;
   method?: Method;
+  body?: BodyInit | null;
   type?: UrlPrefixType;
-  config?: Omit<RequestInit, 'method'>;
+  config?: Omit<RequestInit, 'method' | 'body'>;
 }
 
-// TODO - fetch error 수정 필요
-export class FetchError extends Error {
-  constructor(
-    response: Response,
-  ) {
-    super();
-    this.response = response;
+class ApiError extends Error {
+  constructor(public status: number, message: string) {
+    super(message);
+    this.name = 'ApiError';
   }
-
-  response?: Response;
 }
 
 const getUrl = (url: string, type: UrlPrefixType) => {
@@ -39,24 +35,36 @@ const getUrl = (url: string, type: UrlPrefixType) => {
     return `${process.env.NEXT_PUBLIC_ORIGIN}/api${url}`;
   }
 
-  return `${process.env.NEXT_PUBLIC_VERCEL_BLOB_HOST}${url}`;
+  return url;
 };
 
-export async function api<T, K = undefined>({
-  url, params, config = {}, type = 'public', method = 'GET',
+export async function api<T, K = unknown>({
+  url, params, config = {}, body, type = 'public', method = 'GET',
 }: FetchRequest<K>): Promise<T> {
-  const response = await fetch(`${getUrl(url, type)}?${paramsSerializer({
-    ...params,
-  })}`, {
-    ...config,
-    method,
-  });
+  const headers = new Headers(config.headers);
 
-  if (!response.ok) {
-    throw new FetchError(response);
+  try {
+    const response = await fetch(`${getUrl(url, type)}${params ? `?${paramsSerializer(params)}` : ''}`, {
+      ...config,
+      headers,
+      method,
+      body: body ? JSON.stringify(body) : undefined,
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => ({}));
+
+      throw new ApiError(response.status, errorBody?.message || response.statusText);
+    }
+
+    const data = await response.json() as T;
+
+    return data;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      throw error;
+    }
+
+    throw new ApiError(500, 'An unexpected error occurred');
   }
-
-  const data = await response.json() as Promise<T>;
-
-  return data;
 }

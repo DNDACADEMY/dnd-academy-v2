@@ -1,13 +1,21 @@
-import { api, type TotalCountStatus } from '@dnd-academy/core';
+import { api, getLatestItemReduce, type TotalCountStatus } from '@dnd-academy/core';
 import { CounterCard, PageTitle } from '@dnd-academy/ui';
+import { list } from '@vercel/blob';
 
 import TotalCountStatusForm from '@/components/TotalCountStatusForm';
 
 import styles from './page.module.scss';
 
 async function page() {
+  const { blobs } = await list({
+    prefix: 'total_count_status',
+    token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
+  });
+
+  const blob = getLatestItemReduce(blobs);
+
   const totalCountStatus = await api<TotalCountStatus>({
-    url: '/total_count_status.json',
+    url: blob.url,
     method: 'GET',
   });
 

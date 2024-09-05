@@ -18898,6 +18898,7 @@ __metadata:
     "@types/react-responsive-masonry": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:7.9.0"
     "@typescript-eslint/parser": "npm:7.9.0"
+    "@vercel/blob": "npm:0.23.4"
     clsx: "npm:2.1.1"
     cypress: "npm:12.1.0"
     dayjs: "npm:1.11.11"
