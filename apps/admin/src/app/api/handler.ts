@@ -32,8 +32,6 @@ export const updateCurrentApplicantCount = async () => {
   await put('current_applicant_count.json', requestBlob, {
     access: 'public',
     token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
-    addRandomSuffix: false,
-    cacheControlMaxAge: 3600,
   });
 
   return currentApplicantCountForm;

@@ -1,5 +1,6 @@
-import { api, type TotalCountStatus } from '@dnd-academy/core';
+import { api, getLatestItemReduce, type TotalCountStatus } from '@dnd-academy/core';
 import { CounterCard } from '@dnd-academy/ui';
+import { list } from '@vercel/blob';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { CURRENT_FLAG } from '@/lib/constants';
@@ -11,10 +12,17 @@ type Props = {
 };
 
 async function CounterCardSection({ title }: Props) {
+  const { blobs: totalCountStatusBlobs } = await list({
+    prefix: 'total_count_status',
+    token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
+  });
+
+  const latestTotalCountStatusBlob = getLatestItemReduce(totalCountStatusBlobs);
+
   const {
     cumulativeApplicants, dropouts, totalParticipants, totalProjects,
   } = await api<TotalCountStatus>({
-    url: '/total_count_status.json',
+    url: latestTotalCountStatusBlob.url,
     method: 'GET',
   });
 

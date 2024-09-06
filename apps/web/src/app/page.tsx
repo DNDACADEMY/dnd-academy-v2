@@ -1,4 +1,7 @@
-import { api, type CurrentApplicantCount, type FAQ } from '@dnd-academy/core';
+import {
+  api, type CurrentApplicantCount, type FAQ, getLatestItemReduce,
+} from '@dnd-academy/core';
+import { list } from '@vercel/blob';
 
 import HomePage from '@/components/pages/HomePage';
 import { getEventStatus } from '@/lib/apis/event';
@@ -14,13 +17,26 @@ type Props = {
 };
 
 async function Home({ searchParams }: Props) {
+  const { blobs: currentApplicantCountBlobs } = await list({
+    prefix: 'current_applicant_count',
+    token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
+  });
+
+  const { blobs: faqBlobs } = await list({
+    prefix: 'faq',
+    token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
+  });
+
+  const latestCurrentApplicantCountBlob = getLatestItemReduce(currentApplicantCountBlobs);
+  const latestFAQBlob = getLatestItemReduce(faqBlobs);
+
   const currentApplicantCountData = await api<CurrentApplicantCount>({
-    url: '/current_applicant_count.json',
+    url: latestCurrentApplicantCountBlob.url,
     method: 'GET',
   });
 
   const faqData = await api<FAQ[]>({
-    url: '/faq.json',
+    url: latestFAQBlob.url,
     method: 'GET',
   });
 

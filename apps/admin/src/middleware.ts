@@ -4,7 +4,7 @@ import { auth as middleware } from '@/auth';
 import { isEmailAllowed } from '@/utils';
 
 export default middleware((req) => {
-  if (req.nextUrl.pathname === '/login') {
+  if (req.nextUrl.pathname === '/login' || process.env.NODE_ENV === 'development') {
     return NextResponse.next({
       request: req,
     });

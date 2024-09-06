@@ -7,7 +7,7 @@ import Navigator from '@/components/Navigator';
 async function MainPage() {
   const session = await auth();
 
-  if (!session) {
+  if (!session && process.env.NODE_ENV === 'production') {
     redirect('/login');
   }
 
