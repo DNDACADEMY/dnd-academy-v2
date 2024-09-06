@@ -7,9 +7,8 @@ import styles from './page.module.scss';
 
 async function page() {
   const totalCountStatus = await api<TotalCountStatus>({
-    url: '/blob/latest/total_count_status',
+    url: `https://${process.env.VERCEL_URL}/blob/latest/total_count_status`,
     method: 'GET',
-    type: 'bff',
   });
 
   const {

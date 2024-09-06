@@ -7,9 +7,8 @@ import styles from './page.module.scss';
 
 async function page() {
   const currentApplicantCountData = await api<CurrentApplicantCount>({
-    url: '/blob/latest/current_applicant_count',
+    url: `https://${process.env.VERCEL_URL}/blob/latest/current_applicant_count`,
     method: 'GET',
-    type: 'bff',
   });
 
   const currentApplicantCount = currentApplicantCountData.designer
