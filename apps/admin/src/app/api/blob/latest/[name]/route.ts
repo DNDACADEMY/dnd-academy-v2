@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
 
   const { blobs } = await list({
     prefix: fileName,
-    token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
+    token: process.env.BLOB_READ_WRITE_TOKEN,
   });
 
   const blob = getLatestItemReduce(blobs);
