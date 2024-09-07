@@ -4,12 +4,8 @@ import { api, ApiError, getLatestItemReduce } from '@dnd-academy/core';
 import { list } from '@vercel/blob';
 
 // eslint-disable-next-line import/prefer-default-export
-export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-
-  const fileName = searchParams.get('name');
-
-  if (!fileName) {
+export async function GET(_: NextRequest, { params }: { params: { name: string } }) {
+  if (!params?.name) {
     return NextResponse.json(null, {
       status: 400,
       statusText: 'Missing name parameter',
@@ -17,7 +13,7 @@ export async function GET(request: NextRequest) {
   }
 
   const { blobs } = await list({
-    prefix: fileName,
+    prefix: params.name,
     token: process.env.BLOB_READ_WRITE_TOKEN,
   });
 

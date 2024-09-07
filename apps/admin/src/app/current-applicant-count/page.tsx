@@ -1,21 +1,21 @@
-import { api, CurrentApplicantCount, getLatestItemReduce } from '@dnd-academy/core';
+import { headers } from 'next/headers';
+
+import { api, CurrentApplicantCount } from '@dnd-academy/core';
 import { Counter, PageTitle } from '@dnd-academy/ui';
-import { list } from '@vercel/blob';
 
 import CurrentApplicantCountAction from '@/components/CurrentApplicantCountAction';
 
 import styles from './page.module.scss';
 
 async function page() {
-  const { blobs } = await list({
-    prefix: 'current_applicant_count',
-    token: process.env.BLOB_READ_WRITE_TOKEN,
-  });
+  const headersList = headers();
 
-  const blob = getLatestItemReduce(blobs);
+  const host = headersList.get('host');
+
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
 
   const currentApplicantCountData = await api<CurrentApplicantCount>({
-    url: blob.url,
+    url: `${protocol}://${host}/api/blob/latest/current_applicant_count`,
   });
 
   const currentApplicantCount = currentApplicantCountData.designer
