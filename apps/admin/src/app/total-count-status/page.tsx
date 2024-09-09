@@ -1,5 +1,3 @@
-import { headers } from 'next/headers';
-
 import { api, type TotalCountStatus } from '@dnd-academy/core';
 import { CounterCard, PageTitle } from '@dnd-academy/ui';
 
@@ -8,14 +6,10 @@ import TotalCountStatusForm from '@/components/TotalCountStatusForm';
 import styles from './page.module.scss';
 
 async function page() {
-  const headersList = headers();
-
-  const host = headersList.get('host');
-
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
 
   const totalCountStatus = await api<TotalCountStatus>({
-    url: `${protocol}://${host}/api//blob/latest/total_count_status`,
+    url: `${protocol}://${process.env.VERCEL_URL}/blob/latest/total_count_status`,
   });
 
   const {

@@ -1,5 +1,3 @@
-import { headers } from 'next/headers';
-
 import { api, CurrentApplicantCount } from '@dnd-academy/core';
 import { Counter, PageTitle } from '@dnd-academy/ui';
 
@@ -8,14 +6,10 @@ import CurrentApplicantCountAction from '@/components/CurrentApplicantCountActio
 import styles from './page.module.scss';
 
 async function page() {
-  const headersList = headers();
-
-  const host = headersList.get('host');
-
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
 
   const currentApplicantCountData = await api<CurrentApplicantCount>({
-    url: `${protocol}://${host}/api/blob/latest/current_applicant_count`,
+    url: `${protocol}://${process.env.VERCEL_URL}/api/blob/latest/current_applicant_count`,
   });
 
   const currentApplicantCount = currentApplicantCountData.designer
