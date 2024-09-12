@@ -4,13 +4,3 @@ export function isEmailAllowed(email: string) {
 
   return allowedEmails.includes(email);
 }
-
-export const serverErrorHandling = async <T>(apiCallback: () => Promise<T>) => {
-  try {
-    const response = await apiCallback();
-
-    return response;
-  } catch (error) {
-    return null;
-  }
-};
