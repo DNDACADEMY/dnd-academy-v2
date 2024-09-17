@@ -17,3 +17,13 @@ export const getLatestItemReduce = (
   items: ListBlobResultBlob[],
 ): ListBlobResultBlob => items
   .reduce((latest, current) => (current.uploadedAt > latest.uploadedAt ? current : latest));
+
+export const serverErrorHandling = async <T>(apiCallback: () => Promise<T>) => {
+  try {
+    const response = await apiCallback();
+
+    return response;
+  } catch (error) {
+    return null;
+  }
+};
