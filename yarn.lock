@@ -1993,6 +1993,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dnd-academy/ui@workspace:packages/ui"
   dependencies:
+    "@dnd-academy/core": "npm:*"
     "@dnd-academy/eslint-config": "npm:*"
     "@storybook/blocks": "npm:8.2.1"
     "@storybook/react": "npm:8.2.1"
