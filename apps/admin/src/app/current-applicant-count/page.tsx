@@ -1,18 +1,17 @@
-import { api, type CurrentApplicantCount } from '@dnd-academy/core';
+import { CurrentApplicantCount } from '@dnd-academy/core';
 import { Counter, PageTitle } from '@dnd-academy/ui';
+import { withServerErrorBoundary } from '@dnd-academy/ui/server';
 
 import CurrentApplicantCountAction from '@/components/CurrentApplicantCountAction';
 
 import styles from './page.module.scss';
 
-async function page() {
-  const currentApplicantCountData = await api<CurrentApplicantCount>({
-    url: '/current_applicant_count.json',
-    method: 'GET',
-  });
+type Props = {
+  data: CurrentApplicantCount;
+};
 
-  const currentApplicantCount = currentApplicantCountData.designer
-    + currentApplicantCountData.developer;
+async function Page({ data }: Props) {
+  const { designer, developer } = data;
 
   return (
     <>
@@ -22,7 +21,7 @@ async function page() {
       />
       <div className={styles.counter}>
         오늘까지&nbsp;
-        <Counter count={currentApplicantCount} />
+        <Counter count={designer + developer} />
         명이 지원했어요!
       </div>
       <CurrentApplicantCountAction />
@@ -33,4 +32,7 @@ async function page() {
   );
 }
 
-export default page;
+export default withServerErrorBoundary(Page, {
+  url: '/blob/latest/current_applicant_count',
+  type: 'bff',
+});

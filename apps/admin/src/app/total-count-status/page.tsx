@@ -1,19 +1,19 @@
-import { api, type TotalCountStatus } from '@dnd-academy/core';
+import { type TotalCountStatus } from '@dnd-academy/core';
 import { CounterCard, PageTitle } from '@dnd-academy/ui';
+import { withServerErrorBoundary } from '@dnd-academy/ui/server';
 
 import TotalCountStatusForm from '@/components/TotalCountStatusForm';
 
 import styles from './page.module.scss';
 
-async function page() {
-  const totalCountStatus = await api<TotalCountStatus>({
-    url: '/total_count_status.json',
-    method: 'GET',
-  });
+type Props = {
+  data: TotalCountStatus;
+};
 
+async function Page({ data }: Props) {
   const {
     cumulativeApplicants, dropouts, totalParticipants, totalProjects,
-  } = totalCountStatus;
+  } = data;
 
   return (
     <>
@@ -27,9 +27,15 @@ async function page() {
         <CounterCard count={totalProjects} title="총 프로젝트 수" suffix="개" />
         <CounterCard count={dropouts} title="이탈자 수" color="primary" />
       </div>
-      <TotalCountStatusForm initialTotalCountStatus={totalCountStatus} />
+      <TotalCountStatusForm initialTotalCountStatus={{
+        cumulativeApplicants, totalParticipants, totalProjects, dropouts,
+      }}
+      />
     </>
   );
 }
 
-export default page;
+export default withServerErrorBoundary(Page, {
+  url: '/blob/latest/total_count_status',
+  type: 'bff',
+});

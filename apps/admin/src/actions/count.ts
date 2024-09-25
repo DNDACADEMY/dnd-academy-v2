@@ -31,7 +31,6 @@ export async function totalCountStatusAction(
     await put('total_count_status.json', requestBlob, {
       access: 'public',
       token: process.env.DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN,
-      addRandomSuffix: false,
     });
 
     await revalidateWebPath(['/', '/dnd/about']);
