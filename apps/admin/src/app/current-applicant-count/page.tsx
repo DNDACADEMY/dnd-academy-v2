@@ -1,17 +1,23 @@
-import { CurrentApplicantCount } from '@dnd-academy/core';
+import { headers } from 'next/headers';
+
+import { api, CurrentApplicantCount } from '@dnd-academy/core';
 import { Counter, PageTitle } from '@dnd-academy/ui';
-import { withServerErrorBoundary } from '@dnd-academy/ui/server';
 
 import CurrentApplicantCountAction from '@/components/CurrentApplicantCountAction';
 
 import styles from './page.module.scss';
 
-type Props = {
-  data: CurrentApplicantCount;
-};
+async function Page() {
+  const headersList = headers();
+  const host = headersList.get('host');
 
-async function Page({ data }: Props) {
-  const { designer, developer } = data;
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+
+  const currentApplicantCountData = await api<CurrentApplicantCount>({
+    url: `${protocol}://${host}/api/blob/latest/current_applicant_count`,
+  });
+
+  const { designer, developer } = currentApplicantCountData;
 
   return (
     <>
@@ -32,7 +38,4 @@ async function Page({ data }: Props) {
   );
 }
 
-export default withServerErrorBoundary(Page, {
-  url: '/blob/latest/current_applicant_count',
-  type: 'bff',
-});
+export default Page;
