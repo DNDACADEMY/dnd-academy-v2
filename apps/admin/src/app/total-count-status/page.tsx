@@ -1,19 +1,25 @@
-import { type TotalCountStatus } from '@dnd-academy/core';
+import { headers } from 'next/headers';
+
+import { api, type TotalCountStatus } from '@dnd-academy/core';
 import { CounterCard, PageTitle } from '@dnd-academy/ui';
-import { withServerErrorBoundary } from '@dnd-academy/ui/server';
 
 import TotalCountStatusForm from '@/components/TotalCountStatusForm';
 
 import styles from './page.module.scss';
 
-type Props = {
-  data: TotalCountStatus;
-};
+async function Page() {
+  const headersList = headers();
+  const host = headersList.get('host');
 
-async function Page({ data }: Props) {
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+
+  const totalCountStatus = await api<TotalCountStatus>({
+    url: `${protocol}://${host}/api//blob/latest/total_count_status`,
+  });
+
   const {
     cumulativeApplicants, dropouts, totalParticipants, totalProjects,
-  } = data;
+  } = totalCountStatus;
 
   return (
     <>
@@ -35,7 +41,4 @@ async function Page({ data }: Props) {
   );
 }
 
-export default withServerErrorBoundary(Page, {
-  url: '/blob/latest/total_count_status',
-  type: 'bff',
-});
+export default Page;
