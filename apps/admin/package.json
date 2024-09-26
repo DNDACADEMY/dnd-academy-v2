@@ -72,6 +72,6 @@
     "jest-plugin-context": "2.9.0",
     "sass": "1.69.6",
     "typescript": "5.2.2",
-    "webpack": "5.89.0"
+    "webpack": "5.95.0"
   }
 }
