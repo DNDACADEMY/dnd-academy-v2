@@ -1,8 +1,9 @@
+import '@dnd-academy/ui/style.css';
+import 'src/styles/global.scss';
+
 import { pretendardFont } from '@/app/_fonts';
 import ClientProvider from '@/components/common/ClientLayout';
 
-import '@dnd-academy/ui/style.css';
-import 'src/styles/global.scss';
 import styles from './index.module.scss';
 
 function RootLayout({ children }: {
