@@ -1,3 +1,6 @@
+import '@dnd-academy/ui/style.css';
+import 'src/styles/global.scss';
+
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 import ClientProviders from '@/components/global/ClientProviders';
@@ -8,8 +11,6 @@ import { DEFAULT_METADATA } from '@/lib/constants/metadata';
 
 import { pretendardFont } from './_fonts';
 
-import '@dnd-academy/ui/style.css';
-import 'src/styles/global.scss';
 import styles from './index.module.scss';
 
 export const metadata = DEFAULT_METADATA;

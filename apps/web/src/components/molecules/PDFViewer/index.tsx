@@ -1,5 +1,8 @@
 'use client';
 
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+
 import { useRef, useState } from 'react';
 import {
   Document, DocumentProps, Page, pdfjs,
@@ -11,8 +14,6 @@ import { useDebounceCallback, useResizeObserver } from 'usehooks-ts';
 
 import { ArrowExpandIcon, ArrowRightIcon } from '@/lib/assets/icons';
 
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
 import styles from './index.module.scss';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
