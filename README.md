@@ -1,6 +1,6 @@
 # DND Official Website v2
 
-#### [누적 지원자 5000명 IT 비영리단체 DND... 이제는 바꿔야할 때 feat. 마이그레이션](https://arc.net/l/quote/fdowhtuy)
+#### [누적 지원자 5000명 IT 비영리단체 DND... 이제는 바꿔야할 때 feat. 마이그레이션](https://haranglog.tistory.com/41)
 
 > DND는 개발자와 디자이너라면 누구나 참여할 수 있는 IT비영리단체입니다.   
 > 개발자와 디자이너를 위한 IT 연합 동아리 (For Developer & Designer)
