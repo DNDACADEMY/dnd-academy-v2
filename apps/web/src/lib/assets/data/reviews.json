@@ -1983,5 +1983,239 @@
       "medium": "",
       "instagram": ""
     }
+  },
+  {
+    "id": 112,
+    "name": "서다원",
+    "flag": "11기",
+    "project": "스냅피(Snappy)",
+    "projectId": 80,
+    "position": "프론트엔드 개발자",
+    "review": "DND 활동을 통해 실력 있는 팀원들과 서비스를 집중력 있게 완성하고, 실제로 배포하여 최종 발표 때 직접 서비스를 사용하게 하는 경험을 해볼 수 있어서 유익했습니다. 학생 개발자로서 이전에는 경험하기 쉽지 않았던 코드 리뷰도 팀원들과 나눠볼 수 있어서 많은 도움이 되었습니다. DND 활동은 끝났지만, 앞으로도 계속 서비스를 발전시켜 많은 사용자를 모으는 것이 목표입니다! 취업 준비 기간에 다시 개발에 대한 동기 부여와 재미를 얻게 해준 DND에 감사드립니다.",
+    "email": "dawon000203@gmail.com",
+    "links": {
+      "github": "https://github.com/Dawon00",
+      "velog": "",
+      "linkedin": "",
+      "link": "https://dawonny.tistory.com",
+      "medium": "",
+      "instagram": "https://www.instagram.com/wonny_dev"
+    }
+  },
+  {
+    "id": 113,
+    "name": "이재원",
+    "flag": "11기",
+    "project": "RunUs",
+    "projectId": null,
+    "position": "백엔드 개발자",
+    "review": "DND 프로젝트로 디자이너와 iOS 팀원들과 함께 기획부터 배포까지 하나의 사이클을 경험하며 매우 값진 시간을 보냈습니다. 서비스에 적합한 기술 스택을 고민하며 그 장단점을 직접 정리할 수 있었고, 토이 프로젝트를 넘어 실제 소비자에게 제공될 수 있는 서비스 개발에 가까운 경험을 할 수 있었습니다. 8주간의 시간 동안 기술적으로나 협업적으로 많은 경험을 했고, 무엇보다 열정 넘치는 팀원들과 함께할 수 있어 정말 행복했습니다. 😆",
+    "email": "jaewonlee.pro@gmail.com",
+    "links": {
+      "github": "https://github.com/jaewon-pro",
+      "velog": "",
+      "linkedin": "https://www.linkedin.com/in/j12",
+      "link": "https://jaewon-pro.github.io",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 114,
+    "name": "박예지",
+    "flag": "11기",
+    "project": "공무인",
+    "projectId": 77,
+    "position": "프로덕트 디자이너",
+    "review": "처음 3조 조원들과 만나서 회의하고 고기를 먹었던게 얼마 전인 거 같은데 벌써 8주가 지나고 최종 발표를 진행했네요! 매주 목표를 정하고 작업을 진행하다 보니 시간을 알차게 보낼 수 있었던 것 같아요. 기획 파일에 꼭꼭 숨어있던 공무인을 실제로 구현할 수 있는 기회가 되어서 저에겐 너무 의미 있는 시간이었어요! 3조 조원분들과 석진님 덕분에 즐겁게 작업했던 것 같아요 그동안 너무 고생 많으셨고 감사했습니다!!!",
+    "email": "parkyeji55@naver.com",
+    "links": {
+      "github": "",
+      "velog": "",
+      "linkedin": "",
+      "link": "https://www.behance.net/ye_ji",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 115,
+    "name": "박가영",
+    "flag": "11기",
+    "projectId": 76,
+    "project": "메이트립",
+    "position": "프로덕트 디자이너",
+    "review": "개발자분들과 협업하는 첫 프로젝트를 DND에서 하게 되어서 영광이었어요! 프로젝트 경험이 없어서 팀원들과 함께 세운 목표를 향해 가면서 배우는 점도 많았고, 부족한 부분도 인지하게 되는 좋은 시간이었습니다. 열정있는 팀장님과 책임감 있는 팀원들을 만나 덕분에 뜻깊은 경험을 할 수 있었어요~! 11기에서의 경험 잊지 않고 역량을 키우는데 필요한 소중한 경험으로 간직하겠습니다. 휴일에도 꼼꼼히 피드백 해주신 운영진분들과 끝까지 프로젝트를 함께 진행한 팀원분들까지 모두 감사합니다!",
+    "email": "coming_gayo@naver.com",
+    "links": {
+      "github": "",
+      "velog": "",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 116,
+    "name": "권영태",
+    "flag": "11기",
+    "project": "공무인",
+    "projectId": 77,
+    "position": "백엔드 개발자",
+    "review": "DND 11기로 참가하면서 생각 외로 짧았던 8주간 많은 경험을 할 수 있었습니다. 대학 생활 간 제대로 된 기획 없이 프론트엔드/백엔드 파트끼리 모여서 간단한 프로젝트만 진행했었는데, DND를 통해 리서치부터 인터뷰까지 차례대로 기획하며 탄탄한 프로젝트를 경험할 수 있었습니다. 평소 백엔드 파트를 공부하면서 디자인 파트와의 협업 능력이 필요하지 않다고 생각했었는데, 이번 활동을 통해 디자인 파트와의 협업 능력도 필요하다는걸 깨닫는 시간이 되었습니다. 열정적이고 좋은 팀원들 그리고 멘토님을 만나서 즐겁게 참여할 수 있었는데, 기회가 된다면 다음 기수도 참가하고 싶네요 :)",
+    "email": "father8475@nave.rcom",
+    "links": {
+      "github": "https://github.com/dudxo",
+      "velog": "",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 117,
+    "name": "진채영",
+    "flag": "11기",
+    "project": "째깍 (jjakkak)",
+    "projectId": 81,
+    "position": "프로덕트 디자이너",
+    "review": "8주 동안 정말 많은 것을 배울 수 있었던 소중한 시간이었습니다! 단순히 프로젝트를 완성하는 것을 넘어서, 개발자들과의 협업 방법과 디자이너와 함께 작업하는 법까지 배울 수 있었던 좋은 기회였습니다. 또한 운영진분들의 따뜻한 관심과 유익한 정보들 덕분에 더욱 값진 시간이었습니다 🙈💭",
+    "email": "chaeyeong1210@gmail.com",
+    "links": {
+      "github": "",
+      "velog": "",
+      "linkedin": "https://www.linkedin.com/in/%EC%A7%84%EC%B1%84%EC%98%81",
+      "link": "https://www.behance.net/dd4c71f2",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 118,
+    "name": "김세빈",
+    "flag": "11기",
+    "project": "째깍 (jjakkak)",
+    "projectId": 81,
+    "position": "프론트엔드 개발자",
+    "review": "DND 11기 7조 째깍 프로젝트에 프론트엔드 개발자로 참여하여 8주 동안 팀원들과 함께 소중한 경험을 쌓았습니다. 프로젝트의 기획 단계부터 UX 방법론 적용, 개발까지 모든 과정에 참여하며, 다양한 분야에서 빠르게 익힐 수 있었습니다. 특히 코드 리뷰를 통해 부족한 부분을 보완하고, 협업을 통해 서로의 아이디어를 다듬어가는 과정이 매우 의미 있었습니다. 8주 동안 많은 것을 배우고 성장할 수 있었던 소중한 시간이었습니다. DND 최고에요!",
+    "email": "sebin0580@gmail.com",
+    "links": {
+      "github": "https://github.com/keemsebin",
+      "velog": "",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 119,
+    "name": "정승조",
+    "flag": "11기",
+    "project": "째깍 (jjakkak)",
+    "projectId": 81,
+    "position": "백엔드 개발자",
+    "review": "하나의 결과물을 열정적인 동료들과 함께 만들어내고 싶다면, DND에서 경험을 해보는 것을 추천해요!처음으로 디자이너와 프론트엔드 개발자와 함께 협업을 하면서 기술적 성장뿐만 아니라 효과적인 의사소통과 피드백을 통해 더 나은 결과물을 만들어가는 소중한 경험을 했어요. 그리고 같은 직군, 운영진분들과 함께 다양한 의견을 주고받으며 좋은 사람들과 소통할 수 있는 특별한 시간을 가질 수 있었습니다. 바쁜 8주 동안도 각자 맡은 역할을 열심히 수행하고, 긍정적인 분위기 속에서 적극적으로 참여해 준 팀 세븐일레븐 최고~ 좋은 사람들을 만나게 해준 DND 최고~ 😁🩵",
+    "email": "f1v3@kakao.com",
+    "links": {
+      "github": "https://github.com/f1v3-dev",
+      "velog": "",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 120,
+    "name": "류태웅",
+    "flag": "11기",
+    "project": "째깍 (jjakkak)",
+    "projectId": 81,
+    "position": "백엔드 개발자",
+    "review": "DND 11기에 참여하기 전까지 저는 우물 안의 개구리였습니다. '진짜' 개발을 모르고 그저 기술 몇개만 단편적으로 알면서 우물 위의 하늘만이 자신이 알고 있던 세계라고 생각했습니다. 하지만 DND에 참여하면서, 실제  개발자 뿐만 아니라 다른 직군의 개발자 분들과 함께 하면서 우물 밖의 세상을 알게 되었습니다. 이제 저는 이 세상을 알았으니 밖을 향해 한 걸음 씩 나아보고자 합니다. 다들 너무 수고하셨습니다!",
+    "email": "RTUnu00@gmail.com",
+    "links": {
+      "github": "https://github.com/RTUnu12",
+      "velog": "https://velog.io/@rtunu12/posts",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 121,
+    "name": "손가현",
+    "flag": "11기",
+    "project": "공무인",
+    "projectId": 77,
+    "position": "백엔드 개발자",
+    "review": "DND에 몰입하다 보니 2달이라는 시간이 참 빠르게 지나간 것 같아요! 기획부터 설계와 개발까지 능동적으로 참여할 수 있어 너무 알찬 시간이었습니다. 열정적인 팀원들과 함께해서 더 열의를 가지고 개발할 수 있었어요:) 또한, 운영진분들께 코드 리뷰 요청 및 설계 관련 질문을 드렸을 때 상세히 답변해 주셔서 큰 도움이 되었습니다. MVP 기간 이후에도 팀원들과 함께 서비스를 발전시키고 싶어요!",
+    "email": "77sghyun@gmail.com",
+    "links": {
+      "github": "https://github.com/hyun2371",
+      "velog": "",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 122,
+    "name": "양의진",
+    "flag": "11기",
+    "project": "wepro",
+    "projectId": 82,
+    "position": "프로덕트 디자이너",
+    "review": "8주동안 유익하고 즐거운 시간이었습니다 :> 그전에는 디자이너끼리만 프로젝트를 진행해서 실제 개발 프로세스에 대해서 고려하지 못한 부분이 많았는데, DND에서 개발자분들과 함께 프로젝트를 진행하면서 프로덕트 디자이너로서 더 많은 요소들을 고려해야 한다는 사실을 체감할 수 있었습니다. 운영진분들의 성의 넘치는 피드백도 많은 도움을 받았습니다. 덕분에 소중한 경험 쌓아갑니다. 팀원들과 함께 앞으로도 잘 완성해나갔으면 좋겠습니다 !",
+    "email": "dml1336@naver.com",
+    "links": {
+      "github": "",
+      "velog": "",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 123,
+    "name": "김희진",
+    "flag": "11기",
+    "project": "wepro",
+    "projectId": 82,
+    "position": "백엔드 개발자",
+    "review": "프로젝트 기획부터 개발까지 전체 과정을 경험할 수 있어서 정말 좋았습니다~ 좋은 팀원분들과 함께해서 더욱 즐겁게 참여할 수 있었던 것 같아요. DND 활동은 끝났지만, 공동의 목표를 이루기 위해 계속 함께할 수 있어 기쁩니다. DND 11기에 참여하게 되어 영광이었고, 모두 너무 고생 많으셨습니다! 앞으로도 화이팅입니다 :D",
+    "email": "",
+    "links": {
+      "github": "https://github.com/heejjinkim",
+      "velog": "",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
+  },
+  {
+    "id": 124,
+    "name": "우진주",
+    "flag": "11기",
+    "project": "SPACE D",
+    "projectId": 82,
+    "position": "프로덕트 디자이너",
+    "review": "8주라는 짧은 시간 동안 열정 가득한 팀원들과 함께해서 즐겁고 밀도 있는 경험을 할 수 있었습니다. 단순히 보기 좋은 디자인이 아니라 논리적으로 사고하는 법, 디자인만 진행했을 때 생각하지 않았던 부분 등 다시 한번 생각하게 되었고 실무 관련된 부분들도 운영진분들 덕에 많이 알게 되었습니다. DND로 첫 사이드 프로젝트를 할 수 있어서 영광이었습니다!",
+    "email": "wjj0705@naver.com",
+    "links": {
+      "github": "https://www.behance.net/wjj0705fe38",
+      "velog": "",
+      "linkedin": "",
+      "link": "",
+      "medium": "",
+      "instagram": ""
+    }
   }
 ]
