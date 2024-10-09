@@ -1,23 +1,29 @@
 'use client';
 
 import {
-  createElement, JSX, useEffect, useRef,
+  ComponentProps,
+  createElement,
+  ElementType,
+  useEffect,
+  useRef,
 } from 'react';
 
 import clsx from 'clsx';
 
 import styles from './index.module.scss';
 
-type Props<ElementType extends keyof JSX.IntrinsicElements> =
-  JSX.IntrinsicElements[ElementType] & {
-    elementType?: keyof JSX.IntrinsicElements;
-    activeParam: string;
-    targetParam?: string;
-    scrollIntoViewOptions?: ScrollIntoViewOptions;
-  };
+type ScrollElementProps<E extends ElementType> = {
+  elementType?: E;
+  activeParam: string;
+  targetParam?: string;
+  scrollIntoViewOptions?: ScrollIntoViewOptions;
+};
 
-function ScrollElement<E extends keyof JSX.IntrinsicElements>({
-  elementType = 'div', activeParam, children, className, targetParam, scrollIntoViewOptions, ...props
+type Props<E extends ElementType> =
+  ScrollElementProps<E> & Omit<ComponentProps<E>, keyof ScrollElementProps<E>>;
+
+function ScrollElement<E extends ElementType>({
+  elementType, activeParam, children, className, targetParam, scrollIntoViewOptions, ...props
 }: Props<E>) {
   const containerRef = useRef<Element>(null);
 
@@ -29,7 +35,7 @@ function ScrollElement<E extends keyof JSX.IntrinsicElements>({
 
   return (
     createElement(
-      elementType,
+      elementType || 'div',
       {
         ...props,
         ref: containerRef,
