@@ -1,18 +1,22 @@
-import { createElement, Fragment, JSX } from 'react';
+import {
+  ComponentProps, createElement, ElementType, Fragment,
+} from 'react';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 
 import styles from './index.module.scss';
 
-type Props<ElementType extends keyof JSX.IntrinsicElements> =
-JSX.IntrinsicElements[ElementType] & {
-  elementType?: keyof JSX.IntrinsicElements;
+type LinkConverterProps<E extends ElementType> = {
+  elementType?: E;
   className?: string;
   text: string;
 };
 
-function LinkConverter<E extends keyof JSX.IntrinsicElements>({
-  className, text, elementType = 'div', ...props
+type Props<E extends ElementType> =
+  LinkConverterProps<E> & Omit<ComponentProps<E>, keyof LinkConverterProps<E>>;
+
+function LinkConverter<E extends ElementType>({
+  className, text, elementType, ...props
 }: Props<E>) {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
 
@@ -27,7 +31,7 @@ function LinkConverter<E extends keyof JSX.IntrinsicElements>({
 
   return (
     createElement(
-      elementType,
+      elementType || 'div',
       {
         ...props,
         className,
