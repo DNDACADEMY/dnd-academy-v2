@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "2.0.2",
+    "@codecov/nextjs-webpack-plugin": "1.2.0",
     "@dnd-academy/eslint-config": "*",
     "@next/eslint-plugin-next": "14.2.12",
     "@storybook/addon-essentials": "8.3.3",
