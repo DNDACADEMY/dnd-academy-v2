@@ -1,7 +1,5 @@
-import { notFound } from 'next/navigation';
-
 import {
-  api, type CurrentApplicantCount, type FAQ, serverErrorHandling,
+  api, type CurrentApplicantCount, type FAQ,
 } from '@dnd-academy/core';
 
 import HomePage from '@/components/pages/HomePage';
@@ -18,19 +16,15 @@ type Props = {
 };
 
 async function Home({ searchParams }: Props) {
-  const currentApplicantCountData = await serverErrorHandling(() => api<CurrentApplicantCount>({
-    url: '/blob/latest/current_applicant_count',
-    type: 'bff',
-  }));
+  const currentApplicantCountData = await api<CurrentApplicantCount>({
+    url: '/current_applicant_count.json',
+    type: 'blob',
+  });
 
-  const faqData = await serverErrorHandling(() => api<FAQ[]>({
-    url: '/blob/latest/faq',
-    type: 'bff',
-  }));
-
-  if (!currentApplicantCountData || !faqData) {
-    notFound();
-  }
+  const faqData = await api<FAQ[]>({
+    url: '/faq.json',
+    type: 'blob',
+  });
 
   const currentApplicantCount = checkNumber(currentApplicantCountData?.designer)
     + checkNumber(currentApplicantCountData?.developer);
