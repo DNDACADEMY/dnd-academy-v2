@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 
 import ProjectPage from '@/components/pages/ProjectPage';
 import { getProject, getProjects } from '@/lib/apis/project';
-import { DEFAULT_METADATA } from '@/lib/constants/metadata';
+import METADATA, { DEFAULT_METADATA } from '@/lib/constants/metadata';
 
 export const dynamicParams = false;
 
@@ -20,12 +20,12 @@ export function generateMetadata({ params }: Props): Metadata {
     return DEFAULT_METADATA;
   }
 
-  const images = [{
+  const images = project.thumbnail ? [{
     url: project.thumbnail,
     width: 800,
     height: 600,
     alt: project.name,
-  }];
+  }] : METADATA.images;
 
   return {
     title: `${project.name} - DND`,
