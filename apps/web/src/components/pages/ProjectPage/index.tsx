@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import type { Project } from '@dnd-academy/core';
+import { type Project } from '@dnd-academy/core';
 import { Badge, Button, SkillTag } from '@dnd-academy/ui';
 
 import DetailNavigation from '@/components/molecules/DetailNavigation';
@@ -39,20 +39,21 @@ function ProjectPage({ project }: Props) {
       />
       <div className={styles.projectPageContents}>
         <section className={styles.projectDetail}>
-          {project?.pdf ? (
+          {project?.pdf && (
             <div className={styles.pdfWrapper}>
               <PDFViewer url={project.pdf} />
             </div>
-          ) : (
-            <div className={styles.thumbnailWrapper}>
-              <Image
-                fill
-                src={project.thumbnail}
-                alt={project.name}
-                className={styles.thumbnail}
-                sizes="(max-width: 768px) 100vw, 768px"
-              />
-            </div>
+          )}
+          {!project?.pdf && project?.thumbnail && (
+          <div className={styles.thumbnailWrapper}>
+            <Image
+              fill
+              src={project.thumbnail}
+              alt={project.name}
+              className={styles.thumbnail}
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
           )}
           <div className={styles.projectIntroduceTitleWrapper}>
             <div className={styles.header}>
