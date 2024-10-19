@@ -1,4 +1,3 @@
-const { codecovNextJSWebpackPlugin } = require('@codecov/nextjs-webpack-plugin');
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -41,7 +40,7 @@ const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
-  webpack(config, options) {
+  webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
     // eslint-disable-next-line no-param-reassign
@@ -63,14 +62,16 @@ const nextConfig = {
 
     fileLoaderRule.exclude = /\.svg$/i;
 
-    config.plugins.push(
-      codecovNextJSWebpackPlugin({
-        enableBundleAnalysis: true,
-        bundleName: '@dnd-academy/web',
-        uploadToken: process.env.CODECOV_TOKEN,
-        webpack: options.webpack,
-      }),
-    );
+    // if (!options.dev) {
+    //   config.plugins.push(
+    //     codecovNextJSWebpackPlugin({
+    //       enableBundleAnalysis: true,
+    //       bundleName: '@dnd-academy/web',
+    //       uploadToken: process.env.CODECOV_TOKEN,
+    //       webpack: options.webpack,
+    //     }),
+    //   );
+    // }
 
     return config;
   },

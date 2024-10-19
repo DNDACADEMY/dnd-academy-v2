@@ -1,24 +1,19 @@
-import { type TotalCountStatus } from '@dnd-academy/core';
 import { CounterCard } from '@dnd-academy/ui';
-import { withServerErrorBoundary } from '@dnd-academy/ui/server';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
+import { totalCountStatusData } from '@/lib/assets/data';
 import { CURRENT_FLAG } from '@/lib/constants';
 
 import styles from './index.module.scss';
 
 type Props = {
   title: string;
-  data: TotalCountStatus;
 };
 
-async function CounterCardSection({ title, data }: Props) {
+async function CounterCardSection({ title }: Props) {
   const {
-    cumulativeApplicants,
-    totalParticipants,
-    totalProjects,
-    dropouts,
-  } = data;
+    cumulativeApplicants, dropouts, totalParticipants, totalProjects,
+  } = totalCountStatusData;
 
   return (
     <SectionTitle title={title}>
@@ -32,7 +27,4 @@ async function CounterCardSection({ title, data }: Props) {
   );
 }
 
-export default withServerErrorBoundary(CounterCardSection, {
-  url: '/blob/latest/total_count_status',
-  type: 'bff',
-});
+export default CounterCardSection;
