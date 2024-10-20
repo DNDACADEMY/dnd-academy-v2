@@ -2038,8 +2038,8 @@
       "Mockito",
       "Git"
     ],
-    "thumbnail": "",
-    "pdf": "",
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/1/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/1/1.pdf",
     "projectLinks": {
       "appStore": "",
       "github": [
@@ -2081,8 +2081,8 @@
       "Docker",
       "Test Container"
     ],
-    "thumbnail": "",
-    "pdf": "",
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/3/3.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/3/3.pdf",
     "projectLinks": {
       "appStore": "",
       "github": [
@@ -2112,7 +2112,7 @@
       "Figma",
       "Blender"
     ],
-    "thumbnail": "",
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/4/4.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/4/4.pdf",
     "projectLinks": {
       "appStore": "",
@@ -2150,8 +2150,8 @@
       "GIthub Action",
       "TailwindCSS"
     ],
-    "thumbnail": "",
-    "pdf": "",
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/5/5.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/5/5.pdf",
     "projectLinks": {
       "appStore": "",
       "github": [
@@ -2175,7 +2175,7 @@
       "TanstackQuery",
       "TailwindCss"
     ],
-    "thumbnail": "",
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/6/6.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/6/6.pdf",
     "projectLinks": {
       "appStore": "",
@@ -2238,8 +2238,8 @@
       "figma",
       "c4d"
     ],
-    "thumbnail": "",
-    "pdf": "",
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/9/9.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/9/9.pdf",
     "projectLinks": {
       "appStore": "",
       "github": [
@@ -2289,7 +2289,7 @@
       "Docker",
       "Github Actions"
     ],
-    "thumbnail": "",
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/10/10.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/10/10.pdf",
     "projectLinks": {
       "appStore": "",
