@@ -12,7 +12,7 @@ export interface Project {
   images?: string[];
   flag: ProjectFlag;
   skill: string[];
-  thumbnail?: string;
+  thumbnail: string;
   pdf: string | null;
   projectLinks: ProjectLinks;
 }
