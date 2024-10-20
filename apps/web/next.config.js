@@ -62,6 +62,17 @@ const nextConfig = {
 
     fileLoaderRule.exclude = /\.svg$/i;
 
+    // if (!options.dev) {
+    //   config.plugins.push(
+    //     codecovNextJSWebpackPlugin({
+    //       enableBundleAnalysis: true,
+    //       bundleName: '@dnd-academy/web',
+    //       uploadToken: process.env.CODECOV_TOKEN,
+    //       webpack: options.webpack,
+    //     }),
+    //   );
+    // }
+
     return config;
   },
 

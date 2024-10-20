@@ -3,16 +3,11 @@ import { paramsSerializer } from '../utils';
 type Method =
     | 'get' | 'GET'
     | 'delete' | 'DELETE'
-    | 'head' | 'HEAD'
-    | 'options' | 'OPTIONS'
     | 'post' | 'POST'
     | 'put' | 'PUT'
-    | 'patch' | 'PATCH'
-    | 'purge' | 'PURGE'
-    | 'link' | 'LINK'
-    | 'unlink' | 'UNLINK';
+    | 'patch' | 'PATCH';
 
-export type UrlPrefixType = 'public' | 'bff';
+export type UrlPrefixType = 'public' | 'bff' | 'blob';
 
 export interface ApiRequest<T = unknown> {
   url: string;
@@ -33,6 +28,10 @@ export class ApiError extends Error {
 const getUrl = (url: string, type: UrlPrefixType) => {
   if (type === 'bff') {
     return `${process.env.NEXT_PUBLIC_ORIGIN}/api${url}`;
+  }
+
+  if (type === 'blob') {
+    return `${process.env.NEXT_PUBLIC_VERCEL_BLOB_HOST}${url}`;
   }
 
   return url;

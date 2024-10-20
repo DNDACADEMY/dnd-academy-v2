@@ -15,20 +15,22 @@ function ProjectsSlider() {
     <div className={styles.projectsSlider}>
       <Marquee pauseOnHover speed={100} className={styles.marquee}>
         <div className={styles.projectSliderWrapper}>
-          {projects.slice(0, 20).map(({ id, thumbnail, title }) => (
-            <Link key={id} href={`/projects/${id}`} prefetch={false}>
-              <Image
-                key={id}
-                src={thumbnail}
-                alt={title}
-                width={271}
-                height={158}
-                placeholder="blur"
-                blurDataURL={blurDataUrl.projectSlider}
-                className={styles.thumbnail}
-              />
-            </Link>
-          ))}
+          {[...projects]
+            .slice(0, 20)
+            .map(({ id, thumbnail, title }) => (
+              <Link key={id} href={`/projects/${id}`} prefetch={false}>
+                <Image
+                  key={id}
+                  src={thumbnail}
+                  alt={title}
+                  width={271}
+                  height={158}
+                  placeholder="blur"
+                  blurDataURL={blurDataUrl.projectSlider}
+                  className={styles.thumbnail}
+                />
+              </Link>
+            ))}
         </div>
       </Marquee>
     </div>

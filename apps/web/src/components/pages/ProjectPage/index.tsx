@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import type { Project } from '@dnd-academy/core';
+import { type Project } from '@dnd-academy/core';
 import { Badge, Button, SkillTag } from '@dnd-academy/ui';
 
 import DetailNavigation from '@/components/molecules/DetailNavigation';
@@ -110,10 +110,12 @@ function ProjectPage({ project }: Props) {
             <div className={styles.description}>{project.desc}</div>
           </div>
         </section>
-        <section className={styles.projectSubSection}>
-          <h2>참가자</h2>
-          <ReviewList reviews={reviews} hasProjectLink={false} />
-        </section>
+        {reviews.length > 0 && (
+          <section className={styles.projectSubSection}>
+            <h2>참가자</h2>
+            <ReviewList reviews={reviews} hasProjectLink={false} />
+          </section>
+        )}
         <section className={styles.projectSubSection}>
           <h2>프로젝트 더보기</h2>
           <ProjectCards

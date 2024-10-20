@@ -2022,5 +2022,284 @@
       "youtube": "",
       "link": ""
     }
+  },
+  {
+    "id": 76,
+    "name": "메이트립",
+    "title": "재밌는 동행의 시작, 메이트립! 메이트립은 여행 동행에 관심이 있는 사람들을 위한 서비스입니다.",
+    "desc": "재밌는 동행의 시작, 메이트립!\n동행에 관심은 있지만 상대방이 신뢰할 만한 사람인지, 나와 잘 맞는 사람인지 모르겠다구요?🤷‍♀️🤷‍♂️\n메이트립에서는 상대방의 인증 수단과 기본 정보, 성격, 여행 성향, 여행 스타일 등 동행에 필요한 필수 정보들을 확인할 수 있어서 상대방에 대한 신뢰도는 물론! 나와 비슷한 성향을 가진 동행자를 더욱 편리하게 찾을 수 있습니다.\n또한, 동행이 끝났다면 상대방과의 동행 후기를 작성해서 동행자와 추억을 간직할 수 있고 다음 동행자에게 도움을 줄 수 있습니다.\n메이트립에서 재미있는 동행을 경험해 보세요!",
+    "flag": "11기",
+    "skill": [
+      "figma",
+      "kotlin",
+      "android studio",
+      "hilt",
+      "Junit",
+      "Mockito",
+      "Git"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/1/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/1/1.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-11th-1-android",
+        "https://github.com/dnd-side-project/dnd-11th-1-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 77,
+    "name": "공무인",
+    "title": "공무원 업무습득을 위한 Q&A 서비스",
+    "desc": "“잦은 인사이동, 인수인계의 부족으로 업무에 어려움이 있으신가요?”\n“모르는 업무를 해결하기 위해 번거로운 과정을 거치고 있으시나요?”\n모르는 업무를 혼자 처리해야 하는 상황에 자주 직면하는 공무원들을 위한 서비스 \n“공무인”\n💡 공무인은  업무 어려움을 쉽게 질문하고 해결할 수 있는 서비스를 제공합니다.\n 1️⃣ 익명으로 어려운 업무를 질문하고, 대답받을 수 있어요!\n2️⃣ 나의 질문을 바탕으로 답변을 해줄 사수를 찾아 1:1 대화를 나눌 수 있어요!\n3️⃣ 자신의 질문에 대해 답변해준 사수에게 간편한 보상체계(크레딧)를 통하여 감사한 마음을 전할 수 있어요!\n공무인을 통해 필요한 정보를 쉽게 얻고, 업무 스트레스를 덜어보세요!!🤗",
+    "flag": "11기",
+    "skill": [
+      "Figma",
+      "FSD architecture",
+      "React",
+      "Typescript",
+      "Next.js",
+      "Storybook",
+      "Vanilla-extract CSS",
+      "Monorepo",
+      "NX",
+      "npm package",
+      "Spring Boot",
+      "Java",
+      "JPA",
+      "Spring Security",
+      "JWT",
+      "MySQL",
+      "QueryDSL",
+      "Redis",
+      "AWS",
+      "GitHub Action",
+      "Docker",
+      "Test Container"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/3/3.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/3/3.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-11th-3-frontend",
+        "https://github.com/dnd-side-project/dnd-11th-3-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "https://gongmuin.netlify.app"
+    }
+  },
+  {
+    "id": 78,
+    "name": "맵땅",
+    "title": "색으로 칠하는 나만의 국내지도, 맵땅",
+    "desc": "다녀온 여행을 어떻게 간편하게 추억할 수 있을까?\n맵땅은 여행을 간편하고 재미있게 기록하자는 생각에서 출발했습니다!\n시간 여유가 없고 과제처럼 느껴지는 기록을 재밌는 행위로 느껴지도록,\n2분 안에 끝내는 나만의 국내여행 지도 색칠하기 서비스\n- 유저가 기록에대한 부채를 느끼지 않도록 ‘지도 색칠하기’라는 기능에 집중했어요.\n- 원하는 색을 선택하고, 여러번 여행한 지역일수록 더 선명하게 칠할 수 있어요.\n- 포토카드 형식으로 남겨진 추억을 회상할 수 있어요!\n맵땅과 함께 여행의 순간을 기록해볼까요?",
+    "flag": "11기",
+    "skill": [
+      "UIKit",
+      "RxSwift",
+      "ReactorKit",
+      "Alamofire",
+      "SpringBoot",
+      "AWS EC2",
+      "AWS RDS",
+      "MySQL",
+      "Figma",
+      "Blender"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/4/4.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/4/4.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-11th-4-iOS",
+        "https://github.com/dnd-side-project/dnd-11th-4-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 79,
+    "name": "페스티벌의 시작 피에스타와 함께! Fiesta",
+    "title": "피에스타는 개인의 니즈에 맞는 맞춤형 페스티벌을 추천하여 효율적인 경험을 제공하는 동시에 지역 페스티벌의 활성화를 유도하는 서비스입니다.",
+    "desc": "어떤 페스티벌이 나에게 딱 맞을까 고민한 적 있으신가요? 피에스타는 바로 그런 고민을 한번에 해결해주는 서비스입니다. 개인의 관심사와 니즈에 맞춰 맞춤형 페스티벌을 추천하여, 사용자에게 최적화된 경험을 제공합니다. \n피에스타를 통해 사용자는 다양한 지역 축제 정보를 빠르고 쉽게 탐색할 수 있으며, 이를 통해 자신에게 가장 적합한 페스티벌을 찾을 수 있습니다. 또한, 효율적인 페스티벌 탐색을 통해 사용자의 만족도를 높이는 동시에, 지역 축제의 활성화를 촉진하는 역할을 합니다. 사용자와 지역 축제를 연결함으로써 문화적 교류와 경제적 기여를 동시에 이끌어냅니다.\n\n🏠온보딩 & 홈\n온보딩 테스트로 개인 맞춤형 페스티벌을 유형을 확인해보세요! 각자 선택하는 키워드에 따라 파티피플러/인스파이어러/로맨티스트/몽글몽글 힐링러/호기심만땅 탐험러 5가지 유형 중 개인별 니즈에 맞는 키워드를 선택하여 분석한 유형 프로필 결과를 바탕으로 맞춤형 페스티벌을 추천해드립니다.\n홈에서는 온보딩 테스트를 바탕으로 생성된 유형에 따른 페스티벌을 추천받고 다양한 주제와 곧 다가오는 페스티벌을 확인할 수 있습니다. 곧 다가오는 페스티벌 같은 경우 페스티벌의 날씨 현황도 간편하게 확인할 수 있습니다. 맞춤형 페스티벌을 추천받고 다가오는 페스티벌, HOT한 페스티벌과 같은 다양한 페스티벌을 둘러보세요!\n\n📍캘린더 & 지역\n캘린더로 페스티벌 일정을 한 눈에 체크하고, 지역 탭에서 페스티벌을 더 자세히 검색할 수 있습니다. 내가 스크랩한 페스티벌을 캘린더에서 한 눈에 확인하고 날짜를 눌러 더 자세한 정보를 얻을 수 있습니다. 지역에서는 지역/월별/주제 필터를 사용해 검색하고 싶은 페스티벌에 대해 더 편리하게 페스티벌을 검색할 수 있습니다.\n\n🎉상세페이지\n페스티벌에 대한 상세 내용을 확인할 수 있습니다. 페스티벌이 개최되는 장소 및 시간과 같은 기본 정보에서부터 시작해서 페스티벌의 한 줄 꿀팁, 실시간 채팅을 통해 페스티벌의 현황을 쉽게 확인할 수 있습니다. 실제 페스티벌을 다녀온 후기도 보면서 리뷰 작성 시 많이 선택된 키워드 TOP5를 확인할 수 있습니다.\n\n🙌마이페이지\n마이페이지에서 방문일지, 스크랩한 페스티벌, 활동뱃지를 관리할 수 있습니다. 페스티벌을 방문한 뒤 방문일지를 기록해서 추억을 남기고 활동 뱃지를 모아보세요!",
+    "flag": "11기",
+    "skill": [
+      "Figma",
+      "Java",
+      "Spring boot",
+      "MySQL",
+      "Spring Data JPA",
+      "Querydsl",
+      "Docker",
+      "Nginx",
+      "Github  Action",
+      "Redis",
+      "Typescript",
+      "Nextjs",
+      "Storybook",
+      "MSW",
+      "NextAuth",
+      "GIthub Action",
+      "TailwindCSS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/5/5.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/5/5.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-11th-5-frontend",
+        "https://github.com/dnd-side-project/dnd-11th-5-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 80,
+    "name": "스냅피 snappy",
+    "title": "스냅피는 모임의 재미있고 즐거운 순간을 포착해주는 모임 공유 앨범 서비스입니다.",
+    "desc": "사진을 통해 교류하는 트렌드와 모임의 순간을 즐기고 추억하고 싶어하는 사람들의 니즈에서 출발한 스냅피는 모임의 순간을 사진으로 찍어 공유하며 함께하는 사람들과 교류하고, 다함께 볼 수 있는 공유 앨범을 통해 쉽게 놓칠 수 있는 소중한 순간들을 오랫동안 간직할 수 있도록 도와줍니다.",
+    "flag": "11기",
+    "skill": [
+      "Nextjs+PWA",
+      "Zustand",
+      "TanstackQuery",
+      "TailwindCss"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/6/6.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/6/6.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-11th-6-frontend",
+        "https://github.com/dnd-side-project/dnd-11th-6-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 81,
+    "name": "째깍 (jjakkak)",
+    "title": "모두의 일정을 한눈에! 간편한 일정 조율 서비스, 째깍",
+    "desc": "“모두가 가능한 시간을 계산하려니까 정말 번거롭네 !!!”\n“각자 일정 확인하느라 답변도 느리고,,, 결국 약속을 잡는 데만 한참이잖아,,,”\n“모임을 가지기로 했는데, 모두가 만날 수 있는 날짜는 언제일까 ?”\n\n모임 일정을 조율하는 건 번거롭고 시간이 걸리죠. 각자의 일정을 확인하고, 소수 의견이 묻히거나 응답 지연으로 일정이 미뤄지기도 합니다. 서로의 일정을 맞추느라 시간이 걸리고, 최적의 시간을 찾는 건 더욱 어려운 문제입니다.\n\n째깍에서는 모두의 일정을 한눈에 확인할 수 있고 소중한 우리 모임을 위한 최적의 일정을 찾을 수 있어요.\n\n째깍을 통해 간편한 일정 조율을 경험해 보세요! 🕚💜",
+    "flag": "11기",
+    "skill": [
+      "Figma",
+      "Illust",
+      "Photoshop",
+      "React",
+      "Typescript",
+      "EmotionCSS",
+      "Storybook",
+      "TanStack-Query",
+      "Storybook",
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "Docker",
+      "AWS",
+      "GitHub Actions"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/7/7.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/7/7.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-11th-7-frontend",
+        "https://github.com/dnd-side-project/dnd-11th-7-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "https://d3s958yad74p2w.cloudfront.net"
+    }
+  },
+  {
+    "id": 82,
+    "name": "wepro",
+    "title": "팀원들이 만들어주는 명함 서비스, 위프로",
+    "desc": "이 프로젝트는 IT 동아리들 사이의 치열한 경쟁 속에서 어떻게 효과적으로 자신을 어필할 수 있을지를 고민한 결과로 탄생하게 되었습니다. 저희 '위프로'는 동료들의 객관적인 평가를 기반으로 한 명함을 제공합니다. \n\n#왜 팀원들이 만들어주는 명함 서비스를 이용해야 할까요?\n\n많은 사람들이 사이드 프로젝트를 지원하며 스스로의 역량을 어필하고자 하지만, 실제로 무엇을 강조해야 하는지에 대해 혼란을 겪고 있습니다. 혼자 작성한 서류들은 자신의 강점과 협업 능력을 온전히 반영하기 어렵습니다. 특히, 협업이 중요한 환경에서는 객관적인 피드백이 부족해 자신의 실제 역량을 제대로 전달하지 못할 수 있습니다.\n\n지원자들은 주로 프로젝트 경험을 어필하는 반면, 모집자는 지원자의 협업 능력에 더욱 관심이 있습니다. 따라서 우리는 지원자가 자신의 성격과 성향, 그리고 협업 능력을 효과적으로 어필할 수 있는 방법을 고민하게 되었습니다. 이 문제를 해결하기 위해 '함께 만드는 명함 서비스'를 개발하게 되었습니다. 동료들의 객관적인 평가를 통해 나의 협업 능력과 성향을 어필할 수 있다면, 모집자 입장에서는 훨씬 더 신뢰할 수 있는 정보를 얻을 수 있습니다. 또한, 지원자는 본인이 놓치기 쉬운 부분을 객관적인 피드백을 통해 보완할 수 있게 됩니다.\n\n#어떻게 이용할 수 있을까요?\n\n📝 내 협업 능력과 성향을 평가 받기\n\n내 프로젝트를 생성한 후, 평가를 받고 싶은 카테고리를 설정하고 질문을 골라 팀원들에게 리뷰를 요청할 수 있습니다. 팀원들은 요청에 따라 다양한 카테고리에 대해 리뷰할 수 있습니다. 이러한 정보는 추후 명함 제작에 사용됩니다. \n\n📄 나만의 명함 제작하고 공유하기\n\n팀원들의 리뷰를 바탕으로 명함을 제작할 수 있습니다. 여러분의 성향과 협업 능력이 키워드와 3D 그래픽으로 표현되어 구성됩니다. 이렇게 완성된 명함을 다양한 채널을 통해 공유할 수 있습니다. 명함을 활용해 팀원들과 함께한 협업 경험과 성과를 어필할 수 있습니다. \n\n‘위프로'를 통해 자신의 강점을 최대한으로 어필하고, 협업 능력을 객관적으로 증명해보세요. 팀원들과 함께 만들어가는 명함이 여러분의 다음 단계를 더욱 빛나게 만들어 줄 수 있습니다.",
+    "flag": "11기",
+    "skill": [
+      "Expo",
+      "Zustand",
+      "spring boot",
+      "java",
+      "figma",
+      "c4d"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/9/9.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/9/9.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-11th-9-frontend",
+        "https://github.com/dnd-side-project/dnd-11th-9-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 83,
+    "name": "SPACE D",
+    "title": "소통의 간격을 줄이다, SPACE D",
+    "desc": "생소한 업무 용어가 외계어로 들려 당황했던 적이 있지 않았나요?\n\n스페이스 디는 협업과 커뮤니케이션이 중요한 IT 직군 신입들이 모르는 용어를 빠르고 정확하게 알 수 있도록 도와주고 용어 관련 경험담을 공유, 소통할 수 있는 서비스예요. 스페이스 디와 함께 모르는 용어로 인해 생긴 소통의 간격을 줄여보세요!\n\n🔎 용어 검색하기\n- 업무 중 모르는 용어가 생겼나요? 용어를 검색하고 빠르게 알 수 있어요.\n\n🧐 용어 뜻, 예문 알아보기\n- 분야별 동음이의어로 인한 혼동을 방지하기 위해 개발, 디자인, 비지니스 용어로 분류해 뜻과, 예문을 다르게 알아볼 수 있어요.\n- 출처 표기로 검증된 곳의 정보라는 것을 알려주어 신뢰성을 높였어요.\n- 좋아요를 많이 받은 의미 있는 경험담은 예문에 등록되어 학습에 도움을 줄 수 있어요.\n\n💬 용어와 관련된 경험담 댓글로 공유하고 소통하기\n- 용어와 관련된 다양한 경험담을 댓글로 공유하고 다른 사용자와 소통할 수 있어요.\n\n📝 용어 퀴즈로 용어 학습하기\n- 원하는 분야를 선택해 퀴즈를 풀고 용어를 학습할 수 있어요.\n\n📊 용어 퀴즈 풀고 나의 업무 소통 능력치 확인하기\n- 용어 퀴즈를 풀면 나의 업무 소통 능력치가 상위 몇 퍼센트인지 알 수 있어요.\n- 용어 퀴즈의 정답률이 높을수록 분야별 업무 소통 능력치가 올라가요.\n- 업무 소통 능력치를 알 수 있도록 해 용어 퀴즈의 참여를 유도했어요.",
+    "flag": "11기",
+    "skill": [
+      "Figma",
+      "Blender 3D",
+      "Adobe Illustrator",
+      "Next.js",
+      "Typescript",
+      "React-Query",
+      "Axios",
+      "Vercel",
+      "Chromatic",
+      "Storybook",
+      "Tallwlndcss",
+      "Zustand",
+      "Spring Security",
+      "Spring Boot 3.2.8",
+      "Spring Security OAuth2 Client",
+      "JPA",
+      "Querydsl",
+      "MySQL",
+      "Java 17",
+      "JWT",
+      "H2 Database",
+      "Swagger",
+      "Lombok",
+      "Logback",
+      "AWS EC2",
+      "AWS RDS",
+      "AWS Route 53",
+      "Nginx",
+      "Docker",
+      "Github Actions"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/11/10/10.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/11/10/10.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-11th-10-frontend",
+        "https://github.com/dnd-side-project/dnd-11th-10-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
   }
 ]
