@@ -45,17 +45,32 @@ function PDFViewer({ url }: Props) {
     setNumPages(data.numPages);
   };
 
+  const [loadingProgress, setLoadingProgress] = useState<number>(0);
+
+  const onDocumentLoadProgress: DocumentProps['onLoadProgress'] = ({ loaded, total }) => {
+    const progress = (loaded / total) * 100;
+    setLoadingProgress(progress);
+  };
+
   const onPrev = () => setPageNumber(pageNumber - 1);
   const onNext = () => setPageNumber(pageNumber + 1);
 
   return (
     <div ref={containerRef} className={styles.pdfViewerWrapper}>
+      {loadingProgress > 0 && loadingProgress < 100 && (
+        <div className={styles.progressBar}>
+          <div
+            className={styles.progress}
+            style={{ width: `${loadingProgress}%` }}
+          />
+        </div>
+      )}
       {width && (
         <Document
           file={url}
           onLoadSuccess={onDocumentLoadSuccess}
-          // TODO: 로딩 임시 처리
-          loading={<div className={styles.loading}>loading pdf..</div>}
+          onLoadProgress={onDocumentLoadProgress}
+          loading={<div className={styles.loading}>loading document..</div>}
         >
           <Page
             pageNumber={pageNumber}
