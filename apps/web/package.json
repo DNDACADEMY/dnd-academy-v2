@@ -40,7 +40,6 @@
     "dayjs": "1.11.11",
     "framer-motion": "11.2.10",
     "next": "14.2.15",
-    "qs": "6.12.1",
     "react": "18.3.1",
     "react-countup": "6.5.3",
     "react-dom": "18.3.1",
@@ -49,8 +48,9 @@
     "react-perfect-scrollbar": "1.5.8",
     "react-responsive-masonry": "2.2.0",
     "sanitize.css": "13.0.0",
+    "use-sync-external-store": "1.2.2",
     "usehooks-ts": "3.1.0",
-    "zustand": "4.5.2"
+    "zustand": "5.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "2.0.2",
@@ -73,7 +73,6 @@
     "@types/jest-plugin-context": "2.9.7",
     "@types/node": "20",
     "@types/prop-types": "^15",
-    "@types/qs": "^6",
     "@types/react": "18.3.2",
     "@types/react-dom": "18.3.0",
     "@types/react-responsive-masonry": "^2",

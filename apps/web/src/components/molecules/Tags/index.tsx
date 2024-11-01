@@ -5,10 +5,11 @@ import { useCallback, useMemo } from 'react';
 import { Route } from 'next';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+import { paramsSerializer } from '@dnd-academy/core';
 import clsx from 'clsx';
 
 import Tag from '@/components/atoms/Tag';
-import { paramsSerializer, sortFlagsDescending } from '@/utils';
+import { sortFlagsDescending } from '@/utils';
 
 import styles from './index.module.scss';
 
