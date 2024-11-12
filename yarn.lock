@@ -3292,6 +3292,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@notionhq/client@npm:2.2.15":
+  version: 2.2.15
+  resolution: "@notionhq/client@npm:2.2.15"
+  dependencies:
+    "@types/node-fetch": "npm:^2.5.10"
+    node-fetch: "npm:^2.6.1"
+  checksum: 10/18e8812f1630d7f6a93e058695101853b2db980b2003ca6b1e451c93bca330b8d1c1a7fe2c9769ac5a07ab36bdfe33d9458a244ecc3c171331153872384f0cae
+  languageName: node
+  linkType: hard
+
 "@npmcli/agent@npm:^2.0.0":
   version: 2.2.2
   resolution: "@npmcli/agent@npm:2.2.2"
@@ -5182,6 +5192,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node-fetch@npm:^2.5.10":
+  version: 2.6.12
+  resolution: "@types/node-fetch@npm:2.6.12"
+  dependencies:
+    "@types/node": "npm:*"
+    form-data: "npm:^4.0.0"
+  checksum: 10/8107c479da83a3114fcbfa882eba95ee5175cccb5e4dd53f737a96f2559ae6262f662176b8457c1656de09ec393cc7b20a266c077e4bfb21e929976e1cf4d0f9
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*, @types/node@npm:^22.0.0":
   version: 22.7.2
   resolution: "@types/node@npm:22.7.2"
@@ -6161,6 +6181,7 @@ __metadata:
     "@dnd-academy/eslint-config": "npm:*"
     "@dnd-academy/ui": "npm:*"
     "@next/eslint-plugin-next": "npm:14.2.15"
+    "@notionhq/client": "npm:2.2.15"
     "@tanstack/react-query": "npm:5.52.0"
     "@testing-library/dom": "npm:10.3.1"
     "@testing-library/jest-dom": "npm:6.4.6"
@@ -14333,7 +14354,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.6.7, node-fetch@npm:^2.6.9":
+"node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.7, node-fetch@npm:^2.6.9":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
   dependencies:
