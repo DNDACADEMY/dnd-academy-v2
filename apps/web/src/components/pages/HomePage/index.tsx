@@ -49,7 +49,7 @@ function HomePage({
               <strong>IT비영리단체</strong>
               입니다.
             </div>
-            {eventStatus.status !== 'INACTIVE' && (
+            {['ONGOING', 'HOT'].includes(eventStatus.status) && (
               <div className={styles.counter}>
                 오늘까지&nbsp;
                 <Counter count={currentApplicantCount} />
