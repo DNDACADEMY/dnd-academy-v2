@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/DNDACADEMY/dnd-academy-v2#readme",
   "dependencies": {
-    "@dnd-academy/core": "*",
-    "@dnd-academy/ui": "*",
+    "@dnd-academy/core": "workspace:*",
+    "@dnd-academy/ui": "workspace:*",
     "@tanstack/react-query": "5.52.0",
     "@vercel/blob": "0.23.4",
     "clsx": "2.1.1",
@@ -40,7 +40,7 @@
     "react-perfect-scrollbar": "1.5.8"
   },
   "devDependencies": {
-    "@dnd-academy/eslint-config": "*",
+    "@dnd-academy/eslint-config": "workspace:*",
     "@next/eslint-plugin-next": "14.2.15",
     "@testing-library/dom": "10.3.1",
     "@testing-library/jest-dom": "6.4.6",
