@@ -10,6 +10,7 @@ env:
   CACHED_DEPENDENCY_PATHS: |
     ${{ github.workspace }}/.yarn/cache
     ${{ github.workspace }}/node_modules
+    ${{ github.workspace }}/packages/*/node_modules
   CACHED_BUILD_PACKAGE_UI_PATHS: ${{ github.workspace }}/packages/ui/dist
   CACHED_BUILD_PACKAGE_CORE_PATHS: ${{ github.workspace }}/packages/core/dist
   DEFAULT_NODE_VERSION: "v20.11.1"
@@ -76,10 +77,15 @@ jobs:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
 
       - name: Check dependency cache
+        id: cache-deps
         uses: actions/cache@v4
         with:
           path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
           key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+
+      - name: Install dependencies
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --immutable
 
       - name: Compute @dnd-academy/core cache key
         id: compute_core_cache_key

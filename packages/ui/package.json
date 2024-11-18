@@ -56,7 +56,7 @@
     "lint": "eslint \"**/*.ts*\""
   },
   "devDependencies": {
-    "@dnd-academy/eslint-config": "*",
+    "@dnd-academy/eslint-config": "workspace:*",
     "@storybook/blocks": "8.3.3",
     "@storybook/react": "8.3.3",
     "@swc/core": "1.6.13",
@@ -100,9 +100,9 @@
     "vite-plugin-svgr": "4.3.0"
   },
   "dependencies": {
-    "@dnd-academy/core": "*",
+    "@dnd-academy/core": "workspace:*",
     "clsx": "2.1.1",
-    "framer-motion": "11.2.10",
+    "motion": "11.11.17",
     "next": "14.2.15",
     "react": "18.3.1",
     "react-countup": "6.5.3",
@@ -111,7 +111,7 @@
   },
   "peerDependencies": {
     "clsx": "2.1.1",
-    "framer-motion": "11.2.10",
+    "motion": "11.11.17",
     "next": "14.2.15",
     "react": "^18",
     "react-countup": "6.5.3",

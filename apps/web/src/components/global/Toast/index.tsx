@@ -5,7 +5,7 @@ import {
 } from 'react';
 
 import clsx from 'clsx';
-import { AnimationDefinition, motion } from 'framer-motion';
+import { AnimationDefinition, motion } from 'motion/react';
 
 import {
   ErrorCircleIcon, InfoCircleIcon, SuccessCircleIcon, WarningIcon,

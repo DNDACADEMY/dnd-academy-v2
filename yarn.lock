@@ -1961,11 +1961,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dnd-academy/core@npm:*, @dnd-academy/core@workspace:packages/core":
+"@dnd-academy/core@workspace:*, @dnd-academy/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@dnd-academy/core@workspace:packages/core"
   dependencies:
-    "@dnd-academy/eslint-config": "npm:*"
+    "@dnd-academy/eslint-config": "workspace:*"
     "@swc/core": "npm:1.6.13"
     "@swc/jest": "npm:0.2.36"
     "@types/jest": "npm:29.5.9"
@@ -1995,7 +1995,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dnd-academy/eslint-config@npm:*, @dnd-academy/eslint-config@workspace:packages/eslint-config":
+"@dnd-academy/eslint-config@workspace:*, @dnd-academy/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@dnd-academy/eslint-config@workspace:packages/eslint-config"
   dependencies:
@@ -2027,12 +2027,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dnd-academy/ui@npm:*, @dnd-academy/ui@workspace:packages/ui":
+"@dnd-academy/ui@workspace:*, @dnd-academy/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@dnd-academy/ui@workspace:packages/ui"
   dependencies:
-    "@dnd-academy/core": "npm:*"
-    "@dnd-academy/eslint-config": "npm:*"
+    "@dnd-academy/core": "workspace:*"
+    "@dnd-academy/eslint-config": "workspace:*"
     "@storybook/blocks": "npm:8.3.3"
     "@storybook/react": "npm:8.3.3"
     "@swc/core": "npm:1.6.13"
@@ -2063,11 +2063,11 @@ __metadata:
     eslint-plugin-storybook: "npm:0.8.0"
     eslint-plugin-testing-library: "npm:6.2.0"
     eslint-plugin-unused-imports: "npm:3.2.0"
-    framer-motion: "npm:11.2.10"
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"
     jest-plugin-context: "npm:2.9.0"
+    motion: "npm:11.11.17"
     next: "npm:14.2.15"
     react: "npm:18.3.1"
     react-countup: "npm:6.5.3"
@@ -2083,7 +2083,7 @@ __metadata:
     vite-plugin-svgr: "npm:4.3.0"
   peerDependencies:
     clsx: 2.1.1
-    framer-motion: 11.2.10
+    motion: 11.11.17
     next: 14.2.15
     react: ^18
     react-countup: 6.5.3
@@ -6157,9 +6157,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
-    "@dnd-academy/core": "npm:*"
-    "@dnd-academy/eslint-config": "npm:*"
-    "@dnd-academy/ui": "npm:*"
+    "@dnd-academy/core": "workspace:*"
+    "@dnd-academy/eslint-config": "workspace:*"
+    "@dnd-academy/ui": "workspace:*"
     "@next/eslint-plugin-next": "npm:14.2.15"
     "@tanstack/react-query": "npm:5.52.0"
     "@testing-library/dom": "npm:10.3.1"
@@ -6188,13 +6188,13 @@ __metadata:
     eslint-plugin-simple-import-sort: "npm:12.1.1"
     eslint-plugin-testing-library: "npm:6.2.0"
     eslint-plugin-unused-imports: "npm:3.2.0"
-    framer-motion: "npm:11.2.10"
     google-auth-library: "npm:9.13.0"
     google-spreadsheet: "npm:4.1.2"
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"
     jest-plugin-context: "npm:2.9.0"
+    motion: "npm:11.11.17"
     next: "npm:14.2.15"
     next-auth: "npm:5.0.0-beta.19"
     react: "npm:18.3.1"
@@ -10584,9 +10584,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.2.10":
-  version: 11.2.10
-  resolution: "framer-motion@npm:11.2.10"
+"framer-motion@npm:^11.11.17":
+  version: 11.11.17
+  resolution: "framer-motion@npm:11.11.17"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -10600,7 +10600,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/3f09356c08700f5f405b6259617d9eb3f49d49770efe15a81211bc41625001485f242fe2b44f6de657e707cd2ac766ca243bab72192dc948672525d331628a5d
+  checksum: 10/85193dea8ea4161efa20604db31d82761008b56f1c68097239e6e825a422c4fcc8e3b06c3a81e9cbbb1905c4b9d69632b520db2f9dd4808e03bf83e1826791ea
   languageName: node
   linkType: hard
 
@@ -14136,6 +14136,27 @@ __metadata:
     pkg-types: "npm:^1.2.0"
     ufo: "npm:^1.5.4"
   checksum: 10/c28e9f32cfc7b204e4d089a9af01b6af30547f39dd97244486fe208523c1453828b694430ebfa2d06297116861d464f150d3273040bf5e11ef5a357958f142d5
+  languageName: node
+  linkType: hard
+
+"motion@npm:11.11.17":
+  version: 11.11.17
+  resolution: "motion@npm:11.11.17"
+  dependencies:
+    framer-motion: "npm:^11.11.17"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@emotion/is-prop-valid": "*"
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  peerDependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10/d7d1195a781db3859bf05ac1c839511d314eceb1ddbe0157d5d6268aa2989af58fdff2497bfd408c97d1e3dd81e4521820a75b0d0aeaa7a25f55c011f6a079fe
   languageName: node
   linkType: hard
 
@@ -19131,9 +19152,9 @@ __metadata:
     "@channel.io/channel-web-sdk-loader": "npm:1.1.7"
     "@chromatic-com/storybook": "npm:2.0.2"
     "@codecov/nextjs-webpack-plugin": "npm:1.2.0"
-    "@dnd-academy/core": "npm:*"
-    "@dnd-academy/eslint-config": "npm:*"
-    "@dnd-academy/ui": "npm:*"
+    "@dnd-academy/core": "workspace:*"
+    "@dnd-academy/eslint-config": "workspace:*"
+    "@dnd-academy/ui": "workspace:*"
     "@next/eslint-plugin-next": "npm:14.2.15"
     "@next/third-parties": "npm:14.2.15"
     "@storybook/addon-essentials": "npm:8.3.3"
@@ -19176,11 +19197,11 @@ __metadata:
     eslint-plugin-storybook: "npm:0.8.0"
     eslint-plugin-testing-library: "npm:6.2.0"
     eslint-plugin-unused-imports: "npm:3.2.0"
-    framer-motion: "npm:11.2.10"
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"
     jest-plugin-context: "npm:2.9.0"
+    motion: "npm:11.11.17"
     next: "npm:14.2.15"
     prop-types: "npm:15.8.1"
     react: "npm:18.3.1"
