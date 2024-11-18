@@ -2,8 +2,10 @@ import Image from 'next/image';
 
 import { Button } from '@dnd-academy/ui';
 
+import ExternalLink from '@/components/atoms/ExternalLink';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { LinkIcon } from '@/lib/assets/icons';
+import { EliceLogo, NotefolioLogo } from '@/lib/assets/logos';
 
 import styles from './index.module.scss';
 
@@ -17,7 +19,7 @@ function SponsorSection() {
     { sponsor: 'maru180', url: 'https://maru.org', image: 'maru180.png' },
     { sponsor: 'asan-nanum', url: 'https://asan-nanum.org', image: 'asan-nanum.png' },
     { sponsor: 'impact-campus', url: 'https://impactcampus.campaignus.me', image: 'impact-campus.png' },
-    { sponsor: 'notefolio', url: 'https://notefolio.net', image: 'notefolio.png' },
+    // { sponsor: 'notefolio', url: 'https://notefolio.net', image: 'notefolio.png' },
   ];
 
   return (
@@ -36,7 +38,7 @@ function SponsorSection() {
         {sponsors.map(({ sponsor, url, image }) => (
           <a key={sponsor} href={url} className={styles.sponsor} rel="noopener noreferrer" target="_blank">
             <Image
-              src={`${process.env.NEXT_PUBLIC_S3_HOST}/images/icon/sponsor/${image}`}
+              src={`/assets/logos/sponsors/${image}`}
               alt={sponsor}
               fill
               sizes="(max-width: 1204px) 50vw, 33vw"
@@ -44,6 +46,12 @@ function SponsorSection() {
             />
           </a>
         ))}
+        <ExternalLink href="https://notefolio.net">
+          <NotefolioLogo className={styles.sponsorLogo} />
+        </ExternalLink>
+        <ExternalLink href="https://elice.io/ko">
+          <EliceLogo className={styles.sponsorLogo} />
+        </ExternalLink>
       </div>
       <Button
         isExternalLink
