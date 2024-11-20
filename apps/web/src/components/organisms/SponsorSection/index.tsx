@@ -36,7 +36,7 @@ function SponsorSection() {
         {sponsors.map(({ sponsor, url, image }) => (
           <a key={sponsor} href={url} className={styles.sponsor} rel="noopener noreferrer" target="_blank">
             <Image
-              src={`${process.env.NEXT_PUBLIC_S3_HOST}/images/icon/sponsor/${image}`}
+              src={`/assets/logos/sponsors/${image}`}
               alt={sponsor}
               fill
               sizes="(max-width: 1204px) 50vw, 33vw"
