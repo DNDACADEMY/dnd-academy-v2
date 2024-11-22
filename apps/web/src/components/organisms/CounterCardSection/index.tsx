@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { CounterCard } from '@dnd-academy/ui';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
@@ -7,7 +9,7 @@ import { CURRENT_FLAG } from '@/lib/constants';
 import styles from './index.module.scss';
 
 type Props = {
-  title: string;
+  title: ReactNode;
 };
 
 async function CounterCardSection({ title }: Props) {

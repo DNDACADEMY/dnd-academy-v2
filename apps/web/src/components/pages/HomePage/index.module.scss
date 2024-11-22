@@ -92,3 +92,20 @@
     @include text('H5/Bold', 'gray09');
   }
 }
+
+.counterCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include sm {
+    gap: 8px;
+  }
+
+  .christmasSock {
+    @include xs {
+      width: 22px;
+      height: 40px;
+    }
+  }
+}

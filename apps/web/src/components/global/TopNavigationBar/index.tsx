@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-import { DNDLogo } from '@/lib/assets/logos';
+import { DNDChristmasLogo, DNDLogo } from '@/lib/assets/logos';
+import { isChristmasTheme } from '@/utils';
 
 import TopNavigationMenu from '../TopNavigationMenu';
 
@@ -12,12 +13,17 @@ function TopNavigationBar() {
       <header className={styles.navigationWrapper}>
         <nav className={styles.navigationContents}>
           <Link href="/" className={styles.logoLink}>
-            <DNDLogo
-              aria-label="logo"
-              width={21}
-              height={24}
-              className={styles.logo}
-            />
+            {isChristmasTheme() ? (
+              <DNDChristmasLogo
+                aria-label="logo"
+                className={styles.christmasLogo}
+              />
+            ) : (
+              <DNDLogo
+                aria-label="logo"
+                className={styles.logo}
+              />
+            )}
           </Link>
           <TopNavigationMenu />
         </nav>
