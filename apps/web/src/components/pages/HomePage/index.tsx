@@ -14,6 +14,7 @@ import ProjectsSlider from '@/components/organisms/ProjectsSlider';
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import SponsorSection from '@/components/organisms/SponsorSection';
 import { RightArrowIcon } from '@/lib/assets/icons';
+import { isChristmasTheme } from '@/utils';
 
 import styles from './index.module.scss';
 
@@ -63,8 +64,8 @@ function HomePage({
         </div>
         <div className={styles.bannerWrapper}>
           <Image
-            src={`${process.env.NEXT_PUBLIC_S3_HOST}/images/banner/about.png`}
-            alt="main-banner"
+            src={`/assets/images/home-banner${isChristmasTheme() ? '-christmas' : ''}.png`}
+            alt="home-banner"
             fill
             priority
             sizes="(max-width: 1204px) 50vw, 33vw"
@@ -72,7 +73,21 @@ function HomePage({
           />
         </div>
       </section>
-      <CounterCardSection title="지금까지 DND는?" />
+      <CounterCardSection title={isChristmasTheme() ? (
+        <div className={styles.counterCardTitle}>
+          <div>
+            지금까지 DND는?
+          </div>
+          <Image
+            src="/assets/images/christmas/sock.png"
+            alt="sock"
+            width={45}
+            height={80}
+            className={styles.christmasSock}
+          />
+        </div>
+      ) : '지금까지 DND는?'}
+      />
       <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
         <ProjectsSlider />
         <Button href="/projects" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>프로젝트 더 보기</Button>

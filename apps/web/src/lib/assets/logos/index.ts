@@ -3,6 +3,7 @@ import BehanceLogo from './behance.svg';
 import DesignerBadge from './designer-badge.svg';
 import DeveloperBadge from './developer-badge.svg';
 import DNDLogo from './dnd.svg';
+import DNDChristmasLogo from './dnd-christmas.svg';
 import EmailLogo from './email.svg';
 import FacebookLogo from './facebook.svg';
 import FigmaLogo from './figma.svg';
@@ -22,6 +23,7 @@ export {
   BehanceLogo,
   DesignerBadge,
   DeveloperBadge,
+  DNDChristmasLogo,
   DNDLogo,
   EmailLogo,
   FacebookLogo,

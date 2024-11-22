@@ -1,5 +1,7 @@
 import type { Entries, RequiredNonNullableObject } from '@dnd-academy/core';
 
+export const isChristmasTheme = () => process.env.NEXT_PUBLIC_THEME === 'CHRISTMAS';
+
 export const getEntries = <T extends object>(obj: T) => {
   const entries = Object.entries(obj) as Entries<T>;
 
