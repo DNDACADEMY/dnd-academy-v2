@@ -31,7 +31,7 @@ async function Page() {
         <CounterCard count={cumulativeApplicants} title="누적 지원자 수" />
         <CounterCard count={totalParticipants} title="총 참가자 수" />
         <CounterCard count={totalProjects} title="총 프로젝트 수" suffix="개" />
-        <CounterCard count={dropouts} title="이탈자 수" color="primary" />
+        <CounterCard count={dropouts} title="이탈자 수" highlight />
       </div>
       <TotalCountStatusForm initialTotalCountStatus={{
         cumulativeApplicants, totalParticipants, totalProjects, dropouts,
