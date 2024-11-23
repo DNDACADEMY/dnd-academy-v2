@@ -27,4 +27,16 @@ describe('CounterCard', () => {
 
     expect(container).toHaveTextContent('0');
   });
+
+  describe('highlight', () => {
+    it('highlight 속성이 있으면 highlight 클래스가 존재해야만 한다', () => {
+      const { container } = renderCounterCard();
+
+      act(() => {
+        jest.advanceTimersByTime(6000);
+      });
+
+      expect(container).toHaveClass('highlight');
+    });
+  });
 });
