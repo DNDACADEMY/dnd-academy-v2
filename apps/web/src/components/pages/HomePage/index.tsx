@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import type { EventStatus as Event, FAQ } from '@dnd-academy/core';
+import { type EventStatus as Event, type FAQ } from '@dnd-academy/core';
 import { Button, Counter } from '@dnd-academy/ui';
 
 import ScrollElement from '@/components/atoms/ScrollElement';
@@ -28,6 +28,8 @@ type Props = {
 function HomePage({
   tab, currentApplicantCount, eventStatus, faqItems,
 }: Props) {
+  const isChristmas = isChristmasTheme();
+
   return (
     <>
       <section className={styles.homeSection}>
@@ -64,7 +66,7 @@ function HomePage({
         </div>
         <div className={styles.bannerWrapper}>
           <Image
-            src={`/assets/images/home-banner${isChristmasTheme() ? '-christmas' : ''}.png`}
+            src={`/assets/images/home-banner${isChristmas ? '-christmas' : ''}.png`}
             alt="home-banner"
             fill
             priority
@@ -73,7 +75,7 @@ function HomePage({
           />
         </div>
       </section>
-      <CounterCardSection title={isChristmasTheme() ? (
+      <CounterCardSection title={isChristmas ? (
         <div className={styles.counterCardTitle}>
           <div>
             지금까지 DND는?

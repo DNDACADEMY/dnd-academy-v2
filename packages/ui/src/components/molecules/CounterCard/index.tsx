@@ -10,7 +10,8 @@ type Props = {
   title: string;
   count: number;
   suffix?: string;
-  color?: 'primary' | 'default';
+  color?: 'gray' | 'red' | 'green';
+  highlight?: boolean;
 };
 
 export function Counter({ count }: { count: number; }) {
@@ -24,12 +25,14 @@ export function Counter({ count }: { count: number; }) {
 }
 
 function CounterCard({
-  count, title, suffix = '명', color = 'default',
+  count, title, suffix = '명', color = 'gray', highlight = false,
 }: Props) {
   return (
-    <div className={styles.counterCard}>
-      <div className={clsx(styles.title, styles[color])}>{title}</div>
-      <div className={clsx(styles.counter, styles[color])}>
+    <div className={clsx(styles.counterCard, styles[color])}>
+      <div className={clsx(styles.title, highlight && styles.highlight)}>
+        {title}
+      </div>
+      <div className={clsx(styles.counter, highlight && styles.highlight)}>
         <Counter count={count} />
         &nbsp;
         <span className={styles.suffix}>{suffix}</span>

@@ -6,9 +6,20 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background-color: color('gray08');
   width: 100%;
   max-width: 271px;
+
+  &.gray {
+    background-color: color('gray08');
+  }
+
+  &.red {
+    background-color: color('christmas-secondary');
+  }
+
+  &.green {
+    background-color: color('christmas-primary');
+  }
 
   @include md {
     max-width: none;
@@ -32,11 +43,9 @@
       @include text('body2/Bold');
     }
 
-    &.default {
-      @include text-color('gray04');
-    }
+    @include text-color('gray04');
 
-    &.primary {
+    &.highlight {
       @include text-color('primary');
     }
   }
@@ -45,11 +54,9 @@
     display: flex;
     align-items: center;
 
-    &.default {
-      @include text-color('white');
-    }
+    @include text-color('white');
 
-    &.primary {
+    &.highlight {
       @include text-color('primary');
     }
 
