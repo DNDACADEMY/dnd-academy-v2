@@ -14,6 +14,10 @@
     gap: 48px;
     background-color: color('bgsecondary');
 
+    &.christmasTheme {
+      background-color: color('christmas-primary');
+    }
+
     .marqueeText {
       @include text('body2/ExtraBold');
     }
@@ -24,7 +28,23 @@
   }
 
   .divider {
-    background-color: color('gray08');
+    &.evenDivider {
+      background-color: color('bgsecondary');
+    }
+
+    &.oddDivider {
+      background-color: color('gray08');
+    }
+
+    &.christmasTheme {
+      &.evenDivider {
+        background-color: color('christmas-primary');
+      }
+
+      &.oddDivider {
+        background-color: color('christmas-secondary');
+      }
+    }
   }
 
   .descriptionWrapper {
@@ -35,6 +55,31 @@
     align-items: center;
     padding: 100px 24px;
     background-color: color('gray08');
+
+    &.christmasTheme {
+      background-color: color('christmas-secondary');
+    }
+
+    .christmasTitle {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+
+      @include xs {
+        flex-direction: column;
+      }
+
+      .christmasLeafAngle {
+        object-fit: contain;
+
+        @include sm {
+          width: 50px;
+          height: 40px;
+        }
+      }
+    }
 
     .title {
       text-align: center;
