@@ -15838,6 +15838,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-fast-compare@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "react-fast-compare@npm:3.2.2"
+  checksum: 10/a6826180ba75cefba1c8d3ac539735f9b627ca05d3d307fe155487f5d0228d376dac6c9708d04a283a7b9f9aee599b637446635b79c8c8753d0b4eece56c125c
+  languageName: node
+  linkType: hard
+
 "react-fast-marquee@npm:1.6.4":
   version: 1.6.4
   resolution: "react-fast-marquee@npm:1.6.4"
@@ -15923,6 +15930,18 @@ __metadata:
   version: 2.2.0
   resolution: "react-responsive-masonry@npm:2.2.0"
   checksum: 10/398e55495d70f9d05f22a8dda1b560af4e67244e5712809d7747b2fb7e1b093d97759d945fc58f97f11b644403da32873d0680940921fecf4fa533033fc735bd
+  languageName: node
+  linkType: hard
+
+"react-snowfall@npm:2.2.0":
+  version: 2.2.0
+  resolution: "react-snowfall@npm:2.2.0"
+  dependencies:
+    react-fast-compare: "npm:^3.2.2"
+  peerDependencies:
+    react: ^16.8 || 17.x || 18.x
+    react-dom: ^16.8 || 17.x || 18.x
+  checksum: 10/ef9945ec75294e44ff17ec2b90f3e6ab9ec07f2a04804b253fc5737e9838baa20085351d019dc6a366f24874f0c58e8360d23b38a08242a022ff86e3a68ed22c
   languageName: node
   linkType: hard
 
@@ -19211,6 +19230,7 @@ __metadata:
     react-pdf: "npm:9.1.1"
     react-perfect-scrollbar: "npm:1.5.8"
     react-responsive-masonry: "npm:2.2.0"
+    react-snowfall: "npm:2.2.0"
     sanitize.css: "npm:13.0.0"
     sass: "npm:1.69.6"
     sass-loader: "npm:12.6.0"
