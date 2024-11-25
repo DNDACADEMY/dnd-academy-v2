@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Snowfall } from 'react-snowfall';
 
 import * as ChannelService from '@channel.io/channel-web-sdk-loader';
 
@@ -13,6 +14,14 @@ function ClientProviders({ children }: { children: ReactNode }) {
 
   return (
     <PerfectScrollbar>
+      <Snowfall
+        style={{
+          position: 'fixed',
+          width: '100vw',
+          height: '100vh',
+          zIndex: 100,
+        }}
+      />
       {children}
     </PerfectScrollbar>
   );
