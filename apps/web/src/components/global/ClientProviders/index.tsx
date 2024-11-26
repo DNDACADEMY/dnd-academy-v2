@@ -15,6 +15,7 @@ function ClientProviders({ children }: { children: ReactNode }) {
   return (
     <PerfectScrollbar>
       <Snowfall
+        snowflakeCount={100}
         style={{
           position: 'fixed',
           width: '100vw',
