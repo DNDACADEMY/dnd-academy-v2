@@ -1,27 +1,57 @@
+import { ReactNode } from 'react';
+
 import { CounterCard } from '@dnd-academy/ui';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { totalCountStatusData } from '@/lib/assets/data';
 import { CURRENT_FLAG } from '@/lib/constants';
+import { isChristmasTheme } from '@/utils';
 
 import styles from './index.module.scss';
 
-type Props = {
+type CardConfig = {
+  count: number;
   title: string;
+  color: 'green' | 'red' | 'gray';
+  suffix?: string;
+  highlight?: boolean;
 };
 
-async function CounterCardSection({ title }: Props) {
+type Props = {
+  title: ReactNode;
+};
+
+async function CounterCardSection({ title: sectionTitle }: Props) {
   const {
     cumulativeApplicants, dropouts, totalParticipants, totalProjects,
   } = totalCountStatusData;
 
+  const cardConfigs: CardConfig[] = [
+    { count: cumulativeApplicants, title: '누적 지원자 수', color: 'green' },
+    { count: totalParticipants, title: '총 참가자 수', color: 'red' },
+    {
+      count: totalProjects, title: '총 프로젝트 수', color: 'green', suffix: '개',
+    },
+    {
+      count: dropouts, title: `${CURRENT_FLAG}기 이탈자`, color: 'red', highlight: true,
+    },
+  ];
+
   return (
-    <SectionTitle title={title}>
+    <SectionTitle title={sectionTitle}>
       <div className={styles.counterCardWrapper}>
-        <CounterCard count={cumulativeApplicants} title="누적 지원자 수" />
-        <CounterCard count={totalParticipants} title="총 참가자 수" />
-        <CounterCard count={totalProjects} title="총 프로젝트 수" suffix="개" />
-        <CounterCard count={dropouts} title={`${CURRENT_FLAG}기 이탈자`} color="primary" />
+        {cardConfigs.map(({
+          count, title, color, suffix, highlight,
+        }) => (
+          <CounterCard
+            key={title}
+            count={count}
+            title={title}
+            color={isChristmasTheme() ? color : 'gray'}
+            suffix={suffix}
+            highlight={highlight}
+          />
+        ))}
       </div>
     </SectionTitle>
   );

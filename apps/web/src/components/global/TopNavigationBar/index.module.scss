@@ -21,13 +21,28 @@
     align-items: center;
     padding-left: 24px;
 
-    @include sm {
-      padding-left: 0;
+    .logo {
+      width: 33px;
+      height: 36px;
     }
 
-    .logo {
-      width: 21px;
-      height: 24px;
+    .christmasLogo {
+      width: 39px;
+      height: 40px;
+    }
+
+    @include sm {
+      padding-left: 0;
+
+      .logo {
+        width: 21px;
+        height: 24px;
+      }
+
+      .christmasLogo {
+        width: 27px;
+        height: 28px;
+      }
     }
   }
 

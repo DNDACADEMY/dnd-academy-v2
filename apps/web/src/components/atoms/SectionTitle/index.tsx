@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import styles from './index.module.scss';
 
 type Props = {
-  title: string;
+  title: ReactNode;
   subTitle?: ReactElement | ReactNode;
   fullWidth?: boolean;
 };

@@ -22,3 +22,27 @@ export const Default: Story = {
     title: '지원자 수',
   },
 };
+
+export const Highlight: Story = {
+  args: {
+    count: 1000,
+    title: '지원자 수',
+    highlight: true,
+  },
+};
+
+export const Red: Story = {
+  args: {
+    count: 1000,
+    title: '지원자 수',
+    color: 'red',
+  },
+};
+
+export const Green: Story = {
+  args: {
+    count: 1000,
+    title: '지원자 수',
+    color: 'green',
+  },
+};
