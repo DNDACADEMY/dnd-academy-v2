@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import { Button } from '@dnd-academy/ui';
 
+import ExternalLink from '@/components/atoms/ExternalLink';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { LinkIcon } from '@/lib/assets/icons';
 
@@ -18,6 +19,7 @@ function SponsorSection() {
     { sponsor: 'asan-nanum', url: 'https://asan-nanum.org', image: 'asan-nanum.png' },
     { sponsor: 'impact-campus', url: 'https://impactcampus.campaignus.me', image: 'impact-campus.png' },
     { sponsor: 'notefolio', url: 'https://notefolio.net', image: 'notefolio.png' },
+    { sponsor: 'elice', url: 'https://elice.io/ko', image: 'elice.png' },
   ];
 
   return (
@@ -34,7 +36,7 @@ function SponsorSection() {
     >
       <div className={styles.sponsorsWrapper}>
         {sponsors.map(({ sponsor, url, image }) => (
-          <a key={sponsor} href={url} className={styles.sponsor} rel="noopener noreferrer" target="_blank">
+          <ExternalLink key={sponsor} href={url} className={styles.sponsor}>
             <Image
               src={`/assets/logos/sponsors/${image}`}
               alt={sponsor}
@@ -42,7 +44,7 @@ function SponsorSection() {
               sizes="(max-width: 1204px) 50vw, 33vw"
               className={styles.sponsorImage}
             />
-          </a>
+          </ExternalLink>
         ))}
       </div>
       <Button
