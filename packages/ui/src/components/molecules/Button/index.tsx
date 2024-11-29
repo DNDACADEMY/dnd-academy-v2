@@ -32,7 +32,7 @@ export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnch
   isAnimated?: boolean;
 }
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 function Button({
   href,
