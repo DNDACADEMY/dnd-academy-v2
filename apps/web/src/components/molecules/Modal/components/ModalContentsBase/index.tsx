@@ -2,6 +2,7 @@ import { ReactElement, useRef } from 'react';
 
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
+import { AnimatePresence, motion } from 'motion/react';
 import { useOnClickOutside, useScrollLock } from 'usehooks-ts';
 
 import GlobalPortal from '@/components/global/GlobalPortal';
@@ -25,26 +26,42 @@ function ModalContentsBase({ children: child, title, size = 'medium' } : Props) 
 
   return (
     <GlobalPortal>
-      {open && (
-        <div className={clsx(styles.modalWrapper, open && styles.open)}>
-          <div
-            ref={modalContentsRef}
-            role="dialog"
-            className={clsx(styles.modalBox, styles[size])}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className={clsx(styles.modalWrapper)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <div className={styles.header}>
-              <h1 className={styles.title}>{title}</h1>
-              <Button
-                type="button"
-                className={styles.closeButton}
-                onClick={() => toggle(false)}
-                icon={<CloseIcon />}
-              />
-            </div>
-            {child}
-          </div>
-        </div>
-      )}
+            <motion.div
+              ref={modalContentsRef}
+              role="dialog"
+              className={clsx(styles.modalBox, styles[size])}
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 50, opacity: 0 }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+                duration: 0.3,
+              }}
+            >
+              <div className={styles.header}>
+                <h1 className={styles.title}>{title}</h1>
+                <Button
+                  type="button"
+                  className={styles.closeButton}
+                  onClick={() => toggle(false)}
+                  icon={<CloseIcon />}
+                />
+              </div>
+              {child}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </GlobalPortal>
   );
 }
