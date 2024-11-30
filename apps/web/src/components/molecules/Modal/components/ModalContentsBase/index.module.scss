@@ -9,16 +9,10 @@
   justify-content: center;
   background: rgb(0 0 0 / 40%);
   transition: visibility 0.2s ease-out;
-  visibility: hidden;
-  display: none;
+  display: flex;
 
   @include xs {
     align-items: flex-end;
-  }
-
-  &.open {
-    visibility: visible;
-    display: flex;
   }
 
   .modalBox {
