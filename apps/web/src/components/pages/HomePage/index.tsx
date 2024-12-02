@@ -20,13 +20,13 @@ import styles from './index.module.scss';
 
 type Props = {
   tab?: string;
-  currentApplicantCount: number;
+  applicantTotalCount: number;
   eventStatus: Event;
   faqItems: FAQ[];
 };
 
 function HomePage({
-  tab, currentApplicantCount, eventStatus, faqItems,
+  tab, applicantTotalCount, eventStatus, faqItems,
 }: Props) {
   const isChristmas = isChristmasTheme();
 
@@ -55,7 +55,7 @@ function HomePage({
             {['ONGOING', 'HOT'].includes(eventStatus.status) && (
               <div className={styles.counter}>
                 오늘까지&nbsp;
-                <Counter count={currentApplicantCount} />
+                <Counter count={applicantTotalCount} />
                 명이 지원했어요!
               </div>
             )}
