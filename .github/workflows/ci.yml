@@ -139,8 +139,8 @@ jobs:
         id: cache-deps
         uses: actions/cache@v4
         with:
-          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+          path: ${{ needs.job_packages_build.outputs.yarn_cache_dir_path }}
+          key: ${{ needs.job_packages_build.outputs.dependency_cache_key }}
 
       - name: Install dependencies
         if: steps.cache-deps.outputs.cache-hit != 'true'
