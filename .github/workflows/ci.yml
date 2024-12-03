@@ -185,7 +185,7 @@ jobs:
   #       run: yarn test:coverage
 
   job_publish_storybook_chromatic:
-    needs: [job_packages_build]
+    needs: [job_packages_build, job_generate_applicant_count]
     name: Chromatic Publish
     runs-on: ubuntu-latest
     steps:
