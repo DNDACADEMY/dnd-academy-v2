@@ -5,7 +5,7 @@ import { loadEnvConfig } from '@next/env';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-import { checkNumber } from '@/utils';
+import { checkNumber } from '../src/utils';
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
