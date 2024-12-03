@@ -63,39 +63,9 @@ jobs:
         ${{ steps.yarn-cache-dir-path.outputs.dir }}
         ${{ env.CACHED_DEPENDENCY_PATHS }}
 
-  job_generate_applicant_count:
-    name: Generate Applicant Count
-    needs: [job_install_dependencies]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out current commit (${{ github.sha }})
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.DEFAULT_NODE_VERSION }}
-
-      - name: Check dependency cache
-        id: cache-deps
-        uses: actions/cache@v4
-        with:
-          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
-
-      - name: Install dependencies
-        if: steps.cache-deps.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-      - name: Create environment variables
-        run: |
-          touch .env
-          echo GOOGLE_CLIENT_EMAIL = ${{ secrets.GOOGLE_CLIENT_EMAIL }} >> .env
-          echo GOOGLE_PRIVATE_KEY = ${{ secrets.GOOGLE_PRIVATE_KEY }} >> .env
-      - name: Generate applicant count
-        run: yarn generate:applicant-count
-
   job_packages_build:
     name: Build
-    needs: [job_install_dependencies, job_generate_applicant_count]
+    needs: [job_install_dependencies]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -152,6 +122,36 @@ jobs:
       yarn_cache_dir_path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
       build_package_core_cache_key: ${{ steps.compute_core_cache_key.outputs.hash }}
       build_package_ui_cache_key: ${{ steps.compute_ui_cache_key.outputs.hash }}
+
+  job_generate_applicant_count:
+    name: Generate Applicant Count
+    needs: [job_packages_build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current commit (${{ github.sha }})
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.DEFAULT_NODE_VERSION }}
+
+      - name: Check dependency cache
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
+          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+
+      - name: Install dependencies
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+      - name: Create environment variables
+        run: |
+          touch .env
+          echo GOOGLE_CLIENT_EMAIL = ${{ secrets.GOOGLE_CLIENT_EMAIL }} >> .env
+          echo GOOGLE_PRIVATE_KEY = ${{ secrets.GOOGLE_PRIVATE_KEY }} >> .env
+      - name: Generate applicant count
+        run: yarn generate:applicant-count
 
   # continuous-integration:
   #   needs: [job_packages_build]
