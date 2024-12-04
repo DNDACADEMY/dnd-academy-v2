@@ -146,6 +146,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Create environment variables
+        working-directory: apps/web
         run: |
           touch .env
           echo GOOGLE_CLIENT_EMAIL = ${{ secrets.GOOGLE_CLIENT_EMAIL }} >> .env
