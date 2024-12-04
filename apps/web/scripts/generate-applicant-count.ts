@@ -5,7 +5,13 @@ import { loadEnvConfig } from '@next/env';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-import { checkNumber } from '@/utils';
+const checkNumber = (value?: number | null): number => {
+  if (typeof value === 'number') {
+    return value;
+  }
+
+  return 0;
+};
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
