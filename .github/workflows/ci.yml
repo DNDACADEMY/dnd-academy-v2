@@ -13,6 +13,7 @@ env:
     ${{ github.workspace }}/packages/*/node_modules
   CACHED_BUILD_PACKAGE_UI_PATHS: ${{ github.workspace }}/packages/ui/dist
   CACHED_BUILD_PACKAGE_CORE_PATHS: ${{ github.workspace }}/packages/core/dist
+  CACHED_GENERATED_STATIC_DATA_PATHS: ${{ github.workspace }}/apps/web/src/lib/data
   DEFAULT_NODE_VERSION: "v20.11.1"
   DEFAULT_YARN_VERSION: "4.3.1"
 
@@ -118,14 +119,12 @@ jobs:
         run: yarn workspace @dnd-academy/ui build
 
     outputs:
-      dependency_cache_key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
-      yarn_cache_dir_path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
       build_package_core_cache_key: ${{ steps.compute_core_cache_key.outputs.hash }}
       build_package_ui_cache_key: ${{ steps.compute_ui_cache_key.outputs.hash }}
 
-  job_generate_applicant_count:
-    name: Generate Applicant Count
-    needs: [job_packages_build]
+  job_generate_data:
+    name: Generate Data
+    needs: [job_install_dependencies, job_packages_build]
     runs-on: ubuntu-latest
     steps:
       - name: Check out current commit (${{ github.sha }})
@@ -139,19 +138,41 @@ jobs:
         id: cache-deps
         uses: actions/cache@v4
         with:
-          path: ${{ needs.job_packages_build.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_packages_build.outputs.dependency_cache_key }}
+          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
+          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
 
       - name: Install dependencies
         if: steps.cache-deps.outputs.cache-hit != 'true'
         run: yarn install --immutable
+
       - name: Create environment variables
         run: |
           touch .env
           echo GOOGLE_CLIENT_EMAIL = ${{ secrets.GOOGLE_CLIENT_EMAIL }} >> .env
           echo GOOGLE_PRIVATE_KEY = ${{ secrets.GOOGLE_PRIVATE_KEY }} >> .env
-      - name: Generate applicant count
+
+      - name: Check build core package cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.CACHED_BUILD_PACKAGE_CORE_PATHS }}
+          key: ${{ needs.job_packages_build.outputs.build_package_core_cache_key }}
+
+      - name: Check build ui package cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
+          key: ${{ needs.job_packages_build.outputs.build_package_ui_cache_key }}
+
+      - name: Compute Generate Data cache key
+        id: compute_generate_data_cache_key
+        run: echo "hash=${{ runner.os }}-generate-data-${{ hashFiles('apps/web/scripts/**') }}" >> $GITHUB_OUTPUT
+
+      - name: Generate data
+        if: steps.compute_generate_data_cache_key.outputs.cache-hit != 'true'
         run: yarn generate:applicant-count
+
+    outputs:
+      generate_data_cache_key: ${{ steps.compute_generate_data_cache_key.outputs.hash }}
 
   # continuous-integration:
   #   needs: [job_packages_build]
@@ -185,7 +206,7 @@ jobs:
   #       run: yarn test:coverage
 
   job_publish_storybook_chromatic:
-    needs: [job_packages_build, job_generate_applicant_count]
+    needs: [job_install_dependencies, job_packages_build, job_generate_data]
     name: Chromatic Publish
     runs-on: ubuntu-latest
     steps:
@@ -201,8 +222,8 @@ jobs:
       - name: Check dependency cache
         uses: actions/cache@v4
         with:
-          path: ${{ needs.job_packages_build.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_packages_build.outputs.dependency_cache_key }}
+          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
+          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
 
       - name: Check build core package cache
         uses: actions/cache@v4
@@ -215,6 +236,12 @@ jobs:
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
           key: ${{ needs.job_packages_build.outputs.build_package_ui_cache_key }}
+
+      - name: Check generate data cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.CACHED_GENERATED_STATIC_DATA_PATHS }}
+          key: ${{ needs.job_generate_data.outputs.generate_data_cache_key }}
 
       - name: Publish Project to Chromatic
         uses: chromaui/action@latest
