@@ -166,10 +166,19 @@ jobs:
 
       - name: Compute Generate Data cache key
         id: compute_generate_data_cache_key
-        run: echo "hash=${{ runner.os }}-generate-data-${{ hashFiles('apps/web/scripts/**') }}" >> $GITHUB_OUTPUT
+        run: |
+          SCRIPTS_HASH=$(find apps/web/scripts -type f -exec sha256sum {} \; | sort | sha256sum | cut -d' ' -f1)
+          echo "hash=${{ runner.os }}-generate-data-${SCRIPTS_HASH}" >> $GITHUB_OUTPUT
+
+      - name: Check Generate Data cache
+        uses: actions/cache@v4
+        id: cache_generated_data
+        with:
+          path: ${{ env.CACHED_GENERATED_STATIC_DATA_PATHS }}
+          key: ${{ steps.compute_generate_data_cache_key.outputs.hash }}
 
       - name: Generate data
-        if: steps.compute_generate_data_cache_key.outputs.cache-hit != 'true'
+        if: steps.cache_generated_data.outputs.cache-hit != 'true'
         run: yarn generate:applicant-count
 
     outputs:
