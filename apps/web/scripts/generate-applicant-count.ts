@@ -1,8 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import 'dotenv/config';
+
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { loadEnvConfig } from '@next/env';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
@@ -13,9 +14,6 @@ const checkNumber = (value?: number | null): number => {
 
   return 0;
 };
-
-const projectDir = process.cwd();
-loadEnvConfig(projectDir);
 
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
 
