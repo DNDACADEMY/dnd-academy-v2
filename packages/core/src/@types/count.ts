@@ -1,6 +1,8 @@
 export interface CurrentApplicantCount {
   developer: number;
   designer: number;
+  total: number;
+  lastUpdated: string;
 }
 
 export interface TotalCountStatus {

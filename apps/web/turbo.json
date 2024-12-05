@@ -1,9 +1,13 @@
 {
+  "$schema": "https://turbo.build/schema.json",
   "extends": ["//"],
   "tasks": {
     "build:storybook": {
-      "dependsOn": ["^build:storybook"],
       "outputs": ["storybook-static/**"]
+    },
+    "generate:applicant-count": {
+      "env": ["GOOGLE_CLIENT_EMAIL", "GOOGLE_PRIVATE_KEY"],
+      "outputs": ["dist/scripts/generate-applicant-count.js"]
     }
   }
 }
