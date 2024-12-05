@@ -1,7 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "GOOGLE_CLIENT_EMAIL",
+    "GOOGLE_PRIVATE_KEY"
+  ],
   "tasks": {
     "deploy": {
+      "env": [
+        "GOOGLE_CLIENT_EMAIL",
+        "GOOGLE_PRIVATE_KEY"
+      ],
       "dependsOn": [
         "lint",
         "stylelint",
