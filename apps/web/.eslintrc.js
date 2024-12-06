@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   ignorePatterns: [
     '/.next',
     'storybook-static',
@@ -35,12 +36,20 @@ module.exports = {
     {
       extends: ['plugin:storybook/recommended'],
       files: ['**/*.stories.ts?(x)'],
-      rules: {},
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+    {
+      files: ['scripts/**/*.ts'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
     },
   ],
   rules: {
     'import/no-extraneous-dependencies': ['error', {
-      devDependencies: ['**/*.test.ts', '**/*.test.tsx', '**/*.stories.tsx', '**/*.stories.ts', 'next.config.js', 'scripts/**/*.ts'],
+      devDependencies: ['**/*.test.ts', '**/*.test.tsx', 'next.config.js'],
     }],
   },
 };
