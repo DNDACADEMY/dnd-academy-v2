@@ -1,5 +1,4 @@
 module.exports = {
-  root: true,
   ignorePatterns: [
     '/.next',
     'storybook-static',
