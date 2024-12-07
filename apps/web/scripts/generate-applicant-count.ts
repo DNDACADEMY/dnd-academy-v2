@@ -1,9 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import 'dotenv/config';
-
 import * as fs from 'fs';
 import * as path from 'path';
 
+import { loadEnvConfig } from '@next/env';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
@@ -15,28 +13,20 @@ const checkNumber = (value?: number | null): number => {
   return 0;
 };
 
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
+
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
 
 async function generateApplicantCount() {
   try {
-    console.log('Environment check:');
-    console.log('GOOGLE_CLIENT_EMAIL:', process.env.GOOGLE_CLIENT_EMAIL);
-    console.log('GOOGLE_PRIVATE_KEY exists:', !!process.env.GOOGLE_PRIVATE_KEY);
-
     const key = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n');
-    console.log('Formatted key starts with:', key?.substring(0, 50));
-    console.log('Formatted key ends with:', key?.substring(key.length - 50));
 
     const serviceAccountAuth = new JWT({
       email: process.env.GOOGLE_CLIENT_EMAIL,
       key,
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
-
-    // 인증 테스트
-    console.log('Attempting to authenticate...');
-    await serviceAccountAuth.authorize();
-    console.log('Authentication successful!');
 
     const developerApplicantDoc = new GoogleSpreadsheet('1OLzUsZ1TBmKeEJh-ENoXWdccfwTg7WY3-zeOmcACxRc', serviceAccountAuth);
     const designerApplicantDoc = new GoogleSpreadsheet('1KrwSZoUY3i6asMWtxIQsaofMP9rCmxnDpD_sZ4yOC-c', serviceAccountAuth);
