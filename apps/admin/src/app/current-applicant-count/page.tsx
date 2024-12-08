@@ -8,7 +8,7 @@ import CurrentApplicantCountAction from '@/components/CurrentApplicantCountActio
 import styles from './page.module.scss';
 
 async function Page() {
-  const headersList = headers();
+  const headersList = await headers();
   const host = headersList.get('host');
 
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';

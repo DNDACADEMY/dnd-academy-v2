@@ -5,8 +5,10 @@ type SearchParams = {
   flag: string | undefined;
 };
 
-function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const jobs = getJobs({ flag: searchParams?.flag });
+async function Page({ searchParams }: { searchParams?: Promise<SearchParams>; }) {
+  const params = await searchParams;
+
+  const jobs = getJobs({ flag: params?.flag });
 
   return (
     <JobsPage jobs={jobs} />

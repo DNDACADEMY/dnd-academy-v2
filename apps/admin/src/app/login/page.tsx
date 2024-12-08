@@ -1,14 +1,15 @@
 import SignIn from '@/components/auth/SignIn';
 
 type Props = {
-  searchParams: { [key: string]: string | undefined; };
+  searchParams: Promise<{ [key: string]: string | undefined; }>;
 };
 
 async function LoginPage({ searchParams }: Props) {
+  const params = await searchParams;
   return (
     <>
       <div>login</div>
-      {searchParams?.error === 'unauthorized_email' && (
+      {params?.error === 'unauthorized_email' && (
         <div>
           접근이 불가능한 이메일 입니다.
         </div>

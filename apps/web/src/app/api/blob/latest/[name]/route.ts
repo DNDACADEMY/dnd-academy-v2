@@ -4,7 +4,9 @@ import { api, ApiError, getLatestItemReduce } from '@dnd-academy/core';
 import { list } from '@vercel/blob';
 
 // eslint-disable-next-line import/prefer-default-export
-export async function GET(_: NextRequest, { params }: { params: { name: string } }) {
+export async function GET(_: NextRequest, props: { params: Promise<{ name: string }> }) {
+  const params = await props.params;
+
   if (!params?.name) {
     return NextResponse.json(null, {
       status: 400,
