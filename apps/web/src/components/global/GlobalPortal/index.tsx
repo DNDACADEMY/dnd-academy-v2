@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react';
-import ReactDOM from 'react-dom';
+import { PropsWithChildren, ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 
 import { useIsMounted } from 'usehooks-ts';
 
@@ -20,7 +20,7 @@ function GlobalPortal({ elementId = 'portal-container', children }: PropsWithChi
     return null;
   }
 
-  return ReactDOM.createPortal(children, portalRoot);
+  return createPortal((children as ReactNode), portalRoot);
 }
 
 export default GlobalPortal;

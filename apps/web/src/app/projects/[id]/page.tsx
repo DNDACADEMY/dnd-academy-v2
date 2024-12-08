@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ProjectPage from '@/components/pages/ProjectPage';
@@ -8,12 +7,13 @@ import METADATA, { DEFAULT_METADATA } from '@/lib/constants/metadata';
 export const dynamicParams = false;
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export function generateMetadata({ params }: Props): Metadata {
+export async function generateMetadata(props: Props) {
+  const params = await props.params;
   const project = getProject({ id: Number(params.id) });
 
   if (!project) {
@@ -52,8 +52,9 @@ export function generateStaticParams() {
   }));
 }
 
-function Page({ params }: Props) {
-  const project = getProject({ id: Number(params.id) });
+async function Page({ params }: Props) {
+  const resolvedParams = await params;
+  const project = getProject({ id: Number(resolvedParams.id) });
 
   if (!project) {
     notFound();

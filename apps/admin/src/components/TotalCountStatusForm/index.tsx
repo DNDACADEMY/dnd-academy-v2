@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 
 import { type TotalCountStatus } from '@dnd-academy/core';
 import clsx from 'clsx';
@@ -15,7 +15,7 @@ type Props = {
 };
 
 function TotalCountStatusForm({ initialTotalCountStatus }: Props) {
-  const [state, formAction] = useFormState(totalCountStatusAction, null);
+  const [state, formAction] = useActionState(totalCountStatusAction, null);
 
   const {
     cumulativeApplicants, dropouts, totalParticipants, totalProjects,

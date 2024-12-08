@@ -22,8 +22,9 @@ type SearchParams = {
   position: string | undefined;
 };
 
-function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const reviews = getReviews({ position: searchParams?.position });
+async function Page({ searchParams }: { searchParams?: Promise<SearchParams>; }) {
+  const params = await searchParams;
+  const reviews = getReviews({ position: params?.position });
 
   return (
     <ReviewsPage reviews={reviews} />

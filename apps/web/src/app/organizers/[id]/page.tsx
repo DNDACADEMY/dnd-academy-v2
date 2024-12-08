@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import OrganizerPage from '@/components/pages/OrganizerPage';
@@ -8,12 +7,13 @@ import METADATA, { DEFAULT_METADATA } from '@/lib/constants/metadata';
 export const dynamicParams = false;
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export function generateMetadata({ params }: Props): Metadata {
+export async function generateMetadata(props: Props) {
+  const params = await props.params;
   const organizer = getOrganizer({ id: Number(params.id) });
 
   if (!organizer) {
@@ -53,8 +53,9 @@ export function generateStaticParams() {
   }));
 }
 
-function Page({ params }: Props) {
-  const organizer = getOrganizer({ id: Number(params.id) });
+async function Page({ params }: Props) {
+  const resolvedParams = await params;
+  const organizer = getOrganizer({ id: Number(resolvedParams.id) });
 
   if (!organizer) {
     notFound();

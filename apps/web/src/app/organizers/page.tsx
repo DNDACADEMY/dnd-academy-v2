@@ -25,8 +25,10 @@ type SearchParams = {
   position: string | undefined;
 };
 
-function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const organizers = getOrganizers({ position: searchParams?.position, isArchived: false });
+async function Page({ searchParams }: { searchParams?: Promise<SearchParams>; }) {
+  const params = await searchParams;
+
+  const organizers = getOrganizers({ position: params?.position, isArchived: false });
 
   return (
     <>

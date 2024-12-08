@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 
 type Props = {
   title: ReactNode;
-  subTitle?: ReactElement | ReactNode;
+  subTitle?: ReactElement<any> | ReactNode;
   fullWidth?: boolean;
 };
 
