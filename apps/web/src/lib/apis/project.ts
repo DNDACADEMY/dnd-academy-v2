@@ -1,7 +1,7 @@
 import type { Project, ProjectFlag } from '@dnd-academy/core';
 
 import { projectsData } from '@/lib/assets/data';
-import { checkNumber, sortFlagsDescending } from '@/utils';
+import { ensureNumber, sortFlagsDescending } from '@/utils';
 
 export function getProjects({
   ordinal,
@@ -22,7 +22,7 @@ export function getProjectCount() {
   return projects.reduce(
     (acc, { flag }) => ({
       ...acc,
-      [flag]: checkNumber(acc[flag]) + 1,
+      [flag]: ensureNumber(acc[flag]) + 1,
     }),
     {} as Record<ProjectFlag, number>,
   );
