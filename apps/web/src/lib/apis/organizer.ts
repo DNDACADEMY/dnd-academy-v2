@@ -1,7 +1,7 @@
 import type { Organizer, OrganizerPosition } from '@dnd-academy/core';
 
 import { organizersData } from '@/lib/assets/data';
-import { checkNumber } from '@/utils';
+import { ensureNumber } from '@/utils';
 
 export function getOrganizers({
   position, isArchived,
@@ -30,7 +30,7 @@ export function getOrganizerCount() {
   return organizers.filter((organizer) => !organizer.isArchived && organizer.dndPosition !== '마스코트').reduce(
     (acc, { dndPosition }) => ({
       ...acc,
-      [dndPosition]: checkNumber(acc[dndPosition]) + 1,
+      [dndPosition]: ensureNumber(acc[dndPosition]) + 1,
     }),
     {} as Record<OrganizerPosition, number>,
   );
