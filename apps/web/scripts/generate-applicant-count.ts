@@ -5,7 +5,7 @@ import { loadEnvConfig } from '@next/env';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-const checkNumber = (value?: number | null): number => {
+const ensureNumber = (value?: number | null): number => {
   if (typeof value === 'number') {
     return value;
   }
@@ -37,8 +37,8 @@ async function generateApplicantCount() {
     const developerApplicantRows = await developerApplicantDoc.sheetsByIndex[0].getRows();
     const designerApplicantRows = await designerApplicantDoc.sheetsByIndex[0].getRows();
 
-    const developerApplicantCount = checkNumber(developerApplicantRows?.length);
-    const designerApplicantCount = checkNumber(designerApplicantRows?.length);
+    const developerApplicantCount = ensureNumber(developerApplicantRows?.length);
+    const designerApplicantCount = ensureNumber(designerApplicantRows?.length);
 
     const applicantData = {
       developer: developerApplicantCount,

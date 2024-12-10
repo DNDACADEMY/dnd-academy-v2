@@ -1,7 +1,7 @@
 import { Job } from '@dnd-academy/core';
 
 import { jobsData } from '@/lib/assets/data';
-import { checkNumber } from '@/utils';
+import { ensureNumber } from '@/utils';
 
 export function getJobs({ flag }: { flag?: string; } | undefined = {}): Job[] {
   const jobs = jobsData as Job[];
@@ -19,7 +19,7 @@ export function getJobCount() {
   return jobs.reduce(
     (acc, { flag }) => ({
       ...acc,
-      [flag]: checkNumber(acc[flag]) + 1,
+      [flag]: ensureNumber(acc[flag]) + 1,
     }),
     {} as Record<Job['flag'], number>,
   );

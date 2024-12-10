@@ -29,7 +29,7 @@ export const sortFlagsDescending = (a: string, b: string) => {
   return numB - numA;
 };
 
-export const checkNumber = (value?: number | null): number => {
+export const ensureNumber = (value?: number | null): number => {
   if (typeof value === 'number') {
     return value;
   }
