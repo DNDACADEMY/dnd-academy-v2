@@ -9,10 +9,12 @@ export const metadata = DEFAULT_METADATA;
 type ParamsKey = 'tab';
 
 type Props = {
-  searchParams: Record<ParamsKey, string | undefined>;
+  searchParams: Promise<Record<ParamsKey, string | undefined>>;
 };
 
 async function Home({ searchParams }: Props) {
+  const params = await searchParams;
+
   const faqData = await api<FAQ[]>({
     url: '/faq.json',
     type: 'blob',
@@ -23,7 +25,7 @@ async function Home({ searchParams }: Props) {
 
   return (
     <HomePage
-      tab={searchParams.tab}
+      tab={params.tab}
       eventStatus={eventStatus}
       faqItems={faqData}
       applicantTotalCount={applicantCount.total}

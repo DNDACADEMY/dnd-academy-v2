@@ -103,19 +103,19 @@
     "@dnd-academy/core": "workspace:*",
     "clsx": "2.1.1",
     "motion": "11.11.17",
-    "next": "14.2.15",
-    "react": "18.3.1",
+    "next": "15.0.4",
+    "react": "19.0.0",
     "react-countup": "6.5.3",
-    "react-dom": "18.3.1",
+    "react-dom": "19.0.0",
     "sanitize.css": "13.0.0"
   },
   "peerDependencies": {
     "clsx": "2.1.1",
     "motion": "11.11.17",
-    "next": "14.2.15",
-    "react": "^18",
+    "next": "15.0.4",
+    "react": "^19",
     "react-countup": "6.5.3",
-    "react-dom": "^18",
+    "react-dom": "^19",
     "sass": "^1.69.0"
   },
   "publishConfig": {

@@ -1,4 +1,4 @@
-import { ReactElement, useRef } from 'react';
+import { PropsWithChildren, useRef } from 'react';
 
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
@@ -14,14 +14,13 @@ import styles from './index.module.scss';
 type Props = {
   title: string;
   size?: 'small' | 'medium' | 'large';
-  children: ReactElement;
 };
 
-function ModalContentsBase({ children: child, title, size = 'medium' } : Props) {
+function ModalContentsBase({ children: child, title, size = 'medium' } : PropsWithChildren<Props>) {
   const modalContentsRef = useRef<HTMLDivElement>(null);
   const { open, toggle } = useModalContext();
 
-  useOnClickOutside(modalContentsRef, () => toggle(false));
+  useOnClickOutside(modalContentsRef as any, () => toggle(false));
   useScrollLock({ autoLock: open });
 
   return (
