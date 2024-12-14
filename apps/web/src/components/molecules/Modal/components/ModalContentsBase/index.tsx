@@ -1,4 +1,4 @@
-import { PropsWithChildren, RefObject, useRef } from 'react';
+import { ReactElement, RefObject, useRef } from 'react';
 
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
@@ -14,9 +14,10 @@ import styles from './index.module.scss';
 type Props = {
   title: string;
   size?: 'small' | 'medium' | 'large';
+  children: ReactElement;
 };
 
-function ModalContentsBase({ children: child, title, size = 'medium' } : PropsWithChildren<Props>) {
+function ModalContentsBase({ children: child, title, size = 'medium' } : Props) {
   const modalContentsRef = useRef<HTMLDivElement>(null);
   const { open, toggle } = useModalContext();
 
