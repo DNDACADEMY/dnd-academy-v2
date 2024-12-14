@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ProjectPage from '@/components/pages/ProjectPage';
@@ -12,7 +13,7 @@ type Props = {
   }>;
 };
 
-export async function generateMetadata(props: Props) {
+export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const project = getProject({ id: Number(params.id) });
 

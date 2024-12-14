@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import { PageTitle } from '@dnd-academy/ui';
 
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
@@ -7,7 +9,7 @@ import METADATA from '@/lib/constants/metadata';
 
 const title = '프로젝트 - DND';
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: METADATA.metadataBase,
   title,
   openGraph: {

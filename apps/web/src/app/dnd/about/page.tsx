@@ -1,9 +1,11 @@
+import { Metadata } from 'next';
+
 import AboutPage from '@/components/pages/AboutPage';
 import METADATA from '@/lib/constants/metadata';
 
 const title = '소개 - DND';
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: METADATA.metadataBase,
   title,
   openGraph: {
