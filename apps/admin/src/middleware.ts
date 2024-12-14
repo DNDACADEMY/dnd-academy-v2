@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { auth as middleware } from '@/auth';
 import { isEmailAllowed } from '@/utils';
 
-export default middleware((req) => {
+export default middleware((req: any) => {
   if (req.nextUrl.pathname === '/login' || process.env.NODE_ENV === 'development') {
     return NextResponse.next({
       request: req,

@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import { PageTitle } from '@dnd-academy/ui';
 
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
@@ -7,7 +9,7 @@ import METADATA from '@/lib/constants/metadata';
 
 const title = '운영진 - DND';
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: METADATA.metadataBase,
   title,
   openGraph: {
@@ -25,8 +27,10 @@ type SearchParams = {
   position: string | undefined;
 };
 
-function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const organizers = getOrganizers({ position: searchParams?.position, isArchived: false });
+async function Page({ searchParams }: { searchParams?: Promise<SearchParams>; }) {
+  const params = await searchParams;
+
+  const organizers = getOrganizers({ position: params?.position, isArchived: false });
 
   return (
     <>

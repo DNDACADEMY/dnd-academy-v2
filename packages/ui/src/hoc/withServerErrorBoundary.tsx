@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode } from 'react';
+import { ComponentType, JSX, ReactNode } from 'react';
 
 import { api, type ApiRequest, serverErrorHandling } from '@dnd-academy/core';
 
@@ -10,21 +10,18 @@ function withServerErrorBoundary<T, P extends object | undefined>(
     const data = serverErrorHandling(() => api(apiRequest));
 
     return (
-      <>
-        {/* @ts-expect-error Server Component */}
-        <AsyncRenderer
-          data={data}
-          fallback={<div>Failed to fetch data</div>}
-        >
-          {(resolvedData) => (
-            <WrappedComponent
+      <AsyncRenderer
+        data={data}
+        fallback={<div>Failed to fetch data</div>}
+      >
+        {(resolvedData) => (
+          <WrappedComponent
               // eslint-disable-next-line react/jsx-props-no-spreading
-              {...(props as P)}
-              data={resolvedData as T}
-            />
-          )}
-        </AsyncRenderer>
-      </>
+            {...(props as P)}
+            data={resolvedData as T}
+          />
+        )}
+      </AsyncRenderer>
     );
   };
 }

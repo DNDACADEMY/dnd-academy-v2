@@ -1,9 +1,11 @@
+import { Metadata } from 'next';
+
 import CulturePage from '@/components/pages/CulturePage';
 import METADATA from '@/lib/constants/metadata';
 
 const title = '문화 - DND';
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: METADATA.metadataBase,
   title,
   openGraph: {

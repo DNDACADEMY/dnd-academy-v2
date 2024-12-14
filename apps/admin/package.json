@@ -6,7 +6,7 @@
   "author": "dnd-academy",
   "scripts": {
     "open-browser": "open http://localhost:3001",
-    "dev": "next dev -H localhost -p 3001 & yarn open-browser",
+    "dev": "next dev --turbopack -H localhost -p 3001 & yarn open-browser",
     "build": "next build",
     "start": "next start",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
@@ -27,30 +27,30 @@
   "dependencies": {
     "@dnd-academy/core": "workspace:*",
     "@dnd-academy/ui": "workspace:*",
-    "@tanstack/react-query": "5.52.0",
+    "@tanstack/react-query": "5.62.7",
     "@vercel/blob": "0.23.4",
     "clsx": "2.1.1",
     "google-auth-library": "9.15.0",
     "google-spreadsheet": "4.1.4",
-    "motion": "11.11.17",
-    "next": "14.2.15",
-    "next-auth": "5.0.0-beta.19",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "motion": "11.14.4",
+    "next": "15.0.4",
+    "next-auth": "5.0.0-beta.25",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-perfect-scrollbar": "1.5.8"
   },
   "devDependencies": {
     "@dnd-academy/eslint-config": "workspace:*",
-    "@next/eslint-plugin-next": "14.2.15",
+    "@next/eslint-plugin-next": "15.0.4",
     "@testing-library/dom": "10.3.1",
     "@testing-library/jest-dom": "6.4.6",
-    "@testing-library/react": "16.0.0",
+    "@testing-library/react": "16.1.0",
     "@types/identity-obj-proxy": "^3",
     "@types/jest": "29.5.9",
     "@types/jest-plugin-context": "2.9.7",
     "@types/node": "20",
-    "@types/react": "18.3.2",
-    "@types/react-dom": "18.3.0",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2",
     "@typescript-eslint/eslint-plugin": "7.9.0",
     "@typescript-eslint/parser": "7.9.0",
     "eslint": "8.56.0",
@@ -73,5 +73,9 @@
     "sass": "1.69.6",
     "typescript": "5.2.2",
     "webpack": "5.95.0"
+  },
+  "resolutions": {
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2"
   }
 }
