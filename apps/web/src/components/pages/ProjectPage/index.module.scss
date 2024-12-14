@@ -37,10 +37,6 @@
     @include xs {
       margin: 0 -24px;
       width: calc(100% + 48px);
-
-      .pdfWrapper {
-        margin: -12px -12px 0;
-      }
     }
 
     .thumbnailWrapper {

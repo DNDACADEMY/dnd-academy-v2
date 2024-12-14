@@ -4,10 +4,10 @@ import { type Project } from '@dnd-academy/core';
 import { Badge, Button, SkillTag } from '@dnd-academy/ui';
 
 import DetailNavigation from '@/components/molecules/DetailNavigation';
-import PDFViewer from '@/components/molecules/PDFViewer';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ProjectCards from '@/components/organisms/ProjectCards';
+import ProjectPDFViewer from '@/components/organisms/ProjectPDFViewer';
 import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
@@ -40,9 +40,7 @@ function ProjectPage({ project }: Props) {
       <div className={styles.projectPageContents}>
         <section className={styles.projectDetail}>
           {project?.pdf ? (
-            <div className={styles.pdfWrapper}>
-              <PDFViewer url={project.pdf} />
-            </div>
+            <ProjectPDFViewer url={project.pdf} />
           ) : (
             <div className={styles.thumbnailWrapper}>
               <Image
