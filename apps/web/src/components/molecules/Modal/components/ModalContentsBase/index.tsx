@@ -1,4 +1,4 @@
-import { PropsWithChildren, useRef } from 'react';
+import { PropsWithChildren, RefObject, useRef } from 'react';
 
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
@@ -20,7 +20,8 @@ function ModalContentsBase({ children: child, title, size = 'medium' } : PropsWi
   const modalContentsRef = useRef<HTMLDivElement>(null);
   const { open, toggle } = useModalContext();
 
-  useOnClickOutside(modalContentsRef as any, () => toggle(false));
+  // FIX - https://github.com/juliencrn/usehooks-ts/issues/602
+  useOnClickOutside(modalContentsRef as RefObject<HTMLDivElement>, () => toggle(false));
   useScrollLock({ autoLock: open });
 
   return (

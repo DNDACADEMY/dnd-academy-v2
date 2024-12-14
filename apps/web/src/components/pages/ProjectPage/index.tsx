@@ -1,10 +1,10 @@
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 import { type Project } from '@dnd-academy/core';
 import { Badge, Button, SkillTag } from '@dnd-academy/ui';
 
 import DetailNavigation from '@/components/molecules/DetailNavigation';
+import PDFViewer from '@/components/molecules/PDFViewer';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ProjectCards from '@/components/organisms/ProjectCards';
@@ -15,10 +15,6 @@ import { ShareIcon } from '@/lib/assets/icons';
 import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';
-
-const PDFViewer = dynamic(() => import('@/components/molecules/PDFViewer'), {
-  ssr: false,
-});
 
 type Props = {
   project: Project;
