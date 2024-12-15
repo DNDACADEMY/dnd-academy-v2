@@ -1,14 +1,18 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
 import { useIsMounted } from '@dnd-academy/ui/client';
 
-function ClientOnly({ children }: PropsWithChildren) {
+type Props = {
+  loading?: ReactNode;
+};
+
+function ClientOnly({ children, loading }: PropsWithChildren<Props>) {
   const isMounted = useIsMounted();
 
   if (!isMounted) {
-    return null;
+    return loading || null;
   }
 
   return children;

@@ -118,10 +118,6 @@
     "react-dom": "^19",
     "sass": "^1.69.0"
   },
-  "resolutions": {
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.2"
-  },
   "publishConfig": {
     "access": "public"
   },

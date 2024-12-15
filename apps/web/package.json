@@ -111,9 +111,5 @@
     "storybook": "8.4.7",
     "typescript": "5.2.2",
     "webpack": "5.95.0"
-  },
-  "resolutions": {
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.2"
   }
 }

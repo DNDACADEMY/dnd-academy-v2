@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { type EventStatus as Event, type FAQ } from '@dnd-academy/core';
 import { Button, Counter } from '@dnd-academy/ui';
 
+import ClientOnly from '@/components/atoms/ClientOnly';
 import ScrollElement from '@/components/atoms/ScrollElement';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ImageCard from '@/components/molecules/ImageCard';
@@ -35,7 +36,9 @@ function HomePage({
       <section className={styles.homeSection}>
         <div className={styles.contentsWrapper}>
           <div className={styles.description}>
-            <EventStatus eventStatus={eventStatus} />
+            <ClientOnly>
+              <EventStatus eventStatus={eventStatus} />
+            </ClientOnly>
             <h1 className={styles.title}>
               {`프로젝트에 즐거움을
                 모두에게 기회를`}
