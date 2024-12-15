@@ -1,10 +1,12 @@
+import { Metadata } from 'next';
+
 import ReviewsPage from '@/components/pages/ReviewsPage';
 import { getReviews } from '@/lib/apis/review';
 import METADATA from '@/lib/constants/metadata';
 
 const title = '후기 - DND';
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: METADATA.metadataBase,
   title,
   openGraph: {
@@ -22,8 +24,9 @@ type SearchParams = {
   position: string | undefined;
 };
 
-function Page({ searchParams }: { searchParams?: SearchParams; }) {
-  const reviews = getReviews({ position: searchParams?.position });
+async function Page({ searchParams }: { searchParams?: Promise<SearchParams>; }) {
+  const params = await searchParams;
+  const reviews = getReviews({ position: params?.position });
 
   return (
     <ReviewsPage reviews={reviews} />

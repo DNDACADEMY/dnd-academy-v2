@@ -22,7 +22,8 @@
     "vite.config.mts",
     "../../jest.setup.ts",
     "__mocks__",
-    "@types"
+    "@types",
+    "svg.d.ts",
   ],
   "exclude": ["dist", "build", "node_modules",  "**/*.test.(ts|tsx)", "**/*.stories.(ts|tsx)"]
 }

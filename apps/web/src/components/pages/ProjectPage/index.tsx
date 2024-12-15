@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 import { type Project } from '@dnd-academy/core';
@@ -8,6 +7,7 @@ import DetailNavigation from '@/components/molecules/DetailNavigation';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ProjectCards from '@/components/organisms/ProjectCards';
+import ProjectPDFViewer from '@/components/organisms/ProjectPDFViewer';
 import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
@@ -15,10 +15,6 @@ import { ShareIcon } from '@/lib/assets/icons';
 import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';
-
-const PDFViewer = dynamic(() => import('@/components/molecules/PDFViewer'), {
-  ssr: false,
-});
 
 type Props = {
   project: Project;
@@ -44,9 +40,7 @@ function ProjectPage({ project }: Props) {
       <div className={styles.projectPageContents}>
         <section className={styles.projectDetail}>
           {project?.pdf ? (
-            <div className={styles.pdfWrapper}>
-              <PDFViewer url={project.pdf} />
-            </div>
+            <ProjectPDFViewer url={project.pdf} />
           ) : (
             <div className={styles.thumbnailWrapper}>
               <Image

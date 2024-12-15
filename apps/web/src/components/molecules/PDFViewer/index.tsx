@@ -3,7 +3,7 @@
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
-import { useRef, useState } from 'react';
+import { RefObject, useRef, useState } from 'react';
 import {
   Document, DocumentProps, Page, pdfjs,
 } from 'react-pdf';
@@ -35,7 +35,8 @@ function PDFViewer({ url }: Props) {
   useResizeObserver<HTMLDivElement>({
     box: 'border-box',
     onResize: (size) => onResizeWidth(size.width),
-    ref: containerRef,
+    // FIX - https://github.com/juliencrn/usehooks-ts/issues/602
+    ref: containerRef as RefObject<HTMLDivElement>,
   });
 
   const onDocumentLoadSuccess: DocumentProps['onLoadSuccess'] = (data) => {
