@@ -59,7 +59,7 @@ function EventStatus({ eventStatus }: Props) {
 
   if (dayjs(currentTime).isBefore(acceptanceDate)) {
     return (
-      <Badge label={`${acceptanceDate.format('MM월 DD일 (ddd)')} 모집 발표 🏄`} variant="success" />
+      <Badge label={`${acceptanceDate.format('MM월 DD일 (ddd)')} 모집 발표 🎄`} variant="success" />
     );
   }
 
