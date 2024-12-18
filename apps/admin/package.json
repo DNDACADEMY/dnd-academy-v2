@@ -33,7 +33,7 @@
     "google-auth-library": "9.15.0",
     "google-spreadsheet": "4.1.4",
     "motion": "11.14.4",
-    "next": "15.0.4",
+    "next": "15.1.1",
     "next-auth": "5.0.0-beta.25",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@dnd-academy/eslint-config": "workspace:*",
-    "@next/eslint-plugin-next": "15.0.4",
+    "@next/eslint-plugin-next": "15.1.1",
     "@testing-library/dom": "10.3.1",
     "@testing-library/jest-dom": "6.4.6",
     "@testing-library/react": "16.1.0",
