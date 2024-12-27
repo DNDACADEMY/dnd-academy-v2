@@ -1,4 +1,4 @@
-export type EventStatusType = 'UPCOMING' | 'ONGOING' | 'INACTIVE' | 'HOT';
+export type EventStatusType = 'UPCOMING' | 'ONGOING' | 'ACTIVE' | 'INACTIVE' | 'HOT';
 
 export interface EventStatus {
   status: EventStatusType;

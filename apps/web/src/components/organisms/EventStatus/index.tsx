@@ -63,9 +63,11 @@ function EventStatus({ eventStatus }: Props) {
     );
   }
 
-  return (
-    <Badge label={eventStatus.label || `DND는 ${CURRENT_FLAG}기 진행중`} variant="success" />
-  );
+  if (status === 'ACTIVE') {
+    return (
+      <Badge label={eventStatus.label || `DND는 ${CURRENT_FLAG}기 진행중`} variant="success" />
+    );
+  }
 }
 
 export default EventStatus;
