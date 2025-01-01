@@ -1599,10 +1599,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@channel.io/channel-web-sdk-loader@npm:1.1.7":
-  version: 1.1.7
-  resolution: "@channel.io/channel-web-sdk-loader@npm:1.1.7"
-  checksum: 10/8c2a40577e285df70518f92c65c2bab752be93f5e2b855aada41363c4081419585278c5856bbea3e4bae651f08e9e8b59ea7b82fbd04b0efed690f96820a3f6f
+"@channel.io/channel-web-sdk-loader@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@channel.io/channel-web-sdk-loader@npm:2.0.0"
+  checksum: 10/11bf96fa8863a9800537f674225bc3fa67cea59592a8bd1fc9d333e5db899e08ff885bd3380f67b62e0ba7ab3252a7ba2df636cf58f84b562584830ade370f6a
   languageName: node
   linkType: hard
 
@@ -18457,7 +18457,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:apps/web"
   dependencies:
-    "@channel.io/channel-web-sdk-loader": "npm:1.1.7"
+    "@channel.io/channel-web-sdk-loader": "npm:2.0.0"
     "@chromatic-com/storybook": "npm:2.0.2"
     "@codecov/nextjs-webpack-plugin": "npm:1.2.0"
     "@dnd-academy/core": "workspace:*"
