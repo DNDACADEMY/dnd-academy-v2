@@ -9,27 +9,22 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "editor.formatOnSave": false,
-  "stylelint.validate": [
-    "scss",
-    "css"
-  ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": "explicit",
-    "source.fixAll.eslint": "explicit"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
+  "stylelint.validate": ["scss", "css"],
   "[scss]": {
     "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter",
     "editor.formatOnSave": true
   },
-  "scssFormatter.singleQuote": true
+  "scssFormatter.singleQuote": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true
 }
