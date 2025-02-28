@@ -1620,10 +1620,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@channel.io/channel-web-sdk-loader@npm:1.1.7":
-  version: 1.1.7
-  resolution: "@channel.io/channel-web-sdk-loader@npm:1.1.7"
-  checksum: 10/8c2a40577e285df70518f92c65c2bab752be93f5e2b855aada41363c4081419585278c5856bbea3e4bae651f08e9e8b59ea7b82fbd04b0efed690f96820a3f6f
+"@channel.io/channel-web-sdk-loader@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@channel.io/channel-web-sdk-loader@npm:2.0.0"
+  checksum: 10/11bf96fa8863a9800537f674225bc3fa67cea59592a8bd1fc9d333e5db899e08ff885bd3380f67b62e0ba7ab3252a7ba2df636cf58f84b562584830ade370f6a
   languageName: node
   linkType: hard
 
@@ -18612,12 +18612,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:1.2.0":
-  version: 1.2.0
-  resolution: "use-sync-external-store@npm:1.2.0"
+"use-sync-external-store@npm:1.4.0":
+  version: 1.4.0
+  resolution: "use-sync-external-store@npm:1.4.0"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10/a676216affc203876bd47981103f201f28c2731361bb186367e12d287a7566763213a8816910c6eb88265eccd4c230426eb783d64c373c4a180905be8820ed8e
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10/08bf581a8a2effaefc355e9d18ed025d436230f4cc973db2f593166df357cf63e47b9097b6e5089b594758bde322e1737754ad64905e030d70f8ff7ee671fd01
   languageName: node
   linkType: hard
 
@@ -18915,7 +18915,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:apps/web"
   dependencies:
-    "@channel.io/channel-web-sdk-loader": "npm:1.1.7"
+    "@channel.io/channel-web-sdk-loader": "npm:2.0.0"
     "@chromatic-com/storybook": "npm:2.0.2"
     "@codecov/nextjs-webpack-plugin": "npm:1.2.0"
     "@dnd-academy/core": "npm:*"
@@ -18985,9 +18985,10 @@ __metadata:
     start-server-and-test: "npm:1.14.0"
     storybook: "npm:8.3.3"
     typescript: "npm:5.2.2"
+    use-sync-external-store: "npm:1.4.0"
     usehooks-ts: "npm:3.1.0"
     webpack: "npm:5.95.0"
-    zustand: "npm:4.5.2"
+    zustand: "npm:5.0.3"
   languageName: unknown
   linkType: soft
 
@@ -19460,15 +19461,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:4.5.2":
-  version: 4.5.2
-  resolution: "zustand@npm:4.5.2"
-  dependencies:
-    use-sync-external-store: "npm:1.2.0"
+"zustand@npm:5.0.3":
+  version: 5.0.3
+  resolution: "zustand@npm:5.0.3"
   peerDependencies:
-    "@types/react": ">=16.8"
+    "@types/react": ">=18.0.0"
     immer: ">=9.0.6"
-    react: ">=16.8"
+    react: ">=18.0.0"
+    use-sync-external-store: ">=1.2.0"
   peerDependenciesMeta:
     "@types/react":
       optional: true
@@ -19476,6 +19476,8 @@ __metadata:
       optional: true
     react:
       optional: true
-  checksum: 10/9e9e92ce7378c5de1d7682f4f10340a1c07a81b673ad0a125b59883a6ade3f2bf39eac6ccc5b05630f9df6ed925291f681592db59ccd3815685c2e83f67c8525
+    use-sync-external-store:
+      optional: true
+  checksum: 10/35728fdaa68291ea3e469524316dda4fe1d8cc22d8be3df309ca99bda0dbc7e66a1c502f66c26f76abfb4bd49a6e1368160353eb3cb173c24042a5f252075462
   languageName: node
   linkType: hard

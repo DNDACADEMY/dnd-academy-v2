@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/DNDACADEMY/dnd-academy-v2#readme",
   "dependencies": {
-    "@channel.io/channel-web-sdk-loader": "1.1.7",
+    "@channel.io/channel-web-sdk-loader": "2.0.0",
     "@dnd-academy/core": "*",
     "@dnd-academy/ui": "*",
     "@next/third-parties": "14.2.12",
@@ -49,8 +49,9 @@
     "react-perfect-scrollbar": "1.5.8",
     "react-responsive-masonry": "2.2.0",
     "sanitize.css": "13.0.0",
+    "use-sync-external-store": "1.4.0",
     "usehooks-ts": "3.1.0",
-    "zustand": "4.5.2"
+    "zustand": "5.0.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "2.0.2",
