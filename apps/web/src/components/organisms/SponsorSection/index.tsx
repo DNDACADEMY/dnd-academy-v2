@@ -20,6 +20,7 @@ function SponsorSection() {
     { sponsor: 'impact-campus', url: 'https://impactcampus.campaignus.me', image: 'impact-campus.png' },
     { sponsor: 'notefolio', url: 'https://notefolio.net', image: 'notefolio.png' },
     { sponsor: 'elice', url: 'https://elice.io/ko', image: 'elice.png' },
+    { sponsor: 'sniperfactory', url: 'https://sniperfactory.com', image: 'sniperfactory.png' },
   ];
 
   return (
