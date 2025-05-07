@@ -8,6 +8,7 @@
     "deploy": "turbo run deploy",
     "deploy:web": "turbo run deploy --filter=web",
     "deploy:admin": "turbo run deploy --filter=admin",
+    "deploy:passboard": "turbo run deploy --filter=passboard",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",

@@ -1,0 +1,6 @@
+{
+  "crons": [{
+    "path": "/api/cron/current-applicant-count",
+    "schedule": "0 0 * * *"
+  }]
+}
