@@ -2300,5 +2300,192 @@
       "youtube": "",
       "link": ""
     }
+  },
+  {
+    "id": 84,
+    "name": "98percent",
+    "title": "더 날카롭게, 더 정확하게 성장하기 사이드 프로젝트를 위한 피드백 커뮤니티, 98%",
+    "desc": "사이드 프로젝트를 진행하는 많은 사람들이 사용자 피드백을 효과적으로 확보하지 못해 프로젝트의 지속적인 개선이 어렵다는 문제를 바탕으로 탄생했습니다.\n\n98%는 원하는 테스터를 구인하고 객관적이고 깊이 있는 피드백 확보를 통한 지속적인 기록과 성장을 지원합니다. 프로젝트를 개선하면서 동시에 초기 사용자층을 확보할 수 있도록 돕습니다.",
+    "flag": "12기",
+    "skill": [
+      "figma",
+      "illustrator"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/12/8/8.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/12/8/8.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 85,
+    "name": "피키토키",
+    "title": "한때 가까웠지만 서먹해지는 그룹의 관계 유지를 돕는 서비스, 피키토키",
+    "desc": "Overview. 서서히, 어느 순간 멀어져 가는 우리..\n\"고등학교 동네 친구가 평생 친구\"라는 말이 있지만\n현실은 대학, 취업, 결혼 등 여러 이유로 친구들이 다른 지역으로 흩어지고, 자연스럽게 관계도 멀어지는 경우가 많습니다. 동아리나 팀프로젝트와 같은 단체활동을 마무리하고 자연스럽게 멀어지는 경우도 마찬가지입니다.\n이처럼, 한때는 정말 가까웠고 열정을 나눴던 사이지만 ‘어느 순간’ ‘자연스럽게’ 관계가 멀어지는 경우가 많습니다.\n저희는 이러한 문제에 주목해, 개인이 아닌 그룹(단체)의 관계 유지에 집중했습니다.\n\nProblem. 우리들의 관계가 소원해지는 이유는..?\n설문조사와 심층인터뷰를 통해 그룹의 관계 유지가 어려운 3가지 주요 원인을 발견했습니다.\n1. 대화 시작에 부담을 느낌\n2. 여전히 연결되어있음을 느끼고 싶어하지만 ‘점점’ ‘어느 순간’ 누가 먼저 대화를 시작할지에 대한 부담이 생김\n3. 그룹 관계에서는 특히 아무도 나서지 않을 경우 전체가 단절되는 상황이 많음\n4. 대화의 ‘공통 분모’ 가 약해짐\n5. 같은 공간에서 서로의 사소한 일상을 공유했지만, 공통 화제가 사라지면서 서로의 작은 이야기들이 사라짐\n6. 대화주제가 무거워지거나 특별한 사건 중심으로 흘러감\n7. '내 얘기를 꺼내야 할 이유' 가 필요함\n8. 자연스럽게 대화의 흐름이 이어졌지만, 물리적으로 떨어져 있는 상황에서는 \"굳이 이걸 말해야 하나?\"라는 심리가 작용함\n9. 이야기를 꺼내야 하는 명분(ex.특별한 날 챙기기)이나 계기가 주어질 때 비로소 대화가 시작됨\n\n또한, 심층인터뷰를 통해 기존 소통 플랫폼에 대한 사용자들의 painpoint를 발견할 수 있었습니다. 가장 대중적인 인스타그램과 카카오톡 같은 경우 ‘그룹(단체)의 관계를 깊이 유지‘하는 데에 심리적, 환경적 한계를 드러내고 있었습니다.\n\n인스타그램\n1. 그룹의 관계 유지보다는 ‘각자의 근황 업데이트’ 에 가까움\n2. 대화가 시작될 계기가 있지만 금방 사그라듬\n카카오톡\n1. 어느 순간부터 대화 시작에 대한 부담이 커지면서, 소통의 장벽으로 작용\n\nSolution. 자연스럽고 부담 없는 방식으로 관계를 이어갈 수 있도록 돕자! 리서치 내용을 기반으로 우리 서비스가 나아가야 할 방향성과 핵심 기능을 구체화했습니다.\n1.공통 맥락을 통한 자연스러운 접점\n- 공통된 맥락을 제공하여 자연스럽게 소통할 수 있는 접점을 만들어냄\n- 이 접점이 서로를 계속 이어주는 연결고리가 되어, 각자의 일상이나 생각들이 더욱 원활하게 공유될 수 있게 함\n2.부담 없는 대화로 이어질 수 있는 가벼운 연결\n- 대화 시작에 대한 부담을 덜어내고, 친구들 간의 소소하고 가벼운 연결 유도\n- 부담 없이 이야기를 꺼낼 수 있는 환경을 제공해, 친구들 간의 자연스러운 대화가 이어지도록 도움\n\nMain feature. 하루 1 질문으로 우리 사이를 더 가깝게\n1. 최초 사용자가 그룹을 생성하고, 초대 코드를 공유하면 그룹이 활성화됩니다.\n2. 매일 한 명의 오늘의 질문자가 추첨되고 질문을 작성합니다.\n3. 나머지 그룹원들은 해당 질문에 대한 답변을 작성합니다.\n질문과 응답을 작성할 때마다 포인트가 쌓여 캐릭터가 성장하는 게이미피케이션 요소를 적용했습니다.\n그룹원들이 함께 캐릭터를 성장시킴으로써 서비스에 대한 지속적인 동기부여를 제공합니다.",
+    "flag": "12기",
+    "skill": [
+      "NextJS",
+      "Typescript",
+      "Tailwindcss",
+      "ReactQuery",
+      "NextAuth",
+      "ReactHookForm",
+      "Orval",
+      "Github Actions",
+      "Vercel",
+      "Springboot",
+      "Docker",
+      "MySQL",
+      "Figma",
+      "Slack",
+      "Notion"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/12/4/4.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/12/4/4.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-12th-4-frontend",
+        "https://github.com/dnd-side-project/dnd-12th-4-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "",
+      "figma": "https://www.figma.com/design/kU6cWZCX0dEIFgIGoLaO2J/DND-12-4-hi-fi?node-id=0-1&p=f&t=6L1PBvsmHJlngf8o-0"
+    }
+  },
+  {
+    "id": 86,
+    "name": "MODDO",
+    "title": "즐거운 만남, 정산까지 즐겁게! 모임 정산 서비스 MODDO",
+    "desc": "'모또'는 모임 정산 과정에서 발생하는 정산 지연등의 여러 문제에 대한 총무의 부담을 줄이기 위해 게이미피케이션 요소를 더하여 모임원들의 적극적인 정산 참여를 유도하는 서비스입니다.\n\n주요 기능\n\n👥 모임을 생성하고 모임에 참여했던 인원을 등록해요!\n모임의 이름과 참여자를 입력하면 더 간편하게 지출 내역을 입력할 수 있습니다.\n모임 구성원을 한눈에 확인하고 관리할 수 있습니다.\n\n💵 모임에서 사용했던 지출 내역을 정리해요!\n사용했던 지출 내역을 각 차수별로 구분하여 쉽게 입력할 수 있습니다.\n지출 내역 입력 시 참여자를 자유롭게 추가/제외할 수 있고, 참여자별 사용 금액을 N/1로 구분할 수 있습니다.\n\n🔗 모임의 지출내역을 공유하고 확인해요!\n작성한 정산 내역을 링크와 QR코드로 모임 참여자들에게 편리하게 공유할 수 있습니다.\n공유된 페이지에서는 참여자별, 차수(위치)별 지출내역을 한눈에 확인할 수 있어 투명한 정산이 가능합니다.\n입금 마감 시간과 입금 현황을 프로그레스바로 표시하여 모임의 정산 진행 상태를 쉽게 파악할 수 있습니다.",
+    "flag": "12기",
+    "skill": [
+      "React",
+      "Typescript",
+      "Styled-Components",
+      "Tanstack Query",
+      "Storybook",
+      "Java",
+      "Spring Boot",
+      "Spring Data JPA",
+      "MariaDB",
+      "Docker",
+      "Github Actions",
+      "AWS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/12/7/7.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/12/7/7.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-12th-7-frontend",
+        "https://github.com/dnd-side-project/dnd-12th-7-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "https://www.moddo.kr"
+    }
+  },
+  {
+    "id": 87,
+    "name": "리브 (Reev)",
+    "title": "개인과 모임이 성찰을 통해 함께 성장하는 회고 서비스, 리브",
+    "desc": "Reev(리브)는 회고를 쉽고 꾸준히 기록할 수 있도록 돕는 서비스입니다.\n템플릿, 회고 모임, 피드백을 통해 개인과 팀이 함께 성장할 수 있도록 지원합니다.\n\n💡 Reev가 해결하는 문제\n회고의 중요성은 알지만 어떻게 작성해야 할지 막막한 사용자들을 위해 템플릿 기반 작성 지원 + 꾸준한 기록이 어려운 사용자들을 위해 회고 모임과 피드백 시스템 제공\n\n🛠 주요 기능\n회고 모임:\n같은 관심사를 가진 사용자들과 모임을 만들고 회고를 공유하며 다른 사용자의 회고를 보고 댓글과 좋아요를 남기며 서로의 성장을 돕는 피드백 문화를 만들어요. 꾸준한 기록이 어려운 사용자들에게 동기부여가 됩니다.\n\n맞춤 템플릿:\n직무별, 회고 방법론별 템플릿을 제공해 회고 작성을 쉽게 시작할 수 있도록 도와줍니다. 처음 회고를 작성하는 사람도 가이드라인을 참고하며 부담 없이 작성할 수 있어요.\n\n온보딩 추천:\n관심 있는 키워드와 직무를 선택하면 맞춤 회고 모임을 추천받을 수 있어요. 혼자 기록하는 것이 어렵다면 비슷한 경험을 가진 사용자들과 함께 시작해보세요.\n\n🚀 Reev와 함께하면?\n회고 작성을 더 쉽고 의미 있게! 함께 기록하고 성장하는 습관을 만들어보세요.",
+    "flag": "12기",
+    "skill": [
+      "Figma",
+      "Next.js",
+      "Typescript",
+      "Tailwindcss",
+      "React-Query",
+      "Zustand",
+      "Vercel",
+      "Docker",
+      "AWS",
+      "spring boot"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/12/10/10.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/12/10/10.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-12th-10-frontend",
+        "https://github.com/dnd-side-project/dnd-12th-10-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 88,
+    "name": "스부키 Sbooky",
+    "title": "독서로 만나는 유령, 마법 도서관 스부키",
+    "desc": "스부키는 귀여운 유령 캐릭터와 함께 즐겁고 유쾌하게 독서 습관을 만들어갈 수 있도록 동기부여를 제공하는 독서 기록 서비스입니다.\n\n책을 읽고 기록하는 과정이 부담이 아닌 재미있는 경험이 될 수 있도록, 시각적인 독서 기록, 서재 공유, 보상 시스템 등 독서의 모든 순간을 의미 있게 즐길 수 있는 경험을 제공합니다.",
+    "flag": "12기",
+    "skill": [
+      "Figma",
+      "Adobe Photoshop",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Turborepo",
+      "TailwindCSS",
+      "Storybook",
+      "TanStack-Query",
+      "Ky",
+      "Motion",
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "Redis",
+      "Docker",
+      "AWS",
+      "GitHub Actions",
+      "Nginx"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/12/9/9.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/12/9/9.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-12th-9-frontend",
+        "https://github.com/dnd-side-project/dnd-12th-9-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "https://sbooky.net/"
+    }
+  },
+  {
+    "id": 89,
+    "name": "dogether",
+    "title": "함께하면 두 개 더, 지금부터 Do Gether! 투두 챌린지 서비스 dogether",
+    "desc": "두게더는 다양한 목표를 가진 사람들이 모여 서로의 투두 인증을 공유하고 평가하면서 목표 달성을 돕는 목표 달성 및 동기부여 서비스입니다.\n\n단순히 목표를 기록하는 것이 아니라, 검사 및 피드백과 같은 챌린지와 랭킹시스템을 통해 지속적인 실천을 유도합니다.",
+    "flag": "12기",
+    "skill": [
+      "Figma",
+      "UIKit",
+      "SnapKit",
+      "Java",
+      "Spring Boot",
+      "iOS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/12/1/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/12/1/1.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-12th-1-iOS"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
   }
 ]

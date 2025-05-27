@@ -33,7 +33,7 @@ async function CounterCardSection({ title: sectionTitle }: Props) {
       count: totalProjects, title: '총 프로젝트 수', color: 'green', suffix: '개',
     },
     {
-      count: dropouts, title: `${CURRENT_FLAG - 1}기 이탈자`, color: 'red', highlight: true,
+      count: dropouts, title: `${CURRENT_FLAG}기 이탈자`, color: 'red', highlight: true,
     },
   ];
 
