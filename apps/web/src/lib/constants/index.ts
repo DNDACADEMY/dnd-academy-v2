@@ -7,3 +7,5 @@ export const DEVELOPER_APPLICATION_LINK = 'https://forms.gle/QYs8aB9oE2yC9qcs5';
 export const DESIGNER_APPLICATION_LINK = 'https://forms.gle/vkHUpppAbSDQgVVY8';
 
 export const NEXT_COHORT_NOTIFICATION_URL = 'https://forms.gle/nA3MLWbUyAoikWw16';
+
+export const PASSBOARD_URL = 'https://passboard.dnd.ac';
