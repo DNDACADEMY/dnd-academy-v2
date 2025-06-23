@@ -11,11 +11,11 @@ import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGrou
 import CounterCardSection from '@/components/organisms/CounterCardSection';
 import EventStatus from '@/components/organisms/EventStatus';
 import FAQSection from '@/components/organisms/FAQSection';
-import PassboardButton from '@/components/organisms/PassboardButton';
 import ProjectsSlider from '@/components/organisms/ProjectsSlider';
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import SponsorSection from '@/components/organisms/SponsorSection';
 import { RightArrowIcon } from '@/lib/assets/icons';
+import { CURRENT_FLAG, PASSBOARD_URL } from '@/lib/constants';
 import { isChristmasTheme } from '@/utils';
 
 import styles from './index.module.scss';
@@ -68,7 +68,11 @@ function HomePage({
             <ApplyNotifyButtonGroup eventStatus={eventStatus}>
               <Button size="xLarge" buttonType="primary" />
             </ApplyNotifyButtonGroup>
-            <PassboardButton status={eventStatus.status} />
+            {eventStatus.status === 'ACTIVE' && (
+            <Button isExternalLink size="xLarge" buttonType="default" href={PASSBOARD_URL}>
+              {`${CURRENT_FLAG}기 합격자 조회`}
+            </Button>
+            )}
           </div>
         </div>
         <div className={styles.bannerWrapper}>
