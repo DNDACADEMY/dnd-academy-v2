@@ -41,7 +41,7 @@
   {
     "name": "성기동",
     "id": 2,
-    "isArchived": true,
+    "isArchived": false,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeongGiDong.png",
     "author": "Gidong",
     "dndPosition": "개발",
@@ -114,7 +114,14 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeDajeong.png",
     "author": "Dajeong",
     "dndPosition": "디자인",
-    "technicalStack": ["UX리서치","UI기획", "UX라이팅", "Figma", "notion", "Jira"],
+    "technicalStack": [
+      "UX리서치",
+      "UI기획",
+      "UX라이팅",
+      "Figma",
+      "notion",
+      "Jira"
+    ],
     "oneLineIntroduction": "포기하지 않는다면, 해낼 수 있습니다.",
     "links": {
       "linkedin": "https://www.linkedin.com/in/dajeong-lee-7b241b93",
@@ -122,10 +129,7 @@
     },
     "career": {
       "now": ["스터닝 프로덕트 디자이너"],
-      "previous": [
-        "엘리스 프로덕트 디자이너",
-        "유라클 UX/UI 디자이너"
-      ]
+      "previous": ["엘리스 프로덕트 디자이너", "유라클 UX/UI 디자이너"]
     },
     "mbti": "ENFP",
     "questions": {
@@ -222,7 +226,7 @@
   {
     "name": "김동영",
     "id": 8,
-    "isArchived": true,
+    "isArchived": false,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Dongyeong.png",
     "author": "Dongyeong",
     "dndPosition": "개발",
@@ -281,20 +285,17 @@
     "author": "Seongjun",
     "dndPosition": "개발",
     "technicalStack": ["Spring", "React", "Vue", "Hadoop"],
-    "oneLineIntroduction": "누구나 노력한만큼 성취할 수 있는 기회를!",
-    "links": {
-      "github": "https://github.com/miue22",
-      "rocketpunch": "https://www.rocketpunch.com/@tthh617#projects"
-    },
+    "oneLineIntroduction": "누구든, 어디서든 성장할 수 있는 기회가 있으면 좋겠다고 생각합니다.",
+    "links": {},
     "career": {
-      "now": ["2020.11 ~ 백엔드 개발자"],
-      "previous": ["2018.10 ~ 2020.11 - 풀스택 개발자"]
+      "now": ["2021.04 ~ VIBE 백엔드 개발"],
+      "previous": ["2019.01 ~ 2021.04 - Audioclip 풀스택 개발"]
     },
-    "mbti": "INTJ",
+    "mbti": "ISTP",
     "questions": {
-      "whatIsYourRoleInDnd": "개발 운영진으로 참여중이며, 개발/커리어 멘토링과 매 주차 출제되는 개발 미션에 대한 관리를 하고 있습니다. 내향적인 INTJ라 전면에 나서는 일은 잘 없지만 항상 함께하고 있습니다 🙃",
-      "whyDoYouRecommendDnd": "실무를 하기 전에 사이드 프로젝트를 통한 협업 경험을 갖는건 정말 중요하지만 누구와, 무엇을, 어떻게 하는지에 따라 성취가 달라집니다. DND는 여러분들이 성공적인 프로젝트를 할 수 있도록 다방면으로 지원하고 있습니다. 어떻게 시작해야 할지 막막하다면, 체계적인 프로젝트를 해보고 싶다면 지원해보세요!",
-      "whatIsYourInterests": "",
+      "whatIsYourRoleInDnd": "DND에서 개발 백엔드 운영진으로 활동하며 개발자 모집 및 선발, 개발 행사 운영, 코드 리뷰나 개발 피드백 등 전반적인 개발 활동을 담당하고 있어요.\n어떻게 해야 참가자들이 더 성장하고, 더 만족스러운 경험을 할 수 있을지 고민하고 개선해나가고 있습니다.",
+      "whyDoYouRecommendDnd": "사이드 프로젝트를 통한 협업 경험을 갖는건 정말 중요하지만 누구와, 무엇을, 어떻게 하는지에 따라 성취가 달라집니다.\nDND는 프로젝트 가이드라인을 통해 여러분들이 보다 실무적이고, 체계적으로 프로젝트를 할 수 있도록 지원하고 있으며 프로젝트 진행 중 고민이나 어려움이 생겼을 때 피드백을 드릴 수 있는 운영진이 있다는게 가장 큰 장점이라고 생각합니다.\n열정 가득한 팀원들, 운영진들과 함께 성장하고 싶다면 지원해보세요!",
+      "whatIsYourInterests": "웨이트 트레이닝을 좋아해서 꾸준히 하고 있습니다 💪",
       "whatYouWantToShare": []
     }
   },
@@ -425,25 +426,24 @@
   {
     "name": "이여진",
     "id": 16,
-    "isArchived": true,
+    "isArchived": false,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/lia.png",
     "author": "lia",
     "dndPosition": "운영",
-    "technicalStack": ["Vue", "Adobes"],
-    "oneLineIntroduction": "여러분의 성장을 응원합니다! 🥳",
+    "technicalStack": [],
+    "oneLineIntroduction": "함께하는 이들의 성장을 이끄는 이여진입니다.",
     "links": {
-      "github": "https://github.com/rt-mingming",
-      "linkedin": "https://www.linkedin.com/in/yeojin-lee-46a8a4211"
+      "linkedin": "https://www.linkedin.com/in/lia-yeojinlee"
     },
     "career": {
-      "now": ["(주)그렙 프로그래머스 코스매니저"],
+      "now": ["(주)그렙 프로그래머스 교육개발지원팀 PM"],
       "previous": []
     },
     "mbti": "INFP",
     "questions": {
-      "whatIsYourRoleInDnd": "전반적인 DND 운영 및 구성원 커리어 코칭, 해커톤을 담당하고 있습니다.",
-      "whyDoYouRecommendDnd": "어쩔 수 없이 참가한 수동적인 팀원들에게 지친 여러분에게 열정이 가득한, 능동적인 팀원들과 함께하는 경험을 쌓을 수 있는 좋은 기회입니다!",
-      "whatIsYourInterests": "3년간 무료 멘토링을 통해 개발자의 성장를 도우며 행복을 느낍니다.\n요즘은 PT를 받으며 점차 늘어나는 무게에 성취감을 느껴요.\n오버워치 금장을 달면서 더욱 게임을 사랑하게 되었어요! 롤, 롤체, 옵치, 레식 하는 사람 환영합니닷.",
+      "whatIsYourRoleInDnd": "DND 운영팀으로서 개발자 및 디자이너 참가자들을 위한 행사를 기획 및 운영하며, 즐거운 경험과 기회를 제공하기 위해 더 나은 프로세스로 개선하고, 후원사와 협력하는 일을 합니다.",
+      "whyDoYouRecommendDnd": "DND는 단순한 비영리 IT 동아리를 넘어, 개발자와 디자이너가 함께 성장하고 즐거운 경험을 만들어갈 수 있는 특별한 공간입니다.\n기술적 역량을 강화하고, 실제 프로젝트 경험을 쌓으며, 폭넓은 네트워킹을 통해 미래를 위한 든든한 기반을 다질 수 있습니다.\n성장하는 동료가 함께하고, 여러분의 아이디어가 현실이 되는 DND에서 잠재력을 마음껏 펼쳐보세요! 🚀🚀",
+      "whatIsYourInterests": "대문자 I지만, 사람들과의 소통을 즐기고 성장을 돕는 일에 큰 행복을 느낍니다!\n동료들의 성장 과정에서 필요한 자원을 찾아 제공하고, 발전하는 모습을 보며 깊은 뿌듯함을 느낍니다.\n이런 성향이 담긴 취미는 영상 촬영과 편집으로, 사람들의 이야기를 담아내고 성장을 기록하는 것을 즐깁니다!",
       "whatYouWantToShare": []
     }
   },
@@ -481,10 +481,7 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Hyeonju.png",
     "author": "Hyeonju",
     "dndPosition": "디자인",
-    "technicalStack": [
-      "figma",
-      "Adobes"
-    ],
+    "technicalStack": ["figma", "Adobes"],
     "oneLineIntroduction": "질문하고 계획 세우는 걸 좋아합니다.",
     "links": {
       "github": "",
@@ -607,9 +604,7 @@
       "linkedin": "https://www.linkedin.com/in/jaewang-lee-575417175/"
     },
     "career": {
-      "now": [
-        "SmartGeo 백엔드 개발자"
-      ],
+      "now": ["SmartGeo 백엔드 개발자"],
       "previous": [
         "GovTechKorea 프론트엔드 개발자",
         "Google Developer Student Clubs"
@@ -690,7 +685,9 @@
       "github": ""
     },
     "career": {
-      "now": ["개발(교육) 1인 사업부터 서버개발자까지 필드에서 열심히 능력을 쌓고 있습니다 💪"],
+      "now": [
+        "개발(교육) 1인 사업부터 서버개발자까지 필드에서 열심히 능력을 쌓고 있습니다 💪"
+      ],
       "previous": []
     },
     "mbti": "ESFJ",
@@ -708,7 +705,17 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeungMin.JPG",
     "author": "SeungMin",
     "dndPosition": "개발",
-    "technicalStack": ["React", "Next.js", "TypeScript", "Jest", "TDD", "react-query", "Sass/tailwind css", "Zustand", "Storybook"],
+    "technicalStack": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Jest",
+      "TDD",
+      "react-query",
+      "Sass/tailwind css",
+      "Zustand",
+      "Storybook"
+    ],
     "oneLineIntroduction": "세상에 보이지 않는 긍정적인 가치를 주며 함께 자라기를 실천하고 싶은 프론트앤드 개발자",
     "links": {
       "github": "https://github.com/saseungmin",
@@ -718,7 +725,10 @@
     },
     "career": {
       "now": ["레브잇 프론트엔드 개발자"],
-      "previous": ["비마이프렌즈 프론트엔드 개발자", "카사코리아 프론트엔드 개발자"]
+      "previous": [
+        "비마이프렌즈 프론트엔드 개발자",
+        "카사코리아 프론트엔드 개발자"
+      ]
     },
     "mbti": "INFJ",
     "questions": {
@@ -779,7 +789,7 @@
   {
     "name": "최나은",
     "id": 29,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/NaEun.png",
     "author": "NaEun",
     "dndPosition": "디자인",
@@ -851,7 +861,7 @@
   {
     "name": "한채영",
     "id": 32,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/ChaeYoung.jpeg",
     "author": "ChaeYoung",
     "dndPosition": "디자인",
@@ -878,11 +888,19 @@
   {
     "name": "박지현",
     "id": 33,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHyun.png",
     "author": "JiHyun",
     "dndPosition": "개발",
-    "technicalStack": ["C", "Java", "Python", "Springboot", "Django", "html", "css"],
+    "technicalStack": [
+      "C",
+      "Java",
+      "Python",
+      "Springboot",
+      "Django",
+      "html",
+      "css"
+    ],
     "oneLineIntroduction": "공룡 좋아하는 개발자이자 IT 강사",
     "links": {
       "github": "https://github.com/gulbiarchive"
@@ -913,7 +931,10 @@
     },
     "career": {
       "now": ["이노바이드 프론트엔드 개발"],
-      "previous": ["카카오엔터프라이즈 보안플랫폼 개발", "넛지헬스케어 프론트엔드 개발"]
+      "previous": [
+        "카카오엔터프라이즈 보안플랫폼 개발",
+        "넛지헬스케어 프론트엔드 개발"
+      ]
     },
     "mbti": "ENFP",
     "questions": {
@@ -944,6 +965,80 @@
       "whatIsYourRoleInDnd": "디자인 운영진으로 활동하고 있습니다.\n언제든 필요한 도움을 드리고자 노력하겠습니다 😊",
       "whyDoYouRecommendDnd": "팀원들과 공동의 목표를 이루기 위해 함께 노력하고 성장하는 협업의 가치를 DND 활동을 통해 생생하게 경험할 수 있습니다 💜",
       "whatIsYourInterests": "🎥 일주일에 한 번 영화보기\n💪 꾸준하게 운동하기\n🐈‍⬛ 고양이 영상 찾아보기",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "강민석",
+    "id": 36,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Minseok.png",
+    "author": "Minseok",
+    "dndPosition": "개발",
+    "technicalStack": ["Java", "Spring Boot"],
+    "oneLineIntroduction": "학습으로 자아실현하는 사람",
+    "links": {
+      "github": "https://github.com/kkminseok"
+    },
+    "career": {
+      "now": ["2021년 11월 ~ 백엔드 개발자 4년"],
+      "previous": []
+    },
+    "mbti": "INTJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "주니어 개발자, 저연차 개발자분들께서 고민할만한 내용이나 경험 등을 미리 겪고 공유하여 고민할 포인트들을 던져주는 역할을 맡고 있는 것 같습니다.",
+      "whyDoYouRecommendDnd": "8주라는 짧은 시간안에 커뮤니케이션, 개발, 일정관리 등을 동료들, 운영진과 함께 진행하면서 많은 경험을 쌓을 수 있다는게 장점인 것 같습니다. 개발자라면 생산성도 중요하지만 위 경험을 통해 다른 중요한 것들도 얻어갈 수 있는 계기가 될 것이라 확신합니다~",
+      "whatIsYourInterests": "- 운동을 하거나, 공부를 하거나 일에서 반복된 일상을 벗어나서 하루를 보내면 행복합니다.\n- 요즘 개발에서 관심있는건 클라우드 네이티브, 분산 환경에서의 운영 관리쪽이 관심이 많이 갑니다.\n- 누군가에게 도움을 주었을 때 행복합니다.",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "류태웅",
+    "id": 37,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/TaeWoon.jpg",
+    "author": "TaeWoon",
+    "dndPosition": "개발",
+    "technicalStack": ["Java", "Spring Boot"],
+    "oneLineIntroduction": "소통하는 개발자",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/tae-woong-ryu-99260a30a/?locale=ko_KR",
+      "github": "https://github.com/taewoon-ryu"
+    },
+    "career": {
+      "now": ["대학생"],
+      "previous": []
+    },
+    "mbti": "INTP",
+    "questions": {
+      "whatIsYourRoleInDnd": "대학생 분들이 기술 측면과 진로 측면에서 조언을 주고 질문에 답변하는 업무를 맡고 있습니다.",
+      "whyDoYouRecommendDnd": "실력의 한계를 깨부수는 방아쇠가 될 수 있습니다.\n저도 마찬가지로 1년 내 11기, 12기 참여를 거쳐 실력이 폭발적으로 성장하게 되었습니다.",
+      "whatIsYourInterests": "IT 컨퍼런스에 참여하여 어려 개발자 분들의 의견과 관점을 듣고 개발하고 있는 프로젝트에 반영하는 것을 좋아합니다.\n예시로 지금은 학교 내 AIDX에 전시할 프로젝트를 기획 및 설계하고 있는데, AWS Summit Seoul 2025의 Sketch Lab에서 영감을 받았습니다.",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "이지형",
+    "id": 38,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jihyeong.jpeg",
+    "author": "Jihyeong",
+    "dndPosition": "운영",
+    "technicalStack": ["React.js", "Next.js", "TypeScript", "Storybook"],
+    "oneLineIntroduction": "0에서 시작해, 나만의 길을 만들어가는 개발자.",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/zero1016",
+      "github": "https://github.com/Zero-1016"
+    },
+    "career": {
+      "now": ["UX Engineer Assistant"],
+      "previous": ["블록체인 프론트엔드 개발"]
+    },
+    "mbti": "INFJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "현재 DND 운영에 힘쓰며, 지원자분들이 더 나은 환경에서 프로젝트 경험을 쌓을 수 있도록 고민하고 개선하고 있습니다.",
+      "whyDoYouRecommendDnd": "개발 부트캠프나 독학으로 공부하는 경우, 다른 직군과 함께 프로젝트를 경험하는 일이 쉽지 않을 수 있습니다. 하지만 DND는 프로젝트 경험을 쌓을 기회를 제공할 뿐만 아니라, 훌륭한 사람들과의 네트워킹 기회도 제공합니다.\n또한, 지원자분들께서 원하신다면 현업에서 활동 중인 개발자나 디자이너 멘토님들과 커피챗을 진행할 수 있습니다. 이를 통해 다양한 인사이트와 경험을 얻어가실 수 있을 거예요!",
+      "whatIsYourInterests": "새로운 기술을 배우고 적용하며, 이를 통해 기존 레거시를 개선하는 과정에서 큰 즐거움을 느낍니다. 또한 다양한 사람들과 네트워킹하는 것을 좋아하며, 멘토 활동을 통해 개발자들의 성장을 돕는 데에서 큰 보람을 느낍니다.",
       "whatYouWantToShare": []
     }
   },
