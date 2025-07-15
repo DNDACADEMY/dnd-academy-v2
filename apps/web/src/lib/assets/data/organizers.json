@@ -1043,6 +1043,29 @@
     }
   },
   {
+    "name": "서지예",
+    "id": 39,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jiyee.png",
+    "author": "Jiyee",
+    "dndPosition": "디자인",
+    "technicalStack": ["Figma", "Adobe", "GA4"],
+    "oneLineIntroduction": "가치를 만드는 기획자",
+    "links": {
+    },
+    "career": {
+      "now": ["UX 기획/PM"],
+      "previous": []
+    },
+    "mbti": "ENTJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "현재 디자인 운영진으로 활동하고 있습니다.",
+      "whyDoYouRecommendDnd": "협업을 통해 서로의 아이디어가 모여 하나의 결과를 만들어내는 즐거움을 느낄 수 있어요👍️",
+      "whatIsYourInterests": "추리게임 (특히 언락 좋아합니다)",
+      "whatYouWantToShare": []
+    }
+  },
+  {
     "name": "디디",
     "id": 99,
     "isArchived": false,
