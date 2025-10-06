@@ -2487,5 +2487,232 @@
       "youtube": "",
       "link": ""
     }
+  },
+  {
+    "id": 90,
+    "name": "Allo",
+    "title": "갈등은 줄이고, 성취감은 높이는 집안일 협업 서비스, 알로 Allo",
+    "desc": "Allo는 귀여운 집고양이 캐릭터 '알로'와 함께 집안일로 인한 갈등은 줄이고 성취감은 높이는 집안일 협업 서비스입니다.\n\n단순히 할 일을 나누는 것을 넘어, AI를 활용한 부드러운 피드백 전달, 주간 리포트를 통한 성과 시각화, 태그를 이용한 청결 기준 설정 등 집안일의 전 과정을 긍정적인 경험으로 만들어 지속적인 참여를 유도합니다.",
+    "flag": "13기",
+    "skill": [
+      "Figma",
+      "Illustrator",
+      "SwiftUI",
+      "Moya",
+      "Kingfisher"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/1/1.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/1/1.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-1-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-1-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 91,
+    "name": "어디GO",
+    "title": "언제 어디서든 가격 비교, 어디GO",
+    "desc": "어디GO는 흩어져 있던 우리 동네의 오프라인 가격 정보를 한곳에 모은 정보 제공 플랫폼입니다.\n\n외식 메뉴 가격부터 식료품 물가까지, 사용자가 최적의 소비 결정을 내릴 수 있도록 필요한 모든 정보를 간편하게 제공합니다.",
+    "flag": "13기",
+    "skill": [
+      "Figma",
+      "Kotlin",
+      "Spring Boot",
+      "AWS",
+      "Compose"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/2/2.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/2/2.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-2-android",
+        "https://github.com/dnd-side-project/dnd-13th-2-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 92,
+    "name": "미누",
+    "title": "미누는 친구들과 함께하는 챌린지를 통해 그동안 실패했던 디지털 디톡스를 돕는 동기부여 서비스입니다.",
+    "desc": "디지털 습관이 일상 속에 자연스럽게 자리 잡을 수 있도록 돕는 것을 목표로 출발했습니다.",
+    "flag": "13기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/3/3.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/3/3.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-3-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-3-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 93,
+    "name": "Wini",
+    "title": "룸메이트와 부담없이 마음을 주고 받는 서비스",
+    "desc": "룸메이트와 솔직하게 마음을 나누고 싶지만, 혹시 관계가 어긋날까 망설인 적이 있나요?\n룸메와 부담 없이 마음을 나누고, 기록을 돌아보며 서로를 잘 이해할 수 있게 Wini가 도와드릴게요 ⭐\n\n주요 기능\n\n💌 룸메이트와 마음쪽지를 주고 받아요!\n쪽지 템플릿을 통해 복잡한 고민을 덜고, 정돈된 글로 마음을 표현하세요.\n받은 마음쪽지는 홈에서 확인할 수 있어요.\n\n🎁 룸메이트에게 받은 마음쪽지를 보관해요!\n홈에서 확인한 마음쪽지를 보관함에 저장할 수 있어요.\n저장한 마음쪽지는 언제든지 꺼내볼 수 있어요.\n\n⏰ 룸메이트와 상태를 공유해요!\n서로 배려할 수 있도록, 각자의 상태를 공유해요.\n\n🌱 지난 마음쪽지로 만들어진 리포트를 확인해요!\n리포트를 통해 나의 룸메이트 생활을 되돌아보아요.",
+    "flag": "13기",
+    "skill": [
+      "React Native",
+      "TypeScript",
+      "Tanstack Query",
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "Github Actions",
+      "FCM",
+      "AWS"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/4/4.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/4/4.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-4-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-4-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "https://www.instagram.com/wini.official_?igsh=OWlpOGF6OHA2bmto"
+    }
+  },
+  {
+    "id": 94,
+    "name": "와구와구",
+    "title": "룸메이트와 부담없이 마음을 주고 받는 서비스",
+    "desc": "구독은 우리 생활의 일부가 되었지만, 관리의 복잡함은 여전히 해결되지 않은 문제로 남아 있습니다.\n와구와구는 흩어진 구독 경험을 한 번에 관리하고, 합리적인 소비 결정을 도와줍니다.",
+    "flag": "13기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/5/5.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/5/5.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-5-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-5-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 95,
+    "name": "Runky",
+    "title": "함께 달리고, 행운을 나누는 러닝 서비스 Runky",
+    "desc": "혼자서는 쉽게 포기하는 러닝, Runky는 친구와 함께 목표를 세우고 행운을 나누는 러닝 서비스입니다. 달릴수록 쌓이는 클로버와 행운 배지를 통해 작은 성취와 특별한 즐거움을 경험하며, 러닝의 지속을 가능하게 합니다.",
+    "flag": "13기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/6/6.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/6/6.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-6-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-6-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 96,
+    "name": "모여잇",
+    "title": "IT동아리에 지원하기 위해 찾기 힘든 정보들은 이제 모여잇에서!",
+    "desc": "취준, 회사생활을 하며 다른 직군과의 새로운 프로젝트를 하고싶다는 생각을 한적 있나요?\n모여잇에서 IT동아리들에 대한 정보 탐색을 중심으로  후기공유,보상시스템 등 \n극대화된 탐색 효율을 느끼고 성공적인 it동아리 합격으로 프로젝트 경험을 쌓아보세요",
+    "flag": "13기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/7/7.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/7/7.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-7-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-7-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 97,
+    "name": "DEULAK",
+    "title": "음악 사이를 들락날락, 취향이 모이는 곳! 나만의 플레이리스트 공간 DEULAK",
+    "desc": "좋아하는 음악, 그냥 링크만 공유하고 끝내 아쉬웠던 적 있나요? 들락에서는 나만의 CD를 꾸미고, 플레이리스트를 들락날락하며 취향을 자유롭게 표현할 수 있어요!",
+    "flag": "13기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/8/8.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/8/8.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-8-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-8-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 98,
+    "name": "ZIPZIP",
+    "title": "집 정보를 메모하고, 조언을 모아 확신 있는 선택을 돕는 자취방 구하기 서비스, ZIPZIP",
+    "desc": "집집과 함께라면\n1. 집을 보는 현장에서 자취 노하우가 담긴 체크리스트를 따라 중요한 포인트를 빠짐없이 기록할 수 있어요\n2. 사진과 메모는 지도 위에 정리되어, 여러 매물과 주변 인프라를 직관적으로 비교하고 되짚어볼 수 있어요.\n3. 고민되는 매물은 투표로 만들어 공유해요. 주변의 조언이 결정에 확신을 더해줄 거예요.",
+    "flag": "13기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/9/9.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/9/9.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-9-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-9-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 99,
+    "name": "SEED",
+    "title": "당신의 경험을, 성장의 기록으로",
+    "desc": "면접 경험을 간단히 기록하고, 필요한 질문·답변을 빠르게 찾아볼 수 있는 서비스입니다.\n다른 사람들의 회고도 탐색할 수 있어 더 풍부한 인사이트를 제공합니다.",
+    "flag": "13기",
+    "skill": [
+      "Figma",
+      "UIKit",
+      "Next.js",
+      "Spring Boot"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/13/10/10.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/13/10/10.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-13th-10-frontend",
+        "https://github.com/dnd-side-project/dnd-13th-10-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
   }
 ]
