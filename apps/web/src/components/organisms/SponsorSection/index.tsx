@@ -15,7 +15,6 @@ function SponsorSection() {
     { sponsor: 'hanbit', url: 'https://www.hanbit.co.kr', image: 'hanbit.png' },
     { sponsor: 'easys-publishing', url: 'http://www.easyspub.co.kr', image: 'easys-publishing.png' },
     { sponsor: 'witi', url: '#', image: 'witi.png' },
-    { sponsor: 'maru180', url: 'https://maru.org', image: 'maru180.png' },
     { sponsor: 'asan-nanum', url: 'https://asan-nanum.org', image: 'asan-nanum.png' },
     { sponsor: 'impact-campus', url: 'https://impactcampus.campaignus.me', image: 'impact-campus.png' },
     { sponsor: 'notefolio', url: 'https://notefolio.net', image: 'notefolio.png' },
