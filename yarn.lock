@@ -2022,7 +2022,7 @@ __metadata:
     "@types/jest": "npm:29.5.9"
     "@types/jest-plugin-context": "npm:2.9.7"
     "@types/react": "npm:19.0.1"
-    "@types/react-dom": "npm:19.0.2"
+    "@types/react-dom": "npm:19.0.1"
     "@typescript-eslint/eslint-plugin": "npm:7.9.0"
     "@typescript-eslint/parser": "npm:7.9.0"
     "@vitejs/plugin-react": "npm:4.3.1"
@@ -2046,10 +2046,10 @@ __metadata:
     jest-environment-jsdom: "npm:29.7.0"
     jest-plugin-context: "npm:2.9.0"
     motion: "npm:11.14.4"
-    next: "npm:15.1.1"
-    react: "npm:19.0.0"
+    next: "npm:15.1.9"
+    react: "npm:19.0.1"
     react-countup: "npm:6.5.3"
-    react-dom: "npm:19.0.0"
+    react-dom: "npm:19.0.1"
     rollup: "npm:4.28.1"
     rollup-preserve-directives: "npm:1.1.3"
     sanitize.css: "npm:13.0.0"
@@ -2062,7 +2062,7 @@ __metadata:
   peerDependencies:
     clsx: 2.1.1
     motion: 11.14.4
-    next: 15.1.1
+    next: ^15
     react: ^19
     react-countup: 6.5.3
     react-dom: ^19
@@ -3106,6 +3106,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/env@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/env@npm:15.1.9"
+  checksum: 10/4e7f899d87c2825d1de995c0c4bda32b5c8e02951a388873c7596de9100da635c9417eea0519a572e585c8fb025cf49c0c4af16da6438e9276a80977043148fc
+  languageName: node
+  linkType: hard
+
 "@next/eslint-plugin-next@npm:15.1.1":
   version: 15.1.1
   resolution: "@next/eslint-plugin-next@npm:15.1.1"
@@ -3115,58 +3122,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@next/swc-darwin-arm64@npm:15.1.1"
+"@next/swc-darwin-arm64@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/swc-darwin-arm64@npm:15.1.9"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@next/swc-darwin-x64@npm:15.1.1"
+"@next/swc-darwin-x64@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/swc-darwin-x64@npm:15.1.9"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@next/swc-linux-arm64-gnu@npm:15.1.1"
+"@next/swc-linux-arm64-gnu@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/swc-linux-arm64-gnu@npm:15.1.9"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@next/swc-linux-arm64-musl@npm:15.1.1"
+"@next/swc-linux-arm64-musl@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/swc-linux-arm64-musl@npm:15.1.9"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@next/swc-linux-x64-gnu@npm:15.1.1"
+"@next/swc-linux-x64-gnu@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/swc-linux-x64-gnu@npm:15.1.9"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@next/swc-linux-x64-musl@npm:15.1.1"
+"@next/swc-linux-x64-musl@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/swc-linux-x64-musl@npm:15.1.9"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@next/swc-win32-arm64-msvc@npm:15.1.1"
+"@next/swc-win32-arm64-msvc@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/swc-win32-arm64-msvc@npm:15.1.9"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@next/swc-win32-x64-msvc@npm:15.1.1"
+"@next/swc-win32-x64-msvc@npm:15.1.9":
+  version: 15.1.9
+  resolution: "@next/swc-win32-x64-msvc@npm:15.1.9"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -4982,6 +4989,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:19.0.1":
+  version: 19.0.1
+  resolution: "@types/react-dom@npm:19.0.1"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 10/59d0704e445a3e0d034ef016c92dc1bbec0ba6c1af084bf6de18f0ac3abd18a632961b7fd48668c519137d0bd7bfa77a8135a66c2725d4b7f68b830be263a564
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:19.0.2":
   version: 19.0.2
   resolution: "@types/react-dom@npm:19.0.2"
@@ -5805,7 +5821,7 @@ __metadata:
     "@types/jest-plugin-context": "npm:2.9.7"
     "@types/node": "npm:20"
     "@types/react": "npm:19.0.1"
-    "@types/react-dom": "npm:19.0.2"
+    "@types/react-dom": "npm:19.0.1"
     "@typescript-eslint/eslint-plugin": "npm:7.9.0"
     "@typescript-eslint/parser": "npm:7.9.0"
     "@vercel/blob": "npm:0.23.4"
@@ -5830,10 +5846,10 @@ __metadata:
     jest-environment-jsdom: "npm:29.7.0"
     jest-plugin-context: "npm:2.9.0"
     motion: "npm:11.14.4"
-    next: "npm:15.1.1"
+    next: "npm:15.1.9"
     next-auth: "npm:5.0.0-beta.25"
-    react: "npm:19.0.0"
-    react-dom: "npm:19.0.0"
+    react: "npm:19.0.1"
+    react-dom: "npm:19.0.1"
     react-perfect-scrollbar: "npm:1.5.8"
     sass: "npm:1.69.6"
     typescript: "npm:5.2.2"
@@ -13593,19 +13609,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:15.1.1":
-  version: 15.1.1
-  resolution: "next@npm:15.1.1"
+"next@npm:15.1.9":
+  version: 15.1.9
+  resolution: "next@npm:15.1.9"
   dependencies:
-    "@next/env": "npm:15.1.1"
-    "@next/swc-darwin-arm64": "npm:15.1.1"
-    "@next/swc-darwin-x64": "npm:15.1.1"
-    "@next/swc-linux-arm64-gnu": "npm:15.1.1"
-    "@next/swc-linux-arm64-musl": "npm:15.1.1"
-    "@next/swc-linux-x64-gnu": "npm:15.1.1"
-    "@next/swc-linux-x64-musl": "npm:15.1.1"
-    "@next/swc-win32-arm64-msvc": "npm:15.1.1"
-    "@next/swc-win32-x64-msvc": "npm:15.1.1"
+    "@next/env": "npm:15.1.9"
+    "@next/swc-darwin-arm64": "npm:15.1.9"
+    "@next/swc-darwin-x64": "npm:15.1.9"
+    "@next/swc-linux-arm64-gnu": "npm:15.1.9"
+    "@next/swc-linux-arm64-musl": "npm:15.1.9"
+    "@next/swc-linux-x64-gnu": "npm:15.1.9"
+    "@next/swc-linux-x64-musl": "npm:15.1.9"
+    "@next/swc-win32-arm64-msvc": "npm:15.1.9"
+    "@next/swc-win32-x64-msvc": "npm:15.1.9"
     "@swc/counter": "npm:0.1.3"
     "@swc/helpers": "npm:0.5.15"
     busboy: "npm:1.6.0"
@@ -13650,7 +13666,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 10/cec6ae70a580f00c306dcc454b240891431f2f881f2ed113b2f74fe728777afac797845c1dfef82207d69cbeccb7c5c82f77395aeaa14155fbfa70290d591b79
+  checksum: 10/6d5733161c82e2a37c168a8aa6f9182345bcbd7b7cf793dab364b92e72f44ccdf5659639bde9b18e240097422ab7d0306535af95a225426095cf426b72646eaa
   languageName: node
   linkType: hard
 
@@ -15083,14 +15099,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:19.0.0":
-  version: 19.0.0
-  resolution: "react-dom@npm:19.0.0"
+"react-dom@npm:19.0.1":
+  version: 19.0.1
+  resolution: "react-dom@npm:19.0.1"
   dependencies:
     scheduler: "npm:^0.25.0"
   peerDependencies:
-    react: ^19.0.0
-  checksum: 10/aa64a2f1991042f516260e8b0eca0ae777b6c8f1aa2b5ae096e80bbb6ac9b005aef2bca697969841d34f7e1819556263476bdfea36c35092e8d9aefde3de2d9a
+    react: ^19.0.1
+  checksum: 10/4cd463d0cad6a73e59f5b7746ad7d51b7c0d9db8816d8943201aab2741f20964015bec085801a7751ae35908326ae654e46d529b765604a677a3113d9aa71328
   languageName: node
   linkType: hard
 
@@ -15194,22 +15210,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-snowfall@npm:2.2.0":
-  version: 2.2.0
-  resolution: "react-snowfall@npm:2.2.0"
+"react-snowfall@npm:2.4.0":
+  version: 2.4.0
+  resolution: "react-snowfall@npm:2.4.0"
   dependencies:
     react-fast-compare: "npm:^3.2.2"
   peerDependencies:
-    react: ^16.8 || 17.x || 18.x
-    react-dom: ^16.8 || 17.x || 18.x
-  checksum: 10/ef9945ec75294e44ff17ec2b90f3e6ab9ec07f2a04804b253fc5737e9838baa20085351d019dc6a366f24874f0c58e8360d23b38a08242a022ff86e3a68ed22c
+    react: ^16.8 || 17.x || 18.x || 19.x
+    react-dom: ^16.8 || 17.x || 18.x || 19.x
+  checksum: 10/427f54a26c46928664cf741ed434467f573a57997277f990665e9a585da837e15e422dbe4b822448f372fb296dc1a379d3e9559242d054d0838a5f8fabef4655
   languageName: node
   linkType: hard
 
-"react@npm:19.0.0":
-  version: 19.0.0
-  resolution: "react@npm:19.0.0"
-  checksum: 10/2490969c503f644703c88990d20e4011fa6119ddeca451e9de48f6d7ab058d670d2852a5fcd3aa3cd90a923ab2815d532637bd4a814add402ae5c0d4f129ee71
+"react@npm:19.0.1":
+  version: 19.0.1
+  resolution: "react@npm:19.0.1"
+  checksum: 10/ad00f67ee44018e560b2577a107967b2fd7f63816425b6970c0849b3e2ae3caba6b141e9d4e2980f74a1a7621045b58f6d6e93a8af8d1048e423e1e602e92432
   languageName: node
   linkType: hard
 
@@ -17895,23 +17911,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:1.2.2":
-  version: 1.2.2
-  resolution: "use-sync-external-store@npm:1.2.2"
+"use-sync-external-store@npm:^1.3":
+  version: 1.6.0
+  resolution: "use-sync-external-store@npm:1.6.0"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10/671e9c190aab9a8374a5d468c6ba17f52c38b6fae970110bc196fc1e2b57204149aea9619be49a1bb5207fb6e51d8afd19c3bcb94afe61813fed039821461dc0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10/b40ad2847ba220695bff2d4ba4f4d60391c0fb4fb012faa7a4c18eb38b69181936f5edc55a522c4d20a788d1a879b73c3810952c9d0fd128d01cb3f22042c09e
   languageName: node
   linkType: hard
 
-"usehooks-ts@npm:3.1.0":
-  version: 3.1.0
-  resolution: "usehooks-ts@npm:3.1.0"
+"usehooks-ts@npm:3.1.1":
+  version: 3.1.1
+  resolution: "usehooks-ts@npm:3.1.1"
   dependencies:
     lodash.debounce: "npm:^4.0.8"
   peerDependencies:
-    react: ^16.8.0  || ^17 || ^18
-  checksum: 10/6aef8affd3c053a3040b7421816dab85eb21601c5203496a705bafc32eb973fb519a2b0ddda527962e361d248f3a1c49df130620efe871c8f89e897451ed1cc7
+    react: ^16.8.0  || ^17 || ^18 || ^19 || ^19.0.0-rc
+  checksum: 10/4f5d6beab003d76f90c6a9b8b0cd5b61f24528fa3dbbf1a6d9c0a509cb80914074af911a92dab0bc07873f14f714771306f5271e1e8f09b94add1722da37debb
   languageName: node
   linkType: hard
 
@@ -18190,7 +18206,7 @@ __metadata:
     "@types/node": "npm:20"
     "@types/prop-types": "npm:^15"
     "@types/react": "npm:19.0.1"
-    "@types/react-dom": "npm:19.0.2"
+    "@types/react-dom": "npm:19.0.1"
     "@types/react-responsive-masonry": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:7.9.0"
     "@typescript-eslint/parser": "npm:7.9.0"
@@ -18220,24 +18236,24 @@ __metadata:
     jest-environment-jsdom: "npm:29.7.0"
     jest-plugin-context: "npm:2.9.0"
     motion: "npm:11.14.4"
-    next: "npm:15.1.1"
+    next: "npm:15.1.9"
     prop-types: "npm:15.8.1"
-    react: "npm:19.0.0"
+    react: "npm:19.0.1"
     react-countup: "npm:6.5.3"
-    react-dom: "npm:19.0.0"
+    react-dom: "npm:19.0.1"
     react-fast-marquee: "npm:1.6.4"
     react-pdf: "npm:9.1.1"
     react-perfect-scrollbar: "npm:1.5.8"
     react-responsive-masonry: "npm:2.2.0"
-    react-snowfall: "npm:2.2.0"
+    react-snowfall: "npm:2.4.0"
     sanitize.css: "npm:13.0.0"
     sass: "npm:1.69.6"
     sass-loader: "npm:12.6.0"
     start-server-and-test: "npm:1.14.0"
     storybook: "npm:8.4.7"
     typescript: "npm:5.2.2"
-    use-sync-external-store: "npm:1.2.2"
-    usehooks-ts: "npm:3.1.0"
+    use-sync-external-store: "npm:^1.3"
+    usehooks-ts: "npm:3.1.1"
     webpack: "npm:5.95.0"
     zustand: "npm:5.0.0"
   languageName: unknown
