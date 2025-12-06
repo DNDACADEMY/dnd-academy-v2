@@ -27,13 +27,13 @@ async function CounterCardSection({ title: sectionTitle }: Props) {
   } = totalCountStatusData;
 
   const cardConfigs: CardConfig[] = [
-    { count: cumulativeApplicants, title: '누적 지원자 수', color: 'green' },
-    { count: totalParticipants, title: '총 참가자 수', color: 'red' },
+    { count: cumulativeApplicants, title: '누적 지원자 수', color: 'red' },
+    { count: totalParticipants, title: '총 참가자 수', color: 'green' },
     {
-      count: totalProjects, title: '총 프로젝트 수', color: 'green', suffix: '개',
+      count: totalProjects, title: '총 프로젝트 수', color: 'red', suffix: '개',
     },
     {
-      count: dropouts, title: `${CURRENT_FLAG - 1}기 이탈자`, color: 'red', highlight: true,
+      count: dropouts, title: `${CURRENT_FLAG - 1}기 이탈자`, color: 'green', highlight: true,
     },
   ];
 
