@@ -11,6 +11,7 @@ import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGrou
 import CounterCardSection from '@/components/organisms/CounterCardSection';
 import EventStatus from '@/components/organisms/EventStatus';
 import FAQSection from '@/components/organisms/FAQSection';
+import PassboardButton from '@/components/organisms/PassboardButton';
 import ProjectsSlider from '@/components/organisms/ProjectsSlider';
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import SponsorSection from '@/components/organisms/SponsorSection';
@@ -67,7 +68,7 @@ function HomePage({
             <ApplyNotifyButtonGroup eventStatus={eventStatus}>
               <Button size="xLarge" buttonType="primary" />
             </ApplyNotifyButtonGroup>
-            {/* <PassboardButton status={eventStatus.status} /> */}
+            <PassboardButton eventStatus={eventStatus} />
           </div>
         </div>
         <div className={styles.bannerWrapper}>
