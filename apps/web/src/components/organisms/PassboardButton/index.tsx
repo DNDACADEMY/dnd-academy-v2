@@ -1,24 +1,29 @@
 'use client';
 
-import { EventStatusType } from '@dnd-academy/core';
+import { EventStatus } from '@dnd-academy/core';
 import { Button } from '@dnd-academy/ui';
+import dayjs from 'dayjs';
 
 import sendGA4Event from '@/lib/apis/analytics';
 import { CURRENT_FLAG, PASSBOARD_URL } from '@/lib/constants';
 import { GA_EVENT } from '@/lib/constants/gaEvent';
 
 type PassboardButtonProps = {
-  status: EventStatusType;
+  eventStatus: EventStatus;
 };
 
-export default function PassboardButton({ status }: PassboardButtonProps) {
+export default function PassboardButton({ eventStatus }: PassboardButtonProps) {
+  const { applicantAcceptanceDateTime, status } = eventStatus;
+
   const handleClick = () => {
     sendGA4Event(GA_EVENT.PASS_BOARD_CLICK, {
       currentFlag: CURRENT_FLAG,
     });
   };
 
-  if (status === 'INACTIVE') {
+  const isBeforeAcceptance = dayjs().isBefore(dayjs(applicantAcceptanceDateTime));
+
+  if (status === 'INACTIVE' || isBeforeAcceptance) {
     return null;
   }
 
