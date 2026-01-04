@@ -41,7 +41,7 @@
   {
     "name": "성기동",
     "id": 2,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeongGiDong.png",
     "author": "Gidong",
     "dndPosition": "개발",
@@ -110,7 +110,7 @@
   {
     "name": "이다정",
     "id": 4,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeDajeong.png",
     "author": "Dajeong",
     "dndPosition": "디자인",
@@ -226,7 +226,7 @@
   {
     "name": "김동영",
     "id": 8,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Dongyeong.png",
     "author": "Dongyeong",
     "dndPosition": "개발",
@@ -326,7 +326,6 @@
       ]
     }
   },
-
   {
     "name": "박현재",
     "id": 12,
@@ -379,7 +378,7 @@
   {
     "name": "이제욱",
     "id": 14,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jeuk.png",
     "author": "Jeuk",
     "dndPosition": "디자인",
@@ -765,7 +764,7 @@
   {
     "name": "장지호",
     "id": 28,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHo.png",
     "author": "JiHo",
     "dndPosition": "개발",
@@ -813,7 +812,7 @@
   {
     "name": "유예지",
     "id": 30,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YeJi.png",
     "author": "YeJi",
     "dndPosition": "운영",
@@ -920,7 +919,7 @@
   {
     "name": "차주희",
     "id": 34,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JuHee.JPG",
     "author": "JuHee",
     "dndPosition": "개발",
@@ -947,7 +946,7 @@
   {
     "name": "강하나",
     "id": 35,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Hana.jpg",
     "author": "Hana",
     "dndPosition": "디자인",
@@ -1045,14 +1044,13 @@
   {
     "name": "서지예",
     "id": 39,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jiyee.png",
     "author": "Jiyee",
     "dndPosition": "디자인",
     "technicalStack": ["Figma", "Adobe", "GA4"],
     "oneLineIntroduction": "가치를 만드는 기획자",
-    "links": {
-    },
+    "links": {},
     "career": {
       "now": ["UX 기획/PM"],
       "previous": []
@@ -1062,6 +1060,78 @@
       "whatIsYourRoleInDnd": "현재 디자인 운영진으로 활동하고 있습니다.",
       "whyDoYouRecommendDnd": "협업을 통해 서로의 아이디어가 모여 하나의 결과를 만들어내는 즐거움을 느낄 수 있어요👍️",
       "whatIsYourInterests": "추리게임 (특히 언락 좋아합니다)",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "손태일",
+    "id": 40,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/TaeIl.png",
+    "author": "TaeIl",
+    "dndPosition": "개발",
+    "technicalStack": ["iOS", "Swift", "SwiftUI", "C++", "Android", "Java", "Kotlin", "Flutter"],
+    "oneLineIntroduction": "늘 겸손하고 맡은 분야에서 노력하는 워커홀릭 개발자",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/%ED%83%9C%EC%9D%BC-%EC%86%90-b6b9901b8"
+    },
+    "career": {
+      "now": ["개인사업 진행 - CEO", "SolenVisionAI - 얼굴 인식 기반 출입통제 시스템 개발"],
+      "previous": ["어피닛 - AI 기반 대출 플랫폼 TrueBalance 앱 개발", "SECERN AI - 얼굴 인식 기반 인천공항 스마트패스 앱 개발, EKYC SDK 개발", "닷슬래시대시 - 소셜 플랫폼 Dotslashdash 앱 개발", "더잭팟 - 메타버스 커머스 앱 개발", "보고플레이 - 실시간 라이브 커머스 보고플레이 앱 개발", "이머니 - 키움증권 기반 주식 라이브 앱 개발", "인포뱅크 - 현대 블루링크/기아 UVO 개발"]
+    },
+    "mbti": "ENTJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "개발 멘토 (운영진)",
+      "whyDoYouRecommendDnd": "나와 다른 IT 직무의 사람들과 프로젝트를 해볼 수 있는 기회를 얻을 수 있고 그 과정에서 도움을 받을 수 있는 멘토들이 있다는 부분에서 추천합니다.",
+      "whatIsYourInterests": "AI IT 취업 멘토링을 할 때 등",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "이희재",
+    "id": 41,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Huijae.png",
+    "author": "Huijae",
+    "dndPosition": "디자인",
+    "technicalStack": ["UX리서치", "UX기획", "UI디자인", "Figma", "Adobe"],
+    "oneLineIntroduction": "궁금증이 많고 관찰을 좋아하는 디자이너",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/heejae-lee-261811276"
+    },
+    "career": {
+      "now": ["Kearney Research Assistant(UX/UI Designer)", "UX 대학원생"],
+      "previous": []
+    },
+    "mbti": "ENTJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "디자인 운영진으로 활동하고 있습니다.",
+      "whyDoYouRecommendDnd": "협업을 통해 하나의 서비스를 기획/디자인/개발하는 전 과정을 경험할 수 있다는 것과 업계 사람들과 네트워킹을 할 수 있다는 점이 가장 큰 장점인 것 같습니다.",
+      "whatIsYourInterests": "저는 맛집 탐방과 운동하는 것을 좋아합니다,\n쉬는 날에 혼자 맥주 마시며 유튜브 볼 때 행복해요 :)",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "장지훈",
+    "id": 42,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jihoon.png",
+    "author": "Jihoon",
+    "dndPosition": "디자인",
+    "technicalStack": ["Figma", "Adobe Suite", "Framer", "Protopie"],
+    "oneLineIntroduction": "미래를 내다보는 디자이너",
+    "links": {
+      "link": "https://jihoonjang.net/kr"
+    },
+    "career": {
+      "now": ["프로덕트 디자이너"],
+      "previous": ["브랜딩 디자이너 3년", "디자인 시스템 디자이너 1년"]
+    },
+    "mbti": "INTP",
+    "questions": {
+      "whatIsYourRoleInDnd": "디자인 운영진을 맡고 있습니다. 디자인 업무에 관한 궁금한 점은 편하게 여쭤봐주세요.",
+      "whyDoYouRecommendDnd": "단기간 내 뚜렷한 목표를 가지고 프로젝트를 완성하는 경험을 얻을 수 있고, 같이 열의를 가진 사람들과 협업하는 과정을 통해 성장할 수 있어요.",
+      "whatIsYourInterests": "새로운 기술에 관심이 많아요\n소소한 것에서 행복을 찾아요: 영화 보기, 게임 하기, 음악 듣기",
       "whatYouWantToShare": []
     }
   },
