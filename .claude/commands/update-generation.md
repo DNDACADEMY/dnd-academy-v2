@@ -1,12 +1,4 @@
----
-name: update-generation
-description: Updates DND Academy generation data from CSV. Automatically generates S3 paths, creates projects and reviews in JSON files, then guides admin to upload images to S3. Use when updating new cohort data from CSV files.
-disable-model-invocation: true
----
-
-# DND 후기 업데이트 Skill
-
-이 skill은 DND의 기수가 끝날 때마다 리뷰와 프로젝트 데이터를 업데이트하는 데 사용됩니다.
+DND의 기수가 끝날 때마다 리뷰와 프로젝트 데이터를 업데이트하는 커맨드입니다.
 
 ## 전체 워크플로우 요약
 
@@ -44,10 +36,11 @@ CSV 파일은 다음 컬럼을 포함합니다:
 - 프로젝트 배너 파일 (Google Drive 링크)
 - 프로젝트 소개 파일(PDF) (Google Drive 링크)
 - 프로젝트 명
-- 프로젝트 한 쥴 소개 문구
+- 프로젝트 한 줄 소개 문구
 - 프로젝트 장문형 소개 문구
 - 프로젝트에서 사용한 기술 스택
-- 개인 후기 (홈페이지 업로드 예시)
+- 프로젝트 관련 링크
+- 개인 후기
 - 기수
 - 조
 - 이름
@@ -305,6 +298,6 @@ Google Drive 이미지:
 1. CSV 파일이 올바른 형식인지 확인
 2. 어떤 기수의 데이터인지 확인
 3. 현재 브랜치가 develop인지 확인
-   - 스킬이 자동으로 기수별 브랜치를 생성합니다
+   - 커맨드가 자동으로 기수별 브랜치를 생성합니다
    - 형식: `feature/cohort-{기수번호}-update`
 4. 백업 필요 시 git commit 권장
