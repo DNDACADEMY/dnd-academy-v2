@@ -165,7 +165,13 @@
       "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/5.jpg"
     ],
     "flag": "6기",
-    "skill": ["React Native", "Java", "Spring", "My SQL", "Figma"],
+    "skill": [
+      "React Native",
+      "Java",
+      "Spring",
+      "My SQL",
+      "Figma"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/6/7/1.jpg",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/6/7/7.pdf",
     "projectLinks": {
@@ -255,7 +261,14 @@
       "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/9/3.jpg"
     ],
     "flag": "5기",
-    "skill": ["React", "Tailwind CSS", "Nest.js", "AWS EC2", "Figma", "Zeplin"],
+    "skill": [
+      "React",
+      "Tailwind CSS",
+      "Nest.js",
+      "AWS EC2",
+      "Figma",
+      "Zeplin"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/9/1.jpg",
     "projectLinks": {
       "appStore": "",
@@ -319,7 +332,13 @@
       "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/5.jpg"
     ],
     "flag": "5기",
-    "skill": ["Figma", "Vue 3.0", "Vuex 4.0", "Node.js", "MySQL"],
+    "skill": [
+      "Figma",
+      "Vue 3.0",
+      "Vuex 4.0",
+      "Node.js",
+      "MySQL"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/7/1.jpg",
     "projectLinks": {
       "appStore": "",
@@ -342,7 +361,11 @@
       "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/4/1.jpg"
     ],
     "flag": "5기",
-    "skill": ["Figma", "Spring Boot", "React Native"],
+    "skill": [
+      "Figma",
+      "Spring Boot",
+      "React Native"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/4/1.jpg",
     "projectLinks": {
       "appStore": "",
@@ -382,7 +405,9 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/6/1.png",
     "projectLinks": {
       "appStore": "",
-      "github": ["https://github.com/dnd-side-project/dnd-5th-6-repo"],
+      "github": [
+        "https://github.com/dnd-side-project/dnd-5th-6-repo"
+      ],
       "googlePlayStore": "",
       "youtube": ""
     },
@@ -397,7 +422,12 @@
       "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/8/1.png"
     ],
     "flag": "5기",
-    "skill": ["spring boot", "mysql", "react native", "aws"],
+    "skill": [
+      "spring boot",
+      "mysql",
+      "react native",
+      "aws"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/5/8/1.png",
     "projectLinks": {
       "appStore": "",
@@ -417,7 +447,13 @@
     "title": "에어프라이기를 이용한 레시피를 한 곳에 모은 커뮤니티",
     "desc": "'요리조리'는 맛있는 음식을 찾기 위해 고민 중인 분들에게 해답을 주기 위해 태어났습니다.\n많은 에어프라이어기 레시피를 나누며 지식을 공유하고, 어제보다 오늘 더 맛있는 요리를 먹을 수 있도록 노력합니다.\n전 세계 사람들이 에어프라이어기로 무슨 요리를 할지 고민하지 않을 때까지 요리조리는 열심히 여러분에게 레시피를 공유합니다.",
     "flag": "4기",
-    "skill": ["Spring Boot", "JPA", "Kotlin", "MySql", "Redis"],
+    "skill": [
+      "Spring Boot",
+      "JPA",
+      "Kotlin",
+      "MySql",
+      "Redis"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/1/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/1-export.pdf",
     "projectLinks": {
@@ -434,7 +470,11 @@
     "title": "환경보호를 실천하는 에코노트",
     "desc": "5가지 환경보호 방법을 카테고리로 나누었으며 '꽃' 메타포를 활용하여 실천 진행하는 과정을 나타내고자 함.\n하단 실천하기 버튼을 통해 사진으로 실천사항을 남기면 꽃이 자람.\n기술적/현실적 문제로 인증은 ‘가치실천에 참여‘한다는 점에 의의를 두는것으로 정리.",
     "flag": "4기",
-    "skill": ["Swift", "Node.js", "Nginx"],
+    "skill": [
+      "Swift",
+      "Node.js",
+      "Nginx"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/2/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/2-export.pdf",
     "projectLinks": {
@@ -451,7 +491,12 @@
     "title": "사이드 프로젝트가 하고싶을 땐? 잭팟!",
     "desc": "개발자, 기획자, 디자이너를 꿈꾸는 학생들이 모르는 사람이랑 프로젝트를 하면 갑자기 도망가지않을까?\n사람에 대한 불신 사이드 프로젝트를 모집할 수 있는 플랫폼을 제공해주자!",
     "flag": "4기",
-    "skill": ["Kotlin", "Spring Boot", "Gradle", "MySql"],
+    "skill": [
+      "Kotlin",
+      "Spring Boot",
+      "Gradle",
+      "MySql"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/3/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/3-export.pdf",
     "projectLinks": {
@@ -468,7 +513,12 @@
     "title": "소비자들의 현명한 소비를 위한 서비스 '쫌 싸!'",
     "desc": "내가 관심있고 좋아하는 브랜드를 즐겨찾기 할 수 있고,\n알림을 받을 수 있도록 사용자들에게 불필요한 알림에 대한 문제점을 해결하고,\n소비자에게 맞춤형 제공서비스입니다.",
     "flag": "4기",
-    "skill": ["React.js", "Node.js", "Nginx", "Express"],
+    "skill": [
+      "React.js",
+      "Node.js",
+      "Nginx",
+      "Express"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/4/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/4-export.pdf",
     "projectLinks": {
@@ -485,7 +535,10 @@
     "title": "술.잘.알과 술.알.못을 위한 술 리뷰/분석(추천) 플랫폼",
     "desc": "술.알.못은 술을 탐색할 수 있으며\n술 선택의 도움을 받고 술.잘.알은 술 리뷰를 남기며\n술에 대해 소통할 수 있는 서비스",
     "flag": "4기",
-    "skill": ["React Native", "Python"],
+    "skill": [
+      "React Native",
+      "Python"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/5/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/5-export.pdf",
     "projectLinks": {
@@ -502,7 +555,11 @@
     "title": "연애고민플랫폼",
     "desc": "연애 고민이 생긴 경우 다른 사람들의 의견, 생각이 궁금하다.\n다른 사람들의 연애 고민이 궁금하다.\n답답한 마음을 공유하고 해소할 수 있는 공간",
     "flag": "4기",
-    "skill": ["React.js", "Spring Boot", "Figma"],
+    "skill": [
+      "React.js",
+      "Spring Boot",
+      "Figma"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/6/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/6-export.pdf",
     "projectLinks": {
@@ -519,7 +576,13 @@
     "title": "운동복 모아보기 웹서비스",
     "desc": "언제 운동해서 언제 폼날래? 폼나게 운동하면 되짐!\n내 운동법에 맞는 운동복, 내가 필요한 운동복을 찾을 수 있게\n내가 좋아하는 브랜드의 프로모션, 제품, 리뷰를 한 눈에",
     "flag": "4기",
-    "skill": ["React.js", "TypeScript", "Redux", "Spring Boot", "JPA"],
+    "skill": [
+      "React.js",
+      "TypeScript",
+      "Redux",
+      "Spring Boot",
+      "JPA"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/7/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/7-export.pdf",
     "projectLinks": {
@@ -536,7 +599,12 @@
     "title": "위치 기반의 언택트 감정 기록. 공유 앱 \"감정을 기록하는 다이어리\"",
     "desc": "감정기록 및 공유서비스 MEWE는\n고객의 감정 분석 및 해소를 도와주는\n사용자의 소소한 행복 및 심리치료를 위해 연구하고 관리하는\n감정분석 앱입니다.\n\n자신의 감정을 이해하고 파악하는 것을 넘어 효과적인 표현을 하고\n스스로에 대한 애정을 갖기 위해 도와줍니다.\n또한 주변사람들이나 친한 사람들에게 경험을 공유하고\n타인의 감정도 공감하여 유대감을 형성하도록 합니다.",
     "flag": "4기",
-    "skill": ["Swift", "Node.js", "Jest", "MongoDB"],
+    "skill": [
+      "Swift",
+      "Node.js",
+      "Jest",
+      "MongoDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/8/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/8-export.pdf",
     "projectLinks": {
@@ -553,7 +621,14 @@
     "title": "나만의 작은 친구, 반려식물 큐레이션 서비스",
     "desc": "맞춤형 식물을 큐레이팅 받고 정보를 확인하는 서비스인 만큼,\n정확한 위치를 알려준다는 의미의 네비게이션 아이콘과\n식물을 나타내는 나뭇잎에서 모티브를 얻어 디자인",
     "flag": "4기",
-    "skill": ["React.js", "Node.js", "Nginx", "Express.js", "AWS", "Jenkins"],
+    "skill": [
+      "React.js",
+      "Node.js",
+      "Nginx",
+      "Express.js",
+      "AWS",
+      "Jenkins"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/4/9/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/4/9-export.pdf",
     "projectLinks": {
@@ -570,7 +645,11 @@
     "title": "자취를 하는 1인 가구를 위한 자율, 자발적인 정보 교류 플랫폼",
     "desc": "자취러스는 자취 관련된 정보를 교류하고, 소통하는 플랫폼입니다. 위키 스타일로 운영되며 정보 수정의 빠른 피드백과 정말 유용한 꿀팁들을 얻을 수 있습니다.",
     "flag": "3기",
-    "skill": ["Vue.js", "Spring Boot", "MariaDB"],
+    "skill": [
+      "Vue.js",
+      "Spring Boot",
+      "MariaDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/2/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/2-export.pdf",
     "projectLinks": {
@@ -604,7 +683,11 @@
     "title": "우리 동네 집사들의 커뮤니티 공간",
     "desc": "동네 친구를 만들 수 있는 집사 커뮤니티\n-우리 동네 안에서\n- 마음 맞는 사람들끼리\n- 정보도 공유하고\n- 나눔도 하고\n- 냥이 자랑도 하고 \"우리 냥이 보고가세요~\"",
     "flag": "3기",
-    "skill": ["React", "Spring Boot", "MariaDB"],
+    "skill": [
+      "React",
+      "Spring Boot",
+      "MariaDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/6/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/6-export.pdf",
     "projectLinks": {
@@ -621,7 +704,10 @@
     "title": "쓰레기통 앱 서비스",
     "desc": "쓰레기를 잘 버리는 것으로 환경 개선을 이루자\n- 커뮤니티: 쓰레기 배출 팁 공유\n- 줍깅: 줍기 + 조깅와 함께 쓰레기통 맵 서비스\n- 퀴즈: 영수증은 재활용일까? 일반쓰레기일까?\n- 친환경 콘텐츠: 환경과 쓰레기에 대한 소식, 정보 제공 ex) 카드뉴스\n- 콜라보: 환경 단체 등",
     "flag": "3기",
-    "skill": ["Vue.js", "Django"],
+    "skill": [
+      "Vue.js",
+      "Django"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/7/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/7-export.pdf",
     "projectLinks": {
@@ -638,7 +724,11 @@
     "title": "사진과 소셜에 중심을 둔 국내 여행지 리뷰",
     "desc": "- 소셜 + 사진: 팔로우 기능과 댓글 + 여행지 사진과 소개\n- 신기해요: 새로운 여행지를 메인으로 추천",
     "flag": "3기",
-    "skill": ["React", "Spring Boot", "MariaDB"],
+    "skill": [
+      "React",
+      "Spring Boot",
+      "MariaDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/3/8/logo.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/3/8-export.pdf",
     "projectLinks": {
@@ -655,7 +745,13 @@
     "title": "동네 이웃 간 필요한 도움을 중개하는 플랫폼 서비스",
     "desc": "혼자서 할 수 없는 일을 도와줄 '누군가'가 필요한 사람\n'누군가'가 되어 수요자의 요청에 맞춰 도움을 주는 사람을 매칭",
     "flag": "2기",
-    "skill": ["React", "Next.js", "Redux", "Saga", "MariaDB"],
+    "skill": [
+      "React",
+      "Next.js",
+      "Redux",
+      "Saga",
+      "MariaDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/7/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -672,7 +768,11 @@
     "title": "자취방 양도 매칭 서비스",
     "desc": "방학 동안 단기 계약을 할 수 있는 매물이 없음\n방학 때 빈 자취방이 골치인 학생들과\n단기간 거주를 원하는 학생들을 매칭",
     "flag": "2기",
-    "skill": ["Flutter", "Node.js", "MongoDB"],
+    "skill": [
+      "Flutter",
+      "Node.js",
+      "MongoDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/10/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -689,7 +789,12 @@
     "title": "회사에서 필요한 인재, Pickme에서 찾아보세요. 역채용 플랫폼",
     "desc": "-",
     "flag": "2기",
-    "skill": ["React", "Spring Boot", "MariaDB", "Python"],
+    "skill": [
+      "React",
+      "Spring Boot",
+      "MariaDB",
+      "Python"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/11/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -706,7 +811,9 @@
     "title": "우리동네 맛집, 관광지 소개 커뮤니티",
     "desc": "-",
     "flag": "2기",
-    "skill": ["React"],
+    "skill": [
+      "React"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/13/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -723,7 +830,10 @@
     "title": "번개보다 빠른 중고거래 매칭 서비스",
     "desc": "1:1 간편 거래 매칭\n시세 알리미\n채팅서비스",
     "flag": "2기",
-    "skill": ["Kotlin", "Node.js"],
+    "skill": [
+      "Kotlin",
+      "Node.js"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/2/14/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -757,7 +867,9 @@
     "title": "카페 고객관리, 매출관리 서비스",
     "desc": "근처에 위치한 카페 정보 제공\n메뉴, 주문, 멤버쉽 등 고객관리 서비스 제공\n카페 메뉴 조회, 좌석 예약 서비스 제공",
     "flag": "1기",
-    "skill": ["React"],
+    "skill": [
+      "React"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/2/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -774,7 +886,11 @@
     "title": "유/무료 사진 및 일러스트 공유 서비스",
     "desc": "저작권 걱정 없이 안전하게 다운로드\n다양한 해상도의 이미지를 손쉽게 다운로드\n아마추어 사진작가나 디자이너가 자신의 작품을 판매하고 수익창출 가능",
     "flag": "1기",
-    "skill": ["Node.js", "React", "MariaDB"],
+    "skill": [
+      "Node.js",
+      "React",
+      "MariaDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/3/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -791,7 +907,12 @@
     "title": "사이드 프로젝트 팀원 매칭 서비스",
     "desc": "손쉬운 사이드 프로젝트 참여/구인\n기획자, 개발자, 디자이너 등 역할에 맞는 필터링 제공",
     "flag": "1기",
-    "skill": ["Vue.js", "Vuetify.js", "Spring Boot", "MariaDB"],
+    "skill": [
+      "Vue.js",
+      "Vuetify.js",
+      "Spring Boot",
+      "MariaDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/4/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -808,7 +929,11 @@
     "title": "카페인 중독자들에게 위험성을 알리고 섭취를 줄이도록 도와주는 서비스",
     "desc": "카페인 섭취량 시각화와 자극멘트\n오늘의 대체 음료 추천\n통계 요약 및 분석\n히스토리 관리",
     "flag": "1기",
-    "skill": ["Kotlin", "Spring Boot", "MariaDB"],
+    "skill": [
+      "Kotlin",
+      "Spring Boot",
+      "MariaDB"
+    ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/1/6/logo.png",
     "pdf": null,
     "projectLinks": {
@@ -1470,7 +1595,17 @@
     "flag": "9기",
     "images": [],
     "skill": [
-      "Swift", "SwiftUI", "Lottie", "Moya", "Spring boot", "Spring Security", "JWT", "Github Action", "Redis", "Docker", "AWS"
+      "Swift",
+      "SwiftUI",
+      "Lottie",
+      "Moya",
+      "Spring boot",
+      "Spring Security",
+      "JWT",
+      "Github Action",
+      "Redis",
+      "Docker",
+      "AWS"
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/2/2.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/2/2.pdf",
@@ -1493,7 +1628,19 @@
     "flag": "9기",
     "images": [],
     "skill": [
-      "figma", "Kotlin", "android", "compose", "mvvm", "Java", "AWS", "Docker", "MySQL", "Redis", "Spring boot", "Github action", "Nginx"
+      "figma",
+      "Kotlin",
+      "android",
+      "compose",
+      "mvvm",
+      "Java",
+      "AWS",
+      "Docker",
+      "MySQL",
+      "Redis",
+      "Spring boot",
+      "Github action",
+      "Nginx"
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/3/3.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/3/3.pdf",
@@ -1516,7 +1663,24 @@
     "flag": "9기",
     "images": [],
     "skill": [
-      "Figma", "React", "Typescript", "React-Query", "Emotion", "Recoil",  "Material UI", "Vercel", "ESLint", "Prettier", "Spring boot", "JPA", "AWS EC2",  "AWS S3", "AWS CodeDeploy", "Github Action", "MysqlDB", "Spring Security"
+      "Figma",
+      "React",
+      "Typescript",
+      "React-Query",
+      "Emotion",
+      "Recoil",
+      "Material UI",
+      "Vercel",
+      "ESLint",
+      "Prettier",
+      "Spring boot",
+      "JPA",
+      "AWS EC2",
+      "AWS S3",
+      "AWS CodeDeploy",
+      "Github Action",
+      "MysqlDB",
+      "Spring Security"
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/4/4.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/4/4.pdf",
@@ -1539,7 +1703,32 @@
     "flag": "9기",
     "images": [],
     "skill": [
-      "Notion", "Jira", "Slack", "Discord", "Github", "Figma", "Aftereffect", "Lottie", "NextJS", "Typescript", "tailwind-css", "Recoil", "Axios", "tanstack-query", "next-pwa", "Spring Boot", "JPA", "Query DSL", "Jenkins", "Docker", "MySQL", "EC2", "RDS", "Lambda", "CDN", "ALB"
+      "Notion",
+      "Jira",
+      "Slack",
+      "Discord",
+      "Github",
+      "Figma",
+      "Aftereffect",
+      "Lottie",
+      "NextJS",
+      "Typescript",
+      "tailwind-css",
+      "Recoil",
+      "Axios",
+      "tanstack-query",
+      "next-pwa",
+      "Spring Boot",
+      "JPA",
+      "Query DSL",
+      "Jenkins",
+      "Docker",
+      "MySQL",
+      "EC2",
+      "RDS",
+      "Lambda",
+      "CDN",
+      "ALB"
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/5/5.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/5/5.pdf",
@@ -1562,7 +1751,28 @@
     "flag": "9기",
     "images": [],
     "skill": [
-      "Typescript", "React", "Next.js 13", "Recoil", "React-Query", "TailwindCSS", "Java", "Spring Boot", "MySQL", "AWS RDS", "Spring Data JPA", "queryDSL", "ElasticSearch", "AWS EC2", "AWS S3", "CodeDeploy", "Nginx", "Github Actions", "Figma", "Blender", "Photoshop", "AfterEffects"
+      "Typescript",
+      "React",
+      "Next.js 13",
+      "Recoil",
+      "React-Query",
+      "TailwindCSS",
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "AWS RDS",
+      "Spring Data JPA",
+      "queryDSL",
+      "ElasticSearch",
+      "AWS EC2",
+      "AWS S3",
+      "CodeDeploy",
+      "Nginx",
+      "Github Actions",
+      "Figma",
+      "Blender",
+      "Photoshop",
+      "AfterEffects"
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/6/6.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/6/6.pdf",
@@ -1585,7 +1795,16 @@
     "flag": "9기",
     "images": [],
     "skill": [
-      "react", "typescript", "emotion", "react-query", "recoil", "spring boot 3.0 (java17)", "JPA", "AWS(EC2, RDS, S3)", "Docker", "Github actions (CI/CD)"
+      "react",
+      "typescript",
+      "emotion",
+      "react-query",
+      "recoil",
+      "spring boot 3.0 (java17)",
+      "JPA",
+      "AWS(EC2, RDS, S3)",
+      "Docker",
+      "Github actions (CI/CD)"
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/7/7.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/7/7.pdf",
@@ -1608,7 +1827,18 @@
     "flag": "9기",
     "images": [],
     "skill": [
-      "figma", "TypeScript", "React", "Redux", "React Query", "Styled Components", "Vercel", "Java17", "Spring Boot", "JPA", "MariaDB", "AWS"
+      "figma",
+      "TypeScript",
+      "React",
+      "Redux",
+      "React Query",
+      "Styled Components",
+      "Vercel",
+      "Java17",
+      "Spring Boot",
+      "JPA",
+      "MariaDB",
+      "AWS"
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/8/8.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/8/8.pdf",
@@ -1631,7 +1861,19 @@
     "flag": "9기",
     "images": [],
     "skill": [
-      "Java 11", "Spring Boot", "Spring Data JPA", "QueryDsl", "MySQL", "Spring Security", "AWS Services", "figma", "ReactNative", "TypeScript", "ReactQuery", "Zustand", "Emotion"
+      "Java 11",
+      "Spring Boot",
+      "Spring Data JPA",
+      "QueryDsl",
+      "MySQL",
+      "Spring Security",
+      "AWS Services",
+      "figma",
+      "ReactNative",
+      "TypeScript",
+      "ReactQuery",
+      "Zustand",
+      "Emotion"
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/9/9/9.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/9/9/9.pdf",
@@ -1736,9 +1978,9 @@
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/3/3.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/3/3.pdf",
-    "projectLinks":{
-
-"appStore": "",      "github": [
+    "projectLinks": {
+      "appStore": "",
+      "github": [
         "https://github.com/dnd-side-project/dnd-10th-3-frontend",
         "https://github.com/dnd-side-project/dnd-10th-3-backend"
       ],
@@ -1784,9 +2026,9 @@
     ],
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/10/4/4.png",
     "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/10/4/4.pdf",
-    "projectLinks":{
-
-"appStore": "",      "github": [
+    "projectLinks": {
+      "appStore": "",
+      "github": [
         "https://github.com/dnd-side-project/dnd-10th-4-frontend",
         "https://github.com/dnd-side-project/dnd-10th-4-backend"
       ],
@@ -2709,6 +2951,148 @@
       "github": [
         "https://github.com/dnd-side-project/dnd-13th-10-frontend",
         "https://github.com/dnd-side-project/dnd-13th-10-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 100,
+    "name": "모여락, Moyeorak",
+    "title": "즐겁고 효율적인 모임 준비 할 사람, 여기 모여락!",
+    "desc": "모여락은 흩어진 모임 준비 과정을 하나로 연결하는 서비스입니다.\n일정 조율부터 최적 시간 확인, 중간 지점 추천까지\n카톡 투표와 지도 앱을 번갈아 쓰던 번거로움 없이 한 흐름으로 즐거운 모임을 완성하세요.",
+    "flag": "14기",
+    "skill": [
+      "React",
+      "Spring Boot",
+      "Naver Cloud",
+      "Figma"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/14/8/8.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/14/8/8.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-14th-8-backend",
+        "https://github.com/dnd-side-project/dnd-14th-8-frontend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "https://moyeorak.site"
+    }
+  },
+  {
+    "id": 101,
+    "name": "GAK",
+    "title": "혼자 하면 흐트러지기 쉬운 작업 시간, 누구나 빠르게 모각작 모임을 생성하고 함께할 사람들을 모을 수 있는 웹 기반 플랫폼",
+    "desc": "혼자 하면 흐트러지기 쉬운 작업 시간, 누구나 빠르게 모각작 모임을 생성하고 함께할 사람들을 모을 수 있는 웹 기반 플랫폼",
+    "flag": "14기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/14/9/9.jpg",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/14/9/9.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-14th-9-backend",
+        "https://github.com/dnd-side-project/dnd-14th-9-frontend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "https://gak.today"
+    }
+  },
+  {
+    "id": 102,
+    "name": "Orvit",
+    "title": "Orvit은 CLI 명령어와 단축키를 직접 입력하며 학습하는 실무 기반 시나리오 게임 학습 서비스입니다.",
+    "desc": "궤도(orbit)과 속도(velocity)를 결합한 이름처럼 게임 플레이 데이터를 분석한 리포트와 랭킹을 통해 학습 성과를 객관적으로 파악하고, 학습 속도에 맞는 나만의 성장 궤도를 설계할 수 있습니다.",
+    "flag": "14기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/14/6/6.jpg",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/14/6/6.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-14th-6-frontend",
+        "https://github.com/dnd-side-project/dnd-14th-6-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": "https://orvit.net"
+    }
+  },
+  {
+    "id": 103,
+    "name": "고작",
+    "title": "고민 끝, 작업 시작! 작업 가능성 기준 공간 큐레이션 서비스 고작!",
+    "desc": "고작은 카페와 공공시설 등 도심의 다양한 공간을 작업 가능성 기준으로 분류하고 큐레이션하는 서비스입니다.\n기존 지도와 리뷰 서비스가 맛집이나 분위기 중심의 정보에 치우쳐 있다면, 고작은 콘센트, 와이파이, 좌석, 소음, 작업 가능 시간 등 실제 작업 환경을 중심으로 공간을 바라봅니다.\n사용자 리뷰 기반의 최신 정보를 통해 헛걸음을 줄이고, 가기 전에 정말 작업이 가능한 공간인지 확인할 수 있는 경험을 제공합니다.",
+    "flag": "14기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/14/10/10.png",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/14/10/10.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-14th-10-frontend",
+        "https://github.com/dnd-side-project/dnd-14th-10-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 104,
+    "name": "SAVING",
+    "title": "프롬프트 최적화로 빙하를 더 단단하게, 효율적 AI 프롬프트 작성 가이드 서비스 SAVING",
+    "desc": "SAVING은 정교한 알고리즘 기반의 프롬프트 진단과 수정으로 최적화의 기준을 제시하고, 절감된 데이터를 빙하로 시각화하여 그 가치를 직관적으로 체감하게 합니다.",
+    "flag": "14기",
+    "skill": [
+      "Figma",
+      "Midjourney",
+      "UXUI",
+      "Illustrator",
+      "UIKit",
+      "SnapKit",
+      "SPM",
+      "Alamofire",
+      "Combine",
+      "Spring Boot 4.1",
+      "PostgreSQL",
+      "AWS",
+      "Github Actions"
+    ],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/14/1/1.jpg",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/14/1/1.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-14th-1-ios",
+        "https://github.com/dnd-side-project/dnd-14th-1-backend"
+      ],
+      "googlePlayStore": "",
+      "youtube": "",
+      "link": ""
+    }
+  },
+  {
+    "id": 105,
+    "name": "What's in my PACK!",
+    "title": "따로 찾지 말고, 한 번에 팩으로! 실패 없는 소비를 위한 애착템 공유 플랫폼",
+    "desc": "넘치는 광고와 복잡한 검색, 나를 위한 아이템 조합만 모아볼 수는 없을까요?\n취향에 맞는 개인화 큐레이션으로, 나에게 딱 맞는 팩을 더 쉽고 빠르게 확인해요.\n\n🎁 상황별 '아이템 팩'을 한 번에 확인해요!\n특정 상황에 필요한 아이템 조합을 '팩'으로 큐레이션하여 탐색 시간을 단축해 드려요.\n\n🎯 내 취향에 딱 맞는 개인화 추천을 받아요!\n관심 상황 설문을 바탕으로 나와 비슷한 취향의 애착템 팩을 추천해 드려요.\n\n📂 마음에 드는 아이템과 팩을 저장해요!\n인생 아이템이나 관심 팩을 위시리스트에 담아 언제든 편하게 꺼내보세요.",
+    "images": [
+      "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/14/4/4.png"
+    ],
+    "flag": "14기",
+    "skill": [],
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/project/14/4/4.jpg",
+    "pdf": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/files/project/14/4/4.pdf",
+    "projectLinks": {
+      "appStore": "",
+      "github": [
+        "https://github.com/dnd-side-project/dnd-14th-4-frontend",
+        "https://github.com/dnd-side-project/dnd-14th-4-backend"
       ],
       "googlePlayStore": "",
       "youtube": "",
