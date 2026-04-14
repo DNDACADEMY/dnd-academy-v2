@@ -1,31 +1,30 @@
 import { MetadataRoute } from 'next';
 
+import { getOrganizers } from '@/lib/apis/organizer';
+import { getProjects } from '@/lib/apis/project';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: process.env.NEXT_PUBLIC_ORIGIN,
-      lastModified: new Date(),
-      priority: 1,
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_ORIGIN}/projects`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_ORIGIN}/organizers`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_ORIGIN}/dnd/about`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_ORIGIN}/dnd/culture`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_ORIGIN}/reviews`,
-      lastModified: new Date(),
-    },
+  const origin = process.env.NEXT_PUBLIC_ORIGIN;
+  const lastModified = new Date();
+
+  const staticEntries: MetadataRoute.Sitemap = [
+    { url: origin, lastModified, priority: 1 },
+    { url: `${origin}/projects`, lastModified },
+    { url: `${origin}/organizers`, lastModified },
+    { url: `${origin}/dnd/about`, lastModified },
+    { url: `${origin}/dnd/culture`, lastModified },
+    { url: `${origin}/reviews`, lastModified },
   ];
+
+  const organizerEntries: MetadataRoute.Sitemap = getOrganizers().map(({ id }) => ({
+    url: `${origin}/organizers/${id}`,
+    lastModified,
+  }));
+
+  const projectEntries: MetadataRoute.Sitemap = getProjects().map(({ id }) => ({
+    url: `${origin}/projects/${id}`,
+    lastModified,
+  }));
+
+  return [...staticEntries, ...organizerEntries, ...projectEntries];
 }

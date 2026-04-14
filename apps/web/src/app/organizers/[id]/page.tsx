@@ -28,18 +28,21 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     alt: organizer.name,
   }] : METADATA.images;
 
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_ORIGIN}/organizers/${params.id}`;
+
   return {
     metadataBase: METADATA.metadataBase,
-    title: `${organizer.name} - DND`,
+    title: { absolute: `${organizer.name} - DND` },
     description: organizer.oneLineIntroduction,
+    alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: organizer.name,
+      title: `${organizer.name} - DND`,
       description: organizer.oneLineIntroduction,
-      url: `${process.env.NEXT_PUBLIC_ORIGIN}/organizers/${params.id}`,
+      url: canonicalUrl,
       images,
     },
     twitter: {
-      title: organizer.name,
+      title: `${organizer.name} - DND`,
       description: organizer.oneLineIntroduction,
       images,
     },
