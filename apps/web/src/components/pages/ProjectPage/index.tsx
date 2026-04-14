@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { type Project } from '@dnd-academy/core';
 import { Badge, Button, SkillTag } from '@dnd-academy/ui';
 
-import TitleSync from '@/components/global/TitleSync';
 import DetailNavigation from '@/components/molecules/DetailNavigation';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
@@ -27,7 +26,6 @@ function ProjectPage({ project }: Props) {
 
   return (
     <>
-      <TitleSync title={`${project.name} - DND`} />
       <DetailNavigation
         steps={[
           {
