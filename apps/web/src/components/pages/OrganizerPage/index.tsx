@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { Organizer } from '@dnd-academy/core';
 import { Button, SkillTag } from '@dnd-academy/ui';
 
+import TitleSync from '@/components/global/TitleSync';
 import DetailNavigation from '@/components/molecules/DetailNavigation';
 import LinkConverter from '@/components/molecules/LinkConverter';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
@@ -31,6 +32,7 @@ function OrganizerPage({ organizer }: Props) {
 
   return (
     <>
+      <TitleSync title={`${organizer.name} - DND`} />
       <DetailNavigation
         steps={[
           {
