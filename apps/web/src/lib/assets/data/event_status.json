@@ -1,6 +1,6 @@
 {
-  "status": "INACTIVE",
-  "applicationStartDateTime": "2025/11/17 00:00:00",
-  "applicationEndDateTime": "2025/12/07 23:59:59",
-  "applicantAcceptanceDateTime": "2025/12/21 00:00:00"
+  "status": "UPCOMING",
+  "applicationStartDateTime": "2026/06/01 00:00:00",
+  "applicationEndDateTime": "2026/06/14 23:59:59",
+  "applicantAcceptanceDateTime": "2026/07/04 00:00:00"
 }
