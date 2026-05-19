@@ -2,6 +2,7 @@ module.exports = {
   ignorePatterns: [
     '/.next',
     'storybook-static',
+    'next-env.d.ts',
   ],
   extends: [
     '@dnd-academy/eslint-config',

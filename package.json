@@ -38,13 +38,14 @@
     "turbo": "2.0.5",
     "typescript": "5.2.2"
   },
+  "resolutions": {
+    "webpack": "5.98.0",
+    "canvas": "portal:./__stubs__/canvas"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "resolutions": {
-    "webpack": "5.98.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/DNDACADEMY/dnd-academy-v2.git"
