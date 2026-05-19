@@ -110,6 +110,6 @@
     "start-server-and-test": "1.14.0",
     "storybook": "8.6.17",
     "typescript": "5.2.2",
-    "webpack": "5.104.1"
+    "webpack": "5.98.0"
   }
 }
