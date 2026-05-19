@@ -230,10 +230,14 @@ jobs:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
 
       - name: Check dependency cache
+        id: cache-deps
         uses: actions/cache@v4
         with:
           path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
           key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
 
       - name: Check build core package cache
         uses: actions/cache@v4
