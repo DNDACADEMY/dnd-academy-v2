@@ -1968,7 +1968,7 @@ __metadata:
     jest-plugin-context: "npm:2.9.0"
     qs: "npm:6.12.1"
     typescript: "npm:5.2.2"
-    vite: "npm:5.4.10"
+    vite: "npm:5.4.21"
     vite-plugin-dts: "npm:4.3.0"
   languageName: unknown
   linkType: soft
@@ -2056,7 +2056,7 @@ __metadata:
     sass: "npm:1.69.6"
     storybook: "npm:8.4.7"
     typescript: "npm:5.2.2"
-    vite: "npm:5.4.10"
+    vite: "npm:5.4.21"
     vite-plugin-dts: "npm:4.3.0"
     vite-plugin-svgr: "npm:4.3.0"
   peerDependencies:
@@ -18058,9 +18058,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.4.10":
-  version: 5.4.10
-  resolution: "vite@npm:5.4.10"
+"vite@npm:5.4.21":
+  version: 5.4.21
+  resolution: "vite@npm:5.4.21"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
@@ -18097,7 +18097,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/5d4a427d585d6f9114fc383114f707dca46408f54b221709e5eb6b0c16e0b4dec4baf908a7db9a8f1e5b16e64b655900ac14629abe61c698cbe296115c65ed8a
+  checksum: 10/479a63e271d2d9e80a8e553e165444179681f33ddec1e7c84a43c4572f67c3d3abd33136389beb42703e32d3e96e1e8a930a222ee1bb64263ba057c187ccf793
   languageName: node
   linkType: hard
 
