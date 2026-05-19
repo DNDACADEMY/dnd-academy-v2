@@ -54,4 +54,3 @@ cypress/log
 
 # google spreadsheet
 dist/
-src/lib/assets/data/applicant-count.json
