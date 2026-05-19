@@ -38,6 +38,10 @@
     "turbo": "2.0.5",
     "typescript": "5.2.2"
   },
+  "resolutions": {
+    "webpack": "5.98.0",
+    "canvas": "portal:./__stubs__/canvas"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"

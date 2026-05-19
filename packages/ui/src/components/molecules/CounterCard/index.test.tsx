@@ -1,4 +1,4 @@
-import { act, render } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 
 import CounterCard from '.';
 
@@ -14,8 +14,8 @@ describe('CounterCard', () => {
     jest.useRealTimers();
   });
 
-  const renderCounterCard = () => render((
-    <CounterCard count={count} title="title" />
+  const renderCounterCard = ({ highlight = false }: { highlight?: boolean } = {}) => render((
+    <CounterCard count={count} title="title" highlight={highlight} />
   ));
 
   it('count가 나타나야만 한다', () => {
@@ -30,13 +30,13 @@ describe('CounterCard', () => {
 
   describe('highlight', () => {
     it('highlight 속성이 있으면 highlight 클래스가 존재해야만 한다', () => {
-      const { container } = renderCounterCard();
+      renderCounterCard({ highlight: true });
 
       act(() => {
         jest.advanceTimersByTime(6000);
       });
 
-      expect(container).toHaveClass('highlight');
+      expect(screen.getByText('title')).toHaveClass('highlight');
     });
   });
 });
