@@ -105,7 +105,7 @@
     "sass": "1.69.6",
     "storybook": "8.4.7",
     "typescript": "5.2.2",
-    "vite": "5.4.10",
+    "vite": "5.4.21",
     "vite-plugin-dts": "4.3.0",
     "vite-plugin-svgr": "4.3.0"
   },
