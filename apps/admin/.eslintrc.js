@@ -2,6 +2,7 @@ module.exports = {
   ignorePatterns: [
     'public/',
     '/.next',
+    'next-env.d.ts',
   ],
   extends: [
     '@dnd-academy/eslint-config',
