@@ -5,7 +5,7 @@
   $weight: '';
   $font: '';
 
-  @if length($list) == 2 {
+  @if list.length($list) == 2 {
     $font: list.nth($list, 1);
     $weight: list.nth($list, 2);
   }
