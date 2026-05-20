@@ -32,7 +32,6 @@ updates:
           - "jest"
           - "jest-*"
           - "@testing-library/*"
-          - "@types/jest*"
       storybook:
         patterns:
           - "storybook"
@@ -49,10 +48,21 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "@storybook/*"
         update-types: ["version-update:semver-major"]
+      # `@storybook/*` glob does not match the bare `storybook` meta-package.
+      - dependency-name: "storybook"
+        update-types: ["version-update:semver-major"]
       - dependency-name: "cypress"
         update-types: ["version-update:semver-major"]
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
+      # Bumping react-pdf 9 -> 10 reintroduces a runtime crash on /projects/[id]
+      # (pdfjs-dist 5.x + Next.js's bundled webpack 5.98.0, see PR #370 revert).
+      # tsc + lint do not catch it. Remove once Next.js bundles webpack >= 5.103.0.
+      - dependency-name: "react-pdf"
+        update-types: ["version-update:semver-major"]
+      # webpack is exact-pinned via root resolutions to match Next.js's bundled
+      # version; any dependabot bump is a silent no-op (manifest changes only).
+      - dependency-name: "webpack"
 
   - package-ecosystem: "github-actions"
     directory: "/"
