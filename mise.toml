@@ -1,3 +1,4 @@
 [tools]
 node = "20.11.1"
 yarn = "4.6.0"
+lefthook = "2.1.8"

@@ -1,0 +1,46 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint-web:
+      root: "apps/web/"
+      glob: "*.{js,jsx,ts,tsx}"
+      run: yarn eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
+      stage_fixed: true
+    eslint-admin:
+      root: "apps/admin/"
+      glob: "*.{js,jsx,ts,tsx}"
+      run: yarn eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
+      stage_fixed: true
+    eslint-ui:
+      root: "packages/ui/"
+      glob: "*.{js,jsx,ts,tsx}"
+      run: yarn eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
+      stage_fixed: true
+    eslint-core:
+      root: "packages/core/"
+      glob: "*.{js,jsx,ts,tsx}"
+      run: yarn eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
+      stage_fixed: true
+    stylelint-web:
+      root: "apps/web/"
+      glob: "*.scss"
+      run: yarn stylelint --fix {staged_files}
+      stage_fixed: true
+    stylelint-admin:
+      root: "apps/admin/"
+      glob: "*.scss"
+      run: yarn stylelint --fix {staged_files}
+      stage_fixed: true
+    stylelint-ui:
+      root: "packages/ui/"
+      glob: "*.scss"
+      run: yarn stylelint --fix {staged_files}
+      stage_fixed: true
+    test-related:
+      glob: "*.{js,jsx,ts,tsx}"
+      run: yarn test:coverage -- --findRelatedTests {staged_files}
+
+commit-msg:
+  commands:
+    commitlint:
+      run: yarn commitlint --edit {1}
