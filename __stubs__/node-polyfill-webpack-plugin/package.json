@@ -1,0 +1,12 @@
+{
+  "name": "node-polyfill-webpack-plugin",
+  "version": "2.0.1",
+  "description": "No-op stub for Storybook's webpack Node polyfill plugin.",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "buffer": "5.7.1",
+    "process": "0.11.10",
+    "util": "0.12.5"
+  }
+}

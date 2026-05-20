@@ -16,7 +16,6 @@ function withServerErrorBoundary<T, P extends object | undefined>(
       >
         {(resolvedData) => (
           <WrappedComponent
-              // eslint-disable-next-line react/jsx-props-no-spreading
             {...(props as P)}
             data={resolvedData as T}
           />

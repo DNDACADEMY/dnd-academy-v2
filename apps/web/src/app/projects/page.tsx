@@ -6,6 +6,7 @@ import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import ProjectsPage from '@/components/pages/ProjectsPage';
 import { getProjects } from '@/lib/apis/project';
 import METADATA from '@/lib/constants/metadata';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
 const title = '프로젝트 - DND';
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   title,
   openGraph: {
     title,
-    url: `${process.env.NEXT_PUBLIC_ORIGIN}/projects`,
+    url: `${PUBLIC_ORIGIN}/projects`,
     images: METADATA.images,
   },
   twitter: {

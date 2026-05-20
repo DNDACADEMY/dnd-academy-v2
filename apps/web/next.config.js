@@ -5,13 +5,6 @@ const isProd = process.env.NODE_ENV === 'production';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  env: {
-    GOOGLE_CLIENT_EMAIL: process.env.GOOGLE_CLIENT_EMAIL,
-    GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   output: 'standalone',
   compiler: {
     reactRemoveProperties: isProd && {
@@ -41,9 +34,7 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    typedRoutes: true,
-  },
+  typedRoutes: true,
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
@@ -52,7 +43,6 @@ const nextConfig = {
     // replace it with a no-op portal at the root resolutions level
     // (see __stubs__/canvas/). Both layers are needed: this alias covers
     // the runtime bundle, the portal covers `yarn install`.
-    // eslint-disable-next-line no-param-reassign
     config.resolve.alias.canvas = false;
 
     config.module.rules.push(
@@ -70,17 +60,6 @@ const nextConfig = {
     );
 
     fileLoaderRule.exclude = /\.svg$/i;
-
-    // if (!options.dev) {
-    //   config.plugins.push(
-    //     codecovNextJSWebpackPlugin({
-    //       enableBundleAnalysis: true,
-    //       bundleName: '@dnd-academy/web',
-    //       uploadToken: process.env.CODECOV_TOKEN,
-    //       webpack: options.webpack,
-    //     }),
-    //   );
-    // }
 
     return config;
   },

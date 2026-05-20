@@ -3,7 +3,6 @@ import { put } from '@vercel/blob';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-// eslint-disable-next-line import/prefer-default-export
 export const updateCurrentApplicantCount = async () => {
   const serviceAccountAuth = new JWT({
     email: process.env.GOOGLE_CLIENT_EMAIL,
@@ -41,8 +40,10 @@ export async function revalidateWebPath(paths: string | string[]) {
   try {
     const response = await fetch(`${process.env.WEB_ORIGIN}/api/revalidate?${paramsSerializer({
       paths,
-      secret: process.env.REVALIDATION_TOKEN,
     })}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.REVALIDATION_TOKEN}`,
+      },
       method: 'GET',
     });
 

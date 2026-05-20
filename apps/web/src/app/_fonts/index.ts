@@ -1,6 +1,5 @@
 import localFont from 'next/font/local';
 
-// eslint-disable-next-line import/prefer-default-export
 export const pretendardFont = localFont({
   src: [
     {

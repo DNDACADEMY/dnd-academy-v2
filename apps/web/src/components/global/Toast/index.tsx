@@ -27,7 +27,7 @@ function Toast() {
     if (definition === 'hidden') {
       closeToast();
     }
-  }, []);
+  }, [closeToast]);
 
   const iconClassName = clsx(styles.toastIcon, styles[type]);
 

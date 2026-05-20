@@ -30,7 +30,10 @@ function Tags<T extends string>({
 
   const totalCount = Object.values<number>(tagCount).reduce((acc, value) => acc + value, 0);
 
-  const handleClick = useCallback((id?: number | string) => () => router.push(`${route}?${paramsSerializer({ [paramKey]: id })}`), [route, paramKey]);
+  const handleClick = useCallback(
+    (id?: number | string) => () => router.push(`${route}?${paramsSerializer({ [paramKey]: id })}`),
+    [router, route, paramKey],
+  );
 
   const sortedTagCount = useMemo(
     () => [...Object.entries<number>(tagCount)]
@@ -45,7 +48,7 @@ function Tags<T extends string>({
           onClick={handleClick(key)}
         />
       )),
-    [paramValue, tagCount, size],
+    [handleClick, paramValue, tagCount, size],
   );
 
   return (

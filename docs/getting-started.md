@@ -53,7 +53,7 @@ mise install
 설치 후 버전을 확인합니다.
 
 ```bash
-node --version    # v20.11.1
+node --version    # v22.12.0
 yarn --version    # 4.6.0
 lefthook version  # 2.1.8
 ```

@@ -1,6 +1,5 @@
 import { Variants } from 'motion/react';
 
-// eslint-disable-next-line import/prefer-default-export
 export const upToBottomVariants: Variants = {
   hidden: {
     y: '-100%',

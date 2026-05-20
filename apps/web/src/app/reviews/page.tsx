@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import ReviewsPage from '@/components/pages/ReviewsPage';
 import { getReviews } from '@/lib/apis/review';
 import METADATA from '@/lib/constants/metadata';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
 const title = '후기 - DND';
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title,
   openGraph: {
     title,
-    url: `${process.env.NEXT_PUBLIC_ORIGIN}/reviews`,
+    url: `${PUBLIC_ORIGIN}/reviews`,
     images: METADATA.images,
   },
   twitter: {

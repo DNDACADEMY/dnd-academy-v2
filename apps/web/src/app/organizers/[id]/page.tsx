@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import OrganizerPage from '@/components/pages/OrganizerPage';
 import { getOrganizer, getOrganizers } from '@/lib/apis/organizer';
 import METADATA, { DEFAULT_METADATA } from '@/lib/constants/metadata';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
 export const dynamicParams = false;
 
@@ -28,7 +29,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     alt: organizer.name,
   }] : METADATA.images;
 
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_ORIGIN}/organizers/${params.id}`;
+  const canonicalUrl = `${PUBLIC_ORIGIN}/organizers/${params.id}`;
 
   return {
     metadataBase: METADATA.metadataBase,

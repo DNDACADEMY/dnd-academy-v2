@@ -1,21 +1,19 @@
 'use client';
-
-/* eslint-disable react/jsx-props-no-spreading */
 import {
-  HTMLProps, ReactElement, ReactNode, useMemo,
+  AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLProps, ReactElement, ReactNode, useMemo,
 } from 'react';
 
 import Link from 'next/link';
 
 import clsx from 'clsx';
-import { motion } from 'motion/react';
+import { motion, type MotionProps } from 'motion/react';
 
 import styles from './index.module.scss';
 
 export type ButtonSize = 'xLarge' | 'large' | 'medium' | 'small';
 type ButtonType = 'default' | 'primary' | 'secondary' | 'clear' | 'purple';
 
-export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, 'size'> {
+export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnchorElement>, 'size' | 'type'> {
   buttonType?: ButtonType;
   size?: ButtonSize;
   width?: string;
@@ -31,6 +29,9 @@ export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement | HTMLAnch
   children?: ReactNode;
   isAnimated?: boolean;
 }
+
+type AnchorHtmlProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof MotionProps | 'href' | 'size' | 'type'>;
+type ButtonHtmlProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof MotionProps | 'size' | 'type'>;
 
 const MotionLink = motion.create(Link);
 
@@ -53,7 +54,8 @@ function Button({
   children,
   ...rest
 }: ButtonProps): ReactElement {
-  const htmlProps = rest as any;
+  const anchorHtmlProps = rest as AnchorHtmlProps;
+  const buttonHtmlProps = rest as ButtonHtmlProps;
 
   const buttonClassName = clsx(
     styles.buttonWrapper,
@@ -102,8 +104,8 @@ function Button({
     return (
       <MotionLink
         href={href}
-        whileHover={isMotion && { scale: 1.02 }}
-        whileTap={isMotion && { scale: 0.98 }}
+        whileHover={isMotion ? { scale: 1.02 } : undefined}
+        whileTap={isMotion ? { scale: 0.98 } : undefined}
         rel={isExternalLink ? 'noopener noreferrer' : undefined}
         target={isExternalLink ? '_blank' : undefined}
         className={buttonClassName}
@@ -111,7 +113,7 @@ function Button({
         style={{
           width,
         }}
-        {...htmlProps}
+        {...anchorHtmlProps}
       >
         {buttonLabel}
       </MotionLink>
@@ -120,17 +122,16 @@ function Button({
 
   return (
     <motion.button
-      // eslint-disable-next-line react/button-has-type
       type={type}
-      whileHover={isMotion && { scale: 1.02 }}
-      whileTap={isMotion && { scale: 0.98 }}
+      whileHover={isMotion ? { scale: 1.02 } : undefined}
+      whileTap={isMotion ? { scale: 0.98 } : undefined}
       className={buttonClassName}
       disabled={disabled}
       aria-disabled={disabled}
       style={{
         width,
       }}
-      {...htmlProps}
+      {...buttonHtmlProps}
     >
       {buttonLabel}
     </motion.button>
