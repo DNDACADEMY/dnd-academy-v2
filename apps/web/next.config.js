@@ -47,6 +47,11 @@ const nextConfig = {
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
+    // Tell Next.js's bundled webpack to skip the `canvas` native module.
+    // pdfjs-dist (via react-pdf) lists it as an optionalDependency; we also
+    // replace it with a no-op portal at the root resolutions level
+    // (see __stubs__/canvas/). Both layers are needed: this alias covers
+    // the runtime bundle, the portal covers `yarn install`.
     // eslint-disable-next-line no-param-reassign
     config.resolve.alias.canvas = false;
 
