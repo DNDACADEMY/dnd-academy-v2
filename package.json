@@ -40,6 +40,7 @@
   },
   "resolutions": {
     "webpack": "5.98.0",
+    "canvas": "portal:./__stubs__/canvas",
     "axios": "^1.15.2",
     "@cypress/request/form-data": "^2.5.4",
     "@cypress/request/qs": "^6.14.2"
