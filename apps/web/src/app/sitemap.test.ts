@@ -1,3 +1,5 @@
+import type { MetadataRoute } from 'next';
+
 const ORIGINAL_ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
 
 const loadSitemapModule = async () => {
@@ -19,7 +21,7 @@ describe('sitemap metadata route', () => {
     delete process.env.NEXT_PUBLIC_ORIGIN;
 
     const { default: sitemap } = await loadSitemapModule();
-    const urls = sitemap().map(({ url }) => url);
+    const urls = (sitemap() as MetadataRoute.Sitemap).map(({ url }) => url);
 
     expect(urls).toContain('http://localhost:3000');
     expect(urls).toContain('http://localhost:3000/projects');
@@ -31,7 +33,7 @@ describe('sitemap metadata route', () => {
     process.env.NEXT_PUBLIC_ORIGIN = 'https://dnd.academy/some/path';
 
     const { default: sitemap } = await loadSitemapModule();
-    const urls = sitemap().map(({ url }) => url);
+    const urls = (sitemap() as MetadataRoute.Sitemap).map(({ url }) => url);
 
     expect(urls.length).toBeGreaterThan(10);
     expect(urls).toContain('https://dnd.academy/projects');

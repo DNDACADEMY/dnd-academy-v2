@@ -1,6 +1,13 @@
+import type { getPublicOrigin as getPublicOriginType } from './origin';
+
+type OriginModule = {
+  PUBLIC_ORIGIN: string;
+  getPublicOrigin: typeof getPublicOriginType;
+};
+
 const ORIGINAL_ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
 
-const loadOriginModule = async () => {
+const loadOriginModule = async (): Promise<OriginModule> => {
   jest.resetModules();
   return import('./origin');
 };

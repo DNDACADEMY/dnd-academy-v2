@@ -62,18 +62,41 @@ const createWebpackConfig = () => {
 };
 
 describe('Next upgrade guardrails', () => {
-  it('keeps both Next apps on the latest Storybook-compatible backport line', () => {
+  it('keeps both Next apps on the latest Storybook-compatible major line', () => {
+    const webPackage = readPackageJson('apps/web');
+    const adminPackage = readPackageJson('apps/admin');
+    const uiPackage = readPackageJson('packages/ui');
+
+    expect(webPackage.dependencies?.next).toBe('16.2.6');
+    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.2.6');
+    expect(webPackage.devDependencies?.['@next/env']).toBe('16.2.6');
+    expect(webPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.2.6');
+    expect(adminPackage.dependencies?.next).toBe('16.2.6');
+    expect(adminPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.2.6');
+    expect(uiPackage.devDependencies?.next).toBe('16.2.6');
+    expect(webPackage.scripts.dev).not.toContain('--turbo');
+    expect(adminPackage.scripts.dev).not.toContain('--turbo');
+  });
+
+  it('opts Next 16 builds into webpack while custom webpack behavior is still required', () => {
     const webPackage = readPackageJson('apps/web');
     const adminPackage = readPackageJson('apps/admin');
 
-    expect(webPackage.dependencies?.next).toBe('15.5.18');
-    expect(adminPackage.dependencies?.next).toBe('15.5.18');
-    expect(webPackage.scripts.dev).not.toContain('--turbo');
-    expect(webPackage.scripts.dev).not.toContain('--webpack');
-    expect(webPackage.scripts.build).not.toContain('--webpack');
-    expect(adminPackage.scripts.dev).not.toContain('--turbo');
-    expect(adminPackage.scripts.dev).not.toContain('--webpack');
-    expect(adminPackage.scripts.build).not.toContain('--webpack');
+    expect(webPackage.scripts.dev).toContain('--webpack');
+    expect(webPackage.scripts.build).toContain('next build --webpack');
+    expect(adminPackage.scripts.dev).toContain('--webpack');
+    expect(adminPackage.scripts.build).toContain('next build --webpack');
+  });
+
+  it('uses the Next 16 proxy file convention instead of deprecated middleware files', () => {
+    const webProxy = fs.readFileSync(path.join(repoRoot, 'apps/web/src/proxy.ts'), 'utf8');
+    const adminProxy = fs.readFileSync(path.join(repoRoot, 'apps/admin/src/proxy.ts'), 'utf8');
+
+    expect(fs.existsSync(path.join(repoRoot, 'apps/web/src/middleware.ts'))).toBe(false);
+    expect(fs.existsSync(path.join(repoRoot, 'apps/admin/src/middleware.ts'))).toBe(false);
+    expect(webProxy).toContain('export function proxy');
+    expect(adminProxy).toContain('const proxy = auth');
+    expect(adminProxy).toContain('export default proxy');
   });
 
   it('does not keep the removed Next eslint build option', async () => {
@@ -116,6 +139,49 @@ describe('Next upgrade guardrails', () => {
 
     expect(webPackage.dependencies).not.toHaveProperty('@codecov/nextjs-webpack-plugin');
     expect(webPackage.devDependencies).not.toHaveProperty('@codecov/nextjs-webpack-plugin');
+  });
+
+  it('keeps Storybook and Chromatic on the Next 16 compatible Storybook 10 line', () => {
+    const webPackage = readPackageJson('apps/web');
+    const uiPackage = readPackageJson('packages/ui');
+    const webStorybookMain = fs.readFileSync(path.join(repoRoot, 'apps/web/.storybook/main.ts'), 'utf8');
+    const typographyDocs = fs.readFileSync(path.join(repoRoot, 'packages/ui/src/stories/Typography.mdx'), 'utf8');
+
+    expect(webPackage.devDependencies).toMatchObject({
+      '@chromatic-com/storybook': '5.2.1',
+      '@storybook/addon-docs': '10.4.0',
+      '@storybook/nextjs': '10.4.0',
+      '@storybook/react': '10.4.0',
+      'eslint-plugin-storybook': '10.4.0',
+      storybook: '10.4.0',
+    });
+    expect(uiPackage.devDependencies).toMatchObject({
+      '@storybook/addon-docs': '10.4.0',
+      '@storybook/react': '10.4.0',
+      'eslint-plugin-storybook': '10.4.0',
+      storybook: '10.4.0',
+    });
+    [
+      '@storybook/addon-essentials',
+      '@storybook/addon-interactions',
+      '@storybook/addon-links',
+      '@storybook/blocks',
+      '@storybook/test',
+    ].forEach((removedPackage) => {
+      expect(webPackage.devDependencies).not.toHaveProperty(removedPackage);
+      expect(uiPackage.devDependencies).not.toHaveProperty(removedPackage);
+      expect(webStorybookMain).not.toContain(removedPackage);
+      expect(typographyDocs).not.toContain(removedPackage);
+    });
+    expect(webStorybookMain).toContain('@storybook/addon-docs');
+    expect(webStorybookMain).toContain('createRequire(import.meta.url)');
+    expect(webStorybookMain).toContain('fileURLToPath(import.meta.url)');
+    expect(webStorybookMain).toContain('tsconfig.storybook.json');
+    expect(webStorybookMain).toContain('stream: false');
+    expect(webStorybookMain).toContain('canvas: false');
+    expect(webStorybookMain).toContain('zlib: false');
+    expect(webStorybookMain).not.toContain('__dirname');
+    expect(typographyDocs).toContain('@storybook/addon-docs/blocks');
   });
 
   it('pins audited transitive toolchain packages to patched versions', () => {

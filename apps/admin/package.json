@@ -6,8 +6,8 @@
   "author": "dnd-academy",
   "scripts": {
     "open-browser": "open http://localhost:3001",
-    "dev": "next dev -H localhost -p 3001 & yarn open-browser",
-    "build": "next build",
+    "dev": "next dev --webpack -H localhost -p 3001 & yarn open-browser",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
     "stylelint": "stylelint **/*.scss",
@@ -33,7 +33,7 @@
     "google-auth-library": "9.15.0",
     "google-spreadsheet": "4.1.4",
     "motion": "11.14.4",
-    "next": "15.5.18",
+    "next": "16.2.6",
     "next-auth": "5.0.0-beta.30",
     "react": "19.2.6",
     "react-dom": "19.2.6",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@dnd-academy/eslint-config": "workspace:*",
-    "@next/eslint-plugin-next": "15.5.18",
+    "@next/eslint-plugin-next": "16.2.6",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",

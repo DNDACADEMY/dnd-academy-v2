@@ -1,3 +1,5 @@
+import type { MetadataRoute } from 'next';
+
 const ORIGINAL_ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
 
 const loadRobotsModule = async () => {
@@ -19,7 +21,7 @@ describe('robots metadata route', () => {
     delete process.env.NEXT_PUBLIC_ORIGIN;
 
     const { default: robots } = await loadRobotsModule();
-    const result = robots();
+    const result: MetadataRoute.Robots = robots();
 
     expect(result.sitemap).toBe('http://localhost:3000/sitemap.xml');
     expect(JSON.stringify(result)).not.toContain('undefined');

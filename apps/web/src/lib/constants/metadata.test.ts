@@ -1,4 +1,11 @@
+import type { Metadata } from 'next';
+
 const ORIGINAL_ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
+
+const expectMetadataBaseOrigin = (metadataBase: Metadata['metadataBase'], origin: string) => {
+  expect(metadataBase).toBeInstanceOf(URL);
+  expect((metadataBase as URL).origin).toBe(origin);
+};
 
 const loadMetadataModule = async () => {
   jest.resetModules();
@@ -20,7 +27,7 @@ describe('metadata defaults', () => {
 
     const { DEFAULT_METADATA } = await loadMetadataModule();
 
-    expect(DEFAULT_METADATA.metadataBase?.origin).toBe('http://localhost:3000');
+    expectMetadataBaseOrigin(DEFAULT_METADATA.metadataBase, 'http://localhost:3000');
     expect(DEFAULT_METADATA.openGraph?.url).toBe('http://localhost:3000');
     expect(JSON.stringify(DEFAULT_METADATA)).not.toContain('undefined');
   });
@@ -30,7 +37,7 @@ describe('metadata defaults', () => {
 
     const { DEFAULT_METADATA } = await loadMetadataModule();
 
-    expect(DEFAULT_METADATA.metadataBase?.origin).toBe('https://dnd.academy');
+    expectMetadataBaseOrigin(DEFAULT_METADATA.metadataBase, 'https://dnd.academy');
     expect(DEFAULT_METADATA.openGraph?.url).toBe('https://dnd.academy');
   });
 });
