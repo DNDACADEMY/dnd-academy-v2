@@ -1,6 +1,6 @@
 {
   "name": "canvas",
   "version": "2.11.2",
-  "description": "Local no-op stub to replace the native canvas package (transitive dep of pdfjs-dist via react-pdf) so jsdom's optional canvas integration is disabled in tests.",
+  "description": "No-op stub for the native canvas package, wired in via root resolutions. See index.js for context and the conditions under which this stub (and react-pdf 9.x) can be retired.",
   "main": "index.js"
 }

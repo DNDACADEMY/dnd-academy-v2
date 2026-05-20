@@ -20,7 +20,6 @@ function SponsorSection() {
     { sponsor: 'notefolio', url: 'https://notefolio.net', image: 'notefolio.png' },
     { sponsor: 'elice', url: 'https://elice.io/ko', image: 'elice.png' },
     { sponsor: 'sniperfactory', url: 'https://sniperfactory.com', image: 'sniperfactory.png' },
-    { sponsor: 'zighang', url: 'https://zighang.com', image: 'zighang.png' },
     { sponsor: 'f-lab', url: 'https://f-lab.kr', image: 'f-lab.png' },
   ];
 
