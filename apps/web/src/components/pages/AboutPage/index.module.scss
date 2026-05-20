@@ -85,7 +85,7 @@
     }
 
     .title {
-      word-wrap: break-word;
+      overflow-wrap: break-word;
       white-space: pre-line;
 
       @include text('H4/Bold', 'gray09');
