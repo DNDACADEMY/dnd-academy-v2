@@ -7,6 +7,8 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import svgr from 'vite-plugin-svgr';
 
+const stylesMainPath = resolve(__dirname, 'src/styles/main.scss');
+
 export default defineConfig({
   plugins: [
     react(),
@@ -47,7 +49,7 @@ export default defineConfig({
             return 'assets/[name].[ext]';
           }
 
-          if (assetInfo.name === 'style.css') {
+          if (assetInfo.name.endsWith('.css')) {
             return 'style.css';
           }
 
@@ -64,7 +66,7 @@ export default defineConfig({
     },
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "./src/styles/main.scss";',
+        additionalData: `@import "${stylesMainPath}";`,
       },
     },
   },

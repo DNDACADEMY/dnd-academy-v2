@@ -3,14 +3,19 @@ import { NextRequest, NextResponse } from 'next/server';
 import { api, ApiError, getLatestItemReduce } from '@dnd-academy/core';
 import { list } from '@vercel/blob';
 
+const ALLOWED_BLOB_NAMES = new Set([
+  'current_applicant_count',
+  'total_count_status',
+]);
+
 // eslint-disable-next-line import/prefer-default-export
 export async function GET(_: NextRequest, props: { params: Promise<{ name: string }> }) {
   const params = await props.params;
 
-  if (!params?.name) {
+  if (!params?.name || !ALLOWED_BLOB_NAMES.has(params.name)) {
     return NextResponse.json(null, {
       status: 400,
-      statusText: 'Missing name parameter',
+      statusText: 'Invalid name parameter',
     });
   }
 
@@ -18,6 +23,13 @@ export async function GET(_: NextRequest, props: { params: Promise<{ name: strin
     prefix: params.name,
     token: process.env.BLOB_READ_WRITE_TOKEN,
   });
+
+  if (!blobs.length) {
+    return NextResponse.json(null, {
+      status: 404,
+      statusText: 'Blob not found',
+    });
+  }
 
   const blob = getLatestItemReduce(blobs);
 

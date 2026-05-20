@@ -14,7 +14,7 @@ async function Page() {
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
 
   const totalCountStatus = await api<TotalCountStatus>({
-    url: `${protocol}://${host}/api//blob/latest/total_count_status`,
+    url: `${protocol}://${host}/api/blob/latest/total_count_status`,
   });
 
   const {

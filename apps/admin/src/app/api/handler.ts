@@ -41,8 +41,10 @@ export async function revalidateWebPath(paths: string | string[]) {
   try {
     const response = await fetch(`${process.env.WEB_ORIGIN}/api/revalidate?${paramsSerializer({
       paths,
-      secret: process.env.REVALIDATION_TOKEN,
     })}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.REVALIDATION_TOKEN}`,
+      },
       method: 'GET',
     });
 
