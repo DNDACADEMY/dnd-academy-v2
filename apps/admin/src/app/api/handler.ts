@@ -3,7 +3,6 @@ import { put } from '@vercel/blob';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-// eslint-disable-next-line import/prefer-default-export
 export const updateCurrentApplicantCount = async () => {
   const serviceAccountAuth = new JWT({
     email: process.env.GOOGLE_CLIENT_EMAIL,

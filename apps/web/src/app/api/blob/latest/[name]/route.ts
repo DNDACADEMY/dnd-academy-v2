@@ -8,7 +8,6 @@ const ALLOWED_BLOB_NAMES = new Set([
   'total_count_status',
 ]);
 
-// eslint-disable-next-line import/prefer-default-export
 export async function GET(_: NextRequest, props: { params: Promise<{ name: string }> }) {
   const params = await props.params;
 

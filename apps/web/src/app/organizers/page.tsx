@@ -6,6 +6,7 @@ import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import OrganizersPage from '@/components/pages/OrganizersPage';
 import { getOrganizers } from '@/lib/apis/organizer';
 import METADATA from '@/lib/constants/metadata';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
 const title = '운영진 - DND';
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   title,
   openGraph: {
     title,
-    url: `${process.env.NEXT_PUBLIC_ORIGIN}/organizers`,
+    url: `${PUBLIC_ORIGIN}/organizers`,
     images: METADATA.images,
   },
   twitter: {

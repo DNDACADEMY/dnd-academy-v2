@@ -12,6 +12,9 @@ const customJestConfig = {
     '<rootDir>.*/public',
     '<rootDir>/.next/',
   ],
+  modulePathIgnorePatterns: [
+    '<rootDir>/.next/',
+  ],
 };
 
 module.exports = async () => ({

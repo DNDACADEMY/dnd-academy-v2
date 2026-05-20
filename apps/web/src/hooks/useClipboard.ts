@@ -18,7 +18,7 @@ function useClipboard() {
     } catch (error) {
       renderToast('클립보드에 복사가 실패하였습니다.', { type: 'error' });
     }
-  }, []);
+  }, [renderToast]);
 
   return onClickCopy;
 }

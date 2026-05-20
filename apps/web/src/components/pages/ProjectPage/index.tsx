@@ -12,6 +12,7 @@ import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
 import { ShareIcon } from '@/lib/assets/icons';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';
@@ -83,7 +84,7 @@ function ProjectPage({ project }: Props) {
                       />
                     );
                   })}
-                <ShareClipBoardCTA shareText={`${process.env.NEXT_PUBLIC_ORIGIN}/projects/${project.id}`}>
+                <ShareClipBoardCTA shareText={`${PUBLIC_ORIGIN}/projects/${project.id}`}>
                   <Button
                     type="button"
                     prefixIcon={<ShareIcon width={16} height={16} />}

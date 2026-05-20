@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 
 import CulturePage from '@/components/pages/CulturePage';
 import METADATA from '@/lib/constants/metadata';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
 const title = '문화 - DND';
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title,
   openGraph: {
     title,
-    url: `${process.env.NEXT_PUBLIC_ORIGIN}/dnd/culture`,
+    url: `${PUBLIC_ORIGIN}/dnd/culture`,
     images: METADATA.images,
   },
   twitter: {

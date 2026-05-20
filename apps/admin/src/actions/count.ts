@@ -11,7 +11,6 @@ type CountStateType = {
   messageType?: 'error' | 'success';
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export async function totalCountStatusAction(
   _: CountStateType | null,
   formData: FormData,

@@ -5,9 +5,6 @@ const isProd = process.env.NODE_ENV === 'production';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   output: 'standalone',
   compiler: {
     reactRemoveProperties: isProd && {
@@ -31,7 +28,7 @@ const nextConfig = {
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
-    // eslint-disable-next-line no-param-reassign
+    // Tell Next.js's bundled webpack to skip optional native canvas bindings.
     config.resolve.alias.canvas = false;
 
     config.module.rules.push(

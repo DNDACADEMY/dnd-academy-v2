@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+import type { NextAuthRequest } from 'next-auth';
 
 import { auth as middleware } from '@/auth';
 import { isEmailAllowed } from '@/utils';
 
-export default middleware((req: any) => {
+export default middleware((req: NextAuthRequest) => {
   if (req.nextUrl.pathname === '/login' || process.env.NODE_ENV === 'development') {
     return NextResponse.next({
       request: req,

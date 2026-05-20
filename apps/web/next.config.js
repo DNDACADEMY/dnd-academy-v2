@@ -5,9 +5,6 @@ const isProd = process.env.NODE_ENV === 'production';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   output: 'standalone',
   compiler: {
     reactRemoveProperties: isProd && {
@@ -46,7 +43,6 @@ const nextConfig = {
     // replace it with a no-op portal at the root resolutions level
     // (see __stubs__/canvas/). Both layers are needed: this alias covers
     // the runtime bundle, the portal covers `yarn install`.
-    // eslint-disable-next-line no-param-reassign
     config.resolve.alias.canvas = false;
 
     config.module.rules.push(
@@ -64,17 +60,6 @@ const nextConfig = {
     );
 
     fileLoaderRule.exclude = /\.svg$/i;
-
-    // if (!options.dev) {
-    //   config.plugins.push(
-    //     codecovNextJSWebpackPlugin({
-    //       enableBundleAnalysis: true,
-    //       bundleName: '@dnd-academy/web',
-    //       uploadToken: process.env.CODECOV_TOKEN,
-    //       webpack: options.webpack,
-    //     }),
-    //   );
-    // }
 
     return config;
   },
