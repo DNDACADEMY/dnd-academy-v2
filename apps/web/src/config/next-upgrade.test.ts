@@ -184,10 +184,14 @@ describe('Next upgrade guardrails', () => {
     expect(typographyDocs).toContain('@storybook/addon-docs/blocks');
   });
 
-  it('runs CI on a Node version supported by Storybook 10', () => {
+  it('runs local and CI tooling on a Node version supported by Storybook 10', () => {
     const ciWorkflow = fs.readFileSync(path.join(repoRoot, '.github/workflows/ci.yml'), 'utf8');
+    const miseConfig = fs.readFileSync(path.join(repoRoot, 'mise.toml'), 'utf8');
+    const gettingStartedGuide = fs.readFileSync(path.join(repoRoot, 'docs/getting-started.md'), 'utf8');
 
     expect(ciWorkflow).toContain('DEFAULT_NODE_VERSION: "v22.12.0"');
+    expect(miseConfig).toContain('node = "22.12.0"');
+    expect(gettingStartedGuide).toContain('node --version    # v22.12.0');
   });
 
   it('pins audited transitive toolchain packages to patched versions', () => {
