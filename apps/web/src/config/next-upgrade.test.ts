@@ -10,6 +10,13 @@ type NextConfig = {
   webpack?: (config: WebpackConfig) => WebpackConfig;
 };
 
+type TurboConfig = {
+  globalEnv?: string[];
+  tasks?: Record<string, {
+    env?: string[];
+  }>;
+};
+
 type SvgRule = {
   exclude?: RegExp;
   issuer: unknown;
@@ -36,6 +43,10 @@ const readPackageJson = (workspace: string) => JSON.parse(
   resolutions?: Record<string, string>;
   scripts: Record<string, string>;
 };
+
+const readJson = <T>(relativePath: string) => JSON.parse(
+  fs.readFileSync(path.join(repoRoot, relativePath), 'utf8'),
+) as T;
 
 const loadNextConfig = async (workspace: string) => {
   const configModule = await import(pathToFileURL(path.join(repoRoot, workspace, 'next.config.js')).href);
@@ -192,6 +203,34 @@ describe('Next upgrade guardrails', () => {
     expect(ciWorkflow).toContain('DEFAULT_NODE_VERSION: "v22.12.0"');
     expect(miseConfig).toContain('node = "22.12.0"');
     expect(gettingStartedGuide).toContain('node --version    # v22.12.0');
+  });
+
+  it('declares app build env vars for Turborepo strict env mode', () => {
+    const rootTurbo = readJson<TurboConfig>('turbo.json');
+    const buildEnv = rootTurbo.tasks?.build?.env ?? [];
+    const expectedBuildEnv = [
+      'ADMIN_ORIGIN',
+      'ALLOWED_EMAIL_ADDRESSES',
+      'AUTH_GOOGLE_ID',
+      'AUTH_GOOGLE_SECRET',
+      'AUTH_SECRET',
+      'BLOB_READ_WRITE_TOKEN',
+      'CRON_SECRET',
+      'DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN',
+      'GOOGLE_CLIENT_EMAIL',
+      'GOOGLE_PRIVATE_KEY',
+      'NEXT_PUBLIC_CHANNEL_IO_PLUGIN_KEY',
+      'NEXT_PUBLIC_GA_MEASUREMENT_ID',
+      'NEXT_PUBLIC_ORIGIN',
+      'NEXT_PUBLIC_THEME',
+      'NEXT_PUBLIC_VERCEL_BLOB_HOST',
+      'REVALIDATION_TOKEN',
+      'WEB_ORIGIN',
+    ];
+
+    expect(buildEnv).toEqual([...buildEnv].sort());
+    expect(new Set(buildEnv).size).toBe(buildEnv.length);
+    expect(buildEnv).toEqual(expectedBuildEnv);
   });
 
   it('pins audited transitive toolchain packages to patched versions', () => {
