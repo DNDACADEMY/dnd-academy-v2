@@ -4,7 +4,7 @@ import {
 
 type ModalContextType = { open: boolean; toggle: Dispatch<SetStateAction<boolean>>; };
 
-const ModalContext = createContext<ModalContextType>({} as ModalContextType);
+const ModalContext = createContext<ModalContextType | null>(null);
 
 export const useModalContext = () => {
   const context = useContext(ModalContext);
