@@ -1,9 +1,8 @@
 import '@dnd-academy/ui/style.css';
 import 'src/styles/global.scss';
 
-import { GoogleAnalytics } from '@next/third-parties/google';
-
 import ClientProviders from '@/components/global/ClientProviders';
+import DeferredAnalytics from '@/components/global/DeferredAnalytics';
 import Footer from '@/components/global/Footer';
 import Toast from '@/components/global/Toast';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
@@ -15,9 +14,7 @@ import styles from './index.module.scss';
 
 export const metadata = DEFAULT_METADATA;
 
-function RootLayout({ children }: {
-  children: React.ReactNode
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko" className={pretendardFont.variable}>
       <head>
@@ -28,15 +25,13 @@ function RootLayout({ children }: {
       <body>
         <ClientProviders>
           <TopNavigationBar />
-          <main className={styles.main}>
-            {children}
-          </main>
+          <main className={styles.main}>{children}</main>
           <Footer />
           <div id="portal-container" />
         </ClientProviders>
         <Toast />
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      <DeferredAnalytics />
     </html>
   );
 }

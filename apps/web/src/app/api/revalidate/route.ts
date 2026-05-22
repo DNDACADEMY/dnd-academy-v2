@@ -1,12 +1,12 @@
 import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 
-// eslint-disable-next-line import/prefer-default-export
 export async function GET(request: NextRequest) {
-  const secret = request.nextUrl.searchParams.get('secret');
+  const authorization = request.headers.get('authorization');
+  const secret = authorization?.startsWith('Bearer ') ? authorization.slice('Bearer '.length) : null;
   const paths = request.nextUrl.searchParams.get('paths');
 
-  if (secret !== process.env.REVALIDATION_TOKEN) {
+  if (!process.env.REVALIDATION_TOKEN || secret !== process.env.REVALIDATION_TOKEN) {
     return NextResponse.json({ revalidated: false, message: 'Invalid token' }, { status: 401 });
   }
 

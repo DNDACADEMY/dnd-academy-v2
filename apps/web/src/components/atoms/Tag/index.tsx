@@ -15,9 +15,7 @@ type Props = {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
-function Tag({
-  title, onClick, isActive, count, size,
-}: Props) {
+function Tag({ title, onClick, isActive, count, size }: Props) {
   return (
     <motion.button
       type="button"

@@ -17,12 +17,11 @@ function TopNavigationMenu() {
 
   const isDNDPathname = ['/dnd/about', '/dnd/culture'].includes(pathname);
 
-  const isActivePathname = (targetPathname: Route) => (targetPathname === '/' ? targetPathname === pathname : pathname?.startsWith(targetPathname));
+  const isActivePathname = (targetPathname: Route) =>
+    targetPathname === '/' ? targetPathname === pathname : pathname?.startsWith(targetPathname);
 
   return (
-    <ul
-      className={styles.topNavigationMenuWrapper}
-    >
+    <ul className={styles.topNavigationMenuWrapper}>
       <li>
         <Link href="/" className={clsx(isActivePathname('/') && styles.active)}>
           홈
@@ -38,10 +37,7 @@ function TopNavigationMenu() {
           운영진
         </Link>
       </li>
-      <li
-        className={styles.aboutNavItem}
-        onMouseLeave={() => setIsVisibleSubNav(false)}
-      >
+      <li className={styles.aboutNavItem} onMouseLeave={() => setIsVisibleSubNav(false)}>
         <Link
           href="/dnd/about"
           onMouseEnter={() => setIsVisibleSubNav(true)}
@@ -52,12 +48,18 @@ function TopNavigationMenu() {
         {(isVisibleSubNav || isDNDPathname) && (
           <ul className={styles.subNav}>
             <li>
-              <Link href="/dnd/about" className={clsx(styles.subNavItem, isActivePathname('/dnd/about') && styles.activeSub)}>
+              <Link
+                href="/dnd/about"
+                className={clsx(styles.subNavItem, isActivePathname('/dnd/about') && styles.activeSub)}
+              >
                 소개
               </Link>
             </li>
             <li>
-              <Link href="/dnd/culture" className={clsx(styles.subNavItem, isActivePathname('/dnd/culture') && styles.activeSub)}>
+              <Link
+                href="/dnd/culture"
+                className={clsx(styles.subNavItem, isActivePathname('/dnd/culture') && styles.activeSub)}
+              >
                 문화
               </Link>
             </li>

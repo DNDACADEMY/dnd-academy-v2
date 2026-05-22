@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import ProjectPage from '@/components/pages/ProjectPage';
 import { getProject, getProjects } from '@/lib/apis/project';
 import METADATA, { DEFAULT_METADATA } from '@/lib/constants/metadata';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
 export const dynamicParams = false;
 
@@ -21,14 +22,18 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return DEFAULT_METADATA;
   }
 
-  const images = project.thumbnail ? [{
-    url: project.thumbnail,
-    width: 800,
-    height: 600,
-    alt: project.name,
-  }] : METADATA.images;
+  const images = project.thumbnail
+    ? [
+        {
+          url: project.thumbnail,
+          width: 800,
+          height: 600,
+          alt: project.name,
+        },
+      ]
+    : METADATA.images;
 
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_ORIGIN}/projects/${params.id}`;
+  const canonicalUrl = `${PUBLIC_ORIGIN}/projects/${params.id}`;
 
   return {
     metadataBase: METADATA.metadataBase,
@@ -65,9 +70,7 @@ async function Page({ params }: Props) {
     notFound();
   }
 
-  return (
-    <ProjectPage project={project} />
-  );
+  return <ProjectPage project={project} />;
 }
 
 export default Page;

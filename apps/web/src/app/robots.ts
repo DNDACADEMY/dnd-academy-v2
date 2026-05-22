@@ -1,14 +1,14 @@
 import { MetadataRoute } from 'next';
 
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: [
-        '/jobs/',
-      ],
+      disallow: ['/jobs/'],
     },
-    sitemap: `${process.env.NEXT_PUBLIC_ORIGIN}/sitemap.xml`,
+    sitemap: `${PUBLIC_ORIGIN}/sitemap.xml`,
   };
 }

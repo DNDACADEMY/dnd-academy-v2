@@ -1,4 +1,4 @@
-import { Meta, Typeset, Source } from "@storybook/blocks";
+import { Meta, Typeset, Source } from '@storybook/addon-docs/blocks';
 
 <Meta title="Token/Typography" />
 
@@ -8,10 +8,10 @@ export const { type, weight, size, letterSpacing, lineHeight, backgroundColor } 
       "'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif",
   },
   weight: {
-    regular: "400",
-    medium: "500",
-    bold: "700",
-    extrabold: "800",
+    regular: '400',
+    medium: '500',
+    bold: '700',
+    extrabold: '800',
   },
   size: {
     h1: 56,
@@ -30,11 +30,10 @@ export const { type, weight, size, letterSpacing, lineHeight, backgroundColor } 
     h3: -0.44,
   },
   lineHeight: '140%',
-  backgroundColor: "#13161C",
+  backgroundColor: '#13161C',
 };
 
-export const sampleText =
-  "다람쥐 헌 쳇바퀴에 타고파 ‘Typography’, 1972. @ㅇ0ㅇ ₩0 〈♥〉 『♪』";
+export const sampleText = '다람쥐 헌 쳇바퀴에 타고파 ‘Typography’, 1972. @ㅇ0ㅇ ₩0 〈♥〉 『♪』';
 
 # Typography
 
@@ -59,35 +58,14 @@ export const sampleText =
   fontWeight={weight.bold}
   sampleText={sampleText}
   fontFamily={type.pretendard}
-  
 />
 
 **Weight:** 400(regular), 500(medium), 700(bold), 800(extrabold)
 
-<Typeset
-  fontSizes={[size.h6]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
-<Typeset
-  fontSizes={[size.h6]}
-  sampleText={sampleText}
-  fontWeight={weight.medium}
-  fontFamily={type.pretendard}
-/>
-<Typeset
-  fontSizes={[size.h6]}
-  sampleText={sampleText}
-  fontWeight={weight.bold}
-  fontFamily={type.pretendard}
-/>
-<Typeset
-  fontSizes={[size.h6]}
-  sampleText={sampleText}
-  fontWeight={weight.extrabold}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.h6]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
+<Typeset fontSizes={[size.h6]} sampleText={sampleText} fontWeight={weight.medium} fontFamily={type.pretendard} />
+<Typeset fontSizes={[size.h6]} sampleText={sampleText} fontWeight={weight.bold} fontFamily={type.pretendard} />
+<Typeset fontSizes={[size.h6]} sampleText={sampleText} fontWeight={weight.extrabold} fontFamily={type.pretendard} />
 
 ## H1 Font
 
@@ -128,12 +106,7 @@ letter-spacing: ${letterSpacing.h2}px;
   dark
 />
 
-<Typeset
-  fontSizes={[size.h2]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.h2]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
 
 ## H3 Font
 
@@ -151,12 +124,7 @@ letter-spacing: ${letterSpacing.h3}px;
   dark
 />
 
-<Typeset
-  fontSizes={[size.h3]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.h3]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
 
 ## H4 Font
 
@@ -173,12 +141,7 @@ line-height: ${lineHeight};
   dark
 />
 
-<Typeset
-  fontSizes={[size.h4]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.h4]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
 
 ## H5 Font
 
@@ -195,12 +158,7 @@ line-height: ${lineHeight};
   dark
 />
 
-<Typeset
-  fontSizes={[size.h5]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.h5]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
 
 ## H6 Font
 
@@ -217,12 +175,7 @@ line-height: ${lineHeight};
   dark
 />
 
-<Typeset
-  fontSizes={[size.h6]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.h6]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
 
 ## body1 Font
 
@@ -239,12 +192,7 @@ line-height: ${lineHeight};
   dark
 />
 
-<Typeset
-  fontSizes={[size.body1]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.body1]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
 
 ## body2 Font
 
@@ -261,12 +209,7 @@ line-height: ${lineHeight};
   dark
 />
 
-<Typeset
-  fontSizes={[size.body2]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.body2]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
 
 ## caption1 Font
 
@@ -283,12 +226,7 @@ line-height: ${lineHeight};
   dark
 />
 
-<Typeset
-  fontSizes={[size.caption1]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.caption1]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />
 
 ## caption2 Font
 
@@ -305,9 +243,4 @@ line-height: ${lineHeight};
   dark
 />
 
-<Typeset
-  fontSizes={[size.caption2]}
-  sampleText={sampleText}
-  fontWeight={weight.regular}
-  fontFamily={type.pretendard}
-/>
+<Typeset fontSizes={[size.caption2]} sampleText={sampleText} fontWeight={weight.regular} fontFamily={type.pretendard} />

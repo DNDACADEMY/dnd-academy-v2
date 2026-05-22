@@ -1,9 +1,6 @@
-import React, { SVGProps } from 'react';
+import { forwardRef, SVGProps } from 'react';
 
-const SvgrMock = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <svg ref={ref} {...props} />
-));
+const SvgrMock = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => <svg ref={ref} {...props} />);
 
 SvgrMock.displayName = 'SvgrMock';
 

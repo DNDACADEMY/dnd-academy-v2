@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,15 +14,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "baseUrl": "./",
+    "baseUrl": "./"
   },
   "exclude": ["node_modules"],
-  "include": [
-    "packages/**/src/**/*",
-    "apps/**/src/**/*",
-    "__mocks__/svg.tsx"
-  ]
+  "include": ["packages/**/src/**/*", "apps/**/src/**/*", "__mocks__/svg.tsx"]
 }

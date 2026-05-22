@@ -10,17 +10,8 @@ function withServerErrorBoundary<T, P extends object | undefined>(
     const data = serverErrorHandling(() => api(apiRequest));
 
     return (
-      <AsyncRenderer
-        data={data}
-        fallback={<div>Failed to fetch data</div>}
-      >
-        {(resolvedData) => (
-          <WrappedComponent
-              // eslint-disable-next-line react/jsx-props-no-spreading
-            {...(props as P)}
-            data={resolvedData as T}
-          />
-        )}
+      <AsyncRenderer data={data} fallback={<div>Failed to fetch data</div>}>
+        {(resolvedData) => <WrappedComponent {...(props as P)} data={resolvedData as T} />}
       </AsyncRenderer>
     );
   };

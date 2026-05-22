@@ -12,6 +12,7 @@ import ReviewList from '@/components/organisms/ReviewList';
 import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
 import { ShareIcon } from '@/lib/assets/icons';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 import { getEntries } from '@/utils';
 
 import styles from './index.module.scss';
@@ -54,36 +55,16 @@ function ProjectPage({ project }: Props) {
           )}
           <div className={styles.projectIntroduceTitleWrapper}>
             <div className={styles.header}>
-              <Badge
-                label={project.flag}
-                variant="info"
-                size="large"
-                theme="light"
-              />
+              <Badge label={project.flag} variant="info" size="large" theme="light" />
               <div className={styles.linkWrapper}>
-                {getEntries(project.projectLinks)
-                  .map(([key, value]) => {
-                    if (key === 'github') {
-                      return value?.map((link) => (
-                        <SocialIconLink
-                          key={link}
-                          type="github"
-                          link={link}
-                          theme="light"
-                        />
-                      ));
-                    }
+                {getEntries(project.projectLinks).map(([key, value]) => {
+                  if (key === 'github') {
+                    return value?.map((link) => <SocialIconLink key={link} type="github" link={link} theme="light" />);
+                  }
 
-                    return (
-                      <SocialIconLink
-                        key={key}
-                        type={key}
-                        link={value}
-                        theme="light"
-                      />
-                    );
-                  })}
-                <ShareClipBoardCTA shareText={`${process.env.NEXT_PUBLIC_ORIGIN}/projects/${project.id}`}>
+                  return <SocialIconLink key={key} type={key} link={value} theme="light" />;
+                })}
+                <ShareClipBoardCTA shareText={`${PUBLIC_ORIGIN}/projects/${project.id}`}>
                   <Button
                     type="button"
                     prefixIcon={<ShareIcon width={16} height={16} />}
@@ -116,9 +97,7 @@ function ProjectPage({ project }: Props) {
         )}
         <section className={styles.projectSubSection}>
           <h2>프로젝트 더보기</h2>
-          <ProjectCards
-            projects={projects.filter(({ id }) => id !== project.id)}
-          />
+          <ProjectCards projects={projects.filter(({ id }) => id !== project.id)} />
         </section>
       </div>
     </>

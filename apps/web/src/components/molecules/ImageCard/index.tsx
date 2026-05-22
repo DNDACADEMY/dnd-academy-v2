@@ -16,27 +16,12 @@ type Props = {
   isReversed?: boolean;
 };
 
-function ImageCard({
-  url, alt, backgroundColorType, description, className, fullWidth, isReversed,
-}: Props) {
+function ImageCard({ url, alt, backgroundColorType, description, className, fullWidth, isReversed }: Props) {
   const fullWidthClassName = fullWidth && styles.fullWidth;
 
   return (
-    <div className={
-      clsx(
-        styles.imageCardWrapper,
-        fullWidthClassName,
-        isReversed && styles.isReversed,
-        className,
-      )
-    }
-    >
-      <div className={clsx(
-        styles[backgroundColorType],
-        styles.imageWrapper,
-        fullWidthClassName,
-      )}
-      >
+    <div className={clsx(styles.imageCardWrapper, fullWidthClassName, isReversed && styles.isReversed, className)}>
+      <div className={clsx(styles[backgroundColorType], styles.imageWrapper, fullWidthClassName)}>
         <Image
           src={url}
           alt={alt}
@@ -45,9 +30,7 @@ function ImageCard({
           className={clsx(styles.cardImage, fullWidthClassName)}
         />
       </div>
-      <div className={clsx(styles.description, fullWidthClassName)}>
-        {description}
-      </div>
+      <div className={clsx(styles.description, fullWidthClassName)}>{description}</div>
     </div>
   );
 }

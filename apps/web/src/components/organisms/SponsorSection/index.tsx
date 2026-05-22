@@ -26,14 +26,16 @@ function SponsorSection() {
   return (
     <SectionTitle
       title="후원사"
-      subTitle={(
+      subTitle={
         <>
           <strong>DND</strong>
           는&nbsp;
           <strong>서비스유지</strong>
-          {'를 위해 후원을 받고 있습니다.\n후원 비용은 대관비, 장비 대여비, 세미나 연사 캐스팅비 등으로 더 많은 교육 기회에 도움이 됩니다.'}
+          {
+            '를 위해 후원을 받고 있습니다.\n후원 비용은 대관비, 장비 대여비, 세미나 연사 캐스팅비 등으로 더 많은 교육 기회에 도움이 됩니다.'
+          }
         </>
-    )}
+      }
     >
       <div className={styles.sponsorsWrapper}>
         {sponsors.map(({ sponsor, url, image }) => (

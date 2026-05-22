@@ -1,18 +1,19 @@
-import {
-  fireEvent, render, screen, waitFor,
-} from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import FAQSection from '.';
 
 window.scrollTo = jest.fn();
 
-const faqItems = [{
-  question: '질문1',
-  answer: '답변1',
-}, {
-  question: '질문2',
-  answer: '답변2',
-}];
+const faqItems = [
+  {
+    question: '질문1',
+    answer: '답변1',
+  },
+  {
+    question: '질문2',
+    answer: '답변2',
+  },
+];
 
 describe('FAQSection', () => {
   afterEach(() => {
@@ -22,9 +23,7 @@ describe('FAQSection', () => {
     jest.clearAllMocks();
   });
 
-  const renderFAQSection = () => render((
-    <FAQSection faqItems={faqItems} />
-  ));
+  const renderFAQSection = () => render(<FAQSection faqItems={faqItems} />);
 
   describe('faq 첫번째 accordion item을 한 번 클릭한다.', () => {
     it('faq 첫번째 답변이 보여야만 한다', () => {

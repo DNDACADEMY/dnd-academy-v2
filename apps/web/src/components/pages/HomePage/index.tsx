@@ -27,9 +27,7 @@ type Props = {
   faqItems: FAQ[];
 };
 
-function HomePage({
-  tab, applicantTotalCount, eventStatus, faqItems,
-}: Props) {
+function HomePage({ tab, applicantTotalCount, eventStatus, faqItems }: Props) {
   const isChristmas = isChristmasTheme();
 
   return (
@@ -82,24 +80,29 @@ function HomePage({
           />
         </div>
       </section>
-      <CounterCardSection title={isChristmas ? (
-        <div className={styles.counterCardTitle}>
-          <div>
-            지금까지 DND는?
-          </div>
-          <Image
-            src="/assets/images/christmas/sock.png"
-            alt="sock"
-            width={45}
-            height={80}
-            className={styles.christmasSock}
-          />
-        </div>
-      ) : '지금까지 DND는?'}
+      <CounterCardSection
+        title={
+          isChristmas ? (
+            <div className={styles.counterCardTitle}>
+              <div>지금까지 DND는?</div>
+              <Image
+                src="/assets/images/christmas/sock.png"
+                alt="sock"
+                width={45}
+                height={80}
+                className={styles.christmasSock}
+              />
+            </div>
+          ) : (
+            '지금까지 DND는?'
+          )
+        }
       />
       <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
         <ProjectsSlider />
-        <Button href="/projects" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>프로젝트 더 보기</Button>
+        <Button href="/projects" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>
+          프로젝트 더 보기
+        </Button>
       </SectionTitle>
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div className={styles.howBannerWrapper}>
@@ -107,28 +110,24 @@ function HomePage({
             url="/assets/images/dnd-experience-01.png"
             alt="DND 팀빌딩 시스템(DTS)"
             backgroundColorType="primary"
-            description={
-              <div className={styles.imageBannerTitle}>DND 팀빌딩 시스템(DTS)</div>
-            }
+            description={<div className={styles.imageBannerTitle}>DND 팀빌딩 시스템(DTS)</div>}
           />
           <ImageCard
             url="/assets/images/dnd-experience-02.png"
             alt="프로젝트 제작 가이드라인"
             backgroundColorType="secondary"
-            description={
-              <div className={styles.imageBannerTitle}>프로젝트 제작 가이드라인</div>
-            }
+            description={<div className={styles.imageBannerTitle}>프로젝트 제작 가이드라인</div>}
           />
           <ImageCard
             url="/assets/images/dnd-experience-03.png"
             alt="다양한 교육 제공"
             backgroundColorType="tertiary"
-            description={
-              <div className={styles.imageBannerTitle}>다양한 교육 제공</div>
-            }
+            description={<div className={styles.imageBannerTitle}>다양한 교육 제공</div>}
           />
         </div>
-        <Button href="/dnd/about" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>더 알아보기</Button>
+        <Button href="/dnd/about" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>
+          더 알아보기
+        </Button>
       </SectionTitle>
       <ShareAlarmSection />
       <SectionTitle title="자주 묻는 질문">

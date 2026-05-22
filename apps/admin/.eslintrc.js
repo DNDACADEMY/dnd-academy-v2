@@ -1,13 +1,6 @@
 module.exports = {
-  ignorePatterns: [
-    'public/',
-    '/.next',
-    'next-env.d.ts',
-  ],
-  extends: [
-    '@dnd-academy/eslint-config',
-    'plugin:@next/next/recommended',
-  ],
+  ignorePatterns: ['public/', '/.next', 'next-env.d.ts'],
+  extends: ['@dnd-academy/eslint-config', 'plugin:@next/next/recommended'],
   settings: {
     'import/resolver': {
       node: {

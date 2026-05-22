@@ -11,11 +11,7 @@ type CountStateType = {
   messageType?: 'error' | 'success';
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export async function totalCountStatusAction(
-  _: CountStateType | null,
-  formData: FormData,
-): Promise<CountStateType> {
+export async function totalCountStatusAction(_: CountStateType | null, formData: FormData): Promise<CountStateType> {
   try {
     const requestForm = {
       cumulativeApplicants: formData.get('cumulativeApplicants'),

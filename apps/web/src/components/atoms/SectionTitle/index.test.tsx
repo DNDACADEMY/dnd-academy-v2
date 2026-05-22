@@ -5,11 +5,12 @@ import SectionTitle from '.';
 describe('SectionTitle', () => {
   const title = 'title';
 
-  const renderSectionTitle = () => render((
-    <SectionTitle title="title" subTitle="subTitle" fullWidth>
-      <div>children</div>
-    </SectionTitle>
-  ));
+  const renderSectionTitle = () =>
+    render(
+      <SectionTitle title="title" subTitle="subTitle" fullWidth>
+        <div>children</div>
+      </SectionTitle>,
+    );
 
   it('section title이 보여야만한다', () => {
     const { container } = renderSectionTitle();

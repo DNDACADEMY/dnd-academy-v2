@@ -1,10 +1,8 @@
-import {
-  createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState,
-} from 'react';
+import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react';
 
-type ModalContextType = { open: boolean; toggle: Dispatch<SetStateAction<boolean>>; };
+type ModalContextType = { open: boolean; toggle: Dispatch<SetStateAction<boolean>> };
 
-const ModalContext = createContext<ModalContextType>({} as ModalContextType);
+const ModalContext = createContext<ModalContextType | null>(null);
 
 export const useModalContext = () => {
   const context = useContext(ModalContext);
@@ -18,16 +16,9 @@ export const useModalContext = () => {
 
 function ModalProvider({ children }: PropsWithChildren) {
   const [open, toggle] = useState<boolean>(false);
-  const contextValue = useMemo<ModalContextType>(
-    () => ({ open, toggle }),
-    [open],
-  );
+  const contextValue = useMemo<ModalContextType>(() => ({ open, toggle }), [open]);
 
-  return (
-    <ModalContext.Provider value={contextValue}>
-      {children}
-    </ModalContext.Provider>
-  );
+  return <ModalContext.Provider value={contextValue}>{children}</ModalContext.Provider>;
 }
 
 export default ModalProvider;

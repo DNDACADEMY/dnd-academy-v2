@@ -27,11 +27,13 @@ description: DND 신규 기수 모집 오픈 시점에 지원 폼/시트 정보(
 사용자가 알려줘야 할 정보. 단, 사용자가 "일정만 바꿔" 같이 한쪽 작업만 명시하면 해당 단계만 돌리세요(아래 "부분 실행" 참고).
 
 **recruitment-open 쪽 (선택적)**
+
 - 새 `CURRENT_FLAG` 값 (기존 +1 추정 가능)
 - 개발자/디자이너 지원 폼 URL
 - 개발자/디자이너 응답시트 ID
 
 **event-status-update 쪽 (선택적)**
+
 - `status` (보통 모집 오픈 시점 → `ONGOING`)
 - `applicationStartDateTime` (지원 시작)
 - `applicationEndDateTime` (지원 마감)

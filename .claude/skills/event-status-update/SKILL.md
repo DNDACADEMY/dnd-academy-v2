@@ -20,9 +20,9 @@ type EventStatusType = 'UPCOMING' | 'ONGOING' | 'ACTIVE' | 'INACTIVE' | 'HOT';
 
 interface EventStatus {
   status: EventStatusType;
-  applicationStartDateTime: string;   // "YYYY/MM/DD HH:MM:SS"
-  applicationEndDateTime: string;     // "YYYY/MM/DD HH:MM:SS"
-  applicantAcceptanceDateTime: string;// "YYYY/MM/DD HH:MM:SS"
+  applicationStartDateTime: string; // "YYYY/MM/DD HH:MM:SS"
+  applicationEndDateTime: string; // "YYYY/MM/DD HH:MM:SS"
+  applicantAcceptanceDateTime: string; // "YYYY/MM/DD HH:MM:SS"
   label?: string;
 }
 ```

@@ -1,42 +1,49 @@
 'use client';
 
-import {
-  useCallback, useEffect, useMemo, useRef, useState,
-} from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import clsx from 'clsx';
 import { AnimationDefinition, motion } from 'motion/react';
 
-import {
-  ErrorCircleIcon, InfoCircleIcon, SuccessCircleIcon, WarningIcon,
-} from '@/lib/assets/icons';
+import { ErrorCircleIcon, InfoCircleIcon, SuccessCircleIcon, WarningIcon } from '@/lib/assets/icons';
 import useToastStore from '@/stores/toast';
 import { upToBottomVariants } from '@/styles/framerVariants';
 
 import styles from './index.module.scss';
 
 function Toast() {
-  const {
-    isRender, message, closeToast, delay, type,
-  } = useToastStore(['closeToast', 'isRender', 'message', 'delay', 'type']);
+  const { isRender, message, closeToast, delay, type } = useToastStore([
+    'closeToast',
+    'isRender',
+    'message',
+    'delay',
+    'type',
+  ]);
 
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isOpenToast, setIsOpenToast] = useState<boolean>(false);
 
-  const handleAnimationComplete = useCallback((definition: AnimationDefinition) => {
-    if (definition === 'hidden') {
-      closeToast();
-    }
-  }, []);
+  const handleAnimationComplete = useCallback(
+    (definition: AnimationDefinition) => {
+      if (definition === 'hidden') {
+        closeToast();
+      }
+    },
+    [closeToast],
+  );
 
   const iconClassName = clsx(styles.toastIcon, styles[type]);
 
-  const icon = useMemo(() => ({
-    warn: <WarningIcon className={iconClassName} />,
-    success: <SuccessCircleIcon className={iconClassName} />,
-    info: <InfoCircleIcon className={iconClassName} />,
-    error: <ErrorCircleIcon className={iconClassName} />,
-  }[type]), [iconClassName, type]);
+  const icon = useMemo(
+    () =>
+      ({
+        warn: <WarningIcon className={iconClassName} />,
+        success: <SuccessCircleIcon className={iconClassName} />,
+        info: <InfoCircleIcon className={iconClassName} />,
+        error: <ErrorCircleIcon className={iconClassName} />,
+      })[type],
+    [iconClassName, type],
+  );
 
   useEffect(() => {
     if (isOpenToast) {
@@ -71,14 +78,13 @@ function Toast() {
       className={styles.toastContainer}
       onAnimationComplete={handleAnimationComplete}
     >
-      <div className={clsx(styles.toastBox, {
-        [styles[type]]: type,
-      })}
+      <div
+        className={clsx(styles.toastBox, {
+          [styles[type]]: type,
+        })}
       >
         {icon}
-        <div className={styles.toastMessage}>
-          {message}
-        </div>
+        <div className={styles.toastMessage}>{message}</div>
       </div>
     </motion.div>
   );

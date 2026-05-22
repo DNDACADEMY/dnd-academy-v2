@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import OrganizerPage from '@/components/pages/OrganizerPage';
 import { getOrganizer, getOrganizers } from '@/lib/apis/organizer';
 import METADATA, { DEFAULT_METADATA } from '@/lib/constants/metadata';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
 export const dynamicParams = false;
 
@@ -21,14 +22,18 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return DEFAULT_METADATA;
   }
 
-  const images = organizer.thumbnail ? [{
-    url: organizer.thumbnail,
-    width: 800,
-    height: 600,
-    alt: organizer.name,
-  }] : METADATA.images;
+  const images = organizer.thumbnail
+    ? [
+        {
+          url: organizer.thumbnail,
+          width: 800,
+          height: 600,
+          alt: organizer.name,
+        },
+      ]
+    : METADATA.images;
 
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_ORIGIN}/organizers/${params.id}`;
+  const canonicalUrl = `${PUBLIC_ORIGIN}/organizers/${params.id}`;
 
   return {
     metadataBase: METADATA.metadataBase,
@@ -65,9 +70,7 @@ async function Page({ params }: Props) {
     notFound();
   }
 
-  return (
-    <OrganizerPage organizer={organizer} />
-  );
+  return <OrganizerPage organizer={organizer} />;
 }
 
 export default Page;

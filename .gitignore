@@ -57,3 +57,6 @@ cypress/log
 
 # storybook
 storybook-static
+
+# claude code worktrees
+.claude/worktrees/

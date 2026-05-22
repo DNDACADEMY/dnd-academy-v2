@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 
 import AboutPage from '@/components/pages/AboutPage';
 import METADATA from '@/lib/constants/metadata';
+import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
 const title = '소개 - DND';
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title,
   openGraph: {
     title,
-    url: `${process.env.NEXT_PUBLIC_ORIGIN}/dnd/about`,
+    url: `${PUBLIC_ORIGIN}/dnd/about`,
     images: METADATA.images,
   },
   twitter: {
@@ -20,9 +21,7 @@ export const metadata: Metadata = {
 };
 
 function Page() {
-  return (
-    <AboutPage />
-  );
+  return <AboutPage />;
 }
 
 export default Page;

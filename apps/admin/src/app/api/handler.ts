@@ -3,7 +3,6 @@ import { put } from '@vercel/blob';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-// eslint-disable-next-line import/prefer-default-export
 export const updateCurrentApplicantCount = async () => {
   const serviceAccountAuth = new JWT({
     email: process.env.GOOGLE_CLIENT_EMAIL,
@@ -11,8 +10,14 @@ export const updateCurrentApplicantCount = async () => {
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
-  const developerApplicantDoc = new GoogleSpreadsheet('1LLxVCTkqtTZoMftrEkYOlwVdyEwoEKwCg7WvXwfW2Rk', serviceAccountAuth);
-  const designerApplicantDoc = new GoogleSpreadsheet('1BToiD3gjzT-SKWeKnQMRuFvGXmYv44oEigSIJy_w1Jc', serviceAccountAuth);
+  const developerApplicantDoc = new GoogleSpreadsheet(
+    '1LLxVCTkqtTZoMftrEkYOlwVdyEwoEKwCg7WvXwfW2Rk',
+    serviceAccountAuth,
+  );
+  const designerApplicantDoc = new GoogleSpreadsheet(
+    '1BToiD3gjzT-SKWeKnQMRuFvGXmYv44oEigSIJy_w1Jc',
+    serviceAccountAuth,
+  );
 
   await developerApplicantDoc.loadInfo();
   await designerApplicantDoc.loadInfo();
@@ -39,15 +44,22 @@ export const updateCurrentApplicantCount = async () => {
 
 export async function revalidateWebPath(paths: string | string[]) {
   try {
-    const response = await fetch(`${process.env.WEB_ORIGIN}/api/revalidate?${paramsSerializer({
-      paths,
-      secret: process.env.REVALIDATION_TOKEN,
-    })}`, {
-      method: 'GET',
-    });
+    const response = await fetch(
+      `${process.env.WEB_ORIGIN}/api/revalidate?${paramsSerializer({
+        paths,
+      })}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.REVALIDATION_TOKEN}`,
+        },
+        method: 'GET',
+      },
+    );
 
-    const data = await response.json() as {
-      revalidated: boolean; message?: string; now?: number;
+    const data = (await response.json()) as {
+      revalidated: boolean;
+      message?: string;
+      now?: number;
     };
 
     return data;

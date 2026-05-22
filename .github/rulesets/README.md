@@ -2,10 +2,10 @@
 
 `main`, `develop` 브랜치의 머지 정책을 GitHub Rulesets 로 강제합니다.
 
-| 파일 | 적용 대상 | 허용 머지 방식 | 부가 보호 |
-|---|---|---|---|
-| `main.json` | `refs/heads/main` | **merge commit only** | branch 삭제 금지 |
-| `develop.json` | `refs/heads/develop` | **squash only** | branch 삭제 금지 |
+| 파일           | 적용 대상            | 허용 머지 방식        | 부가 보호        |
+| -------------- | -------------------- | --------------------- | ---------------- |
+| `main.json`    | `refs/heads/main`    | **merge commit only** | branch 삭제 금지 |
+| `develop.json` | `refs/heads/develop` | **squash only**       | branch 삭제 금지 |
 
 > 참고: GitHub 의 머지 방식 옵션(`Allow merge commits`, `Allow squash merging`, `Allow rebase merging`)은 **레포지토리 전역 설정**이라 브랜치별로 강제할 수 없습니다. 위 ruleset 의 `pull_request.allowed_merge_methods` 가 브랜치별 강제를 담당하므로, 레포 설정에서는 세 가지를 모두 켜둔 채로 두어도 ruleset 이 우선합니다.
 

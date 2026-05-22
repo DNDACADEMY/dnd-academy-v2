@@ -18,9 +18,7 @@ type Props = {
 function ReviewList({ reviews, hasProjectLink }: Props) {
   return (
     <ResponsiveMasonry className={clsx(hasProjectLink && styles.hasProjectLink)}>
-      {reviews.map(({
-        id, name, position, review, projectId, links,
-      }) => (
+      {reviews.map(({ id, name, position, review, projectId, links }) => (
         <div key={id} className={styles.reviewCardWrapper}>
           <div className={styles.titleWrapper}>
             <h3 className={styles.name}>{name}</h3>
@@ -28,17 +26,17 @@ function ReviewList({ reviews, hasProjectLink }: Props) {
           </div>
           <div className={styles.review}>{review}</div>
           {Object.values(links).some((link) => !!link) && (
-          <div className={styles.socialIconWrapper}>
-            {getEntries(links).map(([key, link]) => (
-              <SocialIconLink key={key} link={link} type={key} />
-            ))}
-          </div>
+            <div className={styles.socialIconWrapper}>
+              {getEntries(links).map(([key, link]) => (
+                <SocialIconLink key={key} link={link} type={key} />
+              ))}
+            </div>
           )}
           {hasProjectLink && typeof projectId === 'number' && (
-          <Link href={`/projects/${projectId}`} className={styles.link}>
-            <span>프로젝트 보기</span>
-            <RightArrowIcon className={styles.arrowIcon} width={20} height={20} />
-          </Link>
+            <Link href={`/projects/${projectId}`} className={styles.link}>
+              <span>프로젝트 보기</span>
+              <RightArrowIcon className={styles.arrowIcon} width={20} height={20} />
+            </Link>
           )}
         </div>
       ))}

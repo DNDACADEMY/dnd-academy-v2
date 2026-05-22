@@ -13,9 +13,7 @@ type Props = {
 function ProjectCards({ projects }: Props) {
   return (
     <div className={styles.projectWrapper}>
-      {projects.map(({
-        flag, id, title, thumbnail, skill: skills, name,
-      }) => (
+      {projects.map(({ flag, id, title, thumbnail, skill: skills, name }) => (
         <Link key={id} className={styles.projectCardWrapper} href={`/projects/${id}`}>
           <Image
             src={thumbnail}

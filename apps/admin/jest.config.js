@@ -7,14 +7,11 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   ...baseConfig,
-  testPathIgnorePatterns: [
-    ...baseConfig.testPathIgnorePatterns,
-    '<rootDir>.*/public',
-    '<rootDir>/.next/',
-  ],
+  testPathIgnorePatterns: [...baseConfig.testPathIgnorePatterns, '<rootDir>.*/public', '<rootDir>/.next/'],
+  modulePathIgnorePatterns: ['<rootDir>/.next/'],
 };
 
 module.exports = async () => ({
-  ...await createJestConfig(customJestConfig)(),
+  ...(await createJestConfig(customJestConfig)()),
   transformIgnorePatterns: [],
 });

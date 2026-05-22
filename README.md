@@ -2,7 +2,7 @@
 
 #### [누적 지원자 5000명 IT 비영리단체 DND... 이제는 바꿔야할 때 feat. 마이그레이션](https://haranglog.tistory.com/41)
 
-> DND는 개발자와 디자이너라면 누구나 참여할 수 있는 IT비영리단체입니다.   
+> DND는 개발자와 디자이너라면 누구나 참여할 수 있는 IT비영리단체입니다.  
 > 개발자와 디자이너를 위한 IT 연합 동아리 (For Developer & Designer)
 
 <a href="https://github.com/DNDACADEMY/dnd-academy-v2/actions/workflows/ci.yml">
@@ -26,7 +26,9 @@
 </a>
 
 ## 🐛 Bug reporting
+
 [Issues](https://github.com/DNDACADEMY/dnd-academy-v2/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 
 ## 🔒 LICENSE
+
 This Project is [GNU GENERAL PUBLIC LICENSE](https://github.com/DNDACADEMY/dnd-academy-v2/blob/main/LICENSE).

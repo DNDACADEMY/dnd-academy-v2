@@ -53,7 +53,7 @@ mise install
 설치 후 버전을 확인합니다.
 
 ```bash
-node --version    # v20.11.1
+node --version    # v22.12.0
 yarn --version    # 4.6.0
 lefthook version  # 2.1.8
 ```
@@ -79,9 +79,9 @@ staged 파일이 없을 땐 모든 커맨드가 `(skip) no files for inspection`
 - 코드 수정 후 `git commit`을 하면 자동으로
   - 변경된 JS/TS 파일에 ESLint `--fix`
   - 변경된 SCSS 파일에 Stylelint `--fix`
+  - 변경된 파일에 Prettier `--write`
   - 변경된 파일과 관련된 Jest 테스트 실행
-  - 커밋 메시지에 commitlint 검사
-- `--fix`로 자동 수정된 결과는 자동으로 재staging되어 같은 커밋에 들어갑니다.
+- `--fix`/`--write`로 자동 수정된 결과는 자동으로 재staging되어 같은 커밋에 들어갑니다.
 
 ## 트러블슈팅
 

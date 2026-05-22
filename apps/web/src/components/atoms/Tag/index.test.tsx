@@ -10,9 +10,8 @@ describe('Tag', () => {
     jest.clearAllMocks();
   });
 
-  const renderTag = ({ isActive }: { isActive: boolean; }) => render((
-    <Tag onClick={handleClick} title={title} isActive={isActive} count={0} size="small" />
-  ));
+  const renderTag = ({ isActive }: { isActive: boolean }) =>
+    render(<Tag onClick={handleClick} title={title} isActive={isActive} count={0} size="small" />);
 
   describe('태그를 클릭하면', () => {
     it('클릭이벤트가 발생해야만 한다', () => {

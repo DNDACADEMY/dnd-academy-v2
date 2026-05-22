@@ -17,7 +17,7 @@ type Props = {
   children: ReactElement;
 };
 
-function ModalContentsBase({ children: child, title, size = 'medium' } : Props) {
+function ModalContentsBase({ children: child, title, size = 'medium' }: Props) {
   const modalContentsRef = useRef<HTMLDivElement>(null);
   const { open, toggle } = useModalContext();
 
