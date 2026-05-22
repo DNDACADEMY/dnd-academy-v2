@@ -1,0 +1,15 @@
+node_modules
+.next
+.turbo
+.vercel
+.yarn
+.pnp.*
+coverage
+dist
+build
+out
+storybook-static
+yarn.lock
+next-env.d.ts
+*.min.js
+*.min.css

@@ -2282,6 +2282,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:8.59.4"
     "@typescript-eslint/parser": "npm:8.59.4"
     eslint: "npm:10.4.0"
+    eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-jest: "npm:29.15.2"
     eslint-plugin-react-hooks: "npm:7.1.1"
     eslint-plugin-simple-import-sort: "npm:13.0.0"
@@ -2292,6 +2293,7 @@ __metadata:
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^8.0.0
     eslint: ^10.0.0
+    eslint-config-prettier: ^10.0.0
     eslint-plugin-react-hooks: ^7.0.0
     eslint-plugin-simple-import-sort: ^13.0.0
     eslint-plugin-unused-imports: ^4.0.0
@@ -8232,11 +8234,13 @@ __metadata:
     "@types/jest-plugin-context": "npm:2.9.7"
     "@types/node": "npm:25.9.1"
     eslint: "npm:10.4.0"
+    eslint-config-prettier: "npm:10.1.8"
     jest: "npm:30.4.2"
     jest-plugin-context: "npm:2.9.0"
     lefthook: "npm:2.1.8"
     postcss: "npm:8.5.15"
     postcss-scss: "npm:4.0.9"
+    prettier: "npm:3.8.3"
     stylelint: "npm:17.11.1"
     stylelint-config-recommended-scss: "npm:17.0.1"
     stylelint-config-standard: "npm:40.0.0"
@@ -8816,6 +8820,17 @@ __metadata:
   version: 4.0.0
   resolution: "escape-string-regexp@npm:4.0.0"
   checksum: 10/98b48897d93060f2322108bf29db0feba7dd774be96cd069458d1453347b25ce8682ecc39859d4bca2203cc0ab19c237bcc71755eff49a0f8d90beadeeba5cc5
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:10.1.8":
+  version: 10.1.8
+  resolution: "eslint-config-prettier@npm:10.1.8"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: 10/03f8e6ea1a6a9b8f9eeaf7c8c52a96499ec4b275b9ded33331a6cc738ed1d56de734097dbd0091f136f0e84bc197388bd8ec22a52a4658105883f8c8b7d8921a
   languageName: node
   linkType: hard
 
@@ -13332,6 +13347,15 @@ __metadata:
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
   checksum: 10/0b9d2c76801ca652a7f64892dd37b7e3fab149a37d2424920099bf894acccc62abb4424af2155ab36dea8744843060a2d8ddc983518d0b1e22265a22324b72ed
+  languageName: node
+  linkType: hard
+
+"prettier@npm:3.8.3":
+  version: 3.8.3
+  resolution: "prettier@npm:3.8.3"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/4b3b12cbb29e4c96bed936e5d070167552500c18d37676fb3e0caae6199c42860662608e4dc116230698f6e2bb0267ef2548158224c92d40f188d309d72fdd6f
   languageName: node
   linkType: hard
 

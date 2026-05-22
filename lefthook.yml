@@ -36,6 +36,10 @@ pre-commit:
       glob: "*.scss"
       run: yarn stylelint --fix {staged_files}
       stage_fixed: true
+    prettier:
+      glob: "*.{js,jsx,ts,tsx,mjs,cjs,json,md,mdx,yml,yaml}"
+      run: yarn prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
     test-related:
       glob: "*.{js,jsx,ts,tsx}"
       run: yarn test:coverage -- --findRelatedTests {staged_files}
