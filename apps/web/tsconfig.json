@@ -18,6 +18,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
     ".next/types/**/*.ts",
     "../../jest.setup.ts"
   ],
