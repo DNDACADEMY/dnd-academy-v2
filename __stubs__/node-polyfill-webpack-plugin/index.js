@@ -6,16 +6,16 @@ class NodePolyfillPlugin {
     compiler.options.resolve = compiler.options.resolve || {};
     compiler.options.resolve.fallback = {
       ...compiler.options.resolve.fallback,
-      buffer: require.resolve("buffer/"),
+      buffer: require.resolve('buffer/'),
       fs: false,
-      process: require.resolve("process/browser"),
-      util: require.resolve("util/"),
+      process: require.resolve('process/browser'),
+      util: require.resolve('util/'),
     };
 
     if (compiler.webpack && compiler.webpack.ProvidePlugin) {
       new compiler.webpack.ProvidePlugin({
-        Buffer: ["buffer", "Buffer"],
-        process: "process/browser",
+        Buffer: ['buffer', 'Buffer'],
+        process: 'process/browser',
       }).apply(compiler);
     }
   }

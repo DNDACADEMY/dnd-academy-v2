@@ -8,7 +8,9 @@ function SubmitButton({ children, ...rest }: Props) {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" disabled={pending} {...rest}>{children}</Button>
+    <Button type="submit" disabled={pending} {...rest}>
+      {children}
+    </Button>
   );
 }
 

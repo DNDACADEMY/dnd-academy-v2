@@ -1,13 +1,6 @@
 module.exports = {
-  ignorePatterns: [
-    '/.next',
-    'storybook-static',
-    'next-env.d.ts',
-  ],
-  extends: [
-    '@dnd-academy/eslint-config',
-    'plugin:@next/next/recommended',
-  ],
+  ignorePatterns: ['/.next', 'storybook-static', 'next-env.d.ts'],
+  extends: ['@dnd-academy/eslint-config', 'plugin:@next/next/recommended'],
   settings: {
     'import/resolver': {
       alias: {
@@ -48,8 +41,11 @@ module.exports = {
     },
   ],
   rules: {
-    'import/no-extraneous-dependencies': ['error', {
-      devDependencies: ['**/*.test.ts', '**/*.test.tsx', 'next.config.js'],
-    }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['**/*.test.ts', '**/*.test.tsx', 'next.config.js'],
+      },
+    ],
   },
 };

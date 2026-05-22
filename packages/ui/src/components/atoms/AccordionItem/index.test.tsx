@@ -12,18 +12,12 @@ describe('AccordionItem', () => {
   const children = 'children';
   const title = 'title';
 
-  const renderAccordionItem = ({
-    activeIndex, currentIndex,
-  }: { currentIndex: number; activeIndex: number }) => render((
-    <AccordionItem
-      activeIndex={activeIndex}
-      currentIndex={currentIndex}
-      title={title}
-      onClick={handleClick}
-    >
-      {children}
-    </AccordionItem>
-  ));
+  const renderAccordionItem = ({ activeIndex, currentIndex }: { currentIndex: number; activeIndex: number }) =>
+    render(
+      <AccordionItem activeIndex={activeIndex} currentIndex={currentIndex} title={title} onClick={handleClick}>
+        {children}
+      </AccordionItem>,
+    );
 
   context('activeIndex와 currentIndex가 같은 경우', () => {
     const params = { activeIndex: 0, currentIndex: 0 };

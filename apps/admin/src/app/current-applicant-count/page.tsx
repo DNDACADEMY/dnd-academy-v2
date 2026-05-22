@@ -31,9 +31,7 @@ async function Page() {
         명이 지원했어요!
       </div>
       <CurrentApplicantCountAction />
-      <strong>
-        기본적으로 매일 00:00에 자동으로 반영되지만, 클릭시에는 즉시 반영할 수 있습니다.
-      </strong>
+      <strong>기본적으로 매일 00:00에 자동으로 반영되지만, 클릭시에는 즉시 반영할 수 있습니다.</strong>
     </>
   );
 }

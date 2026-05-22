@@ -1,7 +1,7 @@
 import SignIn from '@/components/auth/SignIn';
 
 type Props = {
-  searchParams: Promise<{ [key: string]: string | undefined; }>;
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 };
 
 async function LoginPage({ searchParams }: Props) {
@@ -9,11 +9,7 @@ async function LoginPage({ searchParams }: Props) {
   return (
     <>
       <div>login</div>
-      {params?.error === 'unauthorized_email' && (
-        <div>
-          접근이 불가능한 이메일 입니다.
-        </div>
-      )}
+      {params?.error === 'unauthorized_email' && <div>접근이 불가능한 이메일 입니다.</div>}
       <SignIn />
     </>
   );

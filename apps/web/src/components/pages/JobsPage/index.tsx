@@ -15,25 +15,10 @@ function JobsPage({ jobs }: Props) {
 
   return (
     <>
-      <Tags
-        paramKey="flag"
-        route="/jobs"
-        tagCount={tagCount}
-      />
+      <Tags paramKey="flag" route="/jobs" tagCount={tagCount} />
       <div className={styles.jobsWrapper}>
-        {jobs.map(({
-          flag, id, title, company, image, link, desc,
-        }) => (
-          <JobCard
-            key={id}
-            id={id}
-            flag={flag}
-            desc={desc}
-            company={company}
-            title={title}
-            image={image}
-            link={link}
-          />
+        {jobs.map(({ flag, id, title, company, image, link, desc }) => (
+          <JobCard key={id} id={id} flag={flag} desc={desc} company={company} title={title} image={image} link={link} />
         ))}
       </div>
     </>

@@ -4,11 +4,7 @@ import nextPlugin from '@next/eslint-plugin-next';
 export default [
   ...baseConfig,
   {
-    ignores: [
-      '.next/**',
-      'next-env.d.ts',
-      'public/**',
-    ],
+    ignores: ['.next/**', 'next-env.d.ts', 'public/**'],
   },
   {
     plugins: {

@@ -3,10 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { api, ApiError, getLatestItemReduce } from '@dnd-academy/core';
 import { list } from '@vercel/blob';
 
-const ALLOWED_BLOB_NAMES = new Set([
-  'current_applicant_count',
-  'total_count_status',
-]);
+const ALLOWED_BLOB_NAMES = new Set(['current_applicant_count', 'total_count_status']);
 
 export async function GET(_: NextRequest, props: { params: Promise<{ name: string }> }) {
   const params = await props.params;
@@ -41,19 +38,25 @@ export async function GET(_: NextRequest, props: { params: Promise<{ name: strin
     return Response.json(responseBlobData);
   } catch (error) {
     if (error instanceof ApiError) {
-      return NextResponse.json({
-        error: error.message,
-      }, {
-        status: error.status,
-        statusText: error.message,
-      });
+      return NextResponse.json(
+        {
+          error: error.message,
+        },
+        {
+          status: error.status,
+          statusText: error.message,
+        },
+      );
     }
 
-    return NextResponse.json({
-      error: 'Internal Server Error',
-    }, {
-      status: 500,
-      statusText: 'Internal Server Error',
-    });
+    return NextResponse.json(
+      {
+        error: 'Internal Server Error',
+      },
+      {
+        status: 500,
+        statusText: 'Internal Server Error',
+      },
+    );
   }
 }

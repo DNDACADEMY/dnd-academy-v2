@@ -7,9 +7,8 @@ import SkillTag from '.';
 describe('SkillTag', () => {
   const skill = 'skill';
 
-  const renderSkillTag = (color: ComponentProps<typeof SkillTag>['color']) => render((
-    <SkillTag color={color} skill={skill} />
-  ));
+  const renderSkillTag = (color: ComponentProps<typeof SkillTag>['color']) =>
+    render(<SkillTag color={color} skill={skill} />);
 
   it('skill text가 보여야만 한다', () => {
     const { container } = renderSkillTag('grey');

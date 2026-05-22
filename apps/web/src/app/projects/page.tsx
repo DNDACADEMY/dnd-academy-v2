@@ -28,7 +28,7 @@ type SearchParams = {
   ordinal: string | undefined;
 };
 
-async function Page({ searchParams }: { searchParams?: Promise<SearchParams>; }) {
+async function Page({ searchParams }: { searchParams?: Promise<SearchParams> }) {
   const params = await searchParams;
   const projects = getProjects({ ordinal: params?.ordinal });
 

@@ -25,14 +25,12 @@ function SnowfallSection() {
 
   return (
     <Snowfall
-      style={
-        {
-          position: 'fixed',
-          width: '100vw',
-          height: '100vh',
-          zIndex: 100,
-        }
-    }
+      style={{
+        position: 'fixed',
+        width: '100vw',
+        height: '100vh',
+        zIndex: 100,
+      }}
       snowflakeCount={snowflakeCount}
     />
   );

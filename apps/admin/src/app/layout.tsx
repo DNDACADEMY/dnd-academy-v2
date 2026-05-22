@@ -6,16 +6,12 @@ import ClientProvider from '@/components/common/ClientLayout';
 
 import styles from './index.module.scss';
 
-function RootLayout({ children }: {
-  children: React.ReactNode
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko" className={pretendardFont.variable}>
       <body>
         <main className={styles.main}>
-          <ClientProvider>
-            {children}
-          </ClientProvider>
+          <ClientProvider>{children}</ClientProvider>
         </main>
       </body>
     </html>

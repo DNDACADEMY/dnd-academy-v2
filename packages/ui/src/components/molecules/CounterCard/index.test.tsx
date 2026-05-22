@@ -14,9 +14,8 @@ describe('CounterCard', () => {
     jest.useRealTimers();
   });
 
-  const renderCounterCard = ({ highlight = false }: { highlight?: boolean } = {}) => render((
-    <CounterCard count={count} title="title" highlight={highlight} />
-  ));
+  const renderCounterCard = ({ highlight = false }: { highlight?: boolean } = {}) =>
+    render(<CounterCard count={count} title="title" highlight={highlight} />);
 
   it('count가 나타나야만 한다', () => {
     const { container } = renderCounterCard();

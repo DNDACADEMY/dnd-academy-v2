@@ -32,16 +32,12 @@ function DetailNavigation({ steps }: Props) {
         }
 
         return (
-          <div
-            key={label}
-            className={clsx(styles.title, index === array.length - 1 && styles.lastItem)}
-          >
+          <div key={label} className={clsx(styles.title, index === array.length - 1 && styles.lastItem)}>
             {label}
           </div>
         );
       })}
     </nav>
-
   );
 }
 

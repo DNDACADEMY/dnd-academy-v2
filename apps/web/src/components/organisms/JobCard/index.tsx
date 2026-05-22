@@ -8,9 +8,7 @@ import styles from './index.module.scss';
 
 type Props = Job;
 
-function JobCard({
-  company, flag, image, link, desc, title,
-}: Props) {
+function JobCard({ company, flag, image, link, desc, title }: Props) {
   return (
     <ExternalLink href={link} withTextUnderline={false} className={styles.jobCardWrapper}>
       <Image src={image} alt={company} width={64} height={64} className={styles.companyImage} />

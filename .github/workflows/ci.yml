@@ -64,6 +64,32 @@ jobs:
         ${{ steps.yarn-cache-dir-path.outputs.dir }}
         ${{ env.CACHED_DEPENDENCY_PATHS }}
 
+  job_format_check:
+    name: Format Check
+    needs: [job_install_dependencies]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current commit (${{ github.sha }})
+        uses: actions/checkout@v6
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.DEFAULT_NODE_VERSION }}
+
+      - name: Check dependency cache
+        id: cache-deps
+        uses: actions/cache@v5
+        with:
+          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
+          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+
+      - name: Install dependencies
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Check formatting
+        run: yarn format:check
+
   job_packages_build:
     name: Build
     needs: [job_install_dependencies]

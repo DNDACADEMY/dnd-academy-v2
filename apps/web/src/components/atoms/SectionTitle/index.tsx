@@ -10,9 +10,7 @@ type Props = {
   fullWidth?: boolean;
 };
 
-function SectionTitle({
-  title, subTitle, fullWidth, children,
-}: PropsWithChildren<Props>) {
+function SectionTitle({ title, subTitle, fullWidth, children }: PropsWithChildren<Props>) {
   return (
     <section className={clsx(styles.section, fullWidth && styles.fullWidth)}>
       <div className={styles.titleWrapper}>

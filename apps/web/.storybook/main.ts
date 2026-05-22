@@ -17,15 +17,12 @@ function getAbsolutePath(value: string): string {
 
 const config: StorybookConfig = {
   stories: [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../../../packages/ui/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../../../packages/ui/src/**/*.mdx",
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../../../packages/ui/src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../../../packages/ui/src/**/*.mdx',
   ],
-  addons: [
-    getAbsolutePath('@storybook/addon-docs'),
-    getAbsolutePath('@chromatic-com/storybook'),
-  ],
+  addons: [getAbsolutePath('@storybook/addon-docs'), getAbsolutePath('@chromatic-com/storybook')],
   framework: {
     name: getAbsolutePath('@storybook/nextjs'),
     options: {
@@ -53,45 +50,49 @@ const config: StorybookConfig = {
         return false;
       }
 
-      return test.test(".svg");
+      return test.test('.svg');
     }) as { exclude?: RegExp };
 
     if (imageRule) {
       imageRule.exclude = /\.svg$/;
     }
 
-    config.module?.rules?.push({
-      test: /\.svg$/,
-      use: [{
-        loader: '@svgr/webpack',
-        options: {
-          svgo: false,
-          svgoConfig: {
-            plugins: [{
-              name: 'removeViewBox',
-              active: false,
-            }],
-          },
-        },
-      }],
-    },
-    {
-      test: /\module\.scss$/,
-      use: [
-        {
-          loader: 'sass-loader',
-          options: {
-            additionalData: `@import '@dnd-academy/ui/styles';`,
-            sassOptions: {
-              includePaths: [join(currentDir, '..', '..', '..', 'packages', 'ui', 'src', 'styles')],
+    config.module?.rules?.push(
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgo: false,
+              svgoConfig: {
+                plugins: [
+                  {
+                    name: 'removeViewBox',
+                    active: false,
+                  },
+                ],
+              },
             },
           },
-        },
-      ],
-      include: [
-        resolve(currentDir, '../../../packages/ui'),
-      ],
-    });
+        ],
+      },
+      {
+        test: /\module\.scss$/,
+        use: [
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `@import '@dnd-academy/ui/styles';`,
+              sassOptions: {
+                includePaths: [join(currentDir, '..', '..', '..', 'packages', 'ui', 'src', 'styles')],
+              },
+            },
+          },
+        ],
+        include: [resolve(currentDir, '../../../packages/ui')],
+      },
+    );
 
     return config;
   },

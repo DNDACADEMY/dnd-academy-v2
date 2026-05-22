@@ -4,14 +4,14 @@ import { reviewsData } from '@/lib/assets/data';
 import { ensureNumber, sortFlagsDescending } from '@/utils';
 
 export function getReviews({
-  position, flag, projectId,
-}: { position?: string; flag?: ProjectFlag; projectId?: number; } | undefined = {}) {
+  position,
+  flag,
+  projectId,
+}: { position?: string; flag?: ProjectFlag; projectId?: number } | undefined = {}) {
   const reviews = (reviewsData as Review[]).sort((a, b) => sortFlagsDescending(a.flag, b.flag));
 
   if (flag && projectId) {
-    return reviews.filter((
-      review,
-    ) => review.flag.trim() === flag.trim() && review.projectId === projectId);
+    return reviews.filter((review) => review.flag.trim() === flag.trim() && review.projectId === projectId);
   }
 
   if (!position || position === 'all') {

@@ -8,7 +8,8 @@ const meta = {
   title: 'atoms/AccordionItem',
   component: AccordionItem,
   args: {
-    children: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quod explicabo, nam sapiente id nostrum ex, ab numquam, doloremque aspernatur quisquam illo! Officiis explicabo laborum incidunt corrupti provident esse eligendi.',
+    children:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quod explicabo, nam sapiente id nostrum ex, ab numquam, doloremque aspernatur quisquam illo! Officiis explicabo laborum incidunt corrupti provident esse eligendi.',
     title: 'title',
   },
   tags: ['autodocs'],
@@ -16,9 +17,7 @@ const meta = {
 
 export default meta;
 
-export function Default({
-  title, children, currentIndex, activeIndex,
-}: ComponentProps<typeof AccordionItem>) {
+export function Default({ title, children, currentIndex, activeIndex }: ComponentProps<typeof AccordionItem>) {
   const [index, setActiveIndex] = useState<number>();
 
   return (

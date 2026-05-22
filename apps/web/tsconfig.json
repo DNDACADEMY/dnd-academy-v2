@@ -5,13 +5,13 @@
     "moduleResolution": "bundler",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["src/*"]
     },
     "plugins": [
       {
         "name": "next"
       }
-    ],
+    ]
   },
   "include": [
     "@types",
@@ -23,7 +23,5 @@
     ".next/types/**/*.ts",
     "../../jest.setup.ts"
   ],
-  "exclude": [
-    "cypress"
-  ]
+  "exclude": ["cypress"]
 }

@@ -6,16 +6,7 @@
     "emoji": "💾",
     "author": "HyeonseokLee",
     "dndPosition": "개발",
-    "technicalStack": [
-      "Vue3",
-      "ASP.Net",
-      "WinForm",
-      "AWS",
-      "SQL",
-      "TypeScript",
-      "Node.js",
-      "기타 잡다한 개발들..."
-    ],
+    "technicalStack": ["Vue3", "ASP.Net", "WinForm", "AWS", "SQL", "TypeScript", "Node.js", "기타 잡다한 개발들..."],
     "oneLineIntroduction": "풀스택을 가장한 IT잡부",
     "links": {
       "github": "https:,/github.com/rhdehf1030",
@@ -45,15 +36,7 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/SeongGiDong.png",
     "author": "Gidong",
     "dndPosition": "개발",
-    "technicalStack": [
-      "React.JS",
-      "Javascript",
-      "Typescript",
-      "Java",
-      "React Native",
-      "Python",
-      "PHP"
-    ],
+    "technicalStack": ["React.JS", "Javascript", "Typescript", "Java", "React Native", "Python", "PHP"],
     "oneLineIntroduction": "공부하는 것을 좋아하는 개발자",
     "links": {
       "github": "https://github.com/sgd122",
@@ -93,10 +76,7 @@
       "linkedin": "https://www.linkedin.com/in/aaronlee9303"
     },
     "career": {
-      "now": [
-        "iOS Sowftware Engineer & Project Manager at Witi",
-        "DND 개발 운영"
-      ],
+      "now": ["iOS Sowftware Engineer & Project Manager at Witi", "DND 개발 운영"],
       "previous": ["iOS Sowftware Engineer at B.Factory"]
     },
     "mbti": "ENFJ",
@@ -114,14 +94,7 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeDajeong.png",
     "author": "Dajeong",
     "dndPosition": "디자인",
-    "technicalStack": [
-      "UX리서치",
-      "UI기획",
-      "UX라이팅",
-      "Figma",
-      "notion",
-      "Jira"
-    ],
+    "technicalStack": ["UX리서치", "UI기획", "UX라이팅", "Figma", "notion", "Jira"],
     "oneLineIntroduction": "포기하지 않는다면, 해낼 수 있습니다.",
     "links": {
       "linkedin": "https://www.linkedin.com/in/dajeong-lee-7b241b93",
@@ -146,13 +119,7 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Sehui.png",
     "author": "Sehui",
     "dndPosition": "개발",
-    "technicalStack": [
-      "Vue.js",
-      "jQuery",
-      "Django",
-      "Nodejs + express",
-      "Tensorflow"
-    ],
+    "technicalStack": ["Vue.js", "jQuery", "Django", "Nodejs + express", "Tensorflow"],
     "oneLineIntroduction": "머신러닝하다가 어쩌다 프론트에 빠진 개발자",
     "links": {
       "github": "",
@@ -167,9 +134,7 @@
       "whatIsYourRoleInDnd": "개발 및 디자인 과제 공지 담당 및 담당조 프로젝트 관리",
       "whyDoYouRecommendDnd": "코로나 시대에 원격으로, 8주동안, 빡세게. 한 프로젝트의 기획, 개발, 디자인의 전 과정을 팀과 함께 경험해 볼 수 있다는 것. 그 과정 속에서 각자의 역할을 이해하며 인맥도 쌓을 수 있다는 것!",
       "whatIsYourInterests": "커피, 축구나 풋살, 콘솔게임을 좋아합니다. 사람들이랑 만나서 얘기하는 걸 특히 좋아하는데 코로나가 너무하네요😢",
-      "whatYouWantToShare": [
-        "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/sehui/1.jpeg"
-      ]
+      "whatYouWantToShare": ["https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/sehui/1.jpeg"]
     }
   },
   {
@@ -237,10 +202,7 @@
       "linkedin": "https://www.linkedin.com/in/dong-young-kim"
     },
     "career": {
-      "now": [
-        "바잉스퀘어 플랫폼 웹 개발자",
-        "프로그래머스 KDT 웹 프론트엔드 데브코스 퍼실리테이터"
-      ],
+      "now": ["바잉스퀘어 플랫폼 웹 개발자", "프로그래머스 KDT 웹 프론트엔드 데브코스 퍼실리테이터"],
       "previous": []
     },
     "mbti": "INTJ",
@@ -321,9 +283,7 @@
       "whatIsYourRoleInDnd": "개발 운영진으로 여러분의 코딩 실력을 향상시켜드립니다.",
       "whyDoYouRecommendDnd": "하나의 네트워킹이 형성되서 여러분의 커리어에 도움이 됩니다. 8주간의 프로젝트 기간을 통해 실제 서비스를 구현합니다. 이 과정으로 IT 개발 프로세스 이해 및 협업 능력을 향상시킬 수 있습니다. 여러분이 성장하는 과정을 지켜보는게 행복합니다.",
       "whatIsYourInterests": "",
-      "whatYouWantToShare": [
-        "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/hansol/1.jpg"
-      ]
+      "whatYouWantToShare": ["https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/organizer/hansol/1.jpg"]
     }
   },
   {
@@ -590,13 +550,7 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/LeeJaewang.png",
     "author": "Jaewang",
     "dndPosition": "개발",
-    "technicalStack": [
-      "React.JS",
-      "React Native",
-      "Node.JS",
-      "Flask",
-      "Image Processing"
-    ],
+    "technicalStack": ["React.JS", "React Native", "Node.JS", "Flask", "Image Processing"],
     "oneLineIntroduction": "위성영상 분석이 전문인데 개발자 하고 있습니다...",
     "links": {
       "github": "https://github.com/JaeWangL",
@@ -604,10 +558,7 @@
     },
     "career": {
       "now": ["SmartGeo 백엔드 개발자"],
-      "previous": [
-        "GovTechKorea 프론트엔드 개발자",
-        "Google Developer Student Clubs"
-      ]
+      "previous": ["GovTechKorea 프론트엔드 개발자", "Google Developer Student Clubs"]
     },
     "mbti": "INTP-A",
     "questions": {
@@ -684,9 +635,7 @@
       "github": ""
     },
     "career": {
-      "now": [
-        "개발(교육) 1인 사업부터 서버개발자까지 필드에서 열심히 능력을 쌓고 있습니다 💪"
-      ],
+      "now": ["개발(교육) 1인 사업부터 서버개발자까지 필드에서 열심히 능력을 쌓고 있습니다 💪"],
       "previous": []
     },
     "mbti": "ESFJ",
@@ -724,10 +673,7 @@
     },
     "career": {
       "now": ["레브잇 프론트엔드 개발자"],
-      "previous": [
-        "비마이프렌즈 프론트엔드 개발자",
-        "카사코리아 프론트엔드 개발자"
-      ]
+      "previous": ["비마이프렌즈 프론트엔드 개발자", "카사코리아 프론트엔드 개발자"]
     },
     "mbti": "INFJ",
     "questions": {
@@ -891,15 +837,7 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/JiHyun.png",
     "author": "JiHyun",
     "dndPosition": "개발",
-    "technicalStack": [
-      "C",
-      "Java",
-      "Python",
-      "Springboot",
-      "Django",
-      "html",
-      "css"
-    ],
+    "technicalStack": ["C", "Java", "Python", "Springboot", "Django", "html", "css"],
     "oneLineIntroduction": "공룡 좋아하는 개발자이자 IT 강사",
     "links": {
       "github": "https://github.com/gulbiarchive"
@@ -930,10 +868,7 @@
     },
     "career": {
       "now": ["이노바이드 프론트엔드 개발"],
-      "previous": [
-        "카카오엔터프라이즈 보안플랫폼 개발",
-        "넛지헬스케어 프론트엔드 개발"
-      ]
+      "previous": ["카카오엔터프라이즈 보안플랫폼 개발", "넛지헬스케어 프론트엔드 개발"]
     },
     "mbti": "ENFP",
     "questions": {
@@ -1077,7 +1012,15 @@
     },
     "career": {
       "now": ["개인사업 진행 - CEO", "SolenVisionAI - 얼굴 인식 기반 출입통제 시스템 개발"],
-      "previous": ["어피닛 - AI 기반 대출 플랫폼 TrueBalance 앱 개발", "SECERN AI - 얼굴 인식 기반 인천공항 스마트패스 앱 개발, EKYC SDK 개발", "닷슬래시대시 - 소셜 플랫폼 Dotslashdash 앱 개발", "더잭팟 - 메타버스 커머스 앱 개발", "보고플레이 - 실시간 라이브 커머스 보고플레이 앱 개발", "이머니 - 키움증권 기반 주식 라이브 앱 개발", "인포뱅크 - 현대 블루링크/기아 UVO 개발"]
+      "previous": [
+        "어피닛 - AI 기반 대출 플랫폼 TrueBalance 앱 개발",
+        "SECERN AI - 얼굴 인식 기반 인천공항 스마트패스 앱 개발, EKYC SDK 개발",
+        "닷슬래시대시 - 소셜 플랫폼 Dotslashdash 앱 개발",
+        "더잭팟 - 메타버스 커머스 앱 개발",
+        "보고플레이 - 실시간 라이브 커머스 보고플레이 앱 개발",
+        "이머니 - 키움증권 기반 주식 라이브 앱 개발",
+        "인포뱅크 - 현대 블루링크/기아 UVO 개발"
+      ]
     },
     "mbti": "ENTJ",
     "questions": {

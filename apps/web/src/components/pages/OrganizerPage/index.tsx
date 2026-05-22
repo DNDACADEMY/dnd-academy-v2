@@ -51,18 +51,19 @@ function OrganizerPage({ organizer }: Props) {
           <aside>
             <div className={styles.organizerInfoWrapper}>
               <div className={styles.thumbnailWrapper}>
-                {(!organizer?.thumbnail || organizer?.emoji)
-                  ? <span className={styles.emoji}>{organizer.emoji}</span> : (
-                    <Image
-                      src={organizer.thumbnail}
-                      alt={organizer.name}
-                      className={styles.thumbnail}
-                      width="0"
-                      height="0"
-                      sizes="(max-width: 1204px) 50vw, 33vw"
-                      priority
-                    />
-                  )}
+                {!organizer?.thumbnail || organizer?.emoji ? (
+                  <span className={styles.emoji}>{organizer.emoji}</span>
+                ) : (
+                  <Image
+                    src={organizer.thumbnail}
+                    alt={organizer.name}
+                    className={styles.thumbnail}
+                    width="0"
+                    height="0"
+                    sizes="(max-width: 1204px) 50vw, 33vw"
+                    priority
+                  />
+                )}
               </div>
               <div className={styles.organizerInfo}>
                 <div className={styles.position}>{organizer.dndPosition}</div>
@@ -135,7 +136,14 @@ function OrganizerPage({ organizer }: Props) {
             {organizer.questions.whatYouWantToShare.length > 0 && (
               <div className={styles.shareImageWrapper}>
                 {organizer.questions.whatYouWantToShare.map((share, index) => (
-                  <Image key={share} src={share} width={202} height={202} alt={`공유이미지-${index}`} className={styles.shareImage} />
+                  <Image
+                    key={share}
+                    src={share}
+                    width={202}
+                    height={202}
+                    alt={`공유이미지-${index}`}
+                    className={styles.shareImage}
+                  />
                 ))}
               </div>
             )}

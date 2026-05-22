@@ -22,12 +22,16 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return DEFAULT_METADATA;
   }
 
-  const images = organizer.thumbnail ? [{
-    url: organizer.thumbnail,
-    width: 800,
-    height: 600,
-    alt: organizer.name,
-  }] : METADATA.images;
+  const images = organizer.thumbnail
+    ? [
+        {
+          url: organizer.thumbnail,
+          width: 800,
+          height: 600,
+          alt: organizer.name,
+        },
+      ]
+    : METADATA.images;
 
   const canonicalUrl = `${PUBLIC_ORIGIN}/organizers/${params.id}`;
 
@@ -66,9 +70,7 @@ async function Page({ params }: Props) {
     notFound();
   }
 
-  return (
-    <OrganizerPage organizer={organizer} />
-  );
+  return <OrganizerPage organizer={organizer} />;
 }
 
 export default Page;

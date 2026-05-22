@@ -8,15 +8,14 @@ interface ListBlobResultBlob {
   uploadedAt: Date;
 }
 
-export const paramsSerializer = <T>(params: T): string => qs.stringify(params, {
-  arrayFormat: 'comma',
-  indices: false,
-});
+export const paramsSerializer = <T>(params: T): string =>
+  qs.stringify(params, {
+    arrayFormat: 'comma',
+    indices: false,
+  });
 
-export const getLatestItemReduce = (
-  items: ListBlobResultBlob[],
-): ListBlobResultBlob => items
-  .reduce((latest, current) => (current.uploadedAt > latest.uploadedAt ? current : latest));
+export const getLatestItemReduce = (items: ListBlobResultBlob[]): ListBlobResultBlob =>
+  items.reduce((latest, current) => (current.uploadedAt > latest.uploadedAt ? current : latest));
 
 export const serverErrorHandling = async <T>(apiCallback: () => Promise<T>) => {
   try {

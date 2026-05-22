@@ -11,10 +11,10 @@ description: DND 신규 기수 모집을 오픈할 때 지원 폼 URL, 응답시
 
 ## 수정 대상 파일
 
-| 파일 | 항목 |
-|---|---|
-| `apps/web/src/lib/constants/index.ts` | `CURRENT_FLAG`, `DEVELOPER_APPLICATION_LINK`, `DESIGNER_APPLICATION_LINK` |
-| `apps/web/scripts/generate-applicant-count.ts` | 개발자 `GoogleSpreadsheet` ID, 디자이너 `GoogleSpreadsheet` ID |
+| 파일                                           | 항목                                                                      |
+| ---------------------------------------------- | ------------------------------------------------------------------------- |
+| `apps/web/src/lib/constants/index.ts`          | `CURRENT_FLAG`, `DEVELOPER_APPLICATION_LINK`, `DESIGNER_APPLICATION_LINK` |
+| `apps/web/scripts/generate-applicant-count.ts` | 개발자 `GoogleSpreadsheet` ID, 디자이너 `GoogleSpreadsheet` ID            |
 
 ## 데이터 흐름 (왜 한 쌍으로 묶이는가)
 
@@ -25,13 +25,13 @@ description: DND 신규 기수 모집을 오픈할 때 지원 폼 URL, 응답시
 
 ## 다룰 수 있는 5개 필드
 
-| # | 필드 | 위치 |
-|---|---|---|
-| 1 | `CURRENT_FLAG` | `apps/web/src/lib/constants/index.ts` |
-| 2 | 개발자 지원 폼 URL (`DEVELOPER_APPLICATION_LINK`) | `apps/web/src/lib/constants/index.ts` |
-| 3 | 디자이너 지원 폼 URL (`DESIGNER_APPLICATION_LINK`) | `apps/web/src/lib/constants/index.ts` |
-| 4 | 개발자 응답시트 ID | `apps/web/scripts/generate-applicant-count.ts` |
-| 5 | 디자이너 응답시트 ID | `apps/web/scripts/generate-applicant-count.ts` |
+| #   | 필드                                               | 위치                                           |
+| --- | -------------------------------------------------- | ---------------------------------------------- |
+| 1   | `CURRENT_FLAG`                                     | `apps/web/src/lib/constants/index.ts`          |
+| 2   | 개발자 지원 폼 URL (`DEVELOPER_APPLICATION_LINK`)  | `apps/web/src/lib/constants/index.ts`          |
+| 3   | 디자이너 지원 폼 URL (`DESIGNER_APPLICATION_LINK`) | `apps/web/src/lib/constants/index.ts`          |
+| 4   | 개발자 응답시트 ID                                 | `apps/web/scripts/generate-applicant-count.ts` |
+| 5   | 디자이너 응답시트 ID                               | `apps/web/scripts/generate-applicant-count.ts` |
 
 ### 자주 나오는 실수
 

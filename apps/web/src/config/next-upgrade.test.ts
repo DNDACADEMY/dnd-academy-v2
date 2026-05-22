@@ -12,9 +12,12 @@ type NextConfig = {
 
 type TurboConfig = {
   globalEnv?: string[];
-  tasks?: Record<string, {
-    env?: string[];
-  }>;
+  tasks?: Record<
+    string,
+    {
+      env?: string[];
+    }
+  >;
 };
 
 type SvgRule = {
@@ -35,18 +38,16 @@ type WebpackConfig = {
   };
 };
 
-const readPackageJson = (workspace: string) => JSON.parse(
-  fs.readFileSync(path.join(repoRoot, workspace, 'package.json'), 'utf8'),
-) as {
-  dependencies?: Record<string, string>;
-  devDependencies?: Record<string, string>;
-  resolutions?: Record<string, string>;
-  scripts: Record<string, string>;
-};
+const readPackageJson = (workspace: string) =>
+  JSON.parse(fs.readFileSync(path.join(repoRoot, workspace, 'package.json'), 'utf8')) as {
+    dependencies?: Record<string, string>;
+    devDependencies?: Record<string, string>;
+    resolutions?: Record<string, string>;
+    scripts: Record<string, string>;
+  };
 
-const readJson = <T>(relativePath: string) => JSON.parse(
-  fs.readFileSync(path.join(repoRoot, relativePath), 'utf8'),
-) as T;
+const readJson = <T>(relativePath: string) =>
+  JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8')) as T;
 
 const loadNextConfig = async (workspace: string) => {
   const configModule = await import(pathToFileURL(path.join(repoRoot, workspace, 'next.config.js')).href);
@@ -119,10 +120,7 @@ describe('Next upgrade guardrails', () => {
   });
 
   it('keeps the SVG and canvas webpack behavior that the apps depend on', async () => {
-    const configs = [
-      await loadNextConfig('apps/web'),
-      await loadNextConfig('apps/admin'),
-    ];
+    const configs = [await loadNextConfig('apps/web'), await loadNextConfig('apps/admin')];
 
     configs.forEach((nextConfig) => {
       const { config, svgRule } = createWebpackConfig();
@@ -130,18 +128,20 @@ describe('Next upgrade guardrails', () => {
 
       expect(result?.resolve.alias.canvas).toBe(false);
       expect(svgRule.exclude).toEqual(/\.svg$/i);
-      expect(result?.module.rules).toEqual(expect.arrayContaining([
-        expect.objectContaining({
-          test: /\.svg$/i,
-          resourceQuery: /url/,
-        }),
-        expect.objectContaining({
-          test: /\.svg$/i,
-          issuer: svgRule.issuer,
-          resourceQuery: { not: [/url/, /url/] },
-          use: ['@svgr/webpack'],
-        }),
-      ]));
+      expect(result?.module.rules).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            test: /\.svg$/i,
+            resourceQuery: /url/,
+          }),
+          expect.objectContaining({
+            test: /\.svg$/i,
+            issuer: svgRule.issuer,
+            resourceQuery: { not: [/url/, /url/] },
+            use: ['@svgr/webpack'],
+          }),
+        ]),
+      );
     });
   });
 

@@ -55,7 +55,6 @@ export default defineConfig({
           return assetInfo.name;
         },
       },
-
     },
   },
   css: {

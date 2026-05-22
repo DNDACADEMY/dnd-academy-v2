@@ -3,28 +3,18 @@ const globals = require('globals');
 
 const tseslint = require('@typescript-eslint/eslint-plugin');
 const tsParser = require('@typescript-eslint/parser');
+const prettier = require('eslint-config-prettier');
 const jest = require('eslint-plugin-jest');
 const reactHooks = require('eslint-plugin-react-hooks');
 const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const testingLibrary = require('eslint-plugin-testing-library');
 const unusedImports = require('eslint-plugin-unused-imports');
 
-const testFiles = [
-  '**/__tests__/**/*.{js,jsx,ts,tsx}',
-  '**/*.{spec,test}.{js,jsx,ts,tsx}',
-];
+const testFiles = ['**/__tests__/**/*.{js,jsx,ts,tsx}', '**/*.{spec,test}.{js,jsx,ts,tsx}'];
 
 module.exports = [
   {
-    ignores: [
-      'node_modules/**',
-      '.pnp.cjs',
-      '.pnp.loader.cjs',
-      'public/**',
-      '.yarn/**',
-      'dist/**',
-      'coverage/**',
-    ],
+    ignores: ['node_modules/**', '.pnp.cjs', '.pnp.loader.cjs', 'public/**', '.yarn/**', 'dist/**', 'coverage/**'],
   },
   {
     languageOptions: {
@@ -66,29 +56,37 @@ module.exports = [
       'no-unused-vars': 'off',
       'react-hooks/exhaustive-deps': 'warn',
       'react-hooks/rules-of-hooks': 'error',
-      'simple-import-sort/imports': ['error', {
-        groups: [
-          ['^\\u0000'],
-          ['^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)'],
-          ['^react'],
-          ['^next'],
-          ['^@?\\w'],
-          ['^(@|lib|components|utils|hooks)(/.*|$)'],
-          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-          ['^.+\\.svg$'],
-          ['^.+\\.module.s?css$'],
-        ],
-      }],
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            ['^\\u0000'],
+            [
+              '^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)',
+            ],
+            ['^react'],
+            ['^next'],
+            ['^@?\\w'],
+            ['^(@|lib|components|utils|hooks)(/.*|$)'],
+            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            ['^.+\\.svg$'],
+            ['^.+\\.module.s?css$'],
+          ],
+        },
+      ],
       'simple-import-sort/exports': 'error',
       'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': ['warn', {
-        vars: 'all',
-        varsIgnorePattern: '^_',
-        args: 'after-used',
-        argsIgnorePattern: '^_',
-        caughtErrors: 'none',
-      }],
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'none',
+        },
+      ],
     },
   },
   {
@@ -112,13 +110,16 @@ module.exports = [
       'no-use-before-define': 'off',
       '@typescript-eslint/naming-convention': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unused-vars': ['error', {
-        args: 'after-used',
-        argsIgnorePattern: '^_',
-        caughtErrors: 'none',
-        vars: 'all',
-        varsIgnorePattern: '^_',
-      }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'none',
+          vars: 'all',
+          varsIgnorePattern: '^_',
+        },
+      ],
       '@typescript-eslint/no-use-before-define': 'off',
     },
   },
@@ -153,4 +154,5 @@ module.exports = [
       'react-hooks/rules-of-hooks': 'off',
     },
   },
+  prettier,
 ];
