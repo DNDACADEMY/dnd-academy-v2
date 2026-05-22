@@ -18,6 +18,30 @@ env:
   DEFAULT_YARN_VERSION: "4.3.1"
 
 jobs:
+  job_changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    outputs:
+      chromatic: ${{ steps.filter.outputs.chromatic }}
+    steps:
+      - name: Check out current commit (${{ github.sha }})
+        uses: actions/checkout@v6
+
+      - name: Filter changed paths
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            chromatic:
+              - '.github/workflows/ci.yml'
+              - 'yarn.lock'
+              - 'package.json'
+              - 'apps/web/.storybook/**'
+              - 'apps/web/src/**'
+              - 'apps/web/package.json'
+              - 'packages/ui/**'
+              - 'packages/core/**'
+
   job_install_dependencies:
     name: Install Dependencies
     runs-on: ubuntu-latest
@@ -92,7 +116,8 @@ jobs:
 
   job_packages_build:
     name: Build
-    needs: [job_install_dependencies]
+    needs: [job_install_dependencies, job_changes]
+    if: needs.job_changes.outputs.chromatic == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -150,7 +175,8 @@ jobs:
 
   job_generate_data:
     name: Generate Data
-    needs: [job_install_dependencies, job_packages_build]
+    needs: [job_install_dependencies, job_packages_build, job_changes]
+    if: needs.job_changes.outputs.chromatic == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Check out current commit (${{ github.sha }})
@@ -242,7 +268,8 @@ jobs:
   #       run: yarn test:coverage
 
   job_publish_storybook_chromatic:
-    needs: [job_install_dependencies, job_packages_build, job_generate_data]
+    needs: [job_install_dependencies, job_packages_build, job_generate_data, job_changes]
+    if: needs.job_changes.outputs.chromatic == 'true'
     name: Chromatic Publish
     runs-on: ubuntu-latest
     steps:
