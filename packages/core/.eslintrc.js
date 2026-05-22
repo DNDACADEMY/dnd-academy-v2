@@ -1,15 +1,11 @@
 module.exports = {
-  extends: [
-    '@dnd-academy/eslint-config',
-  ],
+  extends: ['@dnd-academy/eslint-config'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: [
-          './tsconfig.json',
-        ],
+        project: ['./tsconfig.json'],
         tsconfigRootDir: __dirname,
       },
     },

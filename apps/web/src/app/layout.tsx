@@ -14,9 +14,7 @@ import styles from './index.module.scss';
 
 export const metadata = DEFAULT_METADATA;
 
-function RootLayout({ children }: {
-  children: React.ReactNode
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko" className={pretendardFont.variable}>
       <head>
@@ -27,9 +25,7 @@ function RootLayout({ children }: {
       <body>
         <ClientProviders>
           <TopNavigationBar />
-          <main className={styles.main}>
-            {children}
-          </main>
+          <main className={styles.main}>{children}</main>
           <Footer />
           <div id="portal-container" />
         </ClientProviders>

@@ -10,7 +10,7 @@
     "preserveWatchOutput": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["src/*"]
     },
     "types": ["vite/client", "vite-plugin-svgr/client"]
   },
@@ -23,7 +23,7 @@
     "../../jest.setup.ts",
     "__mocks__",
     "@types",
-    "svg.d.ts",
+    "svg.d.ts"
   ],
-  "exclude": ["dist", "build", "node_modules",  "**/*.test.(ts|tsx)", "**/*.stories.(ts|tsx)"]
+  "exclude": ["dist", "build", "node_modules", "**/*.test.(ts|tsx)", "**/*.stories.(ts|tsx)"]
 }

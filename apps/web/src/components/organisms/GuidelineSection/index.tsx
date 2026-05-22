@@ -62,25 +62,19 @@ function GuidelineSection() {
             <tr>
               <td className={styles.week}>5주</td>
               <td />
-              <td>
-                회고
-              </td>
+              <td>회고</td>
               <td />
             </tr>
             <tr>
               <td className={styles.week}>6주</td>
               <td />
-              <td>
-                프로토타입 데모
-              </td>
+              <td>프로토타입 데모</td>
               <td />
             </tr>
             <tr>
               <td className={styles.week}>7주</td>
               <td />
-              <td>
-                우선순위 조정
-              </td>
+              <td>우선순위 조정</td>
               <td />
             </tr>
             <tr>
@@ -94,9 +88,7 @@ function GuidelineSection() {
           </tbody>
         </table>
         <ul className={styles.subDescription}>
-          <li>
-            실제 프로젝트 진행 시 주차별 가이드라인을 제공합니다.
-          </li>
+          <li>실제 프로젝트 진행 시 주차별 가이드라인을 제공합니다.</li>
         </ul>
       </div>
     </SectionTitle>

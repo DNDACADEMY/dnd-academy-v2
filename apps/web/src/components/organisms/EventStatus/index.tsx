@@ -19,10 +19,7 @@ type Props = {
 };
 
 function EventStatus({ eventStatus }: Props) {
-  const {
-    applicationStartDateTime, applicationEndDateTime,
-    applicantAcceptanceDateTime, status,
-  } = eventStatus;
+  const { applicationStartDateTime, applicationEndDateTime, applicantAcceptanceDateTime, status } = eventStatus;
 
   const applicationStartDate = dayjs(applicationStartDateTime);
   const applicationEndDate = dayjs(applicationEndDateTime);
@@ -31,42 +28,32 @@ function EventStatus({ eventStatus }: Props) {
   const applicationStartDateCountdown = useCountdown(applicationStartDateTime);
   const applicationEndDateCountdown = useCountdown(applicationEndDateTime);
 
-  const currentTime = useCurrentTime(!(applicationStartDateCountdown === 'END' && applicationEndDateCountdown === 'END'));
+  const currentTime = useCurrentTime(
+    !(applicationStartDateCountdown === 'END' && applicationEndDateCountdown === 'END'),
+  );
 
   if (dayjs(currentTime).isBefore(applicationStartDate)) {
-    return (
-      <Badge label={`DND는 ${CURRENT_FLAG}기 모집까지 ${applicationStartDateCountdown}`} variant="notice" />
-    );
+    return <Badge label={`DND는 ${CURRENT_FLAG}기 모집까지 ${applicationStartDateCountdown}`} variant="notice" />;
   }
 
   if (status === 'HOT') {
-    return (
-      <Badge label={eventStatus.label || 'DND는 문의 폭주 🔥🔥🔥'} variant="error" />
-    );
+    return <Badge label={eventStatus.label || 'DND는 문의 폭주 🔥🔥🔥'} variant="error" />;
   }
 
   if (status === 'INACTIVE') {
-    return (
-      <Badge label={eventStatus.label || 'DND는 휴가중 🏖'} variant="info" />
-    );
+    return <Badge label={eventStatus.label || 'DND는 휴가중 🏖'} variant="info" />;
   }
 
   if (dayjs(currentTime).isBefore(applicationEndDate)) {
-    return (
-      <Badge label={`DND는 ${CURRENT_FLAG}기 모집 마감까지 ${applicationEndDateCountdown}`} variant="success" />
-    );
+    return <Badge label={`DND는 ${CURRENT_FLAG}기 모집 마감까지 ${applicationEndDateCountdown}`} variant="success" />;
   }
 
   if (dayjs(currentTime).isBefore(acceptanceDate)) {
-    return (
-      <Badge label={`${acceptanceDate.format('MM월 DD일 (ddd)')} 모집 발표 🎄`} variant="success" />
-    );
+    return <Badge label={`${acceptanceDate.format('MM월 DD일 (ddd)')} 모집 발표 🎄`} variant="success" />;
   }
 
   if (status === 'ACTIVE') {
-    return (
-      <Badge label={eventStatus.label || `DND는 ${CURRENT_FLAG}기 진행중`} variant="success" />
-    );
+    return <Badge label={eventStatus.label || `DND는 ${CURRENT_FLAG}기 진행중`} variant="success" />;
   }
 }
 

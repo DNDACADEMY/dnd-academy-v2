@@ -17,21 +17,12 @@ function ResponsiveMasonry({ children, className }: PropsWithChildren<Props>) {
   const isMounted = useIsMounted();
 
   if (!isMounted) {
-    return (
-      <div className={clsx(styles.wrapper, className)}>
-        {children}
-      </div>
-    );
+    return <div className={clsx(styles.wrapper, className)}>{children}</div>;
   }
 
   return (
-    <ReactResponsiveMasonry
-      columnsCountBreakPoints={{ 350: 1, 720: 2, 900: 3 }}
-    >
-      <Masonry
-        gutter="24px"
-        className={clsx(styles.wrapper, className)}
-      >
+    <ReactResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 720: 2, 900: 3 }}>
+      <Masonry gutter="24px" className={clsx(styles.wrapper, className)}>
         {children}
       </Masonry>
     </ReactResponsiveMasonry>

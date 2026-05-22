@@ -6,12 +6,7 @@ import storybook from 'eslint-plugin-storybook';
 export default [
   ...baseConfig,
   {
-    ignores: [
-      '.next/**',
-      '.storybook/**',
-      'storybook-static/**',
-      'next-env.d.ts',
-    ],
+    ignores: ['.next/**', '.storybook/**', 'storybook-static/**', 'next-env.d.ts'],
   },
   {
     plugins: {

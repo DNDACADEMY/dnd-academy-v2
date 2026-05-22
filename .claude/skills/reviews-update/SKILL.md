@@ -18,13 +18,13 @@ description: DND 기수 종료 후 참여자들의 개인 후기를 `reviews.jso
 ```ts
 interface Review {
   id: number;
-  flag: string;        // "14기"
+  flag: string; // "14기"
   email: string;
   name: string;
   position: ReviewPosition;
-  links: Partial<Record<LogoType, string>>;  // github, velog, linkedin, medium, link 등
-  project: string;     // 프로젝트 이름 (없으면 빈 문자열)
-  projectId: number | null;  // projects.json의 id (못 찾으면 null)
+  links: Partial<Record<LogoType, string>>; // github, velog, linkedin, medium, link 등
+  project: string; // 프로젝트 이름 (없으면 빈 문자열)
+  projectId: number | null; // projects.json의 id (못 찾으면 null)
   review: string;
 }
 
@@ -66,13 +66,13 @@ type ReviewPosition =
 
 CSV "직군" 컬럼은 자유 입력이라 `ReviewPosition` 정식 값으로 매핑 필요:
 
-| CSV 입력 예시 | 매핑 결과 |
-|---|---|
-| "백엔드", "백엔드 개발자", "BE", "서버" | `백엔드 개발자` |
-| "프론트", "프론트엔드", "FE", "프론트엔드 개발자" | `프론트엔드 개발자` |
+| CSV 입력 예시                                      | 매핑 결과           |
+| -------------------------------------------------- | ------------------- |
+| "백엔드", "백엔드 개발자", "BE", "서버"            | `백엔드 개발자`     |
+| "프론트", "프론트엔드", "FE", "프론트엔드 개발자"  | `프론트엔드 개발자` |
 | "디자이너", "프로덕트 디자이너", "UX/UI", "디자인" | `프로덕트 디자이너` |
-| "iOS", "iOS 개발자", "iOS Developer" | `iOS Developer` |
-| "안드로이드", "Android", "Android Developer" | `Android Developer` |
+| "iOS", "iOS 개발자", "iOS Developer"               | `iOS Developer`     |
+| "안드로이드", "Android", "Android Developer"       | `Android Developer` |
 
 애매하면(예: "기획자") 사용자에게 어디로 매핑할지 묻기. 새로운 직군이 등장했다면 타입 자체를 확장해야 하니 사용자에게 보고하세요.
 
@@ -105,19 +105,19 @@ https://medium.com/@...   (단독 URL)
 
 키워드 → LogoType 매핑:
 
-| 키워드 / 도메인 | LogoType |
-|---|---|
-| "깃헙", "github", github.com | `github` |
-| "링크드인", "linkedin", linkedin.com | `linkedin` |
-| "벨로그", "velog", velog.io | `velog` |
-| "미디엄", "medium", medium.com | `medium` |
-| "브런치", "brunch", brunch.co.kr | `brunch` |
-| "티스토리", "tistory", tistory.com | `tistory` |
-| "네이버 블로그", "naver blog", blog.naver.com | `naverBlog` |
-| "인스타", "instagram" | `instagram` |
-| "페이스북", "facebook" | `facebook` |
-| "로켓펀치", "rocketpunch" | `rocketpunch` |
-| 단독 URL, 위 어디에도 안 맞음 | `link` |
+| 키워드 / 도메인                               | LogoType      |
+| --------------------------------------------- | ------------- |
+| "깃헙", "github", github.com                  | `github`      |
+| "링크드인", "linkedin", linkedin.com          | `linkedin`    |
+| "벨로그", "velog", velog.io                   | `velog`       |
+| "미디엄", "medium", medium.com                | `medium`      |
+| "브런치", "brunch", brunch.co.kr              | `brunch`      |
+| "티스토리", "tistory", tistory.com            | `tistory`     |
+| "네이버 블로그", "naver blog", blog.naver.com | `naverBlog`   |
+| "인스타", "instagram"                         | `instagram`   |
+| "페이스북", "facebook"                        | `facebook`    |
+| "로켓펀치", "rocketpunch"                     | `rocketpunch` |
+| 단독 URL, 위 어디에도 안 맞음                 | `link`        |
 
 분류 불가하면 사용자 확인. 빈 값이면 해당 키 자체를 추가하지 마세요(또는 빈 문자열로 둘지 — 기존 데이터 컨벤션 보고 결정. 기존에 빈 문자열이 많으면 빈 문자열 유지).
 

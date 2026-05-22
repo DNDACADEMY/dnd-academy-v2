@@ -5,9 +5,7 @@ export const isChristmasTheme = () => process.env.NEXT_PUBLIC_THEME === 'CHRISTM
 export const getEntries = <T extends object>(obj: T) => {
   const entries = Object.entries(obj) as Entries<T>;
 
-  return entries?.filter((
-    entry,
-  ) => !!entry?.[0] && !!entry?.[1]) as Entries<RequiredNonNullableObject<T>>;
+  return entries?.filter((entry) => !!entry?.[0] && !!entry?.[1]) as Entries<RequiredNonNullableObject<T>>;
 };
 
 export const sortFlagsDescending = (a: string, b: string) => {

@@ -22,12 +22,16 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return DEFAULT_METADATA;
   }
 
-  const images = project.thumbnail ? [{
-    url: project.thumbnail,
-    width: 800,
-    height: 600,
-    alt: project.name,
-  }] : METADATA.images;
+  const images = project.thumbnail
+    ? [
+        {
+          url: project.thumbnail,
+          width: 800,
+          height: 600,
+          alt: project.name,
+        },
+      ]
+    : METADATA.images;
 
   const canonicalUrl = `${PUBLIC_ORIGIN}/projects/${params.id}`;
 
@@ -66,9 +70,7 @@ async function Page({ params }: Props) {
     notFound();
   }
 
-  return (
-    <ProjectPage project={project} />
-  );
+  return <ProjectPage project={project} />;
 }
 
 export default Page;

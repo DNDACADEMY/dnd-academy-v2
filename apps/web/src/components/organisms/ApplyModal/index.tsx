@@ -1,8 +1,6 @@
 'use client';
 
-import {
-  cloneElement, isValidElement, type ReactElement, type ReactNode,
-} from 'react';
+import { cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
 
 import { Button, ButtonProps } from '@dnd-academy/ui';
 
@@ -26,7 +24,9 @@ function ApplyModal({ children: child }: Props) {
       {label}
       {child.props.children}
     </>
-  ) : label;
+  ) : (
+    label
+  );
 
   return (
     <Modal>
@@ -41,22 +41,10 @@ function ApplyModal({ children: child }: Props) {
             {'는 개발자, 디자이너들의\n지원을 기다리고 있습니다💖\n\n어떤 유형으로 지원하시나요?'}
           </div>
           <div className={styles.buttonWrapper}>
-            <Button
-              isExternalLink
-              href={DESIGNER_APPLICATION_LINK}
-              size="large"
-              buttonType="purple"
-              fullWidth
-            >
+            <Button isExternalLink href={DESIGNER_APPLICATION_LINK} size="large" buttonType="purple" fullWidth>
               디자이너
             </Button>
-            <Button
-              isExternalLink
-              href={DEVELOPER_APPLICATION_LINK}
-              size="large"
-              buttonType="primary"
-              fullWidth
-            >
+            <Button isExternalLink href={DEVELOPER_APPLICATION_LINK} size="large" buttonType="primary" fullWidth>
               개발자
             </Button>
           </div>

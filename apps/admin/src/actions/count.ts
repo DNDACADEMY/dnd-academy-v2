@@ -11,10 +11,7 @@ type CountStateType = {
   messageType?: 'error' | 'success';
 };
 
-export async function totalCountStatusAction(
-  _: CountStateType | null,
-  formData: FormData,
-): Promise<CountStateType> {
+export async function totalCountStatusAction(_: CountStateType | null, formData: FormData): Promise<CountStateType> {
   try {
     const requestForm = {
       cumulativeApplicants: formData.get('cumulativeApplicants'),

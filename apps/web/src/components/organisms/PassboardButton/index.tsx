@@ -28,13 +28,7 @@ export default function PassboardButton({ eventStatus }: PassboardButtonProps) {
   }
 
   return (
-    <Button
-      onClick={handleClick}
-      isExternalLink
-      size="xLarge"
-      buttonType="default"
-      href={PASSBOARD_URL}
-    >
+    <Button onClick={handleClick} isExternalLink size="xLarge" buttonType="default" href={PASSBOARD_URL}>
       {`${CURRENT_FLAG}기 합격자 조회`}
     </Button>
   );

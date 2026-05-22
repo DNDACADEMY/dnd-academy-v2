@@ -6,15 +6,7 @@ import ResponsiveMasonry from './index';
 
 jest.mock('react-responsive-masonry', () => ({
   __esModule: true,
-  default: ({
-    children,
-    className,
-    gutter,
-  }: {
-    children: ReactNode;
-    className?: string;
-    gutter: string;
-  }) => (
+  default: ({ children, className, gutter }: { children: ReactNode; className?: string; gutter: string }) => (
     <div data-testid="masonry" data-gutter={gutter} className={className}>
       {children}
     </div>
@@ -26,10 +18,7 @@ jest.mock('react-responsive-masonry', () => ({
     children: ReactNode;
     columnsCountBreakPoints: Record<number, number>;
   }) => (
-    <section
-      data-testid="responsive-masonry"
-      data-breakpoints={JSON.stringify(columnsCountBreakPoints)}
-    >
+    <section data-testid="responsive-masonry" data-breakpoints={JSON.stringify(columnsCountBreakPoints)}>
       {children}
     </section>
   ),

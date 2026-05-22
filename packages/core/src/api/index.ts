@@ -1,11 +1,6 @@
 import { paramsSerializer } from '../utils';
 
-type Method =
-    | 'get' | 'GET'
-    | 'delete' | 'DELETE'
-    | 'post' | 'POST'
-    | 'put' | 'PUT'
-    | 'patch' | 'PATCH';
+type Method = 'get' | 'GET' | 'delete' | 'DELETE' | 'post' | 'POST' | 'put' | 'PUT' | 'patch' | 'PATCH';
 
 export type UrlPrefixType = 'public' | 'bff' | 'blob';
 
@@ -19,7 +14,10 @@ export interface ApiRequest<T = unknown> {
 }
 
 export class ApiError extends Error {
-  constructor(public status: number, message: string) {
+  constructor(
+    public status: number,
+    message: string,
+  ) {
     super(message);
     this.name = 'ApiError';
   }
@@ -38,7 +36,12 @@ const getUrl = (url: string, type: UrlPrefixType) => {
 };
 
 export async function api<T, K = unknown>({
-  url, params, config = {}, body, type = 'public', method = 'GET',
+  url,
+  params,
+  config = {},
+  body,
+  type = 'public',
+  method = 'GET',
 }: ApiRequest<K>): Promise<T> {
   const headers = new Headers(config.headers);
 
@@ -56,7 +59,7 @@ export async function api<T, K = unknown>({
       throw new ApiError(response.status, errorBody?.message || response.statusText);
     }
 
-    const data = await response.json() as T;
+    const data = (await response.json()) as T;
 
     return data;
   } catch (error) {

@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
 
 import '@dnd-academy/ui/style.css';
 import 'src/styles/global.scss';
@@ -12,7 +12,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    tags: ["autodocs"],
+    tags: ['autodocs'],
     backgrounds: {
       default: 'dnd',
       values: [
@@ -20,7 +20,7 @@ const preview: Preview = {
           name: 'dnd',
           value: '#13161C',
         },
-      ]
+      ],
     },
   },
 };

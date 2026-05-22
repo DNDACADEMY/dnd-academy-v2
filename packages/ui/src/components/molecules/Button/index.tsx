@@ -1,7 +1,5 @@
 'use client';
-import {
-  AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLProps, ReactElement, ReactNode, useMemo,
-} from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLProps, ReactElement, ReactNode, useMemo } from 'react';
 
 import Link from 'next/link';
 

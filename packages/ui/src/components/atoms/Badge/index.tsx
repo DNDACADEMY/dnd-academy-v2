@@ -9,20 +9,8 @@ type Props = {
   label: string;
 };
 
-function Badge({
-  label, variant, size = 'medium', theme = 'dark',
-}: Props) {
-  return (
-    <div className={clsx(
-      styles.badge,
-      styles[variant],
-      styles[theme],
-      styles[size],
-    )}
-    >
-      {label}
-    </div>
-  );
+function Badge({ label, variant, size = 'medium', theme = 'dark' }: Props) {
+  return <div className={clsx(styles.badge, styles[variant], styles[theme], styles[size])}>{label}</div>;
 }
 
 export default Badge;

@@ -1,8 +1,6 @@
 'use client';
 
-import {
-  cloneElement, isValidElement, type ReactElement, type ReactNode,
-} from 'react';
+import { cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
 
 import type { EventStatus } from '@dnd-academy/core';
 import type { ButtonProps } from '@dnd-academy/ui';
@@ -20,9 +18,7 @@ type Props = {
 
 function ApplyNotifyButtonGroup({ children: child, eventStatus }: Props) {
   const isMounted = useIsMounted();
-  const {
-    applicationStartDateTime, applicationEndDateTime,
-  } = eventStatus;
+  const { applicationStartDateTime, applicationEndDateTime } = eventStatus;
 
   const applicationStartDateCountdown = useCountdown(applicationStartDateTime);
   const applicationEndDateCountdown = useCountdown(applicationEndDateTime);
@@ -42,25 +38,27 @@ function ApplyNotifyButtonGroup({ children: child, eventStatus }: Props) {
         {label}
         {child.props.children}
       </>
-    ) : label;
+    ) : (
+      label
+    );
 
     return (
       <>
         {/* NOTE - cloneElement로 알림 신청 링크 속성과 라벨을 주입하는 계약입니다. 변경 시 CTA 이동/표시 상태를 함께 확인해야 합니다. */}
-        {cloneElement(child, {
-          ...child.props,
-          isExternalLink: true,
-          href: NEXT_COHORT_NOTIFICATION_URL,
-        }, children)}
+        {cloneElement(
+          child,
+          {
+            ...child.props,
+            isExternalLink: true,
+            href: NEXT_COHORT_NOTIFICATION_URL,
+          },
+          children,
+        )}
       </>
     );
   }
 
-  return (
-    <ApplyModal>
-      {child}
-    </ApplyModal>
-  );
+  return <ApplyModal>{child}</ApplyModal>;
 }
 
 export default ApplyNotifyButtonGroup;

@@ -7,11 +7,8 @@ import Badge from '.';
 describe('Badge', () => {
   const title = 'title';
 
-  const renderBadge = ({
-    variant = 'notice', label = title, size,
-  }: Partial<ComponentProps<typeof Badge>>) => render((
-    <Badge label={label} variant={variant} size={size} theme="light" />
-  ));
+  const renderBadge = ({ variant = 'notice', label = title, size }: Partial<ComponentProps<typeof Badge>>) =>
+    render(<Badge label={label} variant={variant} size={size} theme="light" />);
 
   describe('variant 속성에 따라 색상이 달라진다', () => {
     it('variant 속성이 notice일 때, notice 클래스가 존재해야만 한다', () => {

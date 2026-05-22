@@ -16,9 +16,7 @@ type Props = {
   currentIndex: number;
 };
 
-function AccordionItem({
-  title, onClick, activeIndex, currentIndex, children,
-}: PropsWithChildren<Props>) {
+function AccordionItem({ title, onClick, activeIndex, currentIndex, children }: PropsWithChildren<Props>) {
   const isActive = activeIndex === currentIndex;
 
   const handleClick = () => {
@@ -37,14 +35,8 @@ function AccordionItem({
         className={clsx(styles.accordionHeader, isActive && styles.active)}
         onClick={handleClick}
       >
-        <div>
-          {title}
-        </div>
-        <AccordionPolygon className={clsx(
-          styles.polygonIcon,
-          isActive && styles.active,
-        )}
-        />
+        <div>{title}</div>
+        <AccordionPolygon className={clsx(styles.polygonIcon, isActive && styles.active)} />
       </motion.button>
       <AnimatePresence initial={false}>
         {isActive && (

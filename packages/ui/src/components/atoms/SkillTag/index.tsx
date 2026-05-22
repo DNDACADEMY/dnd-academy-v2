@@ -9,10 +9,7 @@ type Props = {
 
 function SkillTag({ skill, color }: Props) {
   return (
-    <span
-      key={skill}
-      className={clsx(styles.skillItem, styles[color])}
-    >
+    <span key={skill} className={clsx(styles.skillItem, styles[color])}>
       {skill}
     </span>
   );

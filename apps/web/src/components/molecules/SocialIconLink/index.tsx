@@ -30,10 +30,8 @@ type Props = {
   theme?: 'light' | 'dark';
 };
 
-function SocialIconLink({
-  link, type, className, theme = 'dark',
-}: Props) {
-  const IconLogo = ({
+function SocialIconLink({ link, type, className, theme = 'dark' }: Props) {
+  const IconLogo = {
     link: HomeLogo,
     email: EmailLogo,
     github: GithubLogo,
@@ -48,7 +46,7 @@ function SocialIconLink({
     googlePlayStore: GooglePlayStoreLogo,
     figma: FigmaLogo,
     youtube: YoutubeLogo,
-  } as Partial<Record<LogoType, FunctionComponent<SVGAttributes<SVGElement>>>>);
+  } as Partial<Record<LogoType, FunctionComponent<SVGAttributes<SVGElement>>>>;
 
   const Logo = IconLogo[type] || HomeLogo;
 
@@ -57,9 +55,7 @@ function SocialIconLink({
   });
 
   if (!link) {
-    return (
-      <Logo className={logoClassName} aria-label={type} />
-    );
+    return <Logo className={logoClassName} aria-label={type} />;
   }
 
   return (

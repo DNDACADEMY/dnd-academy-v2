@@ -17,10 +17,10 @@ description: DND 홈페이지 통계 카운터(누적 지원자/참여자/프로
 
 ```ts
 interface TotalCountStatus {
-  cumulativeApplicants: number;   // 역대 누적 지원자 수
-  totalParticipants: number;       // 역대 누적 참여자 수 (선발된 인원)
-  totalProjects: number;           // 역대 누적 프로젝트 수
-  dropouts: number;                // 역대 누적 이탈자 수
+  cumulativeApplicants: number; // 역대 누적 지원자 수
+  totalParticipants: number; // 역대 누적 참여자 수 (선발된 인원)
+  totalProjects: number; // 역대 누적 프로젝트 수
+  dropouts: number; // 역대 누적 이탈자 수
 }
 ```
 
@@ -54,6 +54,7 @@ interface TotalCountStatus {
 사용자가 명시한 필드만 받습니다. 모든 필드를 강제로 묻지 마세요 — 일부만 갱신하는 경우가 흔합니다.
 
 값 확인 예시:
+
 > "이번 기수 80명 지원, 60명 참여, 10개 프로젝트, 이탈 2명이야"
 
 → 다음 표로 정리해 보여주고 확인 받기:

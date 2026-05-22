@@ -25,13 +25,11 @@ type SearchParams = {
   position: string | undefined;
 };
 
-async function Page({ searchParams }: { searchParams?: Promise<SearchParams>; }) {
+async function Page({ searchParams }: { searchParams?: Promise<SearchParams> }) {
   const params = await searchParams;
   const reviews = getReviews({ position: params?.position });
 
-  return (
-    <ReviewsPage reviews={reviews} />
-  );
+  return <ReviewsPage reviews={reviews} />;
 }
 
 export default Page;

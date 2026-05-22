@@ -20,9 +20,7 @@ type Props<T extends string> = {
   route: Route;
 };
 
-function Tags<T extends string>({
-  paramKey, tagCount, route, size = 'small',
-}: Props<T>) {
+function Tags<T extends string>({ paramKey, tagCount, route, size = 'small' }: Props<T>) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -36,18 +34,19 @@ function Tags<T extends string>({
   );
 
   const sortedTagCount = useMemo(
-    () => [...Object.entries<number>(tagCount)]
-      .sort((a, b) => sortFlagsDescending(a[0], b[0]))
-      .map(([key, count]) => (
-        <Tag
-          key={key}
-          title={key}
-          count={count}
-          size={size}
-          isActive={paramValue === key}
-          onClick={handleClick(key)}
-        />
-      )),
+    () =>
+      [...Object.entries<number>(tagCount)]
+        .sort((a, b) => sortFlagsDescending(a[0], b[0]))
+        .map(([key, count]) => (
+          <Tag
+            key={key}
+            title={key}
+            count={count}
+            size={size}
+            isActive={paramValue === key}
+            onClick={handleClick(key)}
+          />
+        )),
     [handleClick, paramValue, tagCount, size],
   );
 

@@ -23,12 +23,11 @@ function ResponsiveContainer({ breakPoint, inverse = false, children }: PropsWit
     return null;
   }
 
-  const shouldRender = (
-    (isSmall && breakPoint === 'small')
-    || (isMedium && breakPoint === 'medium')
-    || (isLarge && breakPoint === 'large')
-    || (isXLarge && breakPoint === 'xLarge')
-  );
+  const shouldRender =
+    (isSmall && breakPoint === 'small') ||
+    (isMedium && breakPoint === 'medium') ||
+    (isLarge && breakPoint === 'large') ||
+    (isXLarge && breakPoint === 'xLarge');
 
   if (inverse) {
     return shouldRender ? null : children;

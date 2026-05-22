@@ -12,9 +12,7 @@ type ToastState = {
 };
 
 type ToastAction = {
-  renderToast: (
-    message: string, toastOption?: { type?: ToastType; delay?: number }
-  ) => void;
+  renderToast: (message: string, toastOption?: { type?: ToastType; delay?: number }) => void;
   closeToast: () => void;
 };
 
@@ -29,9 +27,14 @@ const initialToastState: ToastState = {
 
 const toastStore = create<ToastStore>((set) => ({
   ...initialToastState,
-  renderToast: (message, { delay = 2000, type = 'info' } = {}) => set((state) => ({
-    ...state, isRender: true, message, delay, type,
-  })),
+  renderToast: (message, { delay = 2000, type = 'info' } = {}) =>
+    set((state) => ({
+      ...state,
+      isRender: true,
+      message,
+      delay,
+      type,
+    })),
   closeToast: () => set(() => ({ ...initialToastState })),
 }));
 

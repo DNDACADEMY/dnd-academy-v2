@@ -22,27 +22,29 @@ type Props = {
 };
 
 async function CounterCardSection({ title: sectionTitle }: Props) {
-  const {
-    cumulativeApplicants, dropouts, totalParticipants, totalProjects,
-  } = totalCountStatusData;
+  const { cumulativeApplicants, dropouts, totalParticipants, totalProjects } = totalCountStatusData;
 
   const cardConfigs: CardConfig[] = [
     { count: cumulativeApplicants, title: '누적 지원자 수', color: 'red' },
     { count: totalParticipants, title: '총 참가자 수', color: 'green' },
     {
-      count: totalProjects, title: '총 프로젝트 수', color: 'red', suffix: '개',
+      count: totalProjects,
+      title: '총 프로젝트 수',
+      color: 'red',
+      suffix: '개',
     },
     {
-      count: dropouts, title: `${CURRENT_FLAG - 1}기 이탈자`, color: 'green', highlight: true,
+      count: dropouts,
+      title: `${CURRENT_FLAG - 1}기 이탈자`,
+      color: 'green',
+      highlight: true,
     },
   ];
 
   return (
     <SectionTitle title={sectionTitle}>
       <div className={styles.counterCardWrapper}>
-        {cardConfigs.map(({
-          count, title, color, suffix, highlight,
-        }) => (
+        {cardConfigs.map(({ count, title, color, suffix, highlight }) => (
           <CounterCard
             key={title}
             count={count}

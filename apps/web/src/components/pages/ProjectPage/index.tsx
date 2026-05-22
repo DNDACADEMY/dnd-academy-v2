@@ -55,35 +55,15 @@ function ProjectPage({ project }: Props) {
           )}
           <div className={styles.projectIntroduceTitleWrapper}>
             <div className={styles.header}>
-              <Badge
-                label={project.flag}
-                variant="info"
-                size="large"
-                theme="light"
-              />
+              <Badge label={project.flag} variant="info" size="large" theme="light" />
               <div className={styles.linkWrapper}>
-                {getEntries(project.projectLinks)
-                  .map(([key, value]) => {
-                    if (key === 'github') {
-                      return value?.map((link) => (
-                        <SocialIconLink
-                          key={link}
-                          type="github"
-                          link={link}
-                          theme="light"
-                        />
-                      ));
-                    }
+                {getEntries(project.projectLinks).map(([key, value]) => {
+                  if (key === 'github') {
+                    return value?.map((link) => <SocialIconLink key={link} type="github" link={link} theme="light" />);
+                  }
 
-                    return (
-                      <SocialIconLink
-                        key={key}
-                        type={key}
-                        link={value}
-                        theme="light"
-                      />
-                    );
-                  })}
+                  return <SocialIconLink key={key} type={key} link={value} theme="light" />;
+                })}
                 <ShareClipBoardCTA shareText={`${PUBLIC_ORIGIN}/projects/${project.id}`}>
                   <Button
                     type="button"
@@ -117,9 +97,7 @@ function ProjectPage({ project }: Props) {
         )}
         <section className={styles.projectSubSection}>
           <h2>프로젝트 더보기</h2>
-          <ProjectCards
-            projects={projects.filter(({ id }) => id !== project.id)}
-          />
+          <ProjectCards projects={projects.filter(({ id }) => id !== project.id)} />
         </section>
       </div>
     </>

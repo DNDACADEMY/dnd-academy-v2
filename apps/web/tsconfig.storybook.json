@@ -15,10 +15,5 @@
     "../../packages/ui/src/**/*.stories.tsx",
     "../../packages/ui/src/**/*.mdx"
   ],
-  "exclude": [
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "cypress",
-    "storybook-static"
-  ]
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "cypress", "storybook-static"]
 }

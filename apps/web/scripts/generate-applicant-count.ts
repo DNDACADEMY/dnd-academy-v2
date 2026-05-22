@@ -28,8 +28,14 @@ async function generateApplicantCount() {
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    const developerApplicantDoc = new GoogleSpreadsheet('1OLzUsZ1TBmKeEJh-ENoXWdccfwTg7WY3-zeOmcACxRc', serviceAccountAuth);
-    const designerApplicantDoc = new GoogleSpreadsheet('1KrwSZoUY3i6asMWtxIQsaofMP9rCmxnDpD_sZ4yOC-c', serviceAccountAuth);
+    const developerApplicantDoc = new GoogleSpreadsheet(
+      '1OLzUsZ1TBmKeEJh-ENoXWdccfwTg7WY3-zeOmcACxRc',
+      serviceAccountAuth,
+    );
+    const designerApplicantDoc = new GoogleSpreadsheet(
+      '1KrwSZoUY3i6asMWtxIQsaofMP9rCmxnDpD_sZ4yOC-c',
+      serviceAccountAuth,
+    );
 
     await developerApplicantDoc.loadInfo();
     await designerApplicantDoc.loadInfo();

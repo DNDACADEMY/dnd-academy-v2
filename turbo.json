@@ -1,21 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": [
-    "GOOGLE_CLIENT_EMAIL",
-    "GOOGLE_PRIVATE_KEY"
-  ],
+  "globalEnv": ["GOOGLE_CLIENT_EMAIL", "GOOGLE_PRIVATE_KEY"],
   "tasks": {
     "deploy": {
-      "env": [
-        "GOOGLE_CLIENT_EMAIL",
-        "GOOGLE_PRIVATE_KEY"
-      ],
-      "dependsOn": [
-        "lint",
-        "stylelint",
-        "test:coverage",
-        "build"
-      ]
+      "env": ["GOOGLE_CLIENT_EMAIL", "GOOGLE_PRIVATE_KEY"],
+      "dependsOn": ["lint", "stylelint", "test:coverage", "build"]
     },
     "build": {
       "dependsOn": ["^build"],
@@ -38,34 +27,20 @@
         "REVALIDATION_TOKEN",
         "WEB_ORIGIN"
       ],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!**/*.stories.{tsx,mdx}",
-        "!**/*.test.{tsx,ts}"
-      ],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        "dist/**"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,mdx}", "!**/*.test.{tsx,ts}"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "lint": {
       "dependsOn": ["@dnd-academy/ui#build"],
-      "inputs": [
-        "**/*.{js,jsx,ts,tsx}"
-      ]
+      "inputs": ["**/*.{js,jsx,ts,tsx}"]
     },
     "stylelint": {
-      "inputs": [
-        "**/*.{scss,css}"
-      ]
+      "inputs": ["**/*.{scss,css}"]
     },
     "test:coverage": {
       "dependsOn": ["@dnd-academy/ui#build"],
       "outputs": ["coverage/**"],
-      "inputs": [
-        "**/*.test.{tsx,ts}"
-      ]
+      "inputs": ["**/*.test.{tsx,ts}"]
     },
     "dev": {
       "persistent": true,

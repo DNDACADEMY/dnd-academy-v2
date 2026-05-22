@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  ComponentProps,
-  createElement,
-  ElementType,
-  useEffect,
-  useRef,
-} from 'react';
+import { ComponentProps, createElement, ElementType, useEffect, useRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -19,11 +13,16 @@ type ScrollElementProps<E extends ElementType> = {
   scrollIntoViewOptions?: ScrollIntoViewOptions;
 };
 
-type Props<E extends ElementType> =
-  ScrollElementProps<E> & Omit<ComponentProps<E>, keyof ScrollElementProps<E>>;
+type Props<E extends ElementType> = ScrollElementProps<E> & Omit<ComponentProps<E>, keyof ScrollElementProps<E>>;
 
 function ScrollElement<E extends ElementType>({
-  elementType, activeParam, children, className, targetParam, scrollIntoViewOptions, ...props
+  elementType,
+  activeParam,
+  children,
+  className,
+  targetParam,
+  scrollIntoViewOptions,
+  ...props
 }: Props<E>) {
   const containerRef = useRef<Element>(null);
 
@@ -33,16 +32,14 @@ function ScrollElement<E extends ElementType>({
     }
   }, [targetParam, activeParam, scrollIntoViewOptions]);
 
-  return (
-    createElement(
-      elementType || 'div',
-      {
-        ...props,
-        ref: containerRef,
-        className: clsx(styles.scrollElementWrapper, className),
-      },
-      children,
-    )
+  return createElement(
+    elementType || 'div',
+    {
+      ...props,
+      ref: containerRef,
+      className: clsx(styles.scrollElementWrapper, className),
+    },
+    children,
   );
 }
 

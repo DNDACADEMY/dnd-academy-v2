@@ -3,7 +3,7 @@ import { Job } from '@dnd-academy/core';
 import { jobsData } from '@/lib/assets/data';
 import { ensureNumber } from '@/utils';
 
-export function getJobs({ flag }: { flag?: string; } | undefined = {}): Job[] {
+export function getJobs({ flag }: { flag?: string } | undefined = {}): Job[] {
   const jobs = jobsData as Job[];
 
   if (!flag) {

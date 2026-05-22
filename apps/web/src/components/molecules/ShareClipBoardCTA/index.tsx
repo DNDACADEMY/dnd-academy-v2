@@ -1,8 +1,6 @@
 'use client';
 
-import {
-  ButtonHTMLAttributes, cloneElement, isValidElement, MouseEvent, type ReactElement,
-} from 'react';
+import { ButtonHTMLAttributes, cloneElement, isValidElement, MouseEvent, type ReactElement } from 'react';
 
 import useClipboard from '@/hooks/useClipboard';
 

@@ -1,6 +1,4 @@
-import {
-  ComponentProps, createElement, ElementType, Fragment,
-} from 'react';
+import { ComponentProps, createElement, ElementType, Fragment } from 'react';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 
@@ -12,50 +10,40 @@ type LinkConverterProps<E extends ElementType> = {
   text: string;
 };
 
-type Props<E extends ElementType> =
-  LinkConverterProps<E> & Omit<ComponentProps<E>, keyof LinkConverterProps<E>>;
+type Props<E extends ElementType> = LinkConverterProps<E> & Omit<ComponentProps<E>, keyof LinkConverterProps<E>>;
 
-function LinkConverter<E extends ElementType>({
-  className, text, elementType, ...props
-}: Props<E>) {
+function LinkConverter<E extends ElementType>({ className, text, elementType, ...props }: Props<E>) {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
 
-  const parts = text.split(urlRegex).reduce((acc, part, index) => [
-    ...acc,
-    {
-      contents: part,
-      isUrl: urlRegex.test(part),
-      key: urlRegex.test(part) ? `link-${index}` : `text-${index}`,
-    },
-  ], [] as { contents: string; isUrl: boolean; key: string }[]);
-
-  return (
-    createElement(
-      elementType || 'div',
+  const parts = text.split(urlRegex).reduce(
+    (acc, part, index) => [
+      ...acc,
       {
-        ...props,
-        className,
+        contents: part,
+        isUrl: urlRegex.test(part),
+        key: urlRegex.test(part) ? `link-${index}` : `text-${index}`,
       },
-      parts.map(({ contents, isUrl, key }) => {
-        if (isUrl) {
-          return (
-            <ExternalLink
-              key={key}
-              href={contents}
-              className={styles.link}
-            >
-              {contents}
-            </ExternalLink>
-          );
-        }
+    ],
+    [] as { contents: string; isUrl: boolean; key: string }[],
+  );
 
+  return createElement(
+    elementType || 'div',
+    {
+      ...props,
+      className,
+    },
+    parts.map(({ contents, isUrl, key }) => {
+      if (isUrl) {
         return (
-          <Fragment key={key}>
+          <ExternalLink key={key} href={contents} className={styles.link}>
             {contents}
-          </Fragment>
+          </ExternalLink>
         );
-      }),
-    )
+      }
+
+      return <Fragment key={key}>{contents}</Fragment>;
+    }),
   );
 }
 

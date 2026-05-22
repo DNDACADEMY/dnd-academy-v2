@@ -14,7 +14,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/api/revalidate/:path*',
-  ],
+  matcher: ['/api/revalidate/:path*'],
 };

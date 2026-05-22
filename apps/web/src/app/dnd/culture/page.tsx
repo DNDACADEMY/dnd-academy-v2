@@ -21,9 +21,7 @@ export const metadata: Metadata = {
 };
 
 function Page() {
-  return (
-    <CulturePage />
-  );
+  return <CulturePage />;
 }
 
 export default Page;

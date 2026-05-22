@@ -14,15 +14,9 @@ function TopNavigationBar() {
         <nav className={styles.navigationContents}>
           <Link href="/" className={styles.logoLink}>
             {isChristmasTheme() ? (
-              <DNDChristmasLogo
-                aria-label="logo"
-                className={styles.christmasLogo}
-              />
+              <DNDChristmasLogo aria-label="logo" className={styles.christmasLogo} />
             ) : (
-              <DNDLogo
-                aria-label="logo"
-                className={styles.logo}
-              />
+              <DNDLogo aria-label="logo" className={styles.logo} />
             )}
           </Link>
           <TopNavigationMenu />
