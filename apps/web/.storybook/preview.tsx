@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { Preview } from "@storybook/react";
 
 import '@dnd-academy/ui/style.css';

@@ -60,6 +60,7 @@ function OrganizerPage({ organizer }: Props) {
                       width="0"
                       height="0"
                       sizes="(max-width: 1204px) 50vw, 33vw"
+                      priority
                     />
                   )}
               </div>

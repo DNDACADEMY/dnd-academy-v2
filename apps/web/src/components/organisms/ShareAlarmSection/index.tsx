@@ -1,3 +1,5 @@
+'use client';
+
 import { CSSProperties } from 'react';
 import Marquee from 'react-fast-marquee';
 
