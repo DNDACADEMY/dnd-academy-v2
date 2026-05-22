@@ -6019,6 +6019,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/analytics@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@vercel/analytics@npm:2.0.1"
+  peerDependencies:
+    "@remix-run/react": ^2
+    "@sveltejs/kit": ^1 || ^2
+    next: ">= 13"
+    nuxt: ">= 3"
+    react: ^18 || ^19 || ^19.0.0-rc
+    svelte: ">= 4"
+    vue: ^3
+    vue-router: ^4
+  peerDependenciesMeta:
+    "@remix-run/react":
+      optional: true
+    "@sveltejs/kit":
+      optional: true
+    next:
+      optional: true
+    nuxt:
+      optional: true
+    react:
+      optional: true
+    svelte:
+      optional: true
+    vue:
+      optional: true
+    vue-router:
+      optional: true
+  checksum: 10/ffef3eea08992e40e08d0fc9900396a9433855a4aaca90602bfea935c26faa30b6d208c034b6e249fb8a69c81cb5a11aa3acd725d5b9067fb30a4508879c6383
+  languageName: node
+  linkType: hard
+
 "@vercel/blob@npm:2.4.0":
   version: 2.4.0
   resolution: "@vercel/blob@npm:2.4.0"
@@ -6029,6 +6062,36 @@ __metadata:
     throttleit: "npm:^2.1.0"
     undici: "npm:^6.23.0"
   checksum: 10/e5399baacf97152fd0c9cb3b51bbf87fb0bd183e6e4a9f2ca6772d6308e378386beb84c864f2bededa23ad20b4c8fdb25ccfa947351bb7e131510d3d7ae5fc3d
+  languageName: node
+  linkType: hard
+
+"@vercel/speed-insights@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@vercel/speed-insights@npm:2.0.0"
+  peerDependencies:
+    "@sveltejs/kit": ^1 || ^2
+    next: ">= 13"
+    nuxt: ">= 3"
+    react: ^18 || ^19 || ^19.0.0-rc
+    svelte: ">= 4"
+    vue: ^3
+    vue-router: ^4
+  peerDependenciesMeta:
+    "@sveltejs/kit":
+      optional: true
+    next:
+      optional: true
+    nuxt:
+      optional: true
+    react:
+      optional: true
+    svelte:
+      optional: true
+    vue:
+      optional: true
+    vue-router:
+      optional: true
+  checksum: 10/c8bb85c8e9972b1536d19bb36b8cdecfd85b4391b508a8e9f70cc7e55e09266e19896bad45f889fe5da0430884c83bc8628b7d822f0ffd975ec329cab18ea4b5
   languageName: node
   linkType: hard
 
@@ -16070,7 +16133,9 @@ __metadata:
     "@types/react-dom": "npm:19.2.3"
     "@typescript-eslint/eslint-plugin": "npm:8.59.4"
     "@typescript-eslint/parser": "npm:8.59.4"
+    "@vercel/analytics": "npm:2.0.1"
     "@vercel/blob": "npm:2.4.0"
+    "@vercel/speed-insights": "npm:2.0.0"
     clsx: "npm:2.1.1"
     cypress: "npm:15.15.0"
     dayjs: "npm:1.11.11"
