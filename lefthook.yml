@@ -43,8 +43,3 @@ pre-commit:
     test-related:
       glob: "*.{js,jsx,ts,tsx}"
       run: yarn test:coverage -- --findRelatedTests {staged_files}
-
-commit-msg:
-  commands:
-    commitlint:
-      run: yarn commitlint --edit {1}
