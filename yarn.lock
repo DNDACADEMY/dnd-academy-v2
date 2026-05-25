@@ -2133,7 +2133,7 @@ __metadata:
     eslint-plugin-jest: "npm:29.15.2"
     eslint-plugin-react-hooks: "npm:7.1.1"
     eslint-plugin-simple-import-sort: "npm:13.0.0"
-    eslint-plugin-storybook: "npm:10.4.0"
+    eslint-plugin-storybook: "npm:10.4.1"
     eslint-plugin-testing-library: "npm:7.16.2"
     eslint-plugin-unused-imports: "npm:4.4.1"
     identity-obj-proxy: "npm:3.0.0"
@@ -8560,15 +8560,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:10.4.0":
-  version: 10.4.0
-  resolution: "eslint-plugin-storybook@npm:10.4.0"
+"eslint-plugin-storybook@npm:10.4.1":
+  version: 10.4.1
+  resolution: "eslint-plugin-storybook@npm:10.4.1"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.48.0"
   peerDependencies:
     eslint: ">=8"
-    storybook: ^10.4.0
-  checksum: 10/9b4aa328ab57a927d5b58fc866ec142d941befd3411a18bd2c3f827c09bedfd302e1a5d6429a636ccfc6a6037897f82cc5edc3e4afaf68ddde3068a7eb9ac9c2
+    storybook: ^10.4.1
+  checksum: 10/ec068bb1fbdda9d53a98098a1bfee3621ece0aa9741a9fde9ae88237aa2521804b01351341c030c400c0edf0c5dd38246372eedc52e15316cd9a0bf18f2dbc1c
   languageName: node
   linkType: hard
 
@@ -15427,7 +15427,7 @@ __metadata:
     eslint-plugin-jest: "npm:29.15.2"
     eslint-plugin-react-hooks: "npm:7.1.1"
     eslint-plugin-simple-import-sort: "npm:13.0.0"
-    eslint-plugin-storybook: "npm:10.4.0"
+    eslint-plugin-storybook: "npm:10.4.1"
     eslint-plugin-testing-library: "npm:7.16.2"
     eslint-plugin-unused-imports: "npm:4.4.1"
     google-auth-library: "npm:9.15.0"
