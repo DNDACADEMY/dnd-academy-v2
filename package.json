@@ -20,7 +20,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "6.9.1",
     "@turbo/gen": "2.9.14",
-    "@types/eslint": "^8",
+    "@types/eslint": "^9",
     "@types/jest-plugin-context": "2.9.7",
     "@types/node": "25.9.1",
     "eslint": "10.4.0",
