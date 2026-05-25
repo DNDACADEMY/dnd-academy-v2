@@ -15,30 +15,17 @@ updates:
       prefix-development: "chore"
       include: "scope"
     groups:
-      types:
-        patterns:
-          - "@types/*"
-      eslint:
-        patterns:
-          - "eslint"
-          - "eslint-*"
-          - "@typescript-eslint/*"
-      stylelint:
-        patterns:
-          - "stylelint"
-          - "stylelint-*"
-      testing:
-        patterns:
-          - "jest"
-          - "jest-*"
-          - "@testing-library/*"
-      storybook:
-        patterns:
-          - "storybook"
-          - "@storybook/*"
+      # devDependencies는 메이저 포함 한 PR로 묶는다. 런타임 번들에 영향이
+      # 없어 무더기로 열리는 것만 막으면 충분하다.
+      development-dependencies:
+        dependency-type: "development"
+      # 런타임 의존성은 minor/patch만 묶는다. 메이저는 개별 PR로 남겨
+      # (react-query 등) 동작 검증 후 단독 머지하도록 한다.
+      production-dependencies:
+        dependency-type: "production"
         update-types:
-          - "patch"
           - "minor"
+          - "patch"
     ignore:
       - dependency-name: "next"
         update-types: ["version-update:semver-major"]
