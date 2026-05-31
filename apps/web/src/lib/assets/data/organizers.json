@@ -440,24 +440,21 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Hyeonju.png",
     "author": "Hyeonju",
     "dndPosition": "디자인",
-    "technicalStack": ["figma", "Adobes"],
-    "oneLineIntroduction": "질문하고 계획 세우는 걸 좋아합니다.",
+    "technicalStack": ["UX기획", "GA", "서비스 기획 및 운영"],
+    "oneLineIntroduction": "도전하고 질문하는 걸 좋아합니다.",
     "links": {
-      "github": "",
       "linkedin": "https://www.linkedin.com/in/hyeon-ju-kim-3000-gogo/",
-      "naverBlog": "",
-      "instagram": "",
       "brunch": "https://brunch.co.kr/@hjjju"
     },
     "career": {
-      "now": ["CLASS101 Product Manager"],
-      "previous": []
+      "now": ["마이프차 Product Manager"],
+      "previous": ["CLASS101 Product Manager"]
     },
     "mbti": "ENTJ",
     "questions": {
-      "whatIsYourRoleInDnd": "프로젝트를 시작할 때 기획과 작업 범위, 제품에 대한 방향성 등에 대한 논의가 필요할 경우 같이 고민해주고 있습니다. PM의 관점이나 기획부분에서 디자인과 놓치기 쉬운 부분을 제3자의 시선으로 같이 확인해주기도 해요.",
-      "whyDoYouRecommendDnd": "개발자와 협업할 수 있는 건 당연한 장점이겠죠? 그 외에는 현직에서 생각할 요소(사업성이나 제한된 도메인 , 투입 일정과 인력 등) 없이 자유롭게 하고 싶은 걸 마음대로 할 수 있다는 장점이 있습니다. 취준생, 학생이라면 서비스가 어떻게 나오는지 A-Z를 모두 겪을 수 있어서 이후 일을 할 때 큰 숲을 보면서 일할 수 있는 경험이 됩니다. ",
-      "whatIsYourInterests": "스포츠가 주는 두근거림과 책이 주는 무한한 상상력을 좋아해요. 그래서 농구도 하고, 크로스핏이나 MMA도 배워보고 다양한 걸 정말 그냥 해봐요. 새로운 도전을 할 때, 모르는 걸 알게 되었을 때 행복해서 항상 새로운 걸 찾아다니고 있습니다.",
+      "whatIsYourRoleInDnd": "프로젝트를 시작할 때 기획과 작업 범위, 제품에 대한 방향성 등에 대한 논의가 필요할 경우 같이 고민해주고 있습니다. PM의 관점이나 기획부분에서 디자인과 놓치기 쉬운 부분을 제3자의 시선으로 같이 확인해주기도 합니다",
+      "whyDoYouRecommendDnd": "현직에서 생각할 요소(사업성이나 제한된 도메인 , 투입 일정과 인력 등) 없이 자유롭게 하고 싶은 걸 마음대로 할 수 있다는 장점이 있습니다. 취준생, 학생이라면 서비스가 어떻게 나오는지 A-Z를 모두 겪을 수 있어서 이후 일을 할 때 큰 숲을 보면서 일할 수 있는 경험이 되기 때문에 적극 추천합니다.",
+      "whatIsYourInterests": "도전이 주는 두근거림과 책이 주는 무한한 상상력을 좋아해요. 그래서 다양한 걸 많이 해보고 있습니다.",
       "whatYouWantToShare": []
     }
   },
@@ -690,14 +687,19 @@
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/YoungHoe.png",
     "author": "YoungHoe",
     "dndPosition": "개발",
-    "technicalStack": ["Kotlin", "Android"],
+    "technicalStack": ["Kotlin", "Android", "Python"],
     "oneLineIntroduction": "YOLO! 한번 사는 인생 하고 싶은거 하면서 살자구요~",
     "links": {
-      "github": "https://github.com/YHKOO95"
+      "github": "https://github.com/YHKOO95",
+      "linkedin": "https://www.linkedin.com/in/younghoikoo"
     },
     "career": {
-      "now": ["PFC Technologies 안드로이드 개발"],
-      "previous": ["넛지헬스케어 안드로이드 개발", "스마트잭 안드로이드 개발"]
+      "now": ["숭실대학교 사이버보안연구센터 석사연구생"],
+      "previous": [
+        "PFC Technologies 안드로이드 개발 - 3년 7개월",
+        "넛지헬스케어 안드로이드 개발 - 6개월",
+        "스마트잭 안드로이드 개발 - 1년 9개월"
+      ]
     },
     "mbti": "INFP",
     "questions": {
@@ -979,7 +981,7 @@
   {
     "name": "서지예",
     "id": 39,
-    "isArchived": true,
+    "isArchived": false,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jiyee.png",
     "author": "Jiyee",
     "dndPosition": "디자인",
@@ -1033,7 +1035,7 @@
   {
     "name": "이희재",
     "id": 41,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Huijae.png",
     "author": "Huijae",
     "dndPosition": "디자인",
@@ -1057,7 +1059,7 @@
   {
     "name": "장지훈",
     "id": 42,
-    "isArchived": false,
+    "isArchived": true,
     "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Jihoon.png",
     "author": "Jihoon",
     "dndPosition": "디자인",
@@ -1075,6 +1077,128 @@
       "whatIsYourRoleInDnd": "디자인 운영진을 맡고 있습니다. 디자인 업무에 관한 궁금한 점은 편하게 여쭤봐주세요.",
       "whyDoYouRecommendDnd": "단기간 내 뚜렷한 목표를 가지고 프로젝트를 완성하는 경험을 얻을 수 있고, 같이 열의를 가진 사람들과 협업하는 과정을 통해 성장할 수 있어요.",
       "whatIsYourInterests": "새로운 기술에 관심이 많아요\n소소한 것에서 행복을 찾아요: 영화 보기, 게임 하기, 음악 듣기",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "김동구",
+    "id": 43,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Donggu.jpg",
+    "author": "Donggu",
+    "dndPosition": "운영",
+    "technicalStack": ["React", "Next.js", "React Native"],
+    "oneLineIntroduction": "함께하는 성장의 즐거움을 믿으며, 인사이트를 나누는 과정에서 일하는 재미를 만들어갑니다.",
+    "links": {
+      "github": "https://github.com/kimdonggu42"
+    },
+    "career": {
+      "now": ["빌더스게이트 - 프론트엔드 개발"],
+      "previous": ["언더밀리 - 프론트엔드 개발"]
+    },
+    "mbti": "ISTJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "운영팀으로서 데이터 기반의 체계적인 관리와 더 효율적인 DND 운영을 위한 프로세스 개선에 기여하고 있습니다.",
+      "whyDoYouRecommendDnd": "8주라는 한정된 시간 속에서 몰입해 최대의 아웃풋을 이끌어내는 압축적인 성장 경험을 할 수 있기 때문이에요. 이 과정에서 자연스럽게 내 역할을 넘어 다른 파트의 관점까지 이해하고 소통하는 법을 배우게 돼요. 무엇보다 활동을 마친 후에도 지금까지 많은 기수를 거치며 탄탄하게 쌓인 DND만의 인적 네트워크 안에서 든든한 동료들과 지속적으로 인사이트를 나누며 함께 성장할 수 있다는 점이 DND를 추천하는 가장 큰 이유이지 않을까 합니다.",
+      "whatIsYourInterests": "서로 다른 경험과 고민을 가진 분들과 교류하며 생각을 나누는 것에 관심을 가지고 있어요. 특히 개발 컨퍼런스나 해커톤처럼 열정 넘치는 분들을 만날 수 있는 행사에 참여해 이야기를 나누며 시야를 넓히고, 긍정적인 영향을 주고받는 걸 좋아합니다.",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "이건창",
+    "id": 44,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Geonchang.jpg",
+    "author": "Geonchang",
+    "dndPosition": "개발",
+    "technicalStack": ["Java", "Spring Boot"],
+    "oneLineIntroduction": "함께 고민하고 해결한 시간이 좋은 추억으로 남길 바랍니다.",
+    "links": {
+      "github": "https://github.com/this-is-spear",
+      "linkedin": "https://www.linkedin.com/in/this-is-spear/"
+    },
+    "career": {
+      "now": ["백엔드 개발자 3년"],
+      "previous": []
+    },
+    "mbti": "INFJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "백엔드 개발자 멘토로 참여하며, 프로젝트를 진행하면서 생기는 기술적인 고민을 함께 나누고 해결해보려 합니다. 커리어적인 부분이나 개발자로 성장하는 과정에서 생기는 궁금증도 편하게 이야기 나눌 수 있는 역할을 맡고 있어요.",
+      "whyDoYouRecommendDnd": "사이드 프로젝트의 완성은 함께 부딪히고 끝까지 완성해가는 경험에 있다고 생각해요. 좋은 팀은 갈등이 없는 팀이 아니라, 서로의 차이를 잘 마주하고 해소해가는 팀이라고 믿습니다. \n\nDND에서는 개발, 디자인, 기획 등 서로 다른 시선을 가진 사람들이 하나의 아젠다를 함께 만들고, 아이디어를 실제 서비스로 세상에 선보이는 과정을 경험할 수 있어요. 혼자서는 보기 어려운 관점들을 배우고, 함께 완성하는 즐거움을 느껴보고 싶은 분들에게 추천하고 싶습니다.",
+      "whatIsYourInterests": "- 사람들과 라포를 쌓는 걸 좋아하고, 주변 사람들의 취미를 따라 해보는 것도 좋아해요.\n- 출근 전에는 거의 매일 러닝을 하고, 가끔 잠수교를 지나 10km도 뛰어요!\n- 문제를 함께 고민하고 해결하는 과정에서 즐거움을 느껴요. 고민이 있다면 언제든 환영입니다.",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "남우진",
+    "id": 45,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Woojin.jpg",
+    "author": "Woojin",
+    "dndPosition": "운영",
+    "technicalStack": ["Nest.js", "Next.js", "Google Cloud", "Flutter", "Figma", "Claude"],
+    "oneLineIntroduction": "사업 기획부터 런칭 그리고 지속가능한 사이클을 만드는 Product Maker입니다.",
+    "links": {
+      "link": "https://www.threads.com/@tree_jin99"
+    },
+    "career": {
+      "now": ["AX 컨설팅"],
+      "previous": ["지금.lab CEO 2년 6개월", "FOR:e PO 2년"]
+    },
+    "mbti": "ENTJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "운영, HR 및 회계 담당",
+      "whyDoYouRecommendDnd": "공간의 제약을 받지 않으며, 함께 제품의 런칭까지 A to Z 를 경험하고 협업을 배울 수 있기에",
+      "whatIsYourInterests": "피트니스, 여행, AI 자동화",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "장근호",
+    "id": 46,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Geunho.jpg",
+    "author": "Geunho",
+    "dndPosition": "개발",
+    "technicalStack": ["TypeScript", "React", "Next.js", "Tailwind CSS", "AWS", "Docker", "react-query", "three.js"],
+    "oneLineIntroduction": "프론트엔드 8년차 장근호 입니다.",
+    "links": {
+      "github": "https://github.com/Rootjang92"
+    },
+    "career": {
+      "now": ["해양 사이버보안 프론트엔드 재직중"],
+      "previous": ["의료 AI 스타트업 프론트엔드 4년", "메타버스·생성형 AI 기반 스타트업 프론트엔드 2년 반"]
+    },
+    "mbti": "ISFJ, ISTJ",
+    "questions": {
+      "whatIsYourRoleInDnd": "개발 운영진 입니다.",
+      "whyDoYouRecommendDnd": "운영진들의 성실한 지원아래 사이드 프로젝트를 재미있고 압축적으로 즐기고 경험할 수 있습니다.",
+      "whatIsYourInterests": "누군가에게 도움을 줄 수 있을 때(상황에 맞춰)",
+      "whatYouWantToShare": []
+    }
+  },
+  {
+    "name": "백도현",
+    "id": 47,
+    "isArchived": false,
+    "thumbnail": "https://dnd-academy-v3.s3.ap-northeast-2.amazonaws.com/images/mentor/Dohyeon.jpeg",
+    "author": "Dohyeon",
+    "dndPosition": "개발",
+    "technicalStack": ["Spring Boot", "Java"],
+    "oneLineIntroduction": "다양한 사람들과 마음을 나누는 것과 새로운 경험을 즐기는 백도현입니다.",
+    "links": {
+      "github": "https://github.com/BaekDoHyeon",
+      "linkedin": "https://www.linkedin.com/in/baekdohyeon00"
+    },
+    "career": {
+      "now": ["크리젠솔루션 - 백엔드 1년 4개월"],
+      "previous": []
+    },
+    "mbti": "ENFP",
+    "questions": {
+      "whatIsYourRoleInDnd": "사람들과 소통을 하고 관계를 만들어가려 노력하고 있습니다. 학생분들이나 저와 같은 저연차분들에게 도움을 주기위해 함께 고민하고 경험을 공유하고 있습니다.",
+      "whyDoYouRecommendDnd": "가장 큰 이유는 열정 있는 사람들을 만나 약 8주 동안 함께 작업하고 소통하며 좋은 경험을 쌓을 수 있기 때문에 추천하고 있습니다. 어떠한 프로덕트를 만들 수 있다는 장점도 크지만 인간관계를 형성하고 소프트한 스킬 또한 정말 중요하다고 생각하는데 그런 능력을 쌓을 수 있는 정말 좋은 기회이기에 DND를 통해 한 단계 더 발전해 나갈 수 있다고 믿고 있습니다.",
+      "whatIsYourInterests": "새로운 경험을 보고 듣고 행동 하는 것을 좋아합니다. 이를 바탕으로 다양한 사람들과 소통하고 함께하는걸 좋아하며 다양한 분야의 책을 읽고 생각하는걸 좋아합니다. 헬스를 하거나 복싱을 배우거나 보컬 레슨 등 새로운 것들을 찾아다니는것에 행복을 느낍니다.",
       "whatYouWantToShare": []
     }
   },
