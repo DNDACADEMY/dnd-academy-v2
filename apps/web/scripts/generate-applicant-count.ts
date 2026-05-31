@@ -29,11 +29,11 @@ async function generateApplicantCount() {
     });
 
     const developerApplicantDoc = new GoogleSpreadsheet(
-      '1OLzUsZ1TBmKeEJh-ENoXWdccfwTg7WY3-zeOmcACxRc',
+      '1jMd6qWebY_Hz8NBxbWTIPqjyFmZCWf4HGlNkmFpWwP0',
       serviceAccountAuth,
     );
     const designerApplicantDoc = new GoogleSpreadsheet(
-      '1KrwSZoUY3i6asMWtxIQsaofMP9rCmxnDpD_sZ4yOC-c',
+      '12cwmV0Gf38xOQukIy-IQqfGTHigujTaVdctd7gnbiIw',
       serviceAccountAuth,
     );
 
