@@ -148,9 +148,12 @@ generate-applicant-count.ts:
 다음 단계 안내:
 - 모집 시작 시점에 event-status-update 스킬로 status를 ONGOING으로 전환
   (또는 두 작업을 묶어 처리하려면 `cohort-open` 오케스트레이터를 사용)
-- 응답시트 ID를 바꿨다면 서비스 계정(GOOGLE_CLIENT_EMAIL)이 새 시트에
-  공유돼 있는지 운영진에게 확인 요청 (안 그러면 generate-applicant-count
-  스크립트가 권한 에러로 실패)
+- 응답시트 ID를 바꿨다면 새 스프레드시트(개발자/디자이너)에 서비스 계정을
+  뷰어(읽기) 이상 권한으로 공유(초대)했는지 운영진에게 확인 요청.
+  공유 대상 GOOGLE_CLIENT_EMAIL:
+  dnd-academy@dnd-academy-admin-429806.iam.gserviceaccount.com
+  (각 시트 [공유] → 위 이메일 추가 → 뷰어 권한. 안 그러면
+  generate-applicant-count 스크립트가 권한 에러로 실패)
 ```
 
 ## 주의사항
