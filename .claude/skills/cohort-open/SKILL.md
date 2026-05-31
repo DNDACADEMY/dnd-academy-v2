@@ -110,8 +110,13 @@ description: DND 신규 기수 모집 오픈 시점에 지원 폼/시트 정보(
   applicantAcceptanceDateTime: 2026/06/22 00:00:00
 
 📦 후속 작업:
-1. 응답시트 ID를 바꿨다면 서비스 계정(GOOGLE_CLIENT_EMAIL)에 새 시트 공유 권한 확인
-   (안 그러면 generate-applicant-count 스크립트가 권한 에러로 실패)
+1. 응답시트 ID를 바꿨다면 새 스프레드시트 2개(개발자/디자이너)에 서비스 계정을
+   **뷰어(읽기) 이상 권한으로 공유(초대)** 했는지 운영진에게 확인 요청.
+   - 공유할 계정(GOOGLE_CLIENT_EMAIL):
+     dnd-academy@dnd-academy-admin-429806.iam.gserviceaccount.com
+   - 각 스프레드시트 우상단 [공유] → 위 이메일 추가 → 뷰어 권한으로 저장
+   - 안 그러면 generate-applicant-count 스크립트가 권한 에러로 실패해
+     홈페이지 실시간 지원자 수 집계가 깨짐
 2. 커밋 & PR
    git add apps/web/src/lib/constants/index.ts \
            apps/web/scripts/generate-applicant-count.ts \
