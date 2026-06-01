@@ -6229,7 +6229,7 @@ __metadata:
     eslint-plugin-testing-library: "npm:7.16.2"
     eslint-plugin-unused-imports: "npm:4.4.1"
     google-auth-library: "npm:9.15.0"
-    google-spreadsheet: "npm:4.1.4"
+    google-spreadsheet: "npm:5.2.0"
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
@@ -8290,6 +8290,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"es-toolkit@npm:^1.44.0":
+  version: 1.47.0
+  resolution: "es-toolkit@npm:1.47.0"
+  dependenciesMeta:
+    "@trivago/prettier-plugin-sort-imports@4.3.0":
+      unplugged: true
+    prettier-plugin-sort-re-exports@0.0.1:
+      unplugged: true
+    vitepress-plugin-sandpack@1.1.4:
+      unplugged: true
+  checksum: 10/3dcb898b69cb84fd5bd8a18a5a63b01d0b9fc4a74539d01c58869f5460e1402a6eb7b1260729a564043a6776c24c04b96d72883918c1fbed9ab5c91a5c064f80
+  languageName: node
+  linkType: hard
+
 "esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0":
   version: 0.27.7
   resolution: "esbuild@npm:0.27.7"
@@ -9579,18 +9593,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-spreadsheet@npm:4.1.4":
-  version: 4.1.4
-  resolution: "google-spreadsheet@npm:4.1.4"
+"google-spreadsheet@npm:5.2.0":
+  version: 5.2.0
+  resolution: "google-spreadsheet@npm:5.2.0"
   dependencies:
-    axios: "npm:^1.7.7"
-    lodash: "npm:^4.17.21"
+    es-toolkit: "npm:^1.44.0"
+    ky: "npm:^1.14.3"
   peerDependencies:
-    google-auth-library: ^8.8.0 || ^9.0.0
+    google-auth-library: ">=8.8.0"
   peerDependenciesMeta:
     google-auth-library:
       optional: true
-  checksum: 10/37359c9816228b2e83a3870361f81e115c1cf627ff2a7c411c6811e2a2c65d86d34e6dbe3800d24b4f9b5d1e6708551aa80b165a939486548425476b79cb7221
+  checksum: 10/dfbf98e2c8b2d7c6678447f5bcbe4e6eaf06e4a65abd397adc1e6b8e5b1c4f2e733610d72ab7a87408dd824bf013f88cb3bb272bda92dfe8f7575313d5f14863
   languageName: node
   linkType: hard
 
@@ -11174,6 +11188,13 @@ __metadata:
   version: 1.8.0
   resolution: "kolorist@npm:1.8.0"
   checksum: 10/71d5d122951cc65f2f14c3e1d7f8fd91694b374647d4f6deec3816d018cd04a44edd9578d93e00c82c2053b925e5d30a0565746c4171f4ca9fce1a13bd5f3315
+  languageName: node
+  linkType: hard
+
+"ky@npm:^1.14.3":
+  version: 1.14.3
+  resolution: "ky@npm:1.14.3"
+  checksum: 10/afd6a6ff10e33138d5338c014a051ca920c6ced7f8452748dfe960c26fb5456f36e103cd8b5868ebf2a38bf13c2b3f53b74cbea44a1b53923e1921bb9a6447b1
   languageName: node
   linkType: hard
 
@@ -15431,7 +15452,7 @@ __metadata:
     eslint-plugin-testing-library: "npm:7.16.2"
     eslint-plugin-unused-imports: "npm:4.4.1"
     google-auth-library: "npm:9.15.0"
-    google-spreadsheet: "npm:4.1.4"
+    google-spreadsheet: "npm:5.2.0"
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
