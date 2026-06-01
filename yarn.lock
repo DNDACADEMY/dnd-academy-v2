@@ -1886,10 +1886,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@channel.io/channel-web-sdk-loader@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@channel.io/channel-web-sdk-loader@npm:2.0.0"
-  checksum: 10/11bf96fa8863a9800537f674225bc3fa67cea59592a8bd1fc9d333e5db899e08ff885bd3380f67b62e0ba7ab3252a7ba2df636cf58f84b562584830ade370f6a
+"@channel.io/channel-web-sdk-loader@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@channel.io/channel-web-sdk-loader@npm:2.0.2"
+  checksum: 10/a794facbc44afe760d4d218ed3eb2798db35e4fe39a86272db3621db0603413745d0038e065cf19cc78506279aa1fa9d27dcdb145b00a53767a95ebb56a3a372
   languageName: node
   linkType: hard
 
@@ -2074,7 +2074,7 @@ __metadata:
     eslint-plugin-unused-imports: "npm:4.4.1"
     jest: "npm:30.4.2"
     jest-plugin-context: "npm:2.9.0"
-    qs: "npm:6.14.2"
+    qs: "npm:6.15.2"
     typescript: "npm:5.2.2"
     vite: "npm:6.4.2"
     vite-plugin-dts: "npm:5.0.1"
@@ -5389,9 +5389,9 @@ __metadata:
   linkType: hard
 
 "@types/qs@npm:^6":
-  version: 6.9.15
-  resolution: "@types/qs@npm:6.9.15"
-  checksum: 10/97d8208c2b82013b618e7a9fc14df6bd40a73e1385ac479b6896bafc7949a46201c15f42afd06e86a05e914f146f495f606b6fb65610cc60cf2e0ff743ec38a2
+  version: 6.15.1
+  resolution: "@types/qs@npm:6.15.1"
+  checksum: 10/fd04a36c683dbb1ec5819c01773905259955bfd84d7294af178ad609990a9b8d75d458629ca3bf97b151fe2934eb12ade7fdeb98f2e3ad40d138f0a7d195ac7c
   languageName: node
   linkType: hard
 
@@ -7723,10 +7723,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:1.11.11":
-  version: 1.11.11
-  resolution: "dayjs@npm:1.11.11"
-  checksum: 10/f03948b172fbeed229837965988d1d5bac99c72a31c28731a457303259439f2f36289186489ae140adbeb10f591a926908c8de5d81eb449a2edbf5cbd6e9e30c
+"dayjs@npm:1.11.21":
+  version: 1.11.21
+  resolution: "dayjs@npm:1.11.21"
+  checksum: 10/dd16f9f2706b61b90e3c346a3211ac3afd9e26193136ce0e87f70bf74d1c17a447bceb230a88b175467fc9f5e3243d8c1544b9897092a12d9c80ee44d338dcb6
   languageName: node
   linkType: hard
 
@@ -12480,10 +12480,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path2d@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "path2d@npm:0.2.1"
-  checksum: 10/16dd250206069417cc9e7377a8f077a4f385e1b0ed121d9766420f592b5519fad8c160b85205561fcdd8cf5169c779deb9e2e883ed61b21980c9201c6df198f8
+"path2d@npm:^0.2.1":
+  version: 0.2.2
+  resolution: "path2d@npm:0.2.2"
+  checksum: 10/4e1a18ec0d92b050fe8ebf5fd0f35c61887b743a1979d4a4a1b00c38907a0cbed85365045897ca769eec98f55346659a72d5249543994fa52d26be07e14ff67e
   languageName: node
   linkType: hard
 
@@ -12510,18 +12510,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pdfjs-dist@npm:4.4.168":
-  version: 4.4.168
-  resolution: "pdfjs-dist@npm:4.4.168"
+"pdfjs-dist@npm:4.8.69":
+  version: 4.8.69
+  resolution: "pdfjs-dist@npm:4.8.69"
   dependencies:
-    canvas: "npm:^2.11.2"
-    path2d: "npm:^0.2.0"
+    canvas: "npm:^3.0.0-rc2"
+    path2d: "npm:^0.2.1"
   dependenciesMeta:
     canvas:
       optional: true
     path2d:
       optional: true
-  checksum: 10/4fbff214db0b744259c56e2e334e8145981f08251174f8159f32be311c0d87bba3c9c9722c2ce730d0ac1cdc32d00d5668e64db1f860e6f84fc22787c8f12e69
+  checksum: 10/45efacf03cf0841db508fa4df3081ec57a0debdb01c556e05cb7c98b9477181b5124015739e0ce5fb4329bf6c4bd3f4de68c3bbecd40f256dcc359c1c8f08c64
   languageName: node
   linkType: hard
 
@@ -12928,16 +12928,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.14.2":
-  version: 6.14.2
-  resolution: "qs@npm:6.14.2"
-  dependencies:
-    side-channel: "npm:^1.1.0"
-  checksum: 10/682933a85bb4b7bd0d66e13c0a40d9e612b5e4bcc2cb9238f711a9368cd22d91654097a74fff93551e58146db282c56ac094957dfdc60ce64ea72c3c9d7779ac
-  languageName: node
-  linkType: hard
-
-"qs@npm:^6.14.2":
+"qs@npm:6.15.2, qs@npm:^6.14.2":
   version: 6.15.2
   resolution: "qs@npm:6.15.2"
   dependencies:
@@ -13041,13 +13032,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-fast-marquee@npm:1.6.4":
-  version: 1.6.4
-  resolution: "react-fast-marquee@npm:1.6.4"
+"react-fast-marquee@npm:1.6.5":
+  version: 1.6.5
+  resolution: "react-fast-marquee@npm:1.6.5"
   peerDependencies:
-    react: ">= 16.8.0 || 18.0.0"
-    react-dom: ">= 16.8.0 || 18.0.0"
-  checksum: 10/37f967fc060af5218e22b1bfeb118e73d84d4fb2976ea70e30ea7122eb372dc520f764351d9cb2b2242f0505d2a80a5ea111ff1ae2d8767c92e435d2d9449bd0
+    react: ">= 16.8.0 || ^18.0.0"
+    react-dom: ">= 16.8.0 || ^18.0.0"
+  checksum: 10/ac77bc21060c359df1d56864f355dbe46422c58fdcab47c24763a17e50ab40f6ba8506b209f6e076e0ab06500edf86bb011781559d105c65421e7f681fabaaa4
   languageName: node
   linkType: hard
 
@@ -13079,16 +13070,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-pdf@npm:9.1.1":
-  version: 9.1.1
-  resolution: "react-pdf@npm:9.1.1"
+"react-pdf@npm:9.2.1":
+  version: 9.2.1
+  resolution: "react-pdf@npm:9.2.1"
   dependencies:
     clsx: "npm:^2.0.0"
     dequal: "npm:^2.0.3"
     make-cancellable-promise: "npm:^1.3.1"
     make-event-props: "npm:^1.6.0"
     merge-refs: "npm:^1.3.0"
-    pdfjs-dist: "npm:4.4.168"
+    pdfjs-dist: "npm:4.8.69"
     tiny-invariant: "npm:^1.0.0"
     warning: "npm:^4.0.0"
   peerDependencies:
@@ -13098,7 +13089,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/9ec41f4be1643092920ab3951af69eabbc2969a59807047bff25c9fa9e3520e41a13e56e26a5696e077ba650399e7e2efb395b4a1ff5626539eaa3265df776de
+  checksum: 10/c0455dfd8d566c736fd747489cad414e2dc1e9c10570598ce576f4461e0f8a1a9eff8065f0247f1277796d3d4ec051f2b195ba12a8974405610834308ce4ee0d
   languageName: node
   linkType: hard
 
@@ -15392,7 +15383,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:apps/web"
   dependencies:
-    "@channel.io/channel-web-sdk-loader": "npm:2.0.0"
+    "@channel.io/channel-web-sdk-loader": "npm:2.0.2"
     "@chromatic-com/storybook": "npm:5.2.1"
     "@dnd-academy/core": "workspace:*"
     "@dnd-academy/eslint-config": "workspace:*"
@@ -15421,7 +15412,7 @@ __metadata:
     "@vercel/speed-insights": "npm:2.0.0"
     clsx: "npm:2.1.1"
     cypress: "npm:15.15.0"
-    dayjs: "npm:1.11.11"
+    dayjs: "npm:1.11.21"
     eslint: "npm:10.4.0"
     eslint-plugin-cypress: "npm:6.4.1"
     eslint-plugin-jest: "npm:29.15.2"
@@ -15443,8 +15434,8 @@ __metadata:
     react: "npm:19.2.6"
     react-countup: "npm:6.5.3"
     react-dom: "npm:19.2.6"
-    react-fast-marquee: "npm:1.6.4"
-    react-pdf: "npm:9.1.1"
+    react-fast-marquee: "npm:1.6.5"
+    react-pdf: "npm:9.2.1"
     react-perfect-scrollbar: "npm:1.5.8"
     react-responsive-masonry: "npm:2.7.2"
     react-snowfall: "npm:2.4.0"
@@ -15462,7 +15453,7 @@ __metadata:
     use-sync-external-store: "npm:^1.3"
     usehooks-ts: "npm:3.1.1"
     webpack: "npm:5.106.2"
-    zustand: "npm:5.0.0"
+    zustand: "npm:5.0.14"
   languageName: unknown
   linkType: soft
 
@@ -15847,9 +15838,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:5.0.0":
-  version: 5.0.0
-  resolution: "zustand@npm:5.0.0"
+"zustand@npm:5.0.14":
+  version: 5.0.14
+  resolution: "zustand@npm:5.0.14"
   peerDependencies:
     "@types/react": ">=18.0.0"
     immer: ">=9.0.6"
@@ -15864,6 +15855,6 @@ __metadata:
       optional: true
     use-sync-external-store:
       optional: true
-  checksum: 10/be75ef4d1b218b143314467bb9e23641231043cad2d5c3a4b2219c46d1609ee799cd8dc9acec9b23d55ec3a2a619a06616e593aea4049f3b7323938af9a33bfe
+  checksum: 10/136ab316fa4fa479ce7cc0cf485665dcee9e1bd926d4e51e138cd40d6602900fd2a4b6bb172b39b03bd7b6df073a0656679e5a237c28dd026d8fd4e5228e1b7c
   languageName: node
   linkType: hard
