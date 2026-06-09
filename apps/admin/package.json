@@ -31,7 +31,7 @@
     "@vercel/blob": "2.4.0",
     "clsx": "2.1.1",
     "google-auth-library": "9.15.0",
-    "google-spreadsheet": "4.1.4",
+    "google-spreadsheet": "5.2.0",
     "motion": "11.14.4",
     "next": "16.2.6",
     "next-auth": "5.0.0-beta.30",
