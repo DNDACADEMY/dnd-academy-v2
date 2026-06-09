@@ -87,7 +87,7 @@
     "eslint-plugin-storybook": "10.4.0",
     "eslint-plugin-testing-library": "7.16.2",
     "eslint-plugin-unused-imports": "4.4.1",
-    "google-auth-library": "9.15.0",
+    "google-auth-library": "10.7.0",
     "google-spreadsheet": "5.2.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "30.4.2",
