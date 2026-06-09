@@ -27,17 +27,22 @@ updates:
           - "minor"
           - "patch"
     ignore:
+      # next-upgrade.test.ts 가드레일이 next / @next/* 를 정확한 버전(16.2.x)으로
+      # 핀 고정한다. patch 까지 포함해 모든 자동 업데이트를 막고, 올릴 때는
+      # 가드레일 테스트를 함께 갱신하며 수동으로 진행한다.
       - dependency-name: "next"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: "@next/*"
       - dependency-name: "react"
         update-types: ["version-update:semver-major"]
       - dependency-name: "react-dom"
         update-types: ["version-update:semver-major"]
+      # Storybook 계열도 동일하게 가드레일이 정확한 버전(10.4.x)으로 핀 고정한다.
+      # `@storybook/*` glob 은 형제 패키지(storybook / eslint-plugin-storybook /
+      # @chromatic-com/storybook)를 매칭하지 못하므로 개별로 함께 막는다.
       - dependency-name: "@storybook/*"
-        update-types: ["version-update:semver-major"]
-      # `@storybook/*` glob does not match the bare `storybook` meta-package.
       - dependency-name: "storybook"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: "eslint-plugin-storybook"
+      - dependency-name: "@chromatic-com/storybook"
       - dependency-name: "cypress"
         update-types: ["version-update:semver-major"]
       - dependency-name: "typescript"
