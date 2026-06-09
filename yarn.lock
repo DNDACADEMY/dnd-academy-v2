@@ -2140,7 +2140,7 @@ __metadata:
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:11.14.4"
+    motion: "npm:12.40.0"
     next: "npm:16.2.6"
     postcss: "npm:8.5.15"
     react: "npm:19.2.6"
@@ -2162,7 +2162,7 @@ __metadata:
     vite-plugin-svgr: "npm:5.2.0"
   peerDependencies:
     clsx: 2.1.1
-    motion: 11.14.4
+    motion: 12.40.0
     next: ^15 || ^16
     react: ^19
     react-countup: 6.5.3
@@ -6234,7 +6234,7 @@ __metadata:
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:11.14.4"
+    motion: "npm:12.40.0"
     next: "npm:16.2.6"
     next-auth: "npm:5.0.0-beta.30"
     postcss: "npm:8.5.15"
@@ -9260,12 +9260,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^11.14.4":
-  version: 11.14.4
-  resolution: "framer-motion@npm:11.14.4"
+"framer-motion@npm:^12.40.0":
+  version: 12.40.0
+  resolution: "framer-motion@npm:12.40.0"
   dependencies:
-    motion-dom: "npm:^11.14.3"
-    motion-utils: "npm:^11.14.3"
+    motion-dom: "npm:^12.40.0"
+    motion-utils: "npm:^12.39.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@emotion/is-prop-valid": "*"
@@ -9278,7 +9278,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/303e996fb309bddf7b3fc220d0d4c07186b397a38589ed7d35175e03c1ea96243a2182780403d0dd7f5a510720ab9f08955b45b7ef5913ad05915ffea388219e
+  checksum: 10/2e74f03ef09ea48a92d418741d925725951eaeaf2d716865b26d8c0aab4e0b4a2d337d596693bdb641209d9d170055d677423ba1d2a76a07d15ca11c0eb677fc
   languageName: node
   linkType: hard
 
@@ -11822,25 +11822,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion-dom@npm:^11.14.3":
-  version: 11.14.3
-  resolution: "motion-dom@npm:11.14.3"
-  checksum: 10/24bd9a78c278e7622dd9347da3cb0f0e356ae72b9ef5ecba71a5b8dce9b5df05ee190d862b59d793e3d6b65756683689e7c2f96b0add72f40c2bb8268c037c8c
-  languageName: node
-  linkType: hard
-
-"motion-utils@npm:^11.14.3":
-  version: 11.14.3
-  resolution: "motion-utils@npm:11.14.3"
-  checksum: 10/594b69d60a4cabea823a7ebf0f1e2fa13df9128ee2db9c6385ab23c6d1224dcd0d09fab67c361000d8f0288d75c56cb94d00c431023d22c052c5496a4757c5e5
-  languageName: node
-  linkType: hard
-
-"motion@npm:11.14.4":
-  version: 11.14.4
-  resolution: "motion@npm:11.14.4"
+"motion-dom@npm:^12.40.0":
+  version: 12.40.0
+  resolution: "motion-dom@npm:12.40.0"
   dependencies:
-    framer-motion: "npm:^11.14.4"
+    motion-utils: "npm:^12.39.0"
+  checksum: 10/280cae8811b63ef76e9eb7982e6ace9e74a132e11e7595f6aa6a3699003a9c233eeb681694e938825cf724148e1689302f8b2cce168a8a0c8cef2082ad32b38b
+  languageName: node
+  linkType: hard
+
+"motion-utils@npm:^12.39.0":
+  version: 12.39.0
+  resolution: "motion-utils@npm:12.39.0"
+  checksum: 10/5aa2972bf38c44e44e0a39a70202ce69d585d88d28b37975ca0849756b8614e28d5ebd263ed806e94886b1fe684ce28ee630c4556c465581eaa6dca420249486
+  languageName: node
+  linkType: hard
+
+"motion@npm:12.40.0":
+  version: 12.40.0
+  resolution: "motion@npm:12.40.0"
+  dependencies:
+    framer-motion: "npm:^12.40.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@emotion/is-prop-valid": "*"
@@ -11853,7 +11855,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/55c421d33535b115f34abb95eab2029846324df67d7c4128f571441f755a588933a0320b9fdd553fb5f017e679b3e05fa6578a41db2873987b779f785b07363b
+  checksum: 10/31922a23309321d851d942d8e838869eada94dee6c73973bda2d7f76a4acce9d3668f1d6d420ef0972ad9c41a52dde3c2a1b066220680224da8e5ac4dadaaa2c
   languageName: node
   linkType: hard
 
@@ -15481,7 +15483,7 @@ __metadata:
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:11.14.4"
+    motion: "npm:12.40.0"
     next: "npm:16.2.6"
     postcss: "npm:8.5.15"
     prop-types: "npm:15.8.1"
