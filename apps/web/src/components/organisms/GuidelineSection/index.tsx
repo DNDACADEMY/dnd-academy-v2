@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { DesignerBadge, DeveloperBadge } from '@/lib/assets/logos';
 
@@ -22,7 +20,7 @@ function GuidelineSection() {
             <tr>
               <td className={styles.week}>2주</td>
               <td />
-              <td>사용자 경험 조사</td>
+              <td>기획 고도화</td>
               <td />
             </tr>
             <tr>
@@ -31,31 +29,29 @@ function GuidelineSection() {
               <td>
                 <div className={styles.withBadge}>
                   <DeveloperBadge className={styles.developerBadge} />
-                  <div>프로젝트 세팅</div>
+                  <div>아키텍처 설계</div>
                 </div>
               </td>
               <td>
                 <div className={styles.withBadge}>
                   <DesignerBadge className={styles.designerBadge} />
-                  <div>Lo-fi design</div>
+                  <div>디자인시스템 & 와이어프레임</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td className={styles.week}>4주</td>
-              <td className={styles.middle}>
-                <span className={clsx(styles.badge, styles.absolute)}>중간발표</span>
-              </td>
+              <td />
               <td>
                 <div className={styles.withBadge}>
                   <DeveloperBadge className={styles.developerBadge} />
-                  <div>개발 진행</div>
+                  <div>개발 고도화 미션</div>
                 </div>
               </td>
               <td>
                 <div className={styles.withBadge}>
                   <DesignerBadge className={styles.designerBadge} />
-                  <div>Branding, Hi-fi design</div>
+                  <div>디자인 고도화 미션</div>
                 </div>
               </td>
             </tr>
@@ -68,19 +64,19 @@ function GuidelineSection() {
             <tr>
               <td className={styles.week}>6주</td>
               <td />
-              <td>프로토타입 데모</td>
+              <td>진행상황 점검</td>
               <td />
             </tr>
             <tr>
               <td className={styles.week}>7주</td>
               <td />
-              <td>우선순위 조정</td>
+              <td>최종 발표 및 데모 준비</td>
               <td />
             </tr>
             <tr>
               <td className={styles.week}>8주</td>
               <td>
-                <span className={styles.badge}>🔥최종 발표🔥</span>
+                <span className={styles.badge}>최종 발표</span>
               </td>
               <td />
               <td />
