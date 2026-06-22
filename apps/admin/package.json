@@ -28,7 +28,7 @@
     "@dnd-academy/core": "workspace:*",
     "@dnd-academy/ui": "workspace:*",
     "@tanstack/react-query": "5.101.0",
-    "@vercel/blob": "2.4.0",
+    "@vercel/blob": "2.4.1",
     "clsx": "2.1.1",
     "google-auth-library": "10.7.0",
     "google-spreadsheet": "5.3.0",
