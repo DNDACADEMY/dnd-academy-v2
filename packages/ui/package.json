@@ -58,7 +58,7 @@
   "dependencies": {
     "@dnd-academy/core": "workspace:*",
     "clsx": "2.1.1",
-    "motion": "12.40.0",
+    "motion": "12.42.0",
     "react-countup": "6.5.3",
     "sanitize.css": "13.0.0"
   },
@@ -110,7 +110,7 @@
   },
   "peerDependencies": {
     "clsx": "2.1.1",
-    "motion": "12.40.0",
+    "motion": "12.42.0",
     "next": "^15 || ^16",
     "react": "^19",
     "react-countup": "6.5.3",
