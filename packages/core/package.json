@@ -24,24 +24,24 @@
   "author": "dnd-academy",
   "devDependencies": {
     "@dnd-academy/eslint-config": "workspace:*",
-    "@swc/core": "1.6.13",
-    "@swc/jest": "0.2.36",
+    "@swc/core": "1.15.43",
+    "@swc/jest": "0.2.39",
     "@types/jest": "30.0.0",
     "@types/jest-plugin-context": "2.9.7",
     "@types/qs": "^6",
-    "@typescript-eslint/eslint-plugin": "8.59.4",
-    "@typescript-eslint/parser": "8.59.4",
-    "eslint": "10.4.0",
-    "eslint-plugin-jest": "29.15.2",
+    "@typescript-eslint/eslint-plugin": "8.62.1",
+    "@typescript-eslint/parser": "8.62.1",
+    "eslint": "10.6.0",
+    "eslint-plugin-jest": "29.15.3",
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-simple-import-sort": "13.0.0",
     "eslint-plugin-testing-library": "7.16.2",
     "eslint-plugin-unused-imports": "4.4.1",
     "jest": "30.4.2",
     "jest-plugin-context": "2.9.0",
-    "typescript": "5.2.2",
-    "vite": "6.4.2",
-    "vite-plugin-dts": "5.0.1"
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "vite-plugin-dts": "5.0.3"
   },
   "dependencies": {
     "qs": "6.15.3"
