@@ -68,7 +68,7 @@ jobs:
         run: echo "hash=${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}" >> $GITHUB_OUTPUT
 
       - name: Check dependency cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: cache_dependencies
         with:
           path: |
@@ -102,7 +102,7 @@ jobs:
 
       - name: Check dependency cache
         id: cache-deps
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
           key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
@@ -130,7 +130,7 @@ jobs:
 
       - name: Check dependency cache
         id: cache-deps
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
           key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
@@ -144,7 +144,7 @@ jobs:
         run: echo "hash=${{ runner.os }}-core-build-${{ hashFiles('packages/core/**') }}" >> $GITHUB_OUTPUT
 
       - name: Check @dnd-academy/core build cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: cache_built_core_packages
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_CORE_PATHS }}
@@ -159,7 +159,7 @@ jobs:
         run: echo "hash=${{ runner.os }}-ui-build-${{ hashFiles('packages/ui/**') }}" >> $GITHUB_OUTPUT
 
       - name: Check @dnd-academy/ui build cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: cache_built_ui_packages
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
@@ -188,7 +188,7 @@ jobs:
 
       - name: Check dependency cache
         id: cache-deps
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
           key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
@@ -205,13 +205,13 @@ jobs:
           echo GOOGLE_PRIVATE_KEY = ${{ secrets.GOOGLE_PRIVATE_KEY }} >> .env
 
       - name: Check build core package cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_CORE_PATHS }}
           key: ${{ needs.job_packages_build.outputs.build_package_core_cache_key }}
 
       - name: Check build ui package cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
           key: ${{ needs.job_packages_build.outputs.build_package_ui_cache_key }}
@@ -223,7 +223,7 @@ jobs:
           echo "hash=${{ runner.os }}-generate-data-${SCRIPTS_HASH}" >> $GITHUB_OUTPUT
 
       - name: Check Generate Data cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: cache_generated_data
         with:
           path: ${{ env.CACHED_GENERATED_STATIC_DATA_PATHS }}
@@ -247,13 +247,13 @@ jobs:
   #         node-version: ${{ env.DEFAULT_NODE_VERSION }}
 
   #     - name: Check dependency cache
-  #       uses: actions/cache@v5
+  #       uses: actions/cache@v6
   #       with:
   #         path: ${{ needs.job_packages_build.outputs.yarn_cache_dir_path }}
   #         key: ${{ needs.job_packages_build.outputs.dependency_cache_key }}
 
   #     - name: Check build package cache
-  #       uses: actions/cache@v5
+  #       uses: actions/cache@v6
   #       with:
   #         path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
   #         key: ${{ needs.job_packages_build.outputs.build_package_ui_cache_key }}
@@ -284,7 +284,7 @@ jobs:
 
       - name: Check dependency cache
         id: cache-deps
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
           key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
@@ -293,19 +293,19 @@ jobs:
         run: yarn install --immutable
 
       - name: Check build core package cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_CORE_PATHS }}
           key: ${{ needs.job_packages_build.outputs.build_package_core_cache_key }}
 
       - name: Check build ui package cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
           key: ${{ needs.job_packages_build.outputs.build_package_ui_cache_key }}
 
       - name: Check generate data cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ env.CACHED_GENERATED_STATIC_DATA_PATHS }}
           key: ${{ needs.job_generate_data.outputs.generate_data_cache_key }}
