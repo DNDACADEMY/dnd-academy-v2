@@ -42,7 +42,7 @@
     "@vercel/speed-insights": "2.0.0",
     "clsx": "2.1.1",
     "dayjs": "1.11.21",
-    "motion": "12.42.0",
+    "motion": "12.42.2",
     "next": "16.2.6",
     "react": "19.2.7",
     "react-countup": "6.5.3",
