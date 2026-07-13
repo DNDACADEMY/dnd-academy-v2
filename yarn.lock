@@ -2140,7 +2140,7 @@ __metadata:
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:12.42.0"
+    motion: "npm:12.42.2"
     next: "npm:16.2.6"
     postcss: "npm:8.5.15"
     react: "npm:19.2.7"
@@ -2162,7 +2162,7 @@ __metadata:
     vite-plugin-svgr: "npm:5.2.0"
   peerDependencies:
     clsx: 2.1.1
-    motion: 12.42.0
+    motion: 12.42.2
     next: ^15 || ^16
     react: ^19
     react-countup: 6.5.3
@@ -5847,9 +5847,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/blob@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@vercel/blob@npm:2.5.0"
+"@vercel/blob@npm:2.6.1":
+  version: 2.6.1
+  resolution: "@vercel/blob@npm:2.6.1"
   dependencies:
     "@vercel/oidc": "npm:^3.6.1"
     async-retry: "npm:^1.3.3"
@@ -5857,7 +5857,7 @@ __metadata:
     is-node-process: "npm:^1.2.0"
     throttleit: "npm:^2.1.0"
     undici: "npm:^6.23.0"
-  checksum: 10/063e4247994634adb6696522cb7d3481369f3eac86a502eabb6cd4ff5ae22c745c2c07f70766c3151dc873324ca3399ec36c728e2b8941f98959feeaeae6bc09
+  checksum: 10/df444935f95e3765b32b7c80b6997c22b819f11b82dd0065b51b6099bc42d9dee66f42a0cf139805b27750e620b667bfff80328c93278c56d45312fc29a9c67f
   languageName: node
   linkType: hard
 
@@ -6251,7 +6251,7 @@ __metadata:
     "@types/react-dom": "npm:19.2.3"
     "@typescript-eslint/eslint-plugin": "npm:8.59.4"
     "@typescript-eslint/parser": "npm:8.59.4"
-    "@vercel/blob": "npm:2.5.0"
+    "@vercel/blob": "npm:2.6.1"
     clsx: "npm:2.1.1"
     eslint: "npm:10.4.0"
     eslint-plugin-jest: "npm:29.15.2"
@@ -6265,7 +6265,7 @@ __metadata:
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:12.42.0"
+    motion: "npm:12.42.2"
     next: "npm:16.2.6"
     next-auth: "npm:5.0.0-beta.30"
     postcss: "npm:8.5.15"
@@ -9291,11 +9291,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.42.0":
-  version: 12.42.0
-  resolution: "framer-motion@npm:12.42.0"
+"framer-motion@npm:^12.42.2":
+  version: 12.42.2
+  resolution: "framer-motion@npm:12.42.2"
   dependencies:
-    motion-dom: "npm:^12.42.0"
+    motion-dom: "npm:^12.42.2"
     motion-utils: "npm:^12.39.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -9309,7 +9309,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/a8e84c289fbd6bcc5c8513edd1ad2b74d1364f5eba93d358cc35a8c5413c4fef200e3702ad1513e30acf0f83edaded34c25b456ca91f7465f0d1e238c3588d92
+  checksum: 10/88be683cd62586ce7d5fc34f9054b4e89c313a5cd2729fac6d34eda7c7740ff5588afa103ecb8bfda580c09012fb1be65b655632304977fbe3e17009e3462205
   languageName: node
   linkType: hard
 
@@ -11860,12 +11860,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion-dom@npm:^12.42.0":
-  version: 12.42.0
-  resolution: "motion-dom@npm:12.42.0"
+"motion-dom@npm:^12.42.2":
+  version: 12.42.2
+  resolution: "motion-dom@npm:12.42.2"
   dependencies:
     motion-utils: "npm:^12.39.0"
-  checksum: 10/5b293ad1f5050b41ec1b10534ca43f6a084e8963681cf6a47bbe7aeae22ed31fc251069b1f761b65b9595e68aa04ccd692a31536b87f6b08c1f00a0050d826e1
+  checksum: 10/f3ad9476f51aa35bae00b289e93ce9ddedd8cee0c988d12efd5cffd0c8227df20cc666116794034217827a8f717810b3567d034946fed2abac7c18f53522fe59
   languageName: node
   linkType: hard
 
@@ -11876,11 +11876,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion@npm:12.42.0":
-  version: 12.42.0
-  resolution: "motion@npm:12.42.0"
+"motion@npm:12.42.2":
+  version: 12.42.2
+  resolution: "motion@npm:12.42.2"
   dependencies:
-    framer-motion: "npm:^12.42.0"
+    framer-motion: "npm:^12.42.2"
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@emotion/is-prop-valid": "*"
@@ -11893,7 +11893,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/9dd0fe9e9c22b586915b8e3e6f0e3dfc73f49a0c63745fba5a39978d35cbb25a019f2e30bcea269d0b920c663c2331a70f03429b0c5e78cb450c3f7ac4a72633
+  checksum: 10/2651bdb6700e982c29095df7a573180aba29cf6882fdbfc2a7cc2ab42c6ca01ce9eaa9d0612a486d546728aef654e9d67316f49a42cc2e331fce4692079be12e
   languageName: node
   linkType: hard
 
@@ -15541,7 +15541,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:8.59.4"
     "@typescript-eslint/parser": "npm:8.59.4"
     "@vercel/analytics": "npm:2.0.1"
-    "@vercel/blob": "npm:2.5.0"
+    "@vercel/blob": "npm:2.6.1"
     "@vercel/speed-insights": "npm:2.0.0"
     clsx: "npm:2.1.1"
     cypress: "npm:15.15.0"
@@ -15560,7 +15560,7 @@ __metadata:
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:12.42.0"
+    motion: "npm:12.42.2"
     next: "npm:16.2.6"
     postcss: "npm:8.5.15"
     prop-types: "npm:15.8.1"
