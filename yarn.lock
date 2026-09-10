@@ -2074,7 +2074,7 @@ __metadata:
     eslint-plugin-unused-imports: "npm:4.4.1"
     jest: "npm:30.4.2"
     jest-plugin-context: "npm:2.9.0"
-    qs: "npm:6.15.2"
+    qs: "npm:6.15.3"
     typescript: "npm:5.2.2"
     vite: "npm:6.4.2"
     vite-plugin-dts: "npm:5.0.1"
@@ -2140,7 +2140,7 @@ __metadata:
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:12.40.0"
+    motion: "npm:12.42.0"
     next: "npm:16.2.6"
     postcss: "npm:8.5.15"
     react: "npm:19.2.7"
@@ -2162,7 +2162,7 @@ __metadata:
     vite-plugin-svgr: "npm:5.2.0"
   peerDependencies:
     clsx: 2.1.1
-    motion: 12.40.0
+    motion: 12.42.0
     next: ^15 || ^16
     react: ^19
     react-countup: 6.5.3
@@ -4991,21 +4991,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.101.0":
-  version: 5.101.0
-  resolution: "@tanstack/query-core@npm:5.101.0"
-  checksum: 10/9144f3365897c3902d983d3314e0eab888a46295356d654eab475045188ba336269e540f6d4ea807f5724c87af347fcd48ce1dc09b95b51d650c645c11db5235
+"@tanstack/query-core@npm:5.101.2":
+  version: 5.101.2
+  resolution: "@tanstack/query-core@npm:5.101.2"
+  checksum: 10/567af5e3c21628745a08c1a5054d838597bc620dcbbeabe20cdd6ccffdcca85a8d38128f6e80829b6e04d10f79ca793a7dd8fddc8a3d6bef10c2d580ae214c7d
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.101.0":
-  version: 5.101.0
-  resolution: "@tanstack/react-query@npm:5.101.0"
+"@tanstack/react-query@npm:5.101.2":
+  version: 5.101.2
+  resolution: "@tanstack/react-query@npm:5.101.2"
   dependencies:
-    "@tanstack/query-core": "npm:5.101.0"
+    "@tanstack/query-core": "npm:5.101.2"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10/86257b39b8673ca8b85760723996e05f373d5a93915395f17d7af0c06373f03aedb67031c2016ebbc25c43a999ace26b0acb0a43f1aca479a95f0002219256f5
+  checksum: 10/0837c176b6afb01e3632010bbd8bdfeee7f46c4a25a50ed2ba9ddddce11c34431161d80dd8e53a2f55190c2313bbfb22a84a77308e6ccf29877b4818de68c4b3
   languageName: node
   linkType: hard
 
@@ -5847,16 +5847,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/blob@npm:2.4.0":
-  version: 2.4.0
-  resolution: "@vercel/blob@npm:2.4.0"
+"@vercel/blob@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@vercel/blob@npm:2.5.0"
   dependencies:
+    "@vercel/oidc": "npm:^3.6.1"
     async-retry: "npm:^1.3.3"
     is-buffer: "npm:^2.0.5"
     is-node-process: "npm:^1.2.0"
     throttleit: "npm:^2.1.0"
     undici: "npm:^6.23.0"
-  checksum: 10/e5399baacf97152fd0c9cb3b51bbf87fb0bd183e6e4a9f2ca6772d6308e378386beb84c864f2bededa23ad20b4c8fdb25ccfa947351bb7e131510d3d7ae5fc3d
+  checksum: 10/063e4247994634adb6696522cb7d3481369f3eac86a502eabb6cd4ff5ae22c745c2c07f70766c3151dc873324ca3399ec36c728e2b8941f98959feeaeae6bc09
+  languageName: node
+  linkType: hard
+
+"@vercel/cli-config@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@vercel/cli-config@npm:0.2.0"
+  dependencies:
+    xdg-app-paths: "npm:5"
+    zod: "npm:4.1.11"
+  checksum: 10/8ca13da6863e47e29bae563f87a1000944455b7b060b30f08b41b7f3fe5ec1d8ea0706b74ed8ff6fdaf8735869d0b2e9286f36c30266005208ebd369e4e10744
+  languageName: node
+  linkType: hard
+
+"@vercel/cli-exec@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@vercel/cli-exec@npm:1.0.0"
+  dependencies:
+    execa: "npm:5.1.1"
+  checksum: 10/0cc07615809f0d1b9da90e66dd1ab6f3111b688c6b4e112fe8b9f88ffc3151f4614534217ab310851c5db78acfcb81647f4e5829eb087e3a7d79c9faf6f69f79
+  languageName: node
+  linkType: hard
+
+"@vercel/oidc@npm:^3.6.1":
+  version: 3.7.1
+  resolution: "@vercel/oidc@npm:3.7.1"
+  dependencies:
+    "@vercel/cli-config": "npm:0.2.0"
+    "@vercel/cli-exec": "npm:1.0.0"
+    jose: "npm:^5.9.6"
+  checksum: 10/89bbb0f3631454dc294b99cc0b7a4312f6c0fd19445e75dd4e17a4a299c73623ec8fd5d7c51eba52103b20bea3f1d787dc801126f04f2618179c073d354ef8ad
   languageName: node
   linkType: hard
 
@@ -6208,7 +6239,7 @@ __metadata:
     "@dnd-academy/eslint-config": "workspace:*"
     "@dnd-academy/ui": "workspace:*"
     "@next/eslint-plugin-next": "npm:16.2.6"
-    "@tanstack/react-query": "npm:5.101.0"
+    "@tanstack/react-query": "npm:5.101.2"
     "@testing-library/dom": "npm:10.4.1"
     "@testing-library/jest-dom": "npm:6.9.1"
     "@testing-library/react": "npm:16.3.2"
@@ -6220,7 +6251,7 @@ __metadata:
     "@types/react-dom": "npm:19.2.3"
     "@typescript-eslint/eslint-plugin": "npm:8.59.4"
     "@typescript-eslint/parser": "npm:8.59.4"
-    "@vercel/blob": "npm:2.4.0"
+    "@vercel/blob": "npm:2.5.0"
     clsx: "npm:2.1.1"
     eslint: "npm:10.4.0"
     eslint-plugin-jest: "npm:29.15.2"
@@ -6228,13 +6259,13 @@ __metadata:
     eslint-plugin-simple-import-sort: "npm:13.0.0"
     eslint-plugin-testing-library: "npm:7.16.2"
     eslint-plugin-unused-imports: "npm:4.4.1"
-    google-auth-library: "npm:10.7.0"
+    google-auth-library: "npm:10.9.0"
     google-spreadsheet: "npm:5.3.0"
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:12.40.0"
+    motion: "npm:12.42.0"
     next: "npm:16.2.6"
     next-auth: "npm:5.0.0-beta.30"
     postcss: "npm:8.5.15"
@@ -9260,11 +9291,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.40.0":
-  version: 12.40.0
-  resolution: "framer-motion@npm:12.40.0"
+"framer-motion@npm:^12.42.0":
+  version: 12.42.0
+  resolution: "framer-motion@npm:12.42.0"
   dependencies:
-    motion-dom: "npm:^12.40.0"
+    motion-dom: "npm:^12.42.0"
     motion-utils: "npm:^12.39.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -9278,7 +9309,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/2e74f03ef09ea48a92d418741d925725951eaeaf2d716865b26d8c0aab4e0b4a2d337d596693bdb641209d9d170055d677423ba1d2a76a07d15ca11c0eb677fc
+  checksum: 10/a8e84c289fbd6bcc5c8513edd1ad2b74d1364f5eba93d358cc35a8c5413c4fef200e3702ad1513e30acf0f83edaded34c25b456ca91f7465f0d1e238c3588d92
   languageName: node
   linkType: hard
 
@@ -9604,9 +9635,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-auth-library@npm:10.7.0":
-  version: 10.7.0
-  resolution: "google-auth-library@npm:10.7.0"
+"google-auth-library@npm:10.9.0":
+  version: 10.9.0
+  resolution: "google-auth-library@npm:10.9.0"
   dependencies:
     base64-js: "npm:^1.3.0"
     ecdsa-sig-formatter: "npm:^1.0.11"
@@ -9614,7 +9645,7 @@ __metadata:
     gcp-metadata: "npm:8.1.2"
     google-logging-utils: "npm:1.1.3"
     jws: "npm:^4.0.0"
-  checksum: 10/d8f29d8fb9c8e65779225f22fa323e9a57f47adb2d5a45a027939af7c1d78d4374883494508c5728710c73914df5b1502158d497560c3d671c2ee01ed54bff2e
+  checksum: 10/b9afc0c14762a4c7b01b2dbf91a07ac4a9d77c044a4ede8ae560dcbab42d1e311e771435b0978981f91deba276f0e30e84ad0e71cf1fd52dcff20687f5de37dd
   languageName: node
   linkType: hard
 
@@ -10968,6 +10999,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jose@npm:^5.9.6":
+  version: 5.10.0
+  resolution: "jose@npm:5.10.0"
+  checksum: 10/03881d1dfb390dcf50926402edcfe233bf557b5a77321fcb1bdb53453bc1cdd26d2d0a9ab28c7445cbb826881f84fdf5074179700f10c2711ccb9880f51065d7
+  languageName: node
+  linkType: hard
+
 "jose@npm:^6.0.6":
   version: 6.2.3
   resolution: "jose@npm:6.2.3"
@@ -11822,12 +11860,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion-dom@npm:^12.40.0":
-  version: 12.40.0
-  resolution: "motion-dom@npm:12.40.0"
+"motion-dom@npm:^12.42.0":
+  version: 12.42.0
+  resolution: "motion-dom@npm:12.42.0"
   dependencies:
     motion-utils: "npm:^12.39.0"
-  checksum: 10/280cae8811b63ef76e9eb7982e6ace9e74a132e11e7595f6aa6a3699003a9c233eeb681694e938825cf724148e1689302f8b2cce168a8a0c8cef2082ad32b38b
+  checksum: 10/5b293ad1f5050b41ec1b10534ca43f6a084e8963681cf6a47bbe7aeae22ed31fc251069b1f761b65b9595e68aa04ccd692a31536b87f6b08c1f00a0050d826e1
   languageName: node
   linkType: hard
 
@@ -11838,11 +11876,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion@npm:12.40.0":
-  version: 12.40.0
-  resolution: "motion@npm:12.40.0"
+"motion@npm:12.42.0":
+  version: 12.42.0
+  resolution: "motion@npm:12.42.0"
   dependencies:
-    framer-motion: "npm:^12.40.0"
+    framer-motion: "npm:^12.42.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@emotion/is-prop-valid": "*"
@@ -11855,7 +11893,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/31922a23309321d851d942d8e838869eada94dee6c73973bda2d7f76a4acce9d3668f1d6d420ef0972ad9c41a52dde3c2a1b066220680224da8e5ac4dadaaa2c
+  checksum: 10/9dd0fe9e9c22b586915b8e3e6f0e3dfc73f49a0c63745fba5a39978d35cbb25a019f2e30bcea269d0b920c663c2331a70f03429b0c5e78cb450c3f7ac4a72633
   languageName: node
   linkType: hard
 
@@ -12201,6 +12239,13 @@ __metadata:
     type-check: "npm:^0.4.0"
     word-wrap: "npm:^1.2.5"
   checksum: 10/a8398559c60aef88d7f353a4f98dcdff6090a4e70f874c827302bf1213d9106a1c4d5fcb68dacb1feb3c30a04c4102f41047aa55d4c576b863d6fc876e001af6
+  languageName: node
+  linkType: hard
+
+"os-paths@npm:^4.0.1":
+  version: 4.4.0
+  resolution: "os-paths@npm:4.4.0"
+  checksum: 10/696597dfc85b0ed565672956c388f76d004a0e963fcf59fca55e8f73c57bc61e7594e200076844007f5a97781f4adfee3d268d389a4be22cc2e299aa241e2746
   languageName: node
   linkType: hard
 
@@ -12984,7 +13029,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.15.2, qs@npm:^6.14.2":
+"qs@npm:6.15.3":
+  version: 6.15.3
+  resolution: "qs@npm:6.15.3"
+  dependencies:
+    es-define-property: "npm:^1.0.1"
+    side-channel: "npm:^1.1.1"
+  checksum: 10/1cbb4b050872a19ba8a311445be29babb8f66ea5d6462b3c48c6efb2c95187cd286b69734cd4caea1878cca3b9d1f0e9b49335336be9e999a7d8d7cf137ba60d
+  languageName: node
+  linkType: hard
+
+"qs@npm:^6.14.2":
   version: 6.15.2
   resolution: "qs@npm:6.15.2"
   dependencies:
@@ -13908,7 +13963,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"side-channel-list@npm:^1.0.0":
+"side-channel-list@npm:^1.0.0, side-channel-list@npm:^1.0.1":
   version: 1.0.1
   resolution: "side-channel-list@npm:1.0.1"
   dependencies:
@@ -13953,6 +14008,19 @@ __metadata:
     side-channel-map: "npm:^1.0.1"
     side-channel-weakmap: "npm:^1.0.2"
   checksum: 10/7d53b9db292c6262f326b6ff3bc1611db84ece36c2c7dc0e937954c13c73185b0406c56589e2bb8d071d6fee468e14c39fb5d203ee39be66b7b8174f179afaba
+  languageName: node
+  linkType: hard
+
+"side-channel@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "side-channel@npm:1.1.1"
+  dependencies:
+    es-errors: "npm:^1.3.0"
+    object-inspect: "npm:^1.13.4"
+    side-channel-list: "npm:^1.0.1"
+    side-channel-map: "npm:^1.0.1"
+    side-channel-weakmap: "npm:^1.0.2"
+  checksum: 10/5fa6393ff6ad25d8b4a38e9ba095481e498c8ebe5ab78481c1455146255a3d18ca37a6f936595cc671a6149134cdc295bbd2fa017620bdc73cbc7380634fa2fc
   languageName: node
   linkType: hard
 
@@ -15473,7 +15541,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:8.59.4"
     "@typescript-eslint/parser": "npm:8.59.4"
     "@vercel/analytics": "npm:2.0.1"
-    "@vercel/blob": "npm:2.4.0"
+    "@vercel/blob": "npm:2.5.0"
     "@vercel/speed-insights": "npm:2.0.0"
     clsx: "npm:2.1.1"
     cypress: "npm:15.15.0"
@@ -15486,13 +15554,13 @@ __metadata:
     eslint-plugin-storybook: "npm:10.4.0"
     eslint-plugin-testing-library: "npm:7.16.2"
     eslint-plugin-unused-imports: "npm:4.4.1"
-    google-auth-library: "npm:10.7.0"
+    google-auth-library: "npm:10.9.0"
     google-spreadsheet: "npm:5.3.0"
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:30.4.2"
     jest-environment-jsdom: "npm:30.4.1"
     jest-plugin-context: "npm:2.9.0"
-    motion: "npm:12.40.0"
+    motion: "npm:12.42.0"
     next: "npm:16.2.6"
     postcss: "npm:8.5.15"
     prop-types: "npm:15.8.1"
@@ -15782,6 +15850,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"xdg-app-paths@npm:5":
+  version: 5.5.1
+  resolution: "xdg-app-paths@npm:5.5.1"
+  dependencies:
+    os-paths: "npm:^4.0.1"
+    xdg-portable: "npm:^7.2.0"
+  checksum: 10/3bc247fa62cf4a2d6eb75faf23f0ae46374f3ff87a208db7eb3b1f276d57e72d3302cdfb0871e3fa8aa9a24fca972dde49b4137052b23f2949fce3bab04f8859
+  languageName: node
+  linkType: hard
+
+"xdg-portable@npm:^7.2.0":
+  version: 7.3.0
+  resolution: "xdg-portable@npm:7.3.0"
+  dependencies:
+    os-paths: "npm:^4.0.1"
+  checksum: 10/30a9cdae2e664598d1c1e0af849fb35c09db26b10337b7cfcc765435766e1ac82076db6b1120fea9b7ddb52c3d5f49ee76282560f4137d5fca1f5022129a3420
+  languageName: node
+  linkType: hard
+
 "xml-name-validator@npm:^5.0.0":
   version: 5.0.0
   resolution: "xml-name-validator@npm:5.0.0"
@@ -15876,6 +15963,13 @@ __metadata:
   peerDependencies:
     zod: ^3.25.0 || ^4.0.0
   checksum: 10/5e35ca8ebb4602dcb526e122d7e9fca695c4a479bd97535f3400a732d49160f24f7213a9ed64986fc9dc3a2e8a6c4e1241ec0c4d8a4e3e69ea91a0328ded2192
+  languageName: node
+  linkType: hard
+
+"zod@npm:4.1.11":
+  version: 4.1.11
+  resolution: "zod@npm:4.1.11"
+  checksum: 10/5a0f5697dbe86bf40934916d888cfe0ec6f1f767eb0b6f944ffd5573397c8a56ef7d2ebd0f889bfb44ceaf93edcddf021994633747a9a6b0dcbeb57bd0a67442
   languageName: node
   linkType: hard
 
