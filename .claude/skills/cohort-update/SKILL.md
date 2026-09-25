@@ -87,7 +87,7 @@ description: DND 기수가 종료된 후 한 번에 프로젝트, 리뷰, 누적
   dropouts:             0    → 2    (+2)
 
 📦 후속 작업:
-1. S3 업로드
+1. S3 업로드 (전에 projects-update 8단계: PDF Title 메타데이터·배너 확장자 검사)
    - /images/project/14/... (각 프로젝트 이미지)
    - /files/project/14/... (각 프로젝트 PDF)
 2. 커밋 & PR
