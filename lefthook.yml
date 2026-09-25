@@ -1,6 +1,10 @@
 pre-commit:
   parallel: true
   commands:
+    oxlint:
+      glob: "*.{js,jsx,ts,tsx,mjs,cjs}"
+      run: pnpm exec oxlint --fix {staged_files}
+      stage_fixed: true
     eslint-web:
       root: "apps/web/"
       glob: "*.{js,jsx,ts,tsx}"

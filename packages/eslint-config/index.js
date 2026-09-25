@@ -1,3 +1,5 @@
+const path = require('path');
+
 const js = require('@eslint/js');
 const globals = require('globals');
 
@@ -5,6 +7,7 @@ const tseslint = require('@typescript-eslint/eslint-plugin');
 const tsParser = require('@typescript-eslint/parser');
 const prettier = require('eslint-config-prettier');
 const jest = require('eslint-plugin-jest');
+const oxlint = require('eslint-plugin-oxlint');
 const reactHooks = require('eslint-plugin-react-hooks');
 const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const testingLibrary = require('eslint-plugin-testing-library');
@@ -155,4 +158,5 @@ module.exports = [
     },
   },
   prettier,
+  ...oxlint.buildFromOxlintConfigFile(path.join(__dirname, '../../.oxlintrc.json')),
 ];
