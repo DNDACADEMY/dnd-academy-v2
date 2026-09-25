@@ -8,7 +8,7 @@ const expectMetadataBaseOrigin = (metadataBase: Metadata['metadataBase'], origin
 };
 
 const loadMetadataModule = async () => {
-  jest.resetModules();
+  vi.resetModules();
   return import('./metadata');
 };
 
