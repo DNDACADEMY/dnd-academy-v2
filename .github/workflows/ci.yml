@@ -213,9 +213,7 @@ jobs:
 
   #     - name: Check Lint
   #       if: ${{ github.event_name == 'pull_request' }}
-  #       run: |
-  #         pnpm lint
-  #         pnpm stylelint
+  #       run: pnpm lint
 
   #     - name: Check Unit Test
   #       run: pnpm test:coverage

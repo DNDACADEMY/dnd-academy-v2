@@ -10,7 +10,6 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
-    "stylelint": "stylelint **/*.scss",
     "test:unit": "jest",
     "test:watch": "jest --watch",
     "test:watchAll": "jest --watchAll",
@@ -65,11 +64,6 @@
     "jest-plugin-context": "2.9.0",
     "postcss": "8.5.28",
     "sass": "1.69.6",
-    "stylelint": "17.15.0",
-    "stylelint-config-recommended-scss": "17.0.1",
-    "stylelint-config-standard": "40.0.0",
-    "stylelint-config-standard-scss": "17.0.0",
-    "stylelint-scss": "7.3.0",
     "typescript": "5.9.3",
     "webpack": "5.106.2"
   }
