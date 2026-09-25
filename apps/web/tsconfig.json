@@ -3,9 +3,8 @@
   "compilerOptions": {
     "incremental": true,
     "moduleResolution": "bundler",
-    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "plugins": [
       {
