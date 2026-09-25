@@ -14,7 +14,7 @@ const testFiles = ['**/__tests__/**/*.{js,jsx,ts,tsx}', '**/*.{spec,test}.{js,js
 
 module.exports = [
   {
-    ignores: ['node_modules/**', '.pnp.cjs', '.pnp.loader.cjs', 'public/**', '.yarn/**', 'dist/**', 'coverage/**'],
+    ignores: ['node_modules/**', 'public/**', 'dist/**', 'coverage/**'],
   },
   {
     languageOptions: {

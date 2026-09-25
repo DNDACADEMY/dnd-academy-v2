@@ -1,6 +1,6 @@
 {
   "name": "canvas",
   "version": "2.11.2",
-  "description": "No-op stub for the native canvas package, wired in via root resolutions. See index.js for context and the conditions under which this stub (and react-pdf 9.x) can be retired.",
+  "description": "No-op stub for the native canvas package, wired in via pnpm overrides. See index.js for context and the conditions under which this stub (and react-pdf 9.x) can be retired.",
   "main": "index.js"
 }

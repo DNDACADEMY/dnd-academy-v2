@@ -6,7 +6,7 @@
   "author": "dnd-academy",
   "scripts": {
     "open-browser": "open http://localhost:3001",
-    "dev": "next dev --webpack -H localhost -p 3001 & yarn open-browser",
+    "dev": "next dev --webpack -H localhost -p 3001 & pnpm open-browser",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
@@ -14,7 +14,7 @@
     "test:unit": "jest",
     "test:watch": "jest --watch",
     "test:watchAll": "jest --watchAll",
-    "test:coverage": "yarn test:unit --coverage --passWithNoTests"
+    "test:coverage": "pnpm test:unit --coverage --passWithNoTests"
   },
   "repository": {
     "type": "git",
