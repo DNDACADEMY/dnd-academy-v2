@@ -14,4 +14,8 @@ export interface Review {
 }
 
 export type ReviewPosition =
-  '백엔드 개발자' | '프론트엔드 개발자' | '프로덕트 디자이너' | 'Android Developer' | 'iOS Developer';
+  | '백엔드 개발자'
+  | '프론트엔드 개발자'
+  | '프로덕트 디자이너'
+  | 'Android Developer'
+  | 'iOS Developer';

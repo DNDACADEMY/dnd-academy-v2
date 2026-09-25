@@ -1,6 +1,10 @@
 pre-commit:
   parallel: true
   commands:
+    oxlint:
+      glob: "*.{js,jsx,ts,tsx,mjs,cjs}"
+      run: pnpm exec oxlint --fix {staged_files}
+      stage_fixed: true
     eslint-web:
       root: "apps/web/"
       glob: "*.{js,jsx,ts,tsx}"
@@ -21,9 +25,9 @@ pre-commit:
       glob: "*.{js,jsx,ts,tsx}"
       run: pnpm exec eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
       stage_fixed: true
-    prettier:
+    oxfmt:
       glob: "*.{js,jsx,ts,tsx,mjs,cjs,json,md,mdx,yml,yaml}"
-      run: pnpm exec prettier --write --ignore-unknown {staged_files}
+      run: pnpm exec oxfmt --no-error-on-unmatched-pattern {staged_files}
       stage_fixed: true
     test-related:
       glob: "*.{js,jsx,ts,tsx}"

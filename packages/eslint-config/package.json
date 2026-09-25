@@ -31,6 +31,7 @@
     "eslint": "10.11.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jest": "29.16.6",
+    "eslint-plugin-oxlint": "1.85.0",
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-simple-import-sort": "14.0.0",
     "eslint-plugin-testing-library": "7.16.2",
