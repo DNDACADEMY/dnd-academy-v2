@@ -22,7 +22,7 @@
 </a>
 
 <a href="#">
-  <img src="https://img.shields.io/github/repo-size/DNDACADEMY/dnd-academy-v2?logo=yarn&style=flat-square">
+  <img src="https://img.shields.io/github/repo-size/DNDACADEMY/dnd-academy-v2?logo=pnpm&style=flat-square">
 </a>
 
 ## 🐛 Bug reporting

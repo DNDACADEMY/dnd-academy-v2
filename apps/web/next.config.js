@@ -40,9 +40,9 @@ const nextConfig = {
 
     // Tell Next.js's bundled webpack to skip the `canvas` native module.
     // pdfjs-dist (via react-pdf) lists it as an optionalDependency; we also
-    // replace it with a no-op portal at the root resolutions level
+    // replace it with a no-op stub via pnpm overrides
     // (see __stubs__/canvas/). Both layers are needed: this alias covers
-    // the runtime bundle, the portal covers `yarn install`.
+    // the runtime bundle, the stub covers `pnpm install`.
     config.resolve.alias.canvas = false;
 
     config.module.rules.push(
