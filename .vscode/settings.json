@@ -9,9 +9,7 @@
   "scss.validate": false,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "stylelint.validate": ["scss", "css"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": "explicit",
     "source.fixAll.eslint": "explicit"
   },
   "[typescript]": {

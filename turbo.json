@@ -4,7 +4,7 @@
   "tasks": {
     "deploy": {
       "env": ["GOOGLE_CLIENT_EMAIL", "GOOGLE_PRIVATE_KEY"],
-      "dependsOn": ["lint", "stylelint", "test:coverage", "build"]
+      "dependsOn": ["lint", "test:coverage", "build"]
     },
     "build": {
       "dependsOn": ["^build"],
@@ -33,9 +33,6 @@
     "lint": {
       "dependsOn": ["@dnd-academy/ui#build"],
       "inputs": ["**/*.{js,jsx,ts,tsx}"]
-    },
-    "stylelint": {
-      "inputs": ["**/*.{scss,css}"]
     },
     "test:coverage": {
       "dependsOn": ["@dnd-academy/ui#build"],

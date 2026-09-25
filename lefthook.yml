@@ -21,21 +21,6 @@ pre-commit:
       glob: "*.{js,jsx,ts,tsx}"
       run: pnpm exec eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
       stage_fixed: true
-    stylelint-web:
-      root: "apps/web/"
-      glob: "*.scss"
-      run: pnpm exec stylelint --fix {staged_files}
-      stage_fixed: true
-    stylelint-admin:
-      root: "apps/admin/"
-      glob: "*.scss"
-      run: pnpm exec stylelint --fix {staged_files}
-      stage_fixed: true
-    stylelint-ui:
-      root: "packages/ui/"
-      glob: "*.scss"
-      run: pnpm exec stylelint --fix {staged_files}
-      stage_fixed: true
     prettier:
       glob: "*.{js,jsx,ts,tsx,mjs,cjs,json,md,mdx,yml,yaml}"
       run: pnpm exec prettier --write --ignore-unknown {staged_files}
