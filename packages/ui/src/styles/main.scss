@@ -1,8 +1,4 @@
-@use 'sass:list';
-@use 'sass:string';
+@forward './index';
+@use './scrollbar';
+@use './variables';
 @import 'sanitize.css';
-@import './scrollbar';
-@import './variables';
-@import './mixin/text';
-@import './mixin/functions';
-@import './mixin/responsive';
