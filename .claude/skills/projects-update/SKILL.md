@@ -180,6 +180,68 @@ Back-end: Spring Boot, PostgreSQL, AWS
 
 이 보고가 끝나면 사용자가 S3 업로드를 할 수 있어야 합니다.
 
+### 8단계: 배너/PDF 파일 검사 (S3 업로드 전)
+
+사용자가 구글드라이브에서 배너·PDF를 받아 `1.png`, `1.pdf`처럼 조 번호로 이름을 바꿔 두면(보통 `~/Downloads`), **S3에 올리기 전에** 아래를 검사하고 결과를 표로 보고하세요. 이 파일들은 참여자가 개인 작업물에서 그대로 내보낸 경우가 많아 문제가 자주 섞여 들어옵니다.
+
+**1) PDF 메타데이터 `Title` 검사 — 필수**
+
+PDF 뷰어(크롬 등)는 파일명이 아니라 PDF 내부 `Title`을 탭/상단 제목으로 보여줍니다. 파일명을 `5.pdf`로 바꿔도 `채정_포폴🤩`, `UX Study` 같은 개인 문서 제목이 홈페이지 방문자에게 그대로 노출됩니다. (15기에서 5개 중 3개가 이 상태였음)
+
+```bash
+cd ~/Downloads
+for i in 1 2 3 4 5; do
+  echo "$i.pdf: $(grep -a -o '/Title *([^)]*)' $i.pdf | head -1) | XMP: $(grep -a -c '<dc:title>' $i.pdf)"
+done
+```
+
+- `Title`은 Info 사전(`/Title (...)`)과 XMP(`<dc:title>`) 두 군데에 있을 수 있으니 둘 다 확인. 인코딩된 제목은 grep에 안 잡힐 수 있어 `pypdf`의 `reader.metadata`로 보는 게 확실합니다.
+- Title이 비었거나 프로젝트와 무관하면(개인 이름·포트폴리오·다른 문서명 등) 사용자에게 보여주고 수정할지 확인.
+- 수정은 `DND {기수}기 {프로젝트명}` 형식으로. 이 맥에는 exiftool/qpdf/pypdf가 기본으로 없으니 임시 venv를 씁니다. **원본은 반드시 백업 폴더에 먼저 복사**:
+
+```bash
+V=$(mktemp -d)/venv && python3 -m venv $V && $V/bin/pip -q install pypdf
+cd ~/Downloads && mkdir -p pdf_원본_백업 && cp -n [0-9]*.pdf pdf_원본_백업/
+$V/bin/python - <<'EOF'
+from pypdf import PdfReader, PdfWriter
+from pypdf.generic import NameObject
+names = {1: '둘픽', 2: 'Qello'}  # 조 번호 → 프로젝트명 (projects.json 기준)
+for i, n in names.items():
+    w = PdfWriter(clone_from=f'pdf_원본_백업/{i}.pdf')
+    if '/Metadata' in w._root_object:
+        del w._root_object[NameObject('/Metadata')]  # XMP dc:title 제거
+    w._info = None  # Author 등 기존 Info 정보도 제거
+    w.add_metadata({'/Title': f'DND 15기 {n}'})
+    w.write(f'{i}.pdf')
+    assert len(PdfReader(f'{i}.pdf').pages) == len(PdfReader(f'pdf_원본_백업/{i}.pdf').pages)
+EOF
+```
+
+- 수정 후 페이지 수가 원본과 같은지, `qlmanage -t -s 400 -o <tmp> N.pdf`로 첫 페이지가 정상 렌더링되는지 확인.
+- 사용자에게 "수정본은 `~/Downloads/N.pdf`(업로드 대상), 원본은 `pdf_원본_백업/`"이라고 위치를 명확히 알려주세요.
+
+**2) 배너 이미지 실제 형식 → `thumbnail` 확장자 일치**
+
+파일 확장자가 아니라 실제 내용으로 판별합니다. JSON의 `thumbnail` 확장자가 실제 형식과 다르면 S3 경로가 어긋나 이미지가 깨집니다.
+
+```bash
+file ~/Downloads/[0-9]*.{png,jpg,jpeg}
+```
+
+- JPEG면 `thumbnail`을 `.jpg`, PNG면 `.png`로 맞추고 사용자에게 변경 내역 보고.
+
+**3) 파일 ↔ 조 매칭**
+
+배너 이미지는 `Read`로 열어 `Team N` / `N조` 표기와 프로젝트명이 파일 번호와 맞는지 확인. PDF는 첫 페이지 썸네일로 같은 확인을 합니다.
+
+**4) 업로드 후 S3 확인**
+
+사용자가 업로드했다고 하면 JSON의 모든 `thumbnail`/`pdf` URL에 요청해 200 응답·content-type·크기(로컬 수정본과 바이트 일치 → 원본이 아닌 수정본이 올라갔는지)를 확인:
+
+```bash
+curl -s -o /dev/null -w '%{http_code} %{content_type} %{size_download}\n' <URL>
+```
+
 ## 주의사항
 
 - **기존 데이터 절대 수정 금지** — 신규 항목만 append.
@@ -188,4 +250,5 @@ Back-end: Spring Boot, PostgreSQL, AWS
 - 한 프로젝트에 여러 팀원이 있어도 프로젝트 행은 1개. (리뷰는 `reviews-update`에서 처리)
 - 유사 이름 통일은 추정만 하지 말고 항상 사용자 확인 받으세요. "이거 같은 프로젝트?" 한 줄이면 충분합니다.
 - 조 번호를 모르면(`조` 컬럼이 비었으면) 사용자에게 묻기. S3 경로 만들 때 반드시 필요합니다.
+- **PDF는 S3 업로드 전에 반드시 메타데이터 `Title` 검사(8단계)** — 파일명을 바꿔도 뷰어에는 내부 Title(개인 포트폴리오 제목 등)이 노출됩니다.
 - 이번 작업은 reviews-update와 짝으로 진행되는 경우가 많습니다 — 작업 끝나고 "이제 reviews-update로 리뷰도 추가하시겠어요?" 안내.
