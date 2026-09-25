@@ -33,10 +33,7 @@
         "caughtErrors": "none"
       }
     ],
-    "nextjs/no-html-link-for-pages": "off",
-    "react/set-state-in-effect": "warn",
-    "react/refs": "warn",
-    "react/purity": "warn"
+    "nextjs/no-html-link-for-pages": "off"
   },
   "overrides": [
     {

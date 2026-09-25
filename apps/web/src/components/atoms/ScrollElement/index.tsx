@@ -1,6 +1,6 @@
 'use client';
 
-import { ComponentProps, createElement, ElementType, useEffect, useRef } from 'react';
+import { ComponentProps, createElement, ElementType, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -24,19 +24,19 @@ function ScrollElement<E extends ElementType>({
   scrollIntoViewOptions,
   ...props
 }: Props<E>) {
-  const containerRef = useRef<Element>(null);
+  const [container, setContainer] = useState<Element | null>(null);
 
   useEffect(() => {
     if (targetParam === activeParam) {
-      containerRef.current?.scrollIntoView(scrollIntoViewOptions);
+      container?.scrollIntoView(scrollIntoViewOptions);
     }
-  }, [targetParam, activeParam, scrollIntoViewOptions]);
+  }, [container, targetParam, activeParam, scrollIntoViewOptions]);
 
   return createElement(
     elementType || 'div',
     {
       ...props,
-      ref: containerRef,
+      ref: setContainer,
       className: clsx(styles.scrollElementWrapper, className),
     },
     children,
