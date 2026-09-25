@@ -37,11 +37,11 @@
     "eslint-plugin-simple-import-sort": "14.0.0",
     "eslint-plugin-testing-library": "7.16.2",
     "eslint-plugin-unused-imports": "4.4.1",
-    "jest": "30.5.1",
+    "jest": "30.5.2",
     "jest-plugin-context": "2.9.0",
     "typescript": "5.9.3",
-    "vite": "6.4.2",
-    "vite-plugin-dts": "5.1.0"
+    "vite": "7.3.6",
+    "vite-plugin-dts": "5.1.1"
   },
   "dependencies": {
     "qs": "6.16.0"
