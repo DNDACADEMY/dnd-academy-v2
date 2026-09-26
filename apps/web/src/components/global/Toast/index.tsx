@@ -21,11 +21,13 @@ function Toast() {
   ]);
 
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [isOpenToast, setIsOpenToast] = useState<boolean>(false);
+  const [isHidden, setIsHidden] = useState<boolean>(false);
+  const isOpenToast = isRender && !isHidden;
 
   const handleAnimationComplete = useCallback(
     (definition: AnimationDefinition) => {
       if (definition === 'hidden') {
+        setIsHidden(false);
         closeToast();
       }
     },
@@ -48,7 +50,7 @@ function Toast() {
   useEffect(() => {
     if (isOpenToast) {
       timer.current = setTimeout(() => {
-        setIsOpenToast(false);
+        setIsHidden(true);
         timer.current = null;
       }, delay);
     }
@@ -59,12 +61,6 @@ function Toast() {
       }
     };
   }, [isOpenToast, delay]);
-
-  useEffect(() => {
-    if (isRender) {
-      setIsOpenToast(true);
-    }
-  }, [isRender]);
 
   if (!isRender) {
     return null;

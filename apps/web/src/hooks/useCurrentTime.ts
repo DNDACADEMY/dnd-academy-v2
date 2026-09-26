@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { useInterval } from 'usehooks-ts';
 
 const useCurrentTime = (enabledInterval: boolean) => {
-  const [currentTime, setCurrentTime] = useState<number>(Date.now());
+  const [currentTime, setCurrentTime] = useState<number>(() => Date.now());
 
   const delay = useMemo(() => {
     if (!enabledInterval) {
