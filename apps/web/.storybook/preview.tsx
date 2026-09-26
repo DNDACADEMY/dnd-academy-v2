@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
 
 import '@dnd-academy/ui/style.css';
-import 'src/styles/global.scss';
+import '@/styles/global.scss';
 
 const preview: Preview = {
   parameters: {

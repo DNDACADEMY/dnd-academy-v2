@@ -97,7 +97,7 @@
     "sass-loader": "17.0.1",
     "start-server-and-test": "3.0.12",
     "storybook": "10.4.0",
-    "typescript": "5.9.3",
+    "typescript": "6.0.3",
     "webpack": "5.106.2"
   }
 }

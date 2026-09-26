@@ -37,6 +37,6 @@
     "eslint-plugin-testing-library": "7.16.2",
     "eslint-plugin-unused-imports": "4.4.1",
     "globals": "17.12.0",
-    "typescript": "5.9.3"
+    "typescript": "6.0.3"
   }
 }
