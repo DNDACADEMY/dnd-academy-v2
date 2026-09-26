@@ -63,7 +63,7 @@
     "jest-environment-jsdom": "30.5.1",
     "jest-plugin-context": "2.9.0",
     "postcss": "8.5.28",
-    "sass": "1.69.6",
+    "sass": "1.104.1",
     "typescript": "5.9.3",
     "webpack": "5.106.2"
   }

@@ -83,7 +83,7 @@ const config: StorybookConfig = {
           {
             loader: 'sass-loader',
             options: {
-              additionalData: `@import '@dnd-academy/ui/styles';`,
+              additionalData: `@use '@dnd-academy/ui/styles' as *;`,
               sassOptions: {
                 includePaths: [join(currentDir, '..', '..', '..', 'packages', 'ui', 'src', 'styles')],
               },
