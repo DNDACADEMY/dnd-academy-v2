@@ -1,20 +1,23 @@
+const path = require('path');
+
 const js = require('@eslint/js');
 const globals = require('globals');
 
 const tseslint = require('@typescript-eslint/eslint-plugin');
 const tsParser = require('@typescript-eslint/parser');
 const prettier = require('eslint-config-prettier');
-const jest = require('eslint-plugin-jest');
+const oxlint = require('eslint-plugin-oxlint');
 const reactHooks = require('eslint-plugin-react-hooks');
 const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const testingLibrary = require('eslint-plugin-testing-library');
 const unusedImports = require('eslint-plugin-unused-imports');
+const vitest = require('@vitest/eslint-plugin');
 
 const testFiles = ['**/__tests__/**/*.{js,jsx,ts,tsx}', '**/*.{spec,test}.{js,jsx,ts,tsx}'];
 
 module.exports = [
   {
-    ignores: ['node_modules/**', '.pnp.cjs', '.pnp.loader.cjs', 'public/**', '.yarn/**', 'dist/**', 'coverage/**'],
+    ignores: ['node_modules/**', 'public/**', 'dist/**', 'coverage/**'],
   },
   {
     languageOptions: {
@@ -29,7 +32,6 @@ module.exports = [
         ...globals.browser,
         ...globals.node,
         ...globals.es2021,
-        ...globals.jest,
       },
     },
   },
@@ -126,26 +128,19 @@ module.exports = [
   {
     files: testFiles,
     plugins: {
-      jest,
+      vitest,
       'testing-library': testingLibrary,
     },
     languageOptions: {
       globals: {
-        ...globals.jest,
+        ...vitest.environments.env.globals,
       },
     },
     rules: {
-      ...jest.configs['flat/recommended'].rules,
+      ...vitest.configs.recommended.rules,
       ...testingLibrary.configs['flat/react'].rules,
       'react-hooks/rules-of-hooks': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
-    },
-    settings: {
-      jest: {
-        globalAliases: {
-          describe: ['context'],
-        },
-      },
     },
   },
   {
@@ -155,4 +150,5 @@ module.exports = [
     },
   },
   prettier,
+  ...oxlint.buildFromOxlintConfigFile(path.join(__dirname, '../../.oxlintrc.json')),
 ];

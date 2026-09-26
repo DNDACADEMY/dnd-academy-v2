@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "sortPackageJson": false,
+  "overrides": [
+    {
+      "files": ["*.yml", "*.yaml"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "node_modules",
+    ".next",
+    ".turbo",
+    ".vercel",
+    "coverage",
+    "dist",
+    "build",
+    "out",
+    "storybook-static",
+    "pnpm-lock.yaml",
+    "next-env.d.ts",
+    "*.min.js",
+    "*.min.css"
+  ]
+}

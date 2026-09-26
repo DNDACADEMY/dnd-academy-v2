@@ -7,15 +7,11 @@ on:
     branches: [develop]
 
 env:
-  CACHED_DEPENDENCY_PATHS: |
-    ${{ github.workspace }}/.yarn/cache
-    ${{ github.workspace }}/node_modules
-    ${{ github.workspace }}/packages/*/node_modules
   CACHED_BUILD_PACKAGE_UI_PATHS: ${{ github.workspace }}/packages/ui/dist
   CACHED_BUILD_PACKAGE_CORE_PATHS: ${{ github.workspace }}/packages/core/dist
   CACHED_GENERATED_STATIC_DATA_PATHS: ${{ github.workspace }}/apps/web/src/lib/assets/data
   DEFAULT_NODE_VERSION: "v22.12.0"
-  DEFAULT_YARN_VERSION: "4.3.1"
+  CYPRESS_INSTALL_BINARY: "0"
 
 jobs:
   job_changes:
@@ -34,7 +30,8 @@ jobs:
           filters: |
             chromatic:
               - '.github/workflows/ci.yml'
-              - 'yarn.lock'
+              - 'pnpm-lock.yaml'
+              - 'pnpm-workspace.yaml'
               - 'package.json'
               - 'apps/web/.storybook/**'
               - 'apps/web/src/**'
@@ -48,45 +45,16 @@ jobs:
     steps:
       - name: Check out current commit (${{ github.sha }})
         uses: actions/checkout@v7
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
-
-      - name: Set up Yarn
-        run: |
-          corepack enable
-          yarn set version ${{ env.DEFAULT_YARN_VERSION }}
-          yarn --version
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - name: Compute dependency cache key
-        id: compute_lockfile_hash
-        run: echo "hash=${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}" >> $GITHUB_OUTPUT
-
-      - name: Check dependency cache
-        uses: actions/cache@v6
-        id: cache_dependencies
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            ${{ env.CACHED_DEPENDENCY_PATHS }}
-          key: ${{ steps.compute_lockfile_hash.outputs.hash }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: pnpm
 
       - name: Install dependencies
-        if: steps.cache_dependencies.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-    outputs:
-      dependency_cache_key: ${{ steps.compute_lockfile_hash.outputs.hash }}
-      yarn_cache_dir_path: |
-        ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        ${{ env.CACHED_DEPENDENCY_PATHS }}
+        run: pnpm install --frozen-lockfile
 
   job_format_check:
     name: Format Check
@@ -95,24 +63,19 @@ jobs:
     steps:
       - name: Check out current commit (${{ github.sha }})
         uses: actions/checkout@v7
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
-
-      - name: Check dependency cache
-        id: cache-deps
-        uses: actions/cache@v6
-        with:
-          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+          cache: pnpm
 
       - name: Install dependencies
-        if: steps.cache-deps.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Check formatting
-        run: yarn format:check
+        run: pnpm format:check
 
   job_packages_build:
     name: Build
@@ -123,21 +86,16 @@ jobs:
     steps:
       - name: Check out current commit (${{ github.sha }})
         uses: actions/checkout@v7
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
-
-      - name: Check dependency cache
-        id: cache-deps
-        uses: actions/cache@v6
-        with:
-          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+          cache: pnpm
 
       - name: Install dependencies
-        if: steps.cache-deps.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Compute @dnd-academy/core cache key
         id: compute_core_cache_key
@@ -152,7 +110,7 @@ jobs:
 
       - name: Build @dnd-academy/core
         if: steps.cache_built_core_packages.outputs.cache-hit != 'true'
-        run: yarn workspace @dnd-academy/core build
+        run: pnpm --filter @dnd-academy/core build
 
       - name: Compute @dnd-academy/ui cache key
         id: compute_ui_cache_key
@@ -167,7 +125,7 @@ jobs:
 
       - name: Build @dnd-academy/ui
         if: steps.cache_built_ui_packages.outputs.cache-hit != 'true'
-        run: yarn workspace @dnd-academy/ui build
+        run: pnpm --filter @dnd-academy/ui build
 
     outputs:
       build_package_core_cache_key: ${{ steps.compute_core_cache_key.outputs.hash }}
@@ -181,21 +139,16 @@ jobs:
     steps:
       - name: Check out current commit (${{ github.sha }})
         uses: actions/checkout@v7
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
-
-      - name: Check dependency cache
-        id: cache-deps
-        uses: actions/cache@v6
-        with:
-          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+          cache: pnpm
 
       - name: Install dependencies
-        if: steps.cache-deps.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Create environment variables
         working-directory: apps/web
@@ -231,7 +184,7 @@ jobs:
 
       - name: Generate data
         if: steps.cache_generated_data.outputs.cache-hit != 'true'
-        run: yarn generate:applicant-count
+        run: pnpm --filter web generate:applicant-count
 
     outputs:
       generate_data_cache_key: ${{ steps.compute_generate_data_cache_key.outputs.hash }}
@@ -241,16 +194,16 @@ jobs:
   #   runs-on: ubuntu-latest
   #   steps:
   #     - uses: actions/checkout@v7
+  #     - name: Set up pnpm
+  #       uses: pnpm/action-setup@v6
   #     - name: Set up Node
-  #       uses: actions/setup-node@v6
+  #       uses: actions/setup-node@v7
   #       with:
   #         node-version: ${{ env.DEFAULT_NODE_VERSION }}
+  #         cache: pnpm
 
-  #     - name: Check dependency cache
-  #       uses: actions/cache@v6
-  #       with:
-  #         path: ${{ needs.job_packages_build.outputs.yarn_cache_dir_path }}
-  #         key: ${{ needs.job_packages_build.outputs.dependency_cache_key }}
+  #     - name: Install dependencies
+  #       run: pnpm install --frozen-lockfile
 
   #     - name: Check build package cache
   #       uses: actions/cache@v6
@@ -260,12 +213,10 @@ jobs:
 
   #     - name: Check Lint
   #       if: ${{ github.event_name == 'pull_request' }}
-  #       run: |
-  #         yarn lint
-  #         yarn stylelint
+  #       run: pnpm lint
 
   #     - name: Check Unit Test
-  #       run: yarn test:coverage
+  #       run: pnpm test:coverage
 
   job_publish_storybook_chromatic:
     needs: [job_install_dependencies, job_packages_build, job_generate_data, job_changes]
@@ -277,20 +228,16 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
-
-      - name: Check dependency cache
-        id: cache-deps
-        uses: actions/cache@v6
-        with:
-          path: ${{ needs.job_install_dependencies.outputs.yarn_cache_dir_path }}
-          key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Check build core package cache
         uses: actions/cache@v6

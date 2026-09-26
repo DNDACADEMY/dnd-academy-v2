@@ -2,9 +2,9 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "incremental": true,
-    "baseUrl": "./",
+    "types": ["vitest/globals"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "plugins": [
       {
@@ -12,5 +12,5 @@
       }
     ]
   },
-  "include": ["@types", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../../jest.setup.ts"]
+  "include": ["@types", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../../vitest.setup.ts"]
 }

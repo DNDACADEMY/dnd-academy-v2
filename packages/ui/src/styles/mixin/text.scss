@@ -1,4 +1,5 @@
-@import './functions';
+@use 'sass:list';
+@use './functions' as *;
 
 @mixin text($text, $color-code: '') {
   $list: str-split($text, '/');

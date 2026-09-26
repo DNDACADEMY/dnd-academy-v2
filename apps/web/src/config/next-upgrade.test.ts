@@ -42,7 +42,6 @@ const readPackageJson = (workspace: string) =>
   JSON.parse(fs.readFileSync(path.join(repoRoot, workspace, 'package.json'), 'utf8')) as {
     dependencies?: Record<string, string>;
     devDependencies?: Record<string, string>;
-    resolutions?: Record<string, string>;
     scripts: Record<string, string>;
   };
 
@@ -79,13 +78,13 @@ describe('Next upgrade guardrails', () => {
     const adminPackage = readPackageJson('apps/admin');
     const uiPackage = readPackageJson('packages/ui');
 
-    expect(webPackage.dependencies?.next).toBe('16.2.6');
-    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.2.6');
-    expect(webPackage.devDependencies?.['@next/env']).toBe('16.2.6');
-    expect(webPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.2.6');
-    expect(adminPackage.dependencies?.next).toBe('16.2.6');
-    expect(adminPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.2.6');
-    expect(uiPackage.devDependencies?.next).toBe('16.2.6');
+    expect(webPackage.dependencies?.next).toBe('16.3.6');
+    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.3.6');
+    expect(webPackage.devDependencies?.['@next/env']).toBe('16.3.6');
+    expect(webPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.3.6');
+    expect(adminPackage.dependencies?.next).toBe('16.3.6');
+    expect(adminPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.3.6');
+    expect(uiPackage.devDependencies?.next).toBe('16.3.6');
     expect(webPackage.scripts.dev).not.toContain('--turbo');
     expect(adminPackage.scripts.dev).not.toContain('--turbo');
   });
@@ -234,28 +233,33 @@ describe('Next upgrade guardrails', () => {
   });
 
   it('pins audited transitive toolchain packages to patched versions', () => {
-    const rootPackage = readPackageJson('.');
-
-    expect(rootPackage.resolutions).toMatchObject({
+    const workspaceConfig = fs.readFileSync(path.join(repoRoot, 'pnpm-workspace.yaml'), 'utf8');
+    const pinnedOverrides = {
       '@babel/preset-env': '7.29.5',
       '@babel/plugin-transform-modules-systemjs': '7.29.4',
       '@babel/runtime': '7.29.2',
-      'ajv@npm:^8.0.0': '8.20.0',
-      'ajv@npm:^8.0.1': '8.20.0',
-      'ajv@npm:^8.9.0': '8.20.0',
-      'ajv@npm:^8.11.0': '8.20.0',
-      'brace-expansion@npm:^1.1.7': '1.1.14',
-      'brace-expansion@npm:^1.1.11': '1.1.14',
-      'glob@npm:^10.3.10': '10.5.0',
+      'ajv@^8.0.0': '8.20.0',
+      'ajv@^8.0.1': '8.20.0',
+      'ajv@^8.9.0': '8.20.0',
+      'ajv@^8.11.0': '8.20.0',
+      'brace-expansion@^1.1.7': '1.1.14',
+      'brace-expansion@^1.1.11': '1.1.14',
+      'glob@^10.3.10': '10.5.0',
       'ip-address': '10.2.0',
-      'js-yaml@npm:^3.13.1': '3.14.2',
-      'js-yaml@npm:^4.1.0': '4.1.1',
+      'js-yaml@^3.13.1': '3.14.2',
+      'js-yaml@^4.1.0': '4.1.1',
       'node-gyp': '12.3.0',
-      'picomatch@npm:^2.0.4': '2.3.2',
-      'picomatch@npm:^2.2.1': '2.3.2',
-      'picomatch@npm:^2.2.3': '2.3.2',
-      'picomatch@npm:^2.3.1': '2.3.2',
-      'yaml@npm:^1.10.0': '1.10.3',
+      'picomatch@^2.0.4': '2.3.2',
+      'picomatch@^2.2.1': '2.3.2',
+      'picomatch@^2.2.3': '2.3.2',
+      'picomatch@^2.3.1': '2.3.2',
+      'yaml@^1.10.0': '1.10.3',
+    };
+
+    Object.entries(pinnedOverrides).forEach(([selector, version]) => {
+      expect(workspaceConfig).toMatch(
+        new RegExp(`^  "?${selector.replace(/[.*+?^$()|[\]\\]/g, '\\$&')}"?: "${version}"$`, 'm'),
+      );
     });
   });
 });

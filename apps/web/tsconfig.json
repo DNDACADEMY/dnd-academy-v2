@@ -2,10 +2,10 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "incremental": true,
+    "types": ["vitest/globals"],
     "moduleResolution": "bundler",
-    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "plugins": [
       {
@@ -21,7 +21,7 @@
     ".storybook/**/*.ts",
     ".storybook/**/*.tsx",
     ".next/types/**/*.ts",
-    "../../jest.setup.ts"
+    "../../vitest.setup.ts"
   ],
   "exclude": ["cypress"]
 }

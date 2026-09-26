@@ -1,0 +1,50 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "react", "jest", "vitest", "nextjs"],
+  "categories": {
+    "correctness": "error"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/coverage/**",
+    "**/public/**",
+    "**/.next/**",
+    "**/storybook-static/**",
+    "**/next-env.d.ts",
+    "apps/web/.storybook/**"
+  ],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+    "typescript/no-explicit-any": "warn",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "none"
+      }
+    ],
+    "nextjs/no-html-link-for-pages": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/**/*.{js,jsx,ts,tsx}", "**/*.{spec,test}.{js,jsx,ts,tsx}"],
+      "env": {
+        "vitest": true
+      },
+      "rules": {
+        "react/rules-of-hooks": "off",
+        "typescript/no-explicit-any": "off"
+      }
+    }
+  ]
+}

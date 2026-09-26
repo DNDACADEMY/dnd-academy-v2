@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/triple-slash-reference */
+/* oxlint-disable typescript/triple-slash-reference */
 /// <reference path="./server.d.ts" />
 /// <reference path="./client.d.ts" />
 

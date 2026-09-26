@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs';
 import { resolve } from 'path';
 
 import react from '@vitejs/plugin-react';
@@ -6,7 +7,17 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import svgr from 'vite-plugin-svgr';
 
-const stylesMainPath = resolve(__dirname, 'src/styles/main.scss');
+const stylesMainPath = resolve(import.meta.dirname, 'src/styles/main.scss');
+
+const packageJson = JSON.parse(readFileSync(resolve(import.meta.dirname, 'package.json'), 'utf8')) as {
+  dependencies: Record<string, string>;
+  peerDependencies: Record<string, string>;
+};
+const externalPackages = [
+  ...Object.keys(packageJson.dependencies),
+  ...Object.keys(packageJson.peerDependencies),
+].filter((name) => !name.startsWith('@dnd-academy/') && name !== 'sanitize.css' && name !== 'sass');
+const external = externalPackages.map((name) => new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}(/.*)?$`));
 
 export default defineConfig({
   plugins: [
@@ -21,23 +32,23 @@ export default defineConfig({
   resolve: {
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
     alias: {
-      '@': resolve(__dirname, './src'),
+      '@': resolve(import.meta.dirname, './src'),
     },
   },
   build: {
     lib: {
       entry: {
-        index: resolve(__dirname, 'src/index.ts'),
-        server: resolve(__dirname, 'src/server.ts'),
-        client: resolve(__dirname, 'src/client.ts'),
+        index: resolve(import.meta.dirname, 'src/index.ts'),
+        server: resolve(import.meta.dirname, 'src/server.ts'),
+        client: resolve(import.meta.dirname, 'src/client.ts'),
       },
       formats: ['es', 'cjs'],
       name: '@dnd-academy/ui',
       fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'js'}`,
     },
-    rollupOptions: {
+    rolldownOptions: {
       plugins: [preserveDirectives()],
-      external: ['react', 'react-dom'],
+      external,
       output: {
         globals: {
           react: 'React',
@@ -64,7 +75,7 @@ export default defineConfig({
     },
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "${stylesMainPath}";`,
+        additionalData: `@use "${stylesMainPath}" as *;`,
       },
     },
   },

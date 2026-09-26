@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 const ORIGINAL_ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
 
 const loadSitemapModule = async () => {
-  jest.resetModules();
+  vi.resetModules();
   return import('./sitemap');
 };
 
