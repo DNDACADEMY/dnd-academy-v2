@@ -39,8 +39,5 @@ cypress/screenshots
 cypress/videos
 cypress/log
 
-# eslint cache
-.eslintcache
-
 # google spreadsheet
 dist/

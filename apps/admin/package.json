@@ -9,7 +9,6 @@
     "dev": "next dev --webpack -H localhost -p 3001 & pnpm open-browser",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
     "test:unit": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "pnpm test:unit --coverage"
@@ -38,8 +37,6 @@
     "react-perfect-scrollbar": "1.5.8"
   },
   "devDependencies": {
-    "@dnd-academy/eslint-config": "workspace:*",
-    "@next/eslint-plugin-next": "16.3.6",
     "@testing-library/dom": "10.4.2",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
@@ -47,14 +44,7 @@
     "@types/node": "26.6.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@typescript-eslint/eslint-plugin": "8.70.1",
-    "@typescript-eslint/parser": "8.70.1",
     "@vitest/coverage-v8": "5.0.1",
-    "eslint": "10.11.0",
-    "eslint-plugin-react-hooks": "7.1.1",
-    "eslint-plugin-simple-import-sort": "14.0.0",
-    "eslint-plugin-testing-library": "7.16.2",
-    "eslint-plugin-unused-imports": "4.4.1",
     "identity-obj-proxy": "3.0.0",
     "jsdom": "30.1.1",
     "postcss": "8.5.28",

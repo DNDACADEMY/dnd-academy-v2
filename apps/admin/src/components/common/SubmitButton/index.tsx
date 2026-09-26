@@ -1,6 +1,5 @@
-import { useFormStatus } from 'react-dom';
-
 import { Button, ButtonProps } from '@dnd-academy/ui';
+import { useFormStatus } from 'react-dom';
 
 type Props = ButtonProps;
 

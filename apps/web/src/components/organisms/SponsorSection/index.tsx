@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
 import { Button } from '@dnd-academy/ui';
+import Image from 'next/image';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 import SectionTitle from '@/components/atoms/SectionTitle';

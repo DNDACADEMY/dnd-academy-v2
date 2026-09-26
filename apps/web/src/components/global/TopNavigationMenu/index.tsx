@@ -1,12 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-
+import clsx from 'clsx';
 import { Route } from 'next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-import clsx from 'clsx';
+import { useState } from 'react';
 
 import styles from './index.module.scss';
 

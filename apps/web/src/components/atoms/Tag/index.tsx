@@ -1,9 +1,8 @@
 'use client';
 
-import { memo, MouseEvent } from 'react';
-
 import clsx from 'clsx';
 import { motion } from 'motion/react';
+import { memo, MouseEvent } from 'react';
 
 import styles from './index.module.scss';
 

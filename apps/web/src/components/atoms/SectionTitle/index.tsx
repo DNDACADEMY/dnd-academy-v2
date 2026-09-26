@@ -1,6 +1,5 @@
-import { PropsWithChildren, ReactElement, ReactNode } from 'react';
-
 import clsx from 'clsx';
+import { PropsWithChildren, ReactElement, ReactNode } from 'react';
 
 import styles from './index.module.scss';
 

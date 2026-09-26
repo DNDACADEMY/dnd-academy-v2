@@ -1,6 +1,5 @@
-import { ComponentProps, useState } from 'react';
-
 import type { Meta } from '@storybook/react';
+import { ComponentProps, useState } from 'react';
 
 import AccordionItem from '.';
 
