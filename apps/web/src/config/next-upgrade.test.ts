@@ -81,9 +81,7 @@ describe('Next upgrade guardrails', () => {
     expect(webPackage.dependencies?.next).toBe('16.3.6');
     expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.3.6');
     expect(webPackage.devDependencies?.['@next/env']).toBe('16.3.6');
-    expect(webPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.3.6');
     expect(adminPackage.dependencies?.next).toBe('16.3.6');
-    expect(adminPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.3.6');
     expect(uiPackage.devDependencies?.next).toBe('16.3.6');
     expect(webPackage.scripts.dev).not.toContain('--turbo');
     expect(adminPackage.scripts.dev).not.toContain('--turbo');
@@ -162,13 +160,11 @@ describe('Next upgrade guardrails', () => {
       '@storybook/addon-docs': '10.4.0',
       '@storybook/nextjs': '10.4.0',
       '@storybook/react': '10.4.0',
-      'eslint-plugin-storybook': '10.4.0',
       storybook: '10.4.0',
     });
     expect(uiPackage.devDependencies).toMatchObject({
       '@storybook/addon-docs': '10.4.0',
       '@storybook/react': '10.4.0',
-      'eslint-plugin-storybook': '10.4.0',
       storybook: '10.4.0',
     });
     [

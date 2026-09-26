@@ -17,21 +17,12 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint \"**/*.ts*\""
+    "build": "vite build"
   },
   "license": "GPL-3.0-only",
   "author": "dnd-academy",
   "devDependencies": {
-    "@dnd-academy/eslint-config": "workspace:*",
     "@types/qs": "^6",
-    "@typescript-eslint/eslint-plugin": "8.70.1",
-    "@typescript-eslint/parser": "8.70.1",
-    "eslint": "10.11.0",
-    "eslint-plugin-react-hooks": "7.1.1",
-    "eslint-plugin-simple-import-sort": "14.0.0",
-    "eslint-plugin-testing-library": "7.16.2",
-    "eslint-plugin-unused-imports": "4.4.1",
     "typescript": "6.0.3",
     "vite": "8.3.0",
     "vite-plugin-dts": "5.1.1"

@@ -38,9 +38,6 @@ cypress/screenshots
 cypress/videos
 cypress/log
 
-# eslint cache
-.eslintcache
-
 # turbo
 .turbo
 
