@@ -78,13 +78,13 @@ describe('Next upgrade guardrails', () => {
     const adminPackage = readPackageJson('apps/admin');
     const uiPackage = readPackageJson('packages/ui');
 
-    expect(webPackage.dependencies?.next).toBe('16.2.6');
-    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.2.6');
-    expect(webPackage.devDependencies?.['@next/env']).toBe('16.2.6');
-    expect(webPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.2.6');
-    expect(adminPackage.dependencies?.next).toBe('16.2.6');
-    expect(adminPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.2.6');
-    expect(uiPackage.devDependencies?.next).toBe('16.2.6');
+    expect(webPackage.dependencies?.next).toBe('16.3.6');
+    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.3.6');
+    expect(webPackage.devDependencies?.['@next/env']).toBe('16.3.6');
+    expect(webPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.3.6');
+    expect(adminPackage.dependencies?.next).toBe('16.3.6');
+    expect(adminPackage.devDependencies?.['@next/eslint-plugin-next']).toBe('16.3.6');
+    expect(uiPackage.devDependencies?.next).toBe('16.3.6');
     expect(webPackage.scripts.dev).not.toContain('--turbo');
     expect(adminPackage.scripts.dev).not.toContain('--turbo');
   });
