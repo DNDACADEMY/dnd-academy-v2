@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import FAQSection from '.';
 
-window.scrollTo = vi.fn<typeof window.scrollTo>();
+vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
 
 const faqItems = [
   {
