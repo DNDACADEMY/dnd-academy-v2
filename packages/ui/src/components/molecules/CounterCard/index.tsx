@@ -1,8 +1,9 @@
 'use client';
 
-import CountUp from 'react-countup';
+import { useEffect, useRef } from 'react';
 
 import clsx from 'clsx';
+import { CountUp } from 'countup.js';
 
 import styles from './index.module.scss';
 
@@ -15,11 +16,22 @@ type Props = {
 };
 
 export function Counter({ count }: { count: number }) {
-  return (
-    <CountUp enableScrollSpy scrollSpyOnce start={0} end={count} duration={5}>
-      {({ countUpRef }) => <strong data-testid="counter" ref={countUpRef} />}
-    </CountUp>
-  );
+  const counterRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!counterRef.current) {
+      return;
+    }
+
+    new CountUp(counterRef.current, count, {
+      startVal: 0,
+      duration: 5,
+      enableScrollSpy: true,
+      scrollSpyOnce: true,
+    });
+  }, [count]);
+
+  return <strong data-testid="counter" ref={counterRef} />;
 }
 
 function CounterCard({ count, title, suffix = '명', color = 'gray', highlight = false }: Props) {
