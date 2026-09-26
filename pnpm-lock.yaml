@@ -274,11 +274,11 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       google-auth-library:
-        specifier: 10.9.0
-        version: 10.9.0(supports-color@10.2.2)
+        specifier: 11.1.0
+        version: 11.1.0(supports-color@10.2.2)
       google-spreadsheet:
         specifier: 5.3.0
-        version: 5.3.0(google-auth-library@10.9.0(supports-color@10.2.2))
+        version: 5.3.0(google-auth-library@11.1.0(supports-color@10.2.2))
       motion:
         specifier: 13.4.1
         version: 13.4.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -522,11 +522,11 @@ importers:
         specifier: 4.4.1
         version: 4.4.1(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@1.21.6)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.11.0(jiti@1.21.6)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.11.0(jiti@1.21.6)(supports-color@8.1.1))
       google-auth-library:
-        specifier: 10.9.0
-        version: 10.9.0(supports-color@8.1.1)
+        specifier: 11.1.0
+        version: 11.1.0(supports-color@8.1.1)
       google-spreadsheet:
         specifier: 5.3.0
-        version: 5.3.0(google-auth-library@10.9.0(supports-color@8.1.1))
+        version: 5.3.0(google-auth-library@11.1.0(supports-color@8.1.1))
       identity-obj-proxy:
         specifier: 3.0.0
         version: 3.0.0
@@ -4946,9 +4946,9 @@ packages:
     resolution: {integrity: sha512-5FZy72Rh8LhtjmvDrKkI+lVhrsQrVKVsItxMoDm5mNQE+xR0WVIIs+jzPSJgBvKVsLi24fZhXJIsNI0bihDzFg==}
     engines: {node: '>=18'}
 
-  gcp-metadata@8.1.2:
-    resolution: {integrity: sha512-zV/5HKTfCeKWnxG0Dmrw51hEWFGfcF2xiXqcA3+J90WDuP0SvoiSO5ORvcBsifmx/FoIjgQN3oNOGaQ5PhLFkg==}
-    engines: {node: '>=18'}
+  gcp-metadata@9.0.4:
+    resolution: {integrity: sha512-p6WvbXOhfwnVtv/MyPq5kBiVhfV/qglMIxwwTVNEI1Ha1HmOgz5uHYHtYO6SfGckFaXe8blA11IJJ3wqXmvmBA==}
+    engines: {node: '>=22'}
 
   generator-function@2.0.1:
     resolution: {integrity: sha512-SFdFmIJi+ybC0vjlHN0ZGVGHc3lgE0DxPAT0djjVg+kjOnSqclqmj0KQ7ykTOLP6YxoqOvuAODGdcHJn+43q3g==}
@@ -5004,17 +5004,13 @@ packages:
     resolution: {integrity: sha512-cezEd/DTyyht9cvSSURyygXPfy04GtWO/5e6ZPvH7fCtjKz9PYOmuawphw1Ctd1f6C+5JypXfGD7ahNMXvevBA==}
     engines: {node: '>=18'}
 
-  google-auth-library@10.9.0:
-    resolution: {integrity: sha512-xtvUqvINPhTaBm7nXqlYPcrMHJPm1lCNdSovxnKKhTm+4JsvQ+KGVYJViLoH9Yxu8w+T0Qv5HubzYT9BLrppJg==}
-    engines: {node: '>=18'}
+  google-auth-library@11.1.0:
+    resolution: {integrity: sha512-YIBq5KNoHQrZ9PM4PeodDBqqBGlSTIxh1zibN8u3zNIO9UJg8gvKuCpdKV7fWXhsZ2zRkU6FhGrgKNgLJ2IRgw==}
+    engines: {node: '>=22'}
 
-  google-logging-utils@1.1.3:
-    resolution: {integrity: sha512-eAmLkjDjAFCVXg7A1unxHsLf961m6y17QFqXqAXGj/gVkKFrEICfStRfwUlGNfeCEjNRa32JEWOUTlYXPyyKvA==}
-    engines: {node: '>=14'}
-
-  google-logging-utils@1.1.4:
-    resolution: {integrity: sha512-LXxE6ND+JHhDPYtPFt3oeWrjxFPrnRZCZ4At6lpbi1ZDSAN7bmGET9s53vvARbxT93p+xpeDUbc/nCR4C+7vcw==}
-    engines: {node: '>=14'}
+  google-logging-utils@2.0.1:
+    resolution: {integrity: sha512-HMhaQghlOTvbcb3c4T5jmmOMtG3JUF1iOQMezaJXL86CDS+Tm2vHd0IeLFRAx3+ewd+bo9E1HFHoy17X5aJa9A==}
+    engines: {node: '>=22'}
 
   google-spreadsheet@5.3.0:
     resolution: {integrity: sha512-hsMI2hc1aqDgZsfOEvJ+M4vwH6h8OuXKdxwKPPQq/OKs2dYnuaD8qx3GtiPyYcXRSN60j7EHbaHBPihOhzwY/A==}
@@ -7173,10 +7169,10 @@ snapshots:
       '@babel/helper-compilation-targets': 7.28.6
       '@babel/helper-module-transforms': 7.28.6(@babel/core@7.29.0(supports-color@10.2.2))(supports-color@10.2.2)
       '@babel/helpers': 7.29.2
-      '@babel/parser': 7.29.3
+      '@babel/parser': 7.29.9
       '@babel/template': 7.28.6
       '@babel/traverse': 7.29.0(supports-color@10.2.2)
-      '@babel/types': 7.29.0
+      '@babel/types': 7.29.8
       '@jridgewell/remapping': 2.3.5
       convert-source-map: 2.0.0
       debug: 4.4.3(supports-color@10.2.2)
@@ -7193,10 +7189,10 @@ snapshots:
       '@babel/helper-compilation-targets': 7.28.6
       '@babel/helper-module-transforms': 7.28.6(@babel/core@7.29.0(supports-color@8.1.1))(supports-color@8.1.1)
       '@babel/helpers': 7.29.2
-      '@babel/parser': 7.29.3
+      '@babel/parser': 7.29.9
       '@babel/template': 7.28.6
       '@babel/traverse': 7.29.0(supports-color@8.1.1)
-      '@babel/types': 7.29.0
+      '@babel/types': 7.29.8
       '@jridgewell/remapping': 2.3.5
       convert-source-map: 2.0.0
       debug: 4.4.3(supports-color@8.1.1)
@@ -7208,8 +7204,8 @@ snapshots:
 
   '@babel/generator@7.29.1':
     dependencies:
-      '@babel/parser': 7.29.3
-      '@babel/types': 7.29.0
+      '@babel/parser': 7.29.9
+      '@babel/types': 7.29.8
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
       jsesc: 3.1.0
@@ -7269,14 +7265,14 @@ snapshots:
   '@babel/helper-module-imports@7.28.6(supports-color@10.2.2)':
     dependencies:
       '@babel/traverse': 7.29.0(supports-color@10.2.2)
-      '@babel/types': 7.29.0
+      '@babel/types': 7.29.8
     transitivePeerDependencies:
       - supports-color
 
   '@babel/helper-module-imports@7.28.6(supports-color@8.1.1)':
     dependencies:
       '@babel/traverse': 7.29.0(supports-color@8.1.1)
-      '@babel/types': 7.29.0
+      '@babel/types': 7.29.8
     transitivePeerDependencies:
       - supports-color
 
@@ -7284,7 +7280,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.29.0(supports-color@10.2.2)
       '@babel/helper-module-imports': 7.28.6(supports-color@10.2.2)
-      '@babel/helper-validator-identifier': 7.28.5
+      '@babel/helper-validator-identifier': 7.29.7
       '@babel/traverse': 7.29.0(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
@@ -7293,7 +7289,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.29.0(supports-color@8.1.1)
       '@babel/helper-module-imports': 7.28.6(supports-color@8.1.1)
-      '@babel/helper-validator-identifier': 7.28.5
+      '@babel/helper-validator-identifier': 7.29.7
       '@babel/traverse': 7.29.0(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
@@ -7350,7 +7346,7 @@ snapshots:
   '@babel/helpers@7.29.2':
     dependencies:
       '@babel/template': 7.28.6
-      '@babel/types': 7.29.0
+      '@babel/types': 7.29.8
 
   '@babel/parser@7.29.3':
     dependencies:
@@ -7945,17 +7941,17 @@ snapshots:
   '@babel/template@7.28.6':
     dependencies:
       '@babel/code-frame': 7.29.0
-      '@babel/parser': 7.29.3
-      '@babel/types': 7.29.0
+      '@babel/parser': 7.29.9
+      '@babel/types': 7.29.8
 
   '@babel/traverse@7.29.0(supports-color@10.2.2)':
     dependencies:
       '@babel/code-frame': 7.29.0
       '@babel/generator': 7.29.1
       '@babel/helper-globals': 7.28.0
-      '@babel/parser': 7.29.3
+      '@babel/parser': 7.29.9
       '@babel/template': 7.28.6
-      '@babel/types': 7.29.0
+      '@babel/types': 7.29.8
       debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
@@ -7965,9 +7961,9 @@ snapshots:
       '@babel/code-frame': 7.29.0
       '@babel/generator': 7.29.1
       '@babel/helper-globals': 7.28.0
-      '@babel/parser': 7.29.3
+      '@babel/parser': 7.29.9
       '@babel/template': 7.28.6
-      '@babel/types': 7.29.0
+      '@babel/types': 7.29.8
       debug: 4.4.3(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
@@ -8553,7 +8549,7 @@ snapshots:
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
       '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/remapping@2.3.5':
@@ -8575,7 +8571,7 @@ snapshots:
   '@jridgewell/trace-mapping@0.3.31':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
 
   '@keyv/bigmap@1.3.1(keyv@5.6.0)':
     dependencies:
@@ -8940,7 +8936,7 @@ snapshots:
       detect-libc: 2.1.2
       is-glob: 4.0.3
       node-addon-api: 7.1.1
-      picomatch: 4.0.4
+      picomatch: 4.0.7
     optionalDependencies:
       '@parcel/watcher-android-arm64': 2.6.0
       '@parcel/watcher-darwin-arm64': 2.6.0
@@ -11401,18 +11397,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  gcp-metadata@8.1.2(supports-color@10.2.2):
+  gcp-metadata@9.0.4(supports-color@10.2.2):
     dependencies:
       gaxios: 7.1.5(supports-color@10.2.2)
-      google-logging-utils: 1.1.4
+      google-logging-utils: 2.0.1
       json-bigint: 1.0.0
     transitivePeerDependencies:
       - supports-color
 
-  gcp-metadata@8.1.2(supports-color@8.1.1):
+  gcp-metadata@9.0.4(supports-color@8.1.1):
     dependencies:
       gaxios: 7.1.5(supports-color@8.1.1)
-      google-logging-utils: 1.1.4
+      google-logging-utils: 2.0.1
       json-bigint: 1.0.0
     transitivePeerDependencies:
       - supports-color
@@ -11479,45 +11475,43 @@ snapshots:
 
   globals@17.12.0: {}
 
-  google-auth-library@10.9.0(supports-color@10.2.2):
+  google-auth-library@11.1.0(supports-color@10.2.2):
     dependencies:
       base64-js: 1.5.1
       ecdsa-sig-formatter: 1.0.11
       gaxios: 7.1.5(supports-color@10.2.2)
-      gcp-metadata: 8.1.2(supports-color@10.2.2)
-      google-logging-utils: 1.1.3
+      gcp-metadata: 9.0.4(supports-color@10.2.2)
+      google-logging-utils: 2.0.1
       jws: 4.0.1
     transitivePeerDependencies:
       - supports-color
 
-  google-auth-library@10.9.0(supports-color@8.1.1):
+  google-auth-library@11.1.0(supports-color@8.1.1):
     dependencies:
       base64-js: 1.5.1
       ecdsa-sig-formatter: 1.0.11
       gaxios: 7.1.5(supports-color@8.1.1)
-      gcp-metadata: 8.1.2(supports-color@8.1.1)
-      google-logging-utils: 1.1.3
+      gcp-metadata: 9.0.4(supports-color@8.1.1)
+      google-logging-utils: 2.0.1
       jws: 4.0.1
     transitivePeerDependencies:
       - supports-color
 
-  google-logging-utils@1.1.3: {}
+  google-logging-utils@2.0.1: {}
 
-  google-logging-utils@1.1.4: {}
-
-  google-spreadsheet@5.3.0(google-auth-library@10.9.0(supports-color@10.2.2)):
+  google-spreadsheet@5.3.0(google-auth-library@11.1.0(supports-color@10.2.2)):
     dependencies:
       es-toolkit: 1.47.0
       ky: 2.0.2
     optionalDependencies:
-      google-auth-library: 10.9.0(supports-color@10.2.2)
+      google-auth-library: 11.1.0(supports-color@10.2.2)
 
-  google-spreadsheet@5.3.0(google-auth-library@10.9.0(supports-color@8.1.1)):
+  google-spreadsheet@5.3.0(google-auth-library@11.1.0(supports-color@8.1.1)):
     dependencies:
       es-toolkit: 1.47.0
       ky: 2.0.2
     optionalDependencies:
-      google-auth-library: 10.9.0(supports-color@8.1.1)
+      google-auth-library: 11.1.0(supports-color@8.1.1)
 
   gopd@1.2.0: {}
 
