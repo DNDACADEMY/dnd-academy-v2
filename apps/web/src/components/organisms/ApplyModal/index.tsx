@@ -1,8 +1,7 @@
 'use client';
 
-import { cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
-
 import { Button, ButtonProps } from '@dnd-academy/ui';
+import { cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
 
 import Modal from '@/components/molecules/Modal';
 import { CURRENT_FLAG, DESIGNER_APPLICATION_LINK, DEVELOPER_APPLICATION_LINK } from '@/lib/constants';

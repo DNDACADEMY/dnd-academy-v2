@@ -1,9 +1,8 @@
 'use client';
 
-import { memo, PropsWithChildren } from 'react';
-
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'motion/react';
+import { memo, PropsWithChildren } from 'react';
 
 import { AccordionPolygon } from '../../../lib/assets/icons';
 

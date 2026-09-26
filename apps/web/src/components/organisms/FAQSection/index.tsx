@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-
 import { FAQ } from '@dnd-academy/core';
 import { AccordionItem } from '@dnd-academy/ui';
+import { useState } from 'react';
 
 import styles from './index.module.scss';
 

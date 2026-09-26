@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
 import type { NextAuthRequest } from 'next-auth';
+import { NextResponse } from 'next/server';
 
 import { auth } from '@/auth';
 import { isEmailAllowed } from '@/utils';

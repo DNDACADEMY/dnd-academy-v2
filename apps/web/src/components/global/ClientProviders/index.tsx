@@ -1,9 +1,8 @@
 'use client';
 
+import * as ChannelService from '@channel.io/channel-web-sdk-loader';
 import { ReactNode, useEffect } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-
-import * as ChannelService from '@channel.io/channel-web-sdk-loader';
 
 import SnowfallSection from '@/components/organisms/SnowfallSection';
 import { isChristmasTheme } from '@/utils';

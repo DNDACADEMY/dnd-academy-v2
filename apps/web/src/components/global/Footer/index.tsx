@@ -1,7 +1,6 @@
-import Link from 'next/link';
-
 import { LogoType } from '@dnd-academy/core';
 import { Button } from '@dnd-academy/ui';
+import Link from 'next/link';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 import SocialIconLink from '@/components/molecules/SocialIconLink';

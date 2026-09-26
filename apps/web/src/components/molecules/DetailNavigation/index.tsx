@@ -1,9 +1,7 @@
-import { Fragment } from 'react';
-
+import clsx from 'clsx';
 import { Route } from 'next';
 import Link from 'next/link';
-
-import clsx from 'clsx';
+import { Fragment } from 'react';
 
 import { RightIcon } from '@/lib/assets/icons';
 

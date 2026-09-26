@@ -1,6 +1,5 @@
 import '@dnd-academy/ui/style.css';
 import '@/styles/global.scss';
-
 import { pretendardFont } from '@/app/_fonts';
 import ClientProvider from '@/components/common/ClientLayout';
 

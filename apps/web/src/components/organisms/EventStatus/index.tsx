@@ -1,7 +1,6 @@
 'use client';
 
 import 'dayjs/locale/ko';
-
 import type { EventStatus as Event } from '@dnd-academy/core';
 import { Badge } from '@dnd-academy/ui';
 import dayjs from 'dayjs';

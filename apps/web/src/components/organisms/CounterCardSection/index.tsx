@@ -1,6 +1,5 @@
-import { ReactNode } from 'react';
-
 import { CounterCard } from '@dnd-academy/ui';
+import { ReactNode } from 'react';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { totalCountStatusData } from '@/lib/assets/data';

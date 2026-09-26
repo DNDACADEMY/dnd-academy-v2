@@ -1,8 +1,7 @@
 'use client';
 
-import { PropsWithChildren, ReactNode } from 'react';
-
 import { useIsMounted } from '@dnd-academy/ui/client';
+import { PropsWithChildren, ReactNode } from 'react';
 
 type Props = {
   loading?: ReactNode;

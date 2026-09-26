@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-
 import clsx from 'clsx';
 import { CountUp } from 'countup.js';
+import { useEffect, useRef } from 'react';
 
 import styles from './index.module.scss';
 

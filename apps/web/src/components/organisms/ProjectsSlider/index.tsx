@@ -1,7 +1,6 @@
-import Marquee from 'react-fast-marquee';
-
 import Image from 'next/image';
 import Link from 'next/link';
+import Marquee from 'react-fast-marquee';
 
 import { getProjects } from '@/lib/apis/project';
 import blurDataUrl from '@/lib/data/blurDataUrl';

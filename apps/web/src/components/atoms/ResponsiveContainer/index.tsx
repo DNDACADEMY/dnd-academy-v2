@@ -1,8 +1,7 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
-
 import { useIsMounted } from '@dnd-academy/ui/client';
+import { PropsWithChildren } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import BREAK_POINT from '@/lib/constants/breakPoint';

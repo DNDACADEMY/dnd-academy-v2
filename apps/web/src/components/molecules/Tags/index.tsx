@@ -1,12 +1,10 @@
 'use client';
 
-import { useCallback, useMemo } from 'react';
-
-import { Route } from 'next';
-import { useRouter, useSearchParams } from 'next/navigation';
-
 import { paramsSerializer } from '@dnd-academy/core';
 import clsx from 'clsx';
+import { Route } from 'next';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useCallback, useMemo } from 'react';
 
 import Tag from '@/components/atoms/Tag';
 import { sortFlagsDescending } from '@/utils';

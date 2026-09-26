@@ -1,6 +1,5 @@
 import '@dnd-academy/ui/style.css';
 import '@/styles/global.scss';
-
 import ClientProviders from '@/components/global/ClientProviders';
 import DeferredAnalytics from '@/components/global/DeferredAnalytics';
 import Footer from '@/components/global/Footer';

@@ -1,6 +1,5 @@
-import { Route } from 'next';
-
 import { render, screen } from '@testing-library/react';
+import { Route } from 'next';
 
 import Button from '.';
 

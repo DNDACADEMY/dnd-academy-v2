@@ -1,6 +1,5 @@
-import { ComponentType, JSX, ReactNode } from 'react';
-
 import { api, type ApiRequest, serverErrorHandling } from '@dnd-academy/core';
+import { ComponentType, JSX, ReactNode } from 'react';
 
 function withServerErrorBoundary<T, P extends object | undefined>(
   WrappedComponent: ComponentType<P & { data: T }>,

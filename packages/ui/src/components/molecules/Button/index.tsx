@@ -1,10 +1,8 @@
 'use client';
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLProps, ReactElement, ReactNode, useMemo } from 'react';
-
-import Link from 'next/link';
-
 import clsx from 'clsx';
 import { motion, type MotionProps } from 'motion/react';
+import Link from 'next/link';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLProps, ReactElement, ReactNode, useMemo } from 'react';
 
 import styles from './index.module.scss';
 
