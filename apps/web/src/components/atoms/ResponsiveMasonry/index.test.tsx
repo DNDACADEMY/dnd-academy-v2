@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 
 import ResponsiveMasonry from './index';
 
-jest.mock('react-responsive-masonry', () => ({
+vi.mock('react-responsive-masonry', () => ({
   __esModule: true,
   default: ({ children, className, gutter }: { children: ReactNode; className?: string; gutter: string }) => (
     <div data-testid="masonry" data-gutter={gutter} className={className}>

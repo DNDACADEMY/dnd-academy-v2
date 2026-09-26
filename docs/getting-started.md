@@ -79,7 +79,7 @@ staged 파일이 없을 땐 모든 커맨드가 `(skip) no files for inspection`
 - 코드 수정 후 `git commit`을 하면 자동으로
   - 변경된 JS/TS 파일에 oxlint `--fix` → ESLint `--fix` (oxlint 가 담당하는 규칙은 ESLint 에서 꺼져 있음)
   - 변경된 파일에 oxfmt 포맷 적용
-  - 변경된 파일과 관련된 Jest 테스트 실행
+  - 변경된 파일과 관련된 Vitest 테스트 실행 (`vitest related`)
 - `--fix`/`--write`로 자동 수정된 결과는 자동으로 재staging되어 같은 커밋에 들어갑니다.
 
 ## 트러블슈팅

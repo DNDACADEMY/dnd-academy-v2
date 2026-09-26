@@ -6,12 +6,12 @@ describe('CounterCard', () => {
   const count = 10;
 
   beforeEach(() => {
-    jest.useFakeTimers();
-    jest.clearAllMocks();
+    vi.useFakeTimers();
+    vi.clearAllMocks();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   const renderCounterCard = ({ highlight = false }: { highlight?: boolean } = {}) =>
@@ -21,7 +21,7 @@ describe('CounterCard', () => {
     const { container } = renderCounterCard();
 
     act(() => {
-      jest.advanceTimersByTime(6000);
+      vi.advanceTimersByTime(6000);
     });
 
     expect(container).toHaveTextContent('0');
@@ -32,7 +32,7 @@ describe('CounterCard', () => {
       renderCounterCard({ highlight: true });
 
       act(() => {
-        jest.advanceTimersByTime(6000);
+        vi.advanceTimersByTime(6000);
       });
 
       expect(screen.getByText('title')).toHaveClass('highlight');

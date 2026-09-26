@@ -31,4 +31,4 @@ pre-commit:
       stage_fixed: true
     test-related:
       glob: "*.{js,jsx,ts,tsx}"
-      run: pnpm test:coverage -- --findRelatedTests {staged_files}
+      run: pnpm exec vitest related --run --passWithNoTests {staged_files}

@@ -4,10 +4,10 @@ import AccordionItem from '.';
 
 describe('AccordionItem', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
-  const handleClick = jest.fn();
+  const handleClick = vi.fn<() => void>();
 
   const children = 'children';
   const title = 'title';
@@ -19,7 +19,7 @@ describe('AccordionItem', () => {
       </AccordionItem>,
     );
 
-  context('activeIndex와 currentIndex가 같은 경우', () => {
+  describe('activeIndex와 currentIndex가 같은 경우', () => {
     const params = { activeIndex: 0, currentIndex: 0 };
 
     it('자식 컴포넌트가 보여야만 한다', () => {
@@ -39,7 +39,7 @@ describe('AccordionItem', () => {
     });
   });
 
-  context('activeIndex와 currentIndex가 다른 경우', () => {
+  describe('activeIndex와 currentIndex가 다른 경우', () => {
     const params = { activeIndex: 1, currentIndex: 0 };
 
     it('자식 컴포넌트가 보이지 않아야만 한다', () => {

@@ -3,11 +3,11 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import Tag from '.';
 
 describe('Tag', () => {
-  const handleClick = jest.fn();
+  const handleClick = vi.fn<() => void>();
   const title = 'title';
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   const renderTag = ({ isActive }: { isActive: boolean }) =>

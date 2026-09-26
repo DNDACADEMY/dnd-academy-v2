@@ -8,7 +8,7 @@ type OriginModule = {
 const ORIGINAL_ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
 
 const loadOriginModule = async (): Promise<OriginModule> => {
-  jest.resetModules();
+  vi.resetModules();
   return import('./origin');
 };
 

@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import FAQSection from '.';
 
-window.scrollTo = jest.fn();
+window.scrollTo = vi.fn<typeof window.scrollTo>();
 
 const faqItems = [
   {
@@ -17,10 +17,10 @@ const faqItems = [
 
 describe('FAQSection', () => {
   afterEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
   afterAll(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   const renderFAQSection = () => render(<FAQSection faqItems={faqItems} />);

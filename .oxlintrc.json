@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "react", "jest", "nextjs"],
+  "plugins": ["eslint", "typescript", "react", "jest", "vitest", "nextjs"],
   "categories": {
     "correctness": "error"
   },
@@ -39,7 +39,7 @@
     {
       "files": ["**/__tests__/**/*.{js,jsx,ts,tsx}", "**/*.{spec,test}.{js,jsx,ts,tsx}"],
       "env": {
-        "jest": true
+        "vitest": true
       },
       "rules": {
         "react/rules-of-hooks": "off",
