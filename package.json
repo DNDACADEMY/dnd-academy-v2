@@ -19,18 +19,18 @@
   "devDependencies": {
     "@testing-library/dom": "10.4.2",
     "@testing-library/jest-dom": "7.0.1",
-    "@turbo/gen": "2.10.13",
+    "@turbo/gen": "2.11.3",
     "@types/jest-plugin-context": "2.9.7",
-    "@types/node": "26.6.1",
+    "@types/node": "26.6.2",
     "eslint": "10.11.0",
     "eslint-config-prettier": "10.1.8",
-    "jest": "30.5.1",
+    "jest": "30.5.2",
     "jest-plugin-context": "2.9.0",
     "lefthook": "2.1.14",
     "oxfmt": "0.70.0",
     "oxlint": "1.85.0",
     "postcss": "8.5.28",
-    "turbo": "2.10.13",
+    "turbo": "2.11.3",
     "typescript": "5.9.3"
   },
   "repository": {
