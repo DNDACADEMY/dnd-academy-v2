@@ -37,7 +37,7 @@
     "eslint-plugin-simple-import-sort": "14.0.0",
     "eslint-plugin-testing-library": "7.16.2",
     "eslint-plugin-unused-imports": "4.4.1",
-    "jest": "30.5.1",
+    "jest": "30.5.2",
     "jest-plugin-context": "2.9.0",
     "typescript": "6.0.3",
     "vite": "8.3.0",
