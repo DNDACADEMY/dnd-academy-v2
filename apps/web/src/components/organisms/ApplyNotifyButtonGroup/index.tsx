@@ -1,10 +1,9 @@
 'use client';
 
-import { cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
-
 import type { EventStatus } from '@dnd-academy/core';
 import type { ButtonProps } from '@dnd-academy/ui';
 import { useIsMounted } from '@dnd-academy/ui/client';
+import { cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
 
 import useCountdown from '@/hooks/useCountdown';
 import { CURRENT_FLAG, NEXT_COHORT_NOTIFICATION_URL, NEXT_FLAG } from '@/lib/constants';

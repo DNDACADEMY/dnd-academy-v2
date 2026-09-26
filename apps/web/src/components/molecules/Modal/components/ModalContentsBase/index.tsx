@@ -1,8 +1,7 @@
-import { ReactElement, RefObject, useRef } from 'react';
-
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'motion/react';
+import { ReactElement, RefObject, useRef } from 'react';
 import { useOnClickOutside, useScrollLock } from 'usehooks-ts';
 
 import GlobalPortal from '@/components/global/GlobalPortal';

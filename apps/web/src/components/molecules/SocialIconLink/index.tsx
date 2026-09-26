@@ -1,7 +1,6 @@
-import { FunctionComponent, SVGAttributes } from 'react';
-
 import { type LogoType } from '@dnd-academy/core';
 import clsx from 'clsx';
+import { FunctionComponent, SVGAttributes } from 'react';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 import {

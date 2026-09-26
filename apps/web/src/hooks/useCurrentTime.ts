@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-
 import { useInterval } from 'usehooks-ts';
 
 const useCurrentTime = (enabledInterval: boolean) => {

@@ -1,9 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-
 import clsx from 'clsx';
 import { AnimationDefinition, motion } from 'motion/react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { ErrorCircleIcon, InfoCircleIcon, SuccessCircleIcon, WarningIcon } from '@/lib/assets/icons';
 import useToastStore from '@/stores/toast';

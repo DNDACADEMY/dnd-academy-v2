@@ -1,7 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-
 import { api, ApiError, getLatestItemReduce } from '@dnd-academy/core';
 import { list } from '@vercel/blob';
+import { NextRequest, NextResponse } from 'next/server';
 
 const ALLOWED_BLOB_NAMES = new Set(['current_applicant_count', 'total_count_status']);
 

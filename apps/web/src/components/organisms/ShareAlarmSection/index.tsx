@@ -1,12 +1,10 @@
 'use client';
 
-import { CSSProperties } from 'react';
-import Marquee from 'react-fast-marquee';
-
-import Image from 'next/image';
-
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
+import Image from 'next/image';
+import { CSSProperties } from 'react';
+import Marquee from 'react-fast-marquee';
 
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';

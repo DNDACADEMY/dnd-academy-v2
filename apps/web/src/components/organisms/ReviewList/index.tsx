@@ -1,7 +1,6 @@
-import Link from 'next/link';
-
 import type { Review } from '@dnd-academy/core';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 import ResponsiveMasonry from '@/components/atoms/ResponsiveMasonry';
 import SocialIconLink from '@/components/molecules/SocialIconLink';

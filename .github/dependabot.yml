@@ -37,11 +37,9 @@ updates:
       - dependency-name: "react-dom"
         update-types: ["version-update:semver-major"]
       # Storybook 계열도 동일하게 가드레일이 정확한 버전(10.4.x)으로 핀 고정한다.
-      # `@storybook/*` glob 은 형제 패키지(storybook / eslint-plugin-storybook /
-      # @chromatic-com/storybook)를 매칭하지 못하므로 개별로 함께 막는다.
+      # `@storybook/*` glob 은 형제 패키지(storybook / @chromatic-com/storybook)를 매칭하지 못하므로 개별로 함께 막는다.
       - dependency-name: "@storybook/*"
       - dependency-name: "storybook"
-      - dependency-name: "eslint-plugin-storybook"
       - dependency-name: "@chromatic-com/storybook"
       - dependency-name: "cypress"
         update-types: ["version-update:semver-major"]

@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
 import { Button, PageTitle } from '@dnd-academy/ui';
+import Image from 'next/image';
 
 import { LinkIcon } from '@/lib/assets/icons';
 

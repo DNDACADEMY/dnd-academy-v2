@@ -1,7 +1,6 @@
-import { headers } from 'next/headers';
-
 import { api, type TotalCountStatus } from '@dnd-academy/core';
 import { CounterCard, PageTitle } from '@dnd-academy/ui';
+import { headers } from 'next/headers';
 
 import TotalCountStatusForm from '@/components/TotalCountStatusForm';
 

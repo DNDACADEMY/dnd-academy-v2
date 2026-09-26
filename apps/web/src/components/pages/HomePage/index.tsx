@@ -1,7 +1,6 @@
-import Image from 'next/image';
-
 import { type EventStatus as Event, type FAQ } from '@dnd-academy/core';
 import { Button, Counter } from '@dnd-academy/ui';
+import Image from 'next/image';
 
 import ClientOnly from '@/components/atoms/ClientOnly';
 import ScrollElement from '@/components/atoms/ScrollElement';

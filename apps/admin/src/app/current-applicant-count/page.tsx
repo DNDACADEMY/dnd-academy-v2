@@ -1,7 +1,6 @@
-import { headers } from 'next/headers';
-
 import { api, CurrentApplicantCount } from '@dnd-academy/core';
 import { Counter, PageTitle } from '@dnd-academy/ui';
+import { headers } from 'next/headers';
 
 import CurrentApplicantCountAction from '@/components/CurrentApplicantCountAction';
 

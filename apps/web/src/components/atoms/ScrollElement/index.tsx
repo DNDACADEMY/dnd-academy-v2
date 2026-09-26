@@ -1,8 +1,7 @@
 'use client';
 
-import { ComponentProps, createElement, ElementType, useEffect, useState } from 'react';
-
 import clsx from 'clsx';
+import { ComponentProps, createElement, ElementType, useEffect, useState } from 'react';
 
 import styles from './index.module.scss';
 

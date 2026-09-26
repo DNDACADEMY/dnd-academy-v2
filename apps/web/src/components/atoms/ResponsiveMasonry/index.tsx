@@ -1,11 +1,10 @@
 'use client';
 
+import { useIsMounted } from '@dnd-academy/ui/client';
+import clsx from 'clsx';
 import { PropsWithChildren } from 'react';
 // TODO - 걷어내기
 import Masonry, { ResponsiveMasonry as ReactResponsiveMasonry } from 'react-responsive-masonry';
-
-import { useIsMounted } from '@dnd-academy/ui/client';
-import clsx from 'clsx';
 
 import styles from './index.module.scss';
 

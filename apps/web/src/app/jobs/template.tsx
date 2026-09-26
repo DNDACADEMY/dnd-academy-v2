@@ -1,6 +1,5 @@
-import { ReactNode } from 'react';
-
 import { PageTitle } from '@dnd-academy/ui';
+import { ReactNode } from 'react';
 
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 

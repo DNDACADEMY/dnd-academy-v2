@@ -2,7 +2,6 @@
 
 import { useMemo } from 'react';
 import { Snowfall } from 'react-snowfall';
-
 import { useMediaQuery } from 'usehooks-ts';
 
 import BREAK_POINT from '@/lib/constants/breakPoint';

@@ -2,12 +2,10 @@
 
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
-
-import { RefObject, useRef, useState } from 'react';
-import { Document, DocumentProps, Page, pdfjs } from 'react-pdf';
-
 import { Button } from '@dnd-academy/ui';
 import clsx from 'clsx';
+import { RefObject, useRef, useState } from 'react';
+import { Document, DocumentProps, Page, pdfjs } from 'react-pdf';
 import { useDebounceCallback, useResizeObserver } from 'usehooks-ts';
 
 import { ArrowExpandIcon, ArrowRightIcon } from '@/lib/assets/icons';

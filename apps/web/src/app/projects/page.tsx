@@ -1,6 +1,5 @@
-import { Metadata } from 'next';
-
 import { PageTitle } from '@dnd-academy/ui';
+import { Metadata } from 'next';
 
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import ProjectsPage from '@/components/pages/ProjectsPage';

@@ -5,26 +5,6 @@ pre-commit:
       glob: "*.{js,jsx,ts,tsx,mjs,cjs}"
       run: pnpm exec oxlint --fix {staged_files}
       stage_fixed: true
-    eslint-web:
-      root: "apps/web/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: pnpm exec eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
-      stage_fixed: true
-    eslint-admin:
-      root: "apps/admin/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: pnpm exec eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
-      stage_fixed: true
-    eslint-ui:
-      root: "packages/ui/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: pnpm exec eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
-      stage_fixed: true
-    eslint-core:
-      root: "packages/core/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: pnpm exec eslint --fix --cache --no-error-on-unmatched-pattern {staged_files}
-      stage_fixed: true
     oxfmt:
       glob: "*.{js,jsx,ts,tsx,mjs,cjs,json,md,mdx,yml,yaml}"
       run: pnpm exec oxfmt --no-error-on-unmatched-pattern {staged_files}
