@@ -259,20 +259,20 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@tanstack/react-query':
-        specifier: 5.103.2
-        version: 5.103.2(react@19.3.0)
+        specifier: 5.104.1
+        version: 5.104.1(react@19.3.0)
       '@vercel/blob':
-        specifier: 2.8.0
-        version: 2.8.0
+        specifier: 2.8.1
+        version: 2.8.1
       clsx:
         specifier: 2.1.1
         version: 2.1.1
       google-auth-library:
-        specifier: 11.1.0
-        version: 11.1.0(supports-color@10.2.2)
+        specifier: 11.2.0
+        version: 11.2.0(supports-color@10.2.2)
       google-spreadsheet:
         specifier: 5.3.0
-        version: 5.3.0(google-auth-library@11.1.0(supports-color@10.2.2))
+        version: 5.3.0(google-auth-library@11.2.0(supports-color@10.2.2))
       motion:
         specifier: 13.4.1
         version: 13.4.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -356,8 +356,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1(next@16.3.6(@babel/core@7.29.0(supports-color@8.1.1))(@types/node@26.6.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.105.0))(react@19.3.0)
       '@vercel/blob':
-        specifier: 2.8.0
-        version: 2.8.0
+        specifier: 2.8.1
+        version: 2.8.1
       '@vercel/speed-insights':
         specifier: 2.0.0
         version: 2.0.0(next@16.3.6(@babel/core@7.29.0(supports-color@8.1.1))(@types/node@26.6.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.105.0))(react@19.3.0)
@@ -456,11 +456,11 @@ importers:
         specifier: 15.21.1
         version: 15.21.1
       google-auth-library:
-        specifier: 11.1.0
-        version: 11.1.0(supports-color@8.1.1)
+        specifier: 11.2.0
+        version: 11.2.0(supports-color@8.1.1)
       google-spreadsheet:
         specifier: 5.3.0
-        version: 5.3.0(google-auth-library@11.1.0(supports-color@8.1.1))
+        version: 5.3.0(google-auth-library@11.2.0(supports-color@8.1.1))
       identity-obj-proxy:
         specifier: 3.0.0
         version: 3.0.0
@@ -3325,11 +3325,11 @@ packages:
   '@swc/types@0.1.28':
     resolution: {integrity: sha512-V6Mnml8v09QALx6K0elJ7o9K/MkVDtW3t6L+7Ou/JcWtb3xwId2AH4FeOceySd2JaO87IMw4+6vSZxLm34LPbw==}
 
-  '@tanstack/query-core@5.103.2':
-    resolution: {integrity: sha512-I8DkFXls5jXLqtm8+QpOhEmG07hIblhSZFzafg9wHsMSEvMzULy9hK17wU1T/ahfhMbtITJhbxutwwCoihkR7A==}
+  '@tanstack/query-core@5.104.1':
+    resolution: {integrity: sha512-TiRghcrGkUTE+M4JBxvpPSpBhxvIzQairw+cksrHYGr+2uwC77yW1SY9nYxnYRYOppvucf8rEg6b5byoz4rTpw==}
 
-  '@tanstack/react-query@5.103.2':
-    resolution: {integrity: sha512-B+fWiYZBc+0uUD5zDZAeLw9dKj7XEsdnuu6zRZ+no6LNKpeE3P3bJ+N6HINjcIlWR6fW3vUoTneEaGa2V6ehqw==}
+  '@tanstack/react-query@5.104.1':
+    resolution: {integrity: sha512-Zz70EgjahNI7aCz8BZxM3vUGU44ycxEAzMuCUjLeA7SVhhOkg3ZgPjPJPvHjs6Rmky/dtmnu1WzjGHNHmhCoZQ==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -3515,8 +3515,8 @@ packages:
       vue-router:
         optional: true
 
-  '@vercel/blob@2.8.0':
-    resolution: {integrity: sha512-Nu+HWKpkgovCh/ezlG7wCVwF7RErTzLzZMbGKFBdGBCbTKyK+s5VXPLl+0+TpNEQPH8AVaGzOpIsXUOtkqylCQ==}
+  '@vercel/blob@2.8.1':
+    resolution: {integrity: sha512-QFX17sMRoBnPuNyHsQsY5GsYRg9HoE8yGKKbfB/V/JK9QuyQp10R5qeNntT6EgUJ4cQ3R+sH26n5l/LacfzzEw==}
     engines: {node: '>=20.0.0'}
 
   '@vercel/cli-config@0.2.0':
@@ -4651,8 +4651,8 @@ packages:
     resolution: {integrity: sha512-NBcGGFbBA9s1VzD41QXDG+3++t9Mn5t1FpLdhESY6oKY4gYTFpX4wO3sqGUa0Srjtbfj3szX0RnemmrVRUdULA==}
     engines: {node: '>=10'}
 
-  google-auth-library@11.1.0:
-    resolution: {integrity: sha512-YIBq5KNoHQrZ9PM4PeodDBqqBGlSTIxh1zibN8u3zNIO9UJg8gvKuCpdKV7fWXhsZ2zRkU6FhGrgKNgLJ2IRgw==}
+  google-auth-library@11.2.0:
+    resolution: {integrity: sha512-R9/Dwc3swSur04RnizQ6EBUmmcno2cC5cAKtrG/C+pY+W7c5l6rSnFWgMkR7NSYj1n6XWmb/KhcjxGslWm4yIA==}
     engines: {node: '>=22'}
 
   google-logging-utils@2.0.1:
@@ -9132,11 +9132,11 @@ snapshots:
       '@swc/counter': 0.1.3
     optional: true
 
-  '@tanstack/query-core@5.103.2': {}
+  '@tanstack/query-core@5.104.1': {}
 
-  '@tanstack/react-query@5.103.2(react@19.3.0)':
+  '@tanstack/react-query@5.104.1(react@19.3.0)':
     dependencies:
-      '@tanstack/query-core': 5.103.2
+      '@tanstack/query-core': 5.104.1
       react: 19.3.0
 
   '@testing-library/dom@10.4.2':
@@ -9298,7 +9298,7 @@ snapshots:
       next: 16.3.6(@babel/core@7.29.0(supports-color@8.1.1))(@types/node@26.6.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.105.0)
       react: 19.3.0
 
-  '@vercel/blob@2.8.0':
+  '@vercel/blob@2.8.1':
     dependencies:
       '@vercel/oidc': 3.7.1
       async-retry: 1.3.3
@@ -10543,7 +10543,7 @@ snapshots:
     dependencies:
       ini: 2.0.0
 
-  google-auth-library@11.1.0(supports-color@10.2.2):
+  google-auth-library@11.2.0(supports-color@10.2.2):
     dependencies:
       base64-js: 1.5.1
       ecdsa-sig-formatter: 1.0.11
@@ -10554,7 +10554,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  google-auth-library@11.1.0(supports-color@8.1.1):
+  google-auth-library@11.2.0(supports-color@8.1.1):
     dependencies:
       base64-js: 1.5.1
       ecdsa-sig-formatter: 1.0.11
@@ -10567,19 +10567,19 @@ snapshots:
 
   google-logging-utils@2.0.1: {}
 
-  google-spreadsheet@5.3.0(google-auth-library@11.1.0(supports-color@10.2.2)):
+  google-spreadsheet@5.3.0(google-auth-library@11.2.0(supports-color@10.2.2)):
     dependencies:
       es-toolkit: 1.47.0
       ky: 2.0.2
     optionalDependencies:
-      google-auth-library: 11.1.0(supports-color@10.2.2)
+      google-auth-library: 11.2.0(supports-color@10.2.2)
 
-  google-spreadsheet@5.3.0(google-auth-library@11.1.0(supports-color@8.1.1)):
+  google-spreadsheet@5.3.0(google-auth-library@11.2.0(supports-color@8.1.1)):
     dependencies:
       es-toolkit: 1.47.0
       ky: 2.0.2
     optionalDependencies:
-      google-auth-library: 11.1.0(supports-color@8.1.1)
+      google-auth-library: 11.2.0(supports-color@8.1.1)
 
   gopd@1.2.0: {}
 
