@@ -3,15 +3,10 @@
 import 'dayjs/locale/ko';
 import type { EventStatus as Event } from '@dnd-academy/core';
 import { Badge } from '@dnd-academy/ui';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
 
 import useCountdown from '@/hooks/useCountdown';
-import useCurrentTime from '@/hooks/useCurrentTime';
 import { CURRENT_FLAG } from '@/lib/constants';
-
-dayjs.extend(relativeTime);
-dayjs.locale('ko');
+import { parseEventDateTime } from '@/utils/parseEventDateTime';
 
 type Props = {
   eventStatus: Event;
@@ -20,18 +15,11 @@ type Props = {
 function EventStatus({ eventStatus }: Props) {
   const { applicationStartDateTime, applicationEndDateTime, applicantAcceptanceDateTime, status } = eventStatus;
 
-  const applicationStartDate = dayjs(applicationStartDateTime);
-  const applicationEndDate = dayjs(applicationEndDateTime);
-  const acceptanceDate = dayjs(applicantAcceptanceDateTime);
-
   const applicationStartDateCountdown = useCountdown(applicationStartDateTime);
   const applicationEndDateCountdown = useCountdown(applicationEndDateTime);
+  const acceptanceCountdown = useCountdown(applicantAcceptanceDateTime);
 
-  const currentTime = useCurrentTime(
-    !(applicationStartDateCountdown === 'END' && applicationEndDateCountdown === 'END'),
-  );
-
-  if (dayjs(currentTime).isBefore(applicationStartDate)) {
+  if (applicationStartDateCountdown !== 'END') {
     return <Badge label={`DND는 ${CURRENT_FLAG}기 모집까지 ${applicationStartDateCountdown}`} variant="notice" />;
   }
 
@@ -43,12 +31,13 @@ function EventStatus({ eventStatus }: Props) {
     return <Badge label={eventStatus.label || 'DND는 휴가중 🏖'} variant="info" />;
   }
 
-  if (dayjs(currentTime).isBefore(applicationEndDate)) {
+  if (applicationEndDateCountdown !== 'END') {
     return <Badge label={`DND는 ${CURRENT_FLAG}기 모집 마감까지 ${applicationEndDateCountdown}`} variant="success" />;
   }
 
-  if (dayjs(currentTime).isBefore(acceptanceDate)) {
-    return <Badge label={`${acceptanceDate.format('MM월 DD일 (ddd)')} 모집 발표 📢`} variant="success" />;
+  if (acceptanceCountdown !== 'END') {
+    const acceptanceDate = parseEventDateTime(applicantAcceptanceDateTime).locale('ko').format('MM월 DD일 (ddd)');
+    return <Badge label={`${acceptanceDate} 모집 발표 📢`} variant="success" />;
   }
 
   if (status === 'ACTIVE') {

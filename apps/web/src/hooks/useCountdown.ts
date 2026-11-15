@@ -1,15 +1,15 @@
-import dayjs from 'dayjs';
+import dayjs, { type Dayjs } from 'dayjs';
 import duration from 'dayjs/plugin/duration';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+
+import { parseEventDateTime } from '@/utils/parseEventDateTime';
 
 dayjs.extend(duration);
 
 const TWENTY_FOUR_HOURS_IN_MS = 24 * 60 * 60 * 1000;
 
-const onCounter = (date: string) => {
-  const now = dayjs();
-  const deadline = dayjs(date);
-  const diff = deadline.diff(now);
+const onCounter = (deadline: Dayjs) => {
+  const diff = deadline.diff(dayjs());
 
   if (diff <= 0) {
     return 'END';
@@ -27,11 +27,12 @@ const onCounter = (date: string) => {
 };
 
 const useCountdown = (deadlineDate: string): 'END' | `D-${number}` | string => {
-  const [countdown, setCountdown] = useState<string>(onCounter(deadlineDate));
+  const deadline = useMemo(() => parseEventDateTime(deadlineDate), [deadlineDate]);
+  const [countdown, setCountdown] = useState<string>(() => onCounter(deadline));
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const counter = onCounter(deadlineDate);
+      const counter = onCounter(deadline);
 
       if (counter === 'END') {
         setCountdown(counter);
@@ -43,7 +44,7 @@ const useCountdown = (deadlineDate: string): 'END' | `D-${number}` | string => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [deadlineDate]);
+  }, [deadline]);
 
   return countdown;
 };
