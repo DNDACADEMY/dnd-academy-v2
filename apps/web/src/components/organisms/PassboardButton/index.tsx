@@ -2,8 +2,9 @@
 
 import { EventStatus } from '@dnd-academy/core';
 import { Button } from '@dnd-academy/ui';
-import dayjs from 'dayjs';
+import { useIsMounted } from '@dnd-academy/ui/client';
 
+import useCountdown from '@/hooks/useCountdown';
 import sendGA4Event from '@/lib/apis/analytics';
 import { CURRENT_FLAG, PASSBOARD_URL } from '@/lib/constants';
 import { GA_EVENT } from '@/lib/constants/gaEvent';
@@ -14,6 +15,8 @@ type PassboardButtonProps = {
 
 export default function PassboardButton({ eventStatus }: PassboardButtonProps) {
   const { applicantAcceptanceDateTime, status } = eventStatus;
+  const isMounted = useIsMounted();
+  const acceptanceCountdown = useCountdown(applicantAcceptanceDateTime);
 
   const handleClick = () => {
     sendGA4Event(GA_EVENT.PASS_BOARD_CLICK, {
@@ -21,9 +24,7 @@ export default function PassboardButton({ eventStatus }: PassboardButtonProps) {
     });
   };
 
-  const isBeforeAcceptance = dayjs().isBefore(dayjs(applicantAcceptanceDateTime));
-
-  if (status === 'INACTIVE' || isBeforeAcceptance) {
+  if (!isMounted || status === 'INACTIVE' || acceptanceCountdown !== 'END') {
     return null;
   }
 
