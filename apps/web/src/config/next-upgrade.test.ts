@@ -42,6 +42,7 @@ const readPackageJson = (workspace: string) =>
   JSON.parse(fs.readFileSync(path.join(repoRoot, workspace, 'package.json'), 'utf8')) as {
     dependencies?: Record<string, string>;
     devDependencies?: Record<string, string>;
+    engines?: { node?: string };
     scripts: Record<string, string>;
   };
 
@@ -78,11 +79,11 @@ describe('Next upgrade guardrails', () => {
     const adminPackage = readPackageJson('apps/admin');
     const uiPackage = readPackageJson('packages/ui');
 
-    expect(webPackage.dependencies?.next).toBe('16.3.6');
-    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.3.6');
-    expect(webPackage.devDependencies?.['@next/env']).toBe('16.3.6');
-    expect(adminPackage.dependencies?.next).toBe('16.3.6');
-    expect(uiPackage.devDependencies?.next).toBe('16.3.6');
+    expect(webPackage.dependencies?.next).toBe('16.4.1');
+    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.4.1');
+    expect(webPackage.devDependencies?.['@next/env']).toBe('16.4.1');
+    expect(adminPackage.dependencies?.next).toBe('16.4.1');
+    expect(uiPackage.devDependencies?.next).toBe('16.4.1');
     expect(webPackage.scripts.dev).not.toContain('--turbo');
     expect(adminPackage.scripts.dev).not.toContain('--turbo');
   });
@@ -157,15 +158,15 @@ describe('Next upgrade guardrails', () => {
 
     expect(webPackage.devDependencies).toMatchObject({
       '@chromatic-com/storybook': '5.2.1',
-      '@storybook/addon-docs': '10.4.0',
-      '@storybook/nextjs': '10.4.0',
-      '@storybook/react': '10.4.0',
-      storybook: '10.4.0',
+      '@storybook/addon-docs': '10.6.2',
+      '@storybook/nextjs': '10.6.2',
+      '@storybook/react': '10.6.2',
+      storybook: '10.6.2',
     });
     expect(uiPackage.devDependencies).toMatchObject({
-      '@storybook/addon-docs': '10.4.0',
-      '@storybook/react': '10.4.0',
-      storybook: '10.4.0',
+      '@storybook/addon-docs': '10.6.2',
+      '@storybook/react': '10.6.2',
+      storybook: '10.6.2',
     });
     [
       '@storybook/addon-essentials',
@@ -190,14 +191,17 @@ describe('Next upgrade guardrails', () => {
     expect(typographyDocs).toContain('@storybook/addon-docs/blocks');
   });
 
-  it('runs local and CI tooling on a Node version supported by Storybook 10', () => {
+  it('uses Node 26 LTS for local tooling, CI and both Vercel apps', () => {
     const ciWorkflow = fs.readFileSync(path.join(repoRoot, '.github/workflows/ci.yml'), 'utf8');
     const miseConfig = fs.readFileSync(path.join(repoRoot, 'mise.toml'), 'utf8');
     const gettingStartedGuide = fs.readFileSync(path.join(repoRoot, 'docs/getting-started.md'), 'utf8');
 
-    expect(ciWorkflow).toContain('DEFAULT_NODE_VERSION: "v22.12.0"');
-    expect(miseConfig).toContain('node = "22.12.0"');
-    expect(gettingStartedGuide).toContain('node --version    # v22.12.0');
+    expect(ciWorkflow).toContain('DEFAULT_NODE_VERSION: "v26.13.1"');
+    expect(miseConfig).toContain('node = "26.13.1"');
+    expect(gettingStartedGuide).toContain('node --version    # v26.13.1');
+    for (const workspace of ['.', 'apps/web', 'apps/admin']) {
+      expect(readPackageJson(workspace).engines?.node).toBe('26.x');
+    }
   });
 
   it('declares app build env vars for Turborepo strict env mode', () => {
@@ -238,12 +242,12 @@ describe('Next upgrade guardrails', () => {
       'ajv@^8.0.1': '8.20.0',
       'ajv@^8.9.0': '8.20.0',
       'ajv@^8.11.0': '8.20.0',
-      'brace-expansion@^1.1.7': '1.1.14',
-      'brace-expansion@^1.1.11': '1.1.14',
+      'brace-expansion@^1.1.7': '1.1.21',
+      'brace-expansion@^1.1.11': '1.1.21',
       'glob@^10.3.10': '10.5.0',
       'ip-address': '10.2.0',
       'js-yaml@^3.13.1': '3.14.2',
-      'js-yaml@^4.1.0': '4.1.1',
+      'js-yaml@^4.1.0': '4.3.2',
       'node-gyp': '12.3.0',
       'picomatch@^2.0.4': '2.3.2',
       'picomatch@^2.2.1': '2.3.2',

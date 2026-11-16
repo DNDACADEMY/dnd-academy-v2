@@ -1,0 +1,22 @@
+diff --git a/lib/plugin.js b/lib/plugin.js
+index d935b5800d38931c01550ec09ee69045d14f4471..ed8c311acdadb2136d7325a38dd08f1f5a13b85b 100644
+--- a/lib/plugin.js
++++ b/lib/plugin.js
+@@ -29,7 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.ForkTsCheckerWebpackPlugin = void 0;
+ const path = __importStar(require("path"));
+ const cosmiconfig_1 = require("cosmiconfig");
+-const deepmerge_1 = __importDefault(require("deepmerge"));
++const mergeOptions = require("@fastify/deepmerge")({ symbols: true });
+ const schema_utils_1 = require("schema-utils");
+ const tap_after_compile_to_add_dependencies_1 = require("./hooks/tap-after-compile-to-add-dependencies");
+ const tap_after_environment_to_patch_watching_1 = require("./hooks/tap-after-environment-to-patch-watching");
+@@ -50,7 +50,7 @@ class ForkTsCheckerWebpackPlugin {
+         // first validate options directly passed to the constructor
+         const config = { name: 'ForkTsCheckerWebpackPlugin' };
+         (0, schema_utils_1.validate)(plugin_options_json_1.default, options, config);
+-        this.options = (0, deepmerge_1.default)(externalOptions || {}, options || {});
++        this.options = mergeOptions(externalOptions || {}, options || {});
+         // then validate merged options
+         (0, schema_utils_1.validate)(plugin_options_json_1.default, this.options, config);
+     }
