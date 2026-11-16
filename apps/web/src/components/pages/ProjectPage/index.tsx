@@ -40,7 +40,10 @@ function ProjectPage({ project }: Props) {
       <div className={styles.projectPageContents}>
         <section className={styles.projectDetail}>
           {project?.pdf ? (
-            <ProjectPDFViewer url={project.pdf} />
+            <ProjectPDFViewer
+              url={project.pdf}
+              documentUrl={process.env.VERCEL_ENV === 'preview' ? `/projects/${project.id}/pdf` : undefined}
+            />
           ) : (
             <div className={styles.thumbnailWrapper}>
               <Image

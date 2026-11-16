@@ -8,6 +8,5 @@ namespace NodeJS {
     NEXT_PUBLIC_CHANNEL_IO_PLUGIN_KEY: string;
     DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN: string;
     REVALIDATION_TOKEN: string;
-    ADMIN_ORIGIN: string;
   }
 }

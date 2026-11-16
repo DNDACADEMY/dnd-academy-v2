@@ -9,9 +9,6 @@
 //   for an optional integration we don't exercise).
 //
 // When this can go away:
-//   Once Next.js bundles webpack >= 5.103.0 (webpack/webpack#20095), we can
-//   safely bump react-pdf 9 -> 10 which pulls pdfjs-dist 5.x — that line
-//   replaces `canvas` with the prebuilt `@napi-rs/canvas`, so neither this
-//   stub nor the matching `overrides.canvas` entry in pnpm-workspace.yaml will be needed.
-//   See vercel/next.js#89177 for the upstream tracking issue.
+//   pdfjs-dist 5.x uses @napi-rs/canvas. Revisit this stub and the matching
+//   pnpm override when the project viewer moves off react-pdf 9.x.
 module.exports = {};

@@ -26,7 +26,7 @@ const config: StorybookConfig = {
   framework: {
     name: getAbsolutePath('@storybook/nextjs'),
     options: {
-      nextConfigPath: resolve(currentDir, '../next.config.js'),
+      nextConfigPath: resolve(currentDir, '../next.config.mts'),
     },
   },
   webpackFinal: async (config) => {

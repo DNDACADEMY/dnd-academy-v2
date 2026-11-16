@@ -9,13 +9,7 @@
     "build": {
       "dependsOn": ["^build"],
       "env": [
-        "ADMIN_ORIGIN",
-        "ALLOWED_EMAIL_ADDRESSES",
-        "AUTH_GOOGLE_ID",
-        "AUTH_GOOGLE_SECRET",
-        "AUTH_SECRET",
         "BLOB_READ_WRITE_TOKEN",
-        "CRON_SECRET",
         "DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN",
         "GOOGLE_CLIENT_EMAIL",
         "GOOGLE_PRIVATE_KEY",
@@ -25,7 +19,7 @@
         "NEXT_PUBLIC_THEME",
         "NEXT_PUBLIC_VERCEL_BLOB_HOST",
         "REVALIDATION_TOKEN",
-        "WEB_ORIGIN"
+        "VERCEL_ENV"
       ],
       "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,mdx}", "!**/*.test.{tsx,ts}"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]

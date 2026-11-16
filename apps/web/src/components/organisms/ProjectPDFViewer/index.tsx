@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import type { ComponentProps } from 'react';
 
 import styles from './index.module.scss';
 
@@ -9,14 +10,10 @@ const PDFViewer = dynamic(() => import('@/components/molecules/PDFViewer'), {
   ssr: false,
 });
 
-type Props = {
-  url: string;
-};
-
-function ProjectPDFViewer({ url }: Props) {
+function ProjectPDFViewer(props: ComponentProps<typeof PDFViewer>) {
   return (
     <div className={styles.pdfWrapper}>
-      <PDFViewer url={url} />
+      <PDFViewer {...props} />
     </div>
   );
 }

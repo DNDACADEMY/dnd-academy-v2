@@ -10,7 +10,7 @@ env:
   CACHED_BUILD_PACKAGE_UI_PATHS: ${{ github.workspace }}/packages/ui/dist
   CACHED_BUILD_PACKAGE_CORE_PATHS: ${{ github.workspace }}/packages/core/dist
   CACHED_GENERATED_STATIC_DATA_PATHS: ${{ github.workspace }}/apps/web/src/lib/assets/data
-  DEFAULT_NODE_VERSION: "v22.12.0"
+  DEFAULT_NODE_VERSION: "v26.13.1"
   CYPRESS_INSTALL_BINARY: "0"
 
 jobs:

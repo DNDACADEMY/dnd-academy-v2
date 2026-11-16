@@ -2,13 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
 
-const appRoot = path.resolve(__dirname, '../..');
-const repoRoot = path.resolve(appRoot, '../..');
+import type { NextConfig } from 'next';
 
-type NextConfig = {
-  eslint?: unknown;
-  webpack?: (config: WebpackConfig) => WebpackConfig;
-};
+const appRoot = path.resolve(import.meta.dirname, '../..');
+const repoRoot = path.resolve(appRoot, '../..');
 
 type TurboConfig = {
   globalEnv?: string[];
@@ -20,126 +17,57 @@ type TurboConfig = {
   >;
 };
 
-type SvgRule = {
-  exclude?: RegExp;
-  issuer: unknown;
-  resourceQuery: {
-    not: RegExp[];
-  };
-  test: RegExp;
-};
-
-type WebpackConfig = {
-  module: {
-    rules: SvgRule[];
-  };
-  resolve: {
-    alias: Record<string, unknown>;
-  };
-};
-
 const readPackageJson = (workspace: string) =>
   JSON.parse(fs.readFileSync(path.join(repoRoot, workspace, 'package.json'), 'utf8')) as {
     dependencies?: Record<string, string>;
     devDependencies?: Record<string, string>;
+    engines?: { node?: string };
     scripts: Record<string, string>;
   };
 
 const readJson = <T>(relativePath: string) =>
   JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8')) as T;
 
-const loadNextConfig = async (workspace: string) => {
-  const configModule = await import(pathToFileURL(path.join(repoRoot, workspace, 'next.config.js')).href);
+const loadNextConfig = async () => {
+  const configModule = await import(pathToFileURL(path.join(appRoot, 'next.config.mts')).href);
 
   return configModule.default as NextConfig;
 };
 
-const createWebpackConfig = () => {
-  const svgRule: SvgRule = {
-    test: /\.(png|jpg|jpeg|gif|svg)$/i,
-    issuer: { and: [/\.[jt]sx?$/] },
-    resourceQuery: { not: [/url/] },
-  };
-  const config: WebpackConfig = {
-    resolve: {
-      alias: {},
-    },
-    module: {
-      rules: [svgRule],
-    },
-  };
-
-  return { config, svgRule };
-};
-
 describe('Next upgrade guardrails', () => {
-  it('keeps both Next apps on the latest Storybook-compatible major line', () => {
+  it('keeps the web app and UI package on the Storybook-compatible Next version', () => {
     const webPackage = readPackageJson('apps/web');
-    const adminPackage = readPackageJson('apps/admin');
     const uiPackage = readPackageJson('packages/ui');
 
-    expect(webPackage.dependencies?.next).toBe('16.3.6');
-    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.3.6');
-    expect(webPackage.devDependencies?.['@next/env']).toBe('16.3.6');
-    expect(adminPackage.dependencies?.next).toBe('16.3.6');
-    expect(uiPackage.devDependencies?.next).toBe('16.3.6');
-    expect(webPackage.scripts.dev).not.toContain('--turbo');
-    expect(adminPackage.scripts.dev).not.toContain('--turbo');
+    expect(webPackage.dependencies?.next).toBe('16.4.1');
+    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.4.1');
+    expect(webPackage.devDependencies?.['@next/env']).toBe('16.4.1');
+    expect(uiPackage.devDependencies?.next).toBe('16.4.1');
   });
 
-  it('opts Next 16 builds into webpack while custom webpack behavior is still required', () => {
-    const webPackage = readPackageJson('apps/web');
-    const adminPackage = readPackageJson('apps/admin');
+  it('uses Turbopack in development and production for the web app', () => {
+    const { scripts } = readPackageJson('apps/web');
 
-    expect(webPackage.scripts.dev).toContain('--webpack');
-    expect(webPackage.scripts.build).toContain('next build --webpack');
-    expect(adminPackage.scripts.dev).toContain('--webpack');
-    expect(adminPackage.scripts.build).toContain('next build --webpack');
-  });
-
-  it('uses the Next 16 proxy file convention instead of deprecated middleware files', () => {
-    const webProxy = fs.readFileSync(path.join(repoRoot, 'apps/web/src/proxy.ts'), 'utf8');
-    const adminProxy = fs.readFileSync(path.join(repoRoot, 'apps/admin/src/proxy.ts'), 'utf8');
-
-    expect(fs.existsSync(path.join(repoRoot, 'apps/web/src/middleware.ts'))).toBe(false);
-    expect(fs.existsSync(path.join(repoRoot, 'apps/admin/src/middleware.ts'))).toBe(false);
-    expect(webProxy).toContain('export function proxy');
-    expect(adminProxy).toContain('const proxy = auth');
-    expect(adminProxy).toContain('export default proxy');
+    expect(scripts.dev).toContain('next dev --turbopack');
+    expect(scripts.build).toContain('next build --turbopack');
   });
 
   it('does not keep the removed Next eslint build option', async () => {
-    const webNextConfig = await loadNextConfig('apps/web');
-    const adminNextConfig = await loadNextConfig('apps/admin');
+    const webNextConfig = await loadNextConfig();
 
     expect(webNextConfig).not.toHaveProperty('eslint');
-    expect(adminNextConfig).not.toHaveProperty('eslint');
   });
 
-  it('keeps the SVG and canvas webpack behavior that the apps depend on', async () => {
-    const configs = [await loadNextConfig('apps/web'), await loadNextConfig('apps/admin')];
+  it('preserves SVG URL imports and skips native canvas for the web app', async () => {
+    const { turbopack } = await loadNextConfig();
 
-    configs.forEach((nextConfig) => {
-      const { config, svgRule } = createWebpackConfig();
-      const result = nextConfig.webpack?.(config);
-
-      expect(result?.resolve.alias.canvas).toBe(false);
-      expect(svgRule.exclude).toEqual(/\.svg$/i);
-      expect(result?.module.rules).toEqual(
-        expect.arrayContaining([
-          expect.objectContaining({
-            test: /\.svg$/i,
-            resourceQuery: /url/,
-          }),
-          expect.objectContaining({
-            test: /\.svg$/i,
-            issuer: svgRule.issuer,
-            resourceQuery: { not: [/url/, /url/] },
-            use: ['@svgr/webpack'],
-          }),
-        ]),
-      );
+    expect(turbopack?.rules?.['*.svg']).toEqual({
+      condition: { not: { query: /url/ } },
+      loaders: ['@svgr/webpack'],
+      as: '*.js',
     });
+    expect(turbopack?.resolveAlias?.canvas).toBe(false);
+    expect(readPackageJson('apps/web').devDependencies).toHaveProperty('@svgr/webpack');
   });
 
   it('does not keep the unused Codecov webpack plugin in the app bundle config', () => {
@@ -157,15 +85,15 @@ describe('Next upgrade guardrails', () => {
 
     expect(webPackage.devDependencies).toMatchObject({
       '@chromatic-com/storybook': '5.2.1',
-      '@storybook/addon-docs': '10.4.0',
-      '@storybook/nextjs': '10.4.0',
-      '@storybook/react': '10.4.0',
-      storybook: '10.4.0',
+      '@storybook/addon-docs': '10.6.2',
+      '@storybook/nextjs': '10.6.2',
+      '@storybook/react': '10.6.2',
+      storybook: '10.6.2',
     });
     expect(uiPackage.devDependencies).toMatchObject({
-      '@storybook/addon-docs': '10.4.0',
-      '@storybook/react': '10.4.0',
-      storybook: '10.4.0',
+      '@storybook/addon-docs': '10.6.2',
+      '@storybook/react': '10.6.2',
+      storybook: '10.6.2',
     });
     [
       '@storybook/addon-essentials',
@@ -190,27 +118,24 @@ describe('Next upgrade guardrails', () => {
     expect(typographyDocs).toContain('@storybook/addon-docs/blocks');
   });
 
-  it('runs local and CI tooling on a Node version supported by Storybook 10', () => {
+  it('uses Node 26 LTS for local tooling, CI and the Vercel web app', () => {
     const ciWorkflow = fs.readFileSync(path.join(repoRoot, '.github/workflows/ci.yml'), 'utf8');
     const miseConfig = fs.readFileSync(path.join(repoRoot, 'mise.toml'), 'utf8');
     const gettingStartedGuide = fs.readFileSync(path.join(repoRoot, 'docs/getting-started.md'), 'utf8');
 
-    expect(ciWorkflow).toContain('DEFAULT_NODE_VERSION: "v22.12.0"');
-    expect(miseConfig).toContain('node = "22.12.0"');
-    expect(gettingStartedGuide).toContain('node --version    # v22.12.0');
+    expect(ciWorkflow).toContain('DEFAULT_NODE_VERSION: "v26.13.1"');
+    expect(miseConfig).toContain('node = "26.13.1"');
+    expect(gettingStartedGuide).toContain('node --version    # v26.13.1');
+    for (const workspace of ['.', 'apps/web']) {
+      expect(readPackageJson(workspace).engines?.node).toBe('26.x');
+    }
   });
 
   it('declares app build env vars for Turborepo strict env mode', () => {
     const rootTurbo = readJson<TurboConfig>('turbo.json');
     const buildEnv = rootTurbo.tasks?.build?.env ?? [];
     const expectedBuildEnv = [
-      'ADMIN_ORIGIN',
-      'ALLOWED_EMAIL_ADDRESSES',
-      'AUTH_GOOGLE_ID',
-      'AUTH_GOOGLE_SECRET',
-      'AUTH_SECRET',
       'BLOB_READ_WRITE_TOKEN',
-      'CRON_SECRET',
       'DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN',
       'GOOGLE_CLIENT_EMAIL',
       'GOOGLE_PRIVATE_KEY',
@@ -220,7 +145,7 @@ describe('Next upgrade guardrails', () => {
       'NEXT_PUBLIC_THEME',
       'NEXT_PUBLIC_VERCEL_BLOB_HOST',
       'REVALIDATION_TOKEN',
-      'WEB_ORIGIN',
+      'VERCEL_ENV',
     ];
 
     expect(buildEnv).toEqual([...buildEnv].sort());
@@ -238,12 +163,12 @@ describe('Next upgrade guardrails', () => {
       'ajv@^8.0.1': '8.20.0',
       'ajv@^8.9.0': '8.20.0',
       'ajv@^8.11.0': '8.20.0',
-      'brace-expansion@^1.1.7': '1.1.14',
-      'brace-expansion@^1.1.11': '1.1.14',
+      'brace-expansion@^1.1.7': '1.1.21',
+      'brace-expansion@^1.1.11': '1.1.21',
       'glob@^10.3.10': '10.5.0',
       'ip-address': '10.2.0',
       'js-yaml@^3.13.1': '3.14.2',
-      'js-yaml@^4.1.0': '4.1.1',
+      'js-yaml@^4.1.0': '4.3.2',
       'node-gyp': '12.3.0',
       'picomatch@^2.0.4': '2.3.2',
       'picomatch@^2.2.1': '2.3.2',
