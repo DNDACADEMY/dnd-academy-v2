@@ -7,7 +7,6 @@
   "scripts": {
     "deploy": "turbo run deploy",
     "deploy:web": "turbo run deploy --filter=web",
-    "deploy:admin": "turbo run deploy --filter=admin",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "oxlint",
