@@ -6,8 +6,8 @@
   "author": "dnd-academy",
   "scripts": {
     "open-browser": "open http://localhost:3001",
-    "dev": "next dev --webpack -H localhost -p 3001 & pnpm open-browser",
-    "build": "next build --webpack",
+    "dev": "next dev --turbopack -H localhost -p 3001 & pnpm open-browser",
+    "build": "next build --turbopack",
     "start": "next start",
     "test:unit": "vitest run",
     "test:watch": "vitest",
@@ -37,6 +37,7 @@
     "react-perfect-scrollbar": "1.5.8"
   },
   "devDependencies": {
+    "@svgr/webpack": "8.1.0",
     "@testing-library/dom": "10.4.2",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",

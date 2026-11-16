@@ -6,8 +6,8 @@
   "author": "dnd-academy",
   "scripts": {
     "open-browser": "open http://dnd-academy.localhost:3000",
-    "dev": "next dev --webpack -H dnd-academy.localhost -p 3000 & pnpm open-browser",
-    "build": "pnpm generate:applicant-count && next build --webpack",
+    "dev": "next dev --turbopack -H dnd-academy.localhost -p 3000 & pnpm open-browser",
+    "build": "pnpm generate:applicant-count && next build --turbopack",
     "start": "next start",
     "test:unit": "vitest run",
     "test:watch": "vitest",

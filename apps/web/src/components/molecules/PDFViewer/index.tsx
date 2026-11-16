@@ -16,9 +16,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 
 type Props = {
   url: string;
+  documentUrl?: string;
 };
 
-function PDFViewer({ url }: Props) {
+function PDFViewer({ url, documentUrl = url }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [numPages, setNumPages] = useState<number>();
@@ -58,7 +59,7 @@ function PDFViewer({ url }: Props) {
       )}
       {width && (
         <Document
-          file={url}
+          file={documentUrl}
           onLoadSuccess={onDocumentLoadSuccess}
           onLoadProgress={onDocumentLoadProgress}
           loading={<div className={styles.loading}>loading document..</div>}

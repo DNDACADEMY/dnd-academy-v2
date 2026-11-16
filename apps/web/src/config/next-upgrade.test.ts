@@ -2,13 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
 
-const appRoot = path.resolve(__dirname, '../..');
-const repoRoot = path.resolve(appRoot, '../..');
+import type { NextConfig } from 'next';
 
-type NextConfig = {
-  eslint?: unknown;
-  webpack?: (config: WebpackConfig) => WebpackConfig;
-};
+const appRoot = path.resolve(import.meta.dirname, '../..');
+const repoRoot = path.resolve(appRoot, '../..');
 
 type TurboConfig = {
   globalEnv?: string[];
@@ -18,24 +15,6 @@ type TurboConfig = {
       env?: string[];
     }
   >;
-};
-
-type SvgRule = {
-  exclude?: RegExp;
-  issuer: unknown;
-  resourceQuery: {
-    not: RegExp[];
-  };
-  test: RegExp;
-};
-
-type WebpackConfig = {
-  module: {
-    rules: SvgRule[];
-  };
-  resolve: {
-    alias: Record<string, unknown>;
-  };
 };
 
 const readPackageJson = (workspace: string) =>
@@ -50,27 +29,9 @@ const readJson = <T>(relativePath: string) =>
   JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8')) as T;
 
 const loadNextConfig = async (workspace: string) => {
-  const configModule = await import(pathToFileURL(path.join(repoRoot, workspace, 'next.config.js')).href);
+  const configModule = await import(pathToFileURL(path.join(repoRoot, workspace, 'next.config.mts')).href);
 
   return configModule.default as NextConfig;
-};
-
-const createWebpackConfig = () => {
-  const svgRule: SvgRule = {
-    test: /\.(png|jpg|jpeg|gif|svg)$/i,
-    issuer: { and: [/\.[jt]sx?$/] },
-    resourceQuery: { not: [/url/] },
-  };
-  const config: WebpackConfig = {
-    resolve: {
-      alias: {},
-    },
-    module: {
-      rules: [svgRule],
-    },
-  };
-
-  return { config, svgRule };
 };
 
 describe('Next upgrade guardrails', () => {
@@ -84,18 +45,13 @@ describe('Next upgrade guardrails', () => {
     expect(webPackage.devDependencies?.['@next/env']).toBe('16.4.1');
     expect(adminPackage.dependencies?.next).toBe('16.4.1');
     expect(uiPackage.devDependencies?.next).toBe('16.4.1');
-    expect(webPackage.scripts.dev).not.toContain('--turbo');
-    expect(adminPackage.scripts.dev).not.toContain('--turbo');
   });
 
-  it('opts Next 16 builds into webpack while custom webpack behavior is still required', () => {
-    const webPackage = readPackageJson('apps/web');
-    const adminPackage = readPackageJson('apps/admin');
+  it.each(['apps/web', 'apps/admin'])('uses Turbopack in development and production for %s', (workspace) => {
+    const { scripts } = readPackageJson(workspace);
 
-    expect(webPackage.scripts.dev).toContain('--webpack');
-    expect(webPackage.scripts.build).toContain('next build --webpack');
-    expect(adminPackage.scripts.dev).toContain('--webpack');
-    expect(adminPackage.scripts.build).toContain('next build --webpack');
+    expect(scripts.dev).toContain('next dev --turbopack');
+    expect(scripts.build).toContain('next build --turbopack');
   });
 
   it('uses the Next 16 proxy file convention instead of deprecated middleware files', () => {
@@ -117,30 +73,16 @@ describe('Next upgrade guardrails', () => {
     expect(adminNextConfig).not.toHaveProperty('eslint');
   });
 
-  it('keeps the SVG and canvas webpack behavior that the apps depend on', async () => {
-    const configs = [await loadNextConfig('apps/web'), await loadNextConfig('apps/admin')];
+  it.each(['apps/web', 'apps/admin'])('preserves SVG URL imports and skips native canvas for %s', async (workspace) => {
+    const { turbopack } = await loadNextConfig(workspace);
 
-    configs.forEach((nextConfig) => {
-      const { config, svgRule } = createWebpackConfig();
-      const result = nextConfig.webpack?.(config);
-
-      expect(result?.resolve.alias.canvas).toBe(false);
-      expect(svgRule.exclude).toEqual(/\.svg$/i);
-      expect(result?.module.rules).toEqual(
-        expect.arrayContaining([
-          expect.objectContaining({
-            test: /\.svg$/i,
-            resourceQuery: /url/,
-          }),
-          expect.objectContaining({
-            test: /\.svg$/i,
-            issuer: svgRule.issuer,
-            resourceQuery: { not: [/url/, /url/] },
-            use: ['@svgr/webpack'],
-          }),
-        ]),
-      );
+    expect(turbopack?.rules?.['*.svg']).toEqual({
+      condition: { not: { query: /url/ } },
+      loaders: ['@svgr/webpack'],
+      as: '*.js',
     });
+    expect(turbopack?.resolveAlias?.canvas).toBe(false);
+    expect(readPackageJson(workspace).devDependencies).toHaveProperty('@svgr/webpack');
   });
 
   it('does not keep the unused Codecov webpack plugin in the app bundle config', () => {
@@ -224,6 +166,7 @@ describe('Next upgrade guardrails', () => {
       'NEXT_PUBLIC_THEME',
       'NEXT_PUBLIC_VERCEL_BLOB_HOST',
       'REVALIDATION_TOKEN',
+      'VERCEL_ENV',
       'WEB_ORIGIN',
     ];
 
