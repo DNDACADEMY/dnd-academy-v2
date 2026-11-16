@@ -166,6 +166,7 @@ describe('Next upgrade guardrails', () => {
       'NEXT_PUBLIC_THEME',
       'NEXT_PUBLIC_VERCEL_BLOB_HOST',
       'REVALIDATION_TOKEN',
+      'VERCEL_ENV',
       'WEB_ORIGIN',
     ];
 
