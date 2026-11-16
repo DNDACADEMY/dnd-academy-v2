@@ -53,9 +53,9 @@ mise install
 설치 후 버전을 확인합니다.
 
 ```bash
-node --version    # v22.12.0
+node --version    # v26.13.1
 pnpm --version    # 12.6.0
-lefthook version  # 2.1.8
+lefthook version  # 2.2.2
 ```
 
 ## 4. `pnpm install`

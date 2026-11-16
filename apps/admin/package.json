@@ -24,16 +24,16 @@
   "dependencies": {
     "@dnd-academy/core": "workspace:*",
     "@dnd-academy/ui": "workspace:*",
-    "@tanstack/react-query": "5.103.2",
-    "@vercel/blob": "2.8.0",
+    "@tanstack/react-query": "5.107.1",
+    "@vercel/blob": "2.9.0",
     "clsx": "2.1.1",
-    "google-auth-library": "11.1.0",
+    "google-auth-library": "11.3.4",
     "google-spreadsheet": "5.3.0",
     "motion": "13.4.1",
-    "next": "16.3.6",
-    "next-auth": "5.0.0-beta.30",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
+    "next": "16.4.1",
+    "next-auth": "5.0.0-beta.32",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "react-perfect-scrollbar": "1.5.8"
   },
   "devDependencies": {
@@ -41,16 +41,19 @@
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
     "@types/identity-obj-proxy": "^3",
-    "@types/node": "26.6.2",
+    "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@vitest/coverage-v8": "5.0.1",
+    "@vitest/coverage-v8": "5.1.0",
     "identity-obj-proxy": "3.0.0",
-    "jsdom": "30.1.1",
-    "postcss": "8.5.28",
-    "sass": "1.105.0",
+    "jsdom": "31.0.0",
+    "postcss": "8.5.32",
+    "sass": "1.108.2",
     "typescript": "6.0.3",
-    "vitest": "5.0.1",
+    "vitest": "5.1.0",
     "webpack": "5.106.2"
+  },
+  "engines": {
+    "node": "26.x"
   }
 }
