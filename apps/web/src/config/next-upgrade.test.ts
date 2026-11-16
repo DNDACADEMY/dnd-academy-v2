@@ -28,53 +28,38 @@ const readPackageJson = (workspace: string) =>
 const readJson = <T>(relativePath: string) =>
   JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8')) as T;
 
-const loadNextConfig = async (workspace: string) => {
-  const configModule = await import(pathToFileURL(path.join(repoRoot, workspace, 'next.config.mts')).href);
+const loadNextConfig = async () => {
+  const configModule = await import(pathToFileURL(path.join(appRoot, 'next.config.mts')).href);
 
   return configModule.default as NextConfig;
 };
 
 describe('Next upgrade guardrails', () => {
-  it('keeps both Next apps on the latest Storybook-compatible major line', () => {
+  it('keeps the web app and UI package on the Storybook-compatible Next version', () => {
     const webPackage = readPackageJson('apps/web');
-    const adminPackage = readPackageJson('apps/admin');
     const uiPackage = readPackageJson('packages/ui');
 
     expect(webPackage.dependencies?.next).toBe('16.4.1');
     expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.4.1');
     expect(webPackage.devDependencies?.['@next/env']).toBe('16.4.1');
-    expect(adminPackage.dependencies?.next).toBe('16.4.1');
     expect(uiPackage.devDependencies?.next).toBe('16.4.1');
   });
 
-  it.each(['apps/web', 'apps/admin'])('uses Turbopack in development and production for %s', (workspace) => {
-    const { scripts } = readPackageJson(workspace);
+  it('uses Turbopack in development and production for the web app', () => {
+    const { scripts } = readPackageJson('apps/web');
 
     expect(scripts.dev).toContain('next dev --turbopack');
     expect(scripts.build).toContain('next build --turbopack');
   });
 
-  it('uses the Next 16 proxy file convention instead of deprecated middleware files', () => {
-    const webProxy = fs.readFileSync(path.join(repoRoot, 'apps/web/src/proxy.ts'), 'utf8');
-    const adminProxy = fs.readFileSync(path.join(repoRoot, 'apps/admin/src/proxy.ts'), 'utf8');
-
-    expect(fs.existsSync(path.join(repoRoot, 'apps/web/src/middleware.ts'))).toBe(false);
-    expect(fs.existsSync(path.join(repoRoot, 'apps/admin/src/middleware.ts'))).toBe(false);
-    expect(webProxy).toContain('export function proxy');
-    expect(adminProxy).toContain('const proxy = auth');
-    expect(adminProxy).toContain('export default proxy');
-  });
-
   it('does not keep the removed Next eslint build option', async () => {
-    const webNextConfig = await loadNextConfig('apps/web');
-    const adminNextConfig = await loadNextConfig('apps/admin');
+    const webNextConfig = await loadNextConfig();
 
     expect(webNextConfig).not.toHaveProperty('eslint');
-    expect(adminNextConfig).not.toHaveProperty('eslint');
   });
 
-  it.each(['apps/web', 'apps/admin'])('preserves SVG URL imports and skips native canvas for %s', async (workspace) => {
-    const { turbopack } = await loadNextConfig(workspace);
+  it('preserves SVG URL imports and skips native canvas for the web app', async () => {
+    const { turbopack } = await loadNextConfig();
 
     expect(turbopack?.rules?.['*.svg']).toEqual({
       condition: { not: { query: /url/ } },
@@ -82,7 +67,7 @@ describe('Next upgrade guardrails', () => {
       as: '*.js',
     });
     expect(turbopack?.resolveAlias?.canvas).toBe(false);
-    expect(readPackageJson(workspace).devDependencies).toHaveProperty('@svgr/webpack');
+    expect(readPackageJson('apps/web').devDependencies).toHaveProperty('@svgr/webpack');
   });
 
   it('does not keep the unused Codecov webpack plugin in the app bundle config', () => {
@@ -133,7 +118,7 @@ describe('Next upgrade guardrails', () => {
     expect(typographyDocs).toContain('@storybook/addon-docs/blocks');
   });
 
-  it('uses Node 26 LTS for local tooling, CI and both Vercel apps', () => {
+  it('uses Node 26 LTS for local tooling, CI and the Vercel web app', () => {
     const ciWorkflow = fs.readFileSync(path.join(repoRoot, '.github/workflows/ci.yml'), 'utf8');
     const miseConfig = fs.readFileSync(path.join(repoRoot, 'mise.toml'), 'utf8');
     const gettingStartedGuide = fs.readFileSync(path.join(repoRoot, 'docs/getting-started.md'), 'utf8');
@@ -141,7 +126,7 @@ describe('Next upgrade guardrails', () => {
     expect(ciWorkflow).toContain('DEFAULT_NODE_VERSION: "v26.13.1"');
     expect(miseConfig).toContain('node = "26.13.1"');
     expect(gettingStartedGuide).toContain('node --version    # v26.13.1');
-    for (const workspace of ['.', 'apps/web', 'apps/admin']) {
+    for (const workspace of ['.', 'apps/web']) {
       expect(readPackageJson(workspace).engines?.node).toBe('26.x');
     }
   });
@@ -150,13 +135,7 @@ describe('Next upgrade guardrails', () => {
     const rootTurbo = readJson<TurboConfig>('turbo.json');
     const buildEnv = rootTurbo.tasks?.build?.env ?? [];
     const expectedBuildEnv = [
-      'ADMIN_ORIGIN',
-      'ALLOWED_EMAIL_ADDRESSES',
-      'AUTH_GOOGLE_ID',
-      'AUTH_GOOGLE_SECRET',
-      'AUTH_SECRET',
       'BLOB_READ_WRITE_TOKEN',
-      'CRON_SECRET',
       'DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN',
       'GOOGLE_CLIENT_EMAIL',
       'GOOGLE_PRIVATE_KEY',
@@ -167,7 +146,6 @@ describe('Next upgrade guardrails', () => {
       'NEXT_PUBLIC_VERCEL_BLOB_HOST',
       'REVALIDATION_TOKEN',
       'VERCEL_ENV',
-      'WEB_ORIGIN',
     ];
 
     expect(buildEnv).toEqual([...buildEnv].sort());
