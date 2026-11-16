@@ -219,8 +219,6 @@ describe('Next upgrade guardrails', () => {
       'NEXT_PUBLIC_ORIGIN',
       'NEXT_PUBLIC_THEME',
       'NEXT_PUBLIC_VERCEL_BLOB_HOST',
-      'NEXT_PUBLIC_VERCEL_ENV',
-      'NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF',
       'REVALIDATION_TOKEN',
       'WEB_ORIGIN',
     ];
