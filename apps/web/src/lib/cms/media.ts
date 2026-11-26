@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 import type { z } from 'zod';
 
-import { type mediaRequest, mediaMax } from './content-contract';
+import { type MediaItem, type MediaLibrary, type mediaRequest, mediaMax } from './content-contract';
 import { database, DatabaseError, supabaseUrl } from './supabase';
 
 const draftBucket = 'cms-drafts';
@@ -15,7 +15,8 @@ type Asset = {
   bucket: string;
   bytes: number;
   sha256: string;
-  mime: string;
+  mime: MediaItem['mime'];
+  display_name: string | null;
   ready: boolean;
 };
 
@@ -26,18 +27,23 @@ export function publicMedia(key: string) {
   ).href;
 }
 
+const assetColumns = 'id,object_key,bucket,bytes,sha256,mime,ready,display_name';
+
 export async function mediaAssets(ids: string[]) {
   if (!ids.length) return new Map<string, Asset>();
   const result = await database()
     .from('media_assets')
-    .select('id,object_key,bucket,bytes,sha256,mime,ready')
+    .select(assetColumns)
     .in('id', [...new Set(ids)]);
   if (result.error) throw new DatabaseError(result.error.code);
   return new Map((result.data as Asset[]).map((asset) => [asset.id, asset]));
 }
 
 export async function previewMedia(ids: string[]) {
-  const records = [...(await mediaAssets(ids)).values()].filter((asset) => asset.ready);
+  return mediaItems([...(await mediaAssets(ids)).values()].filter((asset) => asset.ready));
+}
+
+async function mediaItems(records: Asset[]): Promise<MediaItem[]> {
   const draftKeys = records.filter((asset) => asset.bucket === draftBucket).map((asset) => asset.object_key);
   const signed = new Map<string, string>();
   if (draftKeys.length) {
@@ -49,7 +55,7 @@ export async function previewMedia(ids: string[]) {
   }
   return records.flatMap((asset) => {
     const url = asset.bucket === publicBucket ? publicMedia(asset.object_key) : signed.get(asset.object_key);
-    return url ? [{ id: asset.id, mime: asset.mime, url }] : [];
+    return url ? [{ id: asset.id, mime: asset.mime, name: asset.display_name, bytes: asset.bytes, url }] : [];
   });
 }
 
@@ -125,6 +131,25 @@ async function recordAsset(asset: Omit<Asset, 'id' | 'ready'>) {
 
 export async function handleMedia(actor: string, request: z.infer<typeof mediaRequest>) {
   const db = database();
+  if (request.action === 'library') {
+    const pageSize = 18;
+    const start = request.page * pageSize;
+    let query = db.from('media_assets').select(assetColumns).eq('ready', true).eq('mime', request.mime);
+    if (request.query) {
+      const pattern = request.query.replace(/[\\%_]/g, '\\$&');
+      query = query.ilike('display_name', `%${pattern}%`);
+    }
+    const { data, error } = await query
+      .order('created_at', { ascending: false })
+      .order('id', { ascending: false })
+      .range(start, start + pageSize);
+    if (error) throw new DatabaseError(error.code);
+    return {
+      items: await mediaItems((data as Asset[]).slice(0, pageSize)),
+      hasMore: data.length > pageSize,
+    } satisfies MediaLibrary;
+  }
+
   if (request.action === 'preview') {
     const asset = (await mediaAssets([request.id])).get(request.id);
     if (!asset?.ready) throw new DatabaseError('MEDIA_INVALID');
@@ -177,6 +202,7 @@ export async function handleMedia(actor: string, request: z.infer<typeof mediaRe
       mime: reservation.mime,
       bytes: reservation.bytes,
       sha256,
+      display_name: request.name ?? null,
     }),
   };
 }
@@ -200,6 +226,7 @@ export async function publishMedia(ids: string[]) {
       mime: asset.mime,
       bytes: asset.bytes,
       sha256: actual,
+      display_name: asset.display_name,
     });
   }
   return replacements;

@@ -588,9 +588,6 @@
   padding: 0.26rem 0.22rem 0.26rem 0.55rem;
   border-bottom: 1px solid #edf0f6;
 }
-.mediaArea {
-  margin-bottom: 1rem;
-}
 .uploadPanel {
   padding: 0.95rem;
   border: 1px solid var(--line);
@@ -601,16 +598,6 @@
   border: 1px dashed #aebee2;
   padding: 0.7rem;
   border-radius: 9px;
-}
-.attachment {
-  display: grid;
-  gap: 0.6rem;
-  padding: 0.8rem;
-  border-radius: 9px;
-  background: var(--soft);
-}
-.attachment .primary {
-  justify-self: start;
 }
 .mediaPreview {
   background: var(--paper);
@@ -855,4 +842,129 @@
   gap: 0.55rem;
   align-items: center;
   justify-content: flex-end;
+}
+
+.mediaArea {
+  margin-bottom: 1rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.mediaSlot {
+  display: grid;
+  gap: 0.65rem;
+  min-width: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+}
+
+.mediaSlotHeading,
+.mediaDialogHeading,
+.mediaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.mediaSlotHeading h4 {
+  margin: 0;
+
+  small {
+    margin-left: 0.3rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+}
+
+.mediaRows {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    padding-block: 0.45rem;
+    border-top: 1px solid var(--line);
+  }
+}
+
+.mediaFile {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+
+  img,
+  .pdfIcon {
+    flex: 0 0 54px;
+    width: 54px;
+    height: 44px;
+    border-radius: 6px;
+    background: var(--soft);
+    object-fit: cover;
+  }
+
+  a {
+    color: var(--blue-hover);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  small {
+    display: block;
+    color: var(--muted);
+  }
+}
+
+.pdfIcon {
+  display: grid;
+  place-items: center;
+  color: var(--blue-hover);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.mediaDialog {
+  width: min(calc(100vw - 24px), 670px);
+  max-height: calc(100dvh - 24px);
+  max-width: none;
+  margin: auto;
+  padding: clamp(0.75rem, 3vw, 1.4rem);
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper);
+
+  &::backdrop {
+    background: #18223999;
+  }
+
+  > .tabs {
+    margin-block: 0.9rem;
+  }
+}
+
+.existingMedia {
+  display: grid;
+  gap: 0.75rem;
+
+  form {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  input {
+    min-width: 0;
+    flex: 1;
+  }
+
+  nav {
+    align-items: center;
+    justify-content: space-between;
+  }
 }

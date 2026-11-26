@@ -141,9 +141,10 @@ def emit_sql(rows):
         key, sha256, target, mime, source, conversion = map(sql, (
             row["source_key"], row["output_sha256"], row["target"], row["mime"], row["source_sha256"], row["conversion"],
         ))
+        display_name = sql(row["source_key"].rsplit("/", 1)[-1][:255])
         legacy_url = sql(f"https://{SOURCE_HOST}/{url_key(row['source_key'])}")
-        print(f"""insert into public.media_assets(bucket,object_key,mime,bytes,sha256)
-          values ('cms-public',{target},{mime},{row['bytes']},{sha256})
+        print(f"""insert into public.media_assets(bucket,object_key,mime,bytes,sha256,display_name)
+          values ('cms-public',{target},{mime},{row['bytes']},{sha256},{display_name})
           on conflict (bucket,object_key) do nothing;
           select id into strict asset from public.media_assets
             where bucket='cms-public' and object_key={target} and mime={mime} and bytes={row['bytes']} and sha256={sha256} and ready;

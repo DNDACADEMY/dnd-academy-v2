@@ -19,10 +19,11 @@ import {
 import { adminRequest } from './admin-request';
 import LinkFields from './link-fields';
 import AdminLinkStatus from './link-status';
-import MediaPanel from './media-panel';
+import type { MediaSelection } from './media-fields';
 
 import styles from './styles.module.scss';
 
+const MediaFields = dynamic(() => import('./media-fields'), { ssr: false });
 const ContentPreview = dynamic(() => import('./content-preview'), { ssr: false });
 
 const names: Record<ContentKind, string> = { project: '프로젝트', organizer: '운영진', review: '후기' };
@@ -42,7 +43,7 @@ function values(text: string) {
     .filter(Boolean);
 }
 
-function readDraft(kind: ContentKind, form: FormData, initial?: ContentRecord): ContentInput {
+function readDraft(kind: ContentKind, form: FormData, media: MediaSelection): ContentInput {
   const string = (key: string) => String(form.get(key) ?? '');
   const urls = form.getAll('link-url');
   const links = form.getAll('link-kind').flatMap((value, index) => {
@@ -58,24 +59,19 @@ function readDraft(kind: ContentKind, form: FormData, initial?: ContentRecord): 
     links,
   };
   if (kind !== 'review') {
-    const thumbnailId = string('thumbnailId') || null;
     Object.assign(input, {
-      thumbnailId,
-      legacyThumbnail: thumbnailId || form.has('removeLegacyThumbnail') ? null : initial?.legacyThumbnail,
+      thumbnailId: media.thumbnail?.mediaId ?? null,
+      legacyThumbnail: media.thumbnail?.mediaId ? null : media.thumbnail?.legacyUrl,
       skills: values(string('skills')),
     });
   }
   if (kind === 'project') {
-    const pdfId = string('pdfId') || null;
     Object.assign(input, {
       title: string('title'),
       cohort: Number(string('cohort')),
-      pdfId,
-      legacyPdf: pdfId || form.has('removeLegacyPdf') ? null : initial?.legacyPdf,
-      images: [
-        ...values(string('images')).map((mediaId) => ({ mediaId })),
-        ...(form.has('removeLegacyImages') ? [] : (initial?.images ?? []).filter((image) => !image.mediaId)),
-      ],
+      pdfId: media.pdf?.mediaId ?? null,
+      legacyPdf: media.pdf?.mediaId ? null : media.pdf?.legacyUrl,
+      images: media.gallery,
     });
   }
   if (kind === 'organizer') {
@@ -211,7 +207,7 @@ export default function ContentPanel({
           )}
         </section>
         {initial || create ? (
-          <ContentEditor key={initial?.id ?? 'new'} kind={kind} initial={initial} />
+          <ContentEditor key={`${kind}:${initial?.id ?? 'new'}`} kind={kind} initial={initial} />
         ) : (
           <section className={`${styles.card} ${styles.emptyEditor}`}>
             <h2>편집할 {names[kind]} 선택</h2>
@@ -232,6 +228,15 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
   const [tab, setTab] = useState<'basic' | 'links' | 'media'>('basic');
   const formRef = useRef<HTMLFormElement>(null);
   const [preview, setPreview] = useState<ContentInput>();
+  const [mediaEdit, setMediaEdit] = useState<MediaSelection>();
+  const media: MediaSelection = mediaEdit ?? {
+    thumbnail:
+      initial?.thumbnailId || initial?.legacyThumbnail
+        ? { mediaId: initial.thumbnailId, legacyUrl: initial.legacyThumbnail }
+        : null,
+    pdf: initial?.pdfId || initial?.legacyPdf ? { mediaId: initial.pdfId, legacyUrl: initial.legacyPdf } : null,
+    gallery: initial?.images ?? [],
+  };
   const path = `/admin?section=content&kind=${kind}` as const;
   const positions = kind === 'organizer' ? organizerPositions : reviewPositions;
 
@@ -279,6 +284,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
       });
       setPreview(undefined);
       setDirty(false);
+      if (action !== 'save') setMediaEdit(undefined);
       setMessage(
         action === 'save' ? '초안을 저장했습니다.' : action === 'publish' ? '게시했습니다.' : '공개를 중단했습니다.',
       );
@@ -304,15 +310,8 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
       requestAnimationFrame(() => invalid.reportValidity());
       return;
     }
-    const input = readDraft(kind, new FormData(event.currentTarget), initial);
+    const input = readDraft(kind, new FormData(event.currentTarget), media);
     void mutate('save', input);
-  }
-
-  function attach(id: string, field: 'thumbnailId' | 'pdfId' | 'images') {
-    const control = formRef.current?.elements.namedItem(field);
-    if (!(control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement)) return;
-    control.value = field === 'images' ? [...new Set([...values(control.value), id])].join('\n') : id;
-    setDirty(true);
   }
 
   return (
@@ -331,7 +330,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
             type="button"
             disabled={busy}
             onClick={() => {
-              if (formRef.current) setPreview(readDraft(kind, new FormData(formRef.current), initial));
+              if (formRef.current) setPreview(readDraft(kind, new FormData(formRef.current), media));
             }}
           >
             미리보기
@@ -356,10 +355,16 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
           {message}
         </p>
       )}
-      {kind !== 'review' && (
-        <div hidden={tab !== 'media'} className={styles.mediaArea}>
-          <MediaPanel kind={kind} onAttach={attach} />
-        </div>
+      {kind !== 'review' && tab === 'media' && (
+        <MediaFields
+          kind={kind}
+          selection={media}
+          disabled={busy}
+          onChange={(selection) => {
+            setMediaEdit(selection);
+            setDirty(true);
+          }}
+        />
       )}
       <form
         ref={formRef}
@@ -458,45 +463,6 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
           </div>
           <div className={styles.fields} hidden={tab !== 'links'}>
             <LinkFields kind={kind} initial={initial?.links ?? []} onEdit={() => setDirty(true)} />
-          </div>
-          <div className={styles.fields} hidden={tab !== 'media'}>
-            <h3>연결된 미디어</h3>
-            {kind !== 'review' && (
-              <>
-                <label>
-                  썸네일·프로필 미디어 ID <input name="thumbnailId" defaultValue={initial?.thumbnailId ?? ''} />
-                </label>
-                {initial?.legacyThumbnail && (
-                  <label>
-                    <input type="checkbox" name="removeLegacyThumbnail" /> 기존 이미지 연결 제거
-                  </label>
-                )}
-              </>
-            )}
-            {kind === 'project' && (
-              <>
-                <label>
-                  PDF 미디어 ID <input name="pdfId" defaultValue={initial?.pdfId ?? ''} />
-                </label>
-                {initial?.legacyPdf && (
-                  <label>
-                    <input type="checkbox" name="removeLegacyPdf" /> 기존 PDF 연결 제거
-                  </label>
-                )}
-                <label>
-                  갤러리 미디어 ID (줄마다 하나){' '}
-                  <textarea
-                    name="images"
-                    defaultValue={initial?.images?.flatMap(({ mediaId }) => mediaId ?? []).join('\n')}
-                  />
-                </label>
-                {initial?.images?.some((image) => image.legacyUrl && !image.mediaId) && (
-                  <label>
-                    <input type="checkbox" name="removeLegacyImages" /> 기존 갤러리 연결 제거
-                  </label>
-                )}
-              </>
-            )}
           </div>
         </fieldset>
       </form>

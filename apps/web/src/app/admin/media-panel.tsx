@@ -110,11 +110,13 @@ async function pdfFingerprint(file: File, signal: AbortSignal) {
 }
 
 export default function MediaPanel({
-  kind,
+  mime,
   onAttach,
+  onBusy,
 }: {
-  kind: 'project' | 'organizer';
-  onAttach: (id: string, field: 'thumbnailId' | 'pdfId' | 'images') => void;
+  mime: 'image/webp' | 'application/pdf';
+  onAttach: (id: string) => void;
+  onBusy: (busy: boolean) => void;
 }) {
   const [source, setSource, sourceUrl] = useLocalFile();
   const [candidate, setCandidate, candidateUrl] = useLocalFile();
@@ -122,25 +124,27 @@ export default function MediaPanel({
   const [busy, setBusy] = useState(false);
   const [quality, setQuality] = useState(0.83);
   const [message, setMessage] = useState('');
-  const [assetId, setAssetId] = useState('');
-  const [imageTarget, setImageTarget] = useState<'thumbnailId' | 'images'>('thumbnailId');
   const [progress, setProgress] = useState(0);
   const [pending, setPending] = useState<{ file: File; ticket: UploadTicket }>();
   const [cancel, setCancel] = useState<{ label: string; action: () => void }>();
-  const isPdf = kind === 'project' && source?.type === 'application/pdf';
+  const isPdf = source?.type === 'application/pdf' && mime === 'application/pdf';
+  const rightType = mime === 'application/pdf' ? isPdf : !!candidate;
+
+  useEffect(() => {
+    onBusy(busy);
+  }, [busy, onBusy]);
 
   async function prepare(file: File, level = quality) {
     setSource(file);
     setCandidate(undefined);
     setPending(undefined);
     setAccepted(false);
-    setAssetId('');
     setMessage('');
     setBusy(true);
     try {
       if (file.size > mediaMax) throw new Error('200 MiB 이하 파일을 선택해 주세요.');
-      if (file.type === 'application/pdf') {
-        if (kind !== 'project') throw new Error('운영진 프로필에는 이미지를 선택해 주세요.');
+      if (mime === 'application/pdf') {
+        if (file.type !== mime) throw new Error('PDF 파일을 선택해 주세요.');
         if (file.size > 20 * mib) setMessage('로컬에서 PDF를 최적화한 뒤 압축 후보를 추가할 수 있습니다.');
       } else {
         setCandidate(await toWebp(file, level));
@@ -184,7 +188,6 @@ export default function MediaPanel({
     const file = useOriginal && isPdf ? source : (candidate ?? (isPdf ? source : undefined));
     if (!file || !accepted || file.size > mediaMax) return;
     setProgress(0);
-    setAssetId('');
     setBusy(true);
     setMessage('');
     try {
@@ -234,10 +237,13 @@ export default function MediaPanel({
         const response = await fetch(ticket.url, { method: 'PUT', headers: { 'Content-Type': file.type }, body: file });
         if (!response.ok && response.status !== 409) throw new Error('파일 전송에 실패했습니다.');
       }
-      const asset = await adminRequest<{ id: string }>('media', { action: 'verify', key: ticket.key });
-      setAssetId(asset.id);
-      setPending(undefined);
-      setProgress(100);
+      const asset = await adminRequest<{ id: string }>('media', {
+        action: 'verify',
+        key: ticket.key,
+        name: (file.name.trim() || '첨부 파일').slice(0, 255),
+      });
+      onBusy(false);
+      onAttach(asset.id);
     } catch (error) {
       setMessage((error as Error).message);
     } finally {
@@ -249,8 +255,11 @@ export default function MediaPanel({
   return (
     <section className={styles.uploadPanel}>
       <div className={styles.cardHeading}>
-        <h3>미디어 추가</h3>
-        <p>파일을 선택해 변환 결과를 확인한 뒤 콘텐츠에 첨부하세요.</p>
+        <p>
+          {mime === 'application/pdf'
+            ? 'PDF 페이지와 화질을 확인한 뒤 연결하세요.'
+            : '이미지는 WebP로 변환됩니다. 원본과 변환본을 비교한 뒤 연결하세요.'}
+        </p>
       </div>
       <div className={styles.form}>
         <label className={styles.filePicker}>
@@ -258,16 +267,14 @@ export default function MediaPanel({
           <input
             type="file"
             disabled={busy}
-            accept={
-              kind === 'project' ? 'image/png,image/jpeg,image/webp,application/pdf' : 'image/png,image/jpeg,image/webp'
-            }
+            accept={mime === 'application/pdf' ? mime : 'image/png,image/jpeg,image/webp'}
             onChange={(event) => {
               const file = event.target.files?.[0];
               if (file) void prepare(file);
             }}
           />
         </label>
-        {source && !isPdf && (
+        {source && mime === 'image/webp' && (
           <label>
             WebP 품질{' '}
             <select
@@ -304,7 +311,7 @@ export default function MediaPanel({
             {candidate && <LocalPreview label="전송 후보" file={candidate} url={candidateUrl} />}
           </div>
         )}
-        {(candidate || isPdf) && (
+        {rightType && source && source.size <= mediaMax && (
           <>
             <label>
               <input
@@ -324,11 +331,11 @@ export default function MediaPanel({
                 disabled={busy || !accepted}
                 onClick={() => void upload()}
               >
-                {pending ? '업로드 재개' : '초안 버킷으로 업로드'}
+                {pending ? '업로드 재개' : '업로드하고 연결'}
               </button>
               {isPdf && candidate && (
                 <button type="button" disabled={busy || !accepted} onClick={() => void upload(true)}>
-                  원본 PDF 업로드
+                  원본 PDF로 연결
                 </button>
               )}
               {cancel && (
@@ -341,43 +348,6 @@ export default function MediaPanel({
         )}
         {progress > 0 && <progress value={progress} max={100} aria-label="파일 전송 진행률" />}
         {message && <p role="status">{message}</p>}
-        {assetId && (
-          <div className={styles.attachment}>
-            <div>
-              <strong>업로드 완료</strong>
-              <p className={styles.muted}>아래 버튼으로 이 콘텐츠에 첨부하세요.</p>
-            </div>
-            {kind === 'project' && !isPdf && (
-              <label>
-                첨부 위치
-                <select
-                  value={imageTarget}
-                  onChange={(event) => setImageTarget(event.target.value === 'images' ? 'images' : 'thumbnailId')}
-                >
-                  <option value="thumbnailId">대표 이미지</option>
-                  <option value="images">갤러리</option>
-                </select>
-              </label>
-            )}
-            <button
-              type="button"
-              className={styles.primary}
-              onClick={() => {
-                onAttach(assetId, isPdf ? 'pdfId' : imageTarget);
-                setAssetId('');
-                setMessage('첨부했습니다. 초안을 저장하면 연결이 유지됩니다.');
-              }}
-            >
-              {isPdf ? 'PDF 첨부' : '이미지 첨부'}
-            </button>
-            <details>
-              <summary>미디어 ID</summary>
-              <label>
-                검증된 미디어 ID <input value={assetId} readOnly onFocus={(event) => event.target.select()} />
-              </label>
-            </details>
-          </div>
-        )}
       </div>
     </section>
   );

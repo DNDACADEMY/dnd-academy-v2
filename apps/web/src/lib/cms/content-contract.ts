@@ -97,9 +97,24 @@ export const contentPreviewRequest = z.object({
 
 export const mediaMax = 200 * 1024 * 1024;
 export const mediaMimes = ['image/webp', 'application/pdf'] as const;
+export type MediaItem = {
+  id: string;
+  mime: (typeof mediaMimes)[number];
+  name: string | null;
+  bytes: number;
+  url: string;
+};
+export type MediaLibrary = { items: MediaItem[]; hasMore: boolean };
+
 export const mediaRequest = z.discriminatedUnion('action', [
   z.object({ action: z.literal('upload'), mime: z.enum(mediaMimes), bytes: z.number().int().positive().max(mediaMax) }),
-  z.object({ action: z.literal('verify'), key: z.uuid() }),
+  z.object({ action: z.literal('verify'), key: z.uuid(), name: z.string().trim().min(1).max(255).optional() }),
+  z.object({
+    action: z.literal('library'),
+    mime: z.enum(mediaMimes),
+    page: z.number().int().min(0).max(10_000),
+    query: z.string().trim().max(160),
+  }),
   z.object({ action: z.literal('preview'), id: z.uuid() }),
 ]);
 
