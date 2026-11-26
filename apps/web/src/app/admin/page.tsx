@@ -16,7 +16,6 @@ import LoginForm from './login-form';
 import styles from './styles.module.scss';
 
 export const dynamic = 'force-dynamic';
-export const preferredRegion = 'icn1';
 export const metadata: Metadata = { title: 'DND 관리자', robots: { index: false, follow: false } };
 
 type Props = { searchParams: Promise<{ login?: string; kind?: string; id?: string; section?: string }> };
