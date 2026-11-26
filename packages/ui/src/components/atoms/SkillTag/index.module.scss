@@ -10,7 +10,7 @@
 
   @include text('caption2/Regular');
 
-  > svg {
+  > :is(img, svg) {
     flex: none;
   }
 
