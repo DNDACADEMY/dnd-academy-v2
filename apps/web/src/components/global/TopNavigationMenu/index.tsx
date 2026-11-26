@@ -69,17 +69,12 @@ function TopNavigationMenu() {
           후기
         </Link>
       </li>
-      {/* NOTE - 채용 및 블로그 페이지의 오래된 정보로 임시 주석처리 */}
+      {/* NOTE - 블로그 페이지의 오래된 정보로 임시 주석처리 */}
       {/* <li>
         <ExternalLink href="https://blog.dnd.ac" className={styles.blogLink}>
           <span>블로그</span>
           <LinkIcon width={14} height={14} className={styles.linkIcon} />
         </ExternalLink>
-      </li> */}
-      {/* <li>
-        <Link href="/jobs" className={clsx(isActivePathname('/jobs') && styles.active)}>
-          채용
-        </Link>
       </li> */}
     </ul>
   );
