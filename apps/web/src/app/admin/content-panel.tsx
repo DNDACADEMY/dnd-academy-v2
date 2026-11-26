@@ -424,7 +424,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
                   }}
                 />
                 <label hidden={projectId !== null}>
-                  후기에 표시할 프로젝트 이름 (선택)
+                  기록용 프로젝트 이름 (선택)
                   <input name="originalProjectName" maxLength={160} defaultValue={initial?.originalProjectName} />
                 </label>
               </>
