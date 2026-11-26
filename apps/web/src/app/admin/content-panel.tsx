@@ -1,14 +1,14 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { type FormEvent, useState } from 'react';
+import { type FormEvent, useEffect, useRef, useState } from 'react';
 
 import {
   type ContentInput,
   type ContentKind,
   type ContentRecord,
-  contentKinds,
   detailKinds,
   linkKinds,
   organizerPositions,
@@ -90,24 +90,181 @@ function readDraft(kind: ContentKind, form: FormData, initial?: ContentRecord): 
   return input;
 }
 
+const linkLabels: Record<string, string> = {
+  github: 'GitHub',
+  googlePlayStore: 'Google Play',
+  youtube: 'YouTube',
+  link: '웹사이트',
+  figma: 'Figma',
+  appStore: 'App Store',
+  behance: 'Behance',
+  linkedin: 'LinkedIn',
+  facebook: 'Facebook',
+  email: '이메일',
+  velog: 'Velog',
+  tistory: '티스토리',
+  medium: 'Medium',
+  instagram: 'Instagram',
+  naverBlog: '네이버 블로그',
+  brunch: '브런치',
+};
+
+function publication(row: ContentRecord) {
+  if (row.state === 'draft') return row.liveRevisionId != null ? '수정 초안' : '초안';
+  return row.state === 'published' ? '공개 중' : '비공개';
+}
+
+function Publication({ row }: { row: ContentRecord }) {
+  return (
+    <span
+      className={styles.pill}
+      data-tone={row.state === 'published' ? 'green' : row.state === 'draft' ? 'amber' : 'neutral'}
+    >
+      {publication(row)}
+    </span>
+  );
+}
+
 export default function ContentPanel({
   kind,
   rows,
   initial,
+  create,
 }: {
   kind: ContentKind;
   rows: ContentRecord[];
   initial?: ContentRecord;
+  create: boolean;
 }) {
+  const [query, setQuery] = useState('');
+  const [status, setStatus] = useState('');
+  const path = `/admin?section=content&kind=${kind}` as const;
+  const needle = query.trim().toLocaleLowerCase('ko-KR');
+  const listed = rows.filter(
+    (row) =>
+      (!status ||
+        (status === 'published' ? row.liveRevisionId != null || row.state === 'published' : row.state === status)) &&
+      (!needle ||
+        [row.name, String(row.id), row.author, row.position, row.cohort ? `${row.cohort}기` : ''].some((value) =>
+          value?.toLocaleLowerCase('ko-KR').includes(needle),
+        )),
+  );
+  return (
+    <>
+      <div className={styles.pageHeading}>
+        <div>
+          <h1>{names[kind]} 관리</h1>
+          <p>
+            {rows.length}개 항목 · 공개 중{' '}
+            {rows.filter((row) => row.liveRevisionId != null || row.state === 'published').length}개
+          </p>
+        </div>
+        <Link href={`${path}&id=new`} className={styles.primary}>
+          ＋ {names[kind]} 추가
+        </Link>
+      </div>
+      <div className={styles.contentLayout}>
+        <section className={`${styles.card} ${styles.library}`} aria-label={`${names[kind]} 목록`}>
+          <div className={styles.libraryHead}>
+            <h2>
+              {names[kind]} 목록 <span>{listed.length}</span>
+            </h2>
+            <label className={styles.search}>
+              <span className={styles.visuallyHidden}>{names[kind]} 검색</span>
+              <input
+                type="search"
+                value={query}
+                placeholder="이름, ID, 기수 검색"
+                onChange={(event) => setQuery(event.target.value)}
+              />
+            </label>
+            <select aria-label="게시 상태 필터" value={status} onChange={(event) => setStatus(event.target.value)}>
+              <option value="">모든 상태</option>
+              <option value="published">공개 중</option>
+              <option value="draft">초안</option>
+              <option value="archived">비공개</option>
+            </select>
+          </div>
+          {listed.length ? (
+            <ul className={styles.records}>
+              {listed.map((row) => (
+                <li key={row.id}>
+                  <Link href={`${path}&id=${row.id}`} aria-current={initial?.id === row.id ? 'page' : undefined}>
+                    <span className={styles.recordMain}>
+                      <strong>{row.name}</strong>
+                      <small>
+                        {[`#${row.id}`, row.cohort ? `${row.cohort}기` : '', row.position, row.author]
+                          .filter(Boolean)
+                          .join(' · ')}
+                      </small>
+                    </span>
+                    <Publication row={row} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className={styles.empty}>
+              {rows.length ? '검색 조건에 맞는 항목이 없습니다.' : '등록된 항목이 없습니다.'}
+            </p>
+          )}
+        </section>
+        {initial || create ? (
+          <ContentEditor key={initial?.id ?? 'new'} kind={kind} initial={initial} />
+        ) : (
+          <section className={`${styles.card} ${styles.emptyEditor}`}>
+            <h2>편집할 {names[kind]} 선택</h2>
+            <p>목록에서 항목을 열거나 새 항목을 추가하세요.</p>
+          </section>
+        )}
+      </div>
+    </>
+  );
+}
+
+function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: ContentRecord }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
+  const [failed, setFailed] = useState(false);
+  const [dirty, setDirty] = useState(false);
+  const [tab, setTab] = useState<'basic' | 'links' | 'media'>('basic');
+  const formRef = useRef<HTMLFormElement>(null);
   const [preview, setPreview] = useState<ContentInput>();
   const path = `/admin?section=content&kind=${kind}` as const;
   const positions = kind === 'organizer' ? organizerPositions : reviewPositions;
 
+  useEffect(() => {
+    if (!dirty) return;
+    const warn = (event: BeforeUnloadEvent) => event.preventDefault();
+    const confirmNavigation = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      )
+        return;
+      const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+      if (!(link instanceof HTMLAnchorElement) || link.target || link.href === window.location.href) return;
+      if (!window.confirm('저장하지 않은 변경 사항이 있습니다. 편집 화면을 나갈까요?')) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+    window.addEventListener('beforeunload', warn);
+    document.addEventListener('click', confirmNavigation, true);
+    return () => {
+      window.removeEventListener('beforeunload', warn);
+      document.removeEventListener('click', confirmNavigation, true);
+    };
+  }, [dirty]);
+
   async function mutate(action: 'save' | 'publish' | 'unpublish', input?: ContentInput) {
     setMessage('');
+    setFailed(false);
     setBusy(true);
     try {
       const live = action === 'unpublish';
@@ -120,12 +277,14 @@ export default function ContentPanel({
         editNumber: (live ? initial?.liveEditNumber : initial?.editNumber) ?? null,
       });
       setPreview(undefined);
+      setDirty(false);
       setMessage(
         action === 'save' ? '초안을 저장했습니다.' : action === 'publish' ? '게시했습니다.' : '공개를 중단했습니다.',
       );
       if (!initial) router.replace(`${path}&id=${result.id}`);
       router.refresh();
     } catch (error) {
+      setFailed(true);
       setMessage((error as Error).message);
     } finally {
       setBusy(false);
@@ -134,174 +293,167 @@ export default function ContentPanel({
 
   function editorSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
+    const invalid = Array.from(form.elements).find(
+      (control): control is HTMLInputElement | HTMLTextAreaElement =>
+        (control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement) && !control.validity.valid,
+    );
+    if (invalid) {
+      setTab('basic');
+      requestAnimationFrame(() => invalid.reportValidity());
+      return;
+    }
     const mode = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
     const input = readDraft(kind, new FormData(event.currentTarget), initial);
     if (mode?.value === 'preview') setPreview(input);
     else void mutate('save', input);
   }
 
+  function attach(id: string, field: 'thumbnailId' | 'pdfId' | 'images') {
+    const control = formRef.current?.elements.namedItem(field);
+    if (!(control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement)) return;
+    control.value = field === 'images' ? [...new Set([...values(control.value), id])].join('\n') : id;
+    setDirty(true);
+  }
+
   return (
-    <>
-      <h2>콘텐츠 관리</h2>
-      <nav aria-label="콘텐츠 종류">
-        {contentKinds.map((value) => (
-          <a
-            key={value}
-            href={`/admin?section=content&kind=${value}`}
-            aria-current={kind === value ? 'page' : undefined}
-          >
-            {names[value]}
-          </a>
-        ))}
-      </nav>
-      <label>
-        편집할 {names[kind]}
-        <select
-          value={initial?.id ?? ''}
-          onChange={(event) => router.push(event.target.value ? `${path}&id=${event.target.value}` : path)}
-        >
-          <option value="">새 {names[kind]}</option>
-          {rows.map(({ id, name, state }) => (
-            <option key={id} value={id}>
-              {id} · {name} · {state === 'draft' ? '초안' : state === 'published' ? '공개 중' : '비공개'}
-            </option>
-          ))}
-        </select>
-      </label>
+    <section className={`${styles.card} ${styles.editorCard}`}>
+      <div className={styles.editorHeading}>
+        <div>
+          <Link href={path} className={styles.mobileBack}>
+            ← 목록으로
+          </Link>
+          <h2>{initial?.name ?? `새 ${names[kind]}`}</h2>
+          <p>{initial ? `#${initial.id} · ${names[kind]}` : '내용을 입력하고 초안을 저장하세요.'}</p>
+        </div>
+        {initial && <Publication row={initial} />}
+      </div>
+      <div className={styles.tabs} aria-label="편집 구역">
+        <button type="button" aria-pressed={tab === 'basic'} onClick={() => setTab('basic')}>
+          기본 정보
+        </button>
+        <button type="button" aria-pressed={tab === 'links'} onClick={() => setTab('links')}>
+          외부 링크
+        </button>
+        {kind !== 'review' && (
+          <button type="button" aria-pressed={tab === 'media'} onClick={() => setTab('media')}>
+            미디어
+          </button>
+        )}
+      </div>
       {message && (
-        <p role="status" className={styles.status}>
+        <p role={failed ? 'alert' : 'status'} className={failed ? styles.error : styles.status}>
           {message}
         </p>
       )}
-      <form method="post" onSubmit={editorSubmit} key={initial?.revisionId ?? 'new'}>
+      {kind !== 'review' && (
+        <div hidden={tab !== 'media'} className={styles.mediaArea}>
+          <MediaPanel kind={kind} onAttach={attach} />
+        </div>
+      )}
+      <form
+        ref={formRef}
+        method="post"
+        noValidate
+        onSubmit={editorSubmit}
+        onChange={() => setDirty(true)}
+        key={initial?.revisionId ?? 'new'}
+      >
         <fieldset disabled={busy} className={styles.editor}>
-          <legend>{names[kind]} 편집</legend>
-          <label>
-            이름 <input name="name" required maxLength={160} defaultValue={initial?.name} />
-          </label>
-          {kind === 'project' && (
+          <div className={styles.fields} hidden={tab !== 'basic'}>
             <label>
-              제목 <input name="title" required maxLength={300} defaultValue={initial?.title} />
+              이름 <input name="name" required maxLength={160} defaultValue={initial?.name} />
             </label>
-          )}
-          <label>
-            {kind === 'review' ? '본문' : '소개'}{' '}
-            <textarea name="description" required={kind === 'review'} defaultValue={initial?.description} />
-          </label>
-          {kind !== 'organizer' && (
-            <label>
-              기수{' '}
-              <input
-                name="cohort"
-                type="number"
-                min="1"
-                required={kind === 'project'}
-                defaultValue={initial?.cohort ?? ''}
-              />
-            </label>
-          )}
-          {kind !== 'project' && (
-            <label>
-              직군{' '}
-              <select name="position" defaultValue={initial?.position}>
-                {positions.map((position) => (
-                  <option key={position}>{position}</option>
-                ))}
-              </select>
-            </label>
-          )}
-          {kind === 'review' && (
-            <>
+            {kind === 'project' && (
               <label>
-                연결 프로젝트 ID (선택){' '}
-                <input name="projectId" type="number" min="0" defaultValue={initial?.projectId ?? ''} />
+                제목 <input name="title" required maxLength={300} defaultValue={initial?.title} />
               </label>
+            )}
+            <label>
+              {kind === 'review' ? '본문' : '소개'}{' '}
+              <textarea name="description" required={kind === 'review'} defaultValue={initial?.description} />
+            </label>
+            {kind !== 'organizer' && (
               <label>
-                원본 프로젝트 표기{' '}
-                <input name="originalProjectName" maxLength={160} defaultValue={initial?.originalProjectName} />
+                기수{' '}
+                <input
+                  name="cohort"
+                  type="number"
+                  min="1"
+                  required={kind === 'project'}
+                  defaultValue={initial?.cohort ?? ''}
+                />
               </label>
-            </>
-          )}
-          {kind === 'organizer' && (
-            <>
-              <div className={styles.grid}>
+            )}
+            {kind !== 'project' && (
+              <label>
+                직군{' '}
+                <select name="position" defaultValue={initial?.position}>
+                  {positions.map((position) => (
+                    <option key={position}>{position}</option>
+                  ))}
+                </select>
+              </label>
+            )}
+            {kind === 'review' && (
+              <>
                 <label>
-                  필명 <input name="author" defaultValue={initial?.author} />
+                  연결 프로젝트 ID (선택){' '}
+                  <input name="projectId" type="number" min="0" defaultValue={initial?.projectId ?? ''} />
                 </label>
                 <label>
-                  MBTI <input name="mbti" defaultValue={initial?.mbti} />
+                  원본 프로젝트 표기{' '}
+                  <input name="originalProjectName" maxLength={160} defaultValue={initial?.originalProjectName} />
                 </label>
-                <label>
-                  이모지 <input name="emoji" defaultValue={initial?.emoji ?? ''} />
-                </label>
-              </div>
-              <label>
-                <input name="isArchived" type="checkbox" defaultChecked={initial?.isArchived} /> 역대 운영진
-              </label>
-              <details>
-                <summary>경력과 인터뷰</summary>
-                {detailKinds.map((kind) => (
-                  <label key={kind}>
-                    {detailLabels[kind]}
-                    <textarea
-                      name={`detail-${kind}`}
-                      defaultValue={initial?.details
-                        ?.filter((detail) => detail.kind === kind)
-                        .map((detail) => detail.body)
-                        .join('\n')}
-                    />
+              </>
+            )}
+            {kind === 'organizer' && (
+              <>
+                <div className={styles.grid}>
+                  <label>
+                    필명 <input name="author" defaultValue={initial?.author} />
                   </label>
-                ))}
-              </details>
-            </>
-          )}
-          {kind !== 'review' && (
-            <>
+                  <label>
+                    MBTI <input name="mbti" defaultValue={initial?.mbti} />
+                  </label>
+                  <label>
+                    이모지 <input name="emoji" defaultValue={initial?.emoji ?? ''} />
+                  </label>
+                </div>
+                <label>
+                  <input name="isArchived" type="checkbox" defaultChecked={initial?.isArchived} /> 역대 운영진
+                </label>
+                <details>
+                  <summary>경력과 인터뷰</summary>
+                  {detailKinds.map((kind) => (
+                    <label key={kind}>
+                      {detailLabels[kind]}
+                      <textarea
+                        name={`detail-${kind}`}
+                        defaultValue={initial?.details
+                          ?.filter((detail) => detail.kind === kind)
+                          .map((detail) => detail.body)
+                          .join('\n')}
+                      />
+                    </label>
+                  ))}
+                </details>
+              </>
+            )}
+            {kind !== 'review' && (
               <label>
                 기술 (줄마다 하나) <textarea name="skills" defaultValue={initial?.skills?.join('\n')} />
               </label>
-              <label>
-                썸네일·프로필 미디어 ID <input name="thumbnailId" defaultValue={initial?.thumbnailId ?? ''} />
-              </label>
-              {initial?.legacyThumbnail && (
-                <label>
-                  <input type="checkbox" name="removeLegacyThumbnail" /> 기존 이미지 연결 제거
-                </label>
-              )}
-            </>
-          )}
-          {kind === 'project' && (
-            <>
-              <label>
-                PDF 미디어 ID <input name="pdfId" defaultValue={initial?.pdfId ?? ''} />
-              </label>
-              {initial?.legacyPdf && (
-                <label>
-                  <input type="checkbox" name="removeLegacyPdf" /> 기존 PDF 연결 제거
-                </label>
-              )}
-              <label>
-                갤러리 미디어 ID (줄마다 하나){' '}
-                <textarea
-                  name="images"
-                  defaultValue={initial?.images?.flatMap(({ mediaId }) => mediaId ?? []).join('\n')}
-                />
-              </label>
-              {initial?.images?.some((image) => image.legacyUrl && !image.mediaId) && (
-                <label>
-                  <input type="checkbox" name="removeLegacyImages" /> 기존 갤러리 연결 제거
-                </label>
-              )}
-            </>
-          )}
-          <details>
-            <summary>외부 링크</summary>
+            )}
+          </div>
+          <div className={styles.fields} hidden={tab !== 'links'}>
+            <p className={styles.muted}>같은 서비스에 여러 링크가 있으면 줄마다 하나씩 입력하세요.</p>
             <div className={styles.grid}>
               {linkKinds
                 .filter((link) => kind !== 'review' || link !== 'email')
                 .map((kind) => (
                   <label key={kind}>
-                    {kind}{' '}
+                    {linkLabels[kind] ?? kind}{' '}
                     <textarea
                       name={`link-${kind}`}
                       defaultValue={initial?.links
@@ -312,27 +464,85 @@ export default function ContentPanel({
                   </label>
                 ))}
             </div>
-          </details>
-          <div className={styles.buttons}>
-            <button type="submit" value="save">
-              초안 저장
-            </button>
-            <button type="submit" value="preview">
-              입력 내용 미리보기
-            </button>
+          </div>
+          <div className={styles.fields} hidden={tab !== 'media'}>
+            <h3>연결된 미디어</h3>
+            {kind !== 'review' && (
+              <>
+                <label>
+                  썸네일·프로필 미디어 ID <input name="thumbnailId" defaultValue={initial?.thumbnailId ?? ''} />
+                </label>
+                {initial?.legacyThumbnail && (
+                  <label>
+                    <input type="checkbox" name="removeLegacyThumbnail" /> 기존 이미지 연결 제거
+                  </label>
+                )}
+              </>
+            )}
+            {kind === 'project' && (
+              <>
+                <label>
+                  PDF 미디어 ID <input name="pdfId" defaultValue={initial?.pdfId ?? ''} />
+                </label>
+                {initial?.legacyPdf && (
+                  <label>
+                    <input type="checkbox" name="removeLegacyPdf" /> 기존 PDF 연결 제거
+                  </label>
+                )}
+                <label>
+                  갤러리 미디어 ID (줄마다 하나){' '}
+                  <textarea
+                    name="images"
+                    defaultValue={initial?.images?.flatMap(({ mediaId }) => mediaId ?? []).join('\n')}
+                  />
+                </label>
+                {initial?.images?.some((image) => image.legacyUrl && !image.mediaId) && (
+                  <label>
+                    <input type="checkbox" name="removeLegacyImages" /> 기존 갤러리 연결 제거
+                  </label>
+                )}
+              </>
+            )}
           </div>
         </fieldset>
       </form>
-      {initial && (
+      <footer className={styles.editorFooter}>
+        <span className={styles.muted}>
+          {busy
+            ? '처리 중…'
+            : dirty
+              ? '저장하지 않은 변경 사항'
+              : initial?.liveRevisionId != null
+                ? '홈페이지에 게시본이 공개되어 있습니다.'
+                : ''}
+        </span>
         <div className={styles.buttons}>
-          {initial.state === 'draft' && (
-            <button disabled={busy} onClick={() => setPreview(initial)}>
-              저장한 초안 미리보기
-            </button>
-          )}
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => {
+              if (formRef.current) setPreview(readDraft(kind, new FormData(formRef.current), initial));
+            }}
+          >
+            미리보기
+          </button>
+          <button
+            type="button"
+            className={styles.primary}
+            disabled={busy}
+            onClick={() => formRef.current?.requestSubmit()}
+          >
+            초안 저장
+          </button>
+        </div>
+      </footer>
+      {initial && (
+        <div className={styles.publicationActions}>
           {initial.state === 'draft' && (
             <button
-              disabled={busy}
+              type="button"
+              className={styles.primary}
+              disabled={busy || dirty}
               onClick={() => {
                 if (window.confirm('저장한 초안을 공개할까요?')) void mutate('publish');
               }}
@@ -342,7 +552,9 @@ export default function ContentPanel({
           )}
           {initial.liveRevisionId != null && (
             <button
-              disabled={busy}
+              type="button"
+              className={styles.danger}
+              disabled={busy || dirty}
               onClick={() => {
                 if (window.confirm('현재 게시본의 공개를 중단할까요?')) void mutate('unpublish');
               }}
@@ -350,14 +562,41 @@ export default function ContentPanel({
               공개 중단
             </button>
           )}
-          {initial.liveRevisionId != null && kind !== 'review' && (
-            <a href={`/${kind}s/${initial.id}`}>공개 상세 열기</a>
+          {initial.liveRevisionId != null && (
+            <a
+              className={styles.inlineLink}
+              href={kind === 'review' ? '/reviews' : `/${kind}s/${initial.id}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {kind === 'review' ? '공개 후기 보기' : '공개 상세 열기'} ↗
+            </a>
           )}
         </div>
       )}
-      {preview && <DraftPreview input={preview} />}
-      {kind !== 'review' && <MediaPanel />}
-    </>
+      {preview && <PreviewDialog input={preview} onClose={() => setPreview(undefined)} />}
+    </section>
+  );
+}
+
+function PreviewDialog({ input, onClose }: { input: ContentInput; onClose: () => void }) {
+  return (
+    <dialog
+      ref={(element) => {
+        if (element && !element.open) element.showModal();
+      }}
+      className={styles.dialog}
+      onClose={onClose}
+      aria-labelledby="draft-preview-title"
+    >
+      <header>
+        <h2 id="draft-preview-title">초안 미리보기</h2>
+        <form method="dialog">
+          <button aria-label="미리보기 닫기">닫기</button>
+        </form>
+      </header>
+      <DraftPreview input={input} />
+    </dialog>
   );
 }
 
@@ -380,8 +619,7 @@ function DraftPreview({ input }: { input: ContentInput }) {
     }
   }
   return (
-    <fieldset>
-      <legend>초안 미리보기</legend>
+    <section className={styles.previewBody}>
       <h3>{input.name}</h3>
       {input.title && <p>{input.title}</p>}
       <p>
@@ -402,7 +640,11 @@ function DraftPreview({ input }: { input: ContentInput }) {
         </p>
       ))}
       {input.projectId != null && <p>연결 프로젝트 #{input.projectId}</p>}
-      {ids.length > 0 && <button onClick={() => void loadMedia()}>첨부 미디어 불러오기</button>}
+      {ids.length > 0 && (
+        <button type="button" onClick={() => void loadMedia()}>
+          첨부 미디어 불러오기
+        </button>
+      )}
       {error && <p role="alert">{error}</p>}
       {resources.map(({ mime, url }) =>
         mime === 'image/webp' ? (
@@ -413,6 +655,6 @@ function DraftPreview({ input }: { input: ContentInput }) {
           </a>
         ),
       )}
-    </fieldset>
+    </section>
   );
 }

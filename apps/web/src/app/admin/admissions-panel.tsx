@@ -8,6 +8,34 @@ import { adminRequest } from './admin-request';
 
 import styles from './styles.module.scss';
 
+const tabs = [
+  ['results', '결과 관리'],
+  ['schedule', '발표 일정'],
+  ['applicants', '지원자 등록'],
+  ['cohorts', '기수 관리'],
+] as const;
+
+const positionLabels: Record<string, string> = {
+  FRONTEND: '프런트엔드',
+  BACKEND: '백엔드',
+  ANDROID: '안드로이드',
+  IOS: 'iOS',
+  DESIGNER: '디자인',
+};
+const statusLabels = { NONE: '미정', PASSED: '합격', FAILED: '불합격', WAITLISTED: '예비 합격' };
+
+function kstInput(iso: string | null | undefined) {
+  return iso ? new Date(Date.parse(iso) + 9 * 60 * 60 * 1000).toISOString().slice(0, 19) : '';
+}
+
+function kstDate(iso: string) {
+  return new Intl.DateTimeFormat('ko-KR', {
+    timeZone: 'Asia/Seoul',
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  }).format(new Date(iso));
+}
+
 function identityFields() {
   return (
     <>
@@ -70,11 +98,15 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
   );
   const [match, setMatch] = useState<AdmissionsState['match']>();
   const [message, setMessage] = useState('');
+  const [failed, setFailed] = useState(false);
+  const [active, setActive] = useState<(typeof tabs)[number][0]>('results');
+  const [editingNewEvent, setEditingNewEvent] = useState(false);
   const [busy, setBusy] = useState(false);
 
   async function run(payload: Record<string, unknown>) {
     setBusy(true);
     setMessage('');
+    setFailed(false);
     try {
       const result = await adminRequest<AdmissionsState | { outcome: string; changed?: number }>('admissions', payload);
       if ('match' in result) {
@@ -86,7 +118,12 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
         const updated: AdmissionsState = await response.json();
         setState(updated);
         setCohortId((current) => current || updated.cohorts[0]?.id || 0);
-        setEventId((current) => current || updated.events[0]?.id || 0);
+        if (payload.action === 'event' && typeof payload.id === 'number') {
+          setEventId(payload.id);
+          setEditingNewEvent(false);
+        } else {
+          setEventId((current) => current || updated.events[0]?.id || 0);
+        }
         setMessage(
           result.outcome === 'duplicate'
             ? '이미 등록되어 있습니다.'
@@ -97,6 +134,7 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
       }
       return true;
     } catch (error) {
+      setFailed(true);
       setMessage((error as Error).message);
       return false;
     } finally {
@@ -122,215 +160,418 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
       {ordinal}기
     </option>
   ));
+  const dates = selectedEvent
+    ? `${kstDate(selectedEvent.starts_at)}부터 · ${selectedEvent.ends_at ? kstDate(selectedEvent.ends_at) + ' 종료' : '수동 종료'}`
+    : '';
+  const eventPicker = (
+    <label className={styles.eventPicker}>
+      발표 이벤트
+      <select
+        value={eventId}
+        disabled={!state.events.length}
+        onChange={(event) => {
+          setEventId(Number(event.target.value));
+          setEditingNewEvent(false);
+          setMatch(undefined);
+          setMessage('');
+        }}
+      >
+        {!state.events.length && <option value={0}>등록된 발표 일정 없음</option>}
+        {state.events.map((item) => (
+          <option key={item.id} value={item.id}>
+            {item.name} · #{item.id}
+            {item.is_current ? ' · 현재 이벤트' : ''}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+  const schedule = editingNewEvent ? undefined : selectedEvent;
+
   return (
     <>
-      <h2>모집 관리</h2>
+      <div className={styles.pageHeading}>
+        <div>
+          <h1>모집 관리</h1>
+          <p>지원 결과와 발표 일정을 확인하고 관리하세요.</p>
+        </div>
+      </div>
+      <div className={styles.tabs} aria-label="모집 업무">
+        {tabs.map(([value, label]) => (
+          <button
+            key={value}
+            type="button"
+            aria-pressed={active === value}
+            onClick={() => {
+              setActive(value);
+              setMatch(undefined);
+              setMessage('');
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
       {message && (
-        <p role="status" className={styles.status}>
+        <p className={failed ? styles.error : styles.status} role={failed ? 'alert' : 'status'}>
           {message}
         </p>
       )}
-      <fieldset disabled={busy}>
-        <legend>기수</legend>
-        <form
-          method="post"
-          className={styles.form}
-          onSubmit={(event) =>
-            submit(event, (data) => ({ action: 'cohort', ordinal: Number(data.get('ordinal')) }), true)
-          }
-        >
-          <label>
-            기수 번호 <input name="ordinal" type="number" min="1" required />
-          </label>
-          <button>기수 등록</button>
-        </form>
-        <p>
-          기수 엑셀 등록{' '}
-          <button type="button" disabled>
-            양식 준비 중
-          </button>
-        </p>
-      </fieldset>
-      <fieldset disabled={busy || !state.cohorts.length}>
-        <legend>기수별 지원자</legend>
-        <label>
-          대상 기수{' '}
-          <select value={cohortId} onChange={(event) => setCohortId(Number(event.target.value))}>
-            {cohortOptions}
-          </select>
-        </label>
-        <form
-          method="post"
-          className={styles.form}
-          onSubmit={(event) =>
-            submit(
-              event,
-              (data) => ({
-                action: 'applicant',
-                cohortId,
-                name: data.get('name'),
-                email: data.get('email'),
-                position: data.get('position'),
-              }),
-              true,
-            )
-          }
-        >
-          {identityFields()}
-          <label>
-            지원 직군{' '}
-            <select name="position">
-              {positions.map((position) => (
-                <option key={position}>{position}</option>
-              ))}
-            </select>
-          </label>
-          <button>지원자 등록</button>
-        </form>
-        <p>
-          선택 기수 지원자 엑셀 등록{' '}
-          <button type="button" disabled>
-            양식 준비 중
-          </button>
-        </p>
-      </fieldset>
-      <fieldset disabled={busy || !state.cohorts.length}>
-        <legend>발표 이벤트 설정</legend>
-        <form
-          method="post"
-          className={styles.form}
-          onSubmit={(event) =>
-            submit(event, (data) => ({
-              action: 'event',
-              id: Number(data.get('id')),
-              cohortId: Number(data.get('cohortId')),
-              name: data.get('name'),
-              startsAt: `${data.get('start')}:00+09:00`,
-              endsAt: data.get('end') ? `${data.get('end')}:00+09:00` : null,
-              current: data.get('current') === 'on',
-            }))
-          }
-        >
-          <label>
-            이벤트 ID <input name="id" type="number" min="1" required />
-          </label>
-          <label>
-            기수{' '}
-            <select name="cohortId" value={cohortId} onChange={(event) => setCohortId(Number(event.target.value))}>
-              {cohortOptions}
-            </select>
-          </label>
-          <label>
-            표시명 <input name="name" required maxLength={160} />
-          </label>
-          <label>
-            발표 시작 (KST) <input name="start" type="datetime-local" defaultValue="2026-12-19T00:00" required />
-          </label>
-          <label>
-            발표 종료 (KST, 선택) <input name="end" type="datetime-local" />
-          </label>
-          <label>
-            <input name="current" type="checkbox" defaultChecked /> 현재 이벤트
-          </label>
-          <button>일정 저장</button>
-        </form>
-        <p>일정을 저장하면 공개 준비를 다시 확정해야 합니다.</p>
-      </fieldset>
-      <fieldset disabled={busy || !selectedEvent}>
-        <legend>발표 준비와 결과 관리</legend>
-        <label>
-          이벤트{' '}
-          <select
-            value={eventId}
-            onChange={(event) => {
-              setEventId(Number(event.target.value));
-              setMatch(undefined);
-            }}
-          >
-            {state.events.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.id} · {item.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        {selectedEvent && (
-          <p>
-            {new Date(selectedEvent.starts_at).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })} KST ·{' '}
-            {selectedEvent.ready ? '공개 준비 완료' : '닫힘'}
-          </p>
-        )}
-        <div className={styles.buttons}>
-          <button type="button" onClick={() => void run({ action: 'ready', eventId })}>
-            공개 준비 확정
-          </button>
-          <button type="button" onClick={() => void run({ action: 'close', eventId })}>
-            조회 닫기
-          </button>
-        </div>
-        <form
-          method="post"
-          className={styles.form}
-          onSubmit={(event) => {
-            const button = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement;
-            submit(event, (data) => {
-              const identity = { name: data.get('name'), email: data.get('email') };
-              return button?.value === 'save'
-                ? { action: 'results', eventId, rows: [{ ...identity, status: data.get('status') }] }
-                : { action: 'search', eventId, identity };
-            });
-          }}
-        >
-          {identityFields()}
-          <button type="submit" value="search">
-            개별 결과 조회
-          </button>
-          {match !== undefined && (
-            <p role="status">
-              {match ? `${match.position} · ${match.status ?? '결과 미등록'}` : '일치하는 지원자가 없습니다.'}
-            </p>
+
+      {(active === 'results' || active === 'schedule') && (
+        <section className={`${styles.card} ${styles.eventCard}`}>
+          {eventPicker}
+          {selectedEvent && (
+            <div className={styles.eventStatus}>
+              <span className={styles.pill} data-tone={selectedEvent.ready ? 'green' : 'neutral'}>
+                {selectedEvent.ready ? '공개 준비 완료' : '공개 준비 전'}
+              </span>
+              <span>{dates} (KST)</span>
+            </div>
           )}
-          <label>
-            새 결과{' '}
-            <select name="status" key={match?.id}>
-              {statuses.map((status) => (
-                <option key={status}>{status}</option>
-              ))}
-            </select>
-          </label>
-          <button type="submit" value="save">
-            개별 결과 저장
-          </button>
-        </form>
-        <form
-          method="post"
-          className={styles.form}
-          onSubmit={async (event) => {
-            event.preventDefault();
-            const form = event.currentTarget;
-            const file = new FormData(form).get('csv');
-            if (!(file instanceof File) || !file.size || file.size > 1024 * 1024) {
-              setMessage('1 MiB 이하 결과 CSV를 선택해 주세요.');
-              return;
-            }
-            try {
-              const rows = parseResultCsv(await file.text());
-              if (
-                window.confirm(`선택한 이벤트에 결과 ${rows.length}건을 반영할까요?`) &&
-                (await run({ action: 'results', eventId, rows }))
+        </section>
+      )}
+
+      {active === 'results' &&
+        (selectedEvent ? (
+          <div className={styles.admissionsGrid}>
+            <section className={styles.card}>
+              <div className={styles.cardHeading}>
+                <h2>개별 결과</h2>
+                <p>이름과 이메일로 지원자를 찾고 결과를 수정하세요.</p>
+              </div>
+              <form
+                method="post"
+                className={styles.form}
+                onSubmit={(event) => {
+                  const button = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
+                  submit(event, (data) => {
+                    const identity = { name: data.get('name'), email: data.get('email') };
+                    return button?.value === 'save'
+                      ? { action: 'results', eventId, rows: [{ ...identity, status: data.get('status') }] }
+                      : { action: 'search', eventId, identity };
+                  });
+                }}
+              >
+                <fieldset className={styles.fields} disabled={busy}>
+                  <div className={styles.grid} onChange={() => setMatch(undefined)}>
+                    {identityFields()}
+                  </div>
+                  <div className={styles.buttons}>
+                    <button type="submit" value="search" className={styles.primary}>
+                      개별 결과 조회
+                    </button>
+                  </div>
+                  {match === null && (
+                    <p className={styles.empty} role="status">
+                      일치하는 지원자가 없습니다.
+                    </p>
+                  )}
+                  {match && (
+                    <div className={styles.resultBox}>
+                      <div>
+                        <span className={styles.muted}>{positionLabels[match.position] ?? match.position}</span>
+                        <strong>{match.status ? statusLabels[match.status] : '결과 미등록'}</strong>
+                      </div>
+                      <label>
+                        새 결과{' '}
+                        <select name="status" key={`${match.id}:${match.status}`} defaultValue={match.status ?? 'NONE'}>
+                          {statuses.map((status) => (
+                            <option key={status} value={status}>
+                              {statusLabels[status]}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                      <button type="submit" value="save" className={styles.primary}>
+                        개별 결과 저장
+                      </button>
+                    </div>
+                  )}
+                </fieldset>
+              </form>
+            </section>
+            <section className={styles.card}>
+              <div className={styles.cardHeading}>
+                <h2>결과 CSV 일괄 반영</h2>
+                <p>선택한 발표 이벤트에 적용됩니다. 파일은 최대 1 MiB, 1,000행까지 올릴 수 있습니다.</p>
+              </div>
+              <form
+                method="post"
+                className={styles.form}
+                onSubmit={async (event) => {
+                  event.preventDefault();
+                  const form = event.currentTarget;
+                  const file = new FormData(form).get('csv');
+                  try {
+                    if (!(file instanceof File) || !file.size || file.size > 1024 * 1024)
+                      throw new Error('1 MiB 이하 결과 CSV를 선택해 주세요.');
+                    const rows = parseResultCsv(await file.text());
+                    if (
+                      window.confirm(`${selectedEvent.name}에 결과 ${rows.length}건을 반영할까요?`) &&
+                      (await run({ action: 'results', eventId, rows }))
+                    )
+                      form.reset();
+                  } catch (error) {
+                    setFailed(true);
+                    setMessage((error as Error).message);
+                  }
+                }}
+              >
+                <fieldset disabled={busy} className={styles.fields}>
+                  <label>
+                    결과 CSV <input type="file" name="csv" accept=".csv,text/csv" required />
+                  </label>
+                  <p className={styles.muted}>
+                    <code>name,email,status</code>
+                  </p>
+                  <div className={styles.buttons}>
+                    <button type="submit">일괄 결과 반영</button>
+                  </div>
+                </fieldset>
+              </form>
+            </section>
+          </div>
+        ) : (
+          <div className={styles.empty}>
+            발표 일정을 먼저 등록하세요.{' '}
+            <button type="button" onClick={() => setActive('schedule')}>
+              발표 일정으로 이동
+            </button>
+          </div>
+        ))}
+
+      {active === 'schedule' && (
+        <>
+          <section className={styles.card}>
+            <div className={styles.cardHeading}>
+              <div>
+                <h2>{schedule ? '발표 일정 편집' : '새 발표 일정'}</h2>
+                <p>모든 시각은 한국 표준시(KST)입니다.</p>
+              </div>
+              {selectedEvent && (
+                <button type="button" onClick={() => setEditingNewEvent(!editingNewEvent)}>
+                  {editingNewEvent ? '기존 일정으로' : '＋ 새 일정'}
+                </button>
+              )}
+            </div>
+            <form
+              method="post"
+              className={styles.form}
+              key={schedule ? JSON.stringify(schedule) : 'new'}
+              onSubmit={(event) =>
+                submit(event, (data) => {
+                  const date = (key: string) => {
+                    const value = String(data.get(key) ?? '');
+                    return value ? `${value}${value.length === 16 ? ':00' : ''}+09:00` : null;
+                  };
+                  return {
+                    action: 'event',
+                    id: schedule?.id ?? Number(data.get('id')),
+                    cohortId: Number(data.get('cohortId')),
+                    name: data.get('name'),
+                    startsAt: date('start'),
+                    endsAt: date('end'),
+                    current: data.get('current') === 'on',
+                  };
+                })
+              }
+            >
+              <fieldset disabled={busy || !state.cohorts.length} className={styles.fields}>
+                <div className={styles.grid}>
+                  <label>
+                    이벤트 ID{' '}
+                    <input name="id" type="number" min="1" required defaultValue={schedule?.id} readOnly={!!schedule} />
+                  </label>
+                  <label>
+                    기수{' '}
+                    <select name="cohortId" defaultValue={schedule?.cohort_id ?? cohortId}>
+                      {cohortOptions}
+                    </select>
+                  </label>
+                </div>
+                <label>
+                  표시명 <input name="name" required maxLength={160} defaultValue={schedule?.name} />
+                </label>
+                <div className={styles.grid}>
+                  <label>
+                    발표 시작 (KST){' '}
+                    <input
+                      name="start"
+                      type="datetime-local"
+                      step="1"
+                      defaultValue={kstInput(schedule?.starts_at)}
+                      required
+                    />
+                  </label>
+                  <label>
+                    발표 종료 (KST, 선택){' '}
+                    <input name="end" type="datetime-local" step="1" defaultValue={kstInput(schedule?.ends_at)} />
+                  </label>
+                </div>
+                <label>
+                  <input name="current" type="checkbox" defaultChecked={schedule?.is_current ?? false} /> Passboard의
+                  현재 이벤트로 표시
+                </label>
+                <p className={styles.muted}>일정을 저장하면 공개 준비 상태를 다시 확정해야 합니다.</p>
+                <div className={styles.buttons}>
+                  <button className={styles.primary}>일정 저장</button>
+                </div>
+              </fieldset>
+            </form>
+          </section>
+          {schedule && (
+            <section className={`${styles.card} ${styles.noticeCard}`}>
+              <div>
+                <h2>조회 공개 설정</h2>
+                <p>공개 준비가 끝났고 발표 시작 시각이 지난 경우에 결과 조회가 열립니다.</p>
+              </div>
+              <div className={styles.buttons}>
+                <button
+                  type="button"
+                  className={styles.primary}
+                  disabled={busy || selectedEvent?.ready}
+                  onClick={() => {
+                    if (window.confirm(`${schedule.name}의 공개 준비를 확정할까요?`))
+                      void run({ action: 'ready', eventId });
+                  }}
+                >
+                  공개 준비 확정
+                </button>
+                <button
+                  type="button"
+                  className={styles.danger}
+                  disabled={busy || !selectedEvent?.ready}
+                  onClick={() => {
+                    if (window.confirm(`${schedule.name}의 결과 조회를 닫을까요?`))
+                      void run({ action: 'close', eventId });
+                  }}
+                >
+                  조회 닫기
+                </button>
+              </div>
+            </section>
+          )}
+        </>
+      )}
+
+      {active === 'applicants' && (
+        <section className={styles.card}>
+          <div className={styles.cardHeading}>
+            <h2>지원자 개별 등록</h2>
+            <p>기수를 선택한 뒤 지원 정보를 입력하세요. 동일 정보로 다시 등록해도 결과가 유지됩니다.</p>
+          </div>
+          <form
+            method="post"
+            className={styles.form}
+            onSubmit={(event) =>
+              submit(
+                event,
+                (data) => ({
+                  action: 'applicant',
+                  cohortId,
+                  name: data.get('name'),
+                  email: data.get('email'),
+                  position: data.get('position'),
+                }),
+                true,
               )
-                form.reset();
-            } catch (error) {
-              setMessage((error as Error).message);
             }
-          }}
-        >
-          <label>
-            결과 CSV (name,email,status) <input type="file" name="csv" accept=".csv,text/csv" required />
-          </label>
-          <button>일괄 결과 반영</button>
-        </form>
-      </fieldset>
+          >
+            <fieldset disabled={busy || !state.cohorts.length} className={styles.fields}>
+              <label>
+                대상 기수{' '}
+                <select value={cohortId} onChange={(event) => setCohortId(Number(event.target.value))}>
+                  {cohortOptions}
+                </select>
+              </label>
+              <div className={styles.grid}>{identityFields()}</div>
+              <label>
+                지원 직군{' '}
+                <select name="position">
+                  {positions.map((position) => (
+                    <option key={position} value={position}>
+                      {positionLabels[position]}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <div className={styles.buttons}>
+                <button className={styles.primary}>지원자 등록</button>
+              </div>
+            </fieldset>
+          </form>
+          <div className={styles.subtleRow}>
+            <span>선택 기수 지원자 엑셀 등록</span>
+            <span className={styles.pill} data-tone="neutral">
+              양식 준비 중
+            </span>
+          </div>
+        </section>
+      )}
+
+      {active === 'cohorts' && (
+        <div className={styles.admissionsGrid}>
+          <section className={styles.card}>
+            <div className={styles.cardHeading}>
+              <h2>
+                등록된 기수 <span>{state.cohorts.length}개</span>
+              </h2>
+            </div>
+            {state.cohorts.length ? (
+              <ul className={styles.cohortList}>
+                {[...state.cohorts]
+                  .sort((a, b) => b.ordinal - a.ordinal)
+                  .map((cohort) => (
+                    <li key={cohort.id}>
+                      <strong>{cohort.ordinal}기</strong>
+                      <button
+                        type="button"
+                        className={styles.quiet}
+                        onClick={() => {
+                          setCohortId(cohort.id);
+                          setActive('applicants');
+                        }}
+                      >
+                        지원자 등록 →
+                      </button>
+                    </li>
+                  ))}
+              </ul>
+            ) : (
+              <p className={styles.empty}>등록된 기수가 없습니다.</p>
+            )}
+          </section>
+          <section className={styles.card}>
+            <div className={styles.cardHeading}>
+              <h2>기수 추가</h2>
+              <p>지원자 등록에 사용할 기수를 추가합니다.</p>
+            </div>
+            <form
+              method="post"
+              className={styles.form}
+              onSubmit={(event) =>
+                submit(event, (data) => ({ action: 'cohort', ordinal: Number(data.get('ordinal')) }), true)
+              }
+            >
+              <fieldset className={styles.fields} disabled={busy}>
+                <label>
+                  기수 번호 <input name="ordinal" type="number" min="1" required />
+                </label>
+                <div className={styles.buttons}>
+                  <button className={styles.primary}>기수 등록</button>
+                </div>
+              </fieldset>
+            </form>
+            <div className={styles.subtleRow}>
+              <span>기수 엑셀 등록</span>
+              <span className={styles.pill} data-tone="neutral">
+                양식 준비 중
+              </span>
+            </div>
+          </section>
+        </div>
+      )}
     </>
   );
 }
