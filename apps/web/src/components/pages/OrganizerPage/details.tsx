@@ -36,7 +36,9 @@ export default function OrganizerDetails({
             )}
           </div>
           <div className={styles.organizerInfo}>
-            <div className={styles.position}>{organizer.dndPosition}</div>
+            <div className={styles.position}>
+              {organizer.activityStatus === 'former' ? `전 운영진 · ${organizer.dndPosition}` : organizer.dndPosition}
+            </div>
             <div className={styles.name}>{organizer.name}</div>
             <div className={styles.skillWrapper}>
               {organizer.technicalStack.map((stack) => (

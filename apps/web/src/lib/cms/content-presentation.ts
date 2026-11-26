@@ -49,7 +49,7 @@ export function organizerPresentation(input: ContentInput, id: number, media: Re
       whatIsYourInterests: details('interests')[0] ?? '',
       whatYouWantToShare: details('share'),
     },
-    isArchived: input.isArchived ?? false,
+    activityStatus: input.isArchived ? 'former' : 'active',
     emoji: input.emoji ?? undefined,
   };
 }

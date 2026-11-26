@@ -82,7 +82,7 @@ function readDraft(kind: ContentKind, form: FormData, media: MediaSelection, pro
       author: string('author'),
       mbti: string('mbti'),
       emoji: string('emoji') || null,
-      isArchived: form.has('isArchived'),
+      isArchived: string('activityStatus') === 'former',
       details: detailKinds.flatMap((kind) => {
         const body = string(`detail-${kind}`);
         const bodies = ['role', 'recommendation', 'interests'].includes(kind) ? [body].filter(Boolean) : values(body);
@@ -418,7 +418,12 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
                   </label>
                 </div>
                 <label>
-                  <input name="isArchived" type="checkbox" defaultChecked={initial?.isArchived} /> 역대 운영진
+                  활동 상태
+                  <select name="activityStatus" defaultValue={initial?.isArchived ? 'former' : 'active'}>
+                    <option value="active">현재 운영진</option>
+                    <option value="former">전 운영진</option>
+                  </select>
+                  <small>게시하면 현재 운영진은 상단 카드에, 전 운영진은 하단 이름 목록에 표시됩니다.</small>
                 </label>
                 <details>
                   <summary>경력과 인터뷰</summary>

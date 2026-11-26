@@ -1,5 +1,5 @@
 import 'server-only';
-import type { Organizer, Project, Review } from '@dnd-academy/core';
+import type { Organizer, OrganizerCard, OrganizerDirectory, Project, Review } from '@dnd-academy/core';
 import { cache } from 'react';
 
 import { type ContentKind, type ContentRecord, type ContentSummary } from './content-contract';
@@ -76,9 +76,31 @@ export async function cmsProjectPdf(id: number) {
   return row?.object_key ? publicMedia(row.object_key) : row?.legacy_pdf;
 }
 
-export async function cmsOrganizers(): Promise<Organizer[]> {
-  const { rows, media } = await publishedContent('organizer');
-  return rows.map((row) => organizerPresentation(row, row.id, media));
+export async function cmsOrganizer(id: number): Promise<Organizer | undefined> {
+  const {
+    rows: [row],
+    media,
+  } = await publishedContent('organizer', id);
+  return row ? organizerPresentation(row, row.id, media) : undefined;
+}
+
+export async function cmsOrganizerDirectory(): Promise<OrganizerDirectory> {
+  type DirectoryCard = Omit<OrganizerCard, 'thumbnail' | 'emoji'> & {
+    legacyThumbnail: string | null;
+    objectKey: string | null;
+    emoji: string | null;
+  };
+  const { active, former } = await rpc<{ active: DirectoryCard[]; former: OrganizerDirectory['former'] }>(
+    'published_organizer_directory',
+  );
+  return {
+    former,
+    active: active.map(({ objectKey, legacyThumbnail, emoji, ...card }) => ({
+      ...card,
+      thumbnail: objectKey ? publicMedia(objectKey) : (legacyThumbnail ?? undefined),
+      emoji: emoji ?? undefined,
+    })),
+  };
 }
 
 export async function cmsReviews(): Promise<Review[]> {

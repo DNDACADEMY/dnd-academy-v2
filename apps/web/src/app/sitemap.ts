@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-import { getOrganizers } from '@/lib/apis/organizer';
+import { getOrganizerDirectory } from '@/lib/apis/organizer';
 import { getProjects } from '@/lib/apis/project';
 import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
@@ -18,7 +18,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${PUBLIC_ORIGIN}/reviews`, lastModified },
   ];
 
-  const organizerEntries: MetadataRoute.Sitemap = (await getOrganizers()).map(({ id }) => ({
+  const { active, former } = await getOrganizerDirectory();
+  const organizerEntries: MetadataRoute.Sitemap = [...active, ...former].map(({ id }) => ({
     url: `${PUBLIC_ORIGIN}/organizers/${id}`,
     lastModified,
   }));

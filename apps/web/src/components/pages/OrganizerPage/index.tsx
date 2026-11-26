@@ -5,7 +5,7 @@ import DetailNavigation from '@/components/molecules/DetailNavigation';
 import ApplyNotifyButtonGroup from '@/components/organisms/ApplyNotifyButtonGroup';
 import OrganizerCards from '@/components/organisms/OrganizerCards';
 import { getEventStatus } from '@/lib/apis/event';
-import { getOrganizers } from '@/lib/apis/organizer';
+import { filterActiveOrganizers, getOrganizerDirectory } from '@/lib/apis/organizer';
 import { RightArrowIcon } from '@/lib/assets/icons';
 
 import OrganizerDetails from './details';
@@ -21,12 +21,10 @@ async function OrganizerPage({ organizer }: Props) {
 
   const isMascot = organizer.dndPosition === '마스코트';
 
-  const samePositionOrganizers = (
-    await getOrganizers({
-      position: isMascot ? undefined : organizer.dndPosition,
-      isArchived: false,
-    })
-  ).filter((samePositionOrganizer) => samePositionOrganizer.id !== organizer.id);
+  const { active } = await getOrganizerDirectory();
+  const samePositionOrganizers = filterActiveOrganizers(active, isMascot ? undefined : organizer.dndPosition).filter(
+    (samePositionOrganizer) => samePositionOrganizer.id !== organizer.id,
+  );
 
   return (
     <>

@@ -1,48 +1,54 @@
-import type { Organizer, OrganizerPosition } from '@dnd-academy/core';
+import type { Organizer, OrganizerCard, OrganizerDirectory, OrganizerPosition } from '@dnd-academy/core';
+import { cache } from 'react';
 
 import organizersData from '@/lib/assets/data/organizers.json';
-import { cmsOrganizers, contentEnabled } from '@/lib/cms/content';
-import { ensureNumber } from '@/utils';
+import { cmsOrganizer, cmsOrganizerDirectory, contentEnabled } from '@/lib/cms/content';
 
-export async function getOrganizers({
-  position,
-  isArchived,
-}: { position?: string; isArchived?: boolean } | undefined = {}): Promise<Organizer[]> {
-  const organizers = await loadOrganizers();
+type LegacyOrganizer = Omit<Organizer, 'activityStatus'> & { isArchived: boolean };
+const legacyOrganizers: LegacyOrganizer[] = organizersData as LegacyOrganizer[];
 
-  const filteredOrganizerIntroduction = organizers.filter((organizer) =>
-    typeof isArchived === 'boolean' ? organizer.isArchived === isArchived : true,
-  );
+export const getOrganizerDirectory = cache(async (): Promise<OrganizerDirectory> => {
+  if (contentEnabled()) return cmsOrganizerDirectory();
 
-  if (!position || position === 'all') {
-    return filteredOrganizerIntroduction;
+  const directory: OrganizerDirectory = { active: [], former: [] };
+  for (const {
+    id,
+    name,
+    isArchived,
+    thumbnail,
+    dndPosition,
+    technicalStack,
+    oneLineIntroduction,
+    emoji,
+  } of legacyOrganizers) {
+    if (isArchived) {
+      directory.former.push({ id, name });
+    } else {
+      directory.active.push({ id, name, thumbnail, dndPosition, technicalStack, oneLineIntroduction, emoji });
+    }
   }
+  return directory;
+});
 
-  return filteredOrganizerIntroduction.filter(
-    ({ dndPosition }) => dndPosition === position || dndPosition === '마스코트',
-  );
+export function filterActiveOrganizers(organizers: OrganizerCard[], position?: string): OrganizerCard[] {
+  if (!position || position === 'all') return organizers;
+  return organizers.filter(({ dndPosition }) => dndPosition === position || dndPosition === '마스코트');
 }
 
-export async function getOrganizer({ id }: { id: number }) {
-  const organizers = await loadOrganizers();
+export function getOrganizer({ id }: { id: number }) {
+  if (!Number.isInteger(id) || id < 0 || id > 2147483647) return undefined;
+  if (contentEnabled()) return cmsOrganizer(id);
 
-  return organizers.find((project) => project.id === id);
+  const row = legacyOrganizers.find((organizer) => organizer.id === id);
+  if (!row) return undefined;
+  const { isArchived, ...organizer } = row;
+  return { ...organizer, activityStatus: isArchived ? 'former' : 'active' } satisfies Organizer;
 }
 
-export async function getOrganizerCount() {
-  const organizers = await loadOrganizers();
-
-  return organizers
-    .filter((organizer) => !organizer.isArchived && organizer.dndPosition !== '마스코트')
-    .reduce(
-      (acc, { dndPosition }) => ({
-        ...acc,
-        [dndPosition]: ensureNumber(acc[dndPosition]) + 1,
-      }),
-      {} as Record<OrganizerPosition, number>,
-    );
-}
-
-async function loadOrganizers(): Promise<Organizer[]> {
-  return contentEnabled() ? cmsOrganizers() : (organizersData as Organizer[]);
+export function getOrganizerCount(organizers: OrganizerCard[]) {
+  const counts = {} as Record<OrganizerPosition, number>;
+  for (const { dndPosition } of organizers) {
+    if (dndPosition !== '마스코트') counts[dndPosition] = (counts[dndPosition] ?? 0) + 1;
+  }
+  return counts;
 }
