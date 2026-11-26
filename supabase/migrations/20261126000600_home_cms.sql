@@ -134,7 +134,7 @@ declare
   revision bigint;
 begin
   perform public.require_admin(actor, 'content');
-  select * into strict active from public.home_state for update;
+  select * into strict active from public.home_state where singleton for update;
   if active.draft_id <> expected_revision then raise serialization_failure; end if;
   if operation not in ('save', 'publish') then raise invalid_parameter_value; end if;
   revision := public.insert_home_revision(input, actor);
@@ -143,9 +143,9 @@ begin
       select 1 from public.home_sponsors s join public.media_assets m on m.id = s.media_id
       where s.revision_id = revision and (m.bucket <> 'cms-public' or not m.ready or m.mime <> 'image/webp')
     ) then raise check_violation; end if;
-    update public.home_state set draft_id = revision, published_id = revision;
+    update public.home_state set draft_id = revision, published_id = revision where singleton;
   else
-    update public.home_state set draft_id = revision;
+    update public.home_state set draft_id = revision where singleton;
   end if;
   return jsonb_build_object('revisionId', revision,
     'publishedId', case when operation = 'publish' then revision else active.published_id end,
