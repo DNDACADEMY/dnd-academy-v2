@@ -5,7 +5,7 @@
 ## 개발 환경
 
 - Supabase 마이그레이션은 `supabase/migrations` 순서로 적용한다. 호스팅 프로젝트에서는 Auth의 신규 사용자 가입 허용을 끈다. 관리자 이메일은 Auth에 먼저 등록하고 `admin_accounts.active`와 `admin_permissions`의 `admissions` 또는 `content` 권한을 지정한다. 퇴임이나 권한 변경 시 해당 행을 비활성화하거나 권한 행을 삭제한다.
-- 홈페이지 프리뷰에는 `DND_SUPABASE_URL`, `DND_SUPABASE_PUBLISHABLE_KEY`, `DND_SUPABASE_SERVICE_KEY`, `DND_APP_ENCRYPTION_KEY`, `DND_APP_SEARCH_KEY`, `DND_CMS_CONTENT=enabled`, `DND_PASSBOARD_ORIGINS`, `NEXT_PUBLIC_DND_PASSBOARD_URL`를 설정한다. 암호화 키와 검색 키는 환경별로 독립적인 32바이트 base64 값이다. 비밀값은 Vercel의 Preview 환경에만 등록한다.
+- 홈페이지 프리뷰에는 `DND_SUPABASE_URL`, `DND_SUPABASE_PUBLISHABLE_KEY`, `DND_SUPABASE_SERVICE_KEY`, `DND_APP_ENCRYPTION_KEY`, `DND_APP_SEARCH_KEY`, `DND_CMS_CONTENT=enabled`, `DND_PASSBOARD_ORIGINS`, `NEXT_PUBLIC_DND_PASSBOARD_URL`를 설정한다. 암호화 키와 검색 키는 환경별로 독립적인 32바이트 base64 값이다. 비밀값은 Vercel의 Preview 환경에만 등록한다. Storage 요청에 JWT가 필요한 개발 프로젝트는 서버 전용 `service_role` 키를 사용한다.
 - Passboard 프로젝트의 루트는 `services/passboard`다. 홈페이지 프리뷰 주소를 Passboard 서버의 `DND_ADMISSIONS_API_URL`에 설정한다. 보호된 홈페이지 프리뷰에 연결할 경우 Passboard 서버에만 `DND_ADMISSIONS_VERCEL_BYPASS`를 설정한다. 프록시를 거치는 요청의 제한 기준을 유지하려면 두 프로젝트에 같은 `DND_ADMISSIONS_PROXY_KEY`를 설정한다.
 - 개발 Storage 버킷은 `cms-drafts`와 `cms-public`이다. 전자는 비공개, 후자는 게시 파일을 담는다. `DND_CMS_UPLOAD_LIMIT_BYTES`를 프로젝트의 상한과 맞춘다. 20 MiB 초과 PDF는 관리자가 기기에서 최적화한 후보를 올리기 전에 페이지별 추출 텍스트와 링크를 비교한다. 한글 검색과 확대 화질은 두 미리보기에서 확인한다. 후보가 비교를 통과하지 못하면 프로젝트 상한 안에서 원본을 고를 수 있다. 6 MiB 초과 파일은 TUS로 전송하며 전송 중 일시 중지와 재개를 지원한다.
 - PDF.js는 관리자 브라우저에서 후보 비교에 필요할 때 로드한다. 압축 엔진 채택 전까지 압축 후보는 로컬 PDF 도구에서 생성한다.

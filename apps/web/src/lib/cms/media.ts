@@ -1,6 +1,7 @@
 import 'server-only';
 import { createHash } from 'node:crypto';
 
+import sharp from 'sharp';
 import type { z } from 'zod';
 
 import { type mediaRequest, mediaMax } from './content-contract';
@@ -35,11 +36,12 @@ export async function mediaAssets(ids: string[]) {
   return new Map((result.data as Asset[]).map((asset) => [asset.id, asset]));
 }
 
-async function digest(url: string, mime: string, expectedBytes: number) {
+async function digest(url: string, mime: string, expectedBytes: number, verifyImage = false) {
   const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(120000) });
   if (!response.ok || !response.body || response.headers.get('content-type')?.split(';')[0] !== mime) {
     throw new DatabaseError('MEDIA_INVALID');
   }
+  const image: Buffer[] = [];
   const hash = createHash('sha256');
   let bytes = 0;
   let start = Buffer.alloc(0);
@@ -53,6 +55,7 @@ async function digest(url: string, mime: string, expectedBytes: number) {
     }
     hash.update(part.value);
     const chunk = Buffer.from(part.value);
+    if (verifyImage && mime === 'image/webp') image.push(chunk);
     if (start.length < 16) start = Buffer.concat([start, chunk.subarray(0, 16 - start.length)]);
     if (mime === 'application/pdf') end = Buffer.concat([end, chunk]).subarray(-1024);
   }
@@ -64,6 +67,13 @@ async function digest(url: string, mime: string, expectedBytes: number) {
         start.readUInt32LE(4) + 8 === bytes
       : start.toString('ascii', 0, 5) === '%PDF-' && /%%EOF\s*$/.test(end.toString('latin1'));
   if (!valid || bytes !== expectedBytes) throw new DatabaseError('MEDIA_INVALID');
+  if (image.length) {
+    try {
+      await sharp(Buffer.concat(image), { limitInputPixels: 45_000_000, failOn: 'error' }).stats();
+    } catch {
+      throw new DatabaseError('MEDIA_INVALID');
+    }
+  }
   return hash.digest('hex');
 }
 
@@ -142,7 +152,7 @@ export async function handleMedia(actor: string, request: z.infer<typeof mediaRe
     .eq('object_key', request.key)
     .single();
   if (error) throw new DatabaseError('MEDIA_INVALID');
-  const sha256 = await digest(await signedRead(draftBucket, request.key), reservation.mime, reservation.bytes);
+  const sha256 = await digest(await signedRead(draftBucket, request.key), reservation.mime, reservation.bytes, true);
   return {
     id: await recordAsset({
       bucket: draftBucket,
