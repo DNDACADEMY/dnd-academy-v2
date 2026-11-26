@@ -283,7 +283,8 @@ async function copyPublicationAssets(ids: string[], onCopy: (key: string) => voi
     const storage = database().storage.from(draftBucket);
     const { error: copy } = await storage.copy(asset.object_key, key, { destinationBucket: publicBucket });
     if (copy) throw new DatabaseError('MEDIA_INVALID');
-    const actual = await digest(publicMedia(key), asset.mime, asset.bytes);
+    // Verify through a signed URL so a failed attempt cannot warm the public CDN URL.
+    const actual = await digest(await signedRead(publicBucket, key), asset.mime, asset.bytes);
     if (actual !== asset.sha256) throw new DatabaseError('MEDIA_INVALID');
     replacements[id] = await recordAsset({
       bucket: publicBucket,
