@@ -240,11 +240,13 @@
   place-items: center;
   width: 35px;
   height: 35px;
-  border-radius: 10px;
-  background: #c6dbff;
-  color: #172544;
-  font-size: 1.15rem;
-  font-weight: 850;
+  border-radius: 9px;
+  background: #26375a;
+
+  svg {
+    width: 18px;
+    height: 20px;
+  }
 }
 .sidebarFooter {
   margin-top: auto;

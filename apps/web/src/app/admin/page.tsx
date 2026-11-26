@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { DNDLogo } from '@/lib/assets/logos';
 import { readAdmissions } from '@/lib/cms/admissions';
 import { editableContent } from '@/lib/cms/content';
 import { contentKinds } from '@/lib/cms/content-contract';
@@ -27,7 +28,10 @@ export default async function Admin({ searchParams }: Props) {
       <div className={`${styles.admin} ${styles.loginLayout}`} data-admin-workspace>
         <aside className={styles.loginBrand}>
           <Link href="/" className={styles.brand}>
-            <span>D</span> DND
+            <span>
+              <DNDLogo aria-hidden="true" />
+            </span>{' '}
+            DND
           </Link>
           <div>
             <p>운영진 전용</p>
@@ -72,7 +76,9 @@ export default async function Admin({ searchParams }: Props) {
     <div className={`${styles.admin} ${styles.workspace}`} data-admin-workspace>
       <aside className={styles.sidebar}>
         <Link href="/admin" className={styles.brand}>
-          <span>D</span>
+          <span>
+            <DNDLogo aria-hidden="true" />
+          </span>
           <strong>DND 관리자</strong>
         </Link>
         <nav aria-label="관리 메뉴">

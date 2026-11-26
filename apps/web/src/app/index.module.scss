@@ -16,8 +16,6 @@ body:has([data-admin-workspace]) .main {
   min-height: 100dvh;
 }
 
-body:has([data-admin-workspace]) .main ~ footer,
-body:has([data-admin-workspace]) header:has(+ div + .main),
-body:has([data-admin-workspace]) header + div:has(+ .main) {
+body:has([data-admin-workspace]) [data-public-chrome] {
   display: none;
 }
