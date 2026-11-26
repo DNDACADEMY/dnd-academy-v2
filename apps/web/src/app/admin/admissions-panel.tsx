@@ -133,6 +133,7 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
       <fieldset disabled={busy}>
         <legend>기수</legend>
         <form
+          method="post"
           className={styles.form}
           onSubmit={(event) =>
             submit(event, (data) => ({ action: 'cohort', ordinal: Number(data.get('ordinal')) }), true)
@@ -159,6 +160,7 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
           </select>
         </label>
         <form
+          method="post"
           className={styles.form}
           onSubmit={(event) =>
             submit(
@@ -195,6 +197,7 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
       <fieldset disabled={busy || !state.cohorts.length}>
         <legend>발표 이벤트 설정</legend>
         <form
+          method="post"
           className={styles.form}
           onSubmit={(event) =>
             submit(event, (data) => ({
@@ -266,6 +269,7 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
           </button>
         </div>
         <form
+          method="post"
           className={styles.form}
           onSubmit={(event) => {
             const button = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement;
@@ -299,6 +303,7 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
           </button>
         </form>
         <form
+          method="post"
           className={styles.form}
           onSubmit={async (event) => {
             event.preventDefault();

@@ -173,7 +173,7 @@ export default function ContentPanel({
           {message}
         </p>
       )}
-      <form onSubmit={editorSubmit} key={initial?.revisionId ?? 'new'}>
+      <form method="post" onSubmit={editorSubmit} key={initial?.revisionId ?? 'new'}>
         <fieldset disabled={busy} className={styles.editor}>
           <legend>{names[kind]} 편집</legend>
           <label>
