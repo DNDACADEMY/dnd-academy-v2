@@ -17,6 +17,7 @@ import {
 } from '@/lib/cms/content-contract';
 
 import { adminRequest } from './admin-request';
+import LinkFields, { linkLabels } from './link-fields';
 import AdminLinkStatus from './link-status';
 import MediaPanel from './media-panel';
 
@@ -41,10 +42,18 @@ function values(text: string) {
 
 function readDraft(kind: ContentKind, form: FormData, initial?: ContentRecord): ContentInput {
   const string = (key: string) => String(form.get(key) ?? '');
+  const urls = form.getAll('link-url');
+  const links = form.getAll('link-kind').flatMap((value, index) => {
+    const kind = linkKinds.find((kind) => kind === value);
+    const entry = urls[index];
+    const url = typeof entry === 'string' ? entry.trim() : '';
+    return kind && url ? [{ kind, url }] : [];
+  });
+
   const input: ContentInput = {
     name: string('name'),
     description: string('description'),
-    links: linkKinds.flatMap((kind) => values(string(`link-${kind}`)).map((url) => ({ kind, url }))),
+    links,
   };
   if (kind !== 'review') {
     const thumbnailId = string('thumbnailId') || null;
@@ -91,25 +100,6 @@ function readDraft(kind: ContentKind, form: FormData, initial?: ContentRecord): 
   }
   return input;
 }
-
-const linkLabels: Record<string, string> = {
-  github: 'GitHub',
-  googlePlayStore: 'Google Play',
-  youtube: 'YouTube',
-  link: '웹사이트',
-  figma: 'Figma',
-  appStore: 'App Store',
-  behance: 'Behance',
-  linkedin: 'LinkedIn',
-  facebook: 'Facebook',
-  email: '이메일',
-  velog: 'Velog',
-  tistory: '티스토리',
-  medium: 'Medium',
-  instagram: 'Instagram',
-  naverBlog: '네이버 블로그',
-  brunch: '브런치',
-};
 
 function publication(row: ContentSummary) {
   if (row.state === 'draft') return row.liveRevisionId != null ? '수정 초안' : '초안';
@@ -456,23 +446,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
             )}
           </div>
           <div className={styles.fields} hidden={tab !== 'links'}>
-            <p className={styles.muted}>같은 서비스에 여러 링크가 있으면 줄마다 하나씩 입력하세요.</p>
-            <div className={styles.grid}>
-              {linkKinds
-                .filter((link) => kind !== 'review' || link !== 'email')
-                .map((kind) => (
-                  <label key={kind}>
-                    {linkLabels[kind] ?? kind}{' '}
-                    <textarea
-                      name={`link-${kind}`}
-                      defaultValue={initial?.links
-                        .filter((link) => link.kind === kind)
-                        .map((link) => link.url)
-                        .join('\n')}
-                    />
-                  </label>
-                ))}
-            </div>
+            <LinkFields kind={kind} initial={initial?.links ?? []} onEdit={() => setDirty(true)} />
           </div>
           <div className={styles.fields} hidden={tab !== 'media'}>
             <h3>연결된 미디어</h3>
@@ -645,7 +619,7 @@ function DraftPreview({ input }: { input: ContentInput }) {
       ))}
       {input.links.map(({ kind, url }, index) => (
         <p key={index}>
-          {kind} · {url}
+          {linkLabels[kind]} · {url}
         </p>
       ))}
       {input.projectId != null && <p>연결 프로젝트 #{input.projectId}</p>}
