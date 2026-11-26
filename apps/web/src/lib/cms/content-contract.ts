@@ -76,6 +76,11 @@ export type ContentRecord = ContentInput & {
   liveRevisionId?: number | null;
   liveEditNumber?: number | null;
 };
+export type ContentSummary = Pick<
+  ContentRecord,
+  'id' | 'name' | 'cohort' | 'position' | 'author' | 'state' | 'liveRevisionId'
+>;
+
 export const contentRequest = z.object({
   kind: z.enum(contentKinds),
   id: id.nullable(),

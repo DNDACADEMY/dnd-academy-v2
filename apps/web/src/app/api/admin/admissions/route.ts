@@ -3,6 +3,8 @@ import { admissionsRequest } from '@/lib/cms/admissions-contract';
 import { canAdmin } from '@/lib/cms/permissions';
 import { DatabaseError } from '@/lib/cms/supabase';
 
+export const preferredRegion = 'icn1';
+
 const headers = { 'Cache-Control': 'private, no-store' };
 
 export async function GET() {

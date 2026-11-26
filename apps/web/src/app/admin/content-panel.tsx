@@ -9,6 +9,7 @@ import {
   type ContentInput,
   type ContentKind,
   type ContentRecord,
+  type ContentSummary,
   detailKinds,
   linkKinds,
   organizerPositions,
@@ -16,6 +17,7 @@ import {
 } from '@/lib/cms/content-contract';
 
 import { adminRequest } from './admin-request';
+import AdminLinkStatus from './link-status';
 import MediaPanel from './media-panel';
 
 import styles from './styles.module.scss';
@@ -109,12 +111,12 @@ const linkLabels: Record<string, string> = {
   brunch: '브런치',
 };
 
-function publication(row: ContentRecord) {
+function publication(row: ContentSummary) {
   if (row.state === 'draft') return row.liveRevisionId != null ? '수정 초안' : '초안';
   return row.state === 'published' ? '공개 중' : '비공개';
 }
 
-function Publication({ row }: { row: ContentRecord }) {
+function Publication({ row }: { row: ContentSummary }) {
   return (
     <span
       className={styles.pill}
@@ -132,7 +134,7 @@ export default function ContentPanel({
   create,
 }: {
   kind: ContentKind;
-  rows: ContentRecord[];
+  rows: ContentSummary[];
   initial?: ContentRecord;
   create: boolean;
 }) {
@@ -189,7 +191,11 @@ export default function ContentPanel({
             <ul className={styles.records}>
               {listed.map((row) => (
                 <li key={row.id}>
-                  <Link href={`${path}&id=${row.id}`} aria-current={initial?.id === row.id ? 'page' : undefined}>
+                  <Link
+                    href={`${path}&id=${row.id}`}
+                    prefetch={false}
+                    aria-current={initial?.id === row.id ? 'page' : undefined}
+                  >
                     <span className={styles.recordMain}>
                       <strong>{row.name}</strong>
                       <small>
@@ -198,7 +204,10 @@ export default function ContentPanel({
                           .join(' · ')}
                       </small>
                     </span>
-                    <Publication row={row} />
+                    <span className={styles.recordIndicators}>
+                      <Publication row={row} />
+                      <AdminLinkStatus />
+                    </span>
                   </Link>
                 </li>
               ))}

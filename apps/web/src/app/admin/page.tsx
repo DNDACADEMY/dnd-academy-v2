@@ -3,18 +3,20 @@ import Link from 'next/link';
 
 import { DNDLogo } from '@/lib/assets/logos';
 import { readAdmissions } from '@/lib/cms/admissions';
-import { editableContent } from '@/lib/cms/content';
+import { contentWorkspace } from '@/lib/cms/content';
 import { contentKinds } from '@/lib/cms/content-contract';
 import { adminSession } from '@/lib/cms/permissions';
 
 import { signOut } from './actions';
 import AdmissionsPanel from './admissions-panel';
 import ContentPanel from './content-panel';
+import AdminLinkStatus from './link-status';
 import LoginForm from './login-form';
 
 import styles from './styles.module.scss';
 
 export const dynamic = 'force-dynamic';
+export const preferredRegion = 'icn1';
 export const metadata: Metadata = { title: 'DND 관리자', robots: { index: false, follow: false } };
 
 type Props = { searchParams: Promise<{ login?: string; kind?: string; id?: string; section?: string }> };
@@ -71,7 +73,7 @@ export default async function Admin({ searchParams }: Props) {
   const kind = contentKinds.find((value) => value === query.kind) ?? 'project';
   const id =
     query.id && /^(0|[1-9]\d{0,9})$/.test(query.id) && Number(query.id) <= 2147483647 ? Number(query.id) : null;
-  const rows = showAdmissions ? null : await editableContent(session.id, kind);
+  const workspace = showAdmissions ? null : await contentWorkspace(session.id, kind, id);
   return (
     <div className={`${styles.admin} ${styles.workspace}`} data-admin-workspace>
       <aside className={styles.sidebar}>
@@ -84,13 +86,13 @@ export default async function Admin({ searchParams }: Props) {
         <nav aria-label="관리 메뉴">
           {hasAdmissions && (
             <Link href="/admin?section=admissions" aria-current={showAdmissions ? 'page' : undefined}>
-              모집 관리
+              모집 관리 <AdminLinkStatus />
             </Link>
           )}
           {hasContent && (
             <div className={styles.navGroup}>
               <Link href="/admin?section=content" data-section-current={!showAdmissions || undefined}>
-                콘텐츠 관리
+                콘텐츠 관리 <AdminLinkStatus />
               </Link>
               {contentKinds.map((value) => (
                 <Link
@@ -99,7 +101,7 @@ export default async function Admin({ searchParams }: Props) {
                   href={`/admin?section=content&kind=${value}`}
                   aria-current={!showAdmissions && kind === value ? 'page' : undefined}
                 >
-                  {contentLabels[value]}
+                  {contentLabels[value]} <AdminLinkStatus />
                 </Link>
               ))}
             </div>
@@ -120,12 +122,12 @@ export default async function Admin({ searchParams }: Props) {
           {showAdmissions ? (
             <AdmissionsPanel initial={await readAdmissions(session.id)} />
           ) : (
-            rows && (
+            workspace && (
               <ContentPanel
                 key={kind}
                 kind={kind}
-                rows={rows}
-                initial={rows.find((row) => row.id === id)}
+                rows={workspace.rows}
+                initial={workspace.initial ?? undefined}
                 create={query.id === 'new'}
               />
             )

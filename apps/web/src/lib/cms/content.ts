@@ -2,7 +2,7 @@ import 'server-only';
 import type { Organizer, Project, Review } from '@dnd-academy/core';
 import { cache } from 'react';
 
-import { type ContentKind, type ContentRecord } from './content-contract';
+import { type ContentKind, type ContentRecord, type ContentSummary } from './content-contract';
 import { mediaAssets, publicMedia } from './media';
 import { rpc } from './supabase';
 
@@ -31,6 +31,14 @@ export const publishedContent = cache(async (kind: ContentKind) => {
 
 export function editableContent(actor: string, kind: ContentKind, id?: number) {
   return rpc<ContentRecord[]>('editable_content', { actor, kind, selected_id: id ?? null });
+}
+
+export function contentWorkspace(actor: string, kind: ContentKind, id: number | null) {
+  return rpc<{ rows: ContentSummary[]; initial: ContentRecord | null }>('content_workspace', {
+    actor,
+    kind,
+    selected_id: id,
+  });
 }
 
 function flag(ordinal: number | null | undefined): Project['flag'] {

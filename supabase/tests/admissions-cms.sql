@@ -11,6 +11,7 @@ declare
   actor_event bigint := 998801;
   other_event bigint := 998802;
   article jsonb;
+  workspace jsonb;
   check_result jsonb;
   result_status public.application_status;
   name_hash text := repeat('a',64);
@@ -28,7 +29,7 @@ begin
   exception when insufficient_privilege then null;
   end;
   begin
-    perform public.editable_content(admissions_user,'project',null);
+    perform public.content_workspace(admissions_user,'project',null);
     raise exception 'admissions permission allowed content access';
   exception when insufficient_privilege then null;
   end;
@@ -78,9 +79,21 @@ begin
   article := public.write_content(content_user,'project',null,null,null,'save',body);
   assert (select count(*) from public.published_content('project',(article->>'id')::int)) = 0;
   assert (select item->>'state' from public.editable_content(content_user,'project',(article->>'id')::int) item) = 'draft';
+  workspace := public.content_workspace(content_user,'project',(article->>'id')::int);
+  assert workspace->'initial' = (select item from public.editable_content(content_user,'project',(article->>'id')::int) item);
+  assert exists (
+    select from jsonb_array_elements(workspace->'rows') summary
+    where summary->>'id'=article->>'id' and summary->>'state'='draft' and not (summary ? 'description')
+  ), 'workspace lists summaries without body fields';
+  assert public.content_workspace(content_user,'project',null)->'initial' = 'null'::jsonb;
   perform public.write_content(content_user,'project',(article->>'id')::int,(article->>'revisionId')::bigint,
     (article->>'editNumber')::int,'publish','{}');
   assert (select item->>'name' from public.published_content('project',(article->>'id')::int) item) = '가상 CMS';
+  assert exists (
+    select from jsonb_array_elements(public.content_workspace(content_user,'project',null)->'rows') summary
+    where summary->>'id'=article->>'id' and summary->>'liveRevisionId'=article->>'revisionId'
+  );
+  assert not has_function_privilege('authenticated','public.content_workspace(uuid,public.content_kind,integer)','execute');
   assert (select jsonb_array_length(item->'skills') from public.published_content('project',(article->>'id')::int) item) = 1;
   begin
     perform public.write_content(content_user,'project',(article->>'id')::int,null,null,'save',body);

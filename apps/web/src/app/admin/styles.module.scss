@@ -799,3 +799,43 @@
     padding-bottom: 0.7rem;
   }
 }
+
+.sidebar nav a {
+  position: relative;
+}
+.sidebar nav .linkStatus {
+  position: absolute;
+  right: 0.55rem;
+  top: calc(50% - 6px);
+}
+.recordIndicators {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.linkStatus {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0;
+  animation: link-pending 650ms linear 120ms infinite;
+}
+@keyframes link-pending {
+  from {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .linkStatus {
+    animation: none;
+    opacity: 1;
+  }
+}
