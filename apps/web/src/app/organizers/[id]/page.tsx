@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import OrganizerPage from '@/components/pages/OrganizerPage';
-import { getOrganizer, getOrganizers } from '@/lib/apis/organizer';
+import { getOrganizer } from '@/lib/apis/organizer';
 import METADATA, { DEFAULT_METADATA } from '@/lib/constants/metadata';
 import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
-export const dynamicParams = false;
+export const dynamic = 'force-dynamic';
 
 type Props = {
   params: Promise<{
@@ -16,7 +16,7 @@ type Props = {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
-  const organizer = getOrganizer({ id: Number(params.id) });
+  const organizer = await getOrganizer({ id: /^(0|[1-9]\d*)$/.test(params.id) ? Number(params.id) : NaN });
 
   if (!organizer) {
     return DEFAULT_METADATA;
@@ -54,17 +54,11 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   };
 }
 
-export function generateStaticParams() {
-  const organizers = getOrganizers();
-
-  return organizers.map(({ id }) => ({
-    id: String(id),
-  }));
-}
-
 async function Page({ params }: Props) {
   const resolvedParams = await params;
-  const organizer = getOrganizer({ id: Number(resolvedParams.id) });
+  const organizer = await getOrganizer({
+    id: /^(0|[1-9]\d*)$/.test(resolvedParams.id) ? Number(resolvedParams.id) : NaN,
+  });
 
   if (!organizer) {
     notFound();

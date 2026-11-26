@@ -3,6 +3,7 @@ import '@/styles/global.scss';
 import ClientProviders from '@/components/global/ClientProviders';
 import DeferredAnalytics from '@/components/global/DeferredAnalytics';
 import Footer from '@/components/global/Footer';
+import { RecruitmentProvider } from '@/components/global/RecruitmentProvider';
 import Toast from '@/components/global/Toast';
 import TopNavigationBar from '@/components/global/TopNavigationBar';
 import { DEFAULT_METADATA } from '@/lib/constants/metadata';
@@ -23,10 +24,12 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <ClientProviders>
-          <TopNavigationBar />
-          <main className={styles.main}>{children}</main>
-          <Footer />
-          <div id="portal-container" />
+          <RecruitmentProvider>
+            <TopNavigationBar />
+            <main className={styles.main}>{children}</main>
+            <Footer />
+            <div id="portal-container" />
+          </RecruitmentProvider>
         </ClientProviders>
         <Toast />
       </body>

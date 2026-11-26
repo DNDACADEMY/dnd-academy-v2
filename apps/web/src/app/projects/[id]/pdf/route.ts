@@ -1,10 +1,10 @@
-import { getProject } from '@/lib/apis/project';
+import { getProjectPdf } from '@/lib/apis/project';
 
-export async function GET(request: Request, { params }: RouteContext<'/projects/[id]/pdf'>) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   if (process.env.VERCEL_ENV !== 'preview') return new Response(null, { status: 404 });
 
   const { id } = await params;
-  const pdf = getProject({ id: Number(id) })?.pdf;
+  const pdf = await getProjectPdf({ id: /^(0|[1-9]\d*)$/.test(id) ? Number(id) : NaN });
   if (!pdf) return new Response(null, { status: 404 });
 
   const range = request.headers.get('range');

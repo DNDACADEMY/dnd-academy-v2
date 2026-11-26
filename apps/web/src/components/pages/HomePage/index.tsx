@@ -15,6 +15,7 @@ import ProjectsSlider from '@/components/organisms/ProjectsSlider';
 import ShareAlarmSection from '@/components/organisms/ShareAlarmSection';
 import SponsorSection from '@/components/organisms/SponsorSection';
 import { RightArrowIcon } from '@/lib/assets/icons';
+import type { HomePresentation } from '@/lib/cms/home';
 import { isChristmasTheme } from '@/utils';
 
 import styles from './index.module.scss';
@@ -24,9 +25,10 @@ type Props = {
   applicantTotalCount: number;
   eventStatus: Event;
   faqItems: FAQ[];
+  content?: HomePresentation;
 };
 
-function HomePage({ tab, applicantTotalCount, eventStatus, faqItems }: Props) {
+function HomePage({ tab, applicantTotalCount, eventStatus, faqItems, content }: Props) {
   const isChristmas = isChristmasTheme();
 
   return (
@@ -80,6 +82,7 @@ function HomePage({ tab, applicantTotalCount, eventStatus, faqItems }: Props) {
         </div>
       </section>
       <CounterCardSection
+        stats={content?.stats}
         title={
           isChristmas ? (
             <div className={styles.counterCardTitle}>
@@ -97,12 +100,14 @@ function HomePage({ tab, applicantTotalCount, eventStatus, faqItems }: Props) {
           )
         }
       />
-      <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
-        <ProjectsSlider />
-        <Button href="/projects" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>
-          프로젝트 더 보기
-        </Button>
-      </SectionTitle>
+      {(content === undefined || content.projects.length > 0) && (
+        <SectionTitle title="DND의 프로젝트가 궁금하나요?" fullWidth>
+          <ProjectsSlider projects={content?.projects} />
+          <Button href="/projects" size="large" suffixIcon={<RightArrowIcon width={24} height={24} />}>
+            프로젝트 더 보기
+          </Button>
+        </SectionTitle>
+      )}
       <SectionTitle title="DND는 어떻게 운영되나요?">
         <div className={styles.howBannerWrapper}>
           <ImageCard
@@ -129,16 +134,18 @@ function HomePage({ tab, applicantTotalCount, eventStatus, faqItems }: Props) {
         </Button>
       </SectionTitle>
       <ShareAlarmSection />
-      <SectionTitle title="자주 묻는 질문">
-        <ScrollElement
-          activeParam="faq"
-          targetParam={tab}
-          scrollIntoViewOptions={{ block: 'start', behavior: 'smooth' }}
-        >
-          <FAQSection faqItems={faqItems} />
-        </ScrollElement>
-      </SectionTitle>
-      <SponsorSection />
+      {faqItems.length > 0 && (
+        <SectionTitle title="자주 묻는 질문">
+          <ScrollElement
+            activeParam="faq"
+            targetParam={tab}
+            scrollIntoViewOptions={{ block: 'start', behavior: 'smooth' }}
+          >
+            <FAQSection faqItems={faqItems} />
+          </ScrollElement>
+        </SectionTitle>
+      )}
+      <SponsorSection items={content?.sponsors} info={content?.sponsorInfo} />
     </>
   );
 }

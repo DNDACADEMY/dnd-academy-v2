@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next';
 
-import { getOrganizers } from '@/lib/apis/organizer';
+import { getOrganizerDirectory } from '@/lib/apis/organizer';
 import { getProjects } from '@/lib/apis/project';
 import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = 'force-dynamic';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
 
   const staticEntries: MetadataRoute.Sitemap = [
@@ -16,12 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${PUBLIC_ORIGIN}/reviews`, lastModified },
   ];
 
-  const organizerEntries: MetadataRoute.Sitemap = getOrganizers().map(({ id }) => ({
+  const { active, former } = await getOrganizerDirectory();
+  const organizerEntries: MetadataRoute.Sitemap = [...active, ...former].map(({ id }) => ({
     url: `${PUBLIC_ORIGIN}/organizers/${id}`,
     lastModified,
   }));
 
-  const projectEntries: MetadataRoute.Sitemap = getProjects().map(({ id }) => ({
+  const projectEntries: MetadataRoute.Sitemap = (await getProjects()).map(({ id }) => ({
     url: `${PUBLIC_ORIGIN}/projects/${id}`,
     lastModified,
   }));

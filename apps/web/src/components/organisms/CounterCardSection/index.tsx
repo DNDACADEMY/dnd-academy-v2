@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { totalCountStatusData } from '@/lib/assets/data';
+import type { HomeStats } from '@/lib/cms/home-contract';
 import { CURRENT_FLAG } from '@/lib/constants';
 import { isChristmasTheme } from '@/utils';
 
@@ -18,10 +19,11 @@ type CardConfig = {
 
 type Props = {
   title: ReactNode;
+  stats?: HomeStats;
 };
 
-async function CounterCardSection({ title: sectionTitle }: Props) {
-  const { cumulativeApplicants, dropouts, totalParticipants, totalProjects } = totalCountStatusData;
+function CounterCardSection({ title: sectionTitle, stats }: Props) {
+  const { cumulativeApplicants, dropouts, totalParticipants, totalProjects } = stats ?? totalCountStatusData;
 
   const cardConfigs: CardConfig[] = [
     { count: cumulativeApplicants, title: '누적 지원자 수', color: 'red' },
@@ -34,7 +36,7 @@ async function CounterCardSection({ title: sectionTitle }: Props) {
     },
     {
       count: dropouts,
-      title: `${CURRENT_FLAG - 1}기 이탈자`,
+      title: `${stats?.dropoutCohort ?? CURRENT_FLAG - 1}기 이탈자`,
       color: 'green',
       highlight: true,
     },

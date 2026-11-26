@@ -1,28 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import { Route } from 'next';
 
 import Button from '.';
 
-describe('Button', () => {
-  const renderButton = (url?: Route) => render(<Button href={url}>버튼</Button>);
+it('renders the correct interactive element for actions and navigation', () => {
+  render(
+    <>
+      <Button>저장</Button>
+      <Button href="/dnd/about">소개</Button>
+    </>,
+  );
 
-  describe('"href" 속성 유무에 따라 버튼 또는 링크가 나타난다', () => {
-    describe('버튼인 경우', () => {
-      it('"href" 속성이 없어야만 한다', () => {
-        renderButton();
-
-        expect(screen.getByText('버튼')).not.toHaveAttribute('href', '/test');
-      });
-    });
-
-    describe('링크인 경우', () => {
-      const href = '/dnd/about';
-
-      it('href 속성이 존재해야만 한다', () => {
-        renderButton(href);
-
-        expect(screen.getByText('버튼')).toHaveAttribute('href', href);
-      });
-    });
-  });
+  expect(screen.getByRole('button', { name: '저장' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: '소개' })).toHaveAttribute('href', '/dnd/about');
 });

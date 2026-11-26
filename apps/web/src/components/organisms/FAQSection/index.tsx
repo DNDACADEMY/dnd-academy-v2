@@ -17,7 +17,7 @@ function FAQSection({ faqItems }: Props) {
     <div className={styles.faqWrapper}>
       {faqItems.map(({ answer, question }, index) => (
         <AccordionItem
-          key={question}
+          key={`${index}:${question}`}
           title={`Q : ${question}`}
           onClick={setActiveIndex}
           currentIndex={index}

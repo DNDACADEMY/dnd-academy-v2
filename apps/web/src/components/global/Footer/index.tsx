@@ -21,7 +21,7 @@ function Footer() {
   const eventStatus = getEventStatus();
 
   return (
-    <footer className={styles.footerWrapper}>
+    <footer className={styles.footerWrapper} data-public-chrome>
       <div className={styles.footerContentsWrapper}>
         <div className={styles.topContents}>
           <h3 className={styles.title}>DND</h3>

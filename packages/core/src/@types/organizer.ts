@@ -20,8 +20,13 @@ export interface Organizer {
     whatIsYourInterests: string;
     whatYouWantToShare: string[];
   };
-  isArchived: boolean;
   emoji?: string;
 }
+
+export type OrganizerCard = Pick<
+  Organizer,
+  'id' | 'name' | 'thumbnail' | 'dndPosition' | 'technicalStack' | 'oneLineIntroduction' | 'emoji'
+>;
+export type OrganizerDirectory = { active: OrganizerCard[]; former: Pick<Organizer, 'id' | 'name'>[] };
 
 export type OrganizerPosition = '개발' | '디자인' | '마케팅' | '운영' | '마스코트';

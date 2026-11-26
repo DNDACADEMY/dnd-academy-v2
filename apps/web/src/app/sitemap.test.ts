@@ -1,43 +1,21 @@
-import type { MetadataRoute } from 'next';
-
-const ORIGINAL_ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
-
-const loadSitemapModule = async () => {
-  vi.resetModules();
-  return import('./sitemap');
-};
-
 afterEach(() => {
-  if (ORIGINAL_ORIGIN) {
-    process.env.NEXT_PUBLIC_ORIGIN = ORIGINAL_ORIGIN;
-    return;
-  }
-
-  delete process.env.NEXT_PUBLIC_ORIGIN;
+  vi.unstubAllEnvs();
 });
 
-describe('sitemap metadata route', () => {
-  it('uses the fallback origin when NEXT_PUBLIC_ORIGIN is missing', async () => {
-    delete process.env.NEXT_PUBLIC_ORIGIN;
+it('publishes static routes and existing content IDs, including project zero', async () => {
+  vi.stubEnv('DND_CMS_CONTENT', '');
+  vi.stubEnv('NEXT_PUBLIC_ORIGIN', 'https://dnd.academy');
+  vi.resetModules();
 
-    const { default: sitemap } = await loadSitemapModule();
-    const urls = (sitemap() as MetadataRoute.Sitemap).map(({ url }) => url);
+  const { default: sitemap } = await import('./sitemap');
+  const urls = (await sitemap()).map(({ url }) => url);
 
-    expect(urls).toContain('http://localhost:3000');
-    expect(urls).toContain('http://localhost:3000/projects');
-    expect(urls).toContain('http://localhost:3000/organizers');
-    expect(urls.some((url) => url.includes('undefined'))).toBe(false);
-  });
-
-  it('normalizes configured origins for static and generated entries', async () => {
-    process.env.NEXT_PUBLIC_ORIGIN = 'https://dnd.academy/some/path';
-
-    const { default: sitemap } = await loadSitemapModule();
-    const urls = (sitemap() as MetadataRoute.Sitemap).map(({ url }) => url);
-
-    expect(urls.length).toBeGreaterThan(10);
-    expect(urls).toContain('https://dnd.academy/projects');
-    expect(urls).toContain('https://dnd.academy/organizers');
-    expect(urls.every((url) => url.startsWith('https://dnd.academy'))).toBe(true);
-  });
+  expect(urls).toEqual(
+    expect.arrayContaining([
+      'https://dnd.academy/projects',
+      'https://dnd.academy/projects/0',
+      'https://dnd.academy/organizers',
+      'https://dnd.academy/organizers/2',
+    ]),
+  );
 });

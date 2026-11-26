@@ -1,10 +1,8 @@
 import { type Project } from '@dnd-academy/core';
-import { Badge, Button, SkillTag } from '@dnd-academy/ui';
-import Image from 'next/image';
+import { Button } from '@dnd-academy/ui';
 
 import DetailNavigation from '@/components/molecules/DetailNavigation';
 import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
-import SocialIconLink from '@/components/molecules/SocialIconLink';
 import ProjectCards from '@/components/organisms/ProjectCards';
 import ProjectPDFViewer from '@/components/organisms/ProjectPDFViewer';
 import ReviewList from '@/components/organisms/ReviewList';
@@ -12,7 +10,8 @@ import { getProjects } from '@/lib/apis/project';
 import { getReviews } from '@/lib/apis/review';
 import { ShareIcon } from '@/lib/assets/icons';
 import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
-import { getEntries } from '@/utils';
+
+import ProjectDetails from './details';
 
 import styles from './index.module.scss';
 
@@ -20,9 +19,9 @@ type Props = {
   project: Project;
 };
 
-function ProjectPage({ project }: Props) {
-  const reviews = getReviews({ flag: project.flag, projectId: project.id });
-  const projects = getProjects({ ordinal: project.flag });
+async function ProjectPage({ project }: Props) {
+  const reviews = await getReviews({ projectId: project.id });
+  const projects = await getProjects({ ordinal: project.flag });
 
   return (
     <>
@@ -38,59 +37,30 @@ function ProjectPage({ project }: Props) {
         ]}
       />
       <div className={styles.projectPageContents}>
-        <section className={styles.projectDetail}>
-          {project?.pdf ? (
-            <ProjectPDFViewer
-              url={project.pdf}
-              documentUrl={process.env.VERCEL_ENV === 'preview' ? `/projects/${project.id}/pdf` : undefined}
-            />
-          ) : (
-            <div className={styles.thumbnailWrapper}>
-              <Image
-                fill
-                src={project.thumbnail}
-                alt={project.name}
-                className={styles.thumbnail}
-                sizes="(max-width: 768px) 100vw, 768px"
+        <ProjectDetails
+          project={project}
+          presentation={
+            project.pdf ? (
+              <ProjectPDFViewer
+                url={project.pdf}
+                documentUrl={process.env.VERCEL_ENV === 'preview' ? `/projects/${project.id}/pdf` : undefined}
               />
-            </div>
-          )}
-          <div className={styles.projectIntroduceTitleWrapper}>
-            <div className={styles.header}>
-              <Badge label={project.flag} variant="info" size="large" theme="light" />
-              <div className={styles.linkWrapper}>
-                {getEntries(project.projectLinks).map(([key, value]) => {
-                  if (key === 'github') {
-                    return value?.map((link) => <SocialIconLink key={link} type="github" link={link} theme="light" />);
-                  }
-
-                  return <SocialIconLink key={key} type={key} link={value} theme="light" />;
-                })}
-                <ShareClipBoardCTA shareText={`${PUBLIC_ORIGIN}/projects/${project.id}`}>
-                  <Button
-                    type="button"
-                    prefixIcon={<ShareIcon width={16} height={16} />}
-                    buttonType="clear"
-                    size="small"
-                    theme="light"
-                  >
-                    프로젝트 공유하기
-                  </Button>
-                </ShareClipBoardCTA>
-              </div>
-            </div>
-            <h1 className={styles.name}>{project.name}</h1>
-            <h2 className={styles.title}>{project.title}</h2>
-            <div className={styles.skillWrapper}>
-              {project.skill.map((skill) => (
-                <SkillTag key={skill} skill={skill} color="grey" />
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className={styles.description}>{project.desc}</div>
-          </div>
-        </section>
+            ) : undefined
+          }
+          actions={
+            <ShareClipBoardCTA shareText={`${PUBLIC_ORIGIN}/projects/${project.id}`}>
+              <Button
+                type="button"
+                prefixIcon={<ShareIcon width={16} height={16} />}
+                buttonType="clear"
+                size="small"
+                theme="light"
+              >
+                프로젝트 공유하기
+              </Button>
+            </ShareClipBoardCTA>
+          }
+        />
         {reviews.length > 0 && (
           <section className={styles.projectSubSection}>
             <h2>참가자</h2>

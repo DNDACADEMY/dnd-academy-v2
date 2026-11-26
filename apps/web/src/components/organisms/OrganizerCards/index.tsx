@@ -1,12 +1,13 @@
-import type { Organizer } from '@dnd-academy/core';
-import { SkillTag } from '@dnd-academy/ui';
+import type { OrganizerCard } from '@dnd-academy/core';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import TechnologyTag from '@/components/atoms/TechnologyTag';
 
 import styles from './index.module.scss';
 
 type Props = {
-  organizers: Organizer[];
+  organizers: OrganizerCard[];
 };
 
 function OrganizerCards({ organizers }: Props) {
@@ -32,7 +33,7 @@ function OrganizerCards({ organizers }: Props) {
             <div className={styles.introduction}>{oneLineIntroduction}</div>
             <div className={styles.stackWrapper}>
               {technicalStack.map((stack) => (
-                <SkillTag key={stack} skill={stack} color="grey" />
+                <TechnologyTag key={stack} skill={stack} color="grey" />
               ))}
             </div>
           </div>

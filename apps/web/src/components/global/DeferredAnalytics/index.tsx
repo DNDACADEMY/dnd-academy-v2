@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 
 const GoogleAnalytics = dynamic(() => import('@next/third-parties/google').then((mod) => mod.GoogleAnalytics), {
   ssr: false,
@@ -13,6 +14,8 @@ const VercelSpeedInsights = dynamic(() => import('@vercel/speed-insights/react')
 });
 
 function DeferredAnalytics() {
+  const pathname = usePathname();
+  if (pathname === '/admin' || pathname.startsWith('/admin/')) return null;
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (

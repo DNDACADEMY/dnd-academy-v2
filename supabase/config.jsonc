@@ -1,0 +1,13 @@
+{
+  "$schema": "https://supabase.com/schemas/config/v1.json",
+  "project_id": "dnd-supabase-cms",
+  "db": {
+    "major_version": 17,
+    "seed": { "enabled": false },
+  },
+  "auth": {
+    "site_url": "http://localhost:3000",
+    "enable_signup": false,
+  },
+  "storage": { "file_size_limit": "200MiB" },
+}
