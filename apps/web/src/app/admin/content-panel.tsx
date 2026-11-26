@@ -20,6 +20,7 @@ import { adminRequest } from './admin-request';
 import LinkFields from './link-fields';
 import AdminLinkStatus from './link-status';
 import type { MediaSelection } from './media-fields';
+import ReviewProjectPicker from './review-project-picker';
 
 import styles from './styles.module.scss';
 
@@ -43,7 +44,7 @@ function values(text: string) {
     .filter(Boolean);
 }
 
-function readDraft(kind: ContentKind, form: FormData, media: MediaSelection): ContentInput {
+function readDraft(kind: ContentKind, form: FormData, media: MediaSelection, projectId: number | null): ContentInput {
   const string = (key: string) => String(form.get(key) ?? '');
   const urls = form.getAll('link-url');
   const links = form.getAll('link-kind').flatMap((value, index) => {
@@ -92,7 +93,7 @@ function readDraft(kind: ContentKind, form: FormData, media: MediaSelection): Co
     Object.assign(input, {
       position: string('position'),
       cohort: string('cohort') ? Number(string('cohort')) : null,
-      projectId: string('projectId') ? Number(string('projectId')) : null,
+      projectId,
       originalProjectName: string('originalProjectName'),
     });
   }
@@ -229,6 +230,8 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
   const formRef = useRef<HTMLFormElement>(null);
   const [preview, setPreview] = useState<ContentInput>();
   const [mediaEdit, setMediaEdit] = useState<MediaSelection>();
+  const [projectEdit, setProjectEdit] = useState<number | null>();
+  const projectId = projectEdit === undefined ? (initial?.projectId ?? null) : projectEdit;
   const media: MediaSelection = mediaEdit ?? {
     thumbnail:
       initial?.thumbnailId || initial?.legacyThumbnail
@@ -310,7 +313,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
       requestAnimationFrame(() => invalid.reportValidity());
       return;
     }
-    const input = readDraft(kind, new FormData(event.currentTarget), media);
+    const input = readDraft(kind, new FormData(event.currentTarget), media, projectId);
     void mutate('save', input);
   }
 
@@ -330,7 +333,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
             type="button"
             disabled={busy}
             onClick={() => {
-              if (formRef.current) setPreview(readDraft(kind, new FormData(formRef.current), media));
+              if (formRef.current) setPreview(readDraft(kind, new FormData(formRef.current), media, projectId));
             }}
           >
             미리보기
@@ -412,12 +415,16 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
             )}
             {kind === 'review' && (
               <>
-                <label>
-                  연결 프로젝트 ID (선택){' '}
-                  <input name="projectId" type="number" min="0" defaultValue={initial?.projectId ?? ''} />
-                </label>
-                <label>
-                  원본 프로젝트 표기{' '}
+                <ReviewProjectPicker
+                  value={projectId}
+                  fallback={initial?.originalProjectName}
+                  onChange={(id) => {
+                    setProjectEdit(id);
+                    setDirty(true);
+                  }}
+                />
+                <label hidden={projectId !== null}>
+                  후기에 표시할 프로젝트 이름 (선택)
                   <input name="originalProjectName" maxLength={160} defaultValue={initial?.originalProjectName} />
                 </label>
               </>

@@ -968,3 +968,35 @@
     justify-content: space-between;
   }
 }
+
+.projectIdentity {
+  display: grid;
+  min-width: 0;
+  overflow-wrap: anywhere;
+
+  small {
+    color: var(--muted);
+  }
+}
+
+.unlinkProject {
+  justify-self: start;
+}
+
+.projectPicker {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.9rem;
+}
+
+.projectPickerFilters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(5.5rem, auto);
+  gap: 0.6rem;
+}
+
+.projectPickerResults {
+  max-height: 50dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
