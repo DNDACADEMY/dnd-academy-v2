@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import type { NextConfig } from 'next';
 
 const storage = process.env.DND_SUPABASE_URL ? new URL(process.env.DND_SUPABASE_URL) : null;
+const mediaCdn = process.env.DND_CMS_MEDIA_CDN_ORIGIN ? new URL(process.env.DND_CMS_MEDIA_CDN_ORIGIN) : null;
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -43,6 +44,9 @@ const nextConfig: NextConfig = {
               pathname: '/storage/v1/object/public/cms-public/**',
             },
           ]
+        : []),
+      ...(mediaCdn
+        ? [{ protocol: 'https' as const, hostname: mediaCdn.hostname, pathname: '/s3/cms/published/**' }]
         : []),
       {
         protocol: 'https',

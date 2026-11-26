@@ -11,6 +11,7 @@
       "env": [
         "BLOB_READ_WRITE_TOKEN",
         "DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN",
+        "DND_CMS_MEDIA_CDN_ORIGIN",
         "DND_SUPABASE_URL",
         "GOOGLE_CLIENT_EMAIL",
         "GOOGLE_PRIVATE_KEY",

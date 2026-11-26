@@ -178,6 +178,7 @@ export type MediaLibrary = { items: MediaItem[]; hasMore: boolean };
 
 export const mediaRequest = z.discriminatedUnion('action', [
   z.object({ action: z.literal('upload'), mime: z.enum(mediaMimes), bytes: z.number().int().positive().max(mediaMax) }),
+  z.object({ action: z.literal('resume'), key: z.uuid() }),
   z.object({ action: z.literal('verify'), key: z.uuid(), name: z.string().trim().min(1).max(255).optional() }),
   z.object({
     action: z.literal('library'),

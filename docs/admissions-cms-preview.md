@@ -33,3 +33,11 @@ psql -X -v ON_ERROR_STOP=1 -f supabase/tests/admissions-cms.sql
 3. 저장 전후 상태별 건수, 동일 키 중복, 새 암복호화 왕복, 공개 기간 오류, 일치·불일치와 네 가지 계약 응답을 대조한다. 별도 계정·갱신 토큰과 제출 프로젝트·멤버 후기·제출 링크는 보존 범위를 별도로 확정한다.
 
 기수와 지원자 엑셀은 `ExcelImport` 인터페이스와 관리자 준비 상태를 제공한다. 양식 확정 후 실제 파서를 연결한다. 개별 심사 결과 및 결과 CSV 반영은 모집 관리에서 처리한다.
+
+### AWS 미디어 전송
+
+개발 프리뷰는 기존 `assets.dnd.ac`가 연결된 S3 버킷을 공유합니다. CMS 전송은 `s3/cms/drafts/`와 `s3/cms/published/`를 사용합니다. 기존 CloudFront 접근 정책에 초안 접두어의 읽기 거부를 추가하고, 관리자 프리뷰의 정확한 Origin에만 CMS 업로드 헤더와 서명 조회를 허용합니다. 오래된 미완료 멀티파트 업로드의 정리 규칙도 초안 접두어에 적용합니다.
+
+[`infra/dnd-cms-media-preview.yml`](../infra/dnd-cms-media-preview.yml)의 IAM 역할은 지정한 Vercel 프로젝트의 Preview OIDC 주체와 두 접두어만 허용합니다. Preview 환경에 `DND_CMS_UPLOAD_PROVIDER=s3`, `DND_CMS_S3_BUCKET`, `DND_CMS_S3_REGION`, `DND_CMS_AWS_ROLE_ARN`, `DND_CMS_MEDIA_CDN_ORIGIN=https://assets.dnd.ac` 및 해당 환경의 `DND_CMS_UPLOAD_LIMIT_BYTES`를 설정합니다. AWS에는 Vercel OIDC 제공자를 등록합니다. 장기 AWS 키는 Vercel에 등록할 필요가 없습니다.
+
+콘텐츠 권한이 있는 운영자만 `POST /api/admin/media`의 `upload` 요청으로 UUID 기반 초안 키와 만료되는 서명 URL을 받습니다. 소형 파일은 선언한 길이·MIME·캐시 헤더를 서명한 단일 PUT을 사용합니다. 6 MiB를 초과하면 같은 API의 `resume`으로 누락 조각의 URL을 받아 전송을 재개합니다. `verify`는 예약 소유자와 실제 크기·형식·해시를 검사합니다. PNG·JPEG는 브라우저에서 WebP로 변환한 다음 전송하고, WebP의 실제 형식은 서버에서도 확인합니다. 초안 응답은 `private, no-store`이며, 게시 파일은 새 객체 키로 복사해 `public, max-age=31536000, immutable`을 적용합니다. 기존 Supabase 미디어는 원래 키에서 계속 읽습니다.

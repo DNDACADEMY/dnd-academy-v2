@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { mediaMax } from '@/lib/cms/content-contract';
 
 import { adminRequest } from './admin-request';
+import { type S3Ticket, uploadToS3 } from './s3-upload';
 
 import styles from './styles.module.scss';
 
@@ -196,7 +197,18 @@ export default function MediaPanel({
           ? pending.ticket
           : await adminRequest<UploadTicket>('media', { action: 'upload', mime: file.type, bytes: file.size });
       setPending({ file, ticket });
-      if (file.size > 6 * 1024 * 1024) {
+      if (ticket.provider === 's3') {
+        const controller = new AbortController();
+        setCancel({
+          label: ticket.method === 'multipart' ? '전송 일시 중지' : '전송 취소',
+          action: () => controller.abort(),
+        });
+        try {
+          await uploadToS3(file, ticket, pending?.file === file, controller.signal, setProgress);
+        } finally {
+          setCancel(undefined);
+        }
+      } else if (file.size > 6 * 1024 * 1024) {
         const { Upload } = await import('tus-js-client');
         await new Promise<void>((resolve, reject) => {
           const upload = new Upload(file, {
@@ -353,7 +365,9 @@ export default function MediaPanel({
   );
 }
 
-type UploadTicket = { key: string; url: string; token: string; endpoint: string; bucket: string };
+type UploadTicket =
+  | S3Ticket
+  | { provider: 'supabase'; key: string; url: string; token: string; endpoint: string; bucket: string };
 
 function LocalPreview({ file, url, label }: { file: File; url: string; label: string }) {
   return (
