@@ -1,5 +1,12 @@
 export async function adminRequest<T>(
-  resource: 'admissions' | 'content' | 'content/preview' | 'content/projects' | 'media' | 'home',
+  resource:
+    | 'admissions'
+    | 'content'
+    | 'content/preview'
+    | 'content/projects'
+    | 'media'
+    | 'home'
+    | 'recruitment-controls',
   payload: unknown,
 ): Promise<T> {
   const response = await fetch(`/api/admin/${resource}`, {

@@ -5,8 +5,15 @@ import type { ButtonProps } from '@dnd-academy/ui';
 import { useIsMounted } from '@dnd-academy/ui/client';
 import { cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
 
+import { useRecruitment } from '@/components/global/RecruitmentProvider';
 import useCountdown from '@/hooks/useCountdown';
-import { CURRENT_FLAG, NEXT_COHORT_NOTIFICATION_URL, NEXT_FLAG } from '@/lib/constants';
+import {
+  CURRENT_FLAG,
+  DESIGNER_APPLICATION_LINK,
+  DEVELOPER_APPLICATION_LINK,
+  NEXT_COHORT_NOTIFICATION_URL,
+  NEXT_FLAG,
+} from '@/lib/constants';
 
 import ApplyModal from '../ApplyModal';
 
@@ -16,6 +23,7 @@ type Props = {
 };
 
 function ApplyNotifyButtonGroup({ children: child, eventStatus }: Props) {
+  const recruitment = useRecruitment();
   const isMounted = useIsMounted();
   const { applicationStartDateTime, applicationEndDateTime } = eventStatus;
 
@@ -24,13 +32,16 @@ function ApplyNotifyButtonGroup({ children: child, eventStatus }: Props) {
 
   const visibleApplyButton = applicationStartDateCountdown === 'END' && applicationEndDateCountdown !== 'END';
 
-  if (!isMounted || !isValidElement<ButtonProps>(child)) {
+  if (!isMounted || recruitment.kind === 'unavailable' || !isValidElement<ButtonProps>(child)) {
     return null;
   }
 
-  if (!visibleApplyButton) {
+  const configured = recruitment.kind === 'configured' ? recruitment : undefined;
+  const application = configured?.display.application ?? (visibleApplyButton ? 'open' : 'notify');
+  if (application === 'hidden') return null;
+  if (application === 'notify') {
     const label = (
-      <span key="default-label">{`${applicationStartDateCountdown === 'END' ? NEXT_FLAG : CURRENT_FLAG}기 알림 신청하기`}</span>
+      <span key="default-label">{`${configured?.display.notificationCohort ?? (applicationStartDateCountdown === 'END' ? NEXT_FLAG : CURRENT_FLAG)}기 알림 신청하기`}</span>
     );
     const children: ReactNode = child.props.children ? (
       <>
@@ -49,7 +60,7 @@ function ApplyNotifyButtonGroup({ children: child, eventStatus }: Props) {
           {
             ...child.props,
             isExternalLink: true,
-            href: NEXT_COHORT_NOTIFICATION_URL,
+            href: configured?.settings.notificationUrl ?? NEXT_COHORT_NOTIFICATION_URL,
           },
           children,
         )}
@@ -57,7 +68,15 @@ function ApplyNotifyButtonGroup({ children: child, eventStatus }: Props) {
     );
   }
 
-  return <ApplyModal>{child}</ApplyModal>;
+  return (
+    <ApplyModal
+      cohort={configured?.settings.cohort ?? CURRENT_FLAG}
+      designerUrl={configured ? configured.settings.designerUrl : DESIGNER_APPLICATION_LINK}
+      developerUrl={configured ? configured.settings.developerUrl : DEVELOPER_APPLICATION_LINK}
+    >
+      {child}
+    </ApplyModal>
+  );
 }
 
 export default ApplyNotifyButtonGroup;

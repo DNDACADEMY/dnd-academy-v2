@@ -3,14 +3,17 @@
 import { type FormEvent, useState } from 'react';
 
 import { type AdmissionsState, positions, statuses } from '@/lib/cms/admissions-contract';
+import type { RecruitmentControls } from '@/lib/cms/recruitment-contract';
 
 import { adminRequest } from './admin-request';
+import { RecruitmentControlsPanel } from './recruitment-controls-panel';
 
 import styles from './styles.module.scss';
 
 const tabs = [
   ['results', '결과 관리'],
   ['schedule', '발표 일정'],
+  ['homepage', '홈페이지 버튼'],
   ['applicants', '지원자 등록'],
   ['cohorts', '기수 관리'],
 ] as const;
@@ -90,7 +93,13 @@ function parseResultCsv(text: string) {
   return records.map(([name, email, status]) => ({ name, email, status }));
 }
 
-export default function AdmissionsPanel({ initial }: { initial: AdmissionsState }) {
+export default function AdmissionsPanel({
+  initial,
+  recruitment,
+}: {
+  initial: AdmissionsState;
+  recruitment: RecruitmentControls | null;
+}) {
   const [state, setState] = useState(initial);
   const [cohortId, setCohortId] = useState(initial.cohorts[0]?.id ?? 0);
   const [eventId, setEventId] = useState(
@@ -193,7 +202,7 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
       <div className={styles.pageHeading}>
         <div>
           <h1>모집 관리</h1>
-          <p>지원 결과와 발표 일정을 확인하고 관리하세요.</p>
+          <p>지원 결과, 발표 일정, 홈페이지 모집 버튼을 관리하세요.</p>
         </div>
       </div>
       <div className={styles.tabs} aria-label="모집 업무">
@@ -218,6 +227,9 @@ export default function AdmissionsPanel({ initial }: { initial: AdmissionsState 
         </p>
       )}
 
+      <div hidden={active !== 'homepage'}>
+        <RecruitmentControlsPanel initial={recruitment} cohorts={state.cohorts} />
+      </div>
       {(active === 'results' || active === 'schedule') && (
         <section className={`${styles.card} ${styles.eventCard}`}>
           {eventPicker}

@@ -7,6 +7,7 @@ import { contentWorkspace } from '@/lib/cms/content';
 import { contentKinds } from '@/lib/cms/content-contract';
 import { editableHome } from '@/lib/cms/home';
 import { adminSession } from '@/lib/cms/permissions';
+import { readRecruitmentControls } from '@/lib/cms/recruitment';
 
 import { signOut } from './actions';
 import AdmissionsPanel from './admissions-panel';
@@ -75,6 +76,7 @@ export default async function Admin({ searchParams }: Props) {
   const kind = contentKinds.find((value) => value === query.kind) ?? 'project';
   const id =
     query.id && /^(0|[1-9]\d{0,9})$/.test(query.id) && Number(query.id) <= 2147483647 ? Number(query.id) : null;
+  const admissions = showAdmissions ? await Promise.all([readAdmissions(session.id), readRecruitmentControls()]) : null;
   const workspace = showAdmissions || showHome ? null : await contentWorkspace(session.id, kind, id);
   return (
     <div className={`${styles.admin} ${styles.workspace}`} data-admin-workspace>
@@ -126,8 +128,8 @@ export default async function Admin({ searchParams }: Props) {
           </form>
         </header>
         <div className={styles.canvas}>
-          {showAdmissions ? (
-            <AdmissionsPanel initial={await readAdmissions(session.id)} />
+          {admissions ? (
+            <AdmissionsPanel initial={admissions[0]} recruitment={admissions[1]} />
           ) : showHome ? (
             <HomePanel initial={await editableHome(session.id)} />
           ) : (
