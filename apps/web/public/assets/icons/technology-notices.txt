@@ -29,6 +29,9 @@ AWS Architecture Icons (2026-07-31)
 https://aws.amazon.com/architecture/icons/
 AWS service icons retain their original colors and artwork.
 
+Apache Hadoop icon via Simple Icons (Apache License 2.0, text below)
+https://hadoop.apache.org/
+
 RxSwift icon (resized and converted to WebP)
 https://github.com/ReactiveX/RxSwift/tree/main/assets
 
