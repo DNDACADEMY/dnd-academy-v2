@@ -1,4 +1,4 @@
-.archivedOrganizerSection {
+.formerSection {
   padding: 100px 0;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@
     }
   }
 
-  .archivedOrganizers {
+  .formerOrganizers {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(143px, 1fr));
     gap: 10px;

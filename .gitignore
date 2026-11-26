@@ -33,11 +33,6 @@ npm-debug.log*
 # typescript
 *.tsbuildinfo
 
-# Cypress
-cypress/screenshots
-cypress/videos
-cypress/log
-
 # turbo
 .turbo
 

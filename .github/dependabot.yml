@@ -27,22 +27,17 @@ updates:
           - "minor"
           - "patch"
     ignore:
-      # next-upgrade.test.ts 가드레일이 next / @next/* 를 정확한 버전으로
-      # 핀 고정한다. patch 까지 포함해 모든 자동 업데이트를 막고, 올릴 때는
-      # 가드레일 테스트를 함께 갱신하며 수동으로 진행한다.
+      # Next와 @next 패키지는 호환성 검증 후 함께 수동으로 업데이트한다.
       - dependency-name: "next"
       - dependency-name: "@next/*"
       - dependency-name: "react"
         update-types: ["version-update:semver-major"]
       - dependency-name: "react-dom"
         update-types: ["version-update:semver-major"]
-      # Storybook 계열도 동일하게 가드레일이 정확한 버전으로 핀 고정한다.
-      # `@storybook/*` glob 은 형제 패키지(storybook / @chromatic-com/storybook)를 매칭하지 못하므로 개별로 함께 막는다.
+      # Storybook과 Chromatic도 호환성 검증 후 함께 수동으로 업데이트한다.
       - dependency-name: "@storybook/*"
       - dependency-name: "storybook"
       - dependency-name: "@chromatic-com/storybook"
-      - dependency-name: "cypress"
-        update-types: ["version-update:semver-major"]
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
       # PR #370 reverted react-pdf 10 after /projects/[id] crashed at runtime.

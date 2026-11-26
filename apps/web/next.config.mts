@@ -2,6 +2,9 @@ import { join } from 'node:path';
 
 import type { NextConfig } from 'next';
 
+const storage = process.env.DND_SUPABASE_URL ? new URL(process.env.DND_SUPABASE_URL) : null;
+const mediaCdn = process.env.DND_CMS_MEDIA_CDN_ORIGIN ? new URL(process.env.DND_CMS_MEDIA_CDN_ORIGIN) : null;
+
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
@@ -32,6 +35,19 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
     remotePatterns: [
+      ...(storage
+        ? [
+            {
+              protocol: storage.protocol === 'http:' ? ('http' as const) : ('https' as const),
+              hostname: storage.hostname,
+              port: storage.port,
+              pathname: '/storage/v1/object/public/cms-public/**',
+            },
+          ]
+        : []),
+      ...(mediaCdn
+        ? [{ protocol: 'https' as const, hostname: mediaCdn.hostname, pathname: '/s3/cms/published/**' }]
+        : []),
       {
         protocol: 'https',
         hostname: 'dnd-academy-v3.s3.ap-northeast-2.amazonaws.com',

@@ -1,17 +1,14 @@
-import type { ProjectFlag, Review, ReviewPosition } from '@dnd-academy/core';
+import type { Review, ReviewPosition } from '@dnd-academy/core';
 
-import { reviewsData } from '@/lib/assets/data';
+import reviewsData from '@/lib/assets/data/reviews.json';
+import { cmsReviews, contentEnabled } from '@/lib/cms/content';
 import { ensureNumber, sortFlagsDescending } from '@/utils';
 
-export function getReviews({
-  position,
-  flag,
-  projectId,
-}: { position?: string; flag?: ProjectFlag; projectId?: number } | undefined = {}) {
-  const reviews = (reviewsData as Review[]).sort((a, b) => sortFlagsDescending(a.flag, b.flag));
+export async function getReviews({ position, projectId }: { position?: string; projectId?: number } | undefined = {}) {
+  const reviews = [...(await loadReviews())].sort((a, b) => sortFlagsDescending(a.flag, b.flag));
 
-  if (flag && projectId) {
-    return reviews.filter((review) => review.flag.trim() === flag.trim() && review.projectId === projectId);
+  if (projectId !== undefined) {
+    return reviews.filter((review) => review.projectId === projectId);
   }
 
   if (!position || position === 'all') {
@@ -21,8 +18,8 @@ export function getReviews({
   return reviews.filter((review) => review.position === position);
 }
 
-export function getReviewCount() {
-  const reviews = reviewsData as Review[];
+export async function getReviewCount() {
+  const reviews = await loadReviews();
 
   return reviews.reduce(
     (acc, { position }) => ({
@@ -31,4 +28,8 @@ export function getReviewCount() {
     }),
     {} as Record<ReviewPosition, number>,
   );
+}
+
+async function loadReviews(): Promise<Review[]> {
+  return contentEnabled() ? cmsReviews() : (reviewsData as Review[]);
 }

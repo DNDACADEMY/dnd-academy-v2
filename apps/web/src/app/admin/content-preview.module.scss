@@ -1,0 +1,89 @@
+.dialog {
+  box-sizing: border-box;
+  width: min(calc(100vw - 28px), 1100px);
+  max-width: none;
+  max-height: calc(100dvh - 28px);
+  border: 1px solid #dce4f1;
+  border-radius: 14px;
+  padding: 0;
+  margin: auto;
+  background: color('bgsecondary');
+  color: color('bgprimary');
+  overflow: auto;
+
+  &::backdrop {
+    background: #141e37aa;
+  }
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 12px 20px;
+  background: #fff;
+  color: #182239;
+  border-bottom: 1px solid #dce4f1;
+
+  h2 {
+    font-size: 1.05rem;
+  }
+  p {
+    margin: 3px 0 0;
+    font-size: 0.85rem;
+    color: #59677f;
+  }
+  button {
+    min-height: 40px;
+    padding: 4px 13px;
+    border: 1px solid #cdd7e8;
+    border-radius: 8px;
+    background: white;
+    color: #182239;
+    font-weight: 650;
+  }
+}
+.canvas {
+  padding: 24px;
+  overflow-wrap: anywhere;
+
+  > div {
+    margin-bottom: 0;
+    min-width: 0;
+  }
+}
+.notice {
+  margin: 0 0 14px;
+  border: 1px solid #53607a;
+  background: #27334c;
+  padding: 9px 13px;
+  border-radius: 8px;
+  color: white;
+}
+.review {
+  max-width: 440px;
+  margin-inline: auto;
+}
+.presentation {
+  display: grid;
+  gap: 0.55rem;
+
+  iframe {
+    width: 100%;
+    height: min(58vh, 640px);
+    min-height: 220px;
+    border: 1px solid #dce4f1;
+    border-radius: 8px;
+  }
+  a {
+    justify-self: start;
+    color: #263fae;
+    font-weight: 650;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}

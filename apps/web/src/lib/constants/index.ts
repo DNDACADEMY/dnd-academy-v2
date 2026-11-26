@@ -8,4 +8,4 @@ export const DESIGNER_APPLICATION_LINK = 'https://forms.gle/fmGigShJQeNaz64D9';
 
 export const NEXT_COHORT_NOTIFICATION_URL = 'https://forms.gle/nA3MLWbUyAoikWw16';
 
-export const PASSBOARD_URL = 'https://passboard.dnd.ac';
+export const PASSBOARD_URL = process.env.NEXT_PUBLIC_DND_PASSBOARD_URL ?? 'https://passboard.dnd.ac';

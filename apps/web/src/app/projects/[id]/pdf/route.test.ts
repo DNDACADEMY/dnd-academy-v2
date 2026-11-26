@@ -20,7 +20,7 @@ it('streams the requested bytes from the published PDF without forwarding previe
   const response = await GET(request, { params: Promise.resolve({ id: '106' }) });
 
   const [[url, options]] = fetchPdf.mock.calls;
-  expect(url).toBe(getProject({ id: 106 })?.pdf);
+  expect(url).toBe((await getProject({ id: 106 }))?.pdf);
   expect([...new Headers(options?.headers)]).toEqual([['range', 'bytes=0-3']]);
   expect(response.status).toBe(206);
   expect(response.headers.get('Content-Range')).toBe('bytes 0-3/100');

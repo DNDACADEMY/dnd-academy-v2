@@ -10,7 +10,7 @@ import styles from './index.module.scss';
 function TopNavigationBar() {
   return (
     <>
-      <header className={styles.navigationWrapper}>
+      <header className={styles.navigationWrapper} data-public-chrome>
         <nav className={styles.navigationContents}>
           <Link href="/" className={styles.logoLink}>
             {isChristmasTheme() ? (
@@ -22,7 +22,7 @@ function TopNavigationBar() {
           <TopNavigationMenu />
         </nav>
       </header>
-      <div className={styles.space} />
+      <div className={styles.space} data-public-chrome />
     </>
   );
 }

@@ -20,6 +20,15 @@ const PROJECT_ROOT = path.resolve(__dirname, '../..');
 
 async function generateApplicantCount() {
   try {
+    if (
+      !process.env.GOOGLE_PRIVATE_KEY &&
+      !process.env.GOOGLE_CLIENT_EMAIL &&
+      process.env.VERCEL_ENV !== 'production' &&
+      fs.existsSync(path.join(PROJECT_ROOT, 'src/lib/assets/data/applicant-count.json'))
+    ) {
+      console.log('저장소의 지원자 집계를 사용합니다.');
+      return;
+    }
     const key = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n');
 
     const serviceAccountAuth = new JWT({
@@ -69,8 +78,8 @@ async function generateApplicantCount() {
     console.log(`- 개발자: ${applicantData.developer}명`);
     console.log(`- 디자이너: ${applicantData.designer}명`);
     console.log(`- 총 지원자: ${applicantData.total}명`);
-  } catch (error) {
-    console.error('❌ 데이터 생성 중 오류가 발생했습니다:', error);
+  } catch {
+    console.error('지원자 집계를 갱신하지 못했습니다. 서비스 계정 설정과 시트 접근 권한을 확인해 주세요.');
     process.exit(1);
   }
 }

@@ -1,12 +1,18 @@
 .skillItem {
   height: fit-content;
   width: fit-content;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   padding: 4px 8px;
   border-radius: 2px;
   user-select: none;
 
   @include text('caption2/Regular');
+
+  > :is(img, svg) {
+    flex: none;
+  }
 
   &.dark {
     border: 1px solid color('gray08');

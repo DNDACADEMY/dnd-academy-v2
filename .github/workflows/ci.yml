@@ -11,7 +11,6 @@ env:
   CACHED_BUILD_PACKAGE_CORE_PATHS: ${{ github.workspace }}/packages/core/dist
   CACHED_GENERATED_STATIC_DATA_PATHS: ${{ github.workspace }}/apps/web/src/lib/assets/data
   DEFAULT_NODE_VERSION: "v26.13.1"
-  CYPRESS_INSTALL_BINARY: "0"
 
 jobs:
   job_changes:
@@ -189,34 +188,41 @@ jobs:
     outputs:
       generate_data_cache_key: ${{ steps.compute_generate_data_cache_key.outputs.hash }}
 
-  # continuous-integration:
-  #   needs: [job_packages_build]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v7
-  #     - name: Set up pnpm
-  #       uses: pnpm/action-setup@v6
-  #     - name: Set up Node
-  #       uses: actions/setup-node@v7
-  #       with:
-  #         node-version: ${{ env.DEFAULT_NODE_VERSION }}
-  #         cache: pnpm
+  job_web_checks:
+    name: Web lint, types and unit tests
+    needs: [job_install_dependencies]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.DEFAULT_NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter 'web^...' build
+      - run: pnpm lint
+      - run: pnpm --filter web exec next typegen
+      - run: pnpm --filter web check-types
+      - run: pnpm --filter web test:unit
 
-  #     - name: Install dependencies
-  #       run: pnpm install --frozen-lockfile
-
-  #     - name: Check build package cache
-  #       uses: actions/cache@v6
-  #       with:
-  #         path: ${{ env.CACHED_BUILD_PACKAGE_UI_PATHS }}
-  #         key: ${{ needs.job_packages_build.outputs.build_package_ui_cache_key }}
-
-  #     - name: Check Lint
-  #       if: ${{ github.event_name == 'pull_request' }}
-  #       run: pnpm lint
-
-  #     - name: Check Unit Test
-  #       run: pnpm test:coverage
+  job_cms_database:
+    name: CMS SQL migrations and regressions
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.DEFAULT_NODE_VERSION }}
+      - name: Start a fresh local Supabase stack
+        run: npx --yes supabase@3.4.0 start
+      - name: Verify migrations and database behavior
+        run: |
+          for test_file in supabase/tests/*.sql; do
+            docker exec -i supabase_db_dnd-supabase-cms psql -X -U postgres -d postgres -v ON_ERROR_STOP=1 < "$test_file"
+          done
 
   job_publish_storybook_chromatic:
     needs: [job_install_dependencies, job_packages_build, job_generate_data, job_changes]

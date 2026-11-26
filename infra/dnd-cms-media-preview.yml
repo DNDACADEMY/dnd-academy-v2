@@ -1,0 +1,54 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: DND CMS preview role for the existing assets.dnd.ac origin
+Parameters:
+  VercelOwner:
+    Type: String
+    AllowedPattern: "^[a-z0-9-]+$"
+  VercelProject:
+    Type: String
+    AllowedPattern: "^[a-z0-9-]+$"
+  ExistingBucket:
+    Type: String
+    AllowedPattern: "^[a-z0-9][a-z0-9-]+[a-z0-9]$"
+  ExistingOidcProviderArn:
+    Type: String
+    Default: ""
+Conditions:
+  CreateProvider: !Equals [!Ref ExistingOidcProviderArn, ""]
+Resources:
+  VercelProvider:
+    Type: AWS::IAM::OIDCProvider
+    Condition: CreateProvider
+    Properties:
+      Url: !Sub "https://oidc.vercel.com/${VercelOwner}"
+      ClientIdList:
+        - !Sub "https://vercel.com/${VercelOwner}"
+  PreviewMediaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      # Fn::Sub constructs the provider-specific condition key names.
+      AssumeRolePolicyDocument:
+        Fn::If:
+          - CreateProvider
+          - Fn::Sub:
+              - >-
+                {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Federated":"${Provider}"},"Action":"sts:AssumeRoleWithWebIdentity","Condition":{"StringEquals":{"oidc.vercel.com/${VercelOwner}:aud":"https://vercel.com/${VercelOwner}","oidc.vercel.com/${VercelOwner}:sub":"owner:${VercelOwner}:project:${VercelProject}:environment:preview"}}}]}
+              - Provider: !Ref VercelProvider
+          - Fn::Sub: >-
+              {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Federated":"${ExistingOidcProviderArn}"},"Action":"sts:AssumeRoleWithWebIdentity","Condition":{"StringEquals":{"oidc.vercel.com/${VercelOwner}:aud":"https://vercel.com/${VercelOwner}","oidc.vercel.com/${VercelOwner}:sub":"owner:${VercelOwner}:project:${VercelProject}:environment:preview"}}}]}
+      Policies:
+        - PolicyName: CmsMediaObjects
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: Drafts
+                Effect: Allow
+                Action: [s3:GetObject, s3:PutObject, s3:ListMultipartUploadParts, s3:AbortMultipartUpload]
+                Resource: !Sub "arn:${AWS::Partition}:s3:::${ExistingBucket}/s3/cms/drafts/*"
+              - Sid: Publication
+                Effect: Allow
+                Action: [s3:GetObject, s3:PutObject, s3:DeleteObject]
+                Resource: !Sub "arn:${AWS::Partition}:s3:::${ExistingBucket}/s3/cms/published/*"
+Outputs:
+  RoleArn:
+    Value: !GetAtt PreviewMediaRole.Arn

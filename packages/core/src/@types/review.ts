@@ -4,7 +4,6 @@ import { ProjectFlag } from './project';
 export interface Review {
   id: number;
   flag: ProjectFlag;
-  email: string;
   name: string;
   position: ReviewPosition;
   links: Partial<Record<LogoType, string>>;
