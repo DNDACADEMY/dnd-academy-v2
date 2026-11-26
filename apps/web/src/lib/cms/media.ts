@@ -133,7 +133,7 @@ export async function handleMedia(actor: string, request: z.infer<typeof mediaRe
       .from(draftBucket)
       .createSignedUploadUrl(data.object_key);
     if (uploadError) throw new DatabaseError('MEDIA_INVALID');
-    const endpoint = new URL('/storage/v1/upload/resumable', supabaseUrl());
+    const endpoint = new URL('/storage/v1/upload/resumable/sign', supabaseUrl());
     if (endpoint.hostname.endsWith('.supabase.co'))
       endpoint.hostname = endpoint.hostname.replace('.supabase.co', '.storage.supabase.co');
     return {
