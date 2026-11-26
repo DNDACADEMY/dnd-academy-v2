@@ -1,12 +1,3 @@
-.activeTitle {
-  @include text('H3/Bold', 'gray01');
-  margin-bottom: 24px;
-
-  @include xs {
-    @include text('H4/Bold');
-  }
-}
-
 .formerSection {
   padding: 100px 0;
   display: flex;

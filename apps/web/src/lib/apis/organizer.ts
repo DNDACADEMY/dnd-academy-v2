@@ -4,7 +4,7 @@ import { cache } from 'react';
 import organizersData from '@/lib/assets/data/organizers.json';
 import { cmsOrganizer, cmsOrganizerDirectory, contentEnabled } from '@/lib/cms/content';
 
-type LegacyOrganizer = Omit<Organizer, 'activityStatus'> & { isArchived: boolean };
+type LegacyOrganizer = Organizer & { isArchived: boolean };
 const legacyOrganizers: LegacyOrganizer[] = organizersData as LegacyOrganizer[];
 
 export const getOrganizerDirectory = cache(async (): Promise<OrganizerDirectory> => {
@@ -39,10 +39,7 @@ export function getOrganizer({ id }: { id: number }) {
   if (!Number.isInteger(id) || id < 0 || id > 2147483647) return undefined;
   if (contentEnabled()) return cmsOrganizer(id);
 
-  const row = legacyOrganizers.find((organizer) => organizer.id === id);
-  if (!row) return undefined;
-  const { isArchived, ...organizer } = row;
-  return { ...organizer, activityStatus: isArchived ? 'former' : 'active' } satisfies Organizer;
+  return legacyOrganizers.find((organizer) => organizer.id === id);
 }
 
 export function getOrganizerCount(organizers: OrganizerCard[]) {

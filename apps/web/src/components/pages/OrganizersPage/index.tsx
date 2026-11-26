@@ -15,18 +15,13 @@ type Props = {
 function OrganizersPage({ organizers, former, organizerCount }: Props) {
   return (
     <>
-      <section aria-labelledby="active-organizers">
-        <h2 className={styles.activeTitle} id="active-organizers">
-          현재 운영진
-        </h2>
-        <Tags paramKey="position" route="/organizers" tagCount={organizerCount} />
-        <OrganizerCards organizers={organizers} />
-      </section>
+      <Tags paramKey="position" route="/organizers" tagCount={organizerCount} />
+      <OrganizerCards organizers={organizers} />
       {former.length > 0 && (
         <section className={styles.formerSection} aria-labelledby="former-organizers">
           <div className={styles.sectionHeader}>
             <h2 className={styles.title} id="former-organizers">
-              전 운영진
+              DND의 도움을 주신 분들
             </h2>
             <div className={styles.subTitle}>지금까지 DND의 가치 실현을 위해 열정을 바친 멤버를 소개합니다.</div>
           </div>

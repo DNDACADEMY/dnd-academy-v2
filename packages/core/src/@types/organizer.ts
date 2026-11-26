@@ -20,11 +20,9 @@ export interface Organizer {
     whatIsYourInterests: string;
     whatYouWantToShare: string[];
   };
-  activityStatus: OrganizerActivityStatus;
   emoji?: string;
 }
 
-export type OrganizerActivityStatus = 'active' | 'former';
 export type OrganizerCard = Pick<
   Organizer,
   'id' | 'name' | 'thumbnail' | 'dndPosition' | 'technicalStack' | 'oneLineIntroduction' | 'emoji'

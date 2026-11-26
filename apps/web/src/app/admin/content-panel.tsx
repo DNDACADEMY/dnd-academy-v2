@@ -357,6 +357,16 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
             <label>
               이름 <input name="name" required maxLength={160} defaultValue={initial?.name} />
             </label>
+            {kind === 'organizer' && (
+              <label>
+                활동 상태
+                <select name="activityStatus" defaultValue={initial?.isArchived ? 'former' : 'active'}>
+                  <option value="active">현재 운영진</option>
+                  <option value="former">전 운영진</option>
+                </select>
+                <small>게시하면 선택한 활동 상태에 따라 공개 목록의 표시 위치가 바뀝니다.</small>
+              </label>
+            )}
             {kind === 'project' && (
               <label>
                 제목 <input name="title" required maxLength={300} defaultValue={initial?.title} />
@@ -417,14 +427,6 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
                     이모지 <input name="emoji" defaultValue={initial?.emoji ?? ''} />
                   </label>
                 </div>
-                <label>
-                  활동 상태
-                  <select name="activityStatus" defaultValue={initial?.isArchived ? 'former' : 'active'}>
-                    <option value="active">현재 운영진</option>
-                    <option value="former">전 운영진</option>
-                  </select>
-                  <small>게시하면 현재 운영진은 상단 카드에, 전 운영진은 하단 이름 목록에 표시됩니다.</small>
-                </label>
                 <details>
                   <summary>경력과 인터뷰</summary>
                   {detailKinds.map((kind) => (
