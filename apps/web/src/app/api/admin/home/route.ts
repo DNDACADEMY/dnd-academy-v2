@@ -7,7 +7,7 @@ import { canAdmin } from '@/lib/cms/permissions';
 import { DatabaseError, rpc } from '@/lib/cms/supabase';
 
 const headers = { 'Cache-Control': 'private, no-store' };
-export const maxDuration = 300;
+export const maxDuration = 60;
 
 export async function POST(request: Request) {
   if (
