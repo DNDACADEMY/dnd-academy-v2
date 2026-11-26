@@ -1,6 +1,32 @@
 Simple Icons v16.38.1
 https://github.com/simple-icons/simple-icons/tree/16.38.1
 
+Selected technology icons use their source licenses and are rendered in monochrome.
+
+Angular (CC-BY-4.0)
+https://angular.dev/press-kit
+https://spdx.org/licenses/CC-BY-4.0
+
+Apache Maven (Apache-2.0)
+https://apache.org/logos
+https://spdx.org/licenses/Apache-2.0
+
+PHP (CC-BY-SA-4.0)
+https://php.net/download-logos.php
+https://spdx.org/licenses/CC-BY-SA-4.0
+
+Vuetify (MIT)
+https://vuetifyjs.com/resources/brand-kit
+https://spdx.org/licenses/MIT
+
+Yarn (CC-BY-4.0)
+https://github.com/yarnpkg/assets/blob/76d30ca2aebed5b73ea8131d972218fb860bd32d/yarn-kitten-circle.svg
+https://spdx.org/licenses/CC-BY-4.0
+
+Zod (MIT)
+https://github.com/colinhacks/zod/blob/ff89187172ac6aa4a6264592980d1628ee785242/logo/Logo%20White.ai
+https://spdx.org/licenses/MIT
+
 Devicon v2.18.0 (monochrome logos and Zustand, resized and converted to WebP)
 https://github.com/devicons/devicon/tree/v2.18.0
 

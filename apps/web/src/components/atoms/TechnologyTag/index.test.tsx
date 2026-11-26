@@ -40,6 +40,9 @@ describe('TechnologyTag', () => {
     ['Apache Hadoop', 'apachehadoop'],
     ['서비스 기획 및 운영', 'servicemanagement'],
     ['UX Research', 'uxresearch'],
+    ['C++', 'cplusplus'],
+    ['MSW', 'mockserviceworker'],
+    ['Vuetify.js', 'vuetify'],
   ])('adds the matching icon to %s without changing the label', (skill, slug) => {
     const { container } = render(<TechnologyTag skill={skill} color="grey" />);
 
@@ -47,10 +50,10 @@ describe('TechnologyTag', () => {
     expect(container.querySelector('use')).toHaveAttribute('href', `/assets/icons/technology.svg#${slug}`);
   });
 
-  it('renders an unmapped technology as text', () => {
-    const { container } = render(<TechnologyTag skill="Snapkit" color="grey" />);
+  it.each(['Snapkit', 'UIKit'])('renders %s as text without borrowing another logo', (skill) => {
+    const { container } = render(<TechnologyTag skill={skill} color="grey" />);
 
-    expect(screen.getByText('Snapkit')).toBeInTheDocument();
+    expect(screen.getByText(skill)).toBeInTheDocument();
     expect(container.querySelector('svg')).not.toBeInTheDocument();
   });
 });
