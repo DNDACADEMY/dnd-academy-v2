@@ -21,6 +21,7 @@ import LinkFields from './link-fields';
 import AdminLinkStatus from './link-status';
 import type { MediaSelection } from './media-fields';
 import ReviewProjectPicker from './review-project-picker';
+import SkillTagPicker from './skill-tag-picker';
 import { useUnsavedChanges } from './use-unsaved-changes';
 
 import styles from './styles.module.scss';
@@ -64,7 +65,7 @@ function readDraft(kind: ContentKind, form: FormData, media: MediaSelection, pro
     Object.assign(input, {
       thumbnailId: media.thumbnail?.mediaId ?? null,
       legacyThumbnail: media.thumbnail?.mediaId ? null : media.thumbnail?.legacyUrl,
-      skills: values(string('skills')),
+      skills: form.getAll('skills').map(String),
     });
   }
   if (kind === 'project') {
@@ -444,11 +445,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
                 </details>
               </>
             )}
-            {kind !== 'review' && (
-              <label>
-                기술 (줄마다 하나) <textarea name="skills" defaultValue={initial?.skills?.join('\n')} />
-              </label>
-            )}
+            {kind !== 'review' && <SkillTagPicker initial={initial?.skills ?? []} onChange={() => setDirty(true)} />}
           </div>
           <div className={styles.fields} hidden={tab !== 'links'}>
             <LinkFields kind={kind} initial={initial?.links ?? []} onEdit={() => setDirty(true)} />

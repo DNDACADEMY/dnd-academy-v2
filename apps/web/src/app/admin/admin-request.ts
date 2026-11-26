@@ -4,6 +4,7 @@ export async function adminRequest<T>(
     | 'content'
     | 'content/preview'
     | 'content/projects'
+    | 'content/skills'
     | 'media'
     | 'home'
     | 'recruitment-controls',

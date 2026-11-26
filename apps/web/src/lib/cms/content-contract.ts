@@ -39,6 +39,9 @@ const asset = z.uuid().nullable().optional();
 const id = z.number().int().min(0).max(2147483647);
 const cohort = z.number().int().positive().max(10000);
 
+export const maxSkills = 100;
+export const maxSkillLabelLength = 160;
+
 export const contentInput = z.object({
   name: z.string().trim().min(1).max(160),
   description: z.string().max(50000),
@@ -53,7 +56,7 @@ export const contentInput = z.object({
     .array(z.object({ mediaId: asset, legacyUrl: legacy }).refine((value) => value.mediaId || value.legacyUrl))
     .max(50)
     .optional(),
-  skills: z.array(z.string().trim().min(1).max(160)).max(100).optional(),
+  skills: z.array(z.string().trim().min(1).max(maxSkillLabelLength)).max(maxSkills).optional(),
   author: z.string().max(160).optional(),
   position: z.string().max(40).optional(),
   mbti: z.string().max(30).optional(),
