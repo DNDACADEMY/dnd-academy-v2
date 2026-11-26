@@ -1,8 +1,8 @@
 import type { Organizer } from '@dnd-academy/core';
-import { SkillTag } from '@dnd-academy/ui';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 
+import TechnologyTag from '@/components/atoms/TechnologyTag';
 import LinkConverter from '@/components/molecules/LinkConverter';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import { getEntries } from '@/utils';
@@ -40,7 +40,7 @@ export default function OrganizerDetails({
             <div className={styles.name}>{organizer.name}</div>
             <div className={styles.skillWrapper}>
               {organizer.technicalStack.map((stack) => (
-                <SkillTag key={stack} color="dark" skill={stack} />
+                <TechnologyTag key={stack} color="dark" skill={stack} />
               ))}
             </div>
             <div className={styles.socialIconWrapper}>

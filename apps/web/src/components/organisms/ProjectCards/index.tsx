@@ -1,7 +1,8 @@
 import type { Project } from '@dnd-academy/core';
-import { SkillTag } from '@dnd-academy/ui';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import TechnologyTag from '@/components/atoms/TechnologyTag';
 
 import styles from './index.module.scss';
 
@@ -30,7 +31,7 @@ function ProjectCards({ projects }: Props) {
             <div className={styles.title}>{title}</div>
             <div className={styles.skillWrapper}>
               {skills.map((skill) => (
-                <SkillTag key={skill} skill={skill} color="dark" />
+                <TechnologyTag key={skill} skill={skill} color="dark" />
               ))}
             </div>
           </div>

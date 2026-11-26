@@ -1,8 +1,9 @@
 import type { Project } from '@dnd-academy/core';
-import { Badge, SkillTag } from '@dnd-academy/ui';
+import { Badge } from '@dnd-academy/ui';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 
+import TechnologyTag from '@/components/atoms/TechnologyTag';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import { getEntries } from '@/utils';
 
@@ -49,7 +50,7 @@ export default function ProjectDetails({
         <h2 className={styles.title}>{project.title}</h2>
         <div className={styles.skillWrapper}>
           {project.skill.map((skill) => (
-            <SkillTag key={skill} skill={skill} color="grey" />
+            <TechnologyTag key={skill} skill={skill} color="grey" />
           ))}
         </div>
       </div>
