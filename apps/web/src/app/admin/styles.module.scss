@@ -1000,3 +1000,36 @@
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+
+.homeFields {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.homeLogo {
+  object-fit: contain;
+  border-radius: 6px;
+  background: #16191e;
+}
+
+.homePreviewBanner {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  color: #182239;
+  background: #edf1ff;
+
+  a {
+    color: #314ccc;
+    text-decoration: underline;
+  }
+}

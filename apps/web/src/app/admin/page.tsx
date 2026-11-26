@@ -5,11 +5,13 @@ import { DNDLogo } from '@/lib/assets/logos';
 import { readAdmissions } from '@/lib/cms/admissions';
 import { contentWorkspace } from '@/lib/cms/content';
 import { contentKinds } from '@/lib/cms/content-contract';
+import { editableHome } from '@/lib/cms/home';
 import { adminSession } from '@/lib/cms/permissions';
 
 import { signOut } from './actions';
 import AdmissionsPanel from './admissions-panel';
 import ContentPanel from './content-panel';
+import HomePanel from './home-panel';
 import AdminLinkStatus from './link-status';
 import LoginForm from './login-form';
 
@@ -68,11 +70,12 @@ export default async function Admin({ searchParams }: Props) {
 
   const hasAdmissions = session.permissions.includes('admissions');
   const hasContent = session.permissions.includes('content');
-  const showAdmissions = hasAdmissions && (query.section !== 'content' || !hasContent);
+  const showHome = hasContent && query.section === 'home';
+  const showAdmissions = hasAdmissions && (!hasContent || (!showHome && query.section !== 'content'));
   const kind = contentKinds.find((value) => value === query.kind) ?? 'project';
   const id =
     query.id && /^(0|[1-9]\d{0,9})$/.test(query.id) && Number(query.id) <= 2147483647 ? Number(query.id) : null;
-  const workspace = showAdmissions ? null : await contentWorkspace(session.id, kind, id);
+  const workspace = showAdmissions || showHome ? null : await contentWorkspace(session.id, kind, id);
   return (
     <div className={`${styles.admin} ${styles.workspace}`} data-admin-workspace>
       <aside className={styles.sidebar}>
@@ -93,12 +96,15 @@ export default async function Admin({ searchParams }: Props) {
               <Link href="/admin?section=content" data-section-current={!showAdmissions || undefined}>
                 콘텐츠 관리 <AdminLinkStatus />
               </Link>
+              <Link className={styles.navChild} href="/admin?section=home" aria-current={showHome ? 'page' : undefined}>
+                홈 관리 <AdminLinkStatus />
+              </Link>
               {contentKinds.map((value) => (
                 <Link
                   className={styles.navChild}
                   key={value}
                   href={`/admin?section=content&kind=${value}`}
-                  aria-current={!showAdmissions && kind === value ? 'page' : undefined}
+                  aria-current={!showAdmissions && !showHome && kind === value ? 'page' : undefined}
                 >
                   {contentLabels[value]} <AdminLinkStatus />
                 </Link>
@@ -112,7 +118,9 @@ export default async function Admin({ searchParams }: Props) {
       </aside>
       <section className={styles.workArea}>
         <header className={styles.topbar}>
-          <span>{showAdmissions ? '모집 관리' : `콘텐츠 관리 / ${contentLabels[kind]}`}</span>
+          <span>
+            {showAdmissions ? '모집 관리' : showHome ? '콘텐츠 관리 / 홈' : `콘텐츠 관리 / ${contentLabels[kind]}`}
+          </span>
           <form action={signOut}>
             <button className={styles.quiet}>로그아웃</button>
           </form>
@@ -120,6 +128,8 @@ export default async function Admin({ searchParams }: Props) {
         <div className={styles.canvas}>
           {showAdmissions ? (
             <AdmissionsPanel initial={await readAdmissions(session.id)} />
+          ) : showHome ? (
+            <HomePanel initial={await editableHome(session.id)} />
           ) : (
             workspace && (
               <ContentPanel
