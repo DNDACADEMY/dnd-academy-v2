@@ -62,10 +62,18 @@ async function toWebp(file: File, quality: number) {
   }
 }
 
-async function pdfFingerprint(file: File) {
+async function pdfFingerprint(file: File, signal: AbortSignal) {
   const { pdfjs } = await import('react-pdf');
   pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString();
-  const worker = pdfjs.getDocument({ data: new Uint8Array(await file.arrayBuffer()), isEvalSupported: false });
+  const data = new Uint8Array(await file.arrayBuffer());
+  signal.throwIfAborted();
+  const worker = pdfjs.getDocument({ data, isEvalSupported: false });
+  let destruction: Promise<void> | undefined;
+  const destroy = () => (destruction ??= worker.destroy());
+  const stop = () => {
+    void destroy().catch(() => undefined);
+  };
+  signal.addEventListener('abort', stop, { once: true });
   try {
     const document = await worker.promise;
     const pages = [];
@@ -79,16 +87,25 @@ async function pdfFingerprint(file: File) {
           .join('')
           .normalize('NFC')
           .replace(/\s+/g, ''),
-        links: annotations
-          .filter((annotation) => annotation.subtype === 'Link')
-          .map(({ unsafeUrl, url, dest }) => JSON.stringify([unsafeUrl ?? url ?? null, dest ?? null]))
-          .sort(),
+        links: (
+          await Promise.all(
+            annotations
+              .filter((annotation) => annotation.subtype === 'Link')
+              .map(async ({ unsafeUrl, url, dest }) => {
+                const destination = typeof dest === 'string' ? await document.getDestination(dest) : dest;
+                const [target, ...position] = Array.isArray(destination) ? destination : [];
+                const pageIndex = target && typeof target === 'object' ? await document.getPageIndex(target) : target;
+                return JSON.stringify([unsafeUrl ?? url ?? null, pageIndex ?? null, position]);
+              }),
+          )
+        ).sort(),
       });
       page.cleanup();
     }
     return JSON.stringify(pages);
   } finally {
-    await worker.destroy();
+    signal.removeEventListener('abort', stop);
+    await destroy();
   }
 }
 
@@ -102,7 +119,7 @@ export default function MediaPanel() {
   const [assetId, setAssetId] = useState('');
   const [progress, setProgress] = useState(0);
   const [pending, setPending] = useState<{ file: File; ticket: UploadTicket }>();
-  const [cancel, setCancel] = useState<() => void>();
+  const [cancel, setCancel] = useState<{ label: string; action: () => void }>();
   const isPdf = source?.type === 'application/pdf';
 
   async function prepare(file: File, level = quality) {
@@ -133,17 +150,24 @@ export default function MediaPanel() {
     setAccepted(false);
     setPending(undefined);
     setBusy(true);
+    const controller = new AbortController();
+    setCancel({ label: 'PDF 비교 취소', action: () => controller.abort() });
     try {
       if (file.type !== 'application/pdf' || file.size >= source.size)
         throw new Error('원본보다 작은 PDF를 선택해 주세요.');
-      const original = await pdfFingerprint(source);
-      const compressed = await pdfFingerprint(file);
+      const original = await pdfFingerprint(source, controller.signal);
+      const compressed = await pdfFingerprint(file, controller.signal);
       if (original !== compressed) throw new Error('페이지 수·검색 텍스트·링크가 원본과 다릅니다.');
       setCandidate(file);
       setMessage('페이지 수·텍스트·링크가 일치합니다. 한글 검색과 확대 화질을 직접 확인해 주세요.');
     } catch {
-      setMessage('압축본의 페이지·텍스트·링크를 확인하지 못했습니다. 원본으로 다시 선택할 수 있습니다.');
+      setMessage(
+        controller.signal.aborted
+          ? 'PDF 비교를 취소했습니다.'
+          : '압축본의 페이지·텍스트·링크를 확인하지 못했습니다. 원본으로 다시 선택할 수 있습니다.',
+      );
     } finally {
+      setCancel(undefined);
       setBusy(false);
     }
   }
@@ -182,10 +206,13 @@ export default function MediaPanel() {
             onError: reject,
             onSuccess: () => resolve(),
           });
-          setCancel(() => () => {
-            void upload
-              .abort()
-              .finally(() => reject(new Error('전송을 일시 중지했습니다. 업로드 버튼으로 재개할 수 있습니다.')));
+          setCancel({
+            label: '전송 일시 중지',
+            action: () => {
+              void upload
+                .abort()
+                .finally(() => reject(new Error('전송을 일시 중지했습니다. 업로드 버튼으로 재개할 수 있습니다.')));
+            },
           });
           void upload
             .findPreviousUploads()
@@ -287,8 +314,8 @@ export default function MediaPanel() {
                 </button>
               )}
               {cancel && (
-                <button type="button" onClick={cancel}>
-                  전송 일시 중지
+                <button type="button" onClick={cancel.action}>
+                  {cancel.label}
                 </button>
               )}
             </div>
