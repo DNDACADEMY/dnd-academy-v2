@@ -22,6 +22,5 @@
     ".storybook/**/*.tsx",
     ".next/types/**/*.ts",
     "../../vitest.setup.ts"
-  ],
-  "exclude": ["cypress"]
+  ]
 }

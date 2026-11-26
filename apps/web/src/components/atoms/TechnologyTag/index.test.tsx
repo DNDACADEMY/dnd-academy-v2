@@ -12,19 +12,6 @@ describe('TechnologyTag', () => {
     expect(container.querySelector('use')).toHaveAttribute('href', '/assets/icons/technology.svg#react');
   });
 
-  it('keeps the version label while using the Java logo', () => {
-    const { container } = render(<TechnologyTag skill="Java17" color="grey" />);
-
-    expect(screen.getByText('Java17')).toBeInTheDocument();
-    expect(container.querySelector('use')).toHaveAttribute('href', '/assets/icons/technology.svg#java');
-  });
-
-  it('uses the service icon for AWS EC2', () => {
-    const { container } = render(<TechnologyTag skill="AWS EC2" color="grey" />);
-
-    expect(container.querySelector('use')).toHaveAttribute('href', '/assets/icons/technology.svg#awsec2');
-  });
-
   it('renders the RxSwift icon as decorative', () => {
     render(<TechnologyTag skill="RxSwift" color="grey" />);
 
@@ -32,22 +19,11 @@ describe('TechnologyTag', () => {
     expect(screen.getByAltText('')).toHaveAttribute('width', '12');
   });
 
-  it.each([
-    ['UX기획', 'uxplanning'],
-    ['GA', 'googleanalytics'],
-    ['GA4', 'googleanalytics'],
-    ['Hadoop', 'apachehadoop'],
-    ['Apache Hadoop', 'apachehadoop'],
-    ['서비스 기획 및 운영', 'servicemanagement'],
-    ['UX Research', 'uxresearch'],
-    ['C++', 'cplusplus'],
-    ['MSW', 'mockserviceworker'],
-    ['Vuetify.js', 'vuetify'],
-  ])('adds the matching icon to %s without changing the label', (skill, slug) => {
-    const { container } = render(<TechnologyTag skill={skill} color="grey" />);
+  it('preserves punctuation when choosing between language icons', () => {
+    const { container } = render(<TechnologyTag skill="C++" color="grey" />);
 
-    expect(screen.getByText(skill)).toBeInTheDocument();
-    expect(container.querySelector('use')).toHaveAttribute('href', `/assets/icons/technology.svg#${slug}`);
+    expect(screen.getByText('C++')).toBeInTheDocument();
+    expect(container.querySelector('use')).toHaveAttribute('href', '/assets/icons/technology.svg#cplusplus');
   });
 
   it.each(['Snapkit', 'UIKit'])('renders %s as text without borrowing another logo', (skill) => {

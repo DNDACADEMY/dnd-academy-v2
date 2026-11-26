@@ -37,9 +37,6 @@ overrides:
   "yaml@^1.10.0": "1.10.3"
   canvas: "link:./__stubs__/canvas"
   node-polyfill-webpack-plugin: "link:./__stubs__/node-polyfill-webpack-plugin"
-  axios: "^1.15.2"
-  "@cypress/request>form-data": "^2.5.4"
-  "@cypress/request>qs": "^6.14.2"
 
 packageExtensions:
   fork-ts-checker-webpack-plugin@9.1.0:
@@ -56,7 +53,6 @@ packageExtensions:
 allowBuilds:
   "@parcel/watcher": true
   "@swc/core": true
-  cypress: true
   esbuild: true
   lefthook: true
   sharp: true

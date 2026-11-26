@@ -22,6 +22,6 @@ export const createVitestConfig = (packageDir: string) =>
       environment: 'jsdom',
       setupFiles: [resolve(import.meta.dirname, 'vitest.setup.ts')],
       include: ['**/*.test.{ts,tsx}'],
-      exclude: ['**/node_modules/**', '**/.next/**', '**/dist/**', 'cypress/**'],
+      exclude: ['**/node_modules/**', '**/.next/**', '**/dist/**'],
     },
   });
