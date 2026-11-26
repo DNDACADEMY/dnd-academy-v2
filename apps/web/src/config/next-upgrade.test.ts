@@ -39,10 +39,10 @@ describe('Next upgrade guardrails', () => {
     const webPackage = readPackageJson('apps/web');
     const uiPackage = readPackageJson('packages/ui');
 
-    expect(webPackage.dependencies?.next).toBe('16.4.1');
-    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.4.1');
-    expect(webPackage.devDependencies?.['@next/env']).toBe('16.4.1');
-    expect(uiPackage.devDependencies?.next).toBe('16.4.1');
+    expect(webPackage.dependencies?.next).toBe('16.4.6');
+    expect(webPackage.dependencies?.['@next/third-parties']).toBe('16.4.6');
+    expect(webPackage.devDependencies?.['@next/env']).toBe('16.4.6');
+    expect(uiPackage.devDependencies?.next).toBe('16.4.6');
   });
 
   it('uses Turbopack in development and production for the web app', () => {
@@ -137,9 +137,11 @@ describe('Next upgrade guardrails', () => {
     const expectedBuildEnv = [
       'BLOB_READ_WRITE_TOKEN',
       'DND_ACADEMY_V2_BLOB_READ_WRITE_TOKEN',
+      'DND_SUPABASE_URL',
       'GOOGLE_CLIENT_EMAIL',
       'GOOGLE_PRIVATE_KEY',
       'NEXT_PUBLIC_CHANNEL_IO_PLUGIN_KEY',
+      'NEXT_PUBLIC_DND_PASSBOARD_URL',
       'NEXT_PUBLIC_GA_MEASUREMENT_ID',
       'NEXT_PUBLIC_ORIGIN',
       'NEXT_PUBLIC_THEME',

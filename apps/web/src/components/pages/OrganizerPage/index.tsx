@@ -18,15 +18,17 @@ type Props = {
   organizer: Organizer;
 };
 
-function OrganizerPage({ organizer }: Props) {
+async function OrganizerPage({ organizer }: Props) {
   const eventStatus = getEventStatus();
 
   const isMascot = organizer.dndPosition === '마스코트';
 
-  const samePositionOrganizers = getOrganizers({
-    position: isMascot ? undefined : organizer.dndPosition,
-    isArchived: false,
-  }).filter((samePositionOrganizer) => samePositionOrganizer.id !== organizer.id);
+  const samePositionOrganizers = (
+    await getOrganizers({
+      position: isMascot ? undefined : organizer.dndPosition,
+      isArchived: false,
+    })
+  ).filter((samePositionOrganizer) => samePositionOrganizer.id !== organizer.id);
 
   return (
     <>

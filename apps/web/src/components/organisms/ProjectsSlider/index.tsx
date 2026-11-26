@@ -7,27 +7,30 @@ import blurDataUrl from '@/lib/data/blurDataUrl';
 
 import styles from './index.module.scss';
 
-function ProjectsSlider() {
-  const projects = getProjects();
+async function ProjectsSlider() {
+  const projects = await getProjects();
 
   return (
     <div className={styles.projectsSlider}>
       <Marquee pauseOnHover speed={100} className={styles.marquee}>
         <div className={styles.projectSliderWrapper}>
-          {[...projects].slice(0, 20).map(({ id, thumbnail, title }) => (
-            <Link key={id} href={`/projects/${id}`} prefetch={false}>
-              <Image
-                key={id}
-                src={thumbnail}
-                alt={title}
-                width={271}
-                height={158}
-                placeholder="blur"
-                blurDataURL={blurDataUrl.projectSlider}
-                className={styles.thumbnail}
-              />
-            </Link>
-          ))}
+          {projects
+            .filter(({ thumbnail }) => thumbnail)
+            .slice(0, 20)
+            .map(({ id, thumbnail, title }) => (
+              <Link key={id} href={`/projects/${id}`} prefetch={false}>
+                <Image
+                  key={id}
+                  src={thumbnail}
+                  alt={title}
+                  width={271}
+                  height={158}
+                  placeholder="blur"
+                  blurDataURL={blurDataUrl.projectSlider}
+                  className={styles.thumbnail}
+                />
+              </Link>
+            ))}
         </div>
       </Marquee>
     </div>

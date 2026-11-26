@@ -8,8 +8,8 @@ type Props = {
   projects: Project[];
 };
 
-function ProjectsPage({ projects }: Props) {
-  const projectCount = getProjectCount();
+async function ProjectsPage({ projects }: Props) {
+  const projectCount = await getProjectCount();
 
   return (
     <>

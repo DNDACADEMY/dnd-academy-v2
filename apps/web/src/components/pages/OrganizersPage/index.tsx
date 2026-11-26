@@ -11,9 +11,9 @@ type Props = {
   organizers: Organizer[];
 };
 
-function OrganizersPage({ organizers }: Props) {
-  const organizerCount = getOrganizerCount();
-  const archivedOrganizer = getOrganizers({ isArchived: true });
+async function OrganizersPage({ organizers }: Props) {
+  const organizerCount = await getOrganizerCount();
+  const archivedOrganizer = await getOrganizers({ isArchived: true });
 
   return (
     <>
@@ -26,14 +26,7 @@ function OrganizersPage({ organizers }: Props) {
         </div>
         <div className={styles.archivedOrganizers}>
           {archivedOrganizer.map(({ id, name }) => (
-            <Button
-              key={id}
-              href={id ? `/organizers/${id}` : '#'}
-              fullWidth
-              size="large"
-              buttonType="secondary"
-              rounded
-            >
+            <Button key={id} href={`/organizers/${id}`} fullWidth size="large" buttonType="secondary" rounded>
               {name}
             </Button>
           ))}

@@ -1,0 +1,110 @@
+.admin {
+  max-width: 62rem;
+  margin: 3rem auto;
+  padding: 0 1.25rem;
+  line-height: 1.5;
+
+  header,
+  nav,
+  .buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0 0 1rem;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+  h2 {
+    font-size: 1.375rem;
+    margin: 1.5rem 0 1rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+  }
+  a {
+    color: #1856bb;
+    text-decoration: underline;
+  }
+  button {
+    border: 1px solid #748099;
+    border-radius: 0.4rem;
+    padding: 0.45rem 0.75rem;
+    cursor: pointer;
+  }
+  button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  fieldset {
+    border: 1px solid #a5adba;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    min-inline-size: 0;
+  }
+  label {
+    display: grid;
+    gap: 0.25rem;
+  }
+  label:has(input[type='checkbox']) {
+    display: flex;
+    align-items: center;
+  }
+  input:not([type='checkbox']),
+  textarea,
+  select {
+    min-width: 0;
+    max-width: 100%;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #748099;
+    border-radius: 0.3rem;
+    color: #182335;
+    background: white;
+  }
+  textarea {
+    width: 100%;
+    min-height: 5rem;
+  }
+  iframe {
+    width: 100%;
+    min-height: 22rem;
+    background: white;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.form {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.75rem 0;
+  justify-items: start;
+}
+
+.status {
+  padding: 0.6rem;
+  border-left: 3px solid #487fe0;
+}
+.editor {
+  display: grid;
+  gap: 0.75rem;
+}
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.previewText {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

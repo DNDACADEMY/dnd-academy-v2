@@ -30,7 +30,7 @@ type SearchParams = {
 async function Page({ searchParams }: { searchParams?: Promise<SearchParams> }) {
   const params = await searchParams;
 
-  const organizers = getOrganizers({ position: params?.position, isArchived: false });
+  const organizers = await getOrganizers({ position: params?.position, isArchived: false });
 
   return (
     <>

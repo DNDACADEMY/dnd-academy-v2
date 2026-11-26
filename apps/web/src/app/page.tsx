@@ -15,10 +15,12 @@ type Props = {
 async function Home({ searchParams }: Props) {
   const params = await searchParams;
 
-  const faqData = await api<FAQ[]>({
-    url: '/faq.json',
-    type: 'blob',
-  });
+  const faqData = process.env.NEXT_PUBLIC_VERCEL_BLOB_HOST
+    ? await api<FAQ[]>({
+        url: '/faq.json',
+        type: 'blob',
+      }).catch(() => [])
+    : [];
 
   const eventStatus = getEventStatus();
   const applicantCount = getApplicantCount();

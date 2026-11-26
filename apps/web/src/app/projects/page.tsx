@@ -29,7 +29,7 @@ type SearchParams = {
 
 async function Page({ searchParams }: { searchParams?: Promise<SearchParams> }) {
   const params = await searchParams;
-  const projects = getProjects({ ordinal: params?.ordinal });
+  const projects = await getProjects({ ordinal: params?.ordinal });
 
   return (
     <>

@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ProjectPage from '@/components/pages/ProjectPage';
-import { getProject, getProjects } from '@/lib/apis/project';
+import { getProject } from '@/lib/apis/project';
 import METADATA, { DEFAULT_METADATA } from '@/lib/constants/metadata';
 import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
-export const dynamicParams = false;
+export const dynamic = 'force-dynamic';
 
 type Props = {
   params: Promise<{
@@ -16,7 +16,7 @@ type Props = {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
-  const project = getProject({ id: Number(params.id) });
+  const project = await getProject({ id: /^(0|[1-9]\d*)$/.test(params.id) ? Number(params.id) : NaN });
 
   if (!project) {
     return DEFAULT_METADATA;
@@ -54,17 +54,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   };
 }
 
-export function generateStaticParams() {
-  const projects = getProjects();
-
-  return projects.map(({ id }) => ({
-    id: String(id),
-  }));
-}
-
 async function Page({ params }: Props) {
   const resolvedParams = await params;
-  const project = getProject({ id: Number(resolvedParams.id) });
+  const project = await getProject({ id: /^(0|[1-9]\d*)$/.test(resolvedParams.id) ? Number(resolvedParams.id) : NaN });
 
   if (!project) {
     notFound();

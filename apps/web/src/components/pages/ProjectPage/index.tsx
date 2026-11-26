@@ -20,9 +20,9 @@ type Props = {
   project: Project;
 };
 
-function ProjectPage({ project }: Props) {
-  const reviews = getReviews({ flag: project.flag, projectId: project.id });
-  const projects = getProjects({ ordinal: project.flag });
+async function ProjectPage({ project }: Props) {
+  const reviews = await getReviews({ projectId: project.id });
+  const projects = await getProjects({ ordinal: project.flag });
 
   return (
     <>
@@ -44,7 +44,7 @@ function ProjectPage({ project }: Props) {
               url={project.pdf}
               documentUrl={process.env.VERCEL_ENV === 'preview' ? `/projects/${project.id}/pdf` : undefined}
             />
-          ) : (
+          ) : project.thumbnail ? (
             <div className={styles.thumbnailWrapper}>
               <Image
                 fill
@@ -54,7 +54,7 @@ function ProjectPage({ project }: Props) {
                 sizes="(max-width: 768px) 100vw, 768px"
               />
             </div>
-          )}
+          ) : null}
           <div className={styles.projectIntroduceTitleWrapper}>
             <div className={styles.header}>
               <Badge label={project.flag} variant="info" size="large" theme="light" />
@@ -89,6 +89,16 @@ function ProjectPage({ project }: Props) {
           </div>
           <div>
             <div className={styles.description}>{project.desc}</div>
+            {project.images?.map((image, index) => (
+              <Image
+                key={`${index}:${image}`}
+                src={image}
+                width={768}
+                height={480}
+                style={{ maxWidth: '100%', height: 'auto' }}
+                alt={`${project.name} 이미지 ${index + 1}`}
+              />
+            ))}
           </div>
         </section>
         {reviews.length > 0 && (

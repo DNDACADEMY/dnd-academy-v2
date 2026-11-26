@@ -27,7 +27,7 @@ type SearchParams = {
 
 async function Page({ searchParams }: { searchParams?: Promise<SearchParams> }) {
   const params = await searchParams;
-  const reviews = getReviews({ position: params?.position });
+  const reviews = await getReviews({ position: params?.position });
 
   return <ReviewsPage reviews={reviews} />;
 }

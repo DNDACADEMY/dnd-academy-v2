@@ -8,8 +8,8 @@ type Props = {
   reviews: Review[];
 };
 
-function ReviewsPage({ reviews }: Props) {
-  const reviewCount = getReviewCount();
+async function ReviewsPage({ reviews }: Props) {
+  const reviewCount = await getReviewCount();
 
   return (
     <>
