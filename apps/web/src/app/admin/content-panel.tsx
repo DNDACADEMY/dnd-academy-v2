@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { type FormEvent, useEffect, useRef, useState } from 'react';
@@ -17,11 +17,13 @@ import {
 } from '@/lib/cms/content-contract';
 
 import { adminRequest } from './admin-request';
-import LinkFields, { linkLabels } from './link-fields';
+import LinkFields from './link-fields';
 import AdminLinkStatus from './link-status';
 import MediaPanel from './media-panel';
 
 import styles from './styles.module.scss';
+
+const ContentPreview = dynamic(() => import('./content-preview'), { ssr: false });
 
 const names: Record<ContentKind, string> = { project: '프로젝트', organizer: '운영진', review: '후기' };
 const detailLabels = {
@@ -302,10 +304,8 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
       requestAnimationFrame(() => invalid.reportValidity());
       return;
     }
-    const mode = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
     const input = readDraft(kind, new FormData(event.currentTarget), initial);
-    if (mode?.value === 'preview') setPreview(input);
-    else void mutate('save', input);
+    void mutate('save', input);
   }
 
   function attach(id: string, field: 'thumbnailId' | 'pdfId' | 'images') {
@@ -325,7 +325,18 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
           <h2>{initial?.name ?? `새 ${names[kind]}`}</h2>
           <p>{initial ? `#${initial.id} · ${names[kind]}` : '내용을 입력하고 초안을 저장하세요.'}</p>
         </div>
-        {initial && <Publication row={initial} />}
+        <div className={styles.editorHeadingActions}>
+          {initial && <Publication row={initial} />}
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => {
+              if (formRef.current) setPreview(readDraft(kind, new FormData(formRef.current), initial));
+            }}
+          >
+            미리보기
+          </button>
+        </div>
       </div>
       <div className={styles.tabs} aria-label="편집 구역">
         <button type="button" aria-pressed={tab === 'basic'} onClick={() => setTab('basic')}>
@@ -502,15 +513,6 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
         <div className={styles.buttons}>
           <button
             type="button"
-            disabled={busy}
-            onClick={() => {
-              if (formRef.current) setPreview(readDraft(kind, new FormData(formRef.current), initial));
-            }}
-          >
-            미리보기
-          </button>
-          <button
-            type="button"
             className={styles.primary}
             disabled={busy}
             onClick={() => formRef.current?.requestSubmit()}
@@ -557,87 +559,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
           )}
         </div>
       )}
-      {preview && <PreviewDialog input={preview} onClose={() => setPreview(undefined)} />}
-    </section>
-  );
-}
-
-function PreviewDialog({ input, onClose }: { input: ContentInput; onClose: () => void }) {
-  return (
-    <dialog
-      ref={(element) => {
-        if (element && !element.open) element.showModal();
-      }}
-      className={styles.dialog}
-      onClose={onClose}
-      aria-labelledby="draft-preview-title"
-    >
-      <header>
-        <h2 id="draft-preview-title">초안 미리보기</h2>
-        <form method="dialog">
-          <button aria-label="미리보기 닫기">닫기</button>
-        </form>
-      </header>
-      <DraftPreview input={input} />
-    </dialog>
-  );
-}
-
-function DraftPreview({ input }: { input: ContentInput }) {
-  const [resources, setResources] = useState<{ url: string; mime: string }[]>([]);
-  const [error, setError] = useState('');
-  const ids = [input.thumbnailId, ...(input.images?.map(({ mediaId }) => mediaId) ?? []), input.pdfId].filter(
-    (id): id is string => !!id,
-  );
-  async function loadMedia() {
-    try {
-      setResources(
-        await Promise.all(
-          ids.map((id) => adminRequest<{ url: string; mime: string }>('media', { action: 'preview', id })),
-        ),
-      );
-      setError('');
-    } catch {
-      setError('첨부 미디어를 불러오지 못했습니다.');
-    }
-  }
-  return (
-    <section className={styles.previewBody}>
-      <h3>{input.name}</h3>
-      {input.title && <p>{input.title}</p>}
-      <p>
-        {[input.cohort ? `${input.cohort}기` : '', input.position, input.author, input.mbti, input.emoji]
-          .filter(Boolean)
-          .join(' · ')}
-      </p>
-      <p className={styles.previewText}>{input.description}</p>
-      {input.skills?.length ? <p>{input.skills.join(' · ')}</p> : null}
-      {input.details?.map(({ kind, body }, index) => (
-        <p key={`${kind}:${index}`}>
-          {detailLabels[kind]} · {body}
-        </p>
-      ))}
-      {input.links.map(({ kind, url }, index) => (
-        <p key={index}>
-          {linkLabels[kind]} · {url}
-        </p>
-      ))}
-      {input.projectId != null && <p>연결 프로젝트 #{input.projectId}</p>}
-      {ids.length > 0 && (
-        <button type="button" onClick={() => void loadMedia()}>
-          첨부 미디어 불러오기
-        </button>
-      )}
-      {error && <p role="alert">{error}</p>}
-      {resources.map(({ mime, url }) =>
-        mime === 'image/webp' ? (
-          <Image key={url} unoptimized src={url} width={960} height={540} alt="초안 미디어" />
-        ) : (
-          <a key={url} href={url} target="_blank" rel="noreferrer">
-            초안 PDF 열기
-          </a>
-        ),
-      )}
+      {preview && <ContentPreview input={preview} kind={kind} id={initial?.id} onClose={() => setPreview(undefined)} />}
     </section>
   );
 }

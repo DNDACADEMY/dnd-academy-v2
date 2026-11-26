@@ -90,6 +90,11 @@ export const contentRequest = z.object({
   input: contentInput.optional(),
 });
 
+export const contentPreviewRequest = z.object({
+  mediaIds: z.array(z.uuid()).max(52),
+  projectId: id.nullable(),
+});
+
 export const mediaMax = 200 * 1024 * 1024;
 export const mediaMimes = ['image/webp', 'application/pdf'] as const;
 export const mediaRequest = z.discriminatedUnion('action', [

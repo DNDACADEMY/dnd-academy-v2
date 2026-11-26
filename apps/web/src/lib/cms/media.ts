@@ -36,6 +36,23 @@ export async function mediaAssets(ids: string[]) {
   return new Map((result.data as Asset[]).map((asset) => [asset.id, asset]));
 }
 
+export async function previewMedia(ids: string[]) {
+  const records = [...(await mediaAssets(ids)).values()].filter((asset) => asset.ready);
+  const draftKeys = records.filter((asset) => asset.bucket === draftBucket).map((asset) => asset.object_key);
+  const signed = new Map<string, string>();
+  if (draftKeys.length) {
+    const { data, error } = await database().storage.from(draftBucket).createSignedUrls(draftKeys, 300);
+    if (error) throw new DatabaseError('MEDIA_INVALID');
+    for (const item of data) {
+      if (item.path && item.signedUrl && !item.error) signed.set(item.path, item.signedUrl);
+    }
+  }
+  return records.flatMap((asset) => {
+    const url = asset.bucket === publicBucket ? publicMedia(asset.object_key) : signed.get(asset.object_key);
+    return url ? [{ id: asset.id, mime: asset.mime, url }] : [];
+  });
+}
+
 async function digest(url: string, mime: string, expectedBytes: number, verifyImage = false) {
   const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(120000) });
   if (!response.ok || !response.body || response.headers.get('content-type')?.split(';')[0] !== mime) {

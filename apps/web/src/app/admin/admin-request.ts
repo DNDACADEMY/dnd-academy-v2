@@ -1,4 +1,7 @@
-export async function adminRequest<T>(resource: 'admissions' | 'content' | 'media', payload: unknown): Promise<T> {
+export async function adminRequest<T>(
+  resource: 'admissions' | 'content' | 'content/preview' | 'media',
+  payload: unknown,
+): Promise<T> {
   const response = await fetch(`/api/admin/${resource}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
