@@ -1,7 +1,7 @@
 import type { Project, ProjectFlag } from '@dnd-academy/core';
 
 import projectsData from '@/lib/assets/data/projects.json';
-import { cmsProjects, contentEnabled } from '@/lib/cms/content';
+import { cmsProject, cmsProjectCards, cmsProjectPdf, cmsProjects, contentEnabled } from '@/lib/cms/content';
 import { ensureNumber, sortFlagsDescending } from '@/utils';
 
 export async function getProjects({ ordinal }: { ordinal?: string } | undefined = {}): Promise<Project[]> {
@@ -26,10 +26,26 @@ export async function getProjectCount() {
   );
 }
 
-export async function getProject({ id }: { id: number }) {
-  const projects = await loadProjects();
+function validProjectId(id: number) {
+  return Number.isInteger(id) && id >= 0 && id <= 2147483647;
+}
 
-  return projects.find((project) => project.id === id);
+export async function getProject({ id }: { id: number }) {
+  if (!validProjectId(id)) return;
+  return contentEnabled() ? cmsProject(id) : (projectsData.find((project) => project.id === id) as Project | undefined);
+}
+
+export async function getProjectPdf({ id }: { id: number }) {
+  if (!validProjectId(id)) return;
+  return contentEnabled() ? cmsProjectPdf(id) : projectsData.find((project) => project.id === id)?.pdf;
+}
+
+export async function getProjectCards(ids?: number[]) {
+  if (contentEnabled()) return cmsProjectCards(ids);
+  const eligible = (await getProjects()).filter(({ thumbnail }) => thumbnail);
+  if (!ids) return eligible.slice(0, 20);
+  const byId = new Map(eligible.map((project) => [project.id, project]));
+  return ids.flatMap((id) => byId.get(id) ?? []).slice(0, 20);
 }
 
 async function loadProjects(): Promise<Project[]> {

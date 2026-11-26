@@ -17,8 +17,8 @@ export function contentAssets(row: ContentRecord) {
   );
 }
 
-export const publishedContent = cache(async (kind: ContentKind) => {
-  const rows = await rpc<ContentRecord[]>('published_content', { kind });
+export const publishedContent = cache(async (kind: ContentKind, id?: number) => {
+  const rows = await rpc<ContentRecord[]>('published_content', { kind, selected_id: id ?? null });
   const ids = [...new Set(rows.flatMap(contentAssets))];
   const media = new Map<string, string>();
   for (let start = 0; start < ids.length; start += 80) {
@@ -45,6 +45,35 @@ export function contentWorkspace(actor: string, kind: ContentKind, id: number | 
 export async function cmsProjects(): Promise<Project[]> {
   const { rows, media } = await publishedContent('project');
   return rows.map((row) => projectPresentation(row, row.id, media));
+}
+
+export async function cmsProject(id: number): Promise<Project | undefined> {
+  const {
+    rows: [row],
+    media,
+  } = await publishedContent('project', id);
+  return row ? projectPresentation(row, row.id, media) : undefined;
+}
+
+export type ProjectCard = Pick<Project, 'id' | 'title' | 'thumbnail'>;
+
+export async function cmsProjectCards(ids?: number[]): Promise<ProjectCard[]> {
+  const rows = await rpc<{ id: number; title: string; legacy_thumbnail: string | null; object_key: string | null }[]>(
+    'published_project_cards',
+    { featured_ids: ids ?? null },
+  );
+  return rows.map(({ id, title, legacy_thumbnail, object_key }) => ({
+    id,
+    title,
+    thumbnail: object_key ? publicMedia(object_key) : (legacy_thumbnail ?? ''),
+  }));
+}
+
+export async function cmsProjectPdf(id: number) {
+  const row = await rpc<{ object_key: string | null; legacy_pdf: string | null } | null>('published_project_pdf', {
+    selected_id: id,
+  });
+  return row?.object_key ? publicMedia(row.object_key) : row?.legacy_pdf;
 }
 
 export async function cmsOrganizers(): Promise<Organizer[]> {
