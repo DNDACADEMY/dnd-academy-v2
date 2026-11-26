@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { type FormEvent, useEffect, useRef, useState } from 'react';
+import { type FormEvent, useRef, useState } from 'react';
 
 import {
   type ContentInput,
@@ -21,6 +21,7 @@ import LinkFields from './link-fields';
 import AdminLinkStatus from './link-status';
 import type { MediaSelection } from './media-fields';
 import ReviewProjectPicker from './review-project-picker';
+import { useUnsavedChanges } from './use-unsaved-changes';
 
 import styles from './styles.module.scss';
 
@@ -243,33 +244,7 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
   const path = `/admin?section=content&kind=${kind}` as const;
   const positions = kind === 'organizer' ? organizerPositions : reviewPositions;
 
-  useEffect(() => {
-    if (!dirty) return;
-    const warn = (event: BeforeUnloadEvent) => event.preventDefault();
-    const confirmNavigation = (event: MouseEvent) => {
-      if (
-        event.defaultPrevented ||
-        event.button !== 0 ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey
-      )
-        return;
-      const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
-      if (!(link instanceof HTMLAnchorElement) || link.target || link.href === window.location.href) return;
-      if (!window.confirm('저장하지 않은 변경 사항이 있습니다. 편집 화면을 나갈까요?')) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    };
-    window.addEventListener('beforeunload', warn);
-    document.addEventListener('click', confirmNavigation, true);
-    return () => {
-      window.removeEventListener('beforeunload', warn);
-      document.removeEventListener('click', confirmNavigation, true);
-    };
-  }, [dirty]);
+  useUnsavedChanges(dirty);
 
   async function mutate(action: 'save' | 'publish' | 'unpublish', input?: ContentInput) {
     setMessage('');

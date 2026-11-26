@@ -1,11 +1,12 @@
 import 'server-only';
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 
 import sharp from 'sharp';
 import type { z } from 'zod';
 
 import { type MediaItem, type MediaLibrary, type mediaRequest, mediaMax } from './content-contract';
-import { database, DatabaseError, supabaseUrl } from './supabase';
+import { publishWithCopies } from './media-publication-flow';
+import { database, DatabaseError, rpc, supabaseUrl } from './supabase';
 
 const draftBucket = 'cms-drafts';
 const publicBucket = 'cms-public';
@@ -18,6 +19,7 @@ type Asset = {
   mime: MediaItem['mime'];
   display_name: string | null;
   ready: boolean;
+  publication_pending?: boolean;
 };
 
 export function publicMedia(key: string) {
@@ -27,7 +29,7 @@ export function publicMedia(key: string) {
   ).href;
 }
 
-const assetColumns = 'id,object_key,bucket,bytes,sha256,mime,ready,display_name';
+const assetColumns = 'id,object_key,bucket,bytes,sha256,mime,ready,display_name,publication_pending';
 
 export async function mediaAssets(ids: string[]) {
   if (!ids.length) return new Map<string, Asset>();
@@ -134,7 +136,12 @@ export async function handleMedia(actor: string, request: z.infer<typeof mediaRe
   if (request.action === 'library') {
     const pageSize = 18;
     const start = request.page * pageSize;
-    let query = db.from('media_assets').select(assetColumns).eq('ready', true).eq('mime', request.mime);
+    let query = db
+      .from('media_assets')
+      .select(assetColumns)
+      .eq('ready', true)
+      .eq('publication_pending', false)
+      .eq('mime', request.mime);
     if (request.query) {
       const pattern = request.query.replace(/[\\%_]/g, '\\$&');
       query = query.ilike('display_name', `%${pattern}%`);
@@ -207,17 +214,75 @@ export async function handleMedia(actor: string, request: z.infer<typeof mediaRe
   };
 }
 
-export async function publishMedia(ids: string[]) {
+const copiesTable = 'cms_media_publication_copies';
+
+async function removeCopyRecord(key: string) {
+  const { error } = await database().from(copiesTable).delete().eq('object_key', key);
+  if (error) throw new DatabaseError(error.code);
+}
+
+async function keepCopy(key: string) {
+  const { error } = await database()
+    .from('media_assets')
+    .update({ publication_pending: false })
+    .eq('bucket', publicBucket)
+    .eq('object_key', key);
+  if (error) throw new DatabaseError(error.code);
+  await removeCopyRecord(key);
+}
+
+async function discardCopy(key: string) {
+  if (!(await rpc<boolean>('prepare_media_copy_cleanup', { copy_key: key }))) return;
+  const { error } = await database().storage.from(publicBucket).remove([key]);
+  if (error) throw new DatabaseError('MEDIA_INVALID');
+  await removeCopyRecord(key);
+}
+
+async function finishCopies(keys: string[], committed: boolean) {
+  // Keep failed cleanup records for the next publication. Do not mask the publish outcome.
+  const results = await Promise.allSettled(keys.map((key) => (committed ? keepCopy(key) : discardCopy(key))));
+  if (results.some((result) => result.status === 'rejected')) {
+    console.warn('CMS publication media cleanup deferred');
+  }
+}
+
+async function cleanExpiredCopies() {
+  const { data, error } = await database()
+    .from(copiesTable)
+    .select('object_key')
+    .lt('cleanup_after', new Date().toISOString())
+    .order('cleanup_after')
+    .limit(8);
+  if (!error)
+    await finishCopies(
+      data.map(({ object_key }) => object_key as string),
+      false,
+    );
+}
+
+export async function publishWithMedia<Result>(
+  ids: string[],
+  commit: (replacements: Record<string, string>) => Promise<Result>,
+) {
+  await cleanExpiredCopies();
+  return publishWithCopies((onCopy) => copyPublicationAssets(ids, onCopy), commit, finishCopies);
+}
+
+async function copyPublicationAssets(ids: string[], onCopy: (key: string) => void) {
   const assets = await mediaAssets(ids);
   const replacements: Record<string, string> = {};
+  const attempt = randomUUID();
   for (const id of new Set(ids)) {
     const asset = assets.get(id);
     if (!asset?.ready) throw new DatabaseError('MEDIA_INVALID');
     if (asset.bucket === publicBucket) continue;
-    const key = `published/${asset.id}`;
+    const key = `published/attempt-${attempt}/${asset.id}`;
+    const { error: reservation } = await database().from(copiesTable).insert({ object_key: key });
+    if (reservation) throw new DatabaseError(reservation.code);
+    onCopy(key);
     const storage = database().storage.from(draftBucket);
-    // A retried copy may already exist. Read the destination and verify the bytes in either case.
-    await storage.copy(asset.object_key, key, { destinationBucket: publicBucket });
+    const { error: copy } = await storage.copy(asset.object_key, key, { destinationBucket: publicBucket });
+    if (copy) throw new DatabaseError('MEDIA_INVALID');
     const actual = await digest(publicMedia(key), asset.mime, asset.bytes);
     if (actual !== asset.sha256) throw new DatabaseError('MEDIA_INVALID');
     replacements[id] = await recordAsset({
@@ -226,6 +291,7 @@ export async function publishMedia(ids: string[]) {
       mime: asset.mime,
       bytes: asset.bytes,
       sha256: actual,
+      publication_pending: true,
       display_name: asset.display_name,
     });
   }

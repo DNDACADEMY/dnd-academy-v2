@@ -2,7 +2,7 @@ import { revalidatePath } from 'next/cache';
 
 import { editableHome, homeLogoIds } from '@/lib/cms/home';
 import { homeRequest, type HomeWorkspace } from '@/lib/cms/home-contract';
-import { mediaAssets, publishMedia } from '@/lib/cms/media';
+import { mediaAssets, publishWithMedia } from '@/lib/cms/media';
 import { canAdmin } from '@/lib/cms/permissions';
 import { DatabaseError, rpc } from '@/lib/cms/supabase';
 
@@ -22,25 +22,32 @@ export async function POST(request: Request) {
     const parsed = homeRequest.safeParse(await request.json().catch(() => null));
     if (!parsed.success) return Response.json({ message: '홈의 입력값을 확인해 주세요.' }, { status: 422, headers });
     const { action, revisionId } = parsed.data;
-    let input: unknown;
+    const write = (input: unknown) =>
+      rpc<HomeWorkspace>('write_home', {
+        actor,
+        expected_revision: revisionId,
+        operation: action,
+        input,
+      });
+    let result: HomeWorkspace;
     if (parsed.data.action === 'save') {
-      input = parsed.data.input;
-      const ids = homeLogoIds(parsed.data.input);
+      const input = parsed.data.input;
+      const ids = homeLogoIds(input);
       const assets = await mediaAssets(ids);
-      if (ids.some((id) => !assets.get(id)?.ready || assets.get(id)?.mime !== 'image/webp')) {
+      if (
+        ids.some(
+          (id) =>
+            !assets.get(id)?.ready || assets.get(id)?.publication_pending || assets.get(id)?.mime !== 'image/webp',
+        )
+      ) {
         throw new DatabaseError('MEDIA_INVALID');
       }
+      result = await write(input);
     } else {
       const draft = await editableHome(actor);
       if (!draft || draft.revisionId !== revisionId) throw new DatabaseError('40001');
-      input = await publishMedia(homeLogoIds(draft.input, true));
+      result = await publishWithMedia(homeLogoIds(draft.input, true), write);
     }
-    const result = await rpc<HomeWorkspace>('write_home', {
-      actor,
-      expected_revision: revisionId,
-      operation: action,
-      input,
-    });
     if (action === 'publish') revalidatePath('/');
     return Response.json(result, { headers });
   } catch (error) {
@@ -52,7 +59,10 @@ export async function POST(request: Request) {
         { status: 409, headers },
       );
     if (['23503', '23514', 'MEDIA_INVALID'].includes(code)) {
-      return Response.json({ message: '연결한 프로젝트 또는 후원사 로고를 확인해 주세요.' }, { status: 422, headers });
+      return Response.json(
+        { message: '집계 기수, 연결한 프로젝트, 후원사 로고를 확인해 주세요.' },
+        { status: 422, headers },
+      );
     }
     return Response.json({ message: '홈을 저장하지 못했습니다.' }, { status: 503, headers });
   }

@@ -82,7 +82,10 @@ export async function cmsOrganizers(): Promise<Organizer[]> {
 }
 
 export async function cmsReviews(): Promise<Review[]> {
-  const [{ rows }, { rows: projects }] = await Promise.all([publishedContent('review'), publishedContent('project')]);
+  const [{ rows }, projects] = await Promise.all([
+    publishedContent('review'),
+    rpc<{ id: number; name: string }[]>('published_review_projects'),
+  ]);
   const names = new Map(projects.map(({ id, name }) => [id, name]));
   return rows.map((row) =>
     reviewPresentation(row, row.id, row.projectId == null ? undefined : names.get(row.projectId)),

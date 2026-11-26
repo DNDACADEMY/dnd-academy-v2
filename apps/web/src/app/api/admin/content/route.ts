@@ -1,6 +1,6 @@
 import { contentAssets, editableContent } from '@/lib/cms/content';
-import { contentRequest, safeContentLink, validContent } from '@/lib/cms/content-contract';
-import { mediaAssets, publishMedia } from '@/lib/cms/media';
+import { contentRequest, safeContentLink } from '@/lib/cms/content-contract';
+import { mediaAssets, publishWithMedia } from '@/lib/cms/media';
 import { canAdmin } from '@/lib/cms/permissions';
 import { DatabaseError, rpc } from '@/lib/cms/supabase';
 
@@ -19,12 +19,20 @@ export async function POST(request: Request) {
     if (!actor) return Response.json({ message: '콘텐츠 담당 권한이 필요합니다.' }, { status: 403, headers });
     const parsed = contentRequest.safeParse(await request.json().catch(() => null));
     if (!parsed.success) return Response.json({ message: '입력값을 확인해 주세요.' }, { status: 422, headers });
-    const { kind, id, action, revisionId, editNumber, input } = parsed.data;
-    let payload: unknown = {};
-    if (action === 'save') {
-      if (!input || !validContent(kind, input)) {
-        return Response.json({ message: '필수 항목을 확인해 주세요.' }, { status: 422, headers });
-      }
+    const { kind, id, action, revisionId, editNumber } = parsed.data;
+    const write = (payload: unknown) =>
+      rpc('write_content', {
+        actor,
+        kind,
+        selected_id: id,
+        expected_revision: revisionId,
+        expected_edit: editNumber,
+        operation: action,
+        input: payload,
+      });
+    let result: unknown;
+    if (parsed.data.action === 'save') {
+      const { input } = parsed.data;
       const unchanged = id === null ? undefined : (await editableContent(actor, kind, id))[0];
       if (
         input.links.some(
@@ -36,34 +44,28 @@ export async function POST(request: Request) {
       ) {
         return Response.json({ message: '외부 링크 주소를 확인해 주세요.' }, { status: 422, headers });
       }
-      const images = [input.thumbnailId, ...(input.images ?? []).map(({ mediaId }) => mediaId)].filter(
-        (value): value is string => !!value,
-      );
-      const assets = await mediaAssets([...images, ...(input.pdfId ? [input.pdfId] : [])]);
-      if (
-        images.some((value) => !assets.get(value)?.ready || assets.get(value)?.mime !== 'image/webp') ||
-        (input.pdfId && (!assets.get(input.pdfId)?.ready || assets.get(input.pdfId)?.mime !== 'application/pdf'))
-      ) {
+      const thumbnail = 'thumbnailId' in input ? input.thumbnailId : null;
+      const gallery = 'images' in input ? input.images.map(({ mediaId }) => mediaId) : [];
+      const pdf = 'pdfId' in input ? input.pdfId : null;
+      const images = [thumbnail, ...gallery].filter((id): id is string => Boolean(id));
+      const assets = await mediaAssets([...images, ...(pdf ? [pdf] : [])]);
+      function isAvailable(id: string, mime: string) {
+        const asset = assets.get(id);
+        return asset?.ready && !asset.publication_pending && asset.mime === mime;
+      }
+      if (images.some((id) => !isAvailable(id, 'image/webp')) || (pdf && !isAvailable(pdf, 'application/pdf'))) {
         throw new DatabaseError('MEDIA_INVALID');
       }
-      payload = input;
-    }
-    if (action === 'publish') {
+      result = await write(input);
+    } else if (action === 'publish') {
       const [draft] = id === null ? [] : await editableContent(actor, kind, id);
       if (!draft || draft.state !== 'draft' || draft.revisionId !== revisionId || draft.editNumber !== editNumber) {
         throw new DatabaseError('40001');
       }
-      payload = await publishMedia(contentAssets(draft));
+      result = await publishWithMedia(contentAssets(draft), write);
+    } else {
+      result = await write({});
     }
-    const result = await rpc('write_content', {
-      actor,
-      kind,
-      selected_id: id,
-      expected_revision: revisionId,
-      expected_edit: editNumber,
-      operation: action,
-      input: payload,
-    });
     return Response.json(result, { headers });
   } catch (error) {
     const code = error instanceof DatabaseError ? error.code : '';

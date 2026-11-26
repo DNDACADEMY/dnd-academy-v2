@@ -81,14 +81,84 @@ export type ContentSummary = Pick<
   'id' | 'name' | 'cohort' | 'position' | 'author' | 'state' | 'liveRevisionId'
 >;
 
-export const contentRequest = z.object({
-  kind: z.enum(contentKinds),
+const requiredDraftFields = {
+  name: true,
+  description: true,
+  links: true,
+} as const;
+
+const saveProject = contentInput
+  .pick({
+    ...requiredDraftFields,
+    thumbnailId: true,
+    pdfId: true,
+    legacyThumbnail: true,
+    legacyPdf: true,
+    title: true,
+    cohort: true,
+    images: true,
+    skills: true,
+  })
+  .extend({
+    title: z
+      .string()
+      .max(300)
+      .refine((title) => Boolean(title.trim())),
+    cohort,
+    images: contentInput.shape.images.unwrap(),
+    skills: contentInput.shape.skills.unwrap(),
+  });
+
+const saveOrganizer = contentInput
+  .pick({
+    ...requiredDraftFields,
+    thumbnailId: true,
+    legacyThumbnail: true,
+    author: true,
+    position: true,
+    mbti: true,
+    emoji: true,
+    isArchived: true,
+    details: true,
+    skills: true,
+  })
+  .extend({
+    position: z.enum(organizerPositions),
+    author: contentInput.shape.author.unwrap(),
+    mbti: contentInput.shape.mbti.unwrap(),
+    details: contentInput.shape.details.unwrap(),
+    skills: contentInput.shape.skills.unwrap(),
+    isArchived: z.boolean(),
+  });
+
+const saveReview = contentInput
+  .pick({
+    ...requiredDraftFields,
+    position: true,
+    cohort: true,
+    projectId: true,
+    originalProjectName: true,
+  })
+  .extend({
+    position: z.enum(reviewPositions),
+    description: contentInput.shape.description.refine((text) => Boolean(text.trim())),
+  });
+
+const changeTarget = z.object({
   id: id.nullable(),
   revisionId: z.number().int().positive().safe().nullable(),
   editNumber: z.number().int().positive().nullable(),
-  action: z.enum(['save', 'publish', 'unpublish']),
-  input: contentInput.optional(),
 });
+
+export const contentRequest = z.discriminatedUnion('action', [
+  z.discriminatedUnion('kind', [
+    changeTarget.extend({ action: z.literal('save'), kind: z.literal('project'), input: saveProject }),
+    changeTarget.extend({ action: z.literal('save'), kind: z.literal('organizer'), input: saveOrganizer }),
+    changeTarget.extend({ action: z.literal('save'), kind: z.literal('review'), input: saveReview }),
+  ]),
+  changeTarget.extend({ action: z.literal('publish'), kind: z.enum(contentKinds) }),
+  changeTarget.extend({ action: z.literal('unpublish'), kind: z.enum(contentKinds) }),
+]);
 
 export const contentPreviewRequest = z.object({
   mediaIds: z.array(z.uuid()).max(52),
@@ -117,24 +187,6 @@ export const mediaRequest = z.discriminatedUnion('action', [
   }),
   z.object({ action: z.literal('preview'), id: z.uuid() }),
 ]);
-
-export function validContent(kind: ContentKind, input: ContentInput) {
-  switch (kind) {
-    case 'project':
-      return input.cohort && input.title?.trim() && input.images && input.skills;
-    case 'organizer':
-      return (
-        input.author !== undefined &&
-        input.mbti !== undefined &&
-        input.isArchived !== undefined &&
-        organizerPositions.some((value) => value === input.position) &&
-        input.details &&
-        input.skills
-      );
-    case 'review':
-      return reviewPositions.some((value) => value === input.position) && input.description.trim();
-  }
-}
 
 export function safeContentLink(kind: ContentInput['links'][number]['kind'], link: string) {
   try {
