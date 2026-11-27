@@ -29,7 +29,7 @@ const fields = {
 } as const satisfies Record<Submission['kind'], readonly (keyof ContentInput)[]>;
 
 const editableValue = (
-  input: ContentRecord | Submission['input'] | null,
+  input: ContentInput | Submission['input'] | null,
   field: (typeof fields)[Submission['kind']][number],
 ) => {
   if (field === 'links') return (input?.links ?? []).filter(({ kind }) => kind !== 'email');
@@ -56,16 +56,25 @@ export async function inspectSubmission(actor: string, id: string) {
     changes: [
       ...fields[submission.kind].flatMap((field) => {
         const before = editableValue(row.current, field);
-        const after = editableValue(submission.input, field);
+        const after = editableValue(draft, field);
         return equal(before, after) ? [] : [{ field, before, after }];
       }),
-      ...(submission.kind === 'organizer'
-        ? organizerEdits(row).flatMap(({ field, live, requested, changed }) =>
-            changed && !equal(live, requested) ? [{ field, before: live, after: requested }] : [],
-          )
-        : []),
+      ...organizerPublicationChanges(submission.kind, row.current, draft),
     ],
   };
+}
+
+function organizerPublicationChanges(
+  kind: Submission['kind'],
+  current: ContentRecord | null,
+  publication: ContentInput,
+) {
+  if (kind !== 'organizer') return [];
+  const before = organizerProfileFrom(current);
+  const after = organizerProfileFrom(publication);
+  return organizerProfileFields.flatMap((field) =>
+    equal(before[field], after[field]) ? [] : [{ field, before: before[field], after: after[field] }],
+  );
 }
 
 function organizerEdits({ submission, base, current, editor }: ReviewRow) {
@@ -80,7 +89,6 @@ function organizerEdits({ submission, base, current, editor }: ReviewRow) {
     const changed = !equal(before[field], requested);
     return {
       field,
-      live,
       requested,
       changed,
       conflict:
