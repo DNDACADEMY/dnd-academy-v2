@@ -6,6 +6,8 @@ packages:
 saveExact: true
 
 overrides:
+  # CVE-2026-118764 affects the Queue SDK minimatch 10.x dependency.
+  "@vercel/queue@0.11.0>minimatch": "11.0.1"
   # The Storybook builder still requests 6.x; the middleware fix is on 7.x.
   "@storybook/builder-webpack5@10.6.2>webpack-dev-middleware": "7.4.6"
   # SVGR 8.1.0 ships no import of deepmerge (gregberge/svgr#1038).
