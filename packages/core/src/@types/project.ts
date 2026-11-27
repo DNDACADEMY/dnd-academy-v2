@@ -1,4 +1,4 @@
-export type ProjectLinkType = 'github' | 'googlePlayStore' | 'youtube' | 'link' | 'figma' | 'appStore';
+export type ProjectLinkType = 'github' | 'googlePlayStore' | 'youtube' | 'link' | 'blog' | 'figma' | 'appStore';
 
 export type ProjectLinks = {
   github?: string[];

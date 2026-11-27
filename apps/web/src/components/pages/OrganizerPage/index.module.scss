@@ -149,6 +149,22 @@
           @include text('H6/Bold', 'white');
         }
 
+        .mbtiBadge {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .mbtiIcon {
+          display: inline-grid;
+          place-items: center;
+          width: 32px;
+          height: 32px;
+          border-radius: 8px;
+          background: color('gray07');
+        }
+
         .organizerAnswer {
           overflow-wrap: break-word;
           white-space: pre-line;

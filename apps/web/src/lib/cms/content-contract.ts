@@ -16,6 +16,7 @@ export const linkKinds = [
   'googlePlayStore',
   'youtube',
   'link',
+  'blog',
   'figma',
   'appStore',
   'behance',
@@ -29,6 +30,26 @@ export const linkKinds = [
   'naverBlog',
   'brunch',
 ] as const;
+
+export const linkLabels: Record<(typeof linkKinds)[number], string> = {
+  github: 'GitHub',
+  googlePlayStore: 'Google Play',
+  youtube: 'YouTube',
+  link: '웹사이트',
+  blog: '개인 블로그',
+  figma: 'Figma',
+  appStore: 'App Store',
+  behance: 'Behance',
+  linkedin: 'LinkedIn',
+  facebook: 'Facebook',
+  email: '이메일',
+  velog: 'Velog',
+  tistory: '티스토리',
+  medium: 'Medium',
+  instagram: 'Instagram',
+  naverBlog: '네이버 블로그',
+  brunch: '브런치',
+};
 
 const legacy = z
   .url()

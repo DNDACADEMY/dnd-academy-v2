@@ -2,30 +2,11 @@
 
 import { useEffect, useId, useRef, useState } from 'react';
 
-import { type ContentInput, type ContentKind, linkKinds } from '@/lib/cms/content-contract';
+import { type ContentInput, type ContentKind, linkKinds, linkLabels } from '@/lib/cms/content-contract';
 
 import styles from './styles.module.scss';
 
 type Link = ContentInput['links'][number];
-
-export const linkLabels: Record<Link['kind'], string> = {
-  github: 'GitHub',
-  googlePlayStore: 'Google Play',
-  youtube: 'YouTube',
-  link: '웹사이트',
-  figma: 'Figma',
-  appStore: 'App Store',
-  behance: 'Behance',
-  linkedin: 'LinkedIn',
-  facebook: 'Facebook',
-  email: '이메일',
-  velog: 'Velog',
-  tistory: '티스토리',
-  medium: 'Medium',
-  instagram: 'Instagram',
-  naverBlog: '네이버 블로그',
-  brunch: '브런치',
-};
 
 export default function LinkFields({
   kind,

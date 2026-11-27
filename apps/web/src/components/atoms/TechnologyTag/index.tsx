@@ -26,6 +26,7 @@ const icons = new Set([
   'cinema4d',
   'claude',
   'claudecode',
+  'clickhouse',
   'cloudflarepages',
   'cplusplus',
   'css',
