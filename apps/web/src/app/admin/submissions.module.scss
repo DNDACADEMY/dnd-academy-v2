@@ -382,7 +382,14 @@
 }
 
 @media (max-width: 520px) {
-  .heading,
+  .heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+  .cohort {
+    min-width: 0;
+  }
   .cardHeading {
     flex-wrap: wrap;
   }

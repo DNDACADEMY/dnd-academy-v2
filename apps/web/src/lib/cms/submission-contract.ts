@@ -144,12 +144,20 @@ export type SubmissionWorkspace = {
 
 const kst = new Intl.DateTimeFormat('ko-KR', {
   timeZone: 'Asia/Seoul',
-  dateStyle: 'medium',
-  timeStyle: 'short',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
   hourCycle: 'h23',
 });
 
-export const formatSubmissionTime = (value: string) => kst.format(new Date(value));
+export function formatSubmissionTime(value: string) {
+  const { year, month, day, hour, minute } = Object.fromEntries(
+    kst.formatToParts(new Date(value)).map(({ type, value: part }) => [type, part]),
+  );
+  return `${year}. ${month}. ${day}. ${hour}:${minute}`;
+}
 export const kstDeadline = (value: string) => (value ? value + (value.length === 16 ? ':00+09:00' : '+09:00') : '');
 
 export function defaultDeadline() {

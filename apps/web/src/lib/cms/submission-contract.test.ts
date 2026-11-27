@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { grantRequest, kstDeadline } from './submission-contract';
+import { formatSubmissionTime, grantRequest, kstDeadline } from './submission-contract';
 
 describe('submission link requests', () => {
   const teamId = '27337ca8-859b-4538-a3ec-be0470409118';
@@ -18,6 +18,8 @@ describe('submission link requests', () => {
   });
 
   it('uses Korea time for a deadline entered on any browser', () => {
+    expect(formatSubmissionTime('2026-12-18T15:00:00.000Z')).toBe('2026. 12. 19. 00:00');
+    expect(formatSubmissionTime('2026-01-02T05:06:00+09:00')).toBe('2026. 01. 02. 05:06');
     expect(kstDeadline('2026-12-19T00:00')).toBe(expiresAt);
     expect(new Date(kstDeadline('2026-12-19T00:00')).toISOString()).toBe('2026-12-18T15:00:00.000Z');
   });

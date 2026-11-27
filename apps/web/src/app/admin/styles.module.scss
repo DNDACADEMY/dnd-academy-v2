@@ -685,13 +685,14 @@
     gap: 0.6rem;
     nav {
       display: flex;
-      flex-wrap: wrap;
+      overflow-x: auto;
       align-items: center;
       margin-top: 0;
     }
     nav a {
       padding: 0.46rem 0.56rem;
       font-size: 0.85rem;
+      white-space: nowrap;
     }
     .navGroup {
       display: contents;
@@ -700,7 +701,7 @@
       padding-left: 0.56rem;
     }
   }
-  .sidebarFooter {
+  .sidebar .sidebarFooter {
     display: none;
   }
   .topbar {
