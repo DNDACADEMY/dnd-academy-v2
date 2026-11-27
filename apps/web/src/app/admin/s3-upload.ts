@@ -39,11 +39,12 @@ export async function uploadToS3(
   retry: boolean,
   signal: AbortSignal,
   onProgress: (percent: number) => void,
+  requestMedia: <T>(payload: unknown) => Promise<T> = (payload) => adminRequest('media', payload),
 ) {
   const request =
     ticket.method === 'put' && !retry
       ? ticket
-      : await adminRequest<Put | Multipart>('media', { action: 'resume', key: ticket.key });
+      : await requestMedia<Put | Multipart>({ action: 'resume', key: ticket.key });
   const progress = (bytes: number) => onProgress(Math.round((100 * bytes) / file.size));
 
   if (request.method === 'put') {

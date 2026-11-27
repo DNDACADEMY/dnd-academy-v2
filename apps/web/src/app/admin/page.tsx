@@ -8,6 +8,7 @@ import { contentKinds } from '@/lib/cms/content-contract';
 import { editableHome } from '@/lib/cms/home';
 import { adminSession } from '@/lib/cms/permissions';
 import { readRecruitmentControls } from '@/lib/cms/recruitment';
+import { submissionsEnabled, submissionWorkspace } from '@/lib/cms/submissions';
 
 import { signOut } from './actions';
 import AdmissionsPanel from './admissions-panel';
@@ -15,13 +16,23 @@ import ContentPanel from './content-panel';
 import HomePanel from './home-panel';
 import AdminLinkStatus from './link-status';
 import LoginForm from './login-form';
+import SubmissionsPanel from './submissions-panel';
 
 import styles from './styles.module.scss';
 
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = { title: 'DND 관리자', robots: { index: false, follow: false } };
 
-type Props = { searchParams: Promise<{ login?: string; kind?: string; id?: string; section?: string }> };
+type Props = {
+  searchParams: Promise<{
+    login?: string;
+    kind?: string;
+    id?: string;
+    section?: string;
+    cohort?: string;
+    target?: string;
+  }>;
+};
 const contentLabels = { project: '프로젝트', organizer: '운영진', review: '후기' };
 
 export default async function Admin({ searchParams }: Props) {
@@ -72,12 +83,17 @@ export default async function Admin({ searchParams }: Props) {
   const hasAdmissions = session.permissions.includes('admissions');
   const hasContent = session.permissions.includes('content');
   const showHome = hasContent && query.section === 'home';
-  const showAdmissions = hasAdmissions && (!hasContent || (!showHome && query.section !== 'content'));
+  const canUseSubmissions = hasContent && submissionsEnabled();
+  const showSubmissions = canUseSubmissions && query.section === 'submissions';
+  const showAdmissions =
+    hasAdmissions && (!hasContent || (!showHome && !showSubmissions && query.section !== 'content'));
   const kind = contentKinds.find((value) => value === query.kind) ?? 'project';
   const id =
     query.id && /^(0|[1-9]\d{0,9})$/.test(query.id) && Number(query.id) <= 2147483647 ? Number(query.id) : null;
   const admissions = showAdmissions ? await Promise.all([readAdmissions(session.id), readRecruitmentControls()]) : null;
-  const workspace = showAdmissions || showHome ? null : await contentWorkspace(session.id, kind, id);
+  const workspace = showAdmissions || showHome || showSubmissions ? null : await contentWorkspace(session.id, kind, id);
+  const submissionCohort = query.cohort && /^[1-9]\d{0,3}$/.test(query.cohort) ? Number(query.cohort) : null;
+  const submissions = showSubmissions ? await submissionWorkspace(session.id, submissionCohort) : null;
   return (
     <div className={`${styles.admin} ${styles.workspace}`} data-admin-workspace>
       <aside className={styles.sidebar}>
@@ -101,12 +117,21 @@ export default async function Admin({ searchParams }: Props) {
               <Link className={styles.navChild} href="/admin?section=home" aria-current={showHome ? 'page' : undefined}>
                 홈 관리 <AdminLinkStatus />
               </Link>
+              {canUseSubmissions && (
+                <Link
+                  className={styles.navChild}
+                  href="/admin?section=submissions"
+                  aria-current={showSubmissions ? 'page' : undefined}
+                >
+                  제출 관리 <AdminLinkStatus />
+                </Link>
+              )}
               {contentKinds.map((value) => (
                 <Link
                   className={styles.navChild}
                   key={value}
                   href={`/admin?section=content&kind=${value}`}
-                  aria-current={!showAdmissions && !showHome && kind === value ? 'page' : undefined}
+                  aria-current={!showAdmissions && !showHome && !showSubmissions && kind === value ? 'page' : undefined}
                 >
                   {contentLabels[value]} <AdminLinkStatus />
                 </Link>
@@ -121,7 +146,13 @@ export default async function Admin({ searchParams }: Props) {
       <section className={styles.workArea}>
         <header className={styles.topbar}>
           <span>
-            {showAdmissions ? '모집 관리' : showHome ? '콘텐츠 관리 / 홈' : `콘텐츠 관리 / ${contentLabels[kind]}`}
+            {showAdmissions
+              ? '모집 관리'
+              : showHome
+                ? '콘텐츠 관리 / 홈'
+                : showSubmissions
+                  ? '콘텐츠 관리 / 제출'
+                  : `콘텐츠 관리 / ${contentLabels[kind]}`}
           </span>
           <form action={signOut}>
             <button className={styles.quiet}>로그아웃</button>
@@ -130,6 +161,16 @@ export default async function Admin({ searchParams }: Props) {
         <div className={styles.canvas}>
           {admissions ? (
             <AdmissionsPanel initial={admissions[0]} recruitment={admissions[1]} />
+          ) : submissions ? (
+            <SubmissionsPanel
+              key={submissions.cohortId}
+              workspace={submissions}
+              target={
+                query.target && /^(0|[1-9]\d{0,9})$/.test(query.target) && Number(query.target) <= 2147483647
+                  ? { id: Number(query.target), kind }
+                  : undefined
+              }
+            />
           ) : showHome ? (
             <HomePanel initial={await editableHome(session.id)} />
           ) : (
@@ -140,6 +181,7 @@ export default async function Admin({ searchParams }: Props) {
                 rows={workspace.rows}
                 initial={workspace.initial ?? undefined}
                 create={query.id === 'new'}
+                submissionLinks={canUseSubmissions}
               />
             )
           )}

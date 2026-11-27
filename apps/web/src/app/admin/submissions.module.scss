@@ -1,0 +1,84 @@
+.panel {
+  display: grid;
+  gap: 16px;
+  max-width: 1100px;
+}
+.panel h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+.panel h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+.row,
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+.box {
+  border: 1px solid #d9dfeb;
+  border-radius: 12px;
+  background: white;
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+.panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.linkRow,
+.reviewRow {
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e8ef;
+}
+.panel label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+}
+.panel input:not([type='checkbox']),
+.panel select {
+  border: 1px solid #b8c3d2;
+  border-radius: 7px;
+  padding: 7px;
+  max-width: 100%;
+}
+.panel button {
+  background: #e9edf7;
+  color: #233250;
+  border-radius: 7px;
+  padding: 7px 11px;
+}
+.panel button[aria-pressed='true'],
+.box button:first-of-type {
+  color: white;
+  background: #3439a6;
+}
+.panel button:disabled {
+  opacity: 0.5;
+}
+.error {
+  color: #aa2632;
+}
+.changes {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  background: #f1f4fa;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.changes dt {
+  font-weight: 700;
+}
+.changes dd span {
+  font-weight: 600;
+}

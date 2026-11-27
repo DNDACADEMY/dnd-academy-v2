@@ -123,11 +123,13 @@ export default function ContentPanel({
   rows,
   initial,
   create,
+  submissionLinks,
 }: {
   kind: ContentKind;
   rows: ContentSummary[];
   initial?: ContentRecord;
   create: boolean;
+  submissionLinks: boolean;
 }) {
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('');
@@ -210,7 +212,12 @@ export default function ContentPanel({
           )}
         </section>
         {initial || create ? (
-          <ContentEditor key={`${kind}:${initial?.id ?? 'new'}`} kind={kind} initial={initial} />
+          <ContentEditor
+            key={`${kind}:${initial?.id ?? 'new'}`}
+            kind={kind}
+            initial={initial}
+            submissionLinks={submissionLinks}
+          />
         ) : (
           <section className={`${styles.card} ${styles.emptyEditor}`}>
             <h2>편집할 {names[kind]} 선택</h2>
@@ -222,7 +229,15 @@ export default function ContentPanel({
   );
 }
 
-function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: ContentRecord }) {
+function ContentEditor({
+  kind,
+  initial,
+  submissionLinks,
+}: {
+  kind: ContentKind;
+  initial?: ContentRecord;
+  submissionLinks: boolean;
+}) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -305,6 +320,9 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
         </div>
         <div className={styles.editorHeadingActions}>
           {initial && <Publication row={initial} />}
+          {submissionLinks && initial?.liveRevisionId != null && (
+            <Link href={`/admin?section=submissions&kind=${kind}&target=${initial.id}`}>수정 링크 발급</Link>
+          )}
           <button
             type="button"
             disabled={busy}

@@ -32,6 +32,17 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async headers() {
+    const headers = [
+      { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+      { key: 'Referrer-Policy', value: 'no-referrer' },
+      { key: 'Cache-Control', value: 'private, no-store' },
+    ];
+    return [
+      { source: '/submit-content/:path*', headers },
+      { source: '/api/submissions/:path*', headers },
+    ];
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
