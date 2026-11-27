@@ -6,8 +6,7 @@ import ShareClipBoardCTA from '@/components/molecules/ShareClipBoardCTA';
 import ProjectCards from '@/components/organisms/ProjectCards';
 import ProjectPDFViewer from '@/components/organisms/ProjectPDFViewer';
 import ReviewList from '@/components/organisms/ReviewList';
-import { getProjects } from '@/lib/apis/project';
-import { getReviews } from '@/lib/apis/review';
+import { getProjectRelated } from '@/lib/apis/project';
 import { ShareIcon } from '@/lib/assets/icons';
 import { PUBLIC_ORIGIN } from '@/lib/constants/origin';
 
@@ -20,8 +19,7 @@ type Props = {
 };
 
 async function ProjectPage({ project }: Props) {
-  const reviews = await getReviews({ projectId: project.id });
-  const projects = await getProjects({ ordinal: project.flag });
+  const { reviews, projects } = await getProjectRelated(project);
 
   return (
     <>
@@ -69,7 +67,7 @@ async function ProjectPage({ project }: Props) {
         )}
         <section className={styles.projectSubSection}>
           <h2>프로젝트 더보기</h2>
-          <ProjectCards projects={projects.filter(({ id }) => id !== project.id)} />
+          <ProjectCards projects={projects} />
         </section>
       </div>
     </>

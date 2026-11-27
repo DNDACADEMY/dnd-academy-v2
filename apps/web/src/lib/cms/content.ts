@@ -1,11 +1,18 @@
 import 'server-only';
 import type { Organizer, OrganizerCard, OrganizerDirectory, Project, Review } from '@dnd-academy/core';
-import { cache } from 'react';
 
-import { type ContentInput, type ContentKind, type ContentRecord, type ContentSummary } from './content-contract';
+import { type ContentKind, type ContentRecord, type ContentSummary } from './content-contract';
 import { organizerPresentation, projectPresentation, reviewPresentation } from './content-presentation';
-import { mediaAssets, publicMedia } from './media';
+import { publicMedia } from './media';
+import { projectReadRepository } from './project-read-repository';
+import { createProjectReader } from './project-reader';
+import { publishedContent } from './published-content-repository';
 import { database, DatabaseError, rpc } from './supabase';
+
+export { contentAssets } from './published-content-repository';
+
+export const { getProject: cmsProject, getRelatedContent: cmsProjectRelated } =
+  createProjectReader(projectReadRepository);
 
 export function contentEnabled() {
   return process.env.DND_CMS_CONTENT === 'enabled';
@@ -26,25 +33,6 @@ export async function contentSkills() {
   }
 }
 
-export function contentAssets(row: ContentInput) {
-  return [row.thumbnailId, row.pdfId, ...(row.images ?? []).map((image) => image.mediaId)].filter((id): id is string =>
-    Boolean(id),
-  );
-}
-
-export const publishedContent = cache(async (kind: ContentKind, id?: number) => {
-  const rows = await rpc<ContentRecord[]>('published_content', { kind, selected_id: id ?? null });
-  const ids = [...new Set(rows.flatMap(contentAssets))];
-  const media = new Map<string, string>();
-  for (let start = 0; start < ids.length; start += 80) {
-    const assets = await mediaAssets(ids.slice(start, start + 80));
-    for (const [id, asset] of assets) {
-      if (asset.bucket === 'cms-public' && asset.ready) media.set(id, publicMedia(asset.object_key));
-    }
-  }
-  return { rows, media };
-});
-
 export function editableContent(actor: string, kind: ContentKind, id?: number) {
   return rpc<ContentRecord[]>('editable_content', { actor, kind, selected_id: id ?? null });
 }
@@ -60,14 +48,6 @@ export function contentWorkspace(actor: string, kind: ContentKind, id: number | 
 export async function cmsProjects(): Promise<Project[]> {
   const { rows, media } = await publishedContent('project');
   return rows.map((row) => projectPresentation(row, row.id, media));
-}
-
-export async function cmsProject(id: number): Promise<Project | undefined> {
-  const {
-    rows: [row],
-    media,
-  } = await publishedContent('project', id);
-  return row ? projectPresentation(row, row.id, media) : undefined;
 }
 
 export type ProjectCard = Pick<Project, 'id' | 'title' | 'thumbnail'>;

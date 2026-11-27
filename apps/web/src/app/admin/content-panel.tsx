@@ -30,6 +30,7 @@ const MediaFields = dynamic(() => import('./media-fields'), { ssr: false });
 const ContentPreview = dynamic(() => import('./content-preview'), { ssr: false });
 
 const names: Record<ContentKind, string> = { project: '프로젝트', organizer: '운영진', review: '후기' };
+const activityLabels = { active: '현재 운영진', former: '전 운영진' };
 const detailLabels = {
   now: '현재 경력',
   previous: '이전 경력',
@@ -133,12 +134,14 @@ export default function ContentPanel({
 }) {
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('');
+  const [activityFilter, setActivityFilter] = useState('');
   const [cohortFilter, setCohortFilter] = useState('');
   const cohorts = [...new Set(rows.flatMap(({ cohort }) => (cohort == null ? [] : [cohort])))].sort((a, b) => b - a);
   const path = `/admin?section=content&kind=${kind}` as const;
   const needle = query.trim().toLocaleLowerCase('ko-KR');
   const listed = rows.filter(
     (row) =>
+      (kind !== 'organizer' || !activityFilter || row.isArchived === (activityFilter === 'former')) &&
       (!cohortFilter || String(row.cohort) === cohortFilter) &&
       (!status ||
         (status === 'published' ? row.liveRevisionId != null || row.state === 'published' : row.state === status)) &&
@@ -178,11 +181,22 @@ export default function ContentPanel({
             </label>
             <div className={styles.libraryFilters}>
               <select aria-label="게시 상태 필터" value={status} onChange={(event) => setStatus(event.target.value)}>
-                <option value="">모든 상태</option>
+                <option value="">모든 게시 상태</option>
                 <option value="published">공개 중</option>
                 <option value="draft">초안</option>
                 <option value="archived">비공개</option>
               </select>
+              {kind === 'organizer' && (
+                <select
+                  aria-label="활동 상태 필터"
+                  value={activityFilter}
+                  onChange={(event) => setActivityFilter(event.target.value)}
+                >
+                  <option value="">모든 활동 상태</option>
+                  <option value="active">{activityLabels.active}</option>
+                  <option value="former">{activityLabels.former}</option>
+                </select>
+              )}
               {cohorts.length > 0 && (
                 <select
                   aria-label="기수 필터"
@@ -211,7 +225,16 @@ export default function ContentPanel({
                     <span className={styles.recordMain}>
                       <strong>{row.name}</strong>
                       <small>
-                        {[row.cohort ? `${row.cohort}기` : '', row.position, row.author].filter(Boolean).join(' · ')}
+                        {[
+                          row.cohort ? `${row.cohort}기` : '',
+                          row.position,
+                          row.author,
+                          kind === 'organizer' && typeof row.isArchived === 'boolean'
+                            ? activityLabels[row.isArchived ? 'former' : 'active']
+                            : '',
+                        ]
+                          .filter(Boolean)
+                          .join(' · ')}
                       </small>
                     </span>
                     <span className={styles.recordIndicators}>
@@ -279,7 +302,7 @@ function ContentEditor({
 
   useUnsavedChanges(dirty);
 
-  async function mutate(action: 'save' | 'publish' | 'unpublish', input?: ContentInput) {
+  async function mutate(action: 'save' | 'publish' | 'unpublish' | 'delete', input?: ContentInput) {
     setMessage('');
     setFailed(false);
     setBusy(true);
@@ -296,6 +319,11 @@ function ContentEditor({
       setPreview(undefined);
       setDirty(false);
       if (action !== 'save') setMediaEdit(undefined);
+      if (action === 'delete') {
+        router.replace(path);
+        router.refresh();
+        return;
+      }
       setMessage(
         action === 'save' ? '초안을 저장했습니다.' : action === 'publish' ? '게시했습니다.' : '공개를 중단했습니다.',
       );
@@ -405,8 +433,8 @@ function ContentEditor({
               <label>
                 활동 상태
                 <select name="activityStatus" defaultValue={initial?.isArchived ? 'former' : 'active'}>
-                  <option value="active">현재 운영진</option>
-                  <option value="former">전 운영진</option>
+                  <option value="active">{activityLabels.active}</option>
+                  <option value="former">{activityLabels.former}</option>
                 </select>
                 <small>게시하면 선택한 활동 상태에 따라 공개 목록의 표시 위치가 바뀝니다.</small>
               </label>
@@ -528,6 +556,24 @@ function ContentEditor({
               }}
             >
               공개 중단
+            </button>
+          )}
+          {kind === 'organizer' && initial && (
+            <button
+              type="button"
+              className={styles.danger}
+              disabled={busy || dirty}
+              onClick={() => {
+                if (
+                  window.confirm(
+                    `'${initial.name}' 프로필을 삭제할까요? 공개 페이지와 관리자 목록에서 제거되고 기존 수정 링크는 사용할 수 없게 됩니다.`,
+                  )
+                ) {
+                  void mutate('delete');
+                }
+              }}
+            >
+              프로필 삭제
             </button>
           )}
           <button

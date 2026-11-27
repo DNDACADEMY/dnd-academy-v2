@@ -63,6 +63,13 @@ export async function POST(request: Request) {
         throw new DatabaseError('40001');
       }
       result = await publishWithMedia(contentAssets(draft), write);
+    } else if (action === 'delete') {
+      result = await rpc('soft_delete_organizer', {
+        actor,
+        selected_id: id,
+        expected_revision: revisionId,
+        expected_edit: editNumber,
+      });
     } else {
       result = await write({});
     }
