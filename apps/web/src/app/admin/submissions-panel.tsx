@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import SubmissionPreview from '@/components/pages/SubmissionPreview';
 import {
@@ -20,6 +20,7 @@ import {
   type SubmissionContentMatch,
   type SubmissionJob,
   type SubmissionLink,
+  type SubmissionPublication,
   submissionLabels,
   type SubmissionWorkspace,
 } from '@/lib/cms/submission-contract';
@@ -128,6 +129,45 @@ export default function SubmissionsPanel({
   const [notice, setNotice] = useState('');
   const [published, setPublished] = useState<{ kind: ContentKind; id: number }[]>([]);
   const [busy, setBusy] = useState(false);
+
+  const [watchedJob, setWatchedJob] = useState<string>();
+  const [jobProgress, setJobProgress] = useState<{ id: string; state: SubmissionJob['state'] }>();
+  const jobToWatch = watchedJob ?? workspace.jobs.find(({ state }) => state === 'queued' || state === 'processing')?.id;
+
+  useEffect(() => {
+    if (!jobToWatch) return;
+    const controller = new AbortController();
+    let timeout: number | undefined;
+    const watchUntil = Date.now() + 180_000;
+    async function refreshStatus() {
+      try {
+        const result = await adminRequest<SubmissionPublication | null>(
+          'submissions',
+          { action: 'publicationStatus', jobId: jobToWatch },
+          controller.signal,
+        );
+        if (controller.signal.aborted || !result || !jobToWatch) return;
+        setJobProgress({ id: jobToWatch, state: result.state });
+        if (result.state === 'published' || result.state === 'failed') {
+          setPublished(result.published);
+          setNotice(
+            result.state === 'published' ? '게시를 완료했습니다.' : '게시가 실패했습니다. 제출안을 검토해 주세요.',
+          );
+          router.refresh();
+          return;
+        }
+      } catch {
+        // A temporary status failure does not affect the server job.
+      }
+      if (!controller.signal.aborted && Date.now() < watchUntil)
+        timeout = window.setTimeout(() => void refreshStatus(), 4000);
+    }
+    void refreshStatus();
+    return () => {
+      controller.abort();
+      window.clearTimeout(timeout);
+    };
+  }, [jobToWatch, router]);
 
   const cohort = workspace.cohorts.find(({ id }) => id === workspace.cohortId);
   const team = workspace.teams.find(({ id }) => id === teamId) ?? workspace.teams[0];
@@ -291,51 +331,30 @@ export default function SubmissionsPanel({
     });
   }
 
-  async function processJob(jobId: string) {
-    setNotice('게시 작업이 진행 중입니다.');
-    const until = Date.now() + 180_000;
-    while (Date.now() < until) {
-      const result = await adminRequest<(Pick<SubmissionJob, 'state'> & { published?: typeof published }) | null>(
-        'submissions',
-        {
-          action: 'process',
-          jobId,
-        },
-      );
-      if (result?.state === 'published') {
-        setPublished(result.published ?? []);
-        setNotice('게시를 완료했습니다.');
-        return;
-      }
-      if (!result || result.state === 'failed')
-        throw new Error('게시 작업을 완료하지 못했습니다. 변경 사항을 확인하고 다시 승인해 주세요.');
-      if (result.state === 'processing') await new Promise((resolve) => window.setTimeout(resolve, 2500));
-    }
-    setNotice('게시 작업이 저장되었습니다. 게시 작업에서 이어서 처리할 수 있습니다.');
-  }
-
   async function approve(ids: string[], confirmation?: string) {
     await run(async () => {
-      const result = await adminRequest<Approval>('submissions', {
-        action: 'approve',
-        linkIds: ids,
-        acceptConflicts: confirmation,
-      });
-      if (result.conflicts?.length && result.confirmation) {
-        setConflict({
-          ids,
-          confirmation: result.confirmation,
-          fields: [...new Set(result.conflicts.map(({ field }) => labels[field] ?? field))],
+      try {
+        const result = await adminRequest<Approval>('submissions', {
+          action: 'approve',
+          linkIds: ids,
+          acceptConflicts: confirmation,
         });
-        return;
-      }
-      setConflict(undefined);
-      if (result.jobId) {
-        try {
-          await processJob(result.jobId);
-        } finally {
-          router.refresh();
+        if (result.conflicts?.length && result.confirmation) {
+          setConflict({
+            ids,
+            confirmation: result.confirmation,
+            fields: [...new Set(result.conflicts.map(({ field }) => labels[field] ?? field))],
+          });
+          return;
         }
+        setConflict(undefined);
+        if (result.jobId) {
+          setPublished([]);
+          setWatchedJob(result.jobId);
+          setNotice('게시를 예약했습니다. 이 화면을 닫아도 게시가 진행됩니다.');
+        }
+      } finally {
+        router.refresh();
       }
     });
   }
@@ -622,31 +641,38 @@ export default function SubmissionsPanel({
             <div className={styles.box}>
               <h2>게시 작업</h2>
               <ul>
-                {workspace.jobs.map((job) => (
-                  <li className={styles.linkRow} key={job.id}>
-                    <strong className={styles.rowTitle}>{job.linkIds.length}건</strong>
-                    <span className={styles.pill} data-state={job.state === 'failed' ? 'rejected' : 'submitted'}>
-                      {job.state === 'failed' ? '게시 실패' : '게시 처리 중'}
-                    </span>
-                    {job.state !== 'failed' && (
-                      <button
-                        type="button"
-                        disabled={busy}
-                        onClick={() =>
-                          void run(async () => {
-                            try {
-                              await processJob(job.id);
-                            } finally {
+                {workspace.jobs.map((job) => {
+                  const state = jobProgress?.id === job.id ? jobProgress.state : job.state;
+                  const labels = {
+                    queued: '게시 대기',
+                    processing: '게시 중',
+                    published: '게시 완료',
+                    failed: '게시 실패',
+                  };
+                  return (
+                    <li className={styles.linkRow} key={job.id}>
+                      <strong className={styles.rowTitle}>{job.linkIds.length}건</strong>
+                      <span className={styles.pill} data-state={state === 'failed' ? 'rejected' : 'submitted'}>
+                        {labels[state]}
+                      </span>
+                      {state === 'queued' && (
+                        <button
+                          type="button"
+                          disabled={busy}
+                          onClick={() =>
+                            void run(async () => {
+                              await adminRequest('submissions', { action: 'dispatchPublication', jobId: job.id });
+                              setWatchedJob(job.id);
                               router.refresh();
-                            }
-                          })
-                        }
-                      >
-                        이어서 처리
-                      </button>
-                    )}
-                  </li>
-                ))}
+                            })
+                          }
+                        >
+                          게시 요청 다시 보내기
+                        </button>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
