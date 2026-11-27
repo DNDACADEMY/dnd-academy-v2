@@ -14,7 +14,7 @@
 }
 .header,
 .columns {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 .header {
@@ -29,7 +29,7 @@
 }
 .columns {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(320px, 0.8fr) minmax(0, 1.2fr);
   gap: 20px;
   align-items: start;
 }
@@ -132,6 +132,30 @@
     color: #182133;
   }
   .columns [data-mobile-hidden='true'] {
+    display: none;
+  }
+}
+
+.organizerFields {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  border-top: 1px solid #dbe1eb;
+  padding-top: 14px;
+}
+
+@media (min-width: 801px) {
+  .columns[data-wide-preview='true'] {
+    grid-template-columns: minmax(0, 1fr);
+
+    .editor {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .preview .expandPreview {
     display: none;
   }
 }

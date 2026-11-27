@@ -4,10 +4,17 @@ import { useCallback, useEffect, useState } from 'react';
 
 import SubmissionPreview from '@/components/pages/SubmissionPreview';
 import { linkKinds, safeContentLink } from '@/lib/cms/content-contract';
-import { formatSubmissionTime, type Submission, submissionLabels } from '@/lib/cms/submission-contract';
+import {
+  formatSubmissionTime,
+  organizerProfileDetails,
+  organizerProfileInput,
+  type Submission,
+  submissionLabels,
+} from '@/lib/cms/submission-contract';
 
 import MediaPanel from '../../admin/media-panel';
 import SkillTagPicker from '../../admin/skill-tag-picker';
+import OrganizerProfileFields from './organizer-profile-fields';
 
 import styles from './submission.module.scss';
 
@@ -39,6 +46,7 @@ export default function SubmissionEditor({ id }: { id: string }) {
   const [local, setLocal] = useState<string>();
   const [mobilePreview, setMobilePreview] = useState(false);
   const [cardPreview, setCardPreview] = useState(false);
+  const [widePreview, setWidePreview] = useState(false);
   const [confirmSubmit, setConfirmSubmit] = useState(false);
 
   const requestMedia = useCallback(<T,>(payload: unknown) => post<T>(path + '/media', payload), [path]);
@@ -80,6 +88,19 @@ export default function SubmissionEditor({ id }: { id: string }) {
     if (!submission || !input) return;
     const isProject = submission.kind === 'project';
     const isReview = submission.kind === 'review';
+    const profile =
+      submission.kind === 'organizer' && input.organizerProfile
+        ? organizerProfileInput.safeParse({
+            ...input.organizerProfile,
+            now: input.organizerProfile.now.filter((line) => line.trim()),
+            previous: input.organizerProfile.previous.filter((line) => line.trim()),
+          })
+        : undefined;
+    if (profile && !profile.success) {
+      setError(profile.error.issues[0]?.message ?? '프로필 항목을 확인해 주세요.');
+      setConfirmSubmit(false);
+      return;
+    }
     setBusy(true);
     setError('');
     setNotice('');
@@ -91,6 +112,7 @@ export default function SubmissionEditor({ id }: { id: string }) {
           name: input.name,
           description: input.description,
           links: input.links,
+          ...(profile?.success ? { organizerProfile: profile.data } : {}),
           ...(!isReview ? { skills: input.skills, thumbnailId: input.thumbnailId } : {}),
           ...(isProject ? { title: input.title, pdfId: input.pdfId, images: input.images } : {}),
         },
@@ -136,8 +158,22 @@ export default function SubmissionEditor({ id }: { id: string }) {
     ),
   );
   if (local) media.set(localMediaId, local);
+  const originalOrganizer = submission.organizerPreview;
+  const hasNewOrganizerPhoto =
+    originalOrganizer && input.thumbnailId != null && input.thumbnailId !== originalOrganizer.thumbnailId;
   const draft = {
     ...input,
+    mbti: input.organizerProfile?.mbti,
+    details: [
+      ...(input.organizerProfile ? organizerProfileDetails(input.organizerProfile) : []),
+      ...(submission.organizerPreview?.shares ?? []).flatMap((body) =>
+        (body.startsWith('/') && !body.startsWith('//')) || safeContentLink('link', body)
+          ? [{ kind: 'share' as const, body }]
+          : [],
+      ),
+    ],
+    legacyThumbnail: originalOrganizer?.thumbnailId == null ? originalOrganizer?.legacyThumbnail : undefined,
+    emoji: (local && field === 'thumbnail') || hasNewOrganizerPhoto ? null : originalOrganizer?.emoji,
     position: input.position ?? undefined,
     name: input.name.trim() || '이름 미리보기',
     links: input.links.filter(({ kind, url }) => safeContentLink(kind, url)),
@@ -146,7 +182,7 @@ export default function SubmissionEditor({ id }: { id: string }) {
     images: local && field === 'gallery' ? [...(input.images ?? []), { mediaId: localMediaId }] : input.images,
   };
   const update = (changed: Partial<Submission['input']>) => {
-    setInput({ ...input, ...changed });
+    setInput((previous) => (previous ? { ...previous, ...changed } : previous));
     setNotice('');
   };
   const canSubmit = Boolean(
@@ -179,7 +215,7 @@ export default function SubmissionEditor({ id }: { id: string }) {
           미리보기
         </button>
       </div>
-      <div className={styles.columns}>
+      <div className={styles.columns} data-wide-preview={widePreview}>
         <section className={styles.editor} data-mobile-hidden={mobilePreview}>
           <h2>콘텐츠 작성</h2>
           <fieldset disabled={busy || confirmSubmit}>
@@ -206,9 +242,15 @@ export default function SubmissionEditor({ id }: { id: string }) {
                 onChange={(event) => update({ description: event.target.value })}
               />
             </label>
+            {kind === 'organizer' && input.organizerProfile && (
+              <OrganizerProfileFields
+                profile={input.organizerProfile}
+                onChange={(organizerProfile) => update({ organizerProfile })}
+              />
+            )}
             {kind !== 'review' && (
               <SkillTagPicker
-                initial={input.skills ?? []}
+                value={input.skills ?? []}
                 loadCatalog={loadCatalog}
                 onChange={(skills) => update({ skills })}
               />
@@ -352,11 +394,21 @@ export default function SubmissionEditor({ id }: { id: string }) {
         <section className={styles.preview} data-mobile-hidden={!mobilePreview}>
           <div className={styles.previewHeader}>
             <h2>실시간 미리보기</h2>
-            {kind !== 'review' && (
-              <button type="button" onClick={() => setCardPreview(!cardPreview)}>
-                {cardPreview ? '상세 보기' : '목록 카드 보기'}
+            <div className={styles.row}>
+              <button
+                type="button"
+                className={styles.expandPreview}
+                aria-pressed={widePreview}
+                onClick={() => setWidePreview(!widePreview)}
+              >
+                {widePreview ? '편집과 함께 보기' : '넓게 보기'}
               </button>
-            )}
+              {kind !== 'review' && (
+                <button type="button" onClick={() => setCardPreview(!cardPreview)}>
+                  {cardPreview ? '상세 보기' : '목록 카드 보기'}
+                </button>
+              )}
+            </div>
           </div>
           <div
             className={styles.publicContent}
