@@ -20,6 +20,8 @@ begin
   member_id := (member->>'id')::integer;
   revision := (member->>'revisionId')::bigint;
   edit := (member->>'editNumber')::integer;
+  assert public.content_workspace(actor,'organizer',member_id)->'rows'
+    @> jsonb_build_array(jsonb_build_object('id',member_id,'isArchived',false,'state','draft'));
   assert not (public.published_organizer_directory()->'active' @> jsonb_build_array(jsonb_build_object('id',member_id)));
 
   perform public.write_content(actor,'organizer',member_id,revision,edit,'publish','{}');
@@ -29,6 +31,9 @@ begin
   assert not (directory->'former' @> jsonb_build_array(jsonb_build_object('id',member_id)));
 
   member := public.write_content(actor,'organizer',member_id,revision,edit,'save',fixture || '{"isArchived":true}');
+  assert public.content_workspace(actor,'organizer',member_id)->'rows'
+    @> jsonb_build_array(jsonb_build_object('id',member_id,'isArchived',false,'state','draft'));
+  assert (public.content_workspace(actor,'organizer',member_id)#>>'{initial,isArchived}')::boolean;
   directory := public.published_organizer_directory();
   assert directory->'active' @> jsonb_build_array(jsonb_build_object('id',member_id));
   assert not (directory->'former' @> jsonb_build_array(jsonb_build_object('id',member_id)));
@@ -40,6 +45,8 @@ begin
   assert not (directory->'active' @> jsonb_build_array(jsonb_build_object('id',member_id)));
   assert (select row from jsonb_array_elements(directory->'former') row where row->>'id'=member_id::text)
     = jsonb_build_object('id',member_id,'name','Organizer activity fixture');
+  assert public.content_workspace(actor,'organizer',member_id)->'rows'
+    @> jsonb_build_array(jsonb_build_object('id',member_id,'isArchived',true,'state','published'));
   assert (select item->>'description' from public.published_content('organizer',member_id) item)
     = 'Profile description';
 

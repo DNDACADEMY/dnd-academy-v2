@@ -1,8 +1,17 @@
 import type { Project, ProjectFlag } from '@dnd-academy/core';
 
 import projectsData from '@/lib/assets/data/projects.json';
-import { cmsProject, cmsProjectCards, cmsProjectPdf, cmsProjects, contentEnabled } from '@/lib/cms/content';
+import {
+  cmsProject,
+  cmsProjectCards,
+  cmsProjectPdf,
+  cmsProjectRelated,
+  cmsProjects,
+  contentEnabled,
+} from '@/lib/cms/content';
 import { ensureNumber, sortFlagsDescending } from '@/utils';
+
+import { getReviews } from './review';
 
 export async function getProjects({ ordinal }: { ordinal?: string } | undefined = {}): Promise<Project[]> {
   const sortedProject = [...(await loadProjects())].sort((a, b) => sortFlagsDescending(a.flag, b.flag));
@@ -38,6 +47,15 @@ export async function getProject({ id }: { id: number }) {
 export async function getProjectPdf({ id }: { id: number }) {
   if (!validProjectId(id)) return;
   return contentEnabled() ? cmsProjectPdf(id) : projectsData.find((project) => project.id === id)?.pdf;
+}
+
+export async function getProjectRelated(project: Pick<Project, 'id' | 'name' | 'flag'>) {
+  if (contentEnabled()) return cmsProjectRelated(project);
+  const [projects, reviews] = await Promise.all([
+    getProjects({ ordinal: project.flag }),
+    getReviews({ projectId: project.id }),
+  ]);
+  return { projects: projects.filter(({ id }) => id !== project.id), reviews };
 }
 
 export async function getProjectCards(ids?: number[]) {
