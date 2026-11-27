@@ -98,6 +98,38 @@ describe('submission workspace', () => {
     expect(router.push).toHaveBeenCalledWith('/admin?section=submissions&view=teams&cohort=15');
   });
 
+  it('isolates organizer links from team operations and issues an organizer link with the selected deadline', async () => {
+    setView('organizers');
+    const data = workspace();
+    data.links.push({ ...submitted, id: 'organizer-1', label: '운영진 기존 링크', kind: 'organizer', teamId: null });
+    vi.mocked(adminRequest).mockResolvedValue({
+      id: 'organizer-2',
+      label: '운영진 신규 링크',
+      kind: 'organizer',
+      path: '/submit-content/example#fixture',
+    });
+    render(<SubmissionsPanel workspace={data} />);
+    expect(screen.getByRole('heading', { name: '운영진 링크 관리' })).toBeVisible();
+    expect(screen.queryByRole('combobox', { name: '기수' })).not.toBeInTheDocument();
+    expect(screen.queryByText(submitted.label)).not.toBeInTheDocument();
+    expect(screen.getByText('운영진 기존 링크')).toBeVisible();
+    fireEvent.change(screen.getByLabelText('마감 시각 (한국시간)'), { target: { value: '2030-02-01T12:00' } });
+    fireEvent.click(screen.getByRole('button', { name: '링크 발급' }));
+    await screen.findByRole('heading', { name: '이번에 발급한 링크' });
+    expect(adminRequest).toHaveBeenCalledWith('submissions', {
+      action: 'issue',
+      kind: 'organizer',
+      expiresAt: '2030-02-01T12:00:00+09:00',
+      targetId: null,
+      label: '새 운영진 소개',
+      position: '개발',
+      archived: false,
+    });
+    expect(screen.getByRole('textbox', { name: '운영진 신규 링크' })).toHaveValue(
+      new URL('/submit-content/example#fixture', window.location.origin).href,
+    );
+  });
+
   it('extends an existing link with a separate deadline scoped to the chosen link', async () => {
     setView('teams');
     Object.defineProperty(HTMLDialogElement.prototype, 'showModal', {

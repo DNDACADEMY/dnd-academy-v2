@@ -46,34 +46,98 @@
 }
 
 .tabs {
-  display: flex;
-  gap: 4px;
-  border-bottom: 1px solid var(--line);
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
 
   button {
-    border: 0;
-    border-bottom: 2px solid transparent;
-    border-radius: 6px 6px 0 0;
-    background: transparent;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-content: center;
+    gap: 4px 8px;
+    min-height: 62px;
     padding: 10px 14px;
-    color: var(--muted);
+    border-color: transparent;
+    background: transparent;
+    text-align: left;
+    white-space: normal;
   }
 
   button[aria-pressed='true'] {
     color: var(--blue);
-    border-bottom-color: var(--blue);
-    font-weight: 750;
+    border-color: #cddbfa;
+    background: var(--soft);
+  }
+
+  small {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-weight: 500;
   }
 
   span {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: start;
     border-radius: 999px;
-    background: var(--soft);
+    background: var(--paper);
     color: var(--blue);
     padding: 1px 7px;
     font-size: 12px;
+    white-space: nowrap;
     font-variant-numeric: tabular-nums;
   }
+}
+
+.view {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.viewHeading h2 {
+  font-size: clamp(20px, 2vw, 25px);
+}
+
+.viewHeading p,
+.scope p {
+  color: var(--muted);
+}
+
+.scope {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+}
+
+.scope p {
+  padding-block: 8px;
+  font-size: 13px;
+}
+
+.receipts {
+  border-color: #b8c9f5;
+  background: #f7f9ff;
+}
+
+.warning {
+  color: #784c08;
+}
+
+.secondaryAction {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.panel :is(button, select, summary, input, a):focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .feedback:not(:empty),
@@ -382,10 +446,25 @@
 }
 
 @media (max-width: 520px) {
-  .heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: start;
+  .tabs {
+    gap: 3px;
+    padding: 4px;
+  }
+
+  .tabs button {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 48px;
+    padding: 7px;
+    text-align: center;
+  }
+
+  .tabs small,
+  .tabs span {
+    display: none;
+  }
+
+  .changes > div {
+    grid-template-columns: 1fr;
   }
   .cohort {
     min-width: 0;
