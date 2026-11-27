@@ -35,9 +35,16 @@ type Props = {
 };
 const contentLabels = { project: '프로젝트', organizer: '운영진', review: '후기' };
 
+const loginMessages: Readonly<Record<string, string>> = {
+  failed: '이메일, 비밀번호와 관리자 권한을 확인해 주세요.',
+  limited: '로그인 시도가 많습니다. 잠시 후 다시 시도해 주세요.',
+  unavailable: '지금은 로그인할 수 없습니다. 잠시 후 다시 시도해 주세요.',
+};
+
 export default async function Admin({ searchParams }: Props) {
   const query = await searchParams;
   const session = await adminSession();
+  const loginMessage = query.login && Object.hasOwn(loginMessages, query.login) ? loginMessages[query.login] : null;
   if (!session?.permissions.length) {
     return (
       <div className={`${styles.admin} ${styles.loginLayout}`} data-admin-workspace>
@@ -62,9 +69,9 @@ export default async function Admin({ searchParams }: Props) {
           <p className={styles.muted}>
             {session ? '모집 또는 콘텐츠 관리 권한을 확인해 주세요.' : '등록된 운영진 계정으로 로그인하세요.'}
           </p>
-          {query.login === 'failed' && (
+          {loginMessage && (
             <p role="alert" className={styles.error}>
-              이메일, 비밀번호와 관리자 권한을 확인해 주세요.
+              {loginMessage}
             </p>
           )}
           {session ? (
