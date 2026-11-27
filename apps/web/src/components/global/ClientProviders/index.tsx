@@ -2,7 +2,6 @@
 
 import * as ChannelService from '@channel.io/channel-web-sdk-loader';
 import { ReactNode, useEffect } from 'react';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import SnowfallSection from '@/components/organisms/SnowfallSection';
 import { isChristmasTheme } from '@/utils';
@@ -14,10 +13,10 @@ function ClientProviders({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <PerfectScrollbar>
+    <>
       {isChristmasTheme() && <SnowfallSection />}
       {children}
-    </PerfectScrollbar>
+    </>
   );
 }
 
