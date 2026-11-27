@@ -15,6 +15,7 @@ import {
   defaultDeadline,
   formatSubmissionTime,
   kstDeadline,
+  organizerProfileLabels,
   type Submission,
   type SubmissionJob,
   type SubmissionLink,
@@ -51,6 +52,7 @@ const states: Record<SubmissionLink['state'], string> = {
   rejected: '반려',
 };
 const labels: Record<string, string> = {
+  ...organizerProfileLabels,
   name: '이름',
   title: '한 줄 소개',
   description: '본문',
