@@ -63,7 +63,7 @@ lefthook version  # 2.2.2
 의존성 설치와 함께 `prepare` 스크립트가 자동으로 lefthook 훅(`pre-commit`, `commit-msg`)을 `.git/hooks/`에 등록합니다.
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 ```
 
 훅이 정상 등록됐는지 확인하려면:
@@ -81,6 +81,26 @@ staged 파일이 없을 땐 모든 커맨드가 `(skip) no files for inspection`
   - 변경된 파일에 oxfmt 포맷 적용
   - 변경된 파일과 관련된 Vitest 테스트 실행 (`vitest related`)
 - `--fix`/`--write`로 자동 수정된 결과는 자동으로 재staging되어 같은 커밋에 들어갑니다.
+
+## 6. 웹 실행과 확인
+
+```sh
+pnpm --filter 'web^...' build
+pnpm --filter web exec next dev --turbopack --hostname localhost
+```
+
+브라우저에서 `http://localhost:3000`을 연다. 관리자 로그인, CMS 게시 데이터, 합격 조회를 확인하려면 [격리된 개발용 환경 설정](admissions-cms-preview.md)을 사용한다. Supabase를 로컬에서 띄울 경우 공식 CLI와 Docker가 필요하다. 저장소에 고정된 PostgreSQL 버전과 현재 CI의 SQL 검사 절차는 [Supabase 설정](../supabase/config.jsonc)과 [CI 워크플로](../.github/workflows/ci.yml)에서 확인한다.
+
+```sh
+pnpm lint
+pnpm format:check
+pnpm --filter web exec next typegen
+pnpm --filter web check-types
+pnpm --filter web test:unit
+pnpm --filter web build
+```
+
+의존성을 바꾸면 [보안 검사 절차](architecture.md#의존성-보안-확인)도 실행한다.
 
 ## 트러블슈팅
 

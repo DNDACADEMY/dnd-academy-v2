@@ -25,6 +25,13 @@
   <img src="https://img.shields.io/github/repo-size/DNDACADEMY/dnd-academy-v2?logo=pnpm&style=flat-square">
 </a>
 
+## 개발 문서
+
+- [로컬 개발 시작하기](docs/getting-started.md)
+- [현재 웹 아키텍처와 개선 우선순위](docs/architecture.md)
+- [합격 조회·CMS 프리뷰 및 환경 설정](docs/admissions-cms-preview.md)
+- [홈 콘텐츠 초기 이관 기록](docs/home-cms-migration.md)
+
 ## 🐛 Bug reporting
 
 [Issues](https://github.com/DNDACADEMY/dnd-academy-v2/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
