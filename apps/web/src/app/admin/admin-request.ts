@@ -10,11 +10,13 @@ export async function adminRequest<T>(
     | 'submissions'
     | 'recruitment-controls',
   payload: unknown,
+  signal?: AbortSignal,
 ): Promise<T> {
   const response = await fetch(`/api/admin/${resource}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     cache: 'no-store',
+    signal,
     body: JSON.stringify(payload),
   });
   const data = await response.json().catch(() => null);

@@ -1,8 +1,8 @@
-import type { ContentRecord } from '@/lib/cms/content-contract';
 import { canAdmin } from '@/lib/cms/permissions';
 import { approveSubmissions, inspectSubmission, processSubmissionPublication } from '@/lib/cms/submission-approval';
 import { grantRequest } from '@/lib/cms/submission-contract';
 import {
+  lookupSubmissionContent,
   submissionError,
   submissionHeaders,
   submissionsEnabled,
@@ -42,20 +42,7 @@ export async function POST(request: Request) {
       });
     }
     if (parsed.data.action === 'lookup') {
-      const { kind, query, cohort } = parsed.data;
-      const rows = await rpc<ContentRecord[]>('published_content', { kind });
-      const term = query.normalize('NFC').toLocaleLowerCase('ko');
-      return Response.json(
-        rows
-          .filter(
-            (row) =>
-              (!cohort || row.cohort === cohort) &&
-              (row.name.normalize('NFC').toLocaleLowerCase('ko').includes(term) || String(row.id) === term),
-          )
-          .slice(0, 20)
-          .map(({ id, name, cohort }) => ({ id, name, cohort })),
-        { headers: submissionHeaders },
-      );
+      return Response.json(await lookupSubmissionContent(actor, parsed.data), { headers: submissionHeaders });
     }
     const { action, ...input } = parsed.data;
     const token = action === 'issue' ? submissionToken() : null;

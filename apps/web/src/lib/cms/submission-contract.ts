@@ -162,6 +162,8 @@ export const submissionLabels: Record<(typeof contentKinds)[number], string> = {
   organizer: '운영진 소개',
 };
 
+export type SubmissionContentMatch = { id: number; name: string; cohort?: number | null };
+
 export type SubmissionLink = {
   id: string;
   kind: (typeof contentKinds)[number];

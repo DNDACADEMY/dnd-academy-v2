@@ -17,6 +17,7 @@ import {
   kstDeadline,
   organizerProfileLabels,
   type Submission,
+  type SubmissionContentMatch,
   type SubmissionJob,
   type SubmissionLink,
   submissionLabels,
@@ -24,12 +25,12 @@ import {
 } from '@/lib/cms/submission-contract';
 
 import { adminRequest } from './admin-request';
+import SubmissionContentPicker from './submission-content-picker';
 
 import adminStyles from './styles.module.scss';
 import styles from './submissions.module.scss';
 
 type Team = SubmissionWorkspace['teams'][number];
-type Match = { id: number; name: string; cohort?: number };
 type Changes = {
   submission: Submission;
   draft: ContentInput;
@@ -114,11 +115,10 @@ export default function SubmissionsPanel({
   const [archived, setArchived] = useState(false);
   const [kind, setKind] = useState<ContentKind>(target?.kind ?? 'project');
   const [label, setLabel] = useState('');
-  const [lookup, setLookup] = useState('');
-  const [matches, setMatches] = useState<Match[]>([]);
-  const [selected, setSelected] = useState<Match | null>(target ? { id: target.id, name: target.name } : null);
+  const [selected, setSelected] = useState<SubmissionContentMatch | null>(
+    target ? { id: target.id, name: target.name } : null,
+  );
   const [targetMode, setTargetMode] = useState<'new' | 'existing'>(target ? 'existing' : 'new');
-  const [searched, setSearched] = useState(false);
   const [links, setLinks] = useState<IssuedLink[]>([]);
   const [historyFilter, setHistoryFilter] = useState<'all' | SubmissionLink['state']>('all');
   const [extension, setExtension] = useState<Extension | null>(null);
@@ -175,9 +175,6 @@ export default function SubmissionsPanel({
     window.history.pushState(null, '', `/admin?${params}`);
     setConflict(undefined);
     if (next !== tab) {
-      setLookup('');
-      setMatches([]);
-      setSearched(false);
       setSelected(next === (target?.kind === 'organizer' ? 'organizers' : 'teams') && target ? target : null);
       setTargetMode(next === (target?.kind === 'organizer' ? 'organizers' : 'teams') && target ? 'existing' : 'new');
       setKind(target?.kind ?? 'project');
@@ -191,9 +188,6 @@ export default function SubmissionsPanel({
     if (owner.id === team?.id) return;
     setTeamId(owner.id);
     setMemberId('');
-    setLookup('');
-    setMatches([]);
-    setSearched(false);
     const teamTarget = target?.kind === operationKind ? target : null;
     setSelected(teamTarget);
     setTargetMode(teamTarget ? 'existing' : 'new');
@@ -236,20 +230,6 @@ export default function SubmissionsPanel({
     }
   }
 
-  async function searchExisting() {
-    await run(async () => {
-      setMatches(
-        await adminRequest<Match[]>('submissions', {
-          action: 'lookup',
-          kind: operationKind,
-          query: lookup,
-          cohort: operationKind === 'organizer' ? undefined : cohort?.ordinal,
-        }),
-      );
-      setSearched(true);
-    });
-  }
-
   async function change(payload: unknown, success: string) {
     await run(async () => {
       const value = await adminRequest<{ changed?: number }>('submissions', payload);
@@ -262,7 +242,7 @@ export default function SubmissionsPanel({
     type: ContentKind,
     owner?: Team,
     member?: Team['members'][number],
-    item: Match | null = selected,
+    item: SubmissionContentMatch | null = selected,
     customLabel = label,
   ) {
     const payload = {
@@ -290,7 +270,7 @@ export default function SubmissionsPanel({
     ]);
   }
 
-  async function issueGroups(groups: typeof toIssue, projectTarget: Match | null) {
+  async function issueGroups(groups: typeof toIssue, projectTarget: SubmissionContentMatch | null) {
     await run(async () => {
       let count = 0;
       try {
@@ -823,9 +803,6 @@ export default function SubmissionsPanel({
                           onChange={(event) => {
                             setKind(event.target.value as ContentKind);
                             setSelected(null);
-                            setMatches([]);
-                            setLookup('');
-                            setSearched(false);
                             setTargetMode('new');
                           }}
                         >
@@ -862,7 +839,6 @@ export default function SubmissionsPanel({
                             onClick={() => {
                               setTargetMode('new');
                               setSelected(null);
-                              setSearched(false);
                             }}
                           >
                             신규 등록
@@ -876,51 +852,14 @@ export default function SubmissionsPanel({
                           </button>
                         </div>
                         {targetMode === 'existing' && (
-                          <>
-                            <div className={styles.formRow}>
-                              <label>
-                                기존 {submissionLabels[operationKind]} 검색
-                                <input
-                                  value={lookup}
-                                  placeholder="콘텐츠 이름"
-                                  onChange={(event) => setLookup(event.target.value)}
-                                  onKeyDown={(event) => {
-                                    if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
-                                      event.preventDefault();
-                                      if (!busy) void searchExisting();
-                                    }
-                                  }}
-                                />
-                              </label>
-                              <button type="button" disabled={busy} onClick={() => void searchExisting()}>
-                                검색
-                              </button>
-                            </div>
-                            {searched &&
-                              (matches.length ? (
-                                <label>
-                                  검색 결과
-                                  <select
-                                    value={matches.some((item) => item.id === selected?.id) ? selected?.id : ''}
-                                    onChange={(event) =>
-                                      setSelected(
-                                        matches.find((item) => String(item.id) === event.target.value) ?? null,
-                                      )
-                                    }
-                                  >
-                                    <option value="">항목 선택</option>
-                                    {matches.map((item) => (
-                                      <option key={item.id} value={item.id}>
-                                        {item.name}
-                                      </option>
-                                    ))}
-                                  </select>
-                                </label>
-                              ) : (
-                                <p className={styles.muted}>검색 결과가 없습니다.</p>
-                              ))}
-                            {selected && <p className={styles.selection}>수정 대상 · {selected.name}</p>}
-                          </>
+                          <SubmissionContentPicker
+                            key={JSON.stringify([tab, workspace.cohortId, team?.id, operationKind])}
+                            kind={operationKind}
+                            cohort={operationKind === 'organizer' ? undefined : cohort?.ordinal}
+                            selected={selected}
+                            onSelect={setSelected}
+                            disabled={busy}
+                          />
                         )}
                       </>
                     )}

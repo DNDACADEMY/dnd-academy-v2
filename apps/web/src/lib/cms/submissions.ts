@@ -2,7 +2,8 @@ import 'server-only';
 import { createHash, randomBytes } from 'node:crypto';
 
 import { contentEnabled } from './content';
-import type { Submission, SubmissionJob, SubmissionWorkspace } from './submission-contract';
+import type { ContentKind } from './content-contract';
+import type { Submission, SubmissionContentMatch, SubmissionJob, SubmissionWorkspace } from './submission-contract';
 import { DatabaseError, rpc } from './supabase';
 
 export const submissionHeaders = {
@@ -25,6 +26,15 @@ export async function submissionWorkspace(actor: string, cohort: number | null):
   const ids = workspace.links.filter(({ state }) => state === 'submitted').map(({ id }) => id);
   const jobs = ids.length ? await rpc<SubmissionJob[]>('list_submission_publications', { actor, link_ids: ids }) : [];
   return { ...workspace, jobs };
+}
+
+export function lookupSubmissionContent(actor: string, options: { kind: ContentKind; query: string; cohort?: number }) {
+  return rpc<SubmissionContentMatch[]>('lookup_submission_content', {
+    actor,
+    kind: options.kind,
+    search_term: options.query,
+    cohort_number: options.cohort ?? null,
+  });
 }
 
 export const submissionSessionCredential = (id: string, session: string) =>
