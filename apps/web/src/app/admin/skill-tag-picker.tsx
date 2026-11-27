@@ -19,14 +19,15 @@ const adminCatalog = () => adminRequest<{ skills: string[] }>('content/skills', 
 
 export default function SkillTagPicker({
   initial,
+  value,
   onChange,
   loadCatalog = adminCatalog,
 }: {
-  initial: string[];
   onChange: (selected: string[]) => void;
   loadCatalog?: () => Promise<{ skills: string[] }>;
-}) {
-  const [selected, setSelected] = useState(initial);
+} & ({ initial: string[]; value?: never } | { value: string[]; initial?: never })) {
+  const [localSelected, setLocalSelected] = useState(initial ?? []);
+  const selected = value ?? localSelected;
   const [catalog, setCatalog] = useState<string[]>();
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
@@ -39,14 +40,20 @@ export default function SkillTagPicker({
   const proposedLabel = query.trim();
   const term = searchKey(proposedLabel);
   const atLimit = selected.length >= maxSkills;
+  const selectedKeys = new Set(selected.map(searchKey));
   const matches =
-    catalog && term ? [...new Set([...catalog, ...selected])].filter((label) => searchKey(label).includes(term)) : [];
+    catalog && term
+      ? [...new Map([...catalog, ...selected].map((label) => [searchKey(label), label])).values()].filter((label) =>
+          searchKey(label).includes(term),
+        )
+      : [];
+  const isSelected = (label: string) => selectedKeys.has(searchKey(label));
   const rank = (label: string) => {
     const key = searchKey(label);
     return key === term ? 0 : key.startsWith(term) ? 1 : 2;
   };
   const suggestions = matches.toSorted((a, b) => rank(a) - rank(b)).slice(0, resultLimit);
-  const exact = suggestions.find((label) => rank(label) === 0 && !selected.includes(label));
+  const exact = suggestions.find((label) => rank(label) === 0 && !isSelected(label));
   const canCreate = Boolean(catalog && term) && !suggestions.some((label) => rank(label) === 0);
 
   useEffect(() => {
@@ -64,13 +71,16 @@ export default function SkillTagPicker({
     };
   }, [attempt, loadCatalog]);
 
-  function add(label: string) {
-    if (atLimit || selected.includes(label)) return;
-    const next = [...selected, label];
-    setSelected(next);
-    setQuery('');
+  function select(next: string[]) {
+    if (value === undefined) setLocalSelected(next);
     onChange(next);
     search.current?.focus();
+  }
+
+  function add(label: string) {
+    if (atLimit || isSelected(label)) return;
+    setQuery('');
+    select([...selected, label]);
   }
 
   return (
@@ -98,12 +108,7 @@ export default function SkillTagPicker({
               <button
                 type="button"
                 aria-label={`${label} 태그 제거`}
-                onClick={() => {
-                  const next = selected.filter((skill) => skill !== label);
-                  setSelected(next);
-                  onChange(next);
-                  search.current?.focus();
-                }}
+                onClick={() => select(selected.filter((skill) => skill !== label))}
               >
                 ×
               </button>
@@ -139,7 +144,9 @@ export default function SkillTagPicker({
           }
           if (event.key === 'Enter') {
             event.preventDefault();
-            if (opened && exact && !atLimit) add(exact);
+            if (!opened || atLimit) return;
+            if (exact) add(exact);
+            else if (canCreate && suggestions.length === 0) add(proposedLabel);
           }
         }}
       />
@@ -158,6 +165,7 @@ export default function SkillTagPicker({
               </p>
               <button
                 type="button"
+                onMouseDown={(event) => event.preventDefault()}
                 onClick={() => {
                   setError('');
                   setAttempt(attempt + 1);
@@ -168,17 +176,25 @@ export default function SkillTagPicker({
             </div>
           )}
           {catalog && term && (
-            <ul ref={results} aria-label="기술 검색 결과" className={styles.skillResults}>
+            <ul
+              ref={results}
+              aria-label="기술 검색 결과"
+              className={styles.skillResults}
+              onMouseDown={(event) => {
+                // Safari may blur the input before a clicked result button receives focus.
+                if (event.target instanceof Element && event.target.closest('button')) event.preventDefault();
+              }}
+            >
               {suggestions.map((label) => (
                 <li key={label}>
                   <button
                     type="button"
-                    aria-label={`${label} ${selected.includes(label) ? '추가됨' : '추가'}`}
-                    disabled={selected.includes(label)}
+                    aria-label={`${label} ${isSelected(label) ? '추가됨' : '추가'}`}
+                    disabled={isSelected(label)}
                     onClick={() => add(label)}
                   >
                     <TechnologyTag skill={label} color="grey" />
-                    <span>{selected.includes(label) ? '추가됨' : '추가'}</span>
+                    <span>{isSelected(label) ? '추가됨' : '추가'}</span>
                   </button>
                 </li>
               ))}

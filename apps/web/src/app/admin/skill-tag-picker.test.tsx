@@ -33,6 +33,7 @@ describe('SkillTagPicker', () => {
     expect(onChange).not.toHaveBeenCalled();
     expect(adminRequest).toHaveBeenCalledExactlyOnceWith('content/skills', {});
     const result = await screen.findByRole('button', { name: 'React Query 추가' });
+    expect(fireEvent.mouseDown(result, { button: 0 })).toBe(false);
     fireEvent.click(result);
     expect(formValues()).toEqual(['Swift', 'React Query']);
 
@@ -54,5 +55,16 @@ describe('SkillTagPicker', () => {
     const results = screen.getByRole('list', { name: '기술 검색 결과' });
     fireEvent.click(within(results).getByRole('button', { name: '화면 기획 새 태그 추가' }));
     expect(formValues()).toEqual(['React', '화면 기획']);
+    fireEvent.change(input, { target: { value: '문서 작성' } });
+    fireEvent.keyDown(input, { key: 'Enter' });
+    expect(formValues()).toEqual(['React', '화면 기획', '문서 작성']);
+  });
+  it('reflects the skills returned after the editor reloads the saved draft', () => {
+    const onChange = vi.fn<(skills: string[]) => void>();
+    const { rerender } = render(<SkillTagPicker value={['Swift']} onChange={onChange} />);
+    expect(screen.getByRole('button', { name: 'Swift 태그 제거' })).toBeVisible();
+    rerender(<SkillTagPicker value={['React']} onChange={onChange} />);
+    expect(screen.queryByRole('button', { name: 'Swift 태그 제거' })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'React 태그 제거' })).toBeVisible();
   });
 });

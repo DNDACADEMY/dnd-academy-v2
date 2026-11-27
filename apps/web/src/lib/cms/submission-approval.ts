@@ -2,9 +2,16 @@ import 'server-only';
 import { createHash, randomUUID } from 'node:crypto';
 
 import { contentAssets } from './content';
-import { type ContentInput, type ContentRecord, contentRequest } from './content-contract';
+import { type ContentInput, type ContentRecord, contentRequest, detailKinds } from './content-contract';
 import { mediaAssets, previewMedia, publishWithMedia } from './media';
-import type { Submission, SubmissionJob } from './submission-contract';
+import {
+  type OrganizerProfileInput,
+  type Submission,
+  type SubmissionJob,
+  organizerProfileDetails,
+  organizerProfileFields,
+  organizerProfileFrom,
+} from './submission-contract';
 import { DatabaseError, rpc } from './supabase';
 
 type ReviewRow = {
@@ -46,12 +53,42 @@ export async function inspectSubmission(actor: string, id: string) {
     submission,
     draft,
     media: await previewMedia(contentAssets(draft)),
-    changes: fields[submission.kind].flatMap((field) => {
-      const before = editableValue(row.current, field);
-      const after = editableValue(submission.input, field);
-      return equal(before, after) ? [] : [{ field, before, after }];
-    }),
+    changes: [
+      ...fields[submission.kind].flatMap((field) => {
+        const before = editableValue(row.current, field);
+        const after = editableValue(submission.input, field);
+        return equal(before, after) ? [] : [{ field, before, after }];
+      }),
+      ...(submission.kind === 'organizer'
+        ? organizerEdits(row).flatMap(({ field, live, requested, changed }) =>
+            changed && !equal(live, requested) ? [{ field, before: live, after: requested }] : [],
+          )
+        : []),
+    ],
   };
+}
+
+function organizerEdits({ submission, base, current, editor }: ReviewRow) {
+  const submitted = submission.input.organizerProfile;
+  const before = organizerProfileFrom(base);
+  const published = organizerProfileFrom(current);
+  const draft = editor?.state === 'draft' ? organizerProfileFrom(editor) : null;
+  return organizerProfileFields.map((field) => {
+    const requested = submitted?.[field] ?? before[field];
+    const live = published[field];
+    const savedDraft = draft?.[field] ?? live;
+    const changed = !equal(before[field], requested);
+    return {
+      field,
+      live,
+      requested,
+      changed,
+      conflict:
+        changed &&
+        ((!equal(before[field], live) && !equal(requested, live)) ||
+          (!equal(live, savedDraft) && !equal(requested, savedDraft))),
+    };
+  });
 }
 
 function prepare(row: ReviewRow) {
@@ -107,10 +144,37 @@ function prepare(row: ReviewRow) {
       conflicts.push(field);
     Object.assign(payload, { [field]: changed ? requested : liveValue });
   }
+  if (kind === 'organizer') {
+    const edits = organizerEdits(row).filter(({ changed }) => changed);
+    const profile: OrganizerProfileInput = organizerProfileFrom(initial);
+    for (const { field, requested, conflict } of edits) {
+      if (conflict) conflicts.push(field);
+      Object.assign(profile, { [field]: requested });
+    }
+    payload.mbti = profile.mbti;
+    const editedDetails = new Set(edits.filter(({ field }) => field !== 'mbti').map(({ field }) => field));
+    if (editedDetails.size > 0) {
+      payload.details = [
+        ...(initial?.details ?? []).filter(({ kind: detail }) => detail === 'share' || !editedDetails.has(detail)),
+        ...organizerProfileDetails(profile).filter(
+          ({ kind: detail }) => detail !== 'share' && editedDetails.has(detail),
+        ),
+      ];
+    }
+  }
   if (kind !== 'review') {
     payload.links.push(...(initial?.links ?? []).filter(({ kind }) => kind === 'email'));
   }
-  if (payload.thumbnailId) payload.legacyThumbnail = null;
+  if (payload.thumbnailId) {
+    payload.legacyThumbnail = null;
+    if (
+      kind === 'organizer' &&
+      payload.thumbnailId !== base?.thumbnailId &&
+      payload.thumbnailId === submission.input.thumbnailId
+    ) {
+      payload.emoji = null;
+    }
+  }
   if (payload.pdfId) payload.legacyPdf = null;
 
   const publicationInput = contentRequest.safeParse({
@@ -133,6 +197,15 @@ function prepare(row: ReviewRow) {
         ]),
       )
     : null;
+  if (kind === 'organizer' && draft && restoreDraft) {
+    restoreDraft.details = detailKinds.flatMap((kind) => {
+      const publishedDetails = (current?.details ?? []).filter((entry) => entry.kind === kind);
+      const draftDetails = (draft.details ?? []).filter((entry) => entry.kind === kind);
+      return equal(publishedDetails, draftDetails)
+        ? (payload.details ?? []).filter((entry) => entry.kind === kind)
+        : draftDetails;
+    });
+  }
   return {
     conflicts,
     item: {

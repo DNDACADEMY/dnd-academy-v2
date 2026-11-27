@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import {
+  type ContentInput,
   contentInput,
   contentKinds,
   linkKinds,
@@ -68,6 +69,64 @@ export const grantRequest = z.union([
   }),
 ]);
 
+const organizerAnswer = z.string().max(10000);
+const organizerCareer = z.array(organizerAnswer).max(100);
+
+export const organizerProfileInput = z
+  .strictObject({
+    mbti: z.string().trim().max(30),
+    now: organizerCareer,
+    previous: organizerCareer,
+    role: organizerAnswer,
+    recommendation: organizerAnswer,
+    interests: organizerAnswer,
+  })
+  .refine(
+    (value) =>
+      value.now.length +
+        value.previous.length +
+        Number(Boolean(value.role)) +
+        Number(Boolean(value.recommendation)) +
+        Number(Boolean(value.interests)) <=
+      100,
+    '프로필 항목을 100개 이내로 입력해 주세요.',
+  );
+
+export type OrganizerProfileInput = z.infer<typeof organizerProfileInput>;
+export const organizerProfileLabels = {
+  mbti: 'MBTI',
+  now: '현재 이력',
+  previous: '이전 이력',
+  role: 'DND에서 맡고 있는 업무',
+  recommendation: '지원자에게 DND를 추천하는 이유',
+  interests: '관심사와 좋아하는 것',
+} as const satisfies Record<keyof OrganizerProfileInput, string>;
+
+export const organizerProfileFields = Object.keys(organizerProfileLabels) as (keyof OrganizerProfileInput)[];
+
+export function organizerProfileFrom(input: Pick<ContentInput, 'mbti' | 'details'> | null): OrganizerProfileInput {
+  const entries = (kind: string) =>
+    (input?.details ?? []).filter((entry) => entry.kind === kind).map(({ body }) => body);
+  return {
+    mbti: input?.mbti ?? '',
+    now: entries('now'),
+    previous: entries('previous'),
+    role: entries('role')[0] ?? '',
+    recommendation: entries('recommendation')[0] ?? '',
+    interests: entries('interests')[0] ?? '',
+  };
+}
+
+export function organizerProfileDetails(profile: OrganizerProfileInput): NonNullable<ContentInput['details']> {
+  return [
+    ...profile.now.filter((body) => body.trim()).map((body) => ({ kind: 'now' as const, body })),
+    ...profile.previous.filter((body) => body.trim()).map((body) => ({ kind: 'previous' as const, body })),
+    ...(['role', 'recommendation', 'interests'] as const).flatMap((kind) =>
+      profile[kind].trim() ? [{ kind, body: profile[kind] }] : [],
+    ),
+  ];
+}
+
 export const submissionInput = z.strictObject({
   name: z.string().trim().max(160),
   description: contentInput.shape.description,
@@ -86,6 +145,7 @@ export const submissionInput = z.strictObject({
   thumbnailId: z.uuid().nullable().optional(),
   pdfId: z.uuid().nullable().optional(),
   images: contentInput.shape.images,
+  organizerProfile: organizerProfileInput.optional(),
 });
 
 export const submissionRequest = z.discriminatedUnion('action', [
@@ -121,6 +181,12 @@ export type SubmissionLink = {
 export type Submission = SubmissionLink & {
   input: z.infer<typeof submissionInput> & { cohort: number | null; position: string | null; projectId: number | null };
   projectName: string | null;
+  organizerPreview?: {
+    legacyThumbnail: string | null;
+    thumbnailId: string | null;
+    emoji: string | null;
+    shares: string[];
+  };
 };
 
 export type SubmissionJob = {
