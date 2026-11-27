@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { DNDLogo } from '@/lib/assets/logos';
 import { readAdmissions } from '@/lib/cms/admissions';
-import { contentWorkspace } from '@/lib/cms/content';
+import { contentWorkspace, editableContent } from '@/lib/cms/content';
 import { contentKinds } from '@/lib/cms/content-contract';
 import { editableHome } from '@/lib/cms/home';
 import { adminSession } from '@/lib/cms/permissions';
@@ -92,7 +92,13 @@ export default async function Admin({ searchParams }: Props) {
     query.id && /^(0|[1-9]\d{0,9})$/.test(query.id) && Number(query.id) <= 2147483647 ? Number(query.id) : null;
   const admissions = showAdmissions ? await Promise.all([readAdmissions(session.id), readRecruitmentControls()]) : null;
   const workspace = showAdmissions || showHome || showSubmissions ? null : await contentWorkspace(session.id, kind, id);
-  const submissionCohort = query.cohort && /^[1-9]\d{0,3}$/.test(query.cohort) ? Number(query.cohort) : null;
+  const targetId =
+    showSubmissions && query.target && /^(0|[1-9]\d{0,9})$/.test(query.target) && Number(query.target) <= 2147483647
+      ? Number(query.target)
+      : null;
+  const [submissionTarget] = targetId === null ? [] : await editableContent(session.id, kind, targetId);
+  const submissionCohort =
+    query.cohort && /^[1-9]\d{0,3}$/.test(query.cohort) ? Number(query.cohort) : (submissionTarget?.cohort ?? null);
   const submissions = showSubmissions ? await submissionWorkspace(session.id, submissionCohort) : null;
   return (
     <div className={`${styles.admin} ${styles.workspace}`} data-admin-workspace>
@@ -166,8 +172,13 @@ export default async function Admin({ searchParams }: Props) {
               key={submissions.cohortId}
               workspace={submissions}
               target={
-                query.target && /^(0|[1-9]\d{0,9})$/.test(query.target) && Number(query.target) <= 2147483647
-                  ? { id: Number(query.target), kind }
+                submissionTarget
+                  ? {
+                      id: submissionTarget.id,
+                      kind,
+                      name: submissionTarget.name,
+                      projectId: submissionTarget.projectId,
+                    }
                   : undefined
               }
             />

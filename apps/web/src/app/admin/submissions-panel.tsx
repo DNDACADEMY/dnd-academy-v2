@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
 import SubmissionPreview from '@/components/pages/SubmissionPreview';
@@ -24,6 +24,7 @@ import {
 
 import { adminRequest } from './admin-request';
 
+import adminStyles from './styles.module.scss';
 import styles from './submissions.module.scss';
 
 type Team = SubmissionWorkspace['teams'][number];
@@ -34,6 +35,10 @@ type Changes = {
   media: MediaItem[];
   changes: { field: string; before: unknown; after: unknown }[];
 };
+type Expiry = { scope: 'cohort'; id: number } | { scope: 'team' | 'link'; id: string };
+type Extension = Expiry & { label: string; value: string };
+type Tab = 'approvals' | 'teams' | 'organizers';
+type IssuedLink = { id: string; label: string; url: string; kind: ContentKind };
 type Approval = { jobId?: string; conflicts?: { id: string; field: string }[]; confirmation?: string };
 
 const states: Record<SubmissionLink['state'], string> = {
@@ -77,11 +82,25 @@ export default function SubmissionsPanel({
   target,
 }: {
   workspace: SubmissionWorkspace;
-  target?: { id: number; kind: ContentKind };
+  target?: { id: number; kind: ContentKind; name: string; projectId?: number | null };
 }) {
   const router = useRouter();
-  const [tab, setTab] = useState(target ? (target.kind === 'organizer' ? 'organizers' : 'teams') : 'approvals');
-  const [teamId, setTeamId] = useState(workspace.teams[0]?.id ?? '');
+  const searchParams = useSearchParams();
+  const view = searchParams.get('view');
+  const tab =
+    view === 'teams' || view === 'organizers' || view === 'approvals'
+      ? view
+      : target
+        ? target.kind === 'organizer'
+          ? 'organizers'
+          : 'teams'
+        : 'approvals';
+  const linkedProject = target?.kind === 'project' ? target.id : target?.projectId;
+  const [teamId, setTeamId] = useState(
+    workspace.teams.find((team) => linkedProject != null && team.projectId === linkedProject)?.id ??
+      workspace.teams[0]?.id ??
+      '',
+  );
   const [memberId, setMemberId] = useState('');
   const [deadline, setDeadline] = useState(defaultDeadline);
   const [teamCount, setTeamCount] = useState('10');
@@ -95,10 +114,12 @@ export default function SubmissionsPanel({
   const [label, setLabel] = useState('');
   const [lookup, setLookup] = useState('');
   const [matches, setMatches] = useState<Match[]>([]);
-  const [selected, setSelected] = useState<Match | null>(
-    target ? { id: target.id, name: `기존 항목 ${target.id}` } : null,
-  );
-  const [links, setLinks] = useState<{ label: string; url: string }[]>([]);
+  const [selected, setSelected] = useState<Match | null>(target ? { id: target.id, name: target.name } : null);
+  const [targetMode, setTargetMode] = useState<'new' | 'existing'>(target ? 'existing' : 'new');
+  const [searched, setSearched] = useState(false);
+  const [links, setLinks] = useState<IssuedLink[]>([]);
+  const [historyFilter, setHistoryFilter] = useState<'all' | SubmissionLink['state']>('all');
+  const [extension, setExtension] = useState<Extension | null>(null);
   const [details, setDetails] = useState<Record<string, Changes>>({});
   const [conflict, setConflict] = useState<{ ids: string[]; confirmation: string; fields: string[] }>();
   const [error, setError] = useState('');
@@ -110,6 +131,81 @@ export default function SubmissionsPanel({
   const team = workspace.teams.find(({ id }) => id === teamId) ?? workspace.teams[0];
   const operationKind = tab === 'organizers' ? 'organizer' : kind === 'review' ? 'review' : 'project';
   const pending = workspace.links.filter((link) => link.state === 'submitted');
+  const pendingIds = new Set(pending.map(({ id }) => id));
+  const conflictingTarget =
+    operationKind === 'project' && team?.projectId != null && selected !== null && team.projectId !== selected.id;
+  const processing = new Set(
+    workspace.jobs
+      .filter(({ state }) => state !== 'failed')
+      .flatMap(({ linkIds }) => linkIds.filter((id) => pendingIds.has(id))),
+  );
+  const readyTeams = workspace.teams
+    .map((owner) => {
+      const rows = pending.filter((row) => row.teamId === owner.id && !processing.has(row.id));
+      return {
+        owner,
+        rows,
+        ready: owner.projectId !== null || rows.some((row) => row.kind === 'project'),
+      };
+    })
+    .filter(({ rows }) => rows.length);
+  const organizers = pending.filter((row) => row.kind === 'organizer' && !processing.has(row.id));
+  const readyCount =
+    organizers.length + readyTeams.filter(({ ready }) => ready).reduce((total, { rows }) => total + rows.length, 0);
+  const scopedLinks = workspace.links.filter((link) =>
+    tab === 'organizers' ? link.kind === 'organizer' : link.teamId === team?.id,
+  );
+  const latestLinks = links.filter((link) =>
+    tab === 'organizers' ? link.kind === 'organizer' : link.kind !== 'organizer',
+  );
+  const canIssue = Boolean(
+    !busy &&
+    deadline &&
+    !conflictingTarget &&
+    (operationKind !== 'review' || memberId) &&
+    (targetMode === 'new' || selected || (operationKind === 'project' && team?.projectId != null)),
+  );
+  const history = scopedLinks.filter(({ state }) => historyFilter === 'all' || historyFilter === state);
+
+  function chooseView(next: Tab) {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('view', next);
+    window.history.pushState(null, '', `/admin?${params}`);
+    setConflict(undefined);
+    if (next !== tab) {
+      setLookup('');
+      setMatches([]);
+      setSearched(false);
+      setSelected(next === (target?.kind === 'organizer' ? 'organizers' : 'teams') && target ? target : null);
+      setTargetMode(next === (target?.kind === 'organizer' ? 'organizers' : 'teams') && target ? 'existing' : 'new');
+      setKind(target?.kind ?? 'project');
+      setMemberId('');
+      setLabel('');
+      setHistoryFilter('all');
+    }
+  }
+
+  function chooseTeam(owner: Team) {
+    if (owner.id === team?.id) return;
+    setTeamId(owner.id);
+    setMemberId('');
+    setLookup('');
+    setMatches([]);
+    setSearched(false);
+    const teamTarget = target?.kind === operationKind ? target : null;
+    setSelected(teamTarget);
+    setTargetMode(teamTarget ? 'existing' : 'new');
+    setLabel('');
+    setHistoryFilter('all');
+  }
+
+  function editDeadline(scope: Expiry, title: string, expiresAt?: string) {
+    setError('');
+    const value = expiresAt
+      ? new Date(Math.max(Date.now(), Date.parse(expiresAt)) + 33 * 60 * 60 * 1000).toISOString().slice(0, 16)
+      : defaultDeadline();
+    setExtension({ ...scope, label: title, value });
+  }
   const toIssue = workspace.teams.map((owner) => {
     const issued = workspace.links.filter(
       (entry) => entry.teamId === owner.id && !['revoked', 'rejected'].includes(entry.state),
@@ -136,6 +232,20 @@ export default function SubmissionsPanel({
     } finally {
       setBusy(false);
     }
+  }
+
+  async function searchExisting() {
+    await run(async () => {
+      setMatches(
+        await adminRequest<Match[]>('submissions', {
+          action: 'lookup',
+          kind: operationKind,
+          query: lookup,
+          cohort: operationKind === 'organizer' ? undefined : cohort?.ordinal,
+        }),
+      );
+      setSearched(true);
+    });
   }
 
   async function change(payload: unknown, success: string) {
@@ -169,7 +279,12 @@ export default function SubmissionsPanel({
     const result = await adminRequest<SubmissionLink & { path: string }>('submissions', payload);
     setLinks((previous) => [
       ...previous,
-      { label: result.label, url: new URL(result.path, window.location.origin).href },
+      {
+        id: result.id,
+        label: result.label,
+        kind: result.kind,
+        url: new URL(result.path, window.location.origin).href,
+      },
     ]);
   }
 
@@ -246,20 +361,23 @@ export default function SubmissionsPanel({
   function status(link: SubmissionLink) {
     return (
       <li key={link.id} className={styles.linkRow}>
-        <strong>{link.label}</strong> <span>{states[link.state]}</span>
-        {link.publishedId !== null && <a href={publicPath(link.kind, link.publishedId)}>공개 페이지 보기</a>}
-        <time dateTime={link.expiresAt}>{formatSubmissionTime(link.expiresAt)} KST</time>
+        <div className={styles.rowTitle}>
+          <strong>{link.label}</strong>
+          <small>
+            {submissionLabels[link.kind]} ·{' '}
+            <time dateTime={link.expiresAt}>{formatSubmissionTime(link.expiresAt)} KST</time>
+          </small>
+        </div>
+        <span className={styles.pill} data-state={link.state}>
+          {states[link.state]}
+        </span>
+        {link.publishedId !== null && <a href={publicPath(link.kind, link.publishedId)}>공개 페이지</a>}
         {active(link) && (
           <>
             <button
               type="button"
-              disabled={busy || !deadline}
-              onClick={() =>
-                void change(
-                  { action: 'extend', scope: 'link', id: link.id, expiresAt: kstDeadline(deadline) },
-                  '링크 기한을 연장했습니다.',
-                )
-              }
+              disabled={busy}
+              onClick={() => editDeadline({ scope: 'link', id: link.id }, link.label, link.expiresAt)}
             >
               연장
             </button>
@@ -284,7 +402,10 @@ export default function SubmissionsPanel({
     return (
       <li key={row.id} className={styles.reviewRow}>
         <div className={styles.row}>
-          <strong>{row.label}</strong> <span>{submissionLabels[row.kind]}</span>
+          <div className={styles.rowTitle}>
+            <strong>{row.label}</strong>
+            <small>{submissionLabels[row.kind]}</small>
+          </div>
           <button
             type="button"
             aria-expanded={Boolean(review)}
@@ -300,13 +421,14 @@ export default function SubmissionsPanel({
               });
             }}
           >
-            {review ? '비교 닫기' : '변경 비교'}
+            {review ? '검토 닫기' : '제출안 검토'}
           </button>
           <button
             type="button"
+            className={adminStyles.danger}
             disabled={busy}
             onClick={() => {
-              if (window.confirm('이 제출안을 반려할까요?'))
+              if (window.confirm(`‘${row.label}’ 제출안을 반려할까요?`))
                 void change({ action: 'reject', linkId: row.id }, '제출안을 반려했습니다.');
             }}
           >
@@ -352,33 +474,30 @@ export default function SubmissionsPanel({
     );
   }
 
+  const tabs = [
+    { id: 'approvals', label: '승인 대기', count: pending.length - processing.size },
+    { id: 'teams', label: '조별 현황', count: workspace.teams.length },
+    { id: 'organizers', label: '운영진 프로필', count: undefined },
+  ] as const;
+
   return (
     <section className={styles.panel} aria-busy={busy}>
-      <h1>제출 관리</h1>
-      <div className={styles.row} aria-label="제출 관리 메뉴">
-        {[
-          ['approvals', `승인 대기 ${pending.length}`],
-          ['teams', '조별 현황'],
-          ['organizers', '운영진 프로필'],
-        ].map(([id, text]) => (
-          <button
-            type="button"
-            key={id}
-            aria-pressed={tab === id}
-            onClick={() => {
-              setTab(id);
-              setConflict(undefined);
-            }}
-          >
-            {text}
-          </button>
-        ))}
+      <header className={styles.heading}>
+        <div>
+          <h1>제출 관리</h1>
+          <p>작성 링크를 발급하고 제출된 프로젝트·후기·운영진 소개를 검토합니다.</p>
+        </div>
         {tab !== 'organizers' && (
-          <label>
+          <label className={styles.cohort}>
             기수
             <select
               value={cohort?.ordinal ?? ''}
-              onChange={(event) => router.push(`/admin?section=submissions&cohort=${event.target.value}`)}
+              onChange={(event) => {
+                const params = new URLSearchParams(searchParams.toString());
+                params.set('view', tab);
+                params.set('cohort', event.target.value);
+                router.push(`/admin?${params}`);
+              }}
             >
               {!cohort && <option value="">기수 없음</option>}
               {workspace.cohorts.map(({ id, ordinal }) => (
@@ -389,43 +508,144 @@ export default function SubmissionsPanel({
             </select>
           </label>
         )}
+      </header>
+
+      <div className={styles.tabs} role="group" aria-label="제출 관리 메뉴">
+        {tabs.map(({ id, label: name, count }) => (
+          <button type="button" key={id} aria-pressed={tab === id} onClick={() => chooseView(id)}>
+            {name}
+            {count !== undefined && <span>{count}</span>}
+          </button>
+        ))}
       </div>
+
       {error && (
         <p role="alert" className={styles.error}>
           {error}
         </p>
       )}
-      {notice && <p role="status">{notice}</p>}
-      {published.length > 0 && (
-        <ul aria-label="방금 게시한 콘텐츠">
-          {published.map(({ kind, id }) => (
-            <li key={`${kind}-${id}`}>
-              <a href={publicPath(kind, id)}>{submissionLabels[kind]} 공개 페이지 보기</a>
-            </li>
-          ))}
-        </ul>
-      )}
-      {busy && <p role="status">처리 중입니다…</p>}
+      <div aria-live="polite" className={styles.feedback}>
+        {notice && <p>{notice}</p>}
+        {busy && !notice && <p>처리 중입니다…</p>}
+        {published.length > 0 && (
+          <ul className={styles.row} aria-label="방금 게시한 콘텐츠">
+            {published.map(({ kind, id }) => (
+              <li key={`${kind}-${id}`}>
+                <a href={publicPath(kind, id)}>{submissionLabels[kind]} 공개 페이지 보기</a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       {tab === 'approvals' ? (
         <>
+          <dl className={styles.metrics}>
+            <div>
+              <dt>승인 가능</dt>
+              <dd>
+                {readyCount}
+                <span>건</span>
+              </dd>
+            </div>
+            <div>
+              <dt>프로젝트 제출 대기</dt>
+              <dd>
+                {pending.length - readyCount - processing.size}
+                <span>건</span>
+              </dd>
+            </div>
+            <div>
+              <dt>게시 처리 중</dt>
+              <dd>
+                {processing.size}
+                <span>건</span>
+              </dd>
+            </div>
+          </dl>
           {conflict && (
             <div className={styles.box}>
               <p role="alert">같은 필드에 변경이 겹쳤습니다. {conflict.fields.join(', ')}</p>
-              <button type="button" disabled={busy} onClick={() => void approve(conflict.ids, conflict.confirmation)}>
-                확인한 제출안으로 승인
-              </button>
-              <button type="button" onClick={() => setConflict(undefined)}>
-                닫기
+              <div className={styles.row}>
+                <button
+                  type="button"
+                  className={adminStyles.primary}
+                  disabled={busy}
+                  onClick={() => void approve(conflict.ids, conflict.confirmation)}
+                >
+                  확인한 제출안으로 승인
+                </button>
+                <button type="button" onClick={() => setConflict(undefined)}>
+                  닫기
+                </button>
+              </div>
+            </div>
+          )}
+          {pending.length === 0 && (
+            <div className={styles.empty}>
+              <h2>검토할 제출안이 없습니다</h2>
+              <p>작성자가 제출을 완료하면 여기에서 검토할 수 있습니다.</p>
+              <button type="button" className={adminStyles.primary} onClick={() => chooseView('teams')}>
+                조별 현황 보기
               </button>
             </div>
           )}
+          {readyTeams
+            .sort((a, b) => Number(b.ready) - Number(a.ready))
+            .map(({ owner, rows, ready }) => (
+              <article className={styles.box} key={owner.id}>
+                <header className={styles.cardHeading}>
+                  <div>
+                    <h2>
+                      {cohort?.ordinal}기 {owner.number}조
+                    </h2>
+                    <p>{rows.length}건 제출</p>
+                  </div>
+                  {ready ? (
+                    <button
+                      type="button"
+                      className={adminStyles.primary}
+                      disabled={busy}
+                      onClick={() => void approve(rows.map(({ id }) => id))}
+                    >
+                      {rows.length}건 승인 및 게시
+                    </button>
+                  ) : (
+                    <span className={styles.pill} data-state="expired">
+                      프로젝트 제출 대기
+                    </span>
+                  )}
+                </header>
+                {!ready && <p className={styles.muted}>프로젝트가 제출되면 후기를 함께 게시할 수 있습니다.</p>}
+                <ul>{rows.map(showReview)}</ul>
+              </article>
+            ))}
+          {organizers.map((row) => (
+            <article className={styles.box} key={row.id}>
+              <header className={styles.cardHeading}>
+                <h2>운영진 프로필 제출</h2>
+                <button
+                  type="button"
+                  className={adminStyles.primary}
+                  disabled={busy}
+                  onClick={() => void approve([row.id])}
+                >
+                  승인 및 게시
+                </button>
+              </header>
+              <ul>{showReview(row)}</ul>
+            </article>
+          ))}
           {workspace.jobs.length > 0 && (
             <div className={styles.box}>
               <h2>게시 작업</h2>
               <ul>
                 {workspace.jobs.map((job) => (
-                  <li key={job.id}>
-                    {job.linkIds.length}건 · {job.state === 'failed' ? '게시 실패' : '게시 처리 중'}
+                  <li className={styles.linkRow} key={job.id}>
+                    <strong className={styles.rowTitle}>{job.linkIds.length}건</strong>
+                    <span className={styles.pill} data-state={job.state === 'failed' ? 'rejected' : 'submitted'}>
+                      {job.state === 'failed' ? '게시 실패' : '게시 처리 중'}
+                    </span>
                     {job.state !== 'failed' && (
                       <button
                         type="button"
@@ -448,350 +668,493 @@ export default function SubmissionsPanel({
               </ul>
             </div>
           )}
-          {pending.length === 0 && <p>승인할 제출안이 없습니다.</p>}
-          {workspace.teams.map((owner) => {
-            const rows = pending.filter((row) => row.teamId === owner.id);
-            if (!rows.length) return null;
-            const ready = owner.projectId !== null || rows.some((row) => row.kind === 'project');
-            return (
-              <article className={styles.box} key={owner.id}>
-                <div className={styles.row}>
-                  <h2>
-                    {cohort?.ordinal}기 {owner.number}조
-                  </h2>
-                  <button
-                    type="button"
-                    disabled={busy || !ready}
-                    onClick={() => void approve(rows.map(({ id }) => id))}
-                  >
-                    {rows.length}건 승인 및 게시
-                  </button>
-                </div>
-                {!ready && <p>프로젝트가 제출되면 후기를 함께 게시할 수 있습니다.</p>}
-                <ul>{rows.map(showReview)}</ul>
-              </article>
-            );
-          })}
-          {pending
-            .filter((row) => row.kind === 'organizer')
-            .map((row) => (
-              <article className={styles.box} key={row.id}>
-                <div className={styles.row}>
-                  <h2>운영진 프로필</h2>
-                  <button type="button" disabled={busy} onClick={() => void approve([row.id])}>
-                    승인 및 게시
-                  </button>
-                </div>
-                <ul>{showReview(row)}</ul>
-              </article>
-            ))}
         </>
       ) : (
         <>
-          <div className={styles.box}>
-            <label>
-              마감 시각 (KST)
-              <input type="datetime-local" value={deadline} onChange={(event) => setDeadline(event.target.value)} />
-            </label>
-            {tab === 'teams' && cohort && (
-              <>
-                <div className={styles.row}>
-                  <label>
-                    만들 조 수
-                    <input
-                      type="number"
-                      min={1}
-                      max={100}
-                      value={teamCount}
-                      onChange={(event) => setTeamCount(event.target.value)}
-                    />
-                  </label>
-                  <button
-                    type="button"
-                    disabled={busy}
-                    onClick={() =>
-                      void change(
-                        { action: 'teams', cohortId: cohort.id, count: Number(teamCount) },
-                        '조를 추가했습니다.',
-                      )
-                    }
-                  >
-                    조 추가
-                  </button>
-                  <button
-                    type="button"
-                    disabled={busy || !deadline}
-                    onClick={() =>
-                      void change(
-                        { action: 'extend', scope: 'cohort', id: cohort.id, expiresAt: kstDeadline(deadline) },
-                        '기수 링크 기한을 연장했습니다.',
-                      )
-                    }
-                  >
-                    기수 전체 연장
-                  </button>
-                  <button
-                    type="button"
-                    disabled={busy || !deadline || !cohortLinkCount}
-                    onClick={() => void issueGroups(toIssue, null)}
-                  >
-                    기수 링크 {cohortLinkCount}건 발급
-                  </button>
+          {tab === 'teams' && cohort && (
+            <div className={styles.box}>
+              <header className={styles.cardHeading}>
+                <div>
+                  <h2>{cohort.ordinal}기 조 현황</h2>
+                  <p>조를 선택하면 아래에서 작성 링크와 팀원을 관리할 수 있습니다.</p>
                 </div>
-                {team && (
-                  <>
+                <details className={styles.teamSettings}>
+                  <summary>기수 설정</summary>
+                  <div className={styles.stack}>
                     <label>
-                      조
-                      <select
-                        value={team.id}
-                        onChange={(event) => {
-                          setTeamId(event.target.value);
-                          setMemberId('');
-                          setSelected(null);
-                        }}
-                      >
-                        {workspace.teams.map(({ id, number, members }) => {
-                          const group = workspace.links.filter((row) => row.teamId === id);
-                          const reviewed = new Set(
-                            group
-                              .filter((row) => row.kind === 'review' && ['submitted', 'published'].includes(row.state))
-                              .map((row) => row.memberId),
-                          );
-                          return (
-                            <option key={id} value={id}>
-                              {number}조 · 후기 {reviewed.size}/{members.length}명 제출
-                            </option>
-                          );
-                        })}
-                      </select>
+                      전체 조 수
+                      <input
+                        type="number"
+                        min={1}
+                        max={100}
+                        value={teamCount}
+                        onChange={(event) => setTeamCount(event.target.value)}
+                      />
                     </label>
-                    <div className={styles.row}>
-                      <label>
-                        팀원 이름
-                        <input
-                          value={memberName}
-                          maxLength={160}
-                          onChange={(event) => setMemberName(event.target.value)}
-                        />
-                      </label>
-                      <label>
-                        직군
-                        <select
-                          value={reviewPosition}
-                          onChange={(event) => setReviewPosition(event.target.value as typeof reviewPosition)}
+                    <button
+                      type="button"
+                      disabled={busy}
+                      onClick={() =>
+                        void change(
+                          { action: 'teams', cohortId: cohort.id, count: Number(teamCount) },
+                          '조를 추가했습니다.',
+                        )
+                      }
+                    >
+                      조 추가
+                    </button>
+                    <button
+                      type="button"
+                      disabled={busy}
+                      onClick={() => editDeadline({ scope: 'cohort', id: cohort.id }, `${cohort.ordinal}기 전체`)}
+                    >
+                      기수 전체 기한 연장
+                    </button>
+                  </div>
+                </details>
+              </header>
+              {workspace.teams.length > 0 ? (
+                <ul className={styles.teamGrid}>
+                  {workspace.teams.map((owner) => {
+                    const group = workspace.links.filter((row) => row.teamId === owner.id);
+                    const reviewCount = new Set(
+                      group
+                        .filter((row) => row.kind === 'review' && ['submitted', 'published'].includes(row.state))
+                        .map((row) => row.memberId),
+                    ).size;
+                    const project = group.find((row) => row.kind === 'project');
+                    return (
+                      <li key={owner.id}>
+                        <button type="button" aria-pressed={team?.id === owner.id} onClick={() => chooseTeam(owner)}>
+                          <strong>{owner.number}조</strong>
+                          <span>
+                            {project
+                              ? `프로젝트 ${states[project.state]}`
+                              : owner.projectId !== null
+                                ? '프로젝트 연결됨'
+                                : '프로젝트 미발급'}
+                          </span>
+                          <small>
+                            {owner.members.length
+                              ? `후기 ${reviewCount}/${owner.members.length}명 제출`
+                              : '팀원 미등록'}
+                          </small>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <p className={styles.muted}>기수 설정에서 조를 추가해 주세요.</p>
+              )}
+            </div>
+          )}
+          {tab === 'teams' && !cohort && (
+            <div className={styles.empty}>
+              <h2>등록된 기수가 없습니다</h2>
+              <p>모집 관리에서 기수를 등록해 주세요.</p>
+            </div>
+          )}
+          {(tab === 'organizers' || team) && (
+            <>
+              {latestLinks.length > 0 && (
+                <div className={styles.box}>
+                  <header className={styles.cardHeading}>
+                    <div>
+                      <h2>이 화면에서 발급한 링크</h2>
+                      <p>이 화면을 떠나기 전에 주소를 복사해 대상자에게 전달하세요.</p>
+                    </div>
+                  </header>
+                  <ul>
+                    {latestLinks.map(({ id, label: name, url }) => (
+                      <li className={styles.copyRow} key={id}>
+                        <label>
+                          {name}
+                          <input readOnly value={url} onFocus={(event) => event.target.select()} />
+                        </label>
+                        <button
+                          type="button"
+                          aria-label={`${name} 링크 복사`}
+                          onClick={() =>
+                            void navigator.clipboard
+                              .writeText(url)
+                              .then(() => setNotice('링크를 복사했습니다.'))
+                              .catch(() => setError('주소를 선택해 직접 복사해 주세요.'))
+                          }
                         >
-                          {reviewPositions.map((position) => (
-                            <option key={position}>{position}</option>
+                          복사
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <div className={styles.columns}>
+                <section className={styles.box}>
+                  <header className={styles.cardHeading}>
+                    <div>
+                      <h2>{tab === 'organizers' ? '운영진 작성 링크 발급' : `${team?.number}조 작성 링크 발급`}</h2>
+                      <p>대상과 마감 시각을 지정합니다.</p>
+                    </div>
+                  </header>
+                  <form
+                    className={styles.stack}
+                    onSubmit={(event) => {
+                      event.preventDefault();
+                      if (!canIssue) return;
+                      void run(async () => {
+                        await issue(
+                          operationKind,
+                          operationKind === 'organizer' ? undefined : team,
+                          team?.members.find((member) => member.id === memberId),
+                        );
+                        setNotice('링크를 발급했습니다. 발급한 링크에서 복사할 수 있습니다.');
+                        router.refresh();
+                      });
+                    }}
+                  >
+                    {tab === 'teams' && (
+                      <label>
+                        콘텐츠
+                        <select
+                          value={operationKind}
+                          onChange={(event) => {
+                            setKind(event.target.value as ContentKind);
+                            setSelected(null);
+                            setMatches([]);
+                            setLookup('');
+                            setSearched(false);
+                            setTargetMode('new');
+                          }}
+                        >
+                          <option value="project">프로젝트</option>
+                          <option value="review">후기</option>
+                        </select>
+                      </label>
+                    )}
+                    {operationKind === 'review' && (
+                      <label>
+                        후기 작성자
+                        <select value={memberId} required onChange={(event) => setMemberId(event.target.value)}>
+                          <option value="">팀원 선택</option>
+                          {team?.members.map((member) => (
+                            <option key={member.id} value={member.id}>
+                              {member.name}
+                            </option>
                           ))}
                         </select>
                       </label>
-                      <button
-                        type="button"
-                        disabled={busy || !memberName.trim()}
-                        onClick={() =>
-                          void run(async () => {
-                            await adminRequest('submissions', {
-                              action: 'member',
-                              teamId: team.id,
-                              name: memberName,
-                              position: reviewPosition,
-                            });
-                            setMemberName('');
-                            router.refresh();
-                            setNotice('팀원을 추가했습니다.');
-                          })
-                        }
-                      >
-                        팀원 추가
-                      </button>
-                      <button
-                        type="button"
-                        disabled={busy || !deadline}
-                        onClick={() =>
-                          void change(
-                            { action: 'extend', scope: 'team', id: team.id, expiresAt: kstDeadline(deadline) },
-                            '조 링크 기한을 연장했습니다.',
-                          )
-                        }
-                      >
-                        이 조 기한 연장
-                      </button>
-                    </div>
-                    <p>{team.members.map((member) => member.name).join(', ') || '등록한 팀원이 없습니다.'}</p>
-                    <button
-                      type="button"
-                      disabled={busy || !deadline || !teamLinkCount}
-                      onClick={() => void issueGroups(teamLinks, operationKind === 'project' ? selected : null)}
-                    >
-                      이 조 링크 {teamLinkCount}건 발급
+                    )}
+                    {operationKind === 'project' && team?.projectId != null ? (
+                      <p className={styles.selection}>
+                        {conflictingTarget
+                          ? '이 조는 다른 프로젝트에 연결되어 있습니다. 수정 대상과 연결된 조를 선택하세요.'
+                          : '조에 연결된 프로젝트를 수정합니다.'}
+                      </p>
+                    ) : (
+                      <>
+                        <div className={styles.segment} role="group" aria-label="등록 방식">
+                          <button
+                            type="button"
+                            aria-pressed={targetMode === 'new'}
+                            onClick={() => {
+                              setTargetMode('new');
+                              setSelected(null);
+                              setSearched(false);
+                            }}
+                          >
+                            신규 등록
+                          </button>
+                          <button
+                            type="button"
+                            aria-pressed={targetMode === 'existing'}
+                            onClick={() => setTargetMode('existing')}
+                          >
+                            기존 콘텐츠 수정
+                          </button>
+                        </div>
+                        {targetMode === 'existing' && (
+                          <>
+                            <div className={styles.formRow}>
+                              <label>
+                                기존 {submissionLabels[operationKind]} 검색
+                                <input
+                                  value={lookup}
+                                  placeholder="콘텐츠 이름"
+                                  onChange={(event) => setLookup(event.target.value)}
+                                  onKeyDown={(event) => {
+                                    if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
+                                      event.preventDefault();
+                                      if (!busy) void searchExisting();
+                                    }
+                                  }}
+                                />
+                              </label>
+                              <button type="button" disabled={busy} onClick={() => void searchExisting()}>
+                                검색
+                              </button>
+                            </div>
+                            {searched &&
+                              (matches.length ? (
+                                <label>
+                                  검색 결과
+                                  <select
+                                    value={matches.some((item) => item.id === selected?.id) ? selected?.id : ''}
+                                    onChange={(event) =>
+                                      setSelected(
+                                        matches.find((item) => String(item.id) === event.target.value) ?? null,
+                                      )
+                                    }
+                                  >
+                                    <option value="">항목 선택</option>
+                                    {matches.map((item) => (
+                                      <option key={item.id} value={item.id}>
+                                        {item.name}
+                                      </option>
+                                    ))}
+                                  </select>
+                                </label>
+                              ) : (
+                                <p className={styles.muted}>검색 결과가 없습니다.</p>
+                              ))}
+                            {selected && <p className={styles.selection}>수정 대상 · {selected.name}</p>}
+                          </>
+                        )}
+                      </>
+                    )}
+                    <label>
+                      마감 시각 (한국시간)
+                      <input
+                        type="datetime-local"
+                        value={deadline}
+                        required
+                        onChange={(event) => setDeadline(event.target.value)}
+                      />
+                    </label>
+                    <label>
+                      <span>
+                        링크 이름 <small>(선택)</small>
+                      </span>
+                      <input
+                        value={label}
+                        maxLength={160}
+                        placeholder="비워 두면 자동으로 지정합니다"
+                        onChange={(event) => setLabel(event.target.value)}
+                      />
+                    </label>
+                    {operationKind === 'organizer' && !selected && (
+                      <>
+                        <label>
+                          운영진 직군
+                          <select
+                            value={organizerPosition}
+                            onChange={(event) => setOrganizerPosition(event.target.value as typeof organizerPosition)}
+                          >
+                            {organizerPositions.map((position) => (
+                              <option key={position}>{position}</option>
+                            ))}
+                          </select>
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={archived}
+                            onChange={(event) => setArchived(event.target.checked)}
+                          />{' '}
+                          하단 운영진 목록에 표시
+                        </label>
+                      </>
+                    )}
+                    <button type="submit" className={adminStyles.primary} disabled={!canIssue}>
+                      링크 발급
                     </button>
-                  </>
-                )}
-              </>
-            )}
-          </div>
-          {(tab === 'organizers' || team) && (
-            <div className={styles.box}>
-              <h2>개별 링크 발급</h2>
-              {tab === 'teams' && (
-                <label>
-                  콘텐츠
-                  <select
-                    value={operationKind}
-                    onChange={(event) => {
-                      setKind(event.target.value as ContentKind);
-                      setSelected(null);
-                      setMatches([]);
-                    }}
-                  >
-                    <option value="project">프로젝트</option>
-                    <option value="review">후기</option>
-                  </select>
-                </label>
-              )}
-              {operationKind === 'review' && (
-                <label>
-                  후기 작성자
-                  <select value={memberId} onChange={(event) => setMemberId(event.target.value)}>
-                    <option value="">팀원 선택</option>
-                    {team?.members.map((member) => (
-                      <option key={member.id} value={member.id}>
-                        {member.name}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              )}
-              <div className={styles.row}>
-                <label>
-                  기존 {submissionLabels[operationKind]} 검색
-                  <input value={lookup} onChange={(event) => setLookup(event.target.value)} />
-                </label>
-                <button
-                  type="button"
-                  disabled={busy}
-                  onClick={() =>
-                    void run(async () => {
-                      setMatches(
-                        await adminRequest<Match[]>('submissions', {
-                          action: 'lookup',
-                          kind: operationKind,
-                          query: lookup,
-                          cohort: operationKind === 'organizer' ? undefined : cohort?.ordinal,
-                        }),
-                      );
-                    })
-                  }
-                >
-                  검색
-                </button>
-                <button type="button" onClick={() => setSelected(null)}>
-                  신규 등록
-                </button>
+                  </form>
+                  {tab === 'teams' && (
+                    <details>
+                      <summary>여러 링크 한 번에 발급</summary>
+                      <div className={styles.stack}>
+                        <p className={styles.muted}>미발급 대상에게 위 마감 시각을 적용합니다.</p>
+                        <button
+                          type="button"
+                          disabled={busy || !deadline || !teamLinkCount || conflictingTarget}
+                          onClick={() => void issueGroups(teamLinks, operationKind === 'project' ? selected : null)}
+                        >
+                          이 조 링크 {teamLinkCount}건 발급
+                        </button>
+                        <button
+                          type="button"
+                          disabled={busy || !deadline || !cohortLinkCount}
+                          onClick={() => {
+                            if (window.confirm(`${cohort?.ordinal}기 미발급 링크 ${cohortLinkCount}건을 발급할까요?`))
+                              void issueGroups(toIssue, null);
+                          }}
+                        >
+                          기수 링크 {cohortLinkCount}건 발급
+                        </button>
+                      </div>
+                    </details>
+                  )}
+                </section>
+                <div className={styles.stack}>
+                  {tab === 'teams' && team && (
+                    <section className={styles.box}>
+                      <header className={styles.cardHeading}>
+                        <h2>팀원 {team.members.length}명</h2>
+                        <button
+                          type="button"
+                          disabled={busy}
+                          onClick={() => editDeadline({ scope: 'team', id: team.id }, `${team.number}조 전체`)}
+                        >
+                          이 조 기한 연장
+                        </button>
+                      </header>
+                      {team.members.length > 0 ? (
+                        <ul className={styles.members}>
+                          {team.members.map((member) => (
+                            <li key={member.id}>
+                              <strong>{member.name}</strong>
+                              <small>{member.position}</small>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className={styles.muted}>팀원을 추가하면 개인 후기 링크를 발급할 수 있습니다.</p>
+                      )}
+                      <details>
+                        <summary>팀원 추가</summary>
+                        <form
+                          className={styles.stack}
+                          onSubmit={(event) => {
+                            event.preventDefault();
+                            void run(async () => {
+                              await adminRequest('submissions', {
+                                action: 'member',
+                                teamId: team.id,
+                                name: memberName,
+                                position: reviewPosition,
+                              });
+                              setMemberName('');
+                              router.refresh();
+                              setNotice('팀원을 추가했습니다.');
+                            });
+                          }}
+                        >
+                          <label>
+                            팀원 이름
+                            <input
+                              value={memberName}
+                              maxLength={160}
+                              required
+                              onChange={(event) => setMemberName(event.target.value)}
+                            />
+                          </label>
+                          <label>
+                            직군
+                            <select
+                              value={reviewPosition}
+                              onChange={(event) => setReviewPosition(event.target.value as typeof reviewPosition)}
+                            >
+                              {reviewPositions.map((position) => (
+                                <option key={position}>{position}</option>
+                              ))}
+                            </select>
+                          </label>
+                          <button type="submit" disabled={busy || !memberName.trim()}>
+                            팀원 저장
+                          </button>
+                        </form>
+                      </details>
+                    </section>
+                  )}
+                  <section className={styles.box}>
+                    <header className={styles.cardHeading}>
+                      <h2>
+                        발급 내역 <small>{scopedLinks.length}건</small>
+                      </h2>
+                      {scopedLinks.length > 0 && (
+                        <select
+                          aria-label="발급 내역 상태"
+                          value={historyFilter}
+                          onChange={(event) => setHistoryFilter(event.target.value as typeof historyFilter)}
+                        >
+                          <option value="all">모든 상태</option>
+                          {Object.entries(states).map(([key, value]) => (
+                            <option key={key} value={key}>
+                              {value}
+                            </option>
+                          ))}
+                        </select>
+                      )}
+                    </header>
+                    {history.length > 0 ? (
+                      <ul>{history.map(status)}</ul>
+                    ) : (
+                      <p className={styles.muted}>
+                        {scopedLinks.length ? '해당 상태의 링크가 없습니다.' : '발급한 링크가 없습니다.'}
+                      </p>
+                    )}
+                  </section>
+                </div>
               </div>
-              {matches.length > 0 && (
-                <label>
-                  검색 결과
-                  <select
-                    value={selected?.id ?? ''}
-                    onChange={(event) => {
-                      setSelected(matches.find((item) => String(item.id) === event.target.value) ?? null);
-                    }}
-                  >
-                    <option value="">항목 선택</option>
-                    {matches.map((item) => (
-                      <option key={item.id} value={item.id}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              )}
-              <p>
-                {selected
-                  ? `${selected.name} 수정`
-                  : operationKind === 'project' && team?.projectId !== null && team?.projectId !== undefined
-                    ? '조에 연결된 프로젝트 수정'
-                    : '신규 등록'}
+            </>
+          )}
+        </>
+      )}
+      {extension && (
+        <dialog
+          className={styles.dialog}
+          aria-labelledby="submission-deadline-title"
+          ref={(node) => {
+            if (node && !node.open) node.showModal();
+          }}
+          onClose={() => setExtension(null)}
+        >
+          <form
+            className={styles.stack}
+            onSubmit={(event) => {
+              event.preventDefault();
+              void run(async () => {
+                const { scope, id, value } = extension;
+                const result = await adminRequest<{ changed: number }>('submissions', {
+                  action: 'extend',
+                  scope,
+                  id,
+                  expiresAt: kstDeadline(value),
+                });
+                setExtension(null);
+                setNotice(
+                  result.changed ? `${result.changed}건의 링크 기한을 연장했습니다.` : '연장할 링크가 없습니다.',
+                );
+                router.refresh();
+              });
+            }}
+          >
+            <h2 id="submission-deadline-title">링크 기한 연장</h2>
+            <p className={styles.muted}>{extension.label} · 기존보다 늦은 날짜만 적용됩니다.</p>
+            {error && (
+              <p role="alert" className={styles.error}>
+                {error}
               </p>
-              <label>
-                링크 이름
-                <input value={label} maxLength={160} onChange={(event) => setLabel(event.target.value)} />
-              </label>
-              {operationKind === 'organizer' && !selected && (
-                <>
-                  <label>
-                    운영진 직군
-                    <select
-                      value={organizerPosition}
-                      onChange={(event) => setOrganizerPosition(event.target.value as typeof organizerPosition)}
-                    >
-                      {organizerPositions.map((position) => (
-                        <option key={position}>{position}</option>
-                      ))}
-                    </select>
-                  </label>
-                  <label>
-                    <input type="checkbox" checked={archived} onChange={(event) => setArchived(event.target.checked)} />{' '}
-                    하단 운영진 목록에 표시
-                  </label>
-                </>
-              )}
-              <button
-                type="button"
-                disabled={busy || !deadline || (operationKind === 'review' && !memberId)}
-                onClick={() =>
-                  void run(async () => {
-                    await issue(
-                      operationKind,
-                      operationKind === 'organizer' ? undefined : team,
-                      team?.members.find((member) => member.id === memberId),
-                    );
-                    setNotice('링크를 발급했습니다. 아래에서 복사하세요.');
-                    router.refresh();
-                  })
-                }
-              >
-                링크 발급
+            )}
+            <label>
+              새 마감 시각 (한국시간)
+              <input
+                type="datetime-local"
+                required
+                value={extension.value}
+                onChange={(event) => setExtension({ ...extension, value: event.target.value })}
+              />
+            </label>
+            <div className={styles.row}>
+              <button type="button" disabled={busy} onClick={() => setExtension(null)}>
+                취소
+              </button>
+              <button type="submit" className={adminStyles.primary} disabled={busy || !extension.value}>
+                기한 연장
               </button>
             </div>
-          )}
-          {links.length > 0 && (
-            <div className={styles.box}>
-              <h2>방금 발급한 링크</h2>
-              <p>
-                발급 주소는 이 화면에서 복사할 수 있습니다. 프로젝트 링크는 조에, 후기 링크는 각 팀원에게 전달하세요.
-              </p>
-              {links.map(({ label: name, url }) => (
-                <div className={styles.row} key={url}>
-                  <label>
-                    {name}
-                    <input readOnly value={url} onFocus={(event) => event.target.select()} />
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      void navigator.clipboard
-                        .writeText(url)
-                        .then(() => setNotice('링크를 복사했습니다.'))
-                        .catch(() => setError('주소를 선택해 직접 복사해 주세요.'))
-                    }
-                  >
-                    복사
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
-          <div className={styles.box}>
-            <h2>발급 내역</h2>
-            <ul>
-              {workspace.links
-                .filter((entry) => (tab === 'organizers' ? entry.kind === 'organizer' : entry.teamId === team?.id))
-                .map(status)}
-            </ul>
-          </div>
-        </>
+          </form>
+        </dialog>
       )}
     </section>
   );

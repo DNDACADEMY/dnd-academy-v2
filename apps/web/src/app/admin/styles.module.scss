@@ -458,8 +458,7 @@
   align-items: center;
   gap: 0.6rem;
 }
-.editorFooter,
-.publicationActions {
+.editorFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -468,9 +467,6 @@
   border-top: 1px solid var(--line);
   margin-top: 1.15rem;
   padding-top: 0.9rem;
-}
-.publicationActions {
-  justify-content: flex-start;
 }
 .inlineLink {
   color: var(--blue);
@@ -1096,5 +1092,45 @@
     color: var(--muted);
     flex: none;
     font-size: 0.8rem;
+  }
+}
+
+.libraryFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  select {
+    flex: 1 1 100px;
+  }
+}
+
+.editorMetadata,
+.editorSaveState {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.65rem;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.editorSaveState {
+  margin-top: 0;
+}
+
+.editorFooter {
+  z-index: 1;
+  background: var(--paper);
+
+  .buttons {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 700px) {
+  .editorFooter .buttons {
+    justify-content: flex-start;
   }
 }
