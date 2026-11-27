@@ -1,4 +1,4 @@
-import type { Project } from '@dnd-academy/core';
+import type { ProjectListCard } from '@dnd-academy/core';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,7 +7,7 @@ import TechnologyTag from '@/components/atoms/TechnologyTag';
 import styles from './index.module.scss';
 
 type Props = {
-  projects: Project[];
+  projects: ProjectListCard[];
 };
 
 function ProjectCards({ projects }: Props) {

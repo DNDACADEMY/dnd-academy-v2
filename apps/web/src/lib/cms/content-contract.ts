@@ -103,7 +103,7 @@ export type ContentRecord = ContentInput & {
 export type ContentSummary = Pick<
   ContentRecord,
   'id' | 'name' | 'cohort' | 'position' | 'author' | 'state' | 'liveRevisionId'
->;
+> & { isArchived?: boolean | null };
 
 const requiredDraftFields = {
   name: true,
@@ -182,6 +182,13 @@ export const contentRequest = z.discriminatedUnion('action', [
   ]),
   changeTarget.extend({ action: z.literal('publish'), kind: z.enum(contentKinds) }),
   changeTarget.extend({ action: z.literal('unpublish'), kind: z.enum(contentKinds) }),
+  z.object({
+    action: z.literal('delete'),
+    kind: z.literal('organizer'),
+    id,
+    revisionId: z.number().int().positive().safe(),
+    editNumber: z.number().int().positive(),
+  }),
 ]);
 
 export const contentPreviewRequest = z.object({

@@ -17,4 +17,6 @@ export interface Project {
   projectLinks: ProjectLinks;
 }
 
+export type ProjectListCard = Pick<Project, 'id' | 'flag' | 'name' | 'title' | 'thumbnail' | 'skill'>;
+
 export type ProjectFlag = `${number}기` | '';
