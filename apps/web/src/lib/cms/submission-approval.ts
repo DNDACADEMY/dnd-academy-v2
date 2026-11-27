@@ -292,8 +292,9 @@ export async function processSubmissionPublication(jobId: string | null) {
   } catch (error) {
     if (
       !(error instanceof DatabaseError) ||
-      !['22023', '23503', '23505', '23514', '40001', '42501', 'MEDIA_INVALID'].includes(error.code)
+      !['22023', '23503', '23505', '23514', '40001', '42501'].includes(error.code)
     ) {
+      await rpc('release_submission_publication', { selected_job: job.id, worker });
       throw error;
     }
     await advance({ failure: true });

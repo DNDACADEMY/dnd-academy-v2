@@ -1,6 +1,7 @@
 import { canAdmin } from '@/lib/cms/permissions';
-import { approveSubmissions, inspectSubmission, processSubmissionPublication } from '@/lib/cms/submission-approval';
-import { grantRequest } from '@/lib/cms/submission-contract';
+import { approveSubmissions, inspectSubmission } from '@/lib/cms/submission-approval';
+import { grantRequest, type SubmissionPublication } from '@/lib/cms/submission-contract';
+import { dispatchSubmissionPublication } from '@/lib/cms/submission-publication-dispatch';
 import {
   lookupSubmissionContent,
   submissionError,
@@ -33,13 +34,21 @@ export async function POST(request: Request) {
       await rpc('reject_submission', { actor, selected_link: parsed.data.linkId });
       return Response.json({ rejected: true }, { headers: submissionHeaders });
     }
-    if (parsed.data.action === 'process') {
-      return Response.json(await processSubmissionPublication(parsed.data.jobId), { headers: submissionHeaders });
+    if (parsed.data.action === 'publicationStatus' || parsed.data.action === 'dispatchPublication') {
+      const jobId = parsed.data.jobId;
+      const job = await rpc<SubmissionPublication | null>('read_submission_publication', {
+        actor,
+        selected_job: jobId,
+      });
+      if (parsed.data.action === 'dispatchPublication' && (job?.state === 'queued' || job?.state === 'processing')) {
+        await dispatchSubmissionPublication(jobId);
+      }
+      return Response.json(job, { headers: submissionHeaders });
     }
     if (parsed.data.action === 'approve') {
-      return Response.json(await approveSubmissions(actor, parsed.data.linkIds, parsed.data.acceptConflicts), {
-        headers: submissionHeaders,
-      });
+      const approval = await approveSubmissions(actor, parsed.data.linkIds, parsed.data.acceptConflicts);
+      if (approval.jobId) await dispatchSubmissionPublication(approval.jobId);
+      return Response.json(approval, { headers: submissionHeaders, status: approval.jobId ? 202 : 200 });
     }
     if (parsed.data.action === 'lookup') {
       return Response.json(await lookupSubmissionContent(actor, parsed.data), { headers: submissionHeaders });

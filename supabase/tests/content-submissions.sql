@@ -103,11 +103,19 @@ begin
     raise exception 'expired worker advanced publication';
   exception when serialization_failure then null;
   end;
+  perform public.release_submission_publication(job,worker);
+  assert public.read_submission_publication(editor,job)->>'state'='processing';
+  perform public.release_submission_publication(job,recovery);
+  assert public.read_submission_publication(editor,job)->>'state'='queued';
+  assert public.claim_submission_publication(job,recovery)->>'actor'=editor::text;
+  assert (select attempts from public.submission_publication_jobs where id=job)=3;
   result := public.advance_submission_publication(job,recovery,items=>jsonb_build_array(
     jsonb_build_object('linkId',project_link,'kind','project','input',project),
     jsonb_build_object('linkId',review_link,'kind','review','input',review || '{"position":"프론트엔드 개발자"}')
   ));
   assert public.claim_submission_publication(job,worker)->>'state'='published';
+  assert public.read_submission_publication(editor,job)->>'state'='published';
+  assert jsonb_array_length(public.read_submission_publication(editor,job)->'published')=2;
   project_id := (result->0->>'id')::integer;
   review_id := (result->1->>'id')::integer;
   assert (select p->>'name' from public.published_content('project',project_id) p)='검증 프로젝트';
