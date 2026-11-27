@@ -15,7 +15,17 @@ function searchKey(label: string) {
   return label.trim().normalize('NFC').toLowerCase();
 }
 
-export default function SkillTagPicker({ initial, onChange }: { initial: string[]; onChange: () => void }) {
+const adminCatalog = () => adminRequest<{ skills: string[] }>('content/skills', {});
+
+export default function SkillTagPicker({
+  initial,
+  onChange,
+  loadCatalog = adminCatalog,
+}: {
+  initial: string[];
+  onChange: (selected: string[]) => void;
+  loadCatalog?: () => Promise<{ skills: string[] }>;
+}) {
   const [selected, setSelected] = useState(initial);
   const [catalog, setCatalog] = useState<string[]>();
   const [error, setError] = useState('');
@@ -42,7 +52,7 @@ export default function SkillTagPicker({ initial, onChange }: { initial: string[
   useEffect(() => {
     if (!attempt) return;
     let active = true;
-    void adminRequest<{ skills: string[] }>('content/skills', {})
+    void loadCatalog()
       .then(({ skills }) => {
         if (active) setCatalog(skills);
       })
@@ -52,13 +62,14 @@ export default function SkillTagPicker({ initial, onChange }: { initial: string[
     return () => {
       active = false;
     };
-  }, [attempt]);
+  }, [attempt, loadCatalog]);
 
   function add(label: string) {
     if (atLimit || selected.includes(label)) return;
-    setSelected([...selected, label]);
+    const next = [...selected, label];
+    setSelected(next);
     setQuery('');
-    onChange();
+    onChange(next);
     search.current?.focus();
   }
 
@@ -88,8 +99,9 @@ export default function SkillTagPicker({ initial, onChange }: { initial: string[
                 type="button"
                 aria-label={`${label} 태그 제거`}
                 onClick={() => {
-                  setSelected(selected.filter((skill) => skill !== label));
-                  onChange();
+                  const next = selected.filter((skill) => skill !== label);
+                  setSelected(next);
+                  onChange(next);
                   search.current?.focus();
                 }}
               >

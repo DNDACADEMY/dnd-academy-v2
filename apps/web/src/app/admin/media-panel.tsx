@@ -114,10 +114,14 @@ export default function MediaPanel({
   mime,
   onAttach,
   onBusy,
+  requestMedia = (payload) => adminRequest('media', payload),
+  onLocalPreview,
 }: {
   mime: 'image/webp' | 'application/pdf';
   onAttach: (id: string) => void;
   onBusy: (busy: boolean) => void;
+  requestMedia?: <T>(payload: unknown) => Promise<T>;
+  onLocalPreview?: (url: string | undefined) => void;
 }) {
   const [source, setSource, sourceUrl] = useLocalFile();
   const [candidate, setCandidate, candidateUrl] = useLocalFile();
@@ -134,6 +138,11 @@ export default function MediaPanel({
   useEffect(() => {
     onBusy(busy);
   }, [busy, onBusy]);
+
+  useEffect(() => {
+    onLocalPreview?.(candidateUrl ?? sourceUrl);
+    return () => onLocalPreview?.(undefined);
+  }, [candidateUrl, sourceUrl, onLocalPreview]);
 
   async function prepare(file: File, level = quality) {
     setSource(file);
@@ -195,7 +204,7 @@ export default function MediaPanel({
       const ticket =
         pending?.file === file
           ? pending.ticket
-          : await adminRequest<UploadTicket>('media', { action: 'upload', mime: file.type, bytes: file.size });
+          : await requestMedia<UploadTicket>({ action: 'upload', mime: file.type, bytes: file.size });
       setPending({ file, ticket });
       if (ticket.provider === 's3') {
         const controller = new AbortController();
@@ -204,7 +213,7 @@ export default function MediaPanel({
           action: () => controller.abort(),
         });
         try {
-          await uploadToS3(file, ticket, pending?.file === file, controller.signal, setProgress);
+          await uploadToS3(file, ticket, pending?.file === file, controller.signal, setProgress, requestMedia);
         } finally {
           setCancel(undefined);
         }
@@ -249,7 +258,7 @@ export default function MediaPanel({
         const response = await fetch(ticket.url, { method: 'PUT', headers: { 'Content-Type': file.type }, body: file });
         if (!response.ok && response.status !== 409) throw new Error('파일 전송에 실패했습니다.');
       }
-      const asset = await adminRequest<{ id: string }>('media', {
+      const asset = await requestMedia<{ id: string }>({
         action: 'verify',
         key: ticket.key,
         name: (file.name.trim() || '첨부 파일').slice(0, 255),

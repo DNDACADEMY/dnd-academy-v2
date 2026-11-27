@@ -154,8 +154,10 @@ async function recordAsset(asset: Omit<Asset, 'id' | 'ready'>) {
   return result.data.id as string;
 }
 
-export async function handleMedia(actor: string, request: z.infer<typeof mediaRequest>) {
+export async function handleMedia(owner: string | { submissionLinkId: string }, request: z.infer<typeof mediaRequest>) {
   const db = database();
+  const [ownerColumn, ownerId] =
+    typeof owner === 'string' ? (['actor', owner] as const) : (['submission_link_id', owner.submissionLinkId] as const);
   if (request.action === 'library') {
     const pageSize = 18;
     const start = request.page * pageSize;
@@ -202,7 +204,7 @@ export async function handleMedia(actor: string, request: z.infer<typeof mediaRe
       useS3 && request.bytes > s3MultipartThreshold ? await startS3Multipart(objectKey, request.mime) : null;
     const { error } = await db.from('cms_uploads').insert({
       object_key: key,
-      actor,
+      [ownerColumn]: ownerId,
       mime: request.mime,
       bytes: request.bytes,
       ...(useS3 ? { storage_provider: 's3', multipart_id: multipartId } : {}),
@@ -231,8 +233,8 @@ export async function handleMedia(actor: string, request: z.infer<typeof mediaRe
 
   const { data: reservation, error } = await db
     .from('cms_uploads')
-    .select('mime,bytes,storage_provider,multipart_id')
-    .eq('actor', actor)
+    .select('*')
+    .eq(ownerColumn, ownerId)
     .eq('object_key', request.key)
     .single();
   if (error) throw new DatabaseError('MEDIA_INVALID');
@@ -246,18 +248,26 @@ export async function handleMedia(actor: string, request: z.infer<typeof mediaRe
       : { method: 'put', ...(await s3UploadUrl(objectKey, reservation.mime, reservation.bytes)) };
   }
 
+  if (reservation.verified_asset_id) return { id: reservation.verified_asset_id };
   if (reservation.multipart_id) await finishS3Multipart(objectKey, reservation.multipart_id, reservation.bytes);
   const sha256 = await digest(await signedRead(draftBucket, objectKey), reservation.mime, reservation.bytes, true);
-  return {
-    id: await recordAsset({
-      bucket: draftBucket,
-      object_key: objectKey,
-      mime: reservation.mime,
-      bytes: reservation.bytes,
-      sha256,
-      display_name: request.name ?? null,
-    }),
-  };
+  const id = await recordAsset({
+    bucket: draftBucket,
+    object_key: objectKey,
+    mime: reservation.mime,
+    bytes: reservation.bytes,
+    sha256,
+    display_name: request.name ?? null,
+  });
+  if (ownerColumn === 'submission_link_id') {
+    const { error: attachError } = await db
+      .from('cms_uploads')
+      .update({ verified_asset_id: id })
+      .eq(ownerColumn, ownerId)
+      .eq('object_key', request.key);
+    if (attachError) throw new DatabaseError(attachError.code);
+  }
+  return { id };
 }
 
 function s3DraftKey(key: string, mime: MediaItem['mime']) {

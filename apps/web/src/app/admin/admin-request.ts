@@ -7,6 +7,7 @@ export async function adminRequest<T>(
     | 'content/skills'
     | 'media'
     | 'home'
+    | 'submissions'
     | 'recruitment-controls',
   payload: unknown,
 ): Promise<T> {

@@ -1,0 +1,137 @@
+.main,
+.entry {
+  color: #182133;
+  background: #f4f6fa;
+  min-height: 100dvh;
+  padding: 32px;
+}
+.entry {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  justify-content: center;
+  gap: 16px;
+}
+.header,
+.columns {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.header {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.header h1,
+.entry h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.editor,
+.preview {
+  border: 1px solid #dbe1eb;
+  border-radius: 16px;
+  padding: 20px;
+  background: white;
+  min-width: 0;
+}
+.editor {
+  display: grid;
+  gap: 16px;
+}
+.editor h2,
+.preview h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.editor h3 {
+  font-weight: 700;
+  margin-top: 8px;
+}
+.editor fieldset,
+.editor label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.editor fieldset {
+  gap: 14px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.editor input:not([type='hidden']),
+.editor textarea,
+.editor select {
+  border: 1px solid #b6c1d1;
+  border-radius: 8px;
+  background: white;
+  padding: 9px;
+  width: 100%;
+  color: #182133;
+}
+.editor button,
+.preview button,
+.entry button,
+.mobileTabs button {
+  background: #3439a6;
+  color: white;
+  padding: 9px 12px;
+  border-radius: 8px;
+  width: fit-content;
+  &:disabled {
+    opacity: 0.55;
+  }
+}
+.row,
+.previewHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.row input,
+.row select {
+  flex: 1;
+  min-width: 96px;
+}
+.previewHeader {
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.publicContent {
+  overflow: hidden;
+}
+.error {
+  color: #a6262b;
+}
+.mobileTabs {
+  display: none;
+}
+@media (max-width: 800px) {
+  .main,
+  .entry {
+    padding: 16px;
+  }
+  .columns {
+    display: block;
+  }
+  .mobileTabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .mobileTabs button[aria-pressed='false'] {
+    background: #e1e5ee;
+    color: #182133;
+  }
+  .columns [data-mobile-hidden='true'] {
+    display: none;
+  }
+}

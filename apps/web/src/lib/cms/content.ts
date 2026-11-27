@@ -2,16 +2,31 @@ import 'server-only';
 import type { Organizer, OrganizerCard, OrganizerDirectory, Project, Review } from '@dnd-academy/core';
 import { cache } from 'react';
 
-import { type ContentKind, type ContentRecord, type ContentSummary } from './content-contract';
+import { type ContentInput, type ContentKind, type ContentRecord, type ContentSummary } from './content-contract';
 import { organizerPresentation, projectPresentation, reviewPresentation } from './content-presentation';
 import { mediaAssets, publicMedia } from './media';
-import { rpc } from './supabase';
+import { database, DatabaseError, rpc } from './supabase';
 
 export function contentEnabled() {
   return process.env.DND_CMS_CONTENT === 'enabled';
 }
 
-export function contentAssets(row: ContentRecord) {
+export async function contentSkills() {
+  const pageSize = 500;
+  const skills: string[] = [];
+  for (let offset = 0; ; offset += pageSize) {
+    const { data, error } = await database()
+      .from('skills')
+      .select('label')
+      .order('id')
+      .range(offset, offset + pageSize - 1);
+    if (error) throw new DatabaseError(error.code);
+    skills.push(...data.map(({ label }) => label));
+    if (data.length < pageSize) return skills.toSorted((a, b) => a.localeCompare(b, 'ko'));
+  }
+}
+
+export function contentAssets(row: ContentInput) {
   return [row.thumbnailId, row.pdfId, ...(row.images ?? []).map((image) => image.mediaId)].filter((id): id is string =>
     Boolean(id),
   );
