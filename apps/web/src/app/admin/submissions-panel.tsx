@@ -464,7 +464,7 @@ export default function SubmissionsPanel({
                     <span>현재</span> {describe(field, before) || '비어 있음'}
                   </dd>
                   <dd>
-                    <span>제출안</span> {describe(field, after) || '비어 있음'}
+                    <span>게시 예정</span> {describe(field, after) || '비어 있음'}
                   </dd>
                 </div>
               ))}

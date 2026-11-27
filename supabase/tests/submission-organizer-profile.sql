@@ -15,6 +15,12 @@ declare
   updated jsonb := '{"mbti":"","now":["수정한 경력"],"previous":[],"role":"수정한 업무","recommendation":"","interests":""}';
   result jsonb;
   organizer integer;
+  live_revision bigint;
+  editor_revision bigint;
+  editor_edit integer;
+  publication jsonb;
+  restored jsonb;
+  item jsonb;
 begin
   insert into auth.users(id) values (actor);
   insert into public.admin_accounts(user_id) values (actor);
@@ -44,6 +50,41 @@ begin
   result := public.admin_submission_review(actor,array[selected]);
   assert result#>'{0,submission,input,organizerProfile}'=updated;
   assert result#>>'{0,current,mbti}'='ISTP';
+
+  live_revision := (result#>>'{0,current,revisionId}')::bigint;
+  result := public.write_content(actor,'organizer',organizer,live_revision,
+    (result#>>'{0,current,editNumber}')::integer,'save',baseline || '{"description":"관리자 초안"}');
+  editor_revision := (result->>'revisionId')::bigint;
+  editor_edit := (result->>'editNumber')::integer;
+  publication := baseline || '{"mbti":"","details":[{"kind":"now","body":"수정한 경력"},
+    {"kind":"role","body":"수정한 업무"},{"kind":"share","body":"/published.webp"}]}';
+  restored := publication || '{"description":"관리자 초안"}';
+  item := jsonb_build_object('linkId',selected,'kind','organizer','expectedLive',live_revision,
+    'expectedRevision',editor_revision,'expectedEdit',editor_edit,'input',publication,'restoreDraft',restored);
+
+  -- The administrator edits the draft after approval has been prepared.
+  result := public.write_content(actor,'organizer',organizer,editor_revision,editor_edit,'save',
+    baseline || '{"description":"다시 수정한 관리자 초안"}');
+  begin
+    perform public.publish_submission_batch(actor,jsonb_build_array(item),'{}');
+    raise exception 'stale approval overwrote a concurrent draft edit';
+  exception when serialization_failure then null;
+  end;
+  assert (select p->>'mbti' from public.published_content('organizer',organizer) p)='ISTP';
+  assert (select d->>'description' from public.editable_content(actor,'organizer',organizer) d)='다시 수정한 관리자 초안';
+
+  item := item || jsonb_build_object('expectedRevision',(result->>'revisionId')::bigint,
+    'expectedEdit',(result->>'editNumber')::integer,
+    'restoreDraft',publication || '{"description":"다시 수정한 관리자 초안"}');
+  perform public.publish_submission_batch(actor,jsonb_build_array(item),'{}');
+  select p into result from public.published_content('organizer',organizer) p;
+  assert result->>'description'='공개 소개';
+  assert result->>'mbti'='';
+  assert result->'details' @> '[{"kind":"role","body":"수정한 업무"},{"kind":"share","body":"/published.webp"}]';
+  select d into result from public.editable_content(actor,'organizer',organizer) d;
+  assert result->>'state'='draft';
+  assert result->>'description'='다시 수정한 관리자 초안';
+  assert result->'details' @> '[{"kind":"role","body":"수정한 업무"}]';
 end
 $$;
 
