@@ -91,7 +91,8 @@
   color: #8e1835;
 }
 
-.panel a {
+.feedback a,
+.linkRow a {
   color: var(--blue);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -356,8 +357,7 @@
 }
 
 .preview {
-  max-width: 800px;
-  overflow: hidden;
+  min-width: 0;
   margin-top: 12px;
 }
 
