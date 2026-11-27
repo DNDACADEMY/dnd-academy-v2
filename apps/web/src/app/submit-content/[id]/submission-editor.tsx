@@ -2,21 +2,14 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-import OrganizerCards from '@/components/organisms/OrganizerCards';
-import ProjectCards from '@/components/organisms/ProjectCards';
-import { ReviewCard } from '@/components/organisms/ReviewList';
-import OrganizerDetails from '@/components/pages/OrganizerPage/details';
-import ProjectDetails from '@/components/pages/ProjectPage/details';
+import SubmissionPreview from '@/components/pages/SubmissionPreview';
 import { linkKinds, safeContentLink } from '@/lib/cms/content-contract';
-import { organizerPresentation, projectPresentation, reviewPresentation } from '@/lib/cms/content-presentation';
 import { formatSubmissionTime, type Submission, submissionLabels } from '@/lib/cms/submission-contract';
 
 import MediaPanel from '../../admin/media-panel';
 import SkillTagPicker from '../../admin/skill-tag-picker';
 
 import styles from './submission.module.scss';
-import organizerStyles from '@/components/pages/OrganizerPage/index.module.scss';
-import projectStyles from '@/components/pages/ProjectPage/index.module.scss';
 
 type Field = 'thumbnail' | 'gallery' | 'pdf';
 const attachments = { thumbnail: '대표 이미지', gallery: '갤러리 이미지', pdf: '발표 PDF' };
@@ -152,8 +145,6 @@ export default function SubmissionEditor({ id }: { id: string }) {
     pdfId: local && field === 'pdf' ? localMediaId : input.pdfId,
     images: local && field === 'gallery' ? [...(input.images ?? []), { mediaId: localMediaId }] : input.images,
   };
-  const project = projectPresentation(draft, submission.targetId ?? -1, media);
-  const organizer = organizerPresentation(draft, submission.targetId ?? -1, media);
   const update = (changed: Partial<Submission['input']>) => {
     setInput({ ...input, ...changed });
     setNotice('');
@@ -367,29 +358,13 @@ export default function SubmissionEditor({ id }: { id: string }) {
               </button>
             )}
           </div>
-          <div className={styles.publicContent} inert>
-            {kind === 'project' &&
-              (cardPreview ? (
-                <ProjectCards projects={[project]} />
-              ) : (
-                <div className={projectStyles.projectPageContents}>
-                  <ProjectDetails project={project} presentation={project.pdf ? <p>발표 PDF 첨부됨</p> : undefined} />
-                </div>
-              ))}
-            {kind === 'organizer' &&
-              (cardPreview ? (
-                <OrganizerCards organizers={[organizer]} />
-              ) : (
-                <div className={organizerStyles.organizerPage}>
-                  <OrganizerDetails organizer={organizer} />
-                </div>
-              ))}
-            {kind === 'review' && (
-              <ReviewCard
-                value={reviewPresentation(draft, submission.targetId ?? -1, submission.projectName ?? undefined)}
-                hasProjectLink
-              />
-            )}
+          <div
+            className={styles.publicContent}
+            onClickCapture={(event) => {
+              if (event.target instanceof Element && event.target.closest('a')) event.preventDefault();
+            }}
+          >
+            <SubmissionPreview submission={submission} draft={draft} media={media} card={cardPreview} />
           </div>
         </section>
       </div>

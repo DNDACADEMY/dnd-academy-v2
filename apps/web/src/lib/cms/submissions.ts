@@ -1,6 +1,7 @@
 import 'server-only';
 import { createHash, randomBytes } from 'node:crypto';
 
+import { contentEnabled } from './content';
 import type { Submission, SubmissionJob, SubmissionWorkspace } from './submission-contract';
 import { DatabaseError, rpc } from './supabase';
 
@@ -14,7 +15,7 @@ export const submissionCookie = (id: string) => 'dnd-submission-' + id;
 export const submissionToken = () => randomBytes(32).toString('base64url');
 export const tokenHash = (token: string) => createHash('sha256').update(token).digest('hex');
 
-export const submissionsEnabled = () => process.env.DND_CONTENT_SUBMISSIONS === 'enabled';
+export const submissionsEnabled = () => contentEnabled() && process.env.DND_CONTENT_SUBMISSIONS === 'enabled';
 
 export async function submissionWorkspace(actor: string, cohort: number | null): Promise<SubmissionWorkspace> {
   const workspace = await rpc<Omit<SubmissionWorkspace, 'jobs'>>('admin_submission_workspace', {

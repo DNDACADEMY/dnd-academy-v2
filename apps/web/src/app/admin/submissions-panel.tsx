@@ -3,11 +3,19 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import { type ContentKind, organizerPositions, reviewPositions } from '@/lib/cms/content-contract';
+import SubmissionPreview from '@/components/pages/SubmissionPreview';
+import {
+  type ContentInput,
+  type MediaItem,
+  type ContentKind,
+  organizerPositions,
+  reviewPositions,
+} from '@/lib/cms/content-contract';
 import {
   defaultDeadline,
   formatSubmissionTime,
   kstDeadline,
+  type Submission,
   type SubmissionJob,
   type SubmissionLink,
   submissionLabels,
@@ -20,7 +28,12 @@ import styles from './submissions.module.scss';
 
 type Team = SubmissionWorkspace['teams'][number];
 type Match = { id: number; name: string; cohort?: number };
-type Changes = { changes: { field: string; before: unknown; after: unknown }[] };
+type Changes = {
+  submission: Submission;
+  draft: ContentInput;
+  media: MediaItem[];
+  changes: { field: string; before: unknown; after: unknown }[];
+};
 type Approval = { jobId?: string; conflicts?: { id: string; field: string }[]; confirmation?: string };
 
 const states: Record<SubmissionLink['state'], string> = {
@@ -97,6 +110,20 @@ export default function SubmissionsPanel({
   const team = workspace.teams.find(({ id }) => id === teamId) ?? workspace.teams[0];
   const operationKind = tab === 'organizers' ? 'organizer' : kind === 'review' ? 'review' : 'project';
   const pending = workspace.links.filter((link) => link.state === 'submitted');
+  const toIssue = workspace.teams.map((owner) => {
+    const issued = workspace.links.filter(
+      (entry) => entry.teamId === owner.id && !['revoked', 'rejected'].includes(entry.state),
+    );
+    return {
+      owner,
+      project: !issued.some((entry) => entry.kind === 'project'),
+      members: owner.members.filter((member) => !issued.some((entry) => entry.memberId === member.id)),
+    };
+  });
+  const countToIssue = (group: (typeof toIssue)[number]) => Number(group.project) + group.members.length;
+  const cohortLinkCount = toIssue.reduce((count, group) => count + countToIssue(group), 0);
+  const teamLinks = toIssue.filter(({ owner }) => owner.id === team?.id);
+  const teamLinkCount = teamLinks.reduce((count, group) => count + countToIssue(group), 0);
 
   async function run(action: () => Promise<void>) {
     setBusy(true);
@@ -124,6 +151,7 @@ export default function SubmissionsPanel({
     owner?: Team,
     member?: Team['members'][number],
     item: Match | null = selected,
+    customLabel = label,
   ) {
     const payload = {
       action: 'issue',
@@ -131,7 +159,7 @@ export default function SubmissionsPanel({
       expiresAt: kstDeadline(deadline),
       targetId: item?.id ?? null,
       label:
-        label.trim() ||
+        customLabel.trim() ||
         member?.name ||
         (owner ? `${cohort?.ordinal}기 ${owner.number}조 ${submissionLabels[type]}` : '새 운영진 소개'),
       ...(owner ? { teamId: owner.id } : {}),
@@ -143,6 +171,27 @@ export default function SubmissionsPanel({
       ...previous,
       { label: result.label, url: new URL(result.path, window.location.origin).href },
     ]);
+  }
+
+  async function issueGroups(groups: typeof toIssue, projectTarget: Match | null) {
+    await run(async () => {
+      let count = 0;
+      try {
+        for (const group of groups) {
+          if (group.project) {
+            await issue('project', group.owner, undefined, projectTarget, '');
+            count += 1;
+          }
+          for (const member of group.members) {
+            await issue('review', group.owner, member, null, '');
+            count += 1;
+          }
+        }
+        setNotice(`${count}건을 발급했습니다. 발급 목록에서 주소를 복사할 수 있습니다.`);
+      } finally {
+        router.refresh();
+      }
+    });
   }
 
   async function processJob(jobId: string) {
@@ -264,6 +313,23 @@ export default function SubmissionsPanel({
             반려
           </button>
         </div>
+        {review && (
+          <details>
+            <summary>게시 화면 미리보기</summary>
+            <div
+              className={styles.preview}
+              onClickCapture={(event) => {
+                if (event.target instanceof Element && event.target.closest('a')) event.preventDefault();
+              }}
+            >
+              <SubmissionPreview
+                submission={review.submission}
+                draft={review.draft}
+                media={new Map(review.media.map(({ id, url }) => [id, url]))}
+              />
+            </div>
+          </details>
+        )}
         {review &&
           (review.changes.length ? (
             <dl className={styles.changes}>
@@ -464,6 +530,13 @@ export default function SubmissionsPanel({
                   >
                     기수 전체 연장
                   </button>
+                  <button
+                    type="button"
+                    disabled={busy || !deadline || !cohortLinkCount}
+                    onClick={() => void issueGroups(toIssue, null)}
+                  >
+                    기수 링크 {cohortLinkCount}건 발급
+                  </button>
                 </div>
                 {team && (
                   <>
@@ -547,37 +620,10 @@ export default function SubmissionsPanel({
                     <p>{team.members.map((member) => member.name).join(', ') || '등록한 팀원이 없습니다.'}</p>
                     <button
                       type="button"
-                      disabled={busy || !deadline}
-                      onClick={() =>
-                        void run(async () => {
-                          const group = workspace.links.filter((entry) => entry.teamId === team.id);
-                          try {
-                            if (
-                              !group.some(
-                                (entry) =>
-                                  entry.kind === 'project' && entry.state !== 'revoked' && entry.state !== 'rejected',
-                              )
-                            )
-                              await issue('project', team, undefined, operationKind === 'project' ? selected : null);
-                            for (const member of team.members) {
-                              if (
-                                !group.some(
-                                  (entry) =>
-                                    entry.memberId === member.id &&
-                                    entry.state !== 'revoked' &&
-                                    entry.state !== 'rejected',
-                                )
-                              )
-                                await issue('review', team, member, null);
-                            }
-                            setNotice('발급 목록을 확인해 주세요.');
-                          } finally {
-                            router.refresh();
-                          }
-                        })
-                      }
+                      disabled={busy || !deadline || !teamLinkCount}
+                      onClick={() => void issueGroups(teamLinks, operationKind === 'project' ? selected : null)}
                     >
-                      조별 프로젝트·후기 링크 발급
+                      이 조 링크 {teamLinkCount}건 발급
                     </button>
                   </>
                 )}

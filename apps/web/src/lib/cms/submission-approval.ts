@@ -3,7 +3,7 @@ import { createHash, randomUUID } from 'node:crypto';
 
 import { contentAssets } from './content';
 import { type ContentInput, type ContentRecord, contentRequest } from './content-contract';
-import { mediaAssets, publishWithMedia } from './media';
+import { mediaAssets, previewMedia, publishWithMedia } from './media';
 import type { Submission, SubmissionJob } from './submission-contract';
 import { DatabaseError, rpc } from './supabase';
 
@@ -40,8 +40,12 @@ async function readReview(actor: string, ids: string[]) {
 export async function inspectSubmission(actor: string, id: string) {
   const [row] = await readReview(actor, [id]);
   const { submission } = row;
+  const { item } = prepare(row);
+  const draft = { ...item.input, links: item.input.links.filter(({ kind }) => kind !== 'email') };
   return {
     submission,
+    draft,
+    media: await previewMedia(contentAssets(draft)),
     changes: fields[submission.kind].flatMap((field) => {
       const before = editableValue(row.current, field);
       const after = editableValue(submission.input, field);
