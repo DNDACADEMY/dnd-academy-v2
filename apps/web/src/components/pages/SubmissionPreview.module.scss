@@ -1,0 +1,21 @@
+.surface {
+  container: submission-preview / inline-size;
+  padding: clamp(12px, 2vw, 24px);
+  border-radius: 10px;
+  min-width: 0;
+  background: color('bgsecondary');
+  color: color('gray01');
+  color-scheme: dark;
+  overflow-wrap: anywhere;
+}
+
+.card > div {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 450px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.attachment {
+  color: color('gray08');
+}

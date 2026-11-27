@@ -123,18 +123,23 @@ export default function ContentPanel({
   rows,
   initial,
   create,
+  submissionLinks,
 }: {
   kind: ContentKind;
   rows: ContentSummary[];
   initial?: ContentRecord;
   create: boolean;
+  submissionLinks: boolean;
 }) {
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('');
+  const [cohortFilter, setCohortFilter] = useState('');
+  const cohorts = [...new Set(rows.flatMap(({ cohort }) => (cohort == null ? [] : [cohort])))].sort((a, b) => b - a);
   const path = `/admin?section=content&kind=${kind}` as const;
   const needle = query.trim().toLocaleLowerCase('ko-KR');
   const listed = rows.filter(
     (row) =>
+      (!cohortFilter || String(row.cohort) === cohortFilter) &&
       (!status ||
         (status === 'published' ? row.liveRevisionId != null || row.state === 'published' : row.state === status)) &&
       (!needle ||
@@ -167,16 +172,32 @@ export default function ContentPanel({
               <input
                 type="search"
                 value={query}
-                placeholder="이름, ID, 기수 검색"
+                placeholder="이름, 기수, 직군 검색"
                 onChange={(event) => setQuery(event.target.value)}
               />
             </label>
-            <select aria-label="게시 상태 필터" value={status} onChange={(event) => setStatus(event.target.value)}>
-              <option value="">모든 상태</option>
-              <option value="published">공개 중</option>
-              <option value="draft">초안</option>
-              <option value="archived">비공개</option>
-            </select>
+            <div className={styles.libraryFilters}>
+              <select aria-label="게시 상태 필터" value={status} onChange={(event) => setStatus(event.target.value)}>
+                <option value="">모든 상태</option>
+                <option value="published">공개 중</option>
+                <option value="draft">초안</option>
+                <option value="archived">비공개</option>
+              </select>
+              {cohorts.length > 0 && (
+                <select
+                  aria-label="기수 필터"
+                  value={cohortFilter}
+                  onChange={(event) => setCohortFilter(event.target.value)}
+                >
+                  <option value="">모든 기수</option>
+                  {cohorts.map((cohort) => (
+                    <option key={cohort} value={cohort}>
+                      {cohort}기
+                    </option>
+                  ))}
+                </select>
+              )}
+            </div>
           </div>
           {listed.length ? (
             <ul className={styles.records}>
@@ -190,9 +211,7 @@ export default function ContentPanel({
                     <span className={styles.recordMain}>
                       <strong>{row.name}</strong>
                       <small>
-                        {[`#${row.id}`, row.cohort ? `${row.cohort}기` : '', row.position, row.author]
-                          .filter(Boolean)
-                          .join(' · ')}
+                        {[row.cohort ? `${row.cohort}기` : '', row.position, row.author].filter(Boolean).join(' · ')}
                       </small>
                     </span>
                     <span className={styles.recordIndicators}>
@@ -210,7 +229,12 @@ export default function ContentPanel({
           )}
         </section>
         {initial || create ? (
-          <ContentEditor key={`${kind}:${initial?.id ?? 'new'}`} kind={kind} initial={initial} />
+          <ContentEditor
+            key={`${kind}:${initial?.id ?? 'new'}`}
+            kind={kind}
+            initial={initial}
+            submissionLinks={submissionLinks}
+          />
         ) : (
           <section className={`${styles.card} ${styles.emptyEditor}`}>
             <h2>편집할 {names[kind]} 선택</h2>
@@ -222,7 +246,15 @@ export default function ContentPanel({
   );
 }
 
-function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: ContentRecord }) {
+function ContentEditor({
+  kind,
+  initial,
+  submissionLinks,
+}: {
+  kind: ContentKind;
+  initial?: ContentRecord;
+  submissionLinks: boolean;
+}) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -301,10 +333,21 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
             ← 목록으로
           </Link>
           <h2>{initial?.name ?? `새 ${names[kind]}`}</h2>
-          <p>{initial ? `#${initial.id} · ${names[kind]}` : '내용을 입력하고 초안을 저장하세요.'}</p>
+          {initial ? (
+            <div className={styles.editorMetadata}>
+              <Publication row={initial} />
+              {initial.cohort != null && <span>{initial.cohort}기</span>}
+            </div>
+          ) : (
+            <p>내용을 입력하고 초안을 저장하세요.</p>
+          )}
         </div>
         <div className={styles.editorHeadingActions}>
-          {initial && <Publication row={initial} />}
+          {submissionLinks && initial?.liveRevisionId != null && (
+            <Link href={`/admin?section=submissions&kind=${kind}&target=${initial.id}`} className={styles.inlineLink}>
+              수정 링크 발급
+            </Link>
+          )}
           <button
             type="button"
             disabled={busy}
@@ -453,41 +496,29 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
         </fieldset>
       </form>
       <footer className={styles.editorFooter}>
-        <span className={styles.muted}>
-          {busy
-            ? '처리 중…'
-            : dirty
-              ? '저장하지 않은 변경 사항'
-              : initial?.liveRevisionId != null
-                ? '홈페이지에 게시본이 공개되어 있습니다.'
-                : ''}
-        </span>
-        <div className={styles.buttons}>
-          <button
-            type="button"
-            className={styles.primary}
-            disabled={busy}
-            onClick={() => formRef.current?.requestSubmit()}
-          >
-            초안 저장
-          </button>
-        </div>
-      </footer>
-      {initial && (
-        <div className={styles.publicationActions}>
-          {initial.state === 'draft' && (
-            <button
-              type="button"
-              className={styles.primary}
-              disabled={busy || dirty}
-              onClick={() => {
-                if (window.confirm('저장한 초안을 공개할까요?')) void mutate('publish');
-              }}
+        <div className={styles.editorSaveState}>
+          <span className={styles.muted}>
+            {busy
+              ? '처리 중…'
+              : dirty
+                ? '저장하지 않은 변경 사항'
+                : initial?.state === 'draft'
+                  ? '게시할 준비가 된 초안'
+                  : ''}
+          </span>
+          {initial?.liveRevisionId != null && (
+            <a
+              className={styles.inlineLink}
+              href={kind === 'review' ? '/reviews' : `/${kind}s/${initial.id}`}
+              target="_blank"
+              rel="noreferrer"
             >
-              저장한 초안 게시
-            </button>
+              {kind === 'review' ? '공개 후기 보기' : '공개 상세 보기'} ↗
+            </a>
           )}
-          {initial.liveRevisionId != null && (
+        </div>
+        <div className={styles.buttons}>
+          {initial?.liveRevisionId != null && (
             <button
               type="button"
               className={styles.danger}
@@ -499,18 +530,28 @@ function ContentEditor({ kind, initial }: { kind: ContentKind; initial?: Content
               공개 중단
             </button>
           )}
-          {initial.liveRevisionId != null && (
-            <a
-              className={styles.inlineLink}
-              href={kind === 'review' ? '/reviews' : `/${kind}s/${initial.id}`}
-              target="_blank"
-              rel="noreferrer"
+          <button
+            type="button"
+            className={initial?.state === 'draft' && !dirty ? undefined : styles.primary}
+            disabled={busy}
+            onClick={() => formRef.current?.requestSubmit()}
+          >
+            초안 저장
+          </button>
+          {initial?.state === 'draft' && (
+            <button
+              type="button"
+              className={!dirty ? styles.primary : undefined}
+              disabled={busy || dirty}
+              onClick={() => {
+                if (window.confirm('저장한 초안을 공개할까요?')) void mutate('publish');
+              }}
             >
-              {kind === 'review' ? '공개 후기 보기' : '공개 상세 열기'} ↗
-            </a>
+              저장한 초안 게시
+            </button>
           )}
         </div>
-      )}
+      </footer>
       {preview && <ContentPreview input={preview} kind={kind} id={initial?.id} onClose={() => setPreview(undefined)} />}
     </section>
   );

@@ -196,3 +196,62 @@
     }
   }
 }
+
+.organizerPage.embedded {
+  margin-bottom: 0;
+
+  .organizerMainContents {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+
+    @container submission-preview (min-width: 620px) {
+      &:has(.organizerDescription:not(:empty)) {
+        grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+      }
+    }
+
+    .divider,
+    .organizerDescription:empty,
+    .skillWrapper:empty,
+    .socialIconWrapper:empty {
+      display: none;
+    }
+
+    .organizerInfoWrapper,
+    .organizerDescription {
+      padding: 16px;
+      border: 1px solid color('gray07');
+      background: color('gray09');
+      box-shadow: none;
+    }
+
+    .organizerDescription {
+      gap: 20px;
+    }
+
+    .name,
+    .organizerDescription h1 {
+      font-size: clamp(1.125rem, 2.6cqi, 1.5rem);
+      word-break: keep-all;
+    }
+
+    .organizerInfo {
+      padding: 0;
+      gap: 8px;
+    }
+
+    .thumbnailWrapper {
+      padding: 0;
+      margin-bottom: 12px;
+
+      .emoji {
+        font-size: 76px;
+      }
+
+      .thumbnail {
+        max-width: 180px;
+      }
+    }
+  }
+}

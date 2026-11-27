@@ -15,7 +15,7 @@ const VercelSpeedInsights = dynamic(() => import('@vercel/speed-insights/react')
 
 function DeferredAnalytics() {
   const pathname = usePathname();
-  if (pathname === '/admin' || pathname.startsWith('/admin/')) return null;
+  if (pathname === '/admin' || pathname.startsWith('/admin/') || pathname.startsWith('/submit-content/')) return null;
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (

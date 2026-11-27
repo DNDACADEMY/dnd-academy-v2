@@ -114,3 +114,23 @@
     }
   }
 }
+
+.projectPageContents.embedded {
+  margin-bottom: 0;
+
+  .projectDetail {
+    margin: 0;
+    width: 100%;
+    min-width: 0;
+    padding: clamp(12px, 3cqi, 24px);
+  }
+
+  .thumbnailWrapper {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .linkWrapper {
+    flex-wrap: wrap;
+  }
+}
