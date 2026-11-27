@@ -26,6 +26,9 @@ export async function submissionWorkspace(actor: string, cohort: number | null):
   return { ...workspace, jobs };
 }
 
+export const submissionSessionCredential = (id: string, session: string) =>
+  rpc<string>('submission_session_credential', { selected_link: id, session_digest: tokenHash(session) });
+
 export const readSubmission = (id: string, credential: string) =>
   rpc<Submission>('read_submission', { selected_link: id, credential });
 

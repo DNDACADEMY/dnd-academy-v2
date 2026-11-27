@@ -42,6 +42,11 @@ const labels: Record<string, string> = {
   pdfId: '발표 PDF',
   images: '갤러리 이미지',
 };
+const publicPath = (kind: ContentKind, id: number) => {
+  if (kind === 'project') return `/projects/${id}`;
+  if (kind === 'organizer') return `/organizers/${id}`;
+  return '/reviews';
+};
 const active = (link: SubmissionLink) => ['issued', 'editing', 'expired'].includes(link.state);
 
 function describe(field: string, value: unknown) {
@@ -85,6 +90,7 @@ export default function SubmissionsPanel({
   const [conflict, setConflict] = useState<{ ids: string[]; confirmation: string; fields: string[] }>();
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
+  const [published, setPublished] = useState<{ kind: ContentKind; id: number }[]>([]);
   const [busy, setBusy] = useState(false);
 
   const cohort = workspace.cohorts.find(({ id }) => id === workspace.cohortId);
@@ -143,11 +149,15 @@ export default function SubmissionsPanel({
     setNotice('게시 작업이 진행 중입니다.');
     const until = Date.now() + 180_000;
     while (Date.now() < until) {
-      const result = await adminRequest<Pick<SubmissionJob, 'state'> | null>('submissions', {
-        action: 'process',
-        jobId,
-      });
+      const result = await adminRequest<(Pick<SubmissionJob, 'state'> & { published?: typeof published }) | null>(
+        'submissions',
+        {
+          action: 'process',
+          jobId,
+        },
+      );
       if (result?.state === 'published') {
+        setPublished(result.published ?? []);
         setNotice('게시를 완료했습니다.');
         return;
       }
@@ -188,6 +198,7 @@ export default function SubmissionsPanel({
     return (
       <li key={link.id} className={styles.linkRow}>
         <strong>{link.label}</strong> <span>{states[link.state]}</span>
+        {link.publishedId !== null && <a href={publicPath(link.kind, link.publishedId)}>공개 페이지 보기</a>}
         <time dateTime={link.expiresAt}>{formatSubmissionTime(link.expiresAt)} KST</time>
         {active(link) && (
           <>
@@ -319,6 +330,15 @@ export default function SubmissionsPanel({
         </p>
       )}
       {notice && <p role="status">{notice}</p>}
+      {published.length > 0 && (
+        <ul aria-label="방금 게시한 콘텐츠">
+          {published.map(({ kind, id }) => (
+            <li key={`${kind}-${id}`}>
+              <a href={publicPath(kind, id)}>{submissionLabels[kind]} 공개 페이지 보기</a>
+            </li>
+          ))}
+        </ul>
+      )}
       {busy && <p role="status">처리 중입니다…</p>}
       {tab === 'approvals' ? (
         <>

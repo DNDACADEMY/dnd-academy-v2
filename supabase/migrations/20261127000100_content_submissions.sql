@@ -403,3 +403,39 @@ grant execute on function public.read_submission(uuid,text), public.save_submiss
   public.submission_require_link(uuid,text) to service_role;
 revoke execute on function public.submission_media_access(uuid,text,uuid) from public,anon,authenticated;
 grant execute on function public.submission_media_access(uuid,text,uuid) to service_role;
+
+create table public.content_submission_sessions (
+  session_hash text primary key check (session_hash ~ '^[a-f0-9]{64}$'),
+  link_id uuid not null references public.content_submission_links(id) on delete cascade,
+  expires_at timestamptz not null
+);
+create index content_submission_session_expiry on public.content_submission_sessions(expires_at);
+alter table public.content_submission_sessions enable row level security;
+revoke all on public.content_submission_sessions from anon,authenticated;
+
+create function public.open_submission_session(selected_link uuid, credential text, session_digest text) returns jsonb
+language plpgsql set search_path = '' as $$
+begin
+  perform public.submission_require_link(selected_link,credential);
+  delete from public.content_submission_sessions where expires_at<=clock_timestamp();
+  insert into public.content_submission_sessions(session_hash,link_id,expires_at)
+    values(session_digest,selected_link,clock_timestamp()+interval '2 hours');
+  return public.submission_snapshot(selected_link);
+end
+$$;
+
+create function public.submission_session_credential(selected_link uuid, session_digest text) returns text
+language plpgsql set search_path = '' as $$
+declare credential text;
+begin
+  select l.token_hash into strict credential from public.content_submission_sessions s
+    join public.content_submission_links l on l.id=s.link_id
+    where s.session_hash=session_digest and s.link_id=selected_link and s.expires_at>clock_timestamp();
+  return credential;
+end
+$$;
+
+revoke execute on function public.open_submission_session(uuid,text,text),
+  public.submission_session_credential(uuid,text) from public,anon,authenticated;
+grant execute on function public.open_submission_session(uuid,text,text),
+  public.submission_session_credential(uuid,text) to service_role;

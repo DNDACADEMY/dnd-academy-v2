@@ -8,6 +8,8 @@ import {
   submissionCookie,
   submissionError,
   submissionHeaders,
+  submissionSessionCredential,
+  submissionToken,
   submissionsEnabled,
   tokenHash,
 } from '@/lib/cms/submissions';
@@ -33,8 +35,13 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
   const input = parsed.data;
   try {
     if (input.action === 'open') {
-      const current = await readSubmission(id.data, tokenHash(input.token));
-      jar.set(sessionName, input.token, {
+      const session = submissionToken();
+      const current = await rpc('open_submission_session', {
+        selected_link: id.data,
+        credential: tokenHash(input.token),
+        session_digest: tokenHash(session),
+      });
+      jar.set(sessionName, session, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
@@ -49,7 +56,7 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
         { message: '원래 받은 링크로 다시 열어 주세요.' },
         { status: 401, headers: submissionHeaders },
       );
-    const credential = tokenHash(token);
+    const credential = await submissionSessionCredential(id.data, token);
     if (input.action === 'read') {
       return Response.json(await readSubmission(id.data, credential), { headers: submissionHeaders });
     }

@@ -17,7 +17,7 @@ const uuid = z.uuid();
 const label = z.string().trim().min(1).max(160);
 const deadline = z.iso.datetime({ offset: true });
 
-export const grantRequest = z.discriminatedUnion('action', [
+export const grantRequest = z.union([
   z.object({ action: z.literal('teams'), cohortId: positive, count: z.number().int().min(1).max(100) }),
   z.object({ action: z.literal('member'), teamId: uuid, name: label, position: z.enum(reviewPositions) }),
   z.object({ action: z.literal('revoke'), linkId: uuid }),

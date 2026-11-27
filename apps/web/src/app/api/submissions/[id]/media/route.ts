@@ -8,7 +8,7 @@ import {
   submissionError,
   submissionHeaders,
   submissionsEnabled,
-  tokenHash,
+  submissionSessionCredential,
 } from '@/lib/cms/submissions';
 import { DatabaseError, rpc } from '@/lib/cms/supabase';
 
@@ -20,7 +20,7 @@ async function getLink(context: Context) {
   if (!parsed.success) throw new DatabaseError('42501');
   const token = (await cookies()).get(submissionCookie(parsed.data))?.value;
   if (!token) throw new DatabaseError('42501');
-  return { selected_link: parsed.data, credential: tokenHash(token) };
+  return { selected_link: parsed.data, credential: await submissionSessionCredential(parsed.data, token) };
 }
 
 export async function POST(request: Request, context: Context) {

@@ -51,7 +51,19 @@ begin
     'kind','organizer','label','검증 운영진','position','개발','archived',false,
     'tokenHash',organizer_hash,'expiresAt',deadline))->>'id')::uuid;
   assert public.admin_submission_workspace(editor,9989)->'teams'->11->>'number'='12';
-  assert public.read_submission(project_link,project_hash)->'input'->>'name'='';
+  assert public.open_submission_session(project_link,project_hash,repeat('e',64))->'input'->>'name'='';
+  assert public.submission_session_credential(project_link,repeat('e',64))=project_hash;
+  begin
+    perform public.submission_session_credential(review_link,repeat('e',64));
+    raise exception 'editing session opened a different link';
+  exception when no_data_found then null;
+  end;
+  update public.content_submission_sessions set expires_at=clock_timestamp() where link_id=project_link;
+  begin
+    perform public.submission_session_credential(project_link,repeat('e',64));
+    raise exception 'expired editing session remained valid';
+  exception when no_data_found then null;
+  end;
   begin
     perform public.read_submission(review_link,project_hash);
     raise exception 'project token opened a member review';
