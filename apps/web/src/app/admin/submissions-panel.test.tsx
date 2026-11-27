@@ -78,7 +78,13 @@ describe('submission workspace', () => {
         workspace={{ ...data, jobs: [{ id: 'job-1', linkIds: [submitted.id], state: 'processing' }] }}
       />,
     );
-    expect(screen.getByRole('button', { name: '이어서 처리' })).toBeVisible();
+    expect(screen.getByText('게시 중')).toBeVisible();
+    expect(adminRequest).toHaveBeenCalledWith(
+      'submissions',
+      { action: 'publicationStatus', jobId: 'job-1' },
+      expect.any(AbortSignal),
+    );
+    expect(screen.queryByRole('button', { name: '게시 요청 다시 보내기' })).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: '제출안 검토' })).not.toBeInTheDocument();
   });
 

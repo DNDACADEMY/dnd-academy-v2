@@ -1,4 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "regions": ["icn1"]
+  "regions": ["icn1"],
+  "functions": {
+    "src/app/api/internal/submission-publication-queue/route.ts": {
+      "experimentalTriggers": [{ "type": "queue/v2beta", "topic": "submission-publications" }]
+    }
+  }
 }

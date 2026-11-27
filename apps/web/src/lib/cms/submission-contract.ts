@@ -57,7 +57,8 @@ export const grantRequest = z.union([
     query: z.string().trim().max(160),
     cohort: positive.optional(),
   }),
-  z.object({ action: z.literal('process'), jobId: uuid }),
+  z.object({ action: z.literal('publicationStatus'), jobId: uuid }),
+  z.object({ action: z.literal('dispatchPublication'), jobId: uuid }),
   z.object({ action: z.literal('reject'), linkId: uuid }),
   z.object({
     action: z.literal('approve'),
@@ -195,6 +196,11 @@ export type SubmissionJob = {
   id: string;
   state: 'queued' | 'processing' | 'failed' | 'published';
   linkIds: string[];
+};
+
+export type SubmissionPublication = {
+  state: SubmissionJob['state'];
+  published: { id: number; kind: Submission['kind'] }[];
 };
 
 export type SubmissionWorkspace = {

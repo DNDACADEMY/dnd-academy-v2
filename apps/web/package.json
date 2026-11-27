@@ -39,6 +39,7 @@
     "@vercel/analytics": "2.0.1",
     "@vercel/blob": "2.9.0",
     "@vercel/oidc-aws-credentials-provider": "3.3.21",
+    "@vercel/queue": "0.11.0",
     "@vercel/speed-insights": "2.1.0",
     "clsx": "2.1.1",
     "dayjs": "1.11.23",
