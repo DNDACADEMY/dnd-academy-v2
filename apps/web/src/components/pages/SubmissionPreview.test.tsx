@@ -25,11 +25,24 @@ describe('organizer submission preview', () => {
     render(
       <SubmissionPreview
         submission={organizer}
-        draft={{ ...draft, mbti: 'INTJ', details: [{ kind: 'role', body: '홈페이지 운영' }] }}
+        draft={{
+          ...draft,
+          mbti: 'INTJ-A / INFP',
+          details: [{ kind: 'role', body: '홈페이지 운영' }],
+          links: [{ kind: 'blog', url: 'https://example.com/blog' }],
+          skills: ['ClickHouse'],
+        }}
         media={new Map()}
       />,
     );
-    expect(screen.getByText('INTJ')).toBeVisible();
+    expect(screen.getByText('INTJ-A / INFP')).toBeVisible();
+    expect(screen.getByText('♟️')).toHaveAttribute('aria-hidden', 'true');
+    expect(screen.getByText('🌿')).toHaveAttribute('aria-hidden', 'true');
+    expect(screen.getByRole('link', { name: '개인 블로그' })).toHaveAttribute('href', 'https://example.com/blog');
+    expect(screen.getByText('ClickHouse').parentElement?.querySelector('use')).toHaveAttribute(
+      'href',
+      '/assets/icons/technology.svg#clickhouse',
+    );
     expect(screen.getByText('홈페이지 운영')).toBeVisible();
   });
 });

@@ -32,6 +32,7 @@ type Props = {
 function SocialIconLink({ link, type, className, theme = 'dark' }: Props) {
   const IconLogo = {
     link: HomeLogo,
+    blog: HomeLogo,
     email: EmailLogo,
     github: GithubLogo,
     instagram: InstagramLogo,
@@ -53,13 +54,15 @@ function SocialIconLink({ link, type, className, theme = 'dark' }: Props) {
     [styles[theme]]: theme,
   });
 
+  const label = type === 'blog' ? '개인 블로그' : type;
+
   if (!link) {
-    return <Logo className={logoClassName} aria-label={type} />;
+    return <Logo className={logoClassName} aria-label={label} />;
   }
 
   return (
-    <ExternalLink href={link} className={className}>
-      <Logo className={logoClassName} aria-label={type} />
+    <ExternalLink href={link} className={className} aria-label={label}>
+      <Logo className={logoClassName} aria-hidden="true" />
     </ExternalLink>
   );
 }

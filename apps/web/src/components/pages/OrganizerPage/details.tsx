@@ -7,6 +7,8 @@ import LinkConverter from '@/components/molecules/LinkConverter';
 import SocialIconLink from '@/components/molecules/SocialIconLink';
 import { getEntries } from '@/utils';
 
+import MbtiBadge from './mbti-badge';
+
 import styles from './index.module.scss';
 
 export default function OrganizerDetails({
@@ -60,8 +62,8 @@ export default function OrganizerDetails({
         {(!preview || organizer.oneLineIntroduction.trim()) && <h1>{organizer.oneLineIntroduction}</h1>}
         {(!preview || organizer.mbti.trim()) && (
           <div className={styles.organizerDescriptionItem}>
-            <h2>👏MBTI</h2>
-            <div>{organizer.mbti}</div>
+            <h2>MBTI</h2>
+            <MbtiBadge value={organizer.mbti} />
           </div>
         )}
         {(!preview || organizer.career.now.length > 0 || organizer.career.previous.length > 0) && (

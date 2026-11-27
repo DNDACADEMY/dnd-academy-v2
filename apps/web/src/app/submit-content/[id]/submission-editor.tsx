@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import SubmissionPreview from '@/components/pages/SubmissionPreview';
-import { linkKinds, safeContentLink } from '@/lib/cms/content-contract';
+import { linkKinds, linkLabels, safeContentLink } from '@/lib/cms/content-contract';
 import {
   formatSubmissionTime,
   organizerProfileDetails,
@@ -273,7 +273,7 @@ export default function SubmissionEditor({ id }: { id: string }) {
                     .filter((value) => value !== 'email')
                     .map((value) => (
                       <option key={value} value={value}>
-                        {value}
+                        {linkLabels[value]}
                       </option>
                     ))}
                 </select>
